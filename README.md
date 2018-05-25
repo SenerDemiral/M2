@@ -1,16 +1,18 @@
 # M2
 Accounting with Starcounter and gRPC
 
-Directory Structure
+Rest (ClassLibrary): gRPC (+protobuf) auto genereated classes, used by RestClient and RestServer.
 
-Rest: gRPC (+protobuf) auto genereated classes, used by RestClient and RestServer.
+RestServer (ConsoleApp): gRPC Server implementation that only sends 10,000 records if requested.
 
-RestServer: ConsoleApp to Serve client request. Only sends 10,000 records if requested.
+RestServerSC (StarcounterApp): same as RestServer but retrieve data from StarcounterDB.
 
-RestServerSC: Starcounter App is same as RestServer but retrieve data from StarcounterDB.
+RestClientWinForm (WinForms): Send request to RestServer (SelectTbla) and fill the DataSet.Table with replied objects (TblaRec).
 
-RestClientWinForm: Send request to RestServer (SelectTbla) and fill the DataSet.Table with replied objects (TblaRec).
+ML2DB (StarcounterClassLibrary): to share DB tables.
 
-ML2DB: Starcounter Class Library to share DB tables.
+ML2 (StarcounterApp): Proposed Starcounter App UI. It is empty now.
 
-ML2: Proposed Starcounter App UI. It is empty now.
+protos/rest.proto: gRPC service definitions and protobuf message definitions.
+
+generate_protos.bat: Creates Rest.cs and RestGrpc.cs (in Rest directory) from protos/rest.proto file.
