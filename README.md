@@ -1,5 +1,5 @@
 # M2
-Accounting with Starcounter and gRPC
+Communication between WinClients and StarcounterDB via gRPC.
 
 Rest (ClassLibrary): gRPC (+protobuf) auto genereated classes, used by RestClient and RestServer.
 
