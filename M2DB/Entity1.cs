@@ -8,7 +8,7 @@ namespace M2DB
     [Database]
     public class TblA
     {
-        public ulong ONo { get; set; }
+        public ulong ONo { get; set; }  // Remove
         public string FldStr { get; set; }
         public int FldInt { get; set; }
         public double FldDbl { get; set; }

@@ -35,11 +35,11 @@ namespace RestServer
 
     class CRUDsImpl : Rest.CRUDs.CRUDsBase
     {
-        public override async Task SelectTbla(TblaQry request, IServerStreamWriter<TblaRec> responseStream, ServerCallContext context)
+        public override async Task TblaFill(QryStr request, IServerStreamWriter<TblaRec> responseStream, ServerCallContext context)
         {
             var hr = new TblaRec
             {
-                Ono = 1,
+                RowPk = 1,
                 FldStr = "Bir",
                 FldDbl = 1.23,
                 FldDcm = 2.34,
@@ -63,9 +63,9 @@ namespace RestServer
                 });
             }
             */
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 10; i++)
             {
-                hr.Ono = (ulong)i;
+                hr.RowPk = (ulong)i;
                 await responseStream.WriteAsync(hr);
             }
         }

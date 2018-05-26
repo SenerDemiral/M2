@@ -15,6 +15,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestClientWinForm", "RestCl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestServerSC", "RestServerSC\RestServerSC.csproj", "{9018E749-BE1A-4FC5-9CD4-5613CAC0D894}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0FF28469-3B73-45A6-9A19-4CB488376997}"
+	ProjectSection(SolutionItems) = preProject
+		protos\rest.proto = protos\rest.proto
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

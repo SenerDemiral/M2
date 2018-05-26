@@ -18,22 +18,22 @@ package rest;		// namespace
 
 // The CRUDs service definition.
 service CRUDs {
-  rpc SelectTbla (TblaQry) returns (stream TblaRec) {}
-  rpc InsertTbla (TblaRec) returns (TblaRec) {}
-  rpc UpdateTbla (TblaRec) returns (TblaRec) {}
-  rpc DeleteTbla (TblaRec) returns (TblaRec) {}
+  rpc TblaFill (QryStr) returns (stream TblaRec) {}
+  rpc TblaUpdate (TblaRec) returns (TblaRec) {}
 }
 
-message TblaQry {
+message QryStr {
   string query = 1;
 }
 
-// The response message containing the greetings
 message TblaRec {
-  uint64 ono = 1;
-  string fldStr = 2;
-  int32 fldInt = 3;
-  double fldDbl = 4;
-  double fldDcm = 5;	// String olabilir
-  int64 fldDateTicks = 6;	// new DateTime(fldDateTicks) => DateTime 
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  string fldStr = 4;
+  int32 fldInt = 5;
+  double fldDbl = 6;
+  double fldDcm = 7;	// String olabilir
+  int64 fldDateTicks = 8;	// new DateTime(fldDateTicks) => DateTime 
 }

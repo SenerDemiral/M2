@@ -24,31 +24,29 @@ namespace Rest {
     static RestReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIYCgdUYmxhUXJ5Eg0KBXF1ZXJ5",
-            "GAEgASgJImwKB1RibGFSZWMSCwoDb25vGAEgASgEEg4KBmZsZFN0chgCIAEo",
-            "CRIOCgZmbGRJbnQYAyABKAUSDgoGZmxkRGJsGAQgASgBEg4KBmZsZERjbRgF",
-            "IAEoARIUCgxmbGREYXRlVGlja3MYBiABKAMywQEKBUNSVURzEi4KClNlbGVj",
-            "dFRibGESDS5yZXN0LlRibGFRcnkaDS5yZXN0LlRibGFSZWMiADABEiwKCklu",
-            "c2VydFRibGESDS5yZXN0LlRibGFSZWMaDS5yZXN0LlRibGFSZWMiABIsCgpV",
-            "cGRhdGVUYmxhEg0ucmVzdC5UYmxhUmVjGg0ucmVzdC5UYmxhUmVjIgASLAoK",
-            "RGVsZXRlVGJsYRINLnJlc3QuVGJsYVJlYxoNLnJlc3QuVGJsYVJlYyIAYgZw",
-            "cm90bzM="));
+            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIXCgZRcnlTdHISDQoFcXVlcnkY",
+            "ASABKAkikwEKB1RibGFSZWMSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEoCRIOCgZm",
+            "bGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIU",
+            "CgxmbGREYXRlVGlja3MYCCABKAMyYgoFQ1JVRHMSKwoIVGJsYUZpbGwSDC5y",
+            "ZXN0LlFyeVN0choNLnJlc3QuVGJsYVJlYyIAMAESLAoKVGJsYVVwZGF0ZRIN",
+            "LnJlc3QuVGJsYVJlYxoNLnJlc3QuVGJsYVJlYyIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaQry), global::Rest.TblaQry.Parser, new[]{ "Query" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaRec), global::Rest.TblaRec.Parser, new[]{ "Ono", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDateTicks" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryStr), global::Rest.QryStr.Parser, new[]{ "Query" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaRec), global::Rest.TblaRec.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDateTicks" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class TblaQry : pb::IMessage<TblaQry> {
-    private static readonly pb::MessageParser<TblaQry> _parser = new pb::MessageParser<TblaQry>(() => new TblaQry());
+  public sealed partial class QryStr : pb::IMessage<QryStr> {
+    private static readonly pb::MessageParser<QryStr> _parser = new pb::MessageParser<QryStr>(() => new QryStr());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TblaQry> Parser { get { return _parser; } }
+    public static pb::MessageParser<QryStr> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -61,21 +59,21 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaQry() {
+    public QryStr() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaQry(TblaQry other) : this() {
+    public QryStr(QryStr other) : this() {
       query_ = other.query_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaQry Clone() {
-      return new TblaQry(this);
+    public QryStr Clone() {
+      return new QryStr(this);
     }
 
     /// <summary>Field number for the "query" field.</summary>
@@ -91,11 +89,11 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as TblaQry);
+      return Equals(other as QryStr);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TblaQry other) {
+    public bool Equals(QryStr other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -145,7 +143,7 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TblaQry other) {
+    public void MergeFrom(QryStr other) {
       if (other == null) {
         return;
       }
@@ -173,9 +171,6 @@ namespace Rest {
 
   }
 
-  /// <summary>
-  /// The response message containing the greetings
-  /// </summary>
   public sealed partial class TblaRec : pb::IMessage<TblaRec> {
     private static readonly pb::MessageParser<TblaRec> _parser = new pb::MessageParser<TblaRec>(() => new TblaRec());
     private pb::UnknownFieldSet _unknownFields;
@@ -201,7 +196,9 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public TblaRec(TblaRec other) : this() {
-      ono_ = other.ono_;
+      rowState_ = other.rowState_;
+      rowErr_ = other.rowErr_;
+      rowPk_ = other.rowPk_;
       fldStr_ = other.fldStr_;
       fldInt_ = other.fldInt_;
       fldDbl_ = other.fldDbl_;
@@ -215,19 +212,41 @@ namespace Rest {
       return new TblaRec(this);
     }
 
-    /// <summary>Field number for the "ono" field.</summary>
-    public const int OnoFieldNumber = 1;
-    private ulong ono_;
+    /// <summary>Field number for the "row_state" field.</summary>
+    public const int RowStateFieldNumber = 1;
+    private string rowState_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong Ono {
-      get { return ono_; }
+    public string RowState {
+      get { return rowState_; }
       set {
-        ono_ = value;
+        rowState_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_err" field.</summary>
+    public const int RowErrFieldNumber = 2;
+    private string rowErr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowErr {
+      get { return rowErr_; }
+      set {
+        rowErr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_pk" field.</summary>
+    public const int RowPkFieldNumber = 3;
+    private ulong rowPk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowPk {
+      get { return rowPk_; }
+      set {
+        rowPk_ = value;
       }
     }
 
     /// <summary>Field number for the "fldStr" field.</summary>
-    public const int FldStrFieldNumber = 2;
+    public const int FldStrFieldNumber = 4;
     private string fldStr_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string FldStr {
@@ -238,7 +257,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "fldInt" field.</summary>
-    public const int FldIntFieldNumber = 3;
+    public const int FldIntFieldNumber = 5;
     private int fldInt_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int FldInt {
@@ -249,7 +268,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "fldDbl" field.</summary>
-    public const int FldDblFieldNumber = 4;
+    public const int FldDblFieldNumber = 6;
     private double fldDbl_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double FldDbl {
@@ -260,7 +279,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "fldDcm" field.</summary>
-    public const int FldDcmFieldNumber = 5;
+    public const int FldDcmFieldNumber = 7;
     private double fldDcm_;
     /// <summary>
     /// String olabilir
@@ -274,7 +293,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "fldDateTicks" field.</summary>
-    public const int FldDateTicksFieldNumber = 6;
+    public const int FldDateTicksFieldNumber = 8;
     private long fldDateTicks_;
     /// <summary>
     /// new DateTime(fldDateTicks) => DateTime 
@@ -300,7 +319,9 @@ namespace Rest {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Ono != other.Ono) return false;
+      if (RowState != other.RowState) return false;
+      if (RowErr != other.RowErr) return false;
+      if (RowPk != other.RowPk) return false;
       if (FldStr != other.FldStr) return false;
       if (FldInt != other.FldInt) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FldDbl, other.FldDbl)) return false;
@@ -312,7 +333,9 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Ono != 0UL) hash ^= Ono.GetHashCode();
+      if (RowState.Length != 0) hash ^= RowState.GetHashCode();
+      if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
+      if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (FldStr.Length != 0) hash ^= FldStr.GetHashCode();
       if (FldInt != 0) hash ^= FldInt.GetHashCode();
       if (FldDbl != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FldDbl);
@@ -331,28 +354,36 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Ono != 0UL) {
-        output.WriteRawTag(8);
-        output.WriteUInt64(Ono);
+      if (RowState.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RowState);
+      }
+      if (RowErr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RowErr);
+      }
+      if (RowPk != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RowPk);
       }
       if (FldStr.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(34);
         output.WriteString(FldStr);
       }
       if (FldInt != 0) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(40);
         output.WriteInt32(FldInt);
       }
       if (FldDbl != 0D) {
-        output.WriteRawTag(33);
+        output.WriteRawTag(49);
         output.WriteDouble(FldDbl);
       }
       if (FldDcm != 0D) {
-        output.WriteRawTag(41);
+        output.WriteRawTag(57);
         output.WriteDouble(FldDcm);
       }
       if (FldDateTicks != 0L) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(64);
         output.WriteInt64(FldDateTicks);
       }
       if (_unknownFields != null) {
@@ -363,8 +394,14 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Ono != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Ono);
+      if (RowState.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowState);
+      }
+      if (RowErr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowErr);
+      }
+      if (RowPk != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
       }
       if (FldStr.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(FldStr);
@@ -392,8 +429,14 @@ namespace Rest {
       if (other == null) {
         return;
       }
-      if (other.Ono != 0UL) {
-        Ono = other.Ono;
+      if (other.RowState.Length != 0) {
+        RowState = other.RowState;
+      }
+      if (other.RowErr.Length != 0) {
+        RowErr = other.RowErr;
+      }
+      if (other.RowPk != 0UL) {
+        RowPk = other.RowPk;
       }
       if (other.FldStr.Length != 0) {
         FldStr = other.FldStr;
@@ -421,27 +464,35 @@ namespace Rest {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            Ono = input.ReadUInt64();
+          case 10: {
+            RowState = input.ReadString();
             break;
           }
           case 18: {
-            FldStr = input.ReadString();
+            RowErr = input.ReadString();
             break;
           }
           case 24: {
+            RowPk = input.ReadUInt64();
+            break;
+          }
+          case 34: {
+            FldStr = input.ReadString();
+            break;
+          }
+          case 40: {
             FldInt = input.ReadInt32();
             break;
           }
-          case 33: {
+          case 49: {
             FldDbl = input.ReadDouble();
             break;
           }
-          case 41: {
+          case 57: {
             FldDcm = input.ReadDouble();
             break;
           }
-          case 48: {
+          case 64: {
             FldDateTicks = input.ReadInt64();
             break;
           }
