@@ -35,5 +35,5 @@ message TblaRec {
   int32 fldInt = 5;
   double fldDbl = 6;
   double fldDcm = 7;	// String olabilir
-  int64 fldDateTicks = 8;	// new DateTime(fldDateTicks) => DateTime 
+  int64 fldDate = 8;	// DateTime.Ticks olarak UInt64 de tut. new DateTime(fldDate) => DateTime 
 }

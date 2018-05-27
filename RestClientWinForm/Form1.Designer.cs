@@ -38,13 +38,13 @@
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.oNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
+            this.rowPkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldIntDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDblDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDcmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,39 +75,35 @@
             this.dataColumn4,
             this.dataColumn5,
             this.dataColumn6});
-            this.dataTable1.Constraints.AddRange(new System.Data.Constraint[] {
-            new System.Data.UniqueConstraint("Constraint1", new string[] {
-                        "ONo"}, false)});
             this.dataTable1.TableName = "Table1";
             // 
             // dataColumn1
             // 
-            this.dataColumn1.ColumnName = "ONo";
+            this.dataColumn1.ColumnName = "RowPk";
             this.dataColumn1.DataType = typeof(ulong);
-            this.dataColumn1.ReadOnly = true;
             // 
             // dataColumn2
             // 
-            this.dataColumn2.ColumnName = "fldStr";
+            this.dataColumn2.ColumnName = "FldStr";
             // 
             // dataColumn3
             // 
-            this.dataColumn3.ColumnName = "fldInt";
+            this.dataColumn3.ColumnName = "FldInt";
             this.dataColumn3.DataType = typeof(int);
             // 
             // dataColumn4
             // 
-            this.dataColumn4.ColumnName = "fldDbl";
+            this.dataColumn4.ColumnName = "FldDbl";
             this.dataColumn4.DataType = typeof(double);
             // 
             // dataColumn5
             // 
-            this.dataColumn5.ColumnName = "fldDcm";
+            this.dataColumn5.ColumnName = "FldDcm";
             this.dataColumn5.DataType = typeof(decimal);
             // 
             // dataColumn6
             // 
-            this.dataColumn6.ColumnName = "fldDate";
+            this.dataColumn6.ColumnName = "FldDate";
             this.dataColumn6.DataType = typeof(System.DateTime);
             // 
             // dataGridView1
@@ -115,7 +111,7 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.oNoDataGridViewTextBoxColumn,
+            this.rowPkDataGridViewTextBoxColumn,
             this.fldStrDataGridViewTextBoxColumn,
             this.fldIntDataGridViewTextBoxColumn,
             this.fldDblDataGridViewTextBoxColumn,
@@ -129,43 +125,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 338);
             this.dataGridView1.TabIndex = 1;
             // 
-            // oNoDataGridViewTextBoxColumn
-            // 
-            this.oNoDataGridViewTextBoxColumn.DataPropertyName = "ONo";
-            this.oNoDataGridViewTextBoxColumn.HeaderText = "ONo";
-            this.oNoDataGridViewTextBoxColumn.Name = "oNoDataGridViewTextBoxColumn";
-            this.oNoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fldStrDataGridViewTextBoxColumn
-            // 
-            this.fldStrDataGridViewTextBoxColumn.DataPropertyName = "fldStr";
-            this.fldStrDataGridViewTextBoxColumn.HeaderText = "fldStr";
-            this.fldStrDataGridViewTextBoxColumn.Name = "fldStrDataGridViewTextBoxColumn";
-            // 
-            // fldIntDataGridViewTextBoxColumn
-            // 
-            this.fldIntDataGridViewTextBoxColumn.DataPropertyName = "fldInt";
-            this.fldIntDataGridViewTextBoxColumn.HeaderText = "fldInt";
-            this.fldIntDataGridViewTextBoxColumn.Name = "fldIntDataGridViewTextBoxColumn";
-            // 
-            // fldDblDataGridViewTextBoxColumn
-            // 
-            this.fldDblDataGridViewTextBoxColumn.DataPropertyName = "fldDbl";
-            this.fldDblDataGridViewTextBoxColumn.HeaderText = "fldDbl";
-            this.fldDblDataGridViewTextBoxColumn.Name = "fldDblDataGridViewTextBoxColumn";
-            // 
-            // fldDcmDataGridViewTextBoxColumn
-            // 
-            this.fldDcmDataGridViewTextBoxColumn.DataPropertyName = "fldDcm";
-            this.fldDcmDataGridViewTextBoxColumn.HeaderText = "fldDcm";
-            this.fldDcmDataGridViewTextBoxColumn.Name = "fldDcmDataGridViewTextBoxColumn";
-            // 
-            // fldDateDataGridViewTextBoxColumn
-            // 
-            this.fldDateDataGridViewTextBoxColumn.DataPropertyName = "fldDate";
-            this.fldDateDataGridViewTextBoxColumn.HeaderText = "fldDate";
-            this.fldDateDataGridViewTextBoxColumn.Name = "fldDateDataGridViewTextBoxColumn";
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(141, 25);
@@ -175,6 +134,42 @@
             this.button2.Text = "Update (Ins/Upd/Del)";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // rowPkDataGridViewTextBoxColumn
+            // 
+            this.rowPkDataGridViewTextBoxColumn.DataPropertyName = "RowPk";
+            this.rowPkDataGridViewTextBoxColumn.HeaderText = "RowPk";
+            this.rowPkDataGridViewTextBoxColumn.Name = "rowPkDataGridViewTextBoxColumn";
+            // 
+            // fldStrDataGridViewTextBoxColumn
+            // 
+            this.fldStrDataGridViewTextBoxColumn.DataPropertyName = "FldStr";
+            this.fldStrDataGridViewTextBoxColumn.HeaderText = "FldStr";
+            this.fldStrDataGridViewTextBoxColumn.Name = "fldStrDataGridViewTextBoxColumn";
+            // 
+            // fldIntDataGridViewTextBoxColumn
+            // 
+            this.fldIntDataGridViewTextBoxColumn.DataPropertyName = "FldInt";
+            this.fldIntDataGridViewTextBoxColumn.HeaderText = "FldInt";
+            this.fldIntDataGridViewTextBoxColumn.Name = "fldIntDataGridViewTextBoxColumn";
+            // 
+            // fldDblDataGridViewTextBoxColumn
+            // 
+            this.fldDblDataGridViewTextBoxColumn.DataPropertyName = "FldDbl";
+            this.fldDblDataGridViewTextBoxColumn.HeaderText = "FldDbl";
+            this.fldDblDataGridViewTextBoxColumn.Name = "fldDblDataGridViewTextBoxColumn";
+            // 
+            // fldDcmDataGridViewTextBoxColumn
+            // 
+            this.fldDcmDataGridViewTextBoxColumn.DataPropertyName = "FldDcm";
+            this.fldDcmDataGridViewTextBoxColumn.HeaderText = "FldDcm";
+            this.fldDcmDataGridViewTextBoxColumn.Name = "fldDcmDataGridViewTextBoxColumn";
+            // 
+            // fldDateDataGridViewTextBoxColumn
+            // 
+            this.fldDateDataGridViewTextBoxColumn.DataPropertyName = "FldDate";
+            this.fldDateDataGridViewTextBoxColumn.HeaderText = "FldDate";
+            this.fldDateDataGridViewTextBoxColumn.Name = "fldDateDataGridViewTextBoxColumn";
             // 
             // Form1
             // 
@@ -205,13 +200,13 @@
         private System.Data.DataColumn dataColumn5;
         private System.Data.DataColumn dataColumn6;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowPkDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fldStrDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fldIntDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fldDblDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fldDcmDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fldDateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button button2;
     }
 }
 

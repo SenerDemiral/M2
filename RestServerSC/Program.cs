@@ -45,7 +45,7 @@ namespace RestServerSC
                 FldStr = request.FldStr,
                 FldDbl = request.FldDbl,
                 FldDcm = request.FldDcm,
-                FldDateTicks = request.FldDateTicks,
+                FldDate = request.FldDate,
                 FldInt = request.FldInt
             };
 
@@ -60,12 +60,13 @@ namespace RestServerSC
                         {
                             FldStr = request.FldStr,
                             FldInt = request.FldInt,
-                            FldDate = new DateTime(request.FldDateTicks)
+                            FldDate = new DateTime(request.FldDate)
                         };
                         result.RowPk = rec.GetObjectNo();
                     }
                     else if (request.RowState == "M")
                     {
+                        result.RowPk = request.RowPk;
                         var rec = Db.FromId(request.RowPk) as M2DB.TblA;
                         if (rec == null)
                         {
@@ -75,11 +76,12 @@ namespace RestServerSC
                         {
                             rec.FldStr = request.FldStr;
                             rec.FldInt = request.FldInt;
-                            rec.FldDate = new DateTime(request.FldDateTicks);
+                            rec.FldDate = new DateTime(request.FldDate);
                         }
                     }
                     else if (request.RowState == "D")
                     {
+                        result.RowPk = request.RowPk;
                         var rec = Db.FromId(request.RowPk) as M2DB.TblA;
                         if (rec == null)
                         {
@@ -105,7 +107,7 @@ namespace RestServerSC
                 FldStr = "Bir",
                 FldDbl = 1.23,
                 FldDcm = 2.34,
-                FldDateTicks = DateTime.Now.Ticks,
+                FldDate = DateTime.Now.Ticks,
                 FldInt = 1
             };
 
@@ -116,7 +118,11 @@ namespace RestServerSC
                 {
                     foreach (var r in Db.SQL<M2DB.TblA>("select r from TblA r"))
                     {
-                        //hr.Message = r.Field1;
+                        hr.RowPk = r.GetObjectNo();
+                        hr.FldStr = r.FldStr;
+                        hr.FldInt = r.FldInt;
+                        hr.FldDate = r.FldDate.Ticks;
+
                         Task.Run(async () =>
                         {
                             await responseStream.WriteAsync(hr);

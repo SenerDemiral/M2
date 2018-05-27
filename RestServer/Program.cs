@@ -43,7 +43,7 @@ namespace RestServer
                 FldStr = "Bir",
                 FldDbl = 1.23,
                 FldDcm = 2.34,
-                FldDateTicks = DateTime.Now.Ticks,
+                FldDate = DateTime.Now.Ticks,
                 FldInt = 1
             };
 

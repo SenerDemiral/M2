@@ -25,17 +25,17 @@ namespace Rest {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIXCgZRcnlTdHISDQoFcXVlcnkY",
-            "ASABKAkikwEKB1RibGFSZWMSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "ASABKAkijgEKB1RibGFSZWMSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
             "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEoCRIOCgZm",
-            "bGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIU",
-            "CgxmbGREYXRlVGlja3MYCCABKAMyYgoFQ1JVRHMSKwoIVGJsYUZpbGwSDC5y",
-            "ZXN0LlFyeVN0choNLnJlc3QuVGJsYVJlYyIAMAESLAoKVGJsYVVwZGF0ZRIN",
-            "LnJlc3QuVGJsYVJlYxoNLnJlc3QuVGJsYVJlYyIAYgZwcm90bzM="));
+            "bGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIP",
+            "CgdmbGREYXRlGAggASgDMmIKBUNSVURzEisKCFRibGFGaWxsEgwucmVzdC5R",
+            "cnlTdHIaDS5yZXN0LlRibGFSZWMiADABEiwKClRibGFVcGRhdGUSDS5yZXN0",
+            "LlRibGFSZWMaDS5yZXN0LlRibGFSZWMiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryStr), global::Rest.QryStr.Parser, new[]{ "Query" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaRec), global::Rest.TblaRec.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDateTicks" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaRec), global::Rest.TblaRec.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null)
           }));
     }
     #endregion
@@ -203,7 +203,7 @@ namespace Rest {
       fldInt_ = other.fldInt_;
       fldDbl_ = other.fldDbl_;
       fldDcm_ = other.fldDcm_;
-      fldDateTicks_ = other.fldDateTicks_;
+      fldDate_ = other.fldDate_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -215,6 +215,9 @@ namespace Rest {
     /// <summary>Field number for the "row_state" field.</summary>
     public const int RowStateFieldNumber = 1;
     private string rowState_ = "";
+    /// <summary>
+    /// Inserted/Modified/Deleted/Unchanged
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string RowState {
       get { return rowState_; }
@@ -292,17 +295,17 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "fldDateTicks" field.</summary>
-    public const int FldDateTicksFieldNumber = 8;
-    private long fldDateTicks_;
+    /// <summary>Field number for the "fldDate" field.</summary>
+    public const int FldDateFieldNumber = 8;
+    private long fldDate_;
     /// <summary>
-    /// new DateTime(fldDateTicks) => DateTime 
+    /// DateTime.Ticks olarak UInt64 de tut. new DateTime(fldDate) => DateTime 
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long FldDateTicks {
-      get { return fldDateTicks_; }
+    public long FldDate {
+      get { return fldDate_; }
       set {
-        fldDateTicks_ = value;
+        fldDate_ = value;
       }
     }
 
@@ -326,7 +329,7 @@ namespace Rest {
       if (FldInt != other.FldInt) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FldDbl, other.FldDbl)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(FldDcm, other.FldDcm)) return false;
-      if (FldDateTicks != other.FldDateTicks) return false;
+      if (FldDate != other.FldDate) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -340,7 +343,7 @@ namespace Rest {
       if (FldInt != 0) hash ^= FldInt.GetHashCode();
       if (FldDbl != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FldDbl);
       if (FldDcm != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(FldDcm);
-      if (FldDateTicks != 0L) hash ^= FldDateTicks.GetHashCode();
+      if (FldDate != 0L) hash ^= FldDate.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -382,9 +385,9 @@ namespace Rest {
         output.WriteRawTag(57);
         output.WriteDouble(FldDcm);
       }
-      if (FldDateTicks != 0L) {
+      if (FldDate != 0L) {
         output.WriteRawTag(64);
-        output.WriteInt64(FldDateTicks);
+        output.WriteInt64(FldDate);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -415,8 +418,8 @@ namespace Rest {
       if (FldDcm != 0D) {
         size += 1 + 8;
       }
-      if (FldDateTicks != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FldDateTicks);
+      if (FldDate != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(FldDate);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -450,8 +453,8 @@ namespace Rest {
       if (other.FldDcm != 0D) {
         FldDcm = other.FldDcm;
       }
-      if (other.FldDateTicks != 0L) {
-        FldDateTicks = other.FldDateTicks;
+      if (other.FldDate != 0L) {
+        FldDate = other.FldDate;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -493,7 +496,7 @@ namespace Rest {
             break;
           }
           case 64: {
-            FldDateTicks = input.ReadInt64();
+            FldDate = input.ReadInt64();
             break;
           }
         }
