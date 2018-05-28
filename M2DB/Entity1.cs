@@ -16,4 +16,15 @@ namespace M2DB
         public DateTime FldDate { get; set; }
 
     }
+
+    [Database]
+    public class TblB
+    {
+        public string FldStr { get; set; }
+        public int FldInt { get; set; }
+        public double FldDbl { get; set; }
+        public decimal FldDcm { get; set; }
+        public DateTime FldDate { get; set; }
+
+    }
 }
