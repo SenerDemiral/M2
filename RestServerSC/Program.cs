@@ -23,16 +23,29 @@ namespace RestServerSC
             {
                 tb = new M2DB.TblB
                 {
-                    FldStr = "Sener"
+                    FldStr = "Sener",
+                    FldDate = DateTime.Now
                 };
 
             });
             TblaRec a = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(tb);
-            a.RowPk = tb.GetObjectNo();
             a.RowErr = "";
-            a.RowState = "X";
 
             Console.WriteLine("Deneme");
+
+            a.FldStr = a.FldStr.ToUpper();
+            //a.RowPk = 0;
+
+            Db.Transact(() =>
+            {
+                // Converting the proxy object into the database object.
+                // This will set the database object property values.
+                // Those the changes made to the proxy object will be saved to the database.
+                M2DB.TblB tblb = ReflectionExample.FromProxy<TblaRec, M2DB.TblB>(a);
+            });
+
+            Console.WriteLine("Deneme");
+
 
             Server server = new Server
             {
@@ -47,7 +60,8 @@ namespace RestServerSC
 
         }
 
-
+        // Reflection yerine fastMember kullanilabilir, hizli ama gerekli mi?
+        // https://github.com/mgravell/fast-member
 
     }
 
@@ -89,39 +103,27 @@ namespace RestServerSC
                 FldInt = request.FldInt
             };
 
+            TblaRec proxy = null;
             Scheduling.RunTask(() =>
             {
                 // RowState: Added, Modified, Deletede, Unchanged
                 Db.TransactAsync(() =>
                 {
-                    if (request.RowState == "A")
+                    if (request.RowState == "A" || request.RowState == "M")
                     {
-                        var rec = new M2DB.TblA
-                        {
-                            FldStr = request.FldStr,
-                            FldInt = request.FldInt,
-                            FldDate = new DateTime(request.FldDate)
-                        };
+                        //var rec = new M2DB.TblA
+                        //{
+                        //    FldStr = request.FldStr,
+                        //    FldInt = request.FldInt,
+                        //    FldDate = new DateTime(request.FldDate)
+                        //};
                         //RecToObject<M2DB.TblA>();
 
-                        RecToObject<TblaRec>(request);////////////////////
+                        //RecToObject<TblaRec>(request);////////////////////
+                        M2DB.TblB row = ReflectionExample.FromProxy<TblaRec, M2DB.TblB>(request);
+                        proxy = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(row);
 
-                        result.RowPk = rec.GetObjectNo();
-                    }
-                    else if (request.RowState == "M")
-                    {
-                        result.RowPk = request.RowPk;
-                        var rec = Db.FromId(request.RowPk) as M2DB.TblA;
-                        if (rec == null)
-                        {
-                            result.RowErr = "TblA Rec not found";
-                        }
-                        else
-                        {
-                            rec.FldStr = request.FldStr;
-                            rec.FldInt = request.FldInt;
-                            rec.FldDate = new DateTime(request.FldDate);
-                        }
+                        //result.RowPk = row.GetObjectNo();
                     }
                     else if (request.RowState == "D")
                     {
@@ -139,7 +141,7 @@ namespace RestServerSC
                 });
             }).Wait();
 
-            return Task.FromResult(result);
+            return Task.FromResult(proxy);
 
         }
 
@@ -154,24 +156,24 @@ namespace RestServerSC
                 FldDate = DateTime.Now.Ticks,
                 FldInt = 1
             };
-            M2DB.TblA ta;
+
 
             for (int i = 0; i < 1; i++)
             {
                 await Scheduling.RunTask(() =>
                 {
-                    foreach (var r in Db.SQL<M2DB.TblA>("select r from TblA r"))
+                    foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
                     {
-                        ta = r;
-                        hr.RowPk = r.GetObjectNo();
-                        hr.FldStr = r.FldStr;
-                        hr.FldInt = r.FldInt;
-                        hr.FldDate = r.FldDate.Ticks;
-                        //RecToObject<TblaRec>(ta);//////////////////////////////
+                        //hr.RowPk = r.GetObjectNo();
+                        //hr.FldStr = r.FldStr;
+                        //hr.FldInt = r.FldInt;
+                        //hr.FldDate = r.FldDate.Ticks;
+
+                        TblaRec proxy = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(row);
 
                         Task.Run(async () =>
                         {
-                            await responseStream.WriteAsync(hr);
+                            await responseStream.WriteAsync(proxy);
                         }).Wait();
                     }
                 });
@@ -188,6 +190,7 @@ namespace RestServerSC
 
     public static class ReflectionExample
     {
+
         public static TProxy ToProxy<TProxy, TDatabase>(TDatabase row)
             where TProxy : class, new()
         {
@@ -195,14 +198,18 @@ namespace RestServerSC
             Type proxyType = typeof(TProxy);
             Type databaseType = typeof(TDatabase);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
-            PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+            PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead).ToArray();
+            //PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
 
+            // only take if proxyProperty exists in databaseProperties 
             // proxy can be subset of database
             // proxy can have own properties
-            // only take if proxyProperty in databaseProperty 
+            // database can have computed/ReadOnly properties, copy also
             foreach (PropertyInfo proxyProperty in proxyProperties)
             {
                 PropertyInfo databaseProperty = databaseProperties.FirstOrDefault(x => x.Name == proxyProperty.Name);
+                // Which one is efficient?
+                var dbP = row.GetType().GetProperty(proxyProperty.Name)?.GetValue(row);
 
                 if (databaseProperty != null)
                 {
@@ -213,12 +220,12 @@ namespace RestServerSC
                 }
             }
             
-            PropertyInfo proxyRowPk = proxyProperties.FirstOrDefault(x => x.Name == "RowPk");
-            if (proxyRowPk != null)
-                proxyRowPk.SetValue(proxy,row.GetObjectNo());
+            //PropertyInfo proxyRowPk = proxyProperties.FirstOrDefault(x => x.Name == "RowPk");
+            //if (proxyRowPk != null)
+            //    proxyRowPk.SetValue(proxy,row.GetObjectNo());
             
-            // Should every proxy hase rowPk property? Maybe not, use above
-            // proxy.GetType().GetProperty("RowPk").SetValue(proxy, row.GetObjectNo());
+            // Should every proxy hase rowPk property? Maybe not
+            proxy.GetType().GetProperty("RowPk")?.SetValue(proxy, row.GetObjectNo());
 
             return proxy;
         }
@@ -231,29 +238,25 @@ namespace RestServerSC
             Type databaseType = typeof(TDatabase);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
             PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
-            /*
-            if (proxy.ObjectNo > 0)
-            {
-                row = Db.FromId<TDatabase>(proxy.ObjectNo);
-            }
+
+            ulong pk = (ulong)proxy.GetType().GetProperty("RowPk")?.GetValue(proxy);
+
+            if (pk > 0)
+                row = Db.FromId<TDatabase>(pk);
             else
-            {
                 row = new TDatabase();
-            }
-            */
+
             foreach (PropertyInfo databaseProperty in databaseProperties)
             {
                 PropertyInfo proxyProperty = proxyProperties.FirstOrDefault(x => x.Name == databaseProperty.Name);
 
-                if (databaseProperty == null)
+                if (proxyProperty != null)
                 {
-                    throw new KeyNotFoundException($"There is no property {databaseProperty.Name} in {proxyType}!");
+                    object value = proxyProperty.GetValue(proxy);
+
+                    value = ConvertToDatabaseValue(databaseProperty.PropertyType, value);
+                    databaseProperty.SetValue(row, value);
                 }
-
-                object value = proxyProperty.GetValue(proxy);
-
-                value = ConvertToDatabaseValue(databaseProperty.PropertyType, value);
-                databaseProperty.SetValue(row, value);
             }
 
             return row;

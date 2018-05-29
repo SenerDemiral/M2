@@ -53,11 +53,11 @@ namespace RestClientWinForm
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
-                    var rec = response.ResponseStream.Current;
+                    var proxy = response.ResponseStream.Current;
                     
                     row = dt.NewRow();
-
-                    ObjectToRow(dt, row, rec);
+                    
+                    ObjectToRow(dt, row, proxy);
                     /*
                     row["RowPk"] = rec.RowPk;
                     row["FldStr"] = rec.FldStr;
@@ -67,9 +67,9 @@ namespace RestClientWinForm
 */
                     dt.Rows.Add(row);
                     
-                    sb.AppendLine(rec.RowPk.ToString());
+                    sb.AppendLine(proxy.RowPk.ToString());
                     nor++;
-                    ml += rec.CalculateSize();
+                    ml += proxy.CalculateSize();
                     //MessageBox.Show(rec.Message);
                 }
             }
@@ -100,6 +100,7 @@ namespace RestClientWinForm
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
                 if (rs == "A" || rs == "M")

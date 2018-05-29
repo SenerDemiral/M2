@@ -26,5 +26,7 @@ namespace M2DB
         public decimal FldDcm { get; set; }
         public DateTime FldDate { get; set; }
 
+        public string FldStrUpr => FldStr.ToUpper();    // Test CanWrite=false
+
     }
 }

@@ -38,13 +38,13 @@
             this.dataColumn5 = new System.Data.DataColumn();
             this.dataColumn6 = new System.Data.DataColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.rowPkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldStrDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldIntDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDblDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDcmDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fldDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -75,10 +75,16 @@
             this.dataColumn4,
             this.dataColumn5,
             this.dataColumn6});
+            this.dataTable1.Constraints.AddRange(new System.Data.Constraint[] {
+            new System.Data.UniqueConstraint("Constraint1", new string[] {
+                        "RowPk"}, true)});
+            this.dataTable1.PrimaryKey = new System.Data.DataColumn[] {
+        this.dataColumn1};
             this.dataTable1.TableName = "Table1";
             // 
             // dataColumn1
             // 
+            this.dataColumn1.AllowDBNull = false;
             this.dataColumn1.ColumnName = "RowPk";
             this.dataColumn1.DataType = typeof(ulong);
             // 
@@ -125,16 +131,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 338);
             this.dataGridView1.TabIndex = 1;
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(141, 25);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(162, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Update (Ins/Upd/Del)";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // rowPkDataGridViewTextBoxColumn
             // 
             this.rowPkDataGridViewTextBoxColumn.DataPropertyName = "RowPk";
@@ -170,6 +166,16 @@
             this.fldDateDataGridViewTextBoxColumn.DataPropertyName = "FldDate";
             this.fldDateDataGridViewTextBoxColumn.HeaderText = "FldDate";
             this.fldDateDataGridViewTextBoxColumn.Name = "fldDateDataGridViewTextBoxColumn";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(141, 25);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(162, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Update (Ins/Upd/Del)";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
