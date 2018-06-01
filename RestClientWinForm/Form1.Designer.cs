@@ -143,12 +143,15 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
+            this.gridView1.OptionsView.ShowFooter = true;
             // 
             // colRowPk
             // 
             this.colRowPk.FieldName = "RowPk";
             this.colRowPk.Name = "colRowPk";
             this.colRowPk.OptionsColumn.ReadOnly = true;
+            this.colRowPk.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "RowPk", "{0:n0}")});
             this.colRowPk.Visible = true;
             this.colRowPk.VisibleIndex = 0;
             // 

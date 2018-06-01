@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Starcounter;
 
 namespace M2DB
