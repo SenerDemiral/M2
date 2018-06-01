@@ -30,22 +30,22 @@ namespace Rest {
   {
     static readonly string __ServiceName = "rest.CRUDs";
 
-    static readonly grpc::Marshaller<global::Rest.QryStr> __Marshaller_QryStr = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryStr.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.TblaRec> __Marshaller_TblaRec = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaRec.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryProxy> __Marshaller_QryProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TblaProxy> __Marshaller_TblaProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaProxy.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Rest.QryStr, global::Rest.TblaRec> __Method_TblaFill = new grpc::Method<global::Rest.QryStr, global::Rest.TblaRec>(
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "TblaFill",
-        __Marshaller_QryStr,
-        __Marshaller_TblaRec);
+        __Marshaller_QryProxy,
+        __Marshaller_TblaProxy);
 
-    static readonly grpc::Method<global::Rest.TblaRec, global::Rest.TblaRec> __Method_TblaUpdate = new grpc::Method<global::Rest.TblaRec, global::Rest.TblaRec>(
+    static readonly grpc::Method<global::Rest.TblaProxy, global::Rest.TblaProxy> __Method_TblaUpdate = new grpc::Method<global::Rest.TblaProxy, global::Rest.TblaProxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "TblaUpdate",
-        __Marshaller_TblaRec,
-        __Marshaller_TblaRec);
+        __Marshaller_TblaProxy,
+        __Marshaller_TblaProxy);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -56,12 +56,12 @@ namespace Rest {
     /// <summary>Base class for server-side implementations of CRUDs</summary>
     public abstract partial class CRUDsBase
     {
-      public virtual global::System.Threading.Tasks.Task TblaFill(global::Rest.QryStr request, grpc::IServerStreamWriter<global::Rest.TblaRec> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task TblaFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.TblaProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Rest.TblaRec> TblaUpdate(global::Rest.TblaRec request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Rest.TblaProxy> TblaUpdate(global::Rest.TblaProxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -91,27 +91,27 @@ namespace Rest {
       {
       }
 
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.TblaRec> TblaFill(global::Rest.QryStr request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TblaProxy> TblaFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TblaFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.TblaRec> TblaFill(global::Rest.QryStr request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TblaProxy> TblaFill(global::Rest.QryProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_TblaFill, null, options, request);
       }
-      public virtual global::Rest.TblaRec TblaUpdate(global::Rest.TblaRec request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Rest.TblaProxy TblaUpdate(global::Rest.TblaProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TblaUpdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Rest.TblaRec TblaUpdate(global::Rest.TblaRec request, grpc::CallOptions options)
+      public virtual global::Rest.TblaProxy TblaUpdate(global::Rest.TblaProxy request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_TblaUpdate, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Rest.TblaRec> TblaUpdateAsync(global::Rest.TblaRec request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Rest.TblaProxy> TblaUpdateAsync(global::Rest.TblaProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return TblaUpdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Rest.TblaRec> TblaUpdateAsync(global::Rest.TblaRec request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Rest.TblaProxy> TblaUpdateAsync(global::Rest.TblaProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_TblaUpdate, null, options, request);
       }

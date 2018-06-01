@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace RestServerSC
 {
     class Program
@@ -17,6 +16,7 @@ namespace RestServerSC
 
         static void Main()
         {
+            /*
             M2DB.TblB tb = null;
 
             Db.Transact(() =>
@@ -28,7 +28,7 @@ namespace RestServerSC
                 };
 
             });
-            TblaRec a = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(tb);
+            TblaProxy a = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(tb);
             a.RowErr = "";
 
             Console.WriteLine("Deneme");
@@ -41,9 +41,9 @@ namespace RestServerSC
                 // Converting the proxy object into the database object.
                 // This will set the database object property values.
                 // Those the changes made to the proxy object will be saved to the database.
-                M2DB.TblB tblb = ReflectionExample.FromProxy<TblaRec, M2DB.TblB>(a);
+                M2DB.TblB tblb = ReflectionExample.FromProxy<TblaProxy, M2DB.TblB>(a);
             });
-
+*/
             Console.WriteLine("Deneme");
 
 
@@ -91,9 +91,9 @@ namespace RestServerSC
 
         }
 
-        public override Task<TblaRec> TblaUpdate(TblaRec request, ServerCallContext context)
+        public override Task<TblaProxy> TblaUpdate(TblaProxy request, ServerCallContext context)
         {
-            var result = new TblaRec
+            var result = new TblaProxy
             {
                 RowPk = request.RowPk,
                 FldStr = request.FldStr,
@@ -103,7 +103,7 @@ namespace RestServerSC
                 FldInt = request.FldInt
             };
 
-            TblaRec proxy = null;
+            TblaProxy proxy = null;
             Scheduling.RunTask(() =>
             {
                 // RowState: Added, Modified, Deletede, Unchanged
@@ -111,19 +111,8 @@ namespace RestServerSC
                 {
                     if (request.RowState == "A" || request.RowState == "M")
                     {
-                        //var rec = new M2DB.TblA
-                        //{
-                        //    FldStr = request.FldStr,
-                        //    FldInt = request.FldInt,
-                        //    FldDate = new DateTime(request.FldDate)
-                        //};
-                        //RecToObject<M2DB.TblA>();
-
-                        //RecToObject<TblaRec>(request);////////////////////
-                        M2DB.TblB row = ReflectionExample.FromProxy<TblaRec, M2DB.TblB>(request);
-                        proxy = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(row);
-
-                        //result.RowPk = row.GetObjectNo();
+                        M2DB.TblB row = ReflectionExample.FromProxy<TblaProxy, M2DB.TblB>(request);
+                        proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
                     }
                     else if (request.RowState == "D")
                     {
@@ -145,31 +134,73 @@ namespace RestServerSC
 
         }
 
-        public override async Task TblaFill(QryStr request, IServerStreamWriter<TblaRec> responseStream, ServerCallContext context)
+        public  async Task TblaFill2(QryProxy request, IServerStreamWriter<TblaProxy> responseStream, ServerCallContext context)
         {
-            var hr = new TblaRec
+            var proxy = new TblaProxy();
+            proxy.RowPk = 1;
+
+            await Scheduling.RunTask( () =>
             {
-                RowPk = 1,
-                FldStr = "Bir",
-                FldDbl = 1.23,
-                FldDcm = 2.34,
-                FldDate = DateTime.Now.Ticks,
-                FldInt = 1
-            };
+                for (int i = 0; i < 1000; i++)
+                {
+                    Task.Run(async () =>
+                    {
+                        foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
+                        {
+                            proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
+                        
+                            await responseStream.WriteAsync(proxy);
+                        }
+                    }).Wait();
 
+                    //await responseStream.WriteAsync(proxy);
+                }
+            });
 
-            for (int i = 0; i < 1; i++)
+        }
+
+        public  async Task TblaFill3(QryProxy request, IServerStreamWriter<TblaProxy> responseStream, ServerCallContext context)
+        {
+            var proxy = new TblaProxy();
+            proxy.RowPk = 1;
+            List<TblaProxy> pl = new List<TblaProxy>();
+
+            // Transfer 14K proxy/sec
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
+                        proxy.FldStr = row.FldStr;
+                        proxy.FldInt = row.FldInt;
+                        proxy.FldDbl = row.FldDbl;
+                        proxy.FldDcm = Convert.ToDouble(row.FldDcm);
+                        pl.Add(proxy);
+
+                        //Task.Run(async () =>
+                        //{
+                        //    await responseStream.WriteAsync(proxy);
+                        //}).Wait();
+                    }
+                }
+            });
+            
+            foreach(var p in pl)
+            {
+                await responseStream.WriteAsync(p);
+            }
+
+            /*
+            // Transfer 9K proxy/sec
+            for (int i = 0; i < 1000; i++)
             {
                 await Scheduling.RunTask(() =>
                 {
                     foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
                     {
-                        //hr.RowPk = r.GetObjectNo();
-                        //hr.FldStr = r.FldStr;
-                        //hr.FldInt = r.FldInt;
-                        //hr.FldDate = r.FldDate.Ticks;
-
-                        TblaRec proxy = ReflectionExample.ToProxy<TblaRec, M2DB.TblB>(row);
+                        proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
 
                         Task.Run(async () =>
                         {
@@ -178,11 +209,123 @@ namespace RestServerSC
                     }
                 });
             }
+            */
             /*
-            for (int i = 0; i < 10000; i++)
+            // Transfer 20K proxy/sec
+            for (int i = 0; i < 100000; i++)
             {
-                hr.Ono = (ulong)i;
-                await responseStream.WriteAsync(hr);
+                await responseStream.WriteAsync(proxy);
+            }*/
+        }
+
+        public override async Task TblaFill(QryProxy request, IServerStreamWriter<TblaProxy> responseStream, ServerCallContext context)
+        {
+            int kxx = 1;
+            var proxy = new TblaProxy();
+            proxy.RowPk = 1;
+            List<TblaProxy> pl = new List<TblaProxy>();
+
+            Type proxyType = typeof(TblaProxy);
+            Type senert = typeof(M2DB.TblB);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+            PropertyInfo[] sener = senert.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+            /*
+            Dictionary<int, int> dic = new Dictionary<int, int>();
+            for (int j = 0; j < proxyProperties.Length; j++)
+            {
+                Console.WriteLine(kxx.ToString());
+                for (int k = 0; k < sener.Length; k++)
+                {
+                    Console.WriteLine($"{j},{k} : {proxyProperties[j].Name} {sener[k].Name}");
+                    if (proxyProperties[j].Name == sener[k].Name)
+                    {
+                        dic[j] = k;
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine(kxx.ToString());
+            */
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
+                    {
+                        proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
+                        /*
+                        proxy = new TblaProxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            FldStr = row.FldStr,
+                            FldInt = row.FldInt,
+                            FldDbl = row.FldDbl,
+                            FldDcm = Convert.ToDouble(row.FldDcm),
+                            FldDate = ((DateTime)row.FldDate).Ticks,
+                        };*/
+                    /*
+                    foreach(var d in dic)
+                    {
+                        object value = sener[d.Value].GetValue(row);
+                        value = ReflectionExample.ConvertToProxyValue(sener[d.Value].PropertyType, value);
+                        proxyProperties[d.Key].SetValue(proxy, value);
+                    }
+                    /*
+                    foreach (PropertyInfo proxyProperty in proxyProperties)
+                    {
+                        //PropertyInfo databaseProperty = databaseProperties.FirstOrDefault(x => x.Name == proxyProperty.Name);
+                        // Which one is efficient? Both are same
+                        var dbP = row.GetType().GetProperty(proxyProperty.Name); //?.GetValue(row);
+                        var sss = sener[0].GetValue(row);
+                        if (dbP != null)
+                        {
+                            object value = dbP.GetValue(row);
+
+                            value = ReflectionExample.ConvertToProxyValue(dbP.PropertyType, value);
+                            proxyProperty.SetValue(proxy, value);
+                        }
+                    }
+                    */
+
+
+                    pl.Add(proxy);
+
+                        //Task.Run(async () =>
+                        //{
+                        //    await responseStream.WriteAsync(proxy);
+                        //}).Wait();
+                    }
+                }
+            });
+
+            foreach (var p in pl)
+            {
+                await responseStream.WriteAsync(p);
+            }
+
+            /*
+            // Transfer 9K proxy/sec
+            for (int i = 0; i < 1000; i++)
+            {
+                await Scheduling.RunTask(() =>
+                {
+                    foreach (var row in Db.SQL<M2DB.TblB>("select r from TblB r"))
+                    {
+                        proxy = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(row);
+
+                        Task.Run(async () =>
+                        {
+                            await responseStream.WriteAsync(proxy);
+                        }).Wait();
+                    }
+                });
+            }
+            */
+            /*
+            // Transfer 20K proxy/sec
+            for (int i = 0; i < 100000; i++)
+            {
+                await responseStream.WriteAsync(proxy);
             }*/
         }
     }
@@ -196,9 +339,9 @@ namespace RestServerSC
         {
             TProxy proxy = new TProxy();
             Type proxyType = typeof(TProxy);
-            Type databaseType = typeof(TDatabase);
+            //Type databaseType = typeof(TDatabase);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
-            PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead).ToArray();
+            //PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead).ToArray();
             //PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
 
             // only take if proxyProperty exists in databaseProperties 
@@ -207,25 +350,32 @@ namespace RestServerSC
             // database can have computed/ReadOnly properties, copy also
             foreach (PropertyInfo proxyProperty in proxyProperties)
             {
-                PropertyInfo databaseProperty = databaseProperties.FirstOrDefault(x => x.Name == proxyProperty.Name);
-                // Which one is efficient?
-                var dbP = row.GetType().GetProperty(proxyProperty.Name)?.GetValue(row);
+                //PropertyInfo databaseProperty = databaseProperties.FirstOrDefault(x => x.Name == proxyProperty.Name);
+                // Which one is efficient? Both are same
+                var dbP = row.GetType().GetProperty(proxyProperty.Name); //?.GetValue(row);
 
-                if (databaseProperty != null)
+                if (dbP != null)
                 {
-                    object value = databaseProperty.GetValue(row);
+                    object value = dbP.GetValue(row);
 
-                    value = ConvertToProxyValue(databaseProperty.PropertyType, value);
+                    value = ConvertToProxyValue(dbP.PropertyType, value);
                     proxyProperty.SetValue(proxy, value);
                 }
+                //if (databaseProperty != null)
+                //{
+                //    object value = databaseProperty.GetValue(row);
+                //
+                //    value = ConvertToProxyValue(databaseProperty.PropertyType, value);
+                //    proxyProperty.SetValue(proxy, value);
+                //}
             }
-            
+
             //PropertyInfo proxyRowPk = proxyProperties.FirstOrDefault(x => x.Name == "RowPk");
             //if (proxyRowPk != null)
             //    proxyRowPk.SetValue(proxy,row.GetObjectNo());
-            
+
             // Should every proxy hase rowPk property? Maybe not
-            proxy.GetType().GetProperty("RowPk")?.SetValue(proxy, row.GetObjectNo());
+            //proxy.GetType().GetProperty("RowPk")?.SetValue(proxy, row.GetObjectNo());
 
             return proxy;
         }

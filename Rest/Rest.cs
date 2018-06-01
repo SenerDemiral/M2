@@ -24,29 +24,29 @@ namespace Rest {
     static RestReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIXCgZRcnlTdHISDQoFcXVlcnkY",
-            "ASABKAkijgEKB1RibGFSZWMSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
-            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEoCRIOCgZm",
-            "bGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIP",
-            "CgdmbGREYXRlGAggASgDMmIKBUNSVURzEisKCFRibGFGaWxsEgwucmVzdC5R",
-            "cnlTdHIaDS5yZXN0LlRibGFSZWMiADABEiwKClRibGFVcGRhdGUSDS5yZXN0",
-            "LlRibGFSZWMaDS5yZXN0LlRibGFSZWMiAGIGcHJvdG8z"));
+            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIZCghRcnlQcm94eRINCgVxdWVy",
+            "eRgBIAEoCSKQAQoJVGJsYVByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdy",
+            "b3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIOCgZmbGRTdHIYBCABKAkS",
+            "DgoGZmxkSW50GAUgASgFEg4KBmZsZERibBgGIAEoARIOCgZmbGREY20YByAB",
+            "KAESDwoHZmxkRGF0ZRgIIAEoAzJqCgVDUlVEcxIvCghUYmxhRmlsbBIOLnJl",
+            "c3QuUXJ5UHJveHkaDy5yZXN0LlRibGFQcm94eSIAMAESMAoKVGJsYVVwZGF0",
+            "ZRIPLnJlc3QuVGJsYVByb3h5Gg8ucmVzdC5UYmxhUHJveHkiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryStr), global::Rest.QryStr.Parser, new[]{ "Query" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaRec), global::Rest.TblaRec.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class QryStr : pb::IMessage<QryStr> {
-    private static readonly pb::MessageParser<QryStr> _parser = new pb::MessageParser<QryStr>(() => new QryStr());
+  public sealed partial class QryProxy : pb::IMessage<QryProxy> {
+    private static readonly pb::MessageParser<QryProxy> _parser = new pb::MessageParser<QryProxy>(() => new QryProxy());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<QryStr> Parser { get { return _parser; } }
+    public static pb::MessageParser<QryProxy> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -59,21 +59,21 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QryStr() {
+    public QryProxy() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QryStr(QryStr other) : this() {
+    public QryProxy(QryProxy other) : this() {
       query_ = other.query_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public QryStr Clone() {
-      return new QryStr(this);
+    public QryProxy Clone() {
+      return new QryProxy(this);
     }
 
     /// <summary>Field number for the "query" field.</summary>
@@ -89,11 +89,11 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as QryStr);
+      return Equals(other as QryProxy);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(QryStr other) {
+    public bool Equals(QryProxy other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -143,7 +143,7 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(QryStr other) {
+    public void MergeFrom(QryProxy other) {
       if (other == null) {
         return;
       }
@@ -171,11 +171,11 @@ namespace Rest {
 
   }
 
-  public sealed partial class TblaRec : pb::IMessage<TblaRec> {
-    private static readonly pb::MessageParser<TblaRec> _parser = new pb::MessageParser<TblaRec>(() => new TblaRec());
+  public sealed partial class TblaProxy : pb::IMessage<TblaProxy> {
+    private static readonly pb::MessageParser<TblaProxy> _parser = new pb::MessageParser<TblaProxy>(() => new TblaProxy());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<TblaRec> Parser { get { return _parser; } }
+    public static pb::MessageParser<TblaProxy> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -188,14 +188,14 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaRec() {
+    public TblaProxy() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaRec(TblaRec other) : this() {
+    public TblaProxy(TblaProxy other) : this() {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
@@ -208,8 +208,8 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public TblaRec Clone() {
-      return new TblaRec(this);
+    public TblaProxy Clone() {
+      return new TblaProxy(this);
     }
 
     /// <summary>Field number for the "row_state" field.</summary>
@@ -311,11 +311,11 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as TblaRec);
+      return Equals(other as TblaProxy);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(TblaRec other) {
+    public bool Equals(TblaProxy other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -428,7 +428,7 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(TblaRec other) {
+    public void MergeFrom(TblaProxy other) {
       if (other == null) {
         return;
       }

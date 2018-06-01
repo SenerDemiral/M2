@@ -35,9 +35,9 @@ namespace RestServer
 
     class CRUDsImpl : Rest.CRUDs.CRUDsBase
     {
-        public override async Task TblaFill(QryStr request, IServerStreamWriter<TblaRec> responseStream, ServerCallContext context)
+        public override async Task TblaFill(QryProxy request, IServerStreamWriter<TblaProxy> responseStream, ServerCallContext context)
         {
-            var hr = new TblaRec
+            var hr = new TblaProxy
             {
                 RowPk = 1,
                 FldStr = "Bir",
@@ -63,7 +63,7 @@ namespace RestServer
                 });
             }
             */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 100000; i++)
             {
                 hr.RowPk = (ulong)i;
                 await responseStream.WriteAsync(hr);

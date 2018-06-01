@@ -18,15 +18,15 @@ package rest;		// namespace
 
 // The CRUDs service definition.
 service CRUDs {
-  rpc TblaFill (QryStr) returns (stream TblaRec) {}
-  rpc TblaUpdate (TblaRec) returns (TblaRec) {}
+  rpc TblaFill (QryProxy) returns (stream TblaProxy) {}
+  rpc TblaUpdate (TblaProxy) returns (TblaProxy) {}
 }
 
-message QryStr {
+message QryProxy {
   string query = 1;
 }
 
-message TblaRec {
+message TblaProxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;

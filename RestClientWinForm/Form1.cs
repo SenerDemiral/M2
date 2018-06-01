@@ -24,10 +24,15 @@ namespace RestClientWinForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            TestTblaFill();
+            gridControl1.DataSource = null;
+            //gridControl1.DataMember = null;
+            dataSet1.Tables[0].Clear();
+            Task.Run (async () => { await TestTblaFill(); }).Wait();
+            gridControl1.DataSource = dataSet1;
+            gridControl1.DataMember = "Table1";
         }
 
-        async void TestTblaFill()
+        async Task TestTblaFill()
         {
             //Dynamically create Table from class.
             //Not fullfil our requirements. Table structure should be created at design time
@@ -35,11 +40,10 @@ namespace RestClientWinForm
             //var aaaa = CreateDataTable<TblaRec>();
             //dataSet1.Tables.Add(aaaa);
 
-
             var dt = dataSet1.Tables[0];
             //if (dt.Rows[0].RowState == DataRowState.
+
             dt.BeginLoadData();
-            StringBuilder sb = new StringBuilder();
             int nor = 0, ml = 0;
             Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
             //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
@@ -49,34 +53,24 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.TblaFill(new QryStr { Query = "abc" }))
+            using (var response = client.TblaFill(new QryProxy { Query = "abc" }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
-                    var proxy = response.ResponseStream.Current;
-                    
+                    //var proxy = response.ResponseStream.Current;
+                   
                     row = dt.NewRow();
-                    
-                    ObjectToRow(dt, row, proxy);
-                    /*
-                    row["RowPk"] = rec.RowPk;
-                    row["FldStr"] = rec.FldStr;
-                    row["FldInt"] = rec.FldInt;
-                    row["FldDbl"] = rec.FldDbl;
-                    row["FldDate"] = new DateTime(rec.FldDate);
-*/
+                    ObjectToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
-                    
-                    sb.AppendLine(proxy.RowPk.ToString());
+                   
                     nor++;
-                    ml += proxy.CalculateSize();
+                    //ml += proxy.CalculateSize();
                     //MessageBox.Show(rec.Message);
                 }
             }
+            sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            sw.Stop();
-            //MessageBox.Show(sb.ToString());
             MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
         }
 
@@ -94,7 +88,7 @@ namespace RestClientWinForm
             //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
             var client = new CRUDs.CRUDsClient(channel);
 
-            var request = new TblaRec();
+            var request = new TblaProxy();
 
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
 

@@ -9,7 +9,7 @@ namespace M2
         {
             var dt = DateTime.Now.Ticks;
             var a = new DateTime(dt);
-            decimal d = 123.56M;
+            //decimal d = 123.56M;
             var c = Convert.ToDateTime(dt);
         }
     }
