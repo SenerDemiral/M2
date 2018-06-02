@@ -3,30 +3,31 @@ using Starcounter;
 
 namespace M2DB
 {
-    [Database]
-    public class UOO    // Onaylar
-    {
-        public UUU Usr { get; set; }        // Onaylayan
-        public DateTime Trh { get; set; }   // Nazaman
-        public string RefTbl { get; set; }  // OnayladigiTable. Type dbTyp = Type.GetType("M2DB"+refTbl)
-        public ulong RefObj { get; set; }   // OnayladigiObjectNo
-    }
+    /// <summary>
+    /// Programa girebilmek icin UUU kaydinin olmasi gerekir
+    /// </summary>
+
     [Database]
     public class UUU    // User
     {
         public string Ad { get; set; }
-        public UYT UYT { get; set; }    // User Yetkisi
+        public UYT UYT { get; set; }    // User Yetkisi (tek bir yetkisi olabilir)
+        public string Pwd { get; set; }
+        public DateTime PwdLCD { get; set; }    // Pwd LastChangeDate
+
     }
+
     [Database]
-    public class UYT    // UserYetkiTanimlari
+    public class UYT    // User.YetkiTanimlari
     {
         public string Ad { get; set; }
     }
+
     [Database]
-    public class UYH    // User YetkiHiyerarsi
+    public class UYH    // User.YetkiHiyerarsi
     {
-        public UYT Prn { get; set; }
-        public UYT Kid { get; set; }
+        public UYT P { get; set; }  // Parent
+        public UYT C { get; set; }  // Child
     }
 
 }

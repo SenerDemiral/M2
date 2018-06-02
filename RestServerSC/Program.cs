@@ -16,6 +16,18 @@ namespace RestServerSC
 
         static void Main()
         {
+            Db.Transact(() =>
+            {
+                var H100 = new M2DB.AHT
+                {
+                    P = Db.FromId(1) as M2DB.AHT,
+                    No = "01",
+                    Ad = "Kasa TL"
+                };
+
+            });
+
+
             /*
             M2DB.TblB tb = null;
 
