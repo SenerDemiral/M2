@@ -18,12 +18,14 @@ namespace RestServerSC
         {
             Db.Transact(() =>
             {
+                ReflectionExample.deneme<M2DB.AHT>(1);
+                /*
                 var H100 = new M2DB.AHT
                 {
                     P = Db.FromId(1) as M2DB.AHT,
                     No = "01",
                     Ad = "Kasa TL"
-                };
+                };*/
 
             });
 

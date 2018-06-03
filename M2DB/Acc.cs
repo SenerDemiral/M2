@@ -13,6 +13,7 @@ namespace M2DB
 
         public double Brc { get; set; }
         public double Alc { get; set; }
+        public DateTime Trh { get; set; }
 
         //public bool HasP => P == null ? false : true;
         //public bool HasK => Db.SQL("select r from M2DB.AHT r where r.P = ?", this.GetObjectNo()).FirstOrDefault() == null ? false : true;

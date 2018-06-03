@@ -26,6 +26,5 @@ namespace M2DB
         public DateTime FldDate { get; set; }
 
         public string FldStrUpr => FldStr.ToUpper();    // Test CanWrite=false
-
     }
 }

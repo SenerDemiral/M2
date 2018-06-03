@@ -152,6 +152,34 @@ namespace RestServerSC
             return proxy;
         }
 
+        public static TDatabase deneme<TDatabase>(ulong? v)
+            where TDatabase : class, new()
+        {
+            TDatabase row = null;
+            Type databaseType = typeof(TDatabase);
+            PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            PropertyInfo dbProperty = databaseProperties.FirstOrDefault(x => x.Name == "P");    // ObjectReference AHT P
+            Type aaa = dbProperty.GetType();
+            //typeof(dbProperty.GetType());
+
+            object result = Convert.ChangeType((decimal)2.12345, typeof(double));//dbProperty.GetType());
+
+            row = Db.FromId<TDatabase>(4);
+
+            if (v != null && dbProperty.PropertyType.GetTypeInfo().IsClass && dbProperty.PropertyType != typeof(string))
+                dbProperty.SetValue(row, Db.FromId((ulong)v)); //v.GetObjectNo());  //Db.FromId(2));
+            else
+                dbProperty.SetValue(row, v);
+            /*
+            if (dbProperty.PropertyType.IsSerializable)
+                dbProperty.SetValue(row, v);
+            else
+                dbProperty.SetValue(row, Db.FromId(v));// v.GetObjectNo());  //Db.FromId(2));
+            */
+            return row;
+        }
+
         public static TDatabase FromProxy<TProxy, TDatabase>(TProxy proxy)
             where TDatabase : class, new()
         {
