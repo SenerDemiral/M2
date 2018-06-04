@@ -40,8 +40,8 @@ namespace M2DB
     {
         public string No { get; set; }
         public string Ad { get; set; }
-        public XGT Tur { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
-        public XGT Brm { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
+        public XGT ObjTur { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
+        public XGT ObjBrm { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
         public double Fyt { get; set; }  // Simdilik
         public bool HasKid
         {
@@ -66,8 +66,8 @@ namespace M2DB
     [Database]
     public class NKM    // Ne.Kimde.Miktar
     {
-        public NNN Ne { get; set; }
-        public KKK Kim { get; set; }
+        public NNN ObjNNN { get; set; }
+        public KKK ObjKKK { get; set; }
         public double GirMik { get; set; }
         public double CikMik { get; set; }
         public double KlnMik => GirMik - CikMik;
@@ -81,14 +81,14 @@ namespace M2DB
     [Database]
     public class NFA    // Ne.FiyatAnlasmalari
     {
-        public NNN Ne { get; set; }    // NeyinFiyati
-        public KKK Kim { get; set; }    // Musteri
+        public NNN ObjNNN { get; set; }    // NeyinFiyati
+        public KKK ObjKKK { get; set; }    // Musteri
         public string AoS { get; set; } // Alis/Satis
         public DateTime BasTrh { get; set; }    // AnlasmaBaslangic
         public DateTime BitTrh { get; set; }
         public int OncSra { get; set; }     // Bir Mal birden cok Musteriden Alinabilir, Hangisinden alinacagina karar vermek icin
         public double Fyt { get; set; }
-        public XGT Dvz { get; set; }
+        public XGT ObjDvz { get; set; }
         public string Ack { get; set; } // Aciklama (OdemeSekli, Vade
 
     }
@@ -99,13 +99,13 @@ namespace M2DB
     [Database]
     public class NHT // Ne.Hiyerarsi.Tree
     {
-        public NNN Prn { get; set; }
-        public NNN Kid { get; set; }
+        public NNN ObjPrnNNN { get; set; }
+        public NNN ObjKidNNN { get; set; }
         public double Mik { get; set; }
 
-        public string PrnAd => Prn?.Ad;
-        public string PrnNo => Prn?.No;
-        public string KidAd => Kid?.Ad;
-        public string KidNo => Kid?.No;
+        public string PrnAd => ObjPrnNNN?.Ad;
+        public string PrnNo => ObjPrnNNN?.No;
+        public string KidAd => ObjKidNNN?.Ad;
+        public string KidNo => ObjKidNNN?.No;
     }
 }

@@ -21,8 +21,8 @@ namespace M2DB
         public ulong RefNo { get; set; }    // RefTableObjNo
         public string RefTo { get; set; }   // Table
         public DateTime? Trh { get; set; }
-        public UUU Usr { get; set; }        // Onaylayan (veya Vekil)
-        public UYT Ytk { get; set; }        // Yetki 
+        public UUU ObjUsr { get; set; }        // Onaylayan (veya Vekil)
+        public UYT ObjYtk { get; set; }        // Yetki 
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace M2DB
     [Database]
     public class XGT    // Genel Tanimlar
     {
-        public XGT P { get; set; }
+        public XGT ObjP { get; set; }
         public string Kd { get; set; }
         public string Ad { get; set; }
     }

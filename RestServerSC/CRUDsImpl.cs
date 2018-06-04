@@ -132,22 +132,21 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                for (int i = 0; i < 1; i++)
+                for (int i = 0; i < 1000; i++)
                 {
                     foreach (var row in Db.SQL<AHP>("select r from AHP r"))
                     {
-                        //proxy = ReflectionExample.ToProxy<AHPproxy, M2DB.AHP>(row);
-
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+                        
                         proxy = new AHPproxy
                         {
                             RowPk = row.GetObjectNo(),
-                            RefP = row.P == null ? 0 : row.P.GetObjectNo(),
-                            //RefP = 0,
+                            ObjP = row.ObjP == null ? 0 : row.ObjP.GetObjectNo(),
                             No = row.No,
                             Ad = row.Ad,
-                            RoHspNo = row.HspNo
+                            HspNo = row.HspNo
                         };
-
+                        
                         proxyList.Add(proxy);
                     }
                 }
@@ -157,6 +156,43 @@ namespace RestServerSC
             {
                 await responseStream.WriteAsync(p);
             }
+        }
+
+        public override Task<AHPproxy> AHPupdate(AHPproxy request, ServerCallContext context)
+        {
+            var result = new AHPproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            AHPproxy proxy = null;
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.TransactAsync(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        AHP row = ReflectionExample.FromProxy<AHPproxy, AHP>(request);
+                        proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        result.RowPk = request.RowPk;
+                        var rec = Db.FromId(request.RowPk) as AHP;
+                        if (rec == null)
+                        {
+                            result.RowErr = "AHP Rec not found";
+                        }
+                        else
+                        {
+                            rec.Delete();
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(proxy);
         }
     }
 
@@ -182,10 +218,17 @@ namespace RestServerSC
                 {
                     object value = dbP.GetValue(row);
 
-                    value = ConvertToProxyValue(dbP.PropertyType, value);
-                    proxyProperty.SetValue(proxy, value);
+                    if (value != null && dbP.PropertyType.GetTypeInfo().IsClass && dbP.PropertyType != typeof(string))
+                        proxyProperty.SetValue(proxy, value.GetObjectNo()); //v.GetObjectNo());  //Db.FromId(2));
+                    else
+                    {
+                        value = ConvertToProxyValue(dbP.PropertyType, value);
+                        proxyProperty.SetValue(proxy, value);
+                    }
                 }
             }
+            // Should every proxy hase rowPk property? Maybe not
+            proxy.GetType().GetProperty("RowPk")?.SetValue(proxy, row.GetObjectNo());
 
             return proxy;
         }
@@ -242,8 +285,13 @@ namespace RestServerSC
                 {
                     object value = proxyProperty.GetValue(proxy);
 
-                    value = ConvertToDatabaseValue(databaseProperty.PropertyType, value);
-                    databaseProperty.SetValue(row, value);
+                    if (value != null && databaseProperty.PropertyType.GetTypeInfo().IsClass && databaseProperty.PropertyType != typeof(string))
+                        databaseProperty.SetValue(row, Db.FromId((ulong)value)); //v.GetObjectNo());  //Db.FromId(2));
+                    else
+                    {
+                        value = ConvertToDatabaseValue(databaseProperty.PropertyType, value);
+                        databaseProperty.SetValue(row, value);
+                    }
                 }
             }
 

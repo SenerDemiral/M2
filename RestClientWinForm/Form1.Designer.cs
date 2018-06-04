@@ -60,15 +60,16 @@
             this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRowPk1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRefP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coObjP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
-            this.colRoHspNo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colNo1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colAd1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colRowPk2 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colRefP1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colHspNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colObjPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.altHesapEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataTable2)).BeginInit();
@@ -149,7 +150,7 @@
             // 
             // dataColumn7
             // 
-            this.dataColumn7.ColumnName = "RoHspNo";
+            this.dataColumn7.ColumnName = "HspNo";
             // 
             // dataColumn8
             // 
@@ -166,7 +167,7 @@
             // 
             // dataColumn11
             // 
-            this.dataColumn11.ColumnName = "RefP";
+            this.dataColumn11.ColumnName = "ObjP";
             this.dataColumn11.DataType = typeof(ulong);
             // 
             // button2
@@ -281,7 +282,7 @@
             this.colNo,
             this.colAd,
             this.colRowPk1,
-            this.colRefP});
+            this.coObjP});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
@@ -289,7 +290,7 @@
             // colHspNo
             // 
             this.colHspNo.Caption = "HspNo";
-            this.colHspNo.FieldName = "RoHspNo";
+            this.colHspNo.FieldName = "HspNo";
             this.colHspNo.Name = "colHspNo";
             this.colHspNo.Visible = true;
             this.colHspNo.VisibleIndex = 0;
@@ -315,26 +316,25 @@
             this.colRowPk1.Visible = true;
             this.colRowPk1.VisibleIndex = 3;
             // 
-            // colRefP
+            // coObjP
             // 
-            this.colRefP.FieldName = "RefP";
-            this.colRefP.Name = "colRefP";
-            this.colRefP.Visible = true;
-            this.colRefP.VisibleIndex = 4;
+            this.coObjP.FieldName = "ObjP";
+            this.coObjP.Name = "coObjP";
+            this.coObjP.Visible = true;
+            this.coObjP.VisibleIndex = 4;
             // 
             // treeList1
             // 
             this.treeList1.BestFitVisibleOnly = true;
             this.treeList1.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colRoHspNo,
-            this.colNo1,
-            this.colAd1,
-            this.colRowPk2,
-            this.colRefP1});
+            this.colHspNoT,
+            this.colNoT,
+            this.colAdT,
+            this.colRowPkT,
+            this.colObjPT});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataMember = "AHP";
-            this.treeList1.DataSource = this.dataSet1;
             this.treeList1.KeyFieldName = "RowPk";
             this.treeList1.Location = new System.Drawing.Point(12, 278);
             this.treeList1.Name = "treeList1";
@@ -348,51 +348,51 @@
             this.treeList1.OptionsSelection.SelectNodesOnRightClick = true;
             this.treeList1.OptionsSelection.UseIndicatorForSelection = true;
             this.treeList1.OptionsView.EnableAppearanceEvenRow = true;
-            this.treeList1.ParentFieldName = "RefP";
+            this.treeList1.ParentFieldName = "ObjP";
             this.treeList1.Size = new System.Drawing.Size(641, 200);
             this.treeList1.TabIndex = 6;
             this.treeList1.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.Wide;
             // 
-            // colRoHspNo
+            // colHspNoT
             // 
-            this.colRoHspNo.FieldName = "RoHspNo";
-            this.colRoHspNo.Name = "colRoHspNo";
-            this.colRoHspNo.SortOrder = System.Windows.Forms.SortOrder.Ascending;
-            this.colRoHspNo.Visible = true;
-            this.colRoHspNo.VisibleIndex = 0;
-            this.colRoHspNo.Width = 125;
+            this.colHspNoT.FieldName = "HspNo";
+            this.colHspNoT.Name = "colHspNoT";
+            this.colHspNoT.SortOrder = System.Windows.Forms.SortOrder.Ascending;
+            this.colHspNoT.Visible = true;
+            this.colHspNoT.VisibleIndex = 0;
+            this.colHspNoT.Width = 125;
             // 
-            // colNo1
+            // colNoT
             // 
-            this.colNo1.FieldName = "No";
-            this.colNo1.Name = "colNo1";
-            this.colNo1.Visible = true;
-            this.colNo1.VisibleIndex = 1;
-            this.colNo1.Width = 125;
+            this.colNoT.FieldName = "No";
+            this.colNoT.Name = "colNoT";
+            this.colNoT.Visible = true;
+            this.colNoT.VisibleIndex = 1;
+            this.colNoT.Width = 125;
             // 
-            // colAd1
+            // colAdT
             // 
-            this.colAd1.FieldName = "Ad";
-            this.colAd1.Name = "colAd1";
-            this.colAd1.Visible = true;
-            this.colAd1.VisibleIndex = 2;
-            this.colAd1.Width = 125;
+            this.colAdT.FieldName = "Ad";
+            this.colAdT.Name = "colAdT";
+            this.colAdT.Visible = true;
+            this.colAdT.VisibleIndex = 2;
+            this.colAdT.Width = 125;
             // 
-            // colRowPk2
+            // colRowPkT
             // 
-            this.colRowPk2.FieldName = "RowPk";
-            this.colRowPk2.Name = "colRowPk2";
-            this.colRowPk2.Visible = true;
-            this.colRowPk2.VisibleIndex = 3;
-            this.colRowPk2.Width = 124;
+            this.colRowPkT.FieldName = "RowPk";
+            this.colRowPkT.Name = "colRowPkT";
+            this.colRowPkT.Visible = true;
+            this.colRowPkT.VisibleIndex = 3;
+            this.colRowPkT.Width = 124;
             // 
-            // colRefP1
+            // colObjPT
             // 
-            this.colRefP1.FieldName = "RefP";
-            this.colRefP1.Name = "colRefP1";
-            this.colRefP1.Visible = true;
-            this.colRefP1.VisibleIndex = 4;
-            this.colRefP1.Width = 124;
+            this.colObjPT.FieldName = "ObjP";
+            this.colObjPT.Name = "colObjPT";
+            this.colObjPT.Visible = true;
+            this.colObjPT.VisibleIndex = 4;
+            this.colObjPT.Width = 124;
             // 
             // contextMenuStrip1
             // 
@@ -408,11 +408,22 @@
             this.altHesapEkleToolStripMenuItem.Text = "Alt Hesap Ekle";
             this.altHesapEkleToolStripMenuItem.Click += new System.EventHandler(this.altHesapEkleToolStripMenuItem_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(107, 54);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "AHP Update";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 625);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.treeList1);
             this.Controls.Add(this.gridControl2);
             this.Controls.Add(this.button3);
@@ -467,15 +478,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn colAd;
         private DevExpress.XtraGrid.Columns.GridColumn colRowPk1;
         private System.Data.DataColumn dataColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn colRefP;
+        private DevExpress.XtraGrid.Columns.GridColumn coObjP;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem altHesapEkleToolStripMenuItem;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colRoHspNo;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colNo1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colAd1;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPk2;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colRefP1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colNoT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colAdT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPkT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colObjPT;
+        private System.Windows.Forms.Button button4;
     }
 }
 

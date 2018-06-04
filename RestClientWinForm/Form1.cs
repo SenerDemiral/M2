@@ -287,15 +287,54 @@ namespace RestClientWinForm
         {
             var dt = dataSet1.Tables[1];
 
-            object rowPk = treeList1.FocusedNode.GetValue(colRowPk2);
-            object rowHspNo = treeList1.FocusedNode.GetValue(colRoHspNo);
+            object rowPk = treeList1.FocusedNode.GetValue(colRowPkT);
+            object rowHspNo = treeList1.FocusedNode.GetValue(colHspNoT);
             DataRow row = dt.NewRow();
             //ObjectToRow(dt, row, response.ResponseStream.Current);
-            row["RefP"] = rowPk;
+            row["ObjP"] = rowPk;
             row["No"] = "x";
             row["Ad"] = "XXXXX";
-            row["RoHspNo"] = $"{rowHspNo}.x";
+            row["HspNo"] = $"{rowHspNo}.x";
             dt.Rows.Add(row);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var dt = dataSet1.Tables[1];
+            string rs = "";
+
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+
+            var request = new AHPproxy();
+
+            // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                // States: Added, Modified, Deletede, Unchanged
+                rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
+                if (rs == "A" || rs == "M")
+                {
+                    request.RowState = rs;
+
+                    RowToObject(dt, dt.Rows[i], request);
+
+                    var reply = client.AHPupdate(request);
+
+                    ObjectToRow(dt, dt.Rows[i], reply);
+                    //dt.Rows[i]["RowPk"] = reply.RowPk;
+
+                    if (string.IsNullOrEmpty(reply.RowErr))
+                        dt.Rows[i].AcceptChanges();
+                    else
+                        dt.Rows[i].RowError = reply.RowErr;
+                }
+            }
+            channel.ShutdownAsync().Wait();
 
         }
     }

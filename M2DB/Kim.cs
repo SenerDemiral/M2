@@ -22,12 +22,12 @@ namespace M2DB
         public string Adres { get; set; }
         public string Sorumlu { get; set; }
         public string VrgDN { get; set; }
-        public XGT MusFytGrp { get; set; }    // MusteriFiyatGrubu: A, B, C
+        public XGT ObjMusFytGrp { get; set; }    // MusteriFiyatGrubu: A, B, C
     }
 
     public class KMC : KKK   // Kim.Musteri.Contact
     {
-        public KMT Prn { get; set; }
+        public KMT ObjP { get; set; }
         public string Tel { get; set; }
         public string KmlNo { get; set; }
         public string TAGs { get; set; }

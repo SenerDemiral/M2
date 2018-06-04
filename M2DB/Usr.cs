@@ -11,7 +11,7 @@ namespace M2DB
     public class UUU    // User
     {
         public string Ad { get; set; }
-        public UYT UYT { get; set; }    // User Yetkisi (tek bir yetkisi olabilir)
+        public UYT ObjUYT { get; set; }    // User Yetkisi (tek bir yetkisi olabilir)
         public string Pwd { get; set; }
         public DateTime PwdLCD { get; set; }    // Pwd LastChangeDate
 
@@ -24,10 +24,10 @@ namespace M2DB
     }
 
     [Database]
-    public class UYH    // User.YetkiHiyerarsi
+    public class UYH    // User.YetkiHiyerarsi M2M
     {
-        public UYT P { get; set; }  // Parent
-        public UYT C { get; set; }  // Child
+        public UYT ObjPrnUYT { get; set; }  // Parent
+        public UYT ObjKidUYT { get; set; }  // Child
     }
 
 }
