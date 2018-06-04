@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using Grpc.Core;
 using Rest;
 
@@ -201,6 +204,99 @@ namespace RestClientWinForm
                     }
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            gridControl2.DataSource = null;
+            //gridControl1.DataMember = null;
+            dataSet1.Tables[1].Clear();
+            Task.Run(async () => { await AHPfill(); }).Wait();
+            gridControl2.DataSource = dataSet1;
+            gridControl2.DataMember = "AHP";
+
+            treeList1.ExpandAll();
+            //treeList1.ExpandToLevel(0);
+            treeList1.MoveFirst();
+
+            treeList1.OptionsBehavior.EnableFiltering = true;
+            treeList1.OptionsBehavior.ExpandNodesOnFiltering = true;
+            treeList1.OptionsBehavior.ExpandNodesOnIncrementalSearch = true;
+            // Filter/Find da Parentlari da gosteriyor
+            treeList1.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
+
+            treeList1.OptionsSelection.SelectNodesOnRightClick = true;
+            treeList1.OptionsFind.AllowFindPanel = true;
+        }
+
+        async Task AHPfill()
+        {
+            //Dynamically create Table from class.
+            //Not fullfil our requirements. Table structure should be created at design time
+            //to use in Controls. Create maunally now.
+            //var aaaa = CreateDataTable<TblaRec>();
+            //dataSet1.Tables.Add(aaaa);
+
+            var dt = dataSet1.Tables[1];
+            //if (dt.Rows[0].RowState == DataRowState.
+
+            dt.BeginLoadData();
+            int nor = 0, ml = 0;
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+            CancellationToken token = new CancellationToken();
+
+            DataRow row;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            using (var response = client.AHPfill(new QryProxy { Query = "abc" }))
+            {
+                while (await response.ResponseStream.MoveNext(token))
+                {
+                    //var proxy = response.ResponseStream.Current;
+
+                    row = dt.NewRow();
+                    ObjectToRow(dt, row, response.ResponseStream.Current);
+                    dt.Rows.Add(row);
+
+                    nor++;
+                    //ml += proxy.CalculateSize();
+                    //MessageBox.Show(rec.Message);
+                }
+            }
+            sw.Stop();
+            dt.AcceptChanges();
+            dt.EndLoadData();
+            MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
+        }
+
+        private void gridControl2_EmbeddedNavigator_ButtonClick(object sender, DevExpress.XtraEditors.NavigatorButtonClickEventArgs e)
+        {
+            
+            ControlNavigator navigator = sender as ControlNavigator;
+            GridControl grid = navigator.NavigatableControl as GridControl;
+            GridView view = grid.FocusedView as GridView;
+            if (e.Button.ButtonType == NavigatorButtonType.Append)
+            {
+                grid.BeginInvoke(new Action(view.ShowPopupEditForm)); //ShowEditForm));
+            }
+        }
+
+        private void altHesapEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var dt = dataSet1.Tables[1];
+
+            object rowPk = treeList1.FocusedNode.GetValue(colRowPk2);
+            object rowHspNo = treeList1.FocusedNode.GetValue(colRoHspNo);
+            DataRow row = dt.NewRow();
+            //ObjectToRow(dt, row, response.ResponseStream.Current);
+            row["RefP"] = rowPk;
+            row["No"] = "x";
+            row["Ad"] = "XXXXX";
+            row["RoHspNo"] = $"{rowHspNo}.x";
+            dt.Rows.Add(row);
+
         }
     }
 }

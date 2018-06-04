@@ -16,19 +16,14 @@ namespace RestServerSC
 
         static void Main()
         {
+            M2DB.AccOps.PopAHP();
+            /*
             Db.Transact(() =>
             {
-                ReflectionExample.deneme<M2DB.AHT>(1);
-                /*
-                var H100 = new M2DB.AHT
-                {
-                    P = Db.FromId(1) as M2DB.AHT,
-                    No = "01",
-                    Ad = "Kasa TL"
-                };*/
+                ReflectionExample.deneme<M2DB.AHT>(3);
 
             });
-
+            */
 
             /*
             M2DB.TblB tb = null;

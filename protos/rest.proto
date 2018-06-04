@@ -20,6 +20,9 @@ package rest;		// namespace
 service CRUDs {
   rpc TblaFill (QryProxy) returns (stream TblaProxy) {}
   rpc TblaUpdate (TblaProxy) returns (TblaProxy) {}
+
+  rpc AHPfill (QryProxy) returns (stream AHPproxy) {}
+  rpc AHPupdate (AHPproxy) returns (AHPproxy) {}
 }
 
 message QryProxy {
@@ -37,3 +40,15 @@ message TblaProxy {
   double fldDcm = 7;	// String olabilir
   int64 fldDate = 8;	// DateTime.Ticks olarak UInt64 de tut. new DateTime(fldDate) => DateTime 
 }
+
+message AHPproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  uint64 ref_p = 4;
+  string No = 5;
+  string Ad = 6;
+  string ro_HspNo = 7; 
+}
+

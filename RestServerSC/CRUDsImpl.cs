@@ -7,6 +7,7 @@ using Grpc.Core;
 using Rest;
 using System.Reflection;
 using Starcounter;
+using M2DB;
 
 namespace RestServerSC
 {
@@ -119,6 +120,43 @@ namespace RestServerSC
             {
                 await responseStream.WriteAsync(proxy);
             }*/
+        }
+
+        public override async Task AHPfill(QryProxy request, IServerStreamWriter<AHPproxy> responseStream, ServerCallContext context)
+        {
+            AHPproxy proxy = new AHPproxy();
+            List<AHPproxy> proxyList = new List<AHPproxy>();
+
+            Type proxyType = typeof(AHPproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AHP>("select r from AHP r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, M2DB.AHP>(row);
+
+                        proxy = new AHPproxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            RefP = row.P == null ? 0 : row.P.GetObjectNo(),
+                            //RefP = 0,
+                            No = row.No,
+                            Ad = row.Ad,
+                            RoHspNo = row.HspNo
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
         }
     }
 

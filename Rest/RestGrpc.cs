@@ -32,6 +32,7 @@ namespace Rest {
 
     static readonly grpc::Marshaller<global::Rest.QryProxy> __Marshaller_QryProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.TblaProxy> __Marshaller_TblaProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AHPproxy> __Marshaller_AHPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AHPproxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
@@ -46,6 +47,20 @@ namespace Rest {
         "TblaUpdate",
         __Marshaller_TblaProxy,
         __Marshaller_TblaProxy);
+
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.AHPproxy> __Method_AHPfill = new grpc::Method<global::Rest.QryProxy, global::Rest.AHPproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "AHPfill",
+        __Marshaller_QryProxy,
+        __Marshaller_AHPproxy);
+
+    static readonly grpc::Method<global::Rest.AHPproxy, global::Rest.AHPproxy> __Method_AHPupdate = new grpc::Method<global::Rest.AHPproxy, global::Rest.AHPproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "AHPupdate",
+        __Marshaller_AHPproxy,
+        __Marshaller_AHPproxy);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -62,6 +77,16 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Rest.TblaProxy> TblaUpdate(global::Rest.TblaProxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task AHPfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.AHPproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.AHPproxy> AHPupdate(global::Rest.AHPproxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -115,6 +140,30 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_TblaUpdate, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AHPproxy> AHPfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AHPfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AHPproxy> AHPfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_AHPfill, null, options, request);
+      }
+      public virtual global::Rest.AHPproxy AHPupdate(global::Rest.AHPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AHPupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.AHPproxy AHPupdate(global::Rest.AHPproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_AHPupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.AHPproxy> AHPupdateAsync(global::Rest.AHPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AHPupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.AHPproxy> AHPupdateAsync(global::Rest.AHPproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_AHPupdate, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override CRUDsClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -128,7 +177,9 @@ namespace Rest {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_TblaFill, serviceImpl.TblaFill)
-          .AddMethod(__Method_TblaUpdate, serviceImpl.TblaUpdate).Build();
+          .AddMethod(__Method_TblaUpdate, serviceImpl.TblaUpdate)
+          .AddMethod(__Method_AHPfill, serviceImpl.AHPfill)
+          .AddMethod(__Method_AHPupdate, serviceImpl.AHPupdate).Build();
     }
 
   }
