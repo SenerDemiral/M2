@@ -49,6 +49,6 @@ message AHPproxy {
   uint64 ObjP = 4;
   string No = 5;
   string Ad = 6;
-  string HspNo = 7; 
+  string HspNo = 7;
 }
 

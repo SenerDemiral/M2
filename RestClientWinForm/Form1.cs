@@ -63,7 +63,7 @@ namespace RestClientWinForm
                     //var proxy = response.ResponseStream.Current;
                    
                     row = dt.NewRow();
-                    ObjectToRow(dt, row, response.ResponseStream.Current);
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
                    
                     nor++;
@@ -104,11 +104,11 @@ namespace RestClientWinForm
                 {
                     request.RowState = rs;
 
-                    RowToObject(dt, dt.Rows[i], request);
+                    ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
                     var reply = client.TblaUpdate(request);
 
-                    ObjectToRow(dt, dt.Rows[i], reply);
+                    ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
                     //dt.Rows[i]["RowPk"] = reply.RowPk;
 
                     if (string.IsNullOrEmpty(reply.RowErr))
@@ -118,92 +118,6 @@ namespace RestClientWinForm
                 }
             }
             channel.ShutdownAsync().Wait();
-        }
-
-        // Get table column value from obj
-        public static void RowToObject(DataTable tbl, DataRow row, object obj)
-        {
-            string colName = "";
-            object colVal = null;
-
-            for (int c = 0; c < tbl.Columns.Count; c++)
-            {
-                colName = tbl.Columns[c].ColumnName;
-                colVal = row[c];
-
-                if (colVal != DBNull.Value)
-                {
-                    if (tbl.Columns[c].DataType.Name == "DateTime")
-                        colVal = Convert.ToDateTime(colVal).Ticks;
-                    else if (tbl.Columns[c].DataType.Name == "Decimal")
-                        colVal = Convert.ToDouble(colVal);
-
-                    obj.GetType().GetProperty(colName).SetValue(obj, colVal);
-                }
-            }
-        }
-        
-        // Set obj from table column value
-        public static void ObjectToRow(DataTable tbl, DataRow row, object obj)
-        {
-            string colName = "";
-            object objVal = null;
-
-            for (int c = 0; c < tbl.Columns.Count; c++)
-            {
-                colName = tbl.Columns[c].ColumnName;
-                objVal = obj.GetType().GetProperty(colName).GetValue(obj);
-
-                if (objVal != null)
-                {
-                    if (tbl.Columns[c].DataType.Name == "DateTime")
-                        row[c] = Convert.ToDateTime(new DateTime((long)objVal));
-                    else if (tbl.Columns[c].DataType.Name == "Decimal")
-                        row[c] = Convert.ToDecimal(objVal);
-                    else
-                        row[c] = objVal;
-                }
-            }
-        }
-
-        public static DataTable CreateDataTable<T>()
-        {
-            var dt = new DataTable();
-
-            var propList = typeof(T).GetMembers(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly);
-
-            foreach (MemberInfo info in propList)
-            {
-                if (info is PropertyInfo)
-                    dt.Columns.Add(new DataColumn(info.Name, (info as PropertyInfo).PropertyType));
-                else if (info is FieldInfo)
-                    dt.Columns.Add(new DataColumn(info.Name, (info as FieldInfo).FieldType));
-            }
-
-            return dt;
-        }
-
-        public static void CopyProperties(object objSource, object objDestination)
-        {
-            //get the list of all properties in the destination object
-            var destProps = objDestination.GetType().GetProperties();
-
-            //get the list of all properties in the source object
-            foreach (var sourceProp in objSource.GetType().GetProperties())
-            {
-                foreach (var destProperty in destProps)
-                {
-                    //if we find match between source & destination properties name, set
-                    //the value to the destination property
-                    if (destProperty.Name == sourceProp.Name &&
-                            destProperty.PropertyType.IsAssignableFrom(sourceProp.PropertyType))
-                    {
-                        destProperty.SetValue(destProps, sourceProp.GetValue(
-                            sourceProp, new object[] { }), new object[] { });
-                        break;
-                    }
-                }
-            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -257,7 +171,7 @@ namespace RestClientWinForm
                     //var proxy = response.ResponseStream.Current;
 
                     row = dt.NewRow();
-                    ObjectToRow(dt, row, response.ResponseStream.Current);
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
@@ -314,24 +228,30 @@ namespace RestClientWinForm
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+                dt.Rows[i].ClearErrors();
 
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
+
                 if (rs == "A" || rs == "M")
                 {
                     request.RowState = rs;
 
-                    RowToObject(dt, dt.Rows[i], request);
+                    ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
                     var reply = client.AHPupdate(request);
 
-                    ObjectToRow(dt, dt.Rows[i], reply);
-                    //dt.Rows[i]["RowPk"] = reply.RowPk;
-
                     if (string.IsNullOrEmpty(reply.RowErr))
+                    {
+                        ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
                         dt.Rows[i].AcceptChanges();
+                    }
                     else
+                    {
+                        dt.Rows[i].RejectChanges();
                         dt.Rows[i].RowError = reply.RowErr;
+
+                    }
                 }
             }
             channel.ShutdownAsync().Wait();

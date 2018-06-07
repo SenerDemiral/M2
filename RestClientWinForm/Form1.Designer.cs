@@ -56,11 +56,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colHspNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRowPk1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.coObjP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colHspNoG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAdG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowPkG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coObjPG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.colHspNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -278,50 +278,53 @@
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colHspNo,
-            this.colNo,
-            this.colAd,
-            this.colRowPk1,
-            this.coObjP});
+            this.colHspNoG,
+            this.colNoG,
+            this.colAdG,
+            this.colRowPkG,
+            this.coObjPG});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.EditingMode = DevExpress.XtraGrid.Views.Grid.GridEditingMode.EditForm;
             // 
-            // colHspNo
+            // colHspNoG
             // 
-            this.colHspNo.Caption = "HspNo";
-            this.colHspNo.FieldName = "HspNo";
-            this.colHspNo.Name = "colHspNo";
-            this.colHspNo.Visible = true;
-            this.colHspNo.VisibleIndex = 0;
+            this.colHspNoG.Caption = "HspNo";
+            this.colHspNoG.FieldName = "HspNo";
+            this.colHspNoG.Name = "colHspNoG";
+            this.colHspNoG.Visible = true;
+            this.colHspNoG.VisibleIndex = 0;
             // 
-            // colNo
+            // colNoG
             // 
-            this.colNo.FieldName = "No";
-            this.colNo.Name = "colNo";
-            this.colNo.Visible = true;
-            this.colNo.VisibleIndex = 1;
+            this.colNoG.FieldName = "No";
+            this.colNoG.Name = "colNoG";
+            this.colNoG.Visible = true;
+            this.colNoG.VisibleIndex = 1;
             // 
-            // colAd
+            // colAdG
             // 
-            this.colAd.FieldName = "Ad";
-            this.colAd.Name = "colAd";
-            this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 2;
+            this.colAdG.FieldName = "Ad";
+            this.colAdG.Name = "colAdG";
+            this.colAdG.Visible = true;
+            this.colAdG.VisibleIndex = 2;
             // 
-            // colRowPk1
+            // colRowPkG
             // 
-            this.colRowPk1.FieldName = "RowPk";
-            this.colRowPk1.Name = "colRowPk1";
-            this.colRowPk1.Visible = true;
-            this.colRowPk1.VisibleIndex = 3;
+            this.colRowPkG.Caption = "RowPk";
+            this.colRowPkG.DisplayFormat.FormatString = "n0";
+            this.colRowPkG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colRowPkG.FieldName = "RowPk";
+            this.colRowPkG.Name = "colRowPkG";
+            this.colRowPkG.Visible = true;
+            this.colRowPkG.VisibleIndex = 3;
             // 
-            // coObjP
+            // coObjPG
             // 
-            this.coObjP.FieldName = "ObjP";
-            this.coObjP.Name = "coObjP";
-            this.coObjP.Visible = true;
-            this.coObjP.VisibleIndex = 4;
+            this.coObjPG.FieldName = "ObjP";
+            this.coObjPG.Name = "coObjPG";
+            this.coObjPG.Visible = true;
+            this.coObjPG.VisibleIndex = 4;
             // 
             // treeList1
             // 
@@ -335,6 +338,7 @@
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataMember = "AHP";
+            this.treeList1.DataSource = this.dataSet1;
             this.treeList1.KeyFieldName = "RowPk";
             this.treeList1.Location = new System.Drawing.Point(12, 278);
             this.treeList1.Name = "treeList1";
@@ -345,6 +349,7 @@
             this.treeList1.OptionsBehavior.PopulateServiceColumns = true;
             this.treeList1.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.treeList1.OptionsFind.AllowFindPanel = true;
+            this.treeList1.OptionsFind.FindFilterColumns = "HspNo;Ad";
             this.treeList1.OptionsSelection.SelectNodesOnRightClick = true;
             this.treeList1.OptionsSelection.UseIndicatorForSelection = true;
             this.treeList1.OptionsView.EnableAppearanceEvenRow = true;
@@ -473,12 +478,12 @@
         private System.Data.DataColumn dataColumn10;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colHspNo;
-        private DevExpress.XtraGrid.Columns.GridColumn colNo;
-        private DevExpress.XtraGrid.Columns.GridColumn colAd;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk1;
+        private DevExpress.XtraGrid.Columns.GridColumn colHspNoG;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoG;
+        private DevExpress.XtraGrid.Columns.GridColumn colAdG;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowPkG;
         private System.Data.DataColumn dataColumn11;
-        private DevExpress.XtraGrid.Columns.GridColumn coObjP;
+        private DevExpress.XtraGrid.Columns.GridColumn coObjPG;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem altHesapEkleToolStripMenuItem;
