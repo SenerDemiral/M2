@@ -173,10 +173,26 @@ namespace RestServerSC
                     if (request.RowState == "A" || request.RowState == "M")
                     {
                         // Hata deneme
-                        request.RowErr = "HATA";
+                        //request.RowErr = "HATA";
 
-//                        AHP row = CRUDsHelper.FromProxy<AHPproxy, AHP>(request);
-//                        request = CRUDsHelper.ToProxy<AHPproxy, AHP>(row);
+                        // Add Control
+                        // Parent Hesabi olmali
+                        // Parent Hesap altinada No uniqe olmali 
+                        // Parent Hareketleri olmamali
+                        var rec = (AHP)Db.FromId(request.ObjP);
+                        if (request.ObjP > 0 &&  rec == null)
+                            request.RowErr = "Üst Hesabı tanımsız";
+                        else if (request.RowState == "A" && Db.SQL<AHP>("select r from AHP r where r.ObjP.ObjectNo = ? and r.No = ?", request.ObjP, request.No).FirstOrDefault() != null)
+                            request.RowErr = $"{rec.HspNo} altında No: {request.No} kullanılmış";
+                        else if (Db.SlowSQL<AFD>("select r from AFD r where r.ObjectNo = ?", request.ObjP).FirstOrDefault() != null)
+                            request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            AHP row = CRUDsHelper.FromProxy<AHPproxy, AHP>(request);
+                            request = CRUDsHelper.ToProxy<AHPproxy, AHP>(row);
+                        }
+
                     }
                     else if (request.RowState == "D")
                     {

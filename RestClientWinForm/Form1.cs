@@ -248,8 +248,8 @@ namespace RestClientWinForm
                     }
                     else
                     {
-                        dt.Rows[i].RejectChanges();
                         dt.Rows[i].RowError = reply.RowErr;
+                        dt.Rows[i].RejectChanges();
 
                     }
                 }
