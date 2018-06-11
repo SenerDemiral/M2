@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Grpc.Core;
 using Rest;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace RestClientWinForm
 {
@@ -21,19 +22,6 @@ namespace RestClientWinForm
         {
             InitializeComponent();
 
-        }
-
-        private void AhpXF_Load(object sender, EventArgs e)
-        {
-            string res = "";
-            Task.Run(async () => { res = await accDataSet.AHPfill(); }).Wait();
-            //MessageBox.Show(res);
-            toolStripStatusLabel1.Text = res;
-
-            treeList1.ExpandAll();
-            //treeList1.ExpandToLevel(0);
-            treeList1.MoveFirst();
-
             treeList1.OptionsBehavior.EnableFiltering = true;
             treeList1.OptionsBehavior.ExpandNodesOnFiltering = true;
             treeList1.OptionsBehavior.ExpandNodesOnIncrementalSearch = true;
@@ -42,7 +30,24 @@ namespace RestClientWinForm
 
             treeList1.OptionsSelection.SelectNodesOnRightClick = true;
             treeList1.OptionsFind.AllowFindPanel = true;
+        }
 
+        private void AhpXF_Load(object sender, EventArgs e)
+        {
+            Fill();
+        }
+
+        private void Fill()
+        {
+            string res = "";
+            accDataSet.AHP.Clear();
+            Task.Run(async () => { res = await accDataSet.AHPfill(); }).Wait();
+            //MessageBox.Show(res);
+            toolStripStatusLabel1.Text = res;
+
+            treeList1.ExpandAll();
+            //treeList1.ExpandToLevel(0);
+            treeList1.MoveFirst();
         }
 
         private void yeniToolStripMenuItem_Click(object sender, EventArgs e)
@@ -66,9 +71,15 @@ namespace RestClientWinForm
             //    MessageBox.Show(err);
         }
 
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
         private void treeList1_NodeCellStyle(object sender, DevExpress.XtraTreeList.GetCustomNodeCellStyleEventArgs e)
         {
-            Text = e.Node.Level.ToString();
+            //Text = e.Node.Level.ToString();
             //if (e.Node.Level == 2)
 
             if (!e.Node.HasChildren)
@@ -156,12 +167,67 @@ namespace RestClientWinForm
 
         }
 
-        private void aHPBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void addToolStripButton_Click(object sender, EventArgs e)
         {
-            aHPBindingSource.EndEdit();
+            /*
+            int id = treeList1.FocusedNode.Id;
+            var aaa = accDataSet.AHP.Rows;
+            AccDataSet.AHPRow oldRow = accDataSet.AHP.Rows[treeList1.FocusedNode.Id] as AccDataSet.AHPRow;
+            //aHPBindingSource.AddNew();
+            //AccDataSet.AHPRow newRow = accDataSet.AHP.Rows[aHPBindingSource.Position] as AccDataSet.AHPRow;
+            //newRow.ObjP = oldRow.RowPk;
+
+
+            AccDataSet.AHPRow row = (AccDataSet.AHPRow)accDataSet.AHP.NewRow();
+            row.ObjP = oldRow.RowPk;
+            accDataSet.AHP.AddAHPRow(row);
+            */
+
+            //TreeListNode newNode = treeList1.AppendNode(new object[] { "Sener" }, treeList1.FocusedNode);
+            //treeList1.FocusedNode = newNode;
+            treeList1.FocusedNode = treeList1.AppendNode(new object[] { "Sener" }, treeList1.FocusedNode);
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            //aHPBindingSource.EndEdit();
+            treeList1.PostEditor();
+            treeList1.EndCurrentEdit();
             string err = accDataSet.AHPupdate();
             if (err != string.Empty)
                 MessageBox.Show(err);
+        }
+
+        private void revertToolStripButton_Click(object sender, EventArgs e)
+        {
+            treeList1.PostEditor();
+            treeList1.EndCurrentEdit();
+            accDataSet.AHP.Rows[treeList1.FocusedNode.Id].RejectChanges();
+        }
+
+        private void refreshToolStripButton_Click(object sender, EventArgs e)
+        {
+            treeList1.PostEditor();
+            treeList1.EndCurrentEdit();
+            if (accDataSet.HasChanges())
+            {
+                var res = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Refresh", MessageBoxButtons.YesNoCancel);
+                if (res == DialogResult.Cancel)
+                    return;
+                if (res == DialogResult.Yes)
+                    saveToolStripButton.PerformClick();
+            }
+            Fill();
+        }
+
+        private void deleteToolStripButton_Click(object sender, EventArgs e)
+        {
+            var aaa = treeList1.FocusedNode.Id;
+            var bbb = accDataSet.AHP.Rows[aaa];
+            if (treeList1.FocusedNode.HasChildren)
+                XtraMessageBox.Show("Alt hesabı var silemezsiniz", "Sil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                accDataSet.AHP.Rows[treeList1.FocusedNode.Id].Delete();
         }
     }
 }

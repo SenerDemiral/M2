@@ -203,7 +203,10 @@ namespace RestServerSC
                         }
                         else
                         {
-                            rec.Delete();
+                            if (Db.SQL<AHP>("select r from AHP r where r.ObjP.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                                request.RowErr = $"Alt hesabı var silemezsiniz";
+                            else
+                                rec.Delete();
                         }
                     }
                 });

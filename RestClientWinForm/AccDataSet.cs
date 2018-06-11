@@ -30,18 +30,22 @@ namespace RestClientWinForm
                 // States: Added, Modified, Deletede, Unchanged
                 rs = AHP.Rows[i].RowState.ToString().Substring(0, 1);
 
-                if (rs == "A" || rs == "M")
+                if (rs == "A" || rs == "M" || rs == "D")
                 {
                     AHP.Rows[i].ClearErrors();
                     request.RowState = rs;
 
-                    ProxyHelper.RowToProxy(AHP, AHP.Rows[i], request);
+                    if (rs == "D")
+                        request.RowPk = (ulong)AHP.Rows[i]["RowPk", DataRowVersion.Original];
+                    else
+                        ProxyHelper.RowToProxy(AHP, AHP.Rows[i], request);
                     
                     var reply = client.AHPupdate(request);
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
-                        ProxyHelper.ProxyToRow(AHP, AHP.Rows[i], reply);
+                        if (rs != "D")
+                            ProxyHelper.ProxyToRow(AHP, AHP.Rows[i], reply);
                         AHP.Rows[i].AcceptChanges();
                     }
                     else
