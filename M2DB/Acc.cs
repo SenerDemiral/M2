@@ -16,7 +16,9 @@ namespace M2DB
         public double Alc { get; set; }
 
         public bool HasP => ObjP == null ? false : true;
-        public bool HasK => Db.SQL<AHP>("select r from M2DB.AHP r where r.ObjP = ?", this).FirstOrDefault() == null ? false : true;
+        public bool HasK => Db.SQL<AHP>($"select r from {typeof(AHP)} r where {nameof(ObjP)} = ?", this).FirstOrDefault() == null ? false : true;
+        public bool HasH => Db.SQL<AFD>($"select r from {typeof(AFD)} r where {nameof(AFD.ObjAHP)} = ?", this).FirstOrDefault() == null ? false : true;
+
         public string HspNo
         {
             get
@@ -53,9 +55,12 @@ namespace M2DB
     public class AFB    // Account: FisBaslik
     {
         public DateTime Trh { get; set; }
-        public XGT ObjTur { get; set; }        // Tür 
+        public XGT ObjTur { get; set; }     // Tür 
         public string AoK { get; set; }     // Acik/Kapali
         public string Info { get; set; }
+
+        public double BrcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.ObjAFB = ?", this).Sum(x => x.Brc);
+        public double AlcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE {nameof(AFD.ObjAFB)} = ?", this).Sum(x => x.Alc);
     }
 
     [Database]
@@ -65,7 +70,7 @@ namespace M2DB
         public AHP ObjAHP { get; set; }    // Hesap
 
         public string Info { get; set; }
-        public double Tut { get; set; }
+        public double Tut { get; set; }     // Brc: +, Alc: -
 
         public string BA => Tut >= 0 ? "B" : "A";
         public double Brc => Tut >= 0 ? Tut : 0;

@@ -50,5 +50,7 @@ message AHPproxy {
   string No = 5;
   string Ad = 6;
   string HspNo = 7;
+  bool HasH = 8;
+
 }
 

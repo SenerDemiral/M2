@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using Starcounter;
 
 namespace M2DB
@@ -47,4 +49,39 @@ namespace M2DB
         public string Ad { get; set; }
     }
 
+    public static class GnlOps
+    {
+        public static void PopXGT()
+        {
+            if (Db.SQL<XGT>("select r from XGT r").FirstOrDefault() != null)
+                return; // Kayit var yapma
+
+            using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\XGT.csv", System.Text.Encoding.UTF8))
+            {
+                string line;
+                Db.Transact(() =>
+                {
+                    XGT xgt = null;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] ra = line.Split('|');
+
+                        xgt = null;
+                        if (!string.IsNullOrWhiteSpace(ra[0]))
+                        {
+                            xgt = Db.SQL<XGT>("select r FROM XGT r WHERE r.ObjP IS NULL and r.Kd = ?", ra[0]).FirstOrDefault();
+                        }
+                        new XGT
+                        {
+                            ObjP = xgt,
+                            Kd = ra[1],
+                            Ad = ra[2]
+                        };
+                    }
+                });
+
+            }
+
+        }
+    }
 }

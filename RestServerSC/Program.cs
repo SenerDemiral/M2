@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using M2DB;
 
 namespace RestServerSC
 {
@@ -17,13 +18,32 @@ namespace RestServerSC
         static void Main()
         {
             M2DB.AccOps.PopAHP();
-            /*
+            M2DB.GnlOps.PopXGT();
+
             Db.Transact(() =>
             {
-                ReflectionExample.deneme<M2DB.AHT>(3);
+                var afb = new AFB
+                {
+                    Info = "deneme",
+                    AoK = "A",
+                    Trh = DateTime.Now
+                };
+
+                new AFD
+                {
+                    ObjAFB = afb,
+                    Tut = 100,
+                };
+                new AFD
+                {
+                    ObjAFB = afb,
+                    Tut = -300,
+                };
+
+                //ReflectionExample.deneme<M2DB.AHT>(3);
 
             });
-            */
+            
 
             /*
             M2DB.TblB tb = null;

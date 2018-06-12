@@ -39,7 +39,7 @@ namespace RestClientWinForm
                         request.RowPk = (ulong)AHP.Rows[i]["RowPk", DataRowVersion.Original];
                     else
                         ProxyHelper.RowToProxy(AHP, AHP.Rows[i], request);
-                    
+
                     var reply = client.AHPupdate(request);
 
                     if (string.IsNullOrEmpty(reply.RowErr))

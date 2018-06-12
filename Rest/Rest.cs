@@ -28,20 +28,21 @@ namespace Rest {
             "eRgBIAEoCSKQAQoJVGJsYVByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdy",
             "b3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIOCgZmbGRTdHIYBCABKAkS",
             "DgoGZmxkSW50GAUgASgFEg4KBmZsZERibBgGIAEoARIOCgZmbGREY20YByAB",
-            "KAESDwoHZmxkRGF0ZRgIIAEoAyJzCghBSFBwcm94eRIRCglyb3dfc3RhdGUY",
-            "ASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2Jq",
-            "UBgEIAEoBBIKCgJObxgFIAEoCRIKCgJBZBgGIAEoCRINCgVIc3BObxgHIAEo",
-            "CTLIAQoFQ1JVRHMSLwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVz",
-            "dC5UYmxhUHJveHkiADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94",
-            "eRoPLnJlc3QuVGJsYVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJv",
-            "eHkaDi5yZXN0LkFIUHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFI",
-            "UHByb3h5Gg4ucmVzdC5BSFBwcm94eSIAYgZwcm90bzM="));
+            "KAESDwoHZmxkRGF0ZRgIIAEoAyKBAQoIQUhQcHJveHkSEQoJcm93X3N0YXRl",
+            "GAEgASgJEg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgwKBE9i",
+            "alAYBCABKAQSCgoCTm8YBSABKAkSCgoCQWQYBiABKAkSDQoFSHNwTm8YByAB",
+            "KAkSDAoESGFzSBgIIAEoCDLIAQoFQ1JVRHMSLwoIVGJsYUZpbGwSDi5yZXN0",
+            "LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJveHkiADABEjAKClRibGFVcGRhdGUS",
+            "Dy5yZXN0LlRibGFQcm94eRoPLnJlc3QuVGJsYVByb3h5IgASLQoHQUhQZmls",
+            "bBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFIUHByb3h5IgAwARItCglBSFB1",
+            "cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4ucmVzdC5BSFBwcm94eSIAYgZwcm90",
+            "bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "HasH" }, null, null, null)
           }));
     }
     #endregion
@@ -543,6 +544,7 @@ namespace Rest {
       no_ = other.no_;
       ad_ = other.ad_;
       hspNo_ = other.hspNo_;
+      hasH_ = other.hasH_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -631,6 +633,17 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "HasH" field.</summary>
+    public const int HasHFieldNumber = 8;
+    private bool hasH_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool HasH {
+      get { return hasH_; }
+      set {
+        hasH_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AHPproxy);
@@ -651,6 +664,7 @@ namespace Rest {
       if (No != other.No) return false;
       if (Ad != other.Ad) return false;
       if (HspNo != other.HspNo) return false;
+      if (HasH != other.HasH) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -664,6 +678,7 @@ namespace Rest {
       if (No.Length != 0) hash ^= No.GetHashCode();
       if (Ad.Length != 0) hash ^= Ad.GetHashCode();
       if (HspNo.Length != 0) hash ^= HspNo.GetHashCode();
+      if (HasH != false) hash ^= HasH.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -705,6 +720,10 @@ namespace Rest {
         output.WriteRawTag(58);
         output.WriteString(HspNo);
       }
+      if (HasH != false) {
+        output.WriteRawTag(64);
+        output.WriteBool(HasH);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -733,6 +752,9 @@ namespace Rest {
       }
       if (HspNo.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(HspNo);
+      }
+      if (HasH != false) {
+        size += 1 + 1;
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -765,6 +787,9 @@ namespace Rest {
       }
       if (other.HspNo.Length != 0) {
         HspNo = other.HspNo;
+      }
+      if (other.HasH != false) {
+        HasH = other.HasH;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -803,6 +828,10 @@ namespace Rest {
           }
           case 58: {
             HspNo = input.ReadString();
+            break;
+          }
+          case 64: {
+            HasH = input.ReadBool();
             break;
           }
         }

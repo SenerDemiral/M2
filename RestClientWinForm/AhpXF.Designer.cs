@@ -48,8 +48,8 @@
             this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colObjPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colHasH = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.yeniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -62,7 +62,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.aHPBindingNavigator)).BeginInit();
             this.aHPBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
-            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -188,7 +187,8 @@
             this.colNoT,
             this.colAdT,
             this.colRowPkT,
-            this.colObjPT});
+            this.colObjPT,
+            this.colHasH});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.aHPBindingSource;
@@ -198,11 +198,14 @@
             this.treeList1.OptionsBehavior.EnableFiltering = true;
             this.treeList1.OptionsBehavior.ExpandNodesOnFiltering = true;
             this.treeList1.OptionsBehavior.ExpandNodesOnIncrementalSearch = true;
+            this.treeList1.OptionsBehavior.ImmediateEditor = false;
             this.treeList1.OptionsBehavior.PopulateServiceColumns = true;
             this.treeList1.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
             this.treeList1.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.treeList1.OptionsFind.AllowFindPanel = true;
             this.treeList1.OptionsFind.FindFilterColumns = "HspNo;Ad";
+            this.treeList1.OptionsNavigation.AutoFocusNewNode = true;
+            this.treeList1.OptionsNavigation.UseTabKey = true;
             this.treeList1.OptionsSelection.SelectNodesOnRightClick = true;
             this.treeList1.OptionsSelection.UseIndicatorForSelection = true;
             this.treeList1.OptionsView.EnableAppearanceEvenRow = true;
@@ -221,7 +224,7 @@
             this.colHspNoT.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.colHspNoT.Visible = true;
             this.colHspNoT.VisibleIndex = 2;
-            this.colHspNoT.Width = 174;
+            this.colHspNoT.Width = 146;
             // 
             // colNoT
             // 
@@ -229,7 +232,7 @@
             this.colNoT.Name = "colNoT";
             this.colNoT.Visible = true;
             this.colNoT.VisibleIndex = 0;
-            this.colNoT.Width = 141;
+            this.colNoT.Width = 112;
             // 
             // colAdT
             // 
@@ -237,7 +240,7 @@
             this.colAdT.Name = "colAdT";
             this.colAdT.Visible = true;
             this.colAdT.VisibleIndex = 1;
-            this.colAdT.Width = 319;
+            this.colAdT.Width = 291;
             // 
             // colRowPkT
             // 
@@ -247,7 +250,7 @@
             this.colRowPkT.OptionsColumn.ReadOnly = true;
             this.colRowPkT.Visible = true;
             this.colRowPkT.VisibleIndex = 3;
-            this.colRowPkT.Width = 117;
+            this.colRowPkT.Width = 89;
             // 
             // colObjPT
             // 
@@ -257,21 +260,23 @@
             this.colObjPT.OptionsColumn.ReadOnly = true;
             this.colObjPT.Visible = true;
             this.colObjPT.VisibleIndex = 4;
-            this.colObjPT.Width = 117;
+            this.colObjPT.Width = 89;
+            // 
+            // colHasH
+            // 
+            this.colHasH.Caption = "H";
+            this.colHasH.FieldName = "HasH";
+            this.colHasH.Name = "colHasH";
+            this.colHasH.OptionsColumn.FixedWidth = true;
+            this.colHasH.OptionsColumn.ReadOnly = true;
+            this.colHasH.Visible = true;
+            this.colHasH.VisibleIndex = 5;
+            this.colHasH.Width = 28;
             // 
             // contextMenuStrip
             // 
-            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yeniToolStripMenuItem});
             this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(97, 26);
-            // 
-            // yeniToolStripMenuItem
-            // 
-            this.yeniToolStripMenuItem.Name = "yeniToolStripMenuItem";
-            this.yeniToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.yeniToolStripMenuItem.Text = "Yeni";
-            this.yeniToolStripMenuItem.Click += new System.EventHandler(this.yeniToolStripMenuItem_Click);
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // layoutControl1
             // 
@@ -364,7 +369,6 @@
             this.aHPBindingNavigator.ResumeLayout(false);
             this.aHPBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
-            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
@@ -389,7 +393,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPkT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colObjPT;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem yeniToolStripMenuItem;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -406,5 +409,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colHasH;
     }
 }
