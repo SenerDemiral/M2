@@ -94,6 +94,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AfbXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfbXF.Designer.cs">
+      <DependentUpon>AfbXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="AhpEditXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProxyHelper.cs" />
+    <EmbeddedResource Include="AfbXF.resx">
+      <DependentUpon>AfbXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AhpEditXF.resx">
       <DependentUpon>AhpEditXF.cs</DependentUpon>
     </EmbeddedResource>

@@ -13,6 +13,8 @@ namespace RestClientWinForm
         public string AHPupdate()
         {
             StringBuilder sb = new StringBuilder();
+            var dt = AHP;
+            var request = new AHPproxy();
 
             string rs = "";
 
@@ -20,39 +22,37 @@ namespace RestClientWinForm
             //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
             var client = new CRUDs.CRUDsClient(channel);
 
-            var request = new AHPproxy();
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
 
-            for (int i = 0; i < AHP.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
 
                 // States: Added, Modified, Deletede, Unchanged
-                rs = AHP.Rows[i].RowState.ToString().Substring(0, 1);
+                rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
                 if (rs == "A" || rs == "M" || rs == "D")
                 {
-                    AHP.Rows[i].ClearErrors();
+                    dt.Rows[i].ClearErrors();
                     request.RowState = rs;
 
                     if (rs == "D")
-                        request.RowPk = (ulong)AHP.Rows[i]["RowPk", DataRowVersion.Original];
+                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
                     else
-                        ProxyHelper.RowToProxy(AHP, AHP.Rows[i], request);
+                        ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
                     var reply = client.AHPupdate(request);
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
                         if (rs != "D")
-                            ProxyHelper.ProxyToRow(AHP, AHP.Rows[i], reply);
-                        AHP.Rows[i].AcceptChanges();
+                            ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
+                        dt.Rows[i].AcceptChanges();
                     }
                     else
                     {
-                        AHP.Rows[i].RowError = reply.RowErr;
+                        dt.Rows[i].RowError = reply.RowErr;
                         sb.AppendLine(reply.RowErr);
-                        AHP.Rows[i].RejectChanges();
+                        dt.Rows[i].RejectChanges();
 
                     }
                 }
@@ -97,6 +97,94 @@ namespace RestClientWinForm
             dt.EndLoadData();
             //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
             return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+        }
+
+        public async Task<string> AFBfill()
+        {
+            var dt = AFB;
+
+            dt.BeginLoadData();
+            int nor = 0, ml = 0;
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+            CancellationToken token = new CancellationToken();
+
+            DataRow row;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            using (var response = client.AFBfill(new QryProxy { Query = "abc" }))
+            {
+                while (await response.ResponseStream.MoveNext(token))
+                {
+                    //var proxy = response.ResponseStream.Current;
+
+                    row = dt.NewRow();
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
+                    dt.Rows.Add(row);
+
+                    nor++;
+                    ml += response.ResponseStream.Current.CalculateSize();
+                    //MessageBox.Show(rec.Message);
+                }
+            }
+            sw.Stop();
+            dt.AcceptChanges();
+            dt.EndLoadData();
+            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
+            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+        }
+
+        public string AFBupdate()
+        {
+            StringBuilder sb = new StringBuilder();
+            var dt = AFB;
+            var request = new AFBproxy();
+
+            string rs = "";
+
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+
+            // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+
+                // States: Added, Modified, Deletede, Unchanged
+                rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
+
+                if (rs == "A" || rs == "M" || rs == "D")
+                {
+                    dt.Rows[i].ClearErrors();
+                    request.RowState = rs;
+
+                    if (rs == "D")
+                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
+                    else
+                        ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
+
+                    var reply = client.AFBupdate(request);  // --------->
+
+                    if (string.IsNullOrEmpty(reply.RowErr))
+                    {
+                        if (rs != "D")
+                            ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
+                        dt.Rows[i].AcceptChanges();
+                    }
+                    else
+                    {
+                        dt.Rows[i].RowError = reply.RowErr;
+                        sb.AppendLine(reply.RowErr);
+                        dt.Rows[i].RejectChanges();
+
+                    }
+                }
+            }
+            channel.ShutdownAsync().Wait();
+
+            return sb.ToString();
         }
 
     }

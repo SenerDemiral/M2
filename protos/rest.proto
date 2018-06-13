@@ -23,6 +23,12 @@ service CRUDs {
 
   rpc AHPfill (QryProxy) returns (stream AHPproxy) {}
   rpc AHPupdate (AHPproxy) returns (AHPproxy) {}
+
+  rpc AFBfill (QryProxy) returns (stream AFBproxy) {}
+  rpc AFBupdate (AFBproxy) returns (AFBproxy) {}
+
+  rpc AFDfill (QryProxy) returns (stream AFDproxy) {}
+  rpc AFDupdate (AFDproxy) returns (AFDproxy) {}
 }
 
 message QryProxy {
@@ -51,6 +57,28 @@ message AHPproxy {
   string Ad = 6;
   string HspNo = 7;
   bool HasH = 8;
-
 }
 
+message AFBproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  int64 Trh = 4;
+  uint64 ObjTur = 5;
+  string AoK = 6;
+  string Info = 7;
+  double BrcTop = 8;
+  double AlcTop = 9;
+}
+
+message AFDproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  uint64 ObjAFB = 4;
+  uint64 ObjAHP = 5;
+  string Info = 6;
+  double Tut = 7;
+}

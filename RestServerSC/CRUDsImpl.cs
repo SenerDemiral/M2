@@ -216,6 +216,163 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
+
+        public override async Task AFBfill(QryProxy request, IServerStreamWriter<AFBproxy> responseStream, ServerCallContext context)
+        {
+            AFBproxy proxy = new AFBproxy();
+            List<AFBproxy> proxyList = new List<AFBproxy>();
+
+            Type proxyType = typeof(AFBproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AFB>("select r from AFB r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new AFBproxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            Trh = ((DateTime)row.Trh).Ticks,
+                            ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
+                            AoK = row.AoK,
+                            Info = row.Info,
+                            BrcTop = row.BrcTop,
+                            AlcTop = row.AlcTop,
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<AFBproxy> AFBupdate(AFBproxy request, ServerCallContext context)
+        {
+            var proxy = new AFBproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            AFB row = CRUDsHelper.FromProxy<AFBproxy, AFB>(request);
+                            request = CRUDsHelper.ToProxy<AFBproxy, AFB>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        var rec = (AFB)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            if (Db.SQL<AFD>("select r from AFD r where r.ObjAFB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                                request.RowErr = $"Detayı var silemezsiniz.";
+                            else
+                                rec.Delete();
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        public override async Task AFDfill(QryProxy request, IServerStreamWriter<AFDproxy> responseStream, ServerCallContext context)
+        {
+            AFDproxy proxy = new AFDproxy();
+            List<AFDproxy> proxyList = new List<AFDproxy>();
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AFD>("select r from AFD r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new AFDproxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            ObjAFB = row.ObjAFB == null ? 0 : row.ObjAFB.GetObjectNo(),
+                            ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
+                            Info = row.Info,
+                            Tut = row.Tut,
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<AFDproxy> AFDupdate(AFDproxy request, ServerCallContext context)
+        {
+            var proxy = new AFDproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            AFD row = CRUDsHelper.FromProxy<AFDproxy, AFD>(request);
+                            request = CRUDsHelper.ToProxy<AFDproxy, AFD>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        var rec = (AFD)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
     }
 
 }
