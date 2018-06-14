@@ -13,6 +13,7 @@
 // limitations under the License.
 
 syntax = "proto3";
+import "google/protobuf/wrappers.proto";	// null kullanabilmek icin https://stackoverflow.com/questions/42622015/how-to-define-an-optional-field-in-protobuf-3
 
 package rest;		// namespace
 
@@ -79,6 +80,6 @@ message AFDproxy {
 
   uint64 ObjAFB = 4;
   uint64 ObjAHP = 5;
-  string Info = 6;
+  google.protobuf.StringValue Info = 6;
   double Tut = 7;
 }

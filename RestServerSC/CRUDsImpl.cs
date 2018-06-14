@@ -239,7 +239,7 @@ namespace RestServerSC
                             Trh = ((DateTime)row.Trh).Ticks,
                             ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
                             AoK = row.AoK,
-                            Info = row.Info,
+                            Info = row.Info ?? "",
                             BrcTop = row.BrcTop,
                             AlcTop = row.AlcTop,
                         };
@@ -324,6 +324,8 @@ namespace RestServerSC
                             Info = row.Info,
                             Tut = row.Tut,
                         };
+                        //if (row.Info != null)
+                        //    proxy.Info = "bbbbb"; // row.Info;
 
                         proxyList.Add(proxy);
                     }

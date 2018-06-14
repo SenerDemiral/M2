@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AhpXF));
             this.accDataSet = new RestClientWinForm.AccDataSet();
-            this.aHPBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aHPBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ahpBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -58,9 +58,9 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aHPBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aHPBindingNavigator)).BeginInit();
-            this.aHPBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingNavigator)).BeginInit();
+            this.ahpBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -76,19 +76,19 @@
             this.accDataSet.DataSetName = "AccDataSet";
             this.accDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // aHPBindingSource
+            // ahpBindingSource
             // 
-            this.aHPBindingSource.DataMember = "AHP";
-            this.aHPBindingSource.DataSource = this.accDataSet;
+            this.ahpBindingSource.DataMember = "AHP";
+            this.ahpBindingSource.DataSource = this.accDataSet;
             // 
-            // aHPBindingNavigator
+            // ahpBindingNavigator
             // 
-            this.aHPBindingNavigator.AddNewItem = null;
-            this.aHPBindingNavigator.AutoSize = false;
-            this.aHPBindingNavigator.CountItem = null;
-            this.aHPBindingNavigator.DeleteItem = null;
-            this.aHPBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.aHPBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ahpBindingNavigator.AddNewItem = null;
+            this.ahpBindingNavigator.AutoSize = false;
+            this.ahpBindingNavigator.CountItem = null;
+            this.ahpBindingNavigator.DeleteItem = null;
+            this.ahpBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.ahpBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.toolStripSeparator1,
             this.saveToolStripButton,
@@ -98,16 +98,16 @@
             this.refreshToolStripButton,
             this.toolStripSeparator4,
             this.revertToolStripButton});
-            this.aHPBindingNavigator.Location = new System.Drawing.Point(12, 12);
-            this.aHPBindingNavigator.MoveFirstItem = null;
-            this.aHPBindingNavigator.MoveLastItem = null;
-            this.aHPBindingNavigator.MoveNextItem = null;
-            this.aHPBindingNavigator.MovePreviousItem = null;
-            this.aHPBindingNavigator.Name = "aHPBindingNavigator";
-            this.aHPBindingNavigator.PositionItem = null;
-            this.aHPBindingNavigator.Size = new System.Drawing.Size(886, 30);
-            this.aHPBindingNavigator.TabIndex = 0;
-            this.aHPBindingNavigator.Text = "bindingNavigator1";
+            this.ahpBindingNavigator.Location = new System.Drawing.Point(12, 12);
+            this.ahpBindingNavigator.MoveFirstItem = null;
+            this.ahpBindingNavigator.MoveLastItem = null;
+            this.ahpBindingNavigator.MoveNextItem = null;
+            this.ahpBindingNavigator.MovePreviousItem = null;
+            this.ahpBindingNavigator.Name = "ahpBindingNavigator";
+            this.ahpBindingNavigator.PositionItem = null;
+            this.ahpBindingNavigator.Size = new System.Drawing.Size(886, 30);
+            this.ahpBindingNavigator.TabIndex = 0;
+            this.ahpBindingNavigator.Text = "bindingNavigator1";
             // 
             // addToolStripButton
             // 
@@ -191,7 +191,7 @@
             this.colHasH});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.treeList1.DataSource = this.aHPBindingSource;
+            this.treeList1.DataSource = this.ahpBindingSource;
             this.treeList1.KeyFieldName = "RowPk";
             this.treeList1.Location = new System.Drawing.Point(12, 46);
             this.treeList1.Name = "treeList1";
@@ -281,7 +281,7 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
-            this.layoutControl1.Controls.Add(this.aHPBindingNavigator);
+            this.layoutControl1.Controls.Add(this.ahpBindingNavigator);
             this.layoutControl1.Controls.Add(this.treeList1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -338,7 +338,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.aHPBindingNavigator;
+            this.layoutControlItem2.Control = this.ahpBindingNavigator;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(890, 34);
@@ -364,10 +364,10 @@
             this.Text = "Hesap Planı [AhpXF]";
             this.Load += new System.EventHandler(this.AhpXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aHPBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aHPBindingNavigator)).EndInit();
-            this.aHPBindingNavigator.ResumeLayout(false);
-            this.aHPBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingNavigator)).EndInit();
+            this.ahpBindingNavigator.ResumeLayout(false);
+            this.ahpBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -384,8 +384,8 @@
         #endregion
 
         private AccDataSet accDataSet;
-        private System.Windows.Forms.BindingSource aHPBindingSource;
-        private System.Windows.Forms.BindingNavigator aHPBindingNavigator;
+        private System.Windows.Forms.BindingSource ahpBindingSource;
+        private System.Windows.Forms.BindingNavigator ahpBindingNavigator;
         private DevExpress.XtraTreeList.TreeList treeList1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNoT;

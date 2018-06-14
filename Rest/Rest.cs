@@ -24,31 +24,32 @@ namespace Rest {
     static RestReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdCIZCghRcnlQcm94eRINCgVxdWVy",
-            "eRgBIAEoCSKQAQoJVGJsYVByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdy",
-            "b3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIOCgZmbGRTdHIYBCABKAkS",
-            "DgoGZmxkSW50GAUgASgFEg4KBmZsZERibBgGIAEoARIOCgZmbGREY20YByAB",
-            "KAESDwoHZmxkRGF0ZRgIIAEoAyKBAQoIQUhQcHJveHkSEQoJcm93X3N0YXRl",
-            "GAEgASgJEg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgwKBE9i",
-            "alAYBCABKAQSCgoCTm8YBSABKAkSCgoCQWQYBiABKAkSDQoFSHNwTm8YByAB",
-            "KAkSDAoESGFzSBgIIAEoCCKWAQoIQUZCcHJveHkSEQoJcm93X3N0YXRlGAEg",
-            "ASgJEg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgE",
-            "IAEoAxIOCgZPYmpUdXIYBSABKAQSCwoDQW9LGAYgASgJEgwKBEluZm8YByAB",
-            "KAkSDgoGQnJjVG9wGAggASgBEg4KBkFsY1RvcBgJIAEoASJ5CghBRkRwcm94",
-            "eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3df",
-            "cGsYAyABKAQSDgoGT2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIMCgRJ",
-            "bmZvGAYgASgJEgsKA1R1dBgHIAEoATKEAwoFQ1JVRHMSLwoIVGJsYUZpbGwS",
-            "Di5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJveHkiADABEjAKClRibGFV",
-            "cGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJlc3QuVGJsYVByb3h5IgASLQoH",
-            "QUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFIUHByb3h5IgAwARIt",
-            "CglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4ucmVzdC5BSFBwcm94eSIA",
-            "Ei0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BRkJwcm94eSIA",
-            "MAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJwcm94eRoOLnJlc3QuQUZCcHJv",
-            "eHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZEcHJv",
-            "eHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3QuQUZEcHJveHkaDi5yZXN0LkFG",
-            "RHByb3h5IgBiBnByb3RvMw=="));
+            "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdBoeZ29vZ2xlL3Byb3RvYnVmL3dy",
+            "YXBwZXJzLnByb3RvIhkKCFFyeVByb3h5Eg0KBXF1ZXJ5GAEgASgJIpABCglU",
+            "YmxhUHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiABKAkS",
+            "DgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEoCRIOCgZmbGRJbnQYBSAB",
+            "KAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIPCgdmbGREYXRl",
+            "GAggASgDIoEBCghBSFBwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93",
+            "X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2JqUBgEIAEoBBIKCgJO",
+            "bxgFIAEoCRIKCgJBZBgGIAEoCRINCgVIc3BObxgHIAEoCRIMCgRIYXNIGAgg",
+            "ASgIIpYBCghBRkJwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2Vy",
+            "chgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJoGAQgASgDEg4KBk9ialR1",
+            "chgFIAEoBBILCgNBb0sYBiABKAkSDAoESW5mbxgHIAEoCRIOCgZCcmNUb3AY",
+            "CCABKAESDgoGQWxjVG9wGAkgASgBIpcBCghBRkRwcm94eRIRCglyb3dfc3Rh",
+            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDgoG",
+            "T2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIqCgRJbmZvGAYgASgLMhwu",
+            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsKA1R1dBgHIAEoATKEAwoF",
+            "Q1JVRHMSLwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxh",
+            "UHJveHkiADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJl",
+            "c3QuVGJsYVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5y",
+            "ZXN0LkFIUHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5",
+            "Gg4ucmVzdC5BSFBwcm94eSIAEi0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5",
+            "Gg4ucmVzdC5BRkJwcm94eSIAMAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJw",
+            "cm94eRoOLnJlc3QuQUZCcHJveHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQ",
+            "cm94eRoOLnJlc3QuQUZEcHJveHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3Qu",
+            "QUZEcHJveHkaDi5yZXN0LkFGRHByb3h5IgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
@@ -1238,7 +1239,7 @@ namespace Rest {
       rowPk_ = other.rowPk_;
       objAFB_ = other.objAFB_;
       objAHP_ = other.objAHP_;
-      info_ = other.info_;
+      Info = other.Info;
       tut_ = other.tut_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -1308,12 +1309,13 @@ namespace Rest {
 
     /// <summary>Field number for the "Info" field.</summary>
     public const int InfoFieldNumber = 6;
-    private string info_ = "";
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(50);
+    private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
       get { return info_; }
       set {
-        info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        info_ = value;
       }
     }
 
@@ -1359,7 +1361,7 @@ namespace Rest {
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (ObjAFB != 0UL) hash ^= ObjAFB.GetHashCode();
       if (ObjAHP != 0UL) hash ^= ObjAHP.GetHashCode();
-      if (Info.Length != 0) hash ^= Info.GetHashCode();
+      if (info_ != null) hash ^= Info.GetHashCode();
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1394,9 +1396,8 @@ namespace Rest {
         output.WriteRawTag(40);
         output.WriteUInt64(ObjAHP);
       }
-      if (Info.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(Info);
+      if (info_ != null) {
+        _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (Tut != 0D) {
         output.WriteRawTag(57);
@@ -1425,8 +1426,8 @@ namespace Rest {
       if (ObjAHP != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAHP);
       }
-      if (Info.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+      if (info_ != null) {
+        size += _single_info_codec.CalculateSizeWithTag(Info);
       }
       if (Tut != 0D) {
         size += 1 + 8;
@@ -1457,8 +1458,10 @@ namespace Rest {
       if (other.ObjAHP != 0UL) {
         ObjAHP = other.ObjAHP;
       }
-      if (other.Info.Length != 0) {
-        Info = other.Info;
+      if (other.info_ != null) {
+        if (info_ == null || other.Info != "") {
+          Info = other.Info;
+        }
       }
       if (other.Tut != 0D) {
         Tut = other.Tut;
@@ -1495,7 +1498,10 @@ namespace Rest {
             break;
           }
           case 50: {
-            Info = input.ReadString();
+            string value = _single_info_codec.Read(input);
+            if (info_ == null || value != "") {
+              Info = value;
+            }
             break;
           }
           case 57: {

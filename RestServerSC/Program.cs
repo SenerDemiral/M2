@@ -39,6 +39,11 @@ namespace RestServerSC
                     ObjAFB = afb,
                     Tut = -300,
                 };
+                new AFD
+                {
+                    ObjAFB = afb,
+                    Info = null,
+                };
 
                 //ReflectionExample.deneme<M2DB.AHT>(3);
 

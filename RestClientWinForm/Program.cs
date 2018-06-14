@@ -16,7 +16,7 @@ namespace RestClientWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AfbXF());
+            Application.Run(new AfdXF());
         }
     }
 }

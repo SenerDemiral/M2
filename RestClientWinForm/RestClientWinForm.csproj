@@ -100,6 +100,12 @@
     <Compile Include="AfbXF.Designer.cs">
       <DependentUpon>AfbXF.cs</DependentUpon>
     </Compile>
+    <Compile Include="AfdXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AfdXF.Designer.cs">
+      <DependentUpon>AfdXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="AhpEditXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="ProxyHelper.cs" />
     <EmbeddedResource Include="AfbXF.resx">
       <DependentUpon>AfbXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfdXF.resx">
+      <DependentUpon>AfdXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AhpEditXF.resx">
       <DependentUpon>AhpEditXF.cs</DependentUpon>

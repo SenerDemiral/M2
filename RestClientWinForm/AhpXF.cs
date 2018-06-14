@@ -44,7 +44,7 @@ namespace RestClientWinForm
             var row = accDataSet.AHP.Rows[id];
 
             var frm = new AhpEditXF();
-            frm.bs = aHPBindingSource;
+            frm.bs = ahpBindingSource;
             frm.ds = accDataSet;
             frm.dt = accDataSet.AHP;
             frm.dr = row;

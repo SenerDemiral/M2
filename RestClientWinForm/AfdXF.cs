@@ -11,9 +11,11 @@ using DevExpress.XtraEditors;
 
 namespace RestClientWinForm
 {
-    public partial class AfbXF : DevExpress.XtraEditors.XtraForm
+    public partial class AfdXF : DevExpress.XtraEditors.XtraForm
     {
-        public AfbXF()
+        public object ObjAFB = (ulong)350;
+
+        public AfdXF()
         {
             InitializeComponent();
         }
@@ -21,11 +23,11 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            afbGridControl.DataSource = null;
-            accDataSet.AFB.Clear();
-            Task.Run(async () => { res = await accDataSet.AFBfill(); }).Wait();
+            afdGridControl.DataSource = null;
+            accDataSet.AFD.Clear();
+            Task.Run(async () => { res = await accDataSet.AFDfill(); }).Wait();
             toolStripStatusLabel1.Text = res;
-            afbGridControl.DataSource = afbBindingSource;
+            afdGridControl.DataSource = afdBindingSource;
         }
 
         private bool UpdateDB()
@@ -34,18 +36,13 @@ namespace RestClientWinForm
             //gridView1.CloseEditor();
             //gridView1.SetFocusedRowModified();
             gridView1.UpdateCurrentRow();
-            string err = accDataSet.AFBupdate();
+            string err = accDataSet.AFDupdate();
             if (err != string.Empty)
             {
                 MessageBox.Show(err);
                 return false;
             }
             return true;
-        }
-
-        private void AfbXF_Load(object sender, EventArgs e)
-        {
-            //FillDB();
         }
 
         private void addToolStripButton_Click(object sender, EventArgs e)
@@ -55,13 +52,12 @@ namespace RestClientWinForm
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
-            //accDataSet.AFB.Rows[0].SetModified();
             UpdateDB();
         }
 
         private void deleteToolStripButton_Click(object sender, EventArgs e)
         {
-            gridView1.DeleteRow(gridView1.FocusedRowHandle);
+
         }
 
         private void refreshToolStripButton_Click(object sender, EventArgs e)
@@ -81,7 +77,7 @@ namespace RestClientWinForm
         {
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
-            accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+            accDataSet.AFD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
     }
 }
