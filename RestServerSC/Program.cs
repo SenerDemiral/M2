@@ -22,6 +22,12 @@ namespace RestServerSC
 
             Db.Transact(() =>
             {
+                new AFB
+                {
+                    AoK = "A",
+                    Trh = DateTime.Now
+                };
+                /*
                 var afb = new AFB
                 {
                     Info = "deneme",
@@ -43,7 +49,7 @@ namespace RestServerSC
                 {
                     ObjAFB = afb,
                     Info = null,
-                };
+                };*/
 
                 //ReflectionExample.deneme<M2DB.AHT>(3);
 

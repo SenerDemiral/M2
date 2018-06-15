@@ -34,6 +34,7 @@ service CRUDs {
 
 message QryProxy {
   string query = 1;
+  string param = 2;
 }
 
 message TblaProxy {

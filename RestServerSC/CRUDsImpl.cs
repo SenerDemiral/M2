@@ -304,31 +304,29 @@ namespace RestServerSC
         {
             AFDproxy proxy = new AFDproxy();
             List<AFDproxy> proxyList = new List<AFDproxy>();
+            string sel = $"SELECT r FROM AFD r WHERE r.{request.Query}";
 
             Type proxyType = typeof(AFDproxy);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
 
             await Scheduling.RunTask(() =>
             {
-                for (int i = 0; i < 1; i++)
+                foreach (var row in Db.SQL<AFD>(sel, ulong.Parse(request.Param)))
                 {
-                    foreach (var row in Db.SQL<AFD>("select r from AFD r"))
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new AFDproxy
                     {
-                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+                        RowPk = row.GetObjectNo(),
+                        ObjAFB = row.ObjAFB == null ? 0 : row.ObjAFB.GetObjectNo(),
+                        ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
+                        Info = row.Info,
+                        Tut = row.Tut,
+                    };
+                    //if (row.Info != null)
+                    //    proxy.Info = "bbbbb"; // row.Info;
 
-                        proxy = new AFDproxy
-                        {
-                            RowPk = row.GetObjectNo(),
-                            ObjAFB = row.ObjAFB == null ? 0 : row.ObjAFB.GetObjectNo(),
-                            ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
-                            Info = row.Info,
-                            Tut = row.Tut,
-                        };
-                        //if (row.Info != null)
-                        //    proxy.Info = "bbbbb"; // row.Info;
-
-                        proxyList.Add(proxy);
-                    }
+                    proxyList.Add(proxy);
                 }
             });
 

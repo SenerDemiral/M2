@@ -25,33 +25,34 @@ namespace Rest {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFwcm90b3MvcmVzdC5wcm90bxIEcmVzdBoeZ29vZ2xlL3Byb3RvYnVmL3dy",
-            "YXBwZXJzLnByb3RvIhkKCFFyeVByb3h5Eg0KBXF1ZXJ5GAEgASgJIpABCglU",
-            "YmxhUHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiABKAkS",
-            "DgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEoCRIOCgZmbGRJbnQYBSAB",
-            "KAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgHIAEoARIPCgdmbGREYXRl",
-            "GAggASgDIoEBCghBSFBwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93",
-            "X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2JqUBgEIAEoBBIKCgJO",
-            "bxgFIAEoCRIKCgJBZBgGIAEoCRINCgVIc3BObxgHIAEoCRIMCgRIYXNIGAgg",
-            "ASgIIpYBCghBRkJwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2Vy",
-            "chgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJoGAQgASgDEg4KBk9ialR1",
-            "chgFIAEoBBILCgNBb0sYBiABKAkSDAoESW5mbxgHIAEoCRIOCgZCcmNUb3AY",
-            "CCABKAESDgoGQWxjVG9wGAkgASgBIpcBCghBRkRwcm94eRIRCglyb3dfc3Rh",
-            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDgoG",
-            "T2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIqCgRJbmZvGAYgASgLMhwu",
-            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsKA1R1dBgHIAEoATKEAwoF",
-            "Q1JVRHMSLwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxh",
-            "UHJveHkiADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJl",
-            "c3QuVGJsYVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5y",
-            "ZXN0LkFIUHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5",
-            "Gg4ucmVzdC5BSFBwcm94eSIAEi0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5",
-            "Gg4ucmVzdC5BRkJwcm94eSIAMAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJw",
-            "cm94eRoOLnJlc3QuQUZCcHJveHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQ",
-            "cm94eRoOLnJlc3QuQUZEcHJveHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3Qu",
-            "QUZEcHJveHkaDi5yZXN0LkFGRHByb3h5IgBiBnByb3RvMw=="));
+            "YXBwZXJzLnByb3RvIigKCFFyeVByb3h5Eg0KBXF1ZXJ5GAEgASgJEg0KBXBh",
+            "cmFtGAIgASgJIpABCglUYmxhUHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8K",
+            "B3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEo",
+            "CRIOCgZmbGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgH",
+            "IAEoARIPCgdmbGREYXRlGAggASgDIoEBCghBSFBwcm94eRIRCglyb3dfc3Rh",
+            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoE",
+            "T2JqUBgEIAEoBBIKCgJObxgFIAEoCRIKCgJBZBgGIAEoCRINCgVIc3BObxgH",
+            "IAEoCRIMCgRIYXNIGAggASgIIpYBCghBRkJwcm94eRIRCglyb3dfc3RhdGUY",
+            "ASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJo",
+            "GAQgASgDEg4KBk9ialR1chgFIAEoBBILCgNBb0sYBiABKAkSDAoESW5mbxgH",
+            "IAEoCRIOCgZCcmNUb3AYCCABKAESDgoGQWxjVG9wGAkgASgBIpcBCghBRkRw",
+            "cm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZy",
+            "b3dfcGsYAyABKAQSDgoGT2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIq",
+            "CgRJbmZvGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsK",
+            "A1R1dBgHIAEoATKEAwoFQ1JVRHMSLwoIVGJsYUZpbGwSDi5yZXN0LlFyeVBy",
+            "b3h5Gg8ucmVzdC5UYmxhUHJveHkiADABEjAKClRibGFVcGRhdGUSDy5yZXN0",
+            "LlRibGFQcm94eRoPLnJlc3QuVGJsYVByb3h5IgASLQoHQUhQZmlsbBIOLnJl",
+            "c3QuUXJ5UHJveHkaDi5yZXN0LkFIUHByb3h5IgAwARItCglBSFB1cGRhdGUS",
+            "Di5yZXN0LkFIUHByb3h5Gg4ucmVzdC5BSFBwcm94eSIAEi0KB0FGQmZpbGwS",
+            "Di5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BRkJwcm94eSIAMAESLQoJQUZCdXBk",
+            "YXRlEg4ucmVzdC5BRkJwcm94eRoOLnJlc3QuQUZCcHJveHkiABItCgdBRkRm",
+            "aWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZEcHJveHkiADABEi0KCUFG",
+            "RHVwZGF0ZRIOLnJlc3QuQUZEcHJveHkaDi5yZXN0LkFGRHByb3h5IgBiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query", "Param" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "HasH" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "AoK", "Info", "BrcTop", "AlcTop" }, null, null, null),
@@ -88,6 +89,7 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public QryProxy(QryProxy other) : this() {
       query_ = other.query_;
+      param_ = other.param_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -107,6 +109,17 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "param" field.</summary>
+    public const int ParamFieldNumber = 2;
+    private string param_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Param {
+      get { return param_; }
+      set {
+        param_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as QryProxy);
@@ -121,6 +134,7 @@ namespace Rest {
         return true;
       }
       if (Query != other.Query) return false;
+      if (Param != other.Param) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -128,6 +142,7 @@ namespace Rest {
     public override int GetHashCode() {
       int hash = 1;
       if (Query.Length != 0) hash ^= Query.GetHashCode();
+      if (Param.Length != 0) hash ^= Param.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -145,6 +160,10 @@ namespace Rest {
         output.WriteRawTag(10);
         output.WriteString(Query);
       }
+      if (Param.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Param);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -155,6 +174,9 @@ namespace Rest {
       int size = 0;
       if (Query.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Query);
+      }
+      if (Param.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Param);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -170,6 +192,9 @@ namespace Rest {
       if (other.Query.Length != 0) {
         Query = other.Query;
       }
+      if (other.Param.Length != 0) {
+        Param = other.Param;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -183,6 +208,10 @@ namespace Rest {
             break;
           case 10: {
             Query = input.ReadString();
+            break;
+          }
+          case 18: {
+            Param = input.ReadString();
             break;
           }
         }

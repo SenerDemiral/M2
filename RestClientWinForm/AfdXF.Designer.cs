@@ -33,13 +33,13 @@
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.afdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.afdGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.afdGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjAFB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjAHP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -88,29 +88,6 @@
             this.afdBindingNavigator.Size = new System.Drawing.Size(686, 25);
             this.afdBindingNavigator.TabIndex = 0;
             this.afdBindingNavigator.Text = "bindingNavigator1";
-            // 
-            // afdGridControl
-            // 
-            this.afdGridControl.DataSource = this.afdBindingSource;
-            this.afdGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.afdGridControl.Location = new System.Drawing.Point(0, 25);
-            this.afdGridControl.MainView = this.gridView1;
-            this.afdGridControl.Name = "afdGridControl";
-            this.afdGridControl.Size = new System.Drawing.Size(686, 300);
-            this.afdGridControl.TabIndex = 1;
-            this.afdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
-            this.colObjAFB,
-            this.colObjAHP,
-            this.colInfo,
-            this.colTut});
-            this.gridView1.GridControl = this.afdGridControl;
-            this.gridView1.Name = "gridView1";
             // 
             // addToolStripButton
             // 
@@ -161,6 +138,29 @@
             this.revertToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.revertToolStripButton.Text = "toolStripButton6";
             this.revertToolStripButton.Click += new System.EventHandler(this.revertToolStripButton_Click);
+            // 
+            // afdGridControl
+            // 
+            this.afdGridControl.DataSource = this.afdBindingSource;
+            this.afdGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.afdGridControl.Location = new System.Drawing.Point(0, 25);
+            this.afdGridControl.MainView = this.gridView1;
+            this.afdGridControl.Name = "afdGridControl";
+            this.afdGridControl.Size = new System.Drawing.Size(686, 300);
+            this.afdGridControl.TabIndex = 1;
+            this.afdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colRowPk,
+            this.colObjAFB,
+            this.colObjAHP,
+            this.colInfo,
+            this.colTut});
+            this.gridView1.GridControl = this.afdGridControl;
+            this.gridView1.Name = "gridView1";
             // 
             // colRowPk
             // 
@@ -222,7 +222,7 @@
             this.Controls.Add(this.afdGridControl);
             this.Controls.Add(this.afdBindingNavigator);
             this.Name = "AfdXF";
-            this.Text = "AfdXF";
+            this.Text = "Muhasebe Fiş Detayları [AfdXF]";
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).EndInit();

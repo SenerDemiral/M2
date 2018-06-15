@@ -186,7 +186,7 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public async Task<string> AFDfill()
+        public async Task<string> AFDfill(ulong ObjAFB)
         {
             var dt = AFD;
 
@@ -200,7 +200,14 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AFDfill(new QryProxy { Query = "abc" }))
+            var q = new QryProxy();
+            if (ObjAFB != 0)
+            {
+                q.Query = "ObjAFB.ObjectNo = ?";
+                q.Param = ObjAFB.ToString();
+            }
+
+            using (var response = client.AFDfill(q))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {

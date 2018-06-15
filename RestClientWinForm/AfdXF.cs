@@ -13,7 +13,7 @@ namespace RestClientWinForm
 {
     public partial class AfdXF : DevExpress.XtraEditors.XtraForm
     {
-        public object ObjAFB = (ulong)350;
+        public object ObjAFB = (ulong)469;
 
         public AfdXF()
         {
@@ -25,7 +25,7 @@ namespace RestClientWinForm
             string res = "";
             afdGridControl.DataSource = null;
             accDataSet.AFD.Clear();
-            Task.Run(async () => { res = await accDataSet.AFDfill(); }).Wait();
+            Task.Run(async () => { res = await accDataSet.AFDfill((ulong)ObjAFB); }).Wait();
             toolStripStatusLabel1.Text = res;
             afdGridControl.DataSource = afdBindingSource;
         }

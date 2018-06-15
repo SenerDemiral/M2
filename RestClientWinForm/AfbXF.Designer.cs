@@ -213,7 +213,6 @@
             // 
             this.colBrcTop.FieldName = "BrcTop";
             this.colBrcTop.Name = "colBrcTop";
-            this.colBrcTop.OptionsColumn.ReadOnly = true;
             this.colBrcTop.Visible = true;
             this.colBrcTop.VisibleIndex = 5;
             this.colBrcTop.Width = 117;
@@ -222,7 +221,6 @@
             // 
             this.colAlcTop.FieldName = "AlcTop";
             this.colAlcTop.Name = "colAlcTop";
-            this.colAlcTop.OptionsColumn.ReadOnly = true;
             this.colAlcTop.Visible = true;
             this.colAlcTop.VisibleIndex = 6;
             this.colAlcTop.Width = 124;
