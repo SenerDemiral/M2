@@ -61,6 +61,7 @@ namespace M2DB
 
         public double BrcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.ObjAFB = ?", this).Sum(x => x.Brc);
         public double AlcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE {nameof(AFD.ObjAFB)} = ?", this).Sum(x => x.Alc);
+        public bool HasD => Db.SQL<AFD>($"select r from {typeof(AFD)} r where {nameof(AFD.ObjAFB)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
     }
 
     [Database]

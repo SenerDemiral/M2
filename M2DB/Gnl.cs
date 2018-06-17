@@ -45,6 +45,7 @@ namespace M2DB
     public class XGT    // Genel Tanimlar
     {
         public XGT ObjP { get; set; }
+        public string PKd => ObjP?.Kd;
         public string Kd { get; set; }
         public string Ad { get; set; }
     }

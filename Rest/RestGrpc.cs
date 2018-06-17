@@ -35,6 +35,7 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.AHPproxy> __Marshaller_AHPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AHPproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AFBproxy> __Marshaller_AFBproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AFBproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AFDproxy> __Marshaller_AFDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AFDproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
@@ -92,6 +93,20 @@ namespace Rest {
         __Marshaller_AFDproxy,
         __Marshaller_AFDproxy);
 
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy> __Method_XGTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "XGTfill",
+        __Marshaller_QryProxy,
+        __Marshaller_XGTproxy);
+
+    static readonly grpc::Method<global::Rest.XGTproxy, global::Rest.XGTproxy> __Method_XGTupdate = new grpc::Method<global::Rest.XGTproxy, global::Rest.XGTproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "XGTupdate",
+        __Marshaller_XGTproxy,
+        __Marshaller_XGTproxy);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -137,6 +152,16 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Rest.AFDproxy> AFDupdate(global::Rest.AFDproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task XGTfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.XGTproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.XGTproxy> XGTupdate(global::Rest.XGTproxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -262,6 +287,30 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_AFDupdate, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.XGTproxy> XGTfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return XGTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.XGTproxy> XGTfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_XGTfill, null, options, request);
+      }
+      public virtual global::Rest.XGTproxy XGTupdate(global::Rest.XGTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return XGTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.XGTproxy XGTupdate(global::Rest.XGTproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_XGTupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.XGTproxy> XGTupdateAsync(global::Rest.XGTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return XGTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.XGTproxy> XGTupdateAsync(global::Rest.XGTproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_XGTupdate, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override CRUDsClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -281,7 +330,9 @@ namespace Rest {
           .AddMethod(__Method_AFBfill, serviceImpl.AFBfill)
           .AddMethod(__Method_AFBupdate, serviceImpl.AFBupdate)
           .AddMethod(__Method_AFDfill, serviceImpl.AFDfill)
-          .AddMethod(__Method_AFDupdate, serviceImpl.AFDupdate).Build();
+          .AddMethod(__Method_AFDupdate, serviceImpl.AFDupdate)
+          .AddMethod(__Method_XGTfill, serviceImpl.XGTfill)
+          .AddMethod(__Method_XGTupdate, serviceImpl.XGTupdate).Build();
     }
 
   }

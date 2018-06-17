@@ -11,12 +11,17 @@ namespace RestClientWinForm
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /// 
+        public static MainXF MF;
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AfdXF());
+
+            MF = new MainXF();
+            MF.FillTanimlar();
+            Application.Run(MF);
         }
     }
 }

@@ -16,6 +16,10 @@ namespace RestClientWinForm
         public AfbXF()
         {
             InitializeComponent();
+
+            afbGridControl.ExternalRepository = Program.MF.persistentRepository;
+            colObjTur.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
+
         }
 
         private void FillDB()
@@ -28,24 +32,32 @@ namespace RestClientWinForm
             afbGridControl.DataSource = afbBindingSource;
         }
 
-        private bool UpdateDB()
+        private DialogResult UpdateDB(bool silent = false)
         {
             gridView1.PostEditor();
-            //gridView1.CloseEditor();
-            //gridView1.SetFocusedRowModified();
             gridView1.UpdateCurrentRow();
-            string err = accDataSet.AFBupdate();
-            if (err != string.Empty)
+            DialogResult dr = DialogResult.Yes;
+            if (accDataSet.HasChanges())
             {
-                MessageBox.Show(err);
-                return false;
+                if(silent == false)
+                    dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
+                if (dr == DialogResult.Yes)
+                {
+                    string err = accDataSet.AFBupdate();
+                    if (err != string.Empty)
+                    {
+                        MessageBox.Show(err);
+                        dr = DialogResult.Abort;
+                    }
+                }
             }
-            return true;
+
+            return dr;
         }
 
         private void AfbXF_Load(object sender, EventArgs e)
         {
-            //FillDB();
+            FillDB();
         }
 
         private void addToolStripButton_Click(object sender, EventArgs e)
@@ -55,7 +67,6 @@ namespace RestClientWinForm
 
         private void saveToolStripButton_Click(object sender, EventArgs e)
         {
-            //accDataSet.AFB.Rows[0].SetModified();
             UpdateDB();
         }
 
@@ -66,15 +77,8 @@ namespace RestClientWinForm
 
         private void refreshToolStripButton_Click(object sender, EventArgs e)
         {
-            if (accDataSet.HasChanges())
-            {
-                var res = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Refresh", MessageBoxButtons.YesNoCancel);
-                if (res == DialogResult.Cancel)
-                    return;
-                if (res == DialogResult.Yes)
-                    UpdateDB();
-            }
-            FillDB();
+            if(UpdateDB() != DialogResult.Abort)
+                FillDB();
         }
 
         private void revertToolStripButton_Click(object sender, EventArgs e)
@@ -82,6 +86,22 @@ namespace RestClientWinForm
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
             accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+        }
+
+        private void fisDetayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateDB();
+            AfdXF frm = new AfdXF();
+            object rowPk = gridView1.GetFocusedRowCellValue(colRowPk);
+            frm.ObjAFB = rowPk;
+            var dr = frm.ShowDialog();
+            if (dr == DialogResult.Yes)
+            {
+                accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].SetModified();
+                UpdateDB(true);
+            }
+
+            //gridView1.SetFocusedRowModified();
         }
     }
 }

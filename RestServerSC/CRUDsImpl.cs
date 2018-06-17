@@ -373,6 +373,93 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
+
+        public override async Task XGTfill(QryProxy request, IServerStreamWriter<XGTproxy> responseStream, ServerCallContext context)
+        {
+            XGTproxy proxy = new XGTproxy();
+            List<XGTproxy> proxyList = new List<XGTproxy>();
+
+            Type proxyType = typeof(XGTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<XGT>("select r from XGT r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new XGTproxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            ObjP = row.ObjP == null ? 0 : row.ObjP.GetObjectNo(),
+                            Kd = row.Kd,
+                            Ad = row.Ad,
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<XGTproxy> XGTupdate(XGTproxy request, ServerCallContext context)
+        {
+            var proxy = new XGTproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Hata deneme
+                        //request.RowErr = "HATA";
+
+                        // Add Control
+                        // Parent Hesabi olmali
+                        // Parent Hesap altinada No uniqe olmali 
+                        // Parent Hareketleri olmamali
+                        var rec = (XGT)Db.FromId(request.ObjP);
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            XGT row = CRUDsHelper.FromProxy<XGTproxy, XGT>(request);
+                            request = CRUDsHelper.ToProxy<XGTproxy, XGT>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        var rec = (XGT)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "AHP Rec not found";
+                        }
+                        else
+                        {
+                            if (Db.SQL<XGT>("select r from XGT r where r.ObjP.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                                request.RowErr = $"Alt hesabı var silemezsiniz";
+                            else
+                                rec.Delete();
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
     }
 
 }

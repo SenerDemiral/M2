@@ -30,6 +30,9 @@ service CRUDs {
 
   rpc AFDfill (QryProxy) returns (stream AFDproxy) {}
   rpc AFDupdate (AFDproxy) returns (AFDproxy) {}
+
+  rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
+  rpc XGTupdate (XGTproxy) returns (XGTproxy) {}
 }
 
 message QryProxy {
@@ -84,3 +87,14 @@ message AFDproxy {
   google.protobuf.StringValue Info = 6;
   double Tut = 7;
 }
+
+message XGTproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  uint64 ObjP = 4;
+  string Kd = 5;
+  string Ad = 6;
+}
+

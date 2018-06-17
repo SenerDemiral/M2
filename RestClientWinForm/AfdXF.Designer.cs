@@ -161,6 +161,9 @@
             this.colTut});
             this.gridView1.GridControl = this.afdGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             // 
             // colRowPk
             // 
@@ -168,6 +171,7 @@
             this.colRowPk.Name = "colRowPk";
             this.colRowPk.Visible = true;
             this.colRowPk.VisibleIndex = 0;
+            this.colRowPk.Width = 80;
             // 
             // colObjAFB
             // 
@@ -175,27 +179,34 @@
             this.colObjAFB.Name = "colObjAFB";
             this.colObjAFB.Visible = true;
             this.colObjAFB.VisibleIndex = 1;
+            this.colObjAFB.Width = 72;
             // 
             // colObjAHP
             // 
+            this.colObjAHP.Caption = "Hesap";
             this.colObjAHP.FieldName = "ObjAHP";
             this.colObjAHP.Name = "colObjAHP";
             this.colObjAHP.Visible = true;
             this.colObjAHP.VisibleIndex = 2;
+            this.colObjAHP.Width = 169;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 3;
+            this.colInfo.VisibleIndex = 4;
+            this.colInfo.Width = 254;
             // 
             // colTut
             // 
+            this.colTut.DisplayFormat.FormatString = "n";
+            this.colTut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTut.FieldName = "Tut";
             this.colTut.Name = "colTut";
             this.colTut.Visible = true;
-            this.colTut.VisibleIndex = 4;
+            this.colTut.VisibleIndex = 3;
+            this.colTut.Width = 93;
             // 
             // statusStrip1
             // 
@@ -223,6 +234,8 @@
             this.Controls.Add(this.afdBindingNavigator);
             this.Name = "AfdXF";
             this.Text = "Muhasebe Fiş Detayları [AfdXF]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AfdXF_FormClosing);
+            this.Load += new System.EventHandler(this.AfdXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).EndInit();

@@ -10,6 +10,42 @@ namespace RestClientWinForm
 {
     partial class AccDataSet
     {
+        public async Task<string> AHPfill()
+        {
+            var dt = AHP;
+
+            dt.BeginLoadData();
+            int nor = 0, ml = 0;
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+            CancellationToken token = new CancellationToken();
+
+            DataRow row;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            using (var response = client.AHPfill(new QryProxy { Query = "abc" }))
+            {
+                while (await response.ResponseStream.MoveNext(token))
+                {
+                    //var proxy = response.ResponseStream.Current;
+
+                    row = dt.NewRow();
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
+                    dt.Rows.Add(row);
+
+                    nor++;
+                    //ml += response.ResponseStream.Current.CalculateSize();
+                    //MessageBox.Show(rec.Message);
+                }
+            }
+            sw.Stop();
+            dt.AcceptChanges();
+            dt.EndLoadData();
+            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
+            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+        }
+
         public string AHPupdate()
         {
             StringBuilder sb = new StringBuilder();
@@ -60,42 +96,6 @@ namespace RestClientWinForm
             channel.ShutdownAsync().Wait();
 
             return sb.ToString();
-        }
-
-        public async Task<string> AHPfill()
-        {
-            var dt = AHP;
-
-            dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            using (var response = client.AHPfill(new QryProxy { Query = "abc" }))
-            {
-                while (await response.ResponseStream.MoveNext(token))
-                {
-                    //var proxy = response.ResponseStream.Current;
-
-                    row = dt.NewRow();
-                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
-                    dt.Rows.Add(row);
-
-                    nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
-                }
-            }
-            sw.Stop();
-            dt.AcceptChanges();
-            dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
         }
 
         public async Task<string> AFBfill()

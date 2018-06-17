@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfbXF));
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue3 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afbBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.afbBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -39,6 +45,8 @@
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.afbGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.fisDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -54,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.afbBindingNavigator)).BeginInit();
             this.afbBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.afbGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +151,7 @@
             // 
             // afbGridControl
             // 
+            this.afbGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.afbGridControl.DataSource = this.afbBindingSource;
             this.afbGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.afbGridControl.Location = new System.Drawing.Point(0, 25);
@@ -151,6 +161,20 @@
             this.afbGridControl.TabIndex = 1;
             this.afbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fisDetayToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(122, 26);
+            // 
+            // fisDetayToolStripMenuItem
+            // 
+            this.fisDetayToolStripMenuItem.Name = "fisDetayToolStripMenuItem";
+            this.fisDetayToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.fisDetayToolStripMenuItem.Text = "Fis Detay";
+            this.fisDetayToolStripMenuItem.Click += new System.EventHandler(this.fisDetayToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -162,8 +186,38 @@
             this.colInfo,
             this.colBrcTop,
             this.colAlcTop});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Name = "Format0";
+            formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.White;
+            formatConditionRuleValue1.Appearance.Options.UseBackColor = true;
+            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue1.Expression = "[AlcTop] <> [BrcTop]";
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gridFormatRule1.StopIfTrue = true;
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Name = "Format1";
+            formatConditionRuleValue2.Appearance.ForeColor = System.Drawing.Color.Red;
+            formatConditionRuleValue2.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue2.Expression = "[AoK] = \'A\'";
+            gridFormatRule2.Rule = formatConditionRuleValue2;
+            gridFormatRule2.StopIfTrue = true;
+            gridFormatRule3.ApplyToRow = true;
+            gridFormatRule3.Name = "Format2";
+            formatConditionRuleValue3.Appearance.ForeColor = System.Drawing.Color.Teal;
+            formatConditionRuleValue3.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue3.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue3.Expression = "[AoK] = \'K\'";
+            gridFormatRule3.Rule = formatConditionRuleValue3;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
+            this.gridView1.FormatRules.Add(gridFormatRule2);
+            this.gridView1.FormatRules.Add(gridFormatRule3);
             this.gridView1.GridControl = this.afbGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             // 
             // colRowPk
             // 
@@ -193,10 +247,11 @@
             // 
             // colAoK
             // 
+            this.colAoK.AppearanceCell.Options.UseTextOptions = true;
+            this.colAoK.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colAoK.Caption = "A/K";
             this.colAoK.FieldName = "AoK";
             this.colAoK.Name = "colAoK";
-            this.colAoK.OptionsColumn.ReadOnly = true;
             this.colAoK.Visible = true;
             this.colAoK.VisibleIndex = 3;
             this.colAoK.Width = 38;
@@ -211,16 +266,22 @@
             // 
             // colBrcTop
             // 
+            this.colBrcTop.DisplayFormat.FormatString = "n";
+            this.colBrcTop.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colBrcTop.FieldName = "BrcTop";
             this.colBrcTop.Name = "colBrcTop";
+            this.colBrcTop.OptionsColumn.ReadOnly = true;
             this.colBrcTop.Visible = true;
             this.colBrcTop.VisibleIndex = 5;
             this.colBrcTop.Width = 117;
             // 
             // colAlcTop
             // 
+            this.colAlcTop.DisplayFormat.FormatString = "n";
+            this.colAlcTop.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colAlcTop.FieldName = "AlcTop";
             this.colAlcTop.Name = "colAlcTop";
+            this.colAlcTop.OptionsColumn.ReadOnly = true;
             this.colAlcTop.Visible = true;
             this.colAlcTop.VisibleIndex = 6;
             this.colAlcTop.Width = 124;
@@ -258,6 +319,7 @@
             this.afbBindingNavigator.ResumeLayout(false);
             this.afbBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.afbGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -287,5 +349,7 @@
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fisDetayToolStripMenuItem;
     }
 }

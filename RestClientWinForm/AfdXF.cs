@@ -18,6 +18,14 @@ namespace RestClientWinForm
         public AfdXF()
         {
             InitializeComponent();
+
+            afdGridControl.ExternalRepository = Program.MF.persistentRepository;
+            colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
+        }
+
+        private void AfdXF_Load(object sender, EventArgs e)
+        {
+            FillDB();
         }
 
         private void FillDB()
@@ -30,19 +38,31 @@ namespace RestClientWinForm
             afdGridControl.DataSource = afdBindingSource;
         }
 
-        private bool UpdateDB()
+        private DialogResult UpdateDB()
         {
             gridView1.PostEditor();
-            //gridView1.CloseEditor();
-            //gridView1.SetFocusedRowModified();
             gridView1.UpdateCurrentRow();
-            string err = accDataSet.AFDupdate();
-            if (err != string.Empty)
+            DialogResult dr = DialogResult.OK;
+
+            // Ok:    No change
+            // Yes:   Update succesfull
+            // Abort: Hata
+            // No:    Update var kadetmedi
+
+            if (accDataSet.HasChanges())
             {
-                MessageBox.Show(err);
-                return false;
+                dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
+                if (dr == DialogResult.Yes)
+                {
+                    string err = accDataSet.AFDupdate();
+                    if (err != string.Empty)
+                    {
+                        MessageBox.Show(err);
+                        dr = DialogResult.Abort;
+                    }
+                }
             }
-            return true;
+            return dr;
         }
 
         private void addToolStripButton_Click(object sender, EventArgs e)
@@ -62,14 +82,7 @@ namespace RestClientWinForm
 
         private void refreshToolStripButton_Click(object sender, EventArgs e)
         {
-            if (accDataSet.HasChanges())
-            {
-                var res = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Refresh", MessageBoxButtons.YesNoCancel);
-                if (res == DialogResult.Cancel)
-                    return;
-                if (res == DialogResult.Yes)
-                    UpdateDB();
-            }
+            UpdateDB();
             FillDB();
         }
 
@@ -78,6 +91,20 @@ namespace RestClientWinForm
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
             accDataSet.AFD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+        }
+
+        private void AfdXF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dr = UpdateDB();
+            if (dr == DialogResult.Cancel)
+                e.Cancel = true;
+            else
+                DialogResult = DialogResult.Yes;
+        }
+
+        private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            gridView1.SetFocusedRowCellValue(colObjAFB, ObjAFB);
         }
     }
 }
