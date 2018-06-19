@@ -41,18 +41,22 @@ namespace Rest {
             "CgRJbmZvGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsK",
             "A1R1dBgHIAEoASJkCghYR1Rwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoH",
             "cm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2JqUBgEIAEoBBIK",
-            "CgJLZBgFIAEoCRIKCgJBZBgGIAEoCTLiAwoFQ1JVRHMSLwoIVGJsYUZpbGwS",
-            "Di5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJveHkiADABEjAKClRibGFV",
-            "cGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJlc3QuVGJsYVByb3h5IgASLQoH",
-            "QUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFIUHByb3h5IgAwARIt",
-            "CglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4ucmVzdC5BSFBwcm94eSIA",
-            "Ei0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BRkJwcm94eSIA",
-            "MAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJwcm94eRoOLnJlc3QuQUZCcHJv",
-            "eHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZEcHJv",
-            "eHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3QuQUZEcHJveHkaDi5yZXN0LkFG",
-            "RHByb3h5IgASLQoHWEdUZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlhH",
-            "VHByb3h5IgAwARItCglYR1R1cGRhdGUSDi5yZXN0LlhHVHByb3h5Gg4ucmVz",
-            "dC5YR1Rwcm94eSIAYgZwcm90bzM="));
+            "CgJLZBgFIAEoCRIKCgJBZBgGIAEoCSJoCghYREtwcm94eRIRCglyb3dfc3Rh",
+            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoD",
+            "VHJoGAQgASgDEg4KBk9iakR2ehgFIAEoBBILCgNLdXIYBiABKAEywAQKBUNS",
+            "VURzEi8KCFRibGFGaWxsEg4ucmVzdC5RcnlQcm94eRoPLnJlc3QuVGJsYVBy",
+            "b3h5IgAwARIwCgpUYmxhVXBkYXRlEg8ucmVzdC5UYmxhUHJveHkaDy5yZXN0",
+            "LlRibGFQcm94eSIAEi0KB0FIUGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVz",
+            "dC5BSFBwcm94eSIAMAESLQoJQUhQdXBkYXRlEg4ucmVzdC5BSFBwcm94eRoO",
+            "LnJlc3QuQUhQcHJveHkiABItCgdBRkJmaWxsEg4ucmVzdC5RcnlQcm94eRoO",
+            "LnJlc3QuQUZCcHJveHkiADABEi0KCUFGQnVwZGF0ZRIOLnJlc3QuQUZCcHJv",
+            "eHkaDi5yZXN0LkFGQnByb3h5IgASLQoHQUZEZmlsbBIOLnJlc3QuUXJ5UHJv",
+            "eHkaDi5yZXN0LkFGRHByb3h5IgAwARItCglBRkR1cGRhdGUSDi5yZXN0LkFG",
+            "RHByb3h5Gg4ucmVzdC5BRkRwcm94eSIAEi0KB1hHVGZpbGwSDi5yZXN0LlFy",
+            "eVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdUdXBkYXRlEg4ucmVz",
+            "dC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdYREtmaWxsEg4ucmVz",
+            "dC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0KCVhES3VwZGF0ZRIO",
+            "LnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -61,7 +65,8 @@ namespace Rest {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "HasH" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "AoK", "Info", "BrcTop", "AlcTop" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjAFB", "ObjAHP", "Info", "Tut" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "Kd", "Ad" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "Kd", "Ad" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjDvz", "Kur" }, null, null, null)
           }));
     }
     #endregion
@@ -225,6 +230,9 @@ namespace Rest {
 
   }
 
+  /// <summary>
+  /// Deneme
+  /// </summary>
   public sealed partial class TblaProxy : pb::IMessage<TblaProxy> {
     private static readonly pb::MessageParser<TblaProxy> _parser = new pb::MessageParser<TblaProxy>(() => new TblaProxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -559,6 +567,9 @@ namespace Rest {
 
   }
 
+  /// <summary>
+  /// Muhasebe Hesap Plani
+  /// </summary>
   public sealed partial class AHPproxy : pb::IMessage<AHPproxy> {
     private static readonly pb::MessageParser<AHPproxy> _parser = new pb::MessageParser<AHPproxy>(() => new AHPproxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -887,6 +898,9 @@ namespace Rest {
 
   }
 
+  /// <summary>
+  /// Muhasebe Fisleri
+  /// </summary>
   public sealed partial class AFBproxy : pb::IMessage<AFBproxy> {
     private static readonly pb::MessageParser<AFBproxy> _parser = new pb::MessageParser<AFBproxy>(() => new AFBproxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -1243,6 +1257,9 @@ namespace Rest {
 
   }
 
+  /// <summary>
+  /// Muhasebe Fis Detaylari
+  /// </summary>
   public sealed partial class AFDproxy : pb::IMessage<AFDproxy> {
     private static readonly pb::MessageParser<AFDproxy> _parser = new pb::MessageParser<AFDproxy>(() => new AFDproxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -1548,6 +1565,9 @@ namespace Rest {
 
   }
 
+  /// <summary>
+  /// GenelTanimlari
+  /// </summary>
   public sealed partial class XGTproxy : pb::IMessage<XGTproxy> {
     private static readonly pb::MessageParser<XGTproxy> _parser = new pb::MessageParser<XGTproxy>(() => new XGTproxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -1812,6 +1832,284 @@ namespace Rest {
           }
           case 50: {
             Ad = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// DovizKurlari
+  /// </summary>
+  public sealed partial class XDKproxy : pb::IMessage<XDKproxy> {
+    private static readonly pb::MessageParser<XDKproxy> _parser = new pb::MessageParser<XDKproxy>(() => new XDKproxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<XDKproxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.RestReflection.Descriptor.MessageTypes[6]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XDKproxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XDKproxy(XDKproxy other) : this() {
+      rowState_ = other.rowState_;
+      rowErr_ = other.rowErr_;
+      rowPk_ = other.rowPk_;
+      trh_ = other.trh_;
+      objDvz_ = other.objDvz_;
+      kur_ = other.kur_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XDKproxy Clone() {
+      return new XDKproxy(this);
+    }
+
+    /// <summary>Field number for the "row_state" field.</summary>
+    public const int RowStateFieldNumber = 1;
+    private string rowState_ = "";
+    /// <summary>
+    /// Inserted/Modified/Deleted/Unchanged
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowState {
+      get { return rowState_; }
+      set {
+        rowState_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_err" field.</summary>
+    public const int RowErrFieldNumber = 2;
+    private string rowErr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowErr {
+      get { return rowErr_; }
+      set {
+        rowErr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_pk" field.</summary>
+    public const int RowPkFieldNumber = 3;
+    private ulong rowPk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowPk {
+      get { return rowPk_; }
+      set {
+        rowPk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Trh" field.</summary>
+    public const int TrhFieldNumber = 4;
+    private long trh_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Trh {
+      get { return trh_; }
+      set {
+        trh_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "ObjDvz" field.</summary>
+    public const int ObjDvzFieldNumber = 5;
+    private ulong objDvz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong ObjDvz {
+      get { return objDvz_; }
+      set {
+        objDvz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Kur" field.</summary>
+    public const int KurFieldNumber = 6;
+    private double kur_;
+    /// <summary>
+    /// Dovizin TRL karsiligi
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Kur {
+      get { return kur_; }
+      set {
+        kur_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as XDKproxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(XDKproxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowState != other.RowState) return false;
+      if (RowErr != other.RowErr) return false;
+      if (RowPk != other.RowPk) return false;
+      if (Trh != other.Trh) return false;
+      if (ObjDvz != other.ObjDvz) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Kur, other.Kur)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowState.Length != 0) hash ^= RowState.GetHashCode();
+      if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
+      if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (Trh != 0L) hash ^= Trh.GetHashCode();
+      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (Kur != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Kur);
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowState.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RowState);
+      }
+      if (RowErr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RowErr);
+      }
+      if (RowPk != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RowPk);
+      }
+      if (Trh != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(Trh);
+      }
+      if (ObjDvz != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(ObjDvz);
+      }
+      if (Kur != 0D) {
+        output.WriteRawTag(49);
+        output.WriteDouble(Kur);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowState.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowState);
+      }
+      if (RowErr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowErr);
+      }
+      if (RowPk != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (Trh != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
+      }
+      if (ObjDvz != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      }
+      if (Kur != 0D) {
+        size += 1 + 8;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(XDKproxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowState.Length != 0) {
+        RowState = other.RowState;
+      }
+      if (other.RowErr.Length != 0) {
+        RowErr = other.RowErr;
+      }
+      if (other.RowPk != 0UL) {
+        RowPk = other.RowPk;
+      }
+      if (other.Trh != 0L) {
+        Trh = other.Trh;
+      }
+      if (other.ObjDvz != 0UL) {
+        ObjDvz = other.ObjDvz;
+      }
+      if (other.Kur != 0D) {
+        Kur = other.Kur;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RowState = input.ReadString();
+            break;
+          }
+          case 18: {
+            RowErr = input.ReadString();
+            break;
+          }
+          case 24: {
+            RowPk = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            Trh = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            ObjDvz = input.ReadUInt64();
+            break;
+          }
+          case 49: {
+            Kur = input.ReadDouble();
             break;
           }
         }

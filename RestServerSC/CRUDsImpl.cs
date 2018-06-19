@@ -323,9 +323,6 @@ namespace RestServerSC
                         Info = row.Info,
                         Tut = row.Tut,
                     };
-                    //if (row.Info != null)
-                    //    proxy.Info = "bbbbb"; // row.Info;
-
                     proxyList.Add(proxy);
                 }
             });
@@ -452,6 +449,96 @@ namespace RestServerSC
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
                                 rec.Delete();
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        public override async Task XDKfill(QryProxy request, IServerStreamWriter<XDKproxy> responseStream, ServerCallContext context)
+        {
+            XDKproxy proxy;// = new XDKproxy();
+            List<XDKproxy> proxyList = new List<XDKproxy>();
+            Type proxyType = typeof(XGTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+            long dtt = 0;
+            DateTime dt;
+            if (request.Query == "Trh")
+            {
+                dtt = long.Parse(request.Param);
+                dt = new DateTime(dtt);
+                //var rows = Db.SQL<XDK>("select r from XDK r");
+
+                var aaa = dt;
+                await Scheduling.RunTask(() =>
+                {
+                    var dvzP = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP IS NULL and r.Kd = ?", "Dvz").FirstOrDefault();
+                    var dvzs = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP = ?", dvzP);
+
+                    foreach (var dvz in dvzs)
+                    {
+                        var row = Db.SQL<XDK>("select r from XDK r WHERE r.Trh = ? and r.ObjDvz = ?", dt, dvz).FirstOrDefault();
+                        if(row == null)
+                        {
+                            proxy = new XDKproxy
+                            {
+                                RowPk = 0,
+                                ObjDvz = dvz.GetObjectNo(),
+                                Trh = dt.Ticks,
+                                Kur = dvz.Kd == "TRL" ? 1 : 0
+                            };
+                        }
+                        else
+                            proxy = CRUDsHelper.ToProxy<XDKproxy, XDK>(row);
+
+                        proxyList.Add(proxy);
+                    }
+                });
+
+            }
+            else
+            {
+                await Scheduling.RunTask(() =>
+                {
+                    var rows = Db.SQL<XDK>("select r from XDK r");
+                    foreach (var row in rows)
+                    {
+                        proxy = CRUDsHelper.ToProxy<XDKproxy, XDK>(row);
+
+                        proxyList.Add(proxy);
+                    }
+                });
+            }
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<XDKproxy> XDKupdate(XDKproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            XDK row = CRUDsHelper.FromProxy<XDKproxy, XDK>(request);
+                            request = CRUDsHelper.ToProxy<XDKproxy, XDK>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        var rec = (XDK)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
                         }
                     }
                 });

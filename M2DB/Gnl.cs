@@ -50,8 +50,21 @@ namespace M2DB
         public string Ad { get; set; }
     }
 
+    [Database]
+    public class XDK    // Genel DovizKurlari
+    {
+        public XGT ObjDvz { get; set; }
+        public DateTime Trh { get; set; }
+        public double Kur { get; set; }
+    }
+
     public static class GnlOps
     {
+        public static Tuple<object,double> TrhDvzKur(DateTime Trh)
+        {
+            return new Tuple<object, double>(365, 4.57);
+        }
+
         public static void PopXGT()
         {
             if (Db.SQL<XGT>("select r from XGT r").FirstOrDefault() != null)

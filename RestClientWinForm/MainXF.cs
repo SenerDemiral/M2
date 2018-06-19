@@ -58,5 +58,11 @@ namespace RestClientWinForm
             AfbXF frm = new AfbXF();
             frm.Show();
         }
+
+        private void XDKbutton_Click(object sender, EventArgs e)
+        {
+            XdkXF frm = new XdkXF();
+            frm.Show();
+        }
     }
 }

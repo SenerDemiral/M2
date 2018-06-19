@@ -12,7 +12,7 @@
   <xs:element name="MainDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="MainDataSet" msprop:Generator_UserDSName="MainDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="XGT" msprop:Generator_TableClassName="XGTDataTable" msprop:Generator_TableVarName="tableXGT" msprop:Generator_RowChangedName="XGTRowChanged" msprop:Generator_TablePropName="XGT" msprop:Generator_RowDeletingName="XGTRowDeleting" msprop:Generator_RowChangingName="XGTRowChanging" msprop:Generator_RowEvHandlerName="XGTRowChangeEventHandler" msprop:Generator_RowDeletedName="XGTRowDeleted" msprop:Generator_RowClassName="XGTRow" msprop:Generator_UserTableName="XGT" msprop:Generator_RowEvArgName="XGTRowChangeEvent">
+        <xs:element name="XGT" msprop:Generator_TableClassName="XGTDataTable" msprop:Generator_TableVarName="tableXGT" msprop:Generator_TablePropName="XGT" msprop:Generator_RowDeletingName="XGTRowDeleting" msprop:Generator_RowChangingName="XGTRowChanging" msprop:Generator_RowEvHandlerName="XGTRowChangeEventHandler" msprop:Generator_RowDeletedName="XGTRowDeleted" msprop:Generator_UserTableName="XGT" msprop:Generator_RowChangedName="XGTRowChanged" msprop:Generator_RowEvArgName="XGTRowChangeEvent" msprop:Generator_RowClassName="XGTRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RowPk" msprop:Generator_ColumnVarNameInTable="columnRowPk" msprop:Generator_ColumnPropNameInRow="RowPk" msprop:Generator_ColumnPropNameInTable="RowPkColumn" msprop:Generator_UserColumnName="RowPk" type="xs:unsignedLong" minOccurs="0" />
@@ -22,12 +22,22 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="AHP" msprop:Generator_TableClassName="AHPDataTable" msprop:Generator_TableVarName="tableAHP" msprop:Generator_TablePropName="AHP" msprop:Generator_RowDeletingName="AHPRowDeleting" msprop:Generator_RowChangingName="AHPRowChanging" msprop:Generator_RowEvHandlerName="AHPRowChangeEventHandler" msprop:Generator_RowDeletedName="AHPRowDeleted" msprop:Generator_UserTableName="AHP" msprop:Generator_RowChangedName="AHPRowChanged" msprop:Generator_RowEvArgName="AHPRowChangeEvent" msprop:Generator_RowClassName="AHPRow">
+        <xs:element name="AHP" msprop:Generator_TableClassName="AHPDataTable" msprop:Generator_TableVarName="tableAHP" msprop:Generator_RowChangedName="AHPRowChanged" msprop:Generator_TablePropName="AHP" msprop:Generator_RowDeletingName="AHPRowDeleting" msprop:Generator_RowChangingName="AHPRowChanging" msprop:Generator_RowEvHandlerName="AHPRowChangeEventHandler" msprop:Generator_RowDeletedName="AHPRowDeleted" msprop:Generator_RowClassName="AHPRow" msprop:Generator_UserTableName="AHP" msprop:Generator_RowEvArgName="AHPRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RowPk" msprop:Generator_ColumnVarNameInTable="columnRowPk" msprop:Generator_ColumnPropNameInRow="RowPk" msprop:Generator_ColumnPropNameInTable="RowPkColumn" msprop:Generator_UserColumnName="RowPk" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="HspNo" msprop:Generator_ColumnVarNameInTable="columnHspNo" msprop:Generator_ColumnPropNameInRow="HspNo" msprop:Generator_ColumnPropNameInTable="HspNoColumn" msprop:Generator_UserColumnName="HspNo" type="xs:string" minOccurs="0" />
               <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="XDK" msprop:Generator_TableClassName="XDKDataTable" msprop:Generator_TableVarName="tableXDK" msprop:Generator_TablePropName="XDK" msprop:Generator_RowDeletingName="XDKRowDeleting" msprop:Generator_RowChangingName="XDKRowChanging" msprop:Generator_RowEvHandlerName="XDKRowChangeEventHandler" msprop:Generator_RowDeletedName="XDKRowDeleted" msprop:Generator_UserTableName="XDK" msprop:Generator_RowChangedName="XDKRowChanged" msprop:Generator_RowEvArgName="XDKRowChangeEvent" msprop:Generator_RowClassName="XDKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowPk" msprop:Generator_ColumnVarNameInTable="columnRowPk" msprop:Generator_ColumnPropNameInRow="RowPk" msprop:Generator_ColumnPropNameInTable="RowPkColumn" msprop:Generator_UserColumnName="RowPk" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="ObjDvz" msprop:Generator_ColumnVarNameInTable="columnObjDvz" msprop:Generator_ColumnPropNameInRow="ObjDvz" msprop:Generator_ColumnPropNameInTable="ObjDvzColumn" msprop:Generator_UserColumnName="ObjDvz" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Trh" msprop:Generator_ColumnVarNameInTable="columnTrh" msprop:Generator_ColumnPropNameInRow="Trh" msprop:Generator_ColumnPropNameInTable="TrhColumn" msprop:Generator_UserColumnName="Trh" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Kur" msprop:Generator_ColumnVarNameInTable="columnKur" msprop:Generator_ColumnPropNameInRow="Kur" msprop:Generator_ColumnPropNameInTable="KurColumn" msprop:Generator_UserColumnName="Kur" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

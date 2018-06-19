@@ -36,15 +36,16 @@
             this.xgtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.DvzRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.AHPrepositoryItemSearchLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
+            this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.XDKbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,11 +112,6 @@
             this.DvzRepositoryItemLookUpEdit.Name = "DvzRepositoryItemLookUpEdit";
             this.DvzRepositoryItemLookUpEdit.ValueMember = "RowPk";
             // 
-            // ahpBindingSource
-            // 
-            this.ahpBindingSource.DataMember = "AHP";
-            this.ahpBindingSource.DataSource = this.mainDataSet;
-            // 
             // AHPrepositoryItemSearchLookUpEdit
             // 
             this.AHPrepositoryItemSearchLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -126,6 +122,11 @@
             this.AHPrepositoryItemSearchLookUpEdit.ValueMember = "RowPk";
             this.AHPrepositoryItemSearchLookUpEdit.View = this.repositoryItemSearchLookUpEdit1View;
             // 
+            // ahpBindingSource
+            // 
+            this.ahpBindingSource.DataMember = "AHP";
+            this.ahpBindingSource.DataSource = this.mainDataSet;
+            // 
             // repositoryItemSearchLookUpEdit1View
             // 
             this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
@@ -133,11 +134,22 @@
             this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // XDKbutton
+            // 
+            this.XDKbutton.Location = new System.Drawing.Point(22, 97);
+            this.XDKbutton.Name = "XDKbutton";
+            this.XDKbutton.Size = new System.Drawing.Size(75, 23);
+            this.XDKbutton.TabIndex = 2;
+            this.XDKbutton.Text = "XDK";
+            this.XDKbutton.UseVisualStyleBackColor = true;
+            this.XDKbutton.Click += new System.EventHandler(this.XDKbutton_Click);
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.XDKbutton);
             this.Controls.Add(this.AFBbutton);
             this.Controls.Add(this.AHPbutton);
             this.Name = "MainXF";
@@ -146,8 +158,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
@@ -165,5 +177,6 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit AHPrepositoryItemSearchLookUpEdit;
         private System.Windows.Forms.BindingSource ahpBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
+        private System.Windows.Forms.Button XDKbutton;
     }
 }

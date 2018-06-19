@@ -33,6 +33,9 @@ service CRUDs {
 
   rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
   rpc XGTupdate (XGTproxy) returns (XGTproxy) {}
+
+  rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
+  rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
 }
 
 message QryProxy {
@@ -40,6 +43,7 @@ message QryProxy {
   string param = 2;
 }
 
+// Deneme
 message TblaProxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
@@ -52,6 +56,7 @@ message TblaProxy {
   int64 fldDate = 8;	// DateTime.Ticks olarak UInt64 de tut. new DateTime(fldDate) => DateTime 
 }
 
+// Muhasebe Hesap Plani
 message AHPproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
@@ -64,6 +69,7 @@ message AHPproxy {
   bool HasH = 8;
 }
 
+// Muhasebe Fisleri
 message AFBproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
@@ -77,6 +83,7 @@ message AFBproxy {
   double AlcTop = 9;
 }
 
+// Muhasebe Fis Detaylari
 message AFDproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
@@ -88,6 +95,7 @@ message AFDproxy {
   double Tut = 7;
 }
 
+// GenelTanimlari
 message XGTproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
@@ -96,5 +104,16 @@ message XGTproxy {
   uint64 ObjP = 4;
   string Kd = 5;
   string Ad = 6;
+}
+
+// DovizKurlari
+message XDKproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  int64 Trh = 4;
+  uint64 ObjDvz = 5;
+  double Kur = 6;	// Dovizin TRL karsiligi
 }
 
