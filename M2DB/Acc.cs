@@ -77,8 +77,8 @@ namespace M2DB
         public double TutTL { get; set; }
 
         public string BA => Tut >= 0 ? "B" : "A";
-        public double Brc => Tut >= 0 ? Tut : 0;
-        public double Alc => Tut < 0 ? -Tut : 0;
+        public double Brc => Tut >= 0 ? TutTL : 0;
+        public double Alc => Tut < 0 ? -TutTL : 0;
     }
 
     public static class AccOps

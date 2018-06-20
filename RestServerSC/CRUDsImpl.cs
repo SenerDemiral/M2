@@ -272,8 +272,20 @@ namespace RestServerSC
                         // Add Control
                         // Parent Hesabi olmali
 
+                        if(request.RowState == "M")
+                        {
+                            AFB oldAFB = Db.FromId<AFB>(request.RowPk);
+                            if(request.AoK == "K")
+                            {
+                                if (oldAFB.BrcTop != oldAFB.AlcTop)
+                                    request.RowErr = "Brc = Alc olmalı.";
+                            }
+                        }
                         if (request.RowErr == string.Empty)
                         {
+                            if (request.ObjTur == 0)
+                                request.ObjTur = GnlOps.XGTfind("AFB.Tur", "MHS").GetObjectNo();
+
                             AFB row = CRUDsHelper.FromProxy<AFBproxy, AFB>(request);
                             request = CRUDsHelper.ToProxy<AFBproxy, AFB>(row);
                         }

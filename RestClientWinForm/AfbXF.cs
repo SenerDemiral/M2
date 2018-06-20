@@ -104,5 +104,11 @@ namespace RestClientWinForm
 
             //gridView1.SetFocusedRowModified();
         }
+
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            if (gridView1.GetFocusedRowCellValue(colAoK).ToString() == "K")
+                e.Cancel = true;
+        }
     }
 }

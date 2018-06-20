@@ -31,6 +31,10 @@ namespace RestClientWinForm
         private void AfdXF_Load(object sender, EventArgs e)
         {
             ObjAFB = AFBRow.RowPk;
+            if (AFBRow.AoK == "K")
+                gridView1.OptionsBehavior.ReadOnly = true;
+            Text += " Kapalı";
+
             QryProxy qp = new QryProxy
             {
                 Query = "Trh",
@@ -39,11 +43,11 @@ namespace RestClientWinForm
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
             FillDB();
+            
         }
 
         private void FillDB()
         {
-
             string res = "";
             afdGridControl.DataSource = null;
             accDataSet.AFD.Clear();
@@ -151,6 +155,15 @@ namespace RestClientWinForm
                 var kur = (float)gridView1.GetFocusedRowCellValue(colKur);
                 double tutTL = Math.Round(tut * kur, 2);
                 gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
+                gridView1.UpdateSummary();
+            }
+        }
+
+        private void gridView1_CustomDrawFooterCell(object sender, DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs e)
+        {
+            if(e.Column.FieldName == "TutTL" && (double)e.Info.Value < 0)
+            {
+                e.Appearance.ForeColor = Color.MediumVioletRed;
             }
         }
     }

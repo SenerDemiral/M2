@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfdXF));
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.afdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -47,7 +49,7 @@
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjDvz = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DvzRepositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.xDKBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTutTL = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,7 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xDKBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -127,7 +129,7 @@
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.saveToolStripButton.Text = "Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
@@ -137,7 +139,7 @@
             this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
             this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.deleteToolStripButton.Text = "Delete";
             this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
@@ -147,7 +149,7 @@
             this.refreshToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripButton.Image")));
             this.refreshToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.refreshToolStripButton.Name = "refreshToolStripButton";
-            this.refreshToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.refreshToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.refreshToolStripButton.Text = "Refresh";
             this.refreshToolStripButton.Click += new System.EventHandler(this.refreshToolStripButton_Click);
             // 
@@ -157,7 +159,7 @@
             this.revertToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("revertToolStripButton.Image")));
             this.revertToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.revertToolStripButton.Name = "revertToolStripButton";
-            this.revertToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.revertToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.revertToolStripButton.Text = "toolStripButton6";
             this.revertToolStripButton.Click += new System.EventHandler(this.revertToolStripButton_Click);
             // 
@@ -184,10 +186,24 @@
             this.colObjDvz,
             this.colKur,
             this.colTutTL});
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colTut;
+            gridFormatRule1.Name = "FormatAlc";
+            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
+            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Less;
+            formatConditionRuleValue1.Value1 = 0D;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gridFormatRule1.StopIfTrue = true;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
             this.gridView1.GridControl = this.afdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRowPk, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridView1.CustomDrawFooterCell += new DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(this.gridView1_CustomDrawFooterCell);
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.HiddenEditor += new System.EventHandler(this.gridView1_HiddenEditor);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
@@ -195,19 +211,25 @@
             // 
             // colRowPk
             // 
+            this.colRowPk.Caption = "AFD#";
             this.colRowPk.FieldName = "RowPk";
             this.colRowPk.Name = "colRowPk";
+            this.colRowPk.OptionsColumn.ReadOnly = true;
+            this.colRowPk.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "RowPk", "{0}")});
             this.colRowPk.Visible = true;
             this.colRowPk.VisibleIndex = 0;
-            this.colRowPk.Width = 80;
+            this.colRowPk.Width = 65;
             // 
             // colObjAFB
             // 
+            this.colObjAFB.Caption = "AFB#";
             this.colObjAFB.FieldName = "ObjAFB";
             this.colObjAFB.Name = "colObjAFB";
+            this.colObjAFB.OptionsColumn.ReadOnly = true;
             this.colObjAFB.Visible = true;
             this.colObjAFB.VisibleIndex = 1;
-            this.colObjAFB.Width = 72;
+            this.colObjAFB.Width = 59;
             // 
             // colObjAHP
             // 
@@ -216,7 +238,7 @@
             this.colObjAHP.Name = "colObjAHP";
             this.colObjAHP.Visible = true;
             this.colObjAHP.VisibleIndex = 2;
-            this.colObjAHP.Width = 169;
+            this.colObjAHP.Width = 139;
             // 
             // colInfo
             // 
@@ -224,17 +246,20 @@
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
             this.colInfo.VisibleIndex = 7;
-            this.colInfo.Width = 254;
+            this.colInfo.Width = 212;
             // 
             // colTut
             // 
+            this.colTut.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTut.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.colTut.DisplayFormat.FormatString = "n";
             this.colTut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTut.FieldName = "Tut";
+            this.colTut.MinWidth = 80;
             this.colTut.Name = "colTut";
             this.colTut.Visible = true;
             this.colTut.VisibleIndex = 3;
-            this.colTut.Width = 93;
+            this.colTut.Width = 80;
             // 
             // colObjDvz
             // 
@@ -244,22 +269,23 @@
             this.colObjDvz.Name = "colObjDvz";
             this.colObjDvz.Visible = true;
             this.colObjDvz.VisibleIndex = 4;
+            this.colObjDvz.Width = 45;
             // 
             // DvzRepositoryItemLookUpEdit1
             // 
             this.DvzRepositoryItemLookUpEdit1.AutoHeight = false;
             this.DvzRepositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DvzRepositoryItemLookUpEdit1.DataSource = this.xDKBindingSource;
+            this.DvzRepositoryItemLookUpEdit1.DataSource = this.xdkBindingSource;
             this.DvzRepositoryItemLookUpEdit1.DisplayMember = "Dvz";
             this.DvzRepositoryItemLookUpEdit1.Name = "DvzRepositoryItemLookUpEdit1";
             this.DvzRepositoryItemLookUpEdit1.ValueMember = "ObjDvz";
             this.DvzRepositoryItemLookUpEdit1.EditValueChanged += new System.EventHandler(this.DvzRepositoryItemLookUpEdit1_EditValueChanged);
             // 
-            // xDKBindingSource
+            // xdkBindingSource
             // 
-            this.xDKBindingSource.DataMember = "XDK";
-            this.xDKBindingSource.DataSource = this.mainDataSet;
+            this.xdkBindingSource.DataMember = "XDK";
+            this.xdkBindingSource.DataSource = this.mainDataSet;
             // 
             // mainDataSet
             // 
@@ -268,18 +294,31 @@
             // 
             // colKur
             // 
+            this.colKur.AppearanceHeader.Options.UseTextOptions = true;
+            this.colKur.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colKur.DisplayFormat.FormatString = "n4";
+            this.colKur.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colKur.FieldName = "Kur";
             this.colKur.Name = "colKur";
             this.colKur.Visible = true;
             this.colKur.VisibleIndex = 5;
+            this.colKur.Width = 50;
             // 
             // colTutTL
             // 
+            this.colTutTL.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTutTL.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTutTL.DisplayFormat.FormatString = "#,##.00 B;#,##.00 A; ";
+            this.colTutTL.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colTutTL.FieldName = "TutTL";
+            this.colTutTL.MinWidth = 100;
             this.colTutTL.Name = "colTutTL";
             this.colTutTL.OptionsColumn.ReadOnly = true;
+            this.colTutTL.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TutTL", "{0:#,##.00 B;#,##.00 A;B=A}")});
             this.colTutTL.Visible = true;
             this.colTutTL.VisibleIndex = 6;
+            this.colTutTL.Width = 106;
             // 
             // statusStrip1
             // 
@@ -296,7 +335,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 15);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // layoutControl1
@@ -371,7 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xDKBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -409,7 +448,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTutTL;
         private MainDataSet mainDataSet;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DvzRepositoryItemLookUpEdit1;
-        private System.Windows.Forms.BindingSource xDKBindingSource;
+        private System.Windows.Forms.BindingSource xdkBindingSource;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

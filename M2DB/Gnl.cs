@@ -62,6 +62,13 @@ namespace M2DB
 
     public static class GnlOps
     {
+        public static XGT XGTfind(string pKd, string Kd)
+        {
+            var pxgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP IS NULL and Kd = ?", pKd).FirstOrDefault();
+            var xgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP = ? and Kd = ?", pxgt, Kd).FirstOrDefault();
+            return xgt;
+        }
+
         public static Tuple<object,double> TrhDvzKur(DateTime Trh)
         {
             return new Tuple<object, double>(365, 4.57);
