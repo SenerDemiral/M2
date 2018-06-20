@@ -94,6 +94,7 @@
             // addToolStripButton
             // 
             this.addToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.addToolStripButton.Enabled = false;
             this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
             this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addToolStripButton.Name = "addToolStripButton";
@@ -114,6 +115,7 @@
             // deleteToolStripButton
             // 
             this.deleteToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.deleteToolStripButton.Enabled = false;
             this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
             this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteToolStripButton.Name = "deleteToolStripButton";
@@ -133,6 +135,7 @@
             // revertToolStripButton
             // 
             this.revertToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.revertToolStripButton.Enabled = false;
             this.revertToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("revertToolStripButton.Image")));
             this.revertToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.revertToolStripButton.Name = "revertToolStripButton";

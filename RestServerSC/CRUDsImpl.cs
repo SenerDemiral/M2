@@ -322,6 +322,9 @@ namespace RestServerSC
                         ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
                         Info = row.Info,
                         Tut = row.Tut,
+                        ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                        Kur = row.Kur,
+                        TutTL = row.TutTL,
                     };
                     proxyList.Add(proxy);
                 }
@@ -487,7 +490,8 @@ namespace RestServerSC
                                 RowPk = 0,
                                 ObjDvz = dvz.GetObjectNo(),
                                 Trh = dt.Ticks,
-                                Kur = dvz.Kd == "TRL" ? 1 : 0
+                                Kur = dvz.Kd == "TRL" ? 1 : 0,
+                                Dvz = dvz.Kd,
                             };
                         }
                         else

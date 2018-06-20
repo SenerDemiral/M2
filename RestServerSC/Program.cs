@@ -25,7 +25,7 @@ namespace RestServerSC
                 new AFB
                 {
                     AoK = "A",
-                    Trh = DateTime.Now
+                    Trh = DateTime.Today,
                 };
                 /*
                 var afb = new AFB

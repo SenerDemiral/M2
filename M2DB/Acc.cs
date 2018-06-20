@@ -72,6 +72,9 @@ namespace M2DB
 
         public string Info { get; set; }
         public double Tut { get; set; }     // Brc: +, Alc: -
+        public XGT ObjDvz { get; set; }
+        public float Kur { get; set; }
+        public double TutTL { get; set; }
 
         public string BA => Tut >= 0 ? "B" : "A";
         public double Brc => Tut >= 0 ? Tut : 0;

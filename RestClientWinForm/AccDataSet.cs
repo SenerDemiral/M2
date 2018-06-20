@@ -214,20 +214,24 @@ namespace RestClientWinForm
                     //var proxy = response.ResponseStream.Current;
 
                     row = dt.NewRow();
-                    
+
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
             //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            if(nor == 0)
+                return "No records found.";
+
+            long ems = sw.ElapsedMilliseconds;
+            if (ems == 0)
+                ems = 1;
+            return $"{nor:n0} records retrieved in {ems:n0} ms  ({(nor / ems * 1000):n0} recs/sec)";
         }
 
         public string AFDupdate()

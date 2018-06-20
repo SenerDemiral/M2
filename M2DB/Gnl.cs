@@ -55,7 +55,9 @@ namespace M2DB
     {
         public XGT ObjDvz { get; set; }
         public DateTime Trh { get; set; }
-        public double Kur { get; set; }
+        public float Kur { get; set; }
+
+        public string Dvz => ObjDvz?.Kd;
     }
 
     public static class GnlOps

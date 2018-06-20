@@ -921,6 +921,8 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnKur;
             
+            private global::System.Data.DataColumn columnDvz;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public XDKDataTable() {
@@ -988,6 +990,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DvzColumn {
+                get {
+                    return this.columnDvz;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1023,13 +1033,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public XDKRow AddXDKRow(ulong RowPk, ulong ObjDvz, System.DateTime Trh, double Kur) {
+            public XDKRow AddXDKRow(ulong RowPk, ulong ObjDvz, System.DateTime Trh, float Kur, string Dvz) {
                 XDKRow rowXDKRow = ((XDKRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
                         ObjDvz,
                         Trh,
-                        Kur};
+                        Kur,
+                        Dvz};
                 rowXDKRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowXDKRow);
                 return rowXDKRow;
@@ -1056,6 +1067,7 @@ namespace RestClientWinForm {
                 this.columnObjDvz = base.Columns["ObjDvz"];
                 this.columnTrh = base.Columns["Trh"];
                 this.columnKur = base.Columns["Kur"];
+                this.columnDvz = base.Columns["Dvz"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1067,8 +1079,10 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnObjDvz);
                 this.columnTrh = new global::System.Data.DataColumn("Trh", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrh);
-                this.columnKur = new global::System.Data.DataColumn("Kur", typeof(double), null, global::System.Data.MappingType.Element);
+                this.columnKur = new global::System.Data.DataColumn("Kur", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKur);
+                this.columnDvz = new global::System.Data.DataColumn("Dvz", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDvz);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1485,10 +1499,10 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double Kur {
+            public float Kur {
                 get {
                     try {
-                        return ((double)(this[this.tableXDK.KurColumn]));
+                        return ((float)(this[this.tableXDK.KurColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Kur\' in table \'XDK\' is DBNull.", e);
@@ -1496,6 +1510,22 @@ namespace RestClientWinForm {
                 }
                 set {
                     this[this.tableXDK.KurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Dvz {
+                get {
+                    try {
+                        return ((string)(this[this.tableXDK.DvzColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Dvz\' in table \'XDK\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableXDK.DvzColumn] = value;
                 }
             }
             
@@ -1545,6 +1575,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetKurNull() {
                 this[this.tableXDK.KurColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDvzNull() {
+                return this.IsNull(this.tableXDK.DvzColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDvzNull() {
+                this[this.tableXDK.DvzColumn] = global::System.Convert.DBNull;
             }
         }
         

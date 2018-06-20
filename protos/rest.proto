@@ -93,6 +93,9 @@ message AFDproxy {
   uint64 ObjAHP = 5;
   google.protobuf.StringValue Info = 6;
   double Tut = 7;
+  uint64 ObjDvz = 8;
+  float Kur = 9;
+  double TutTL = 10;
 }
 
 // GenelTanimlari
@@ -114,6 +117,7 @@ message XDKproxy {
 
   int64 Trh = 4;
   uint64 ObjDvz = 5;
-  double Kur = 6;	// Dovizin TRL karsiligi
+  float Kur = 6;	// Dovizin TRL karsiligi
+  string Dvz = 7;
 }
 

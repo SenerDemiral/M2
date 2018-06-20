@@ -35,28 +35,30 @@ namespace Rest {
             "IAEoCRIMCgRIYXNIGAggASgIIpYBCghBRkJwcm94eRIRCglyb3dfc3RhdGUY",
             "ASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJo",
             "GAQgASgDEg4KBk9ialR1chgFIAEoBBILCgNBb0sYBiABKAkSDAoESW5mbxgH",
-            "IAEoCRIOCgZCcmNUb3AYCCABKAESDgoGQWxjVG9wGAkgASgBIpcBCghBRkRw",
+            "IAEoCRIOCgZCcmNUb3AYCCABKAESDgoGQWxjVG9wGAkgASgBIsMBCghBRkRw",
             "cm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZy",
             "b3dfcGsYAyABKAQSDgoGT2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIq",
             "CgRJbmZvGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsK",
-            "A1R1dBgHIAEoASJkCghYR1Rwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoH",
-            "cm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2JqUBgEIAEoBBIK",
-            "CgJLZBgFIAEoCRIKCgJBZBgGIAEoCSJoCghYREtwcm94eRIRCglyb3dfc3Rh",
-            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoD",
-            "VHJoGAQgASgDEg4KBk9iakR2ehgFIAEoBBILCgNLdXIYBiABKAEywAQKBUNS",
-            "VURzEi8KCFRibGFGaWxsEg4ucmVzdC5RcnlQcm94eRoPLnJlc3QuVGJsYVBy",
-            "b3h5IgAwARIwCgpUYmxhVXBkYXRlEg8ucmVzdC5UYmxhUHJveHkaDy5yZXN0",
-            "LlRibGFQcm94eSIAEi0KB0FIUGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVz",
-            "dC5BSFBwcm94eSIAMAESLQoJQUhQdXBkYXRlEg4ucmVzdC5BSFBwcm94eRoO",
-            "LnJlc3QuQUhQcHJveHkiABItCgdBRkJmaWxsEg4ucmVzdC5RcnlQcm94eRoO",
-            "LnJlc3QuQUZCcHJveHkiADABEi0KCUFGQnVwZGF0ZRIOLnJlc3QuQUZCcHJv",
-            "eHkaDi5yZXN0LkFGQnByb3h5IgASLQoHQUZEZmlsbBIOLnJlc3QuUXJ5UHJv",
-            "eHkaDi5yZXN0LkFGRHByb3h5IgAwARItCglBRkR1cGRhdGUSDi5yZXN0LkFG",
-            "RHByb3h5Gg4ucmVzdC5BRkRwcm94eSIAEi0KB1hHVGZpbGwSDi5yZXN0LlFy",
-            "eVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdUdXBkYXRlEg4ucmVz",
-            "dC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdYREtmaWxsEg4ucmVz",
-            "dC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0KCVhES3VwZGF0ZRIO",
-            "LnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgBiBnByb3RvMw=="));
+            "A1R1dBgHIAEoARIOCgZPYmpEdnoYCCABKAQSCwoDS3VyGAkgASgCEg0KBVR1",
+            "dFRMGAogASgBImQKCFhHVHByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdy",
+            "b3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIMCgRPYmpQGAQgASgEEgoK",
+            "AktkGAUgASgJEgoKAkFkGAYgASgJInUKCFhES3Byb3h5EhEKCXJvd19zdGF0",
+            "ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBILCgNU",
+            "cmgYBCABKAMSDgoGT2JqRHZ6GAUgASgEEgsKA0t1chgGIAEoAhILCgNEdnoY",
+            "ByABKAkywAQKBUNSVURzEi8KCFRibGFGaWxsEg4ucmVzdC5RcnlQcm94eRoP",
+            "LnJlc3QuVGJsYVByb3h5IgAwARIwCgpUYmxhVXBkYXRlEg8ucmVzdC5UYmxh",
+            "UHJveHkaDy5yZXN0LlRibGFQcm94eSIAEi0KB0FIUGZpbGwSDi5yZXN0LlFy",
+            "eVByb3h5Gg4ucmVzdC5BSFBwcm94eSIAMAESLQoJQUhQdXBkYXRlEg4ucmVz",
+            "dC5BSFBwcm94eRoOLnJlc3QuQUhQcHJveHkiABItCgdBRkJmaWxsEg4ucmVz",
+            "dC5RcnlQcm94eRoOLnJlc3QuQUZCcHJveHkiADABEi0KCUFGQnVwZGF0ZRIO",
+            "LnJlc3QuQUZCcHJveHkaDi5yZXN0LkFGQnByb3h5IgASLQoHQUZEZmlsbBIO",
+            "LnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFGRHByb3h5IgAwARItCglBRkR1cGRh",
+            "dGUSDi5yZXN0LkFGRHByb3h5Gg4ucmVzdC5BRkRwcm94eSIAEi0KB1hHVGZp",
+            "bGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdU",
+            "dXBkYXRlEg4ucmVzdC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdY",
+            "REtmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0K",
+            "CVhES3VwZGF0ZRIOLnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgBi",
+            "BnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -64,9 +66,9 @@ namespace Rest {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "HasH" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "AoK", "Info", "BrcTop", "AlcTop" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjAFB", "ObjAHP", "Info", "Tut" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjAFB", "ObjAHP", "Info", "Tut", "ObjDvz", "Kur", "TutTL" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "Kd", "Ad" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjDvz", "Kur" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjDvz", "Kur", "Dvz" }, null, null, null)
           }));
     }
     #endregion
@@ -1292,6 +1294,9 @@ namespace Rest {
       objAHP_ = other.objAHP_;
       Info = other.Info;
       tut_ = other.tut_;
+      objDvz_ = other.objDvz_;
+      kur_ = other.kur_;
+      tutTL_ = other.tutTL_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1381,6 +1386,39 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "ObjDvz" field.</summary>
+    public const int ObjDvzFieldNumber = 8;
+    private ulong objDvz_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong ObjDvz {
+      get { return objDvz_; }
+      set {
+        objDvz_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Kur" field.</summary>
+    public const int KurFieldNumber = 9;
+    private float kur_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public float Kur {
+      get { return kur_; }
+      set {
+        kur_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "TutTL" field.</summary>
+    public const int TutTLFieldNumber = 10;
+    private double tutTL_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double TutTL {
+      get { return tutTL_; }
+      set {
+        tutTL_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as AFDproxy);
@@ -1401,6 +1439,9 @@ namespace Rest {
       if (ObjAHP != other.ObjAHP) return false;
       if (Info != other.Info) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Tut, other.Tut)) return false;
+      if (ObjDvz != other.ObjDvz) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TutTL, other.TutTL)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1414,6 +1455,9 @@ namespace Rest {
       if (ObjAHP != 0UL) hash ^= ObjAHP.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
+      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
+      if (TutTL != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TutTL);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1454,6 +1498,18 @@ namespace Rest {
         output.WriteRawTag(57);
         output.WriteDouble(Tut);
       }
+      if (ObjDvz != 0UL) {
+        output.WriteRawTag(64);
+        output.WriteUInt64(ObjDvz);
+      }
+      if (Kur != 0F) {
+        output.WriteRawTag(77);
+        output.WriteFloat(Kur);
+      }
+      if (TutTL != 0D) {
+        output.WriteRawTag(81);
+        output.WriteDouble(TutTL);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1481,6 +1537,15 @@ namespace Rest {
         size += _single_info_codec.CalculateSizeWithTag(Info);
       }
       if (Tut != 0D) {
+        size += 1 + 8;
+      }
+      if (ObjDvz != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      }
+      if (Kur != 0F) {
+        size += 1 + 4;
+      }
+      if (TutTL != 0D) {
         size += 1 + 8;
       }
       if (_unknownFields != null) {
@@ -1516,6 +1581,15 @@ namespace Rest {
       }
       if (other.Tut != 0D) {
         Tut = other.Tut;
+      }
+      if (other.ObjDvz != 0UL) {
+        ObjDvz = other.ObjDvz;
+      }
+      if (other.Kur != 0F) {
+        Kur = other.Kur;
+      }
+      if (other.TutTL != 0D) {
+        TutTL = other.TutTL;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1557,6 +1631,18 @@ namespace Rest {
           }
           case 57: {
             Tut = input.ReadDouble();
+            break;
+          }
+          case 64: {
+            ObjDvz = input.ReadUInt64();
+            break;
+          }
+          case 77: {
+            Kur = input.ReadFloat();
+            break;
+          }
+          case 81: {
+            TutTL = input.ReadDouble();
             break;
           }
         }
@@ -1874,6 +1960,7 @@ namespace Rest {
       trh_ = other.trh_;
       objDvz_ = other.objDvz_;
       kur_ = other.kur_;
+      dvz_ = other.dvz_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -1942,15 +2029,26 @@ namespace Rest {
 
     /// <summary>Field number for the "Kur" field.</summary>
     public const int KurFieldNumber = 6;
-    private double kur_;
+    private float kur_;
     /// <summary>
     /// Dovizin TRL karsiligi
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Kur {
+    public float Kur {
       get { return kur_; }
       set {
         kur_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Dvz" field.</summary>
+    public const int DvzFieldNumber = 7;
+    private string dvz_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Dvz {
+      get { return dvz_; }
+      set {
+        dvz_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -1972,7 +2070,8 @@ namespace Rest {
       if (RowPk != other.RowPk) return false;
       if (Trh != other.Trh) return false;
       if (ObjDvz != other.ObjDvz) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Kur, other.Kur)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
+      if (Dvz != other.Dvz) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1984,7 +2083,8 @@ namespace Rest {
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
       if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
-      if (Kur != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Kur);
+      if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
+      if (Dvz.Length != 0) hash ^= Dvz.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -2018,9 +2118,13 @@ namespace Rest {
         output.WriteRawTag(40);
         output.WriteUInt64(ObjDvz);
       }
-      if (Kur != 0D) {
-        output.WriteRawTag(49);
-        output.WriteDouble(Kur);
+      if (Kur != 0F) {
+        output.WriteRawTag(53);
+        output.WriteFloat(Kur);
+      }
+      if (Dvz.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Dvz);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -2045,8 +2149,11 @@ namespace Rest {
       if (ObjDvz != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
       }
-      if (Kur != 0D) {
-        size += 1 + 8;
+      if (Kur != 0F) {
+        size += 1 + 4;
+      }
+      if (Dvz.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Dvz);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2074,8 +2181,11 @@ namespace Rest {
       if (other.ObjDvz != 0UL) {
         ObjDvz = other.ObjDvz;
       }
-      if (other.Kur != 0D) {
+      if (other.Kur != 0F) {
         Kur = other.Kur;
+      }
+      if (other.Dvz.Length != 0) {
+        Dvz = other.Dvz;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -2108,8 +2218,12 @@ namespace Rest {
             ObjDvz = input.ReadUInt64();
             break;
           }
-          case 49: {
-            Kur = input.ReadDouble();
+          case 53: {
+            Kur = input.ReadFloat();
+            break;
+          }
+          case 58: {
+            Dvz = input.ReadString();
             break;
           }
         }

@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfbXF));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue3 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule4 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue4 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule5 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue5 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule6 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue6 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afbBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.afbBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -57,6 +57,11 @@
             this.colAlcTop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afbBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afbBindingNavigator)).BeginInit();
@@ -65,6 +70,12 @@
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
             // 
             // accDataSet
@@ -80,22 +91,24 @@
             // afbBindingNavigator
             // 
             this.afbBindingNavigator.AddNewItem = null;
+            this.afbBindingNavigator.AutoSize = false;
             this.afbBindingNavigator.CountItem = null;
             this.afbBindingNavigator.DeleteItem = null;
+            this.afbBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
             this.afbBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
             this.revertToolStripButton});
-            this.afbBindingNavigator.Location = new System.Drawing.Point(0, 0);
+            this.afbBindingNavigator.Location = new System.Drawing.Point(12, 12);
             this.afbBindingNavigator.MoveFirstItem = null;
             this.afbBindingNavigator.MoveLastItem = null;
             this.afbBindingNavigator.MoveNextItem = null;
             this.afbBindingNavigator.MovePreviousItem = null;
             this.afbBindingNavigator.Name = "afbBindingNavigator";
             this.afbBindingNavigator.PositionItem = null;
-            this.afbBindingNavigator.Size = new System.Drawing.Size(708, 25);
+            this.afbBindingNavigator.Size = new System.Drawing.Size(892, 30);
             this.afbBindingNavigator.TabIndex = 0;
             this.afbBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -105,7 +118,7 @@
             this.addToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("addToolStripButton.Image")));
             this.addToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.addToolStripButton.Name = "addToolStripButton";
-            this.addToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.addToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.addToolStripButton.Text = "Add";
             this.addToolStripButton.Click += new System.EventHandler(this.addToolStripButton_Click);
             // 
@@ -115,7 +128,7 @@
             this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.saveToolStripButton.Text = "Save";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
@@ -125,7 +138,7 @@
             this.deleteToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("deleteToolStripButton.Image")));
             this.deleteToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.deleteToolStripButton.Name = "deleteToolStripButton";
-            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.deleteToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.deleteToolStripButton.Text = "Delete";
             this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
@@ -135,7 +148,7 @@
             this.refreshToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("refreshToolStripButton.Image")));
             this.refreshToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.refreshToolStripButton.Name = "refreshToolStripButton";
-            this.refreshToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.refreshToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.refreshToolStripButton.Text = "Refresh";
             this.refreshToolStripButton.Click += new System.EventHandler(this.refreshToolStripButton_Click);
             // 
@@ -145,7 +158,7 @@
             this.revertToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("revertToolStripButton.Image")));
             this.revertToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.revertToolStripButton.Name = "revertToolStripButton";
-            this.revertToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.revertToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.revertToolStripButton.Text = "toolStripButton6";
             this.revertToolStripButton.Click += new System.EventHandler(this.revertToolStripButton_Click);
             // 
@@ -153,11 +166,10 @@
             // 
             this.afbGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.afbGridControl.DataSource = this.afbBindingSource;
-            this.afbGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.afbGridControl.Location = new System.Drawing.Point(0, 25);
+            this.afbGridControl.Location = new System.Drawing.Point(12, 46);
             this.afbGridControl.MainView = this.gridView1;
             this.afbGridControl.Name = "afbGridControl";
-            this.afbGridControl.Size = new System.Drawing.Size(708, 270);
+            this.afbGridControl.Size = new System.Drawing.Size(892, 375);
             this.afbGridControl.TabIndex = 1;
             this.afbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -186,34 +198,34 @@
             this.colInfo,
             this.colBrcTop,
             this.colAlcTop});
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Name = "Format0";
-            formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.White;
-            formatConditionRuleValue1.Appearance.Options.UseBackColor = true;
-            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
-            formatConditionRuleValue1.Expression = "[AlcTop] <> [BrcTop]";
-            gridFormatRule1.Rule = formatConditionRuleValue1;
-            gridFormatRule1.StopIfTrue = true;
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Name = "Format1";
-            formatConditionRuleValue2.Appearance.ForeColor = System.Drawing.Color.Red;
-            formatConditionRuleValue2.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
-            formatConditionRuleValue2.Expression = "[AoK] = \'A\'";
-            gridFormatRule2.Rule = formatConditionRuleValue2;
-            gridFormatRule2.StopIfTrue = true;
-            gridFormatRule3.ApplyToRow = true;
-            gridFormatRule3.Name = "Format2";
-            formatConditionRuleValue3.Appearance.ForeColor = System.Drawing.Color.Teal;
-            formatConditionRuleValue3.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue3.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
-            formatConditionRuleValue3.Expression = "[AoK] = \'K\'";
-            gridFormatRule3.Rule = formatConditionRuleValue3;
-            this.gridView1.FormatRules.Add(gridFormatRule1);
-            this.gridView1.FormatRules.Add(gridFormatRule2);
-            this.gridView1.FormatRules.Add(gridFormatRule3);
+            gridFormatRule4.ApplyToRow = true;
+            gridFormatRule4.Name = "Format0";
+            formatConditionRuleValue4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            formatConditionRuleValue4.Appearance.ForeColor = System.Drawing.Color.White;
+            formatConditionRuleValue4.Appearance.Options.UseBackColor = true;
+            formatConditionRuleValue4.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue4.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue4.Expression = "[AlcTop] <> [BrcTop]";
+            gridFormatRule4.Rule = formatConditionRuleValue4;
+            gridFormatRule4.StopIfTrue = true;
+            gridFormatRule5.ApplyToRow = true;
+            gridFormatRule5.Name = "Format1";
+            formatConditionRuleValue5.Appearance.ForeColor = System.Drawing.Color.Red;
+            formatConditionRuleValue5.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue5.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue5.Expression = "[AoK] = \'A\'";
+            gridFormatRule5.Rule = formatConditionRuleValue5;
+            gridFormatRule5.StopIfTrue = true;
+            gridFormatRule6.ApplyToRow = true;
+            gridFormatRule6.Name = "Format2";
+            formatConditionRuleValue6.Appearance.ForeColor = System.Drawing.Color.Teal;
+            formatConditionRuleValue6.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue6.Condition = DevExpress.XtraEditors.FormatCondition.Expression;
+            formatConditionRuleValue6.Expression = "[AoK] = \'K\'";
+            gridFormatRule6.Rule = formatConditionRuleValue6;
+            this.gridView1.FormatRules.Add(gridFormatRule4);
+            this.gridView1.FormatRules.Add(gridFormatRule5);
+            this.gridView1.FormatRules.Add(gridFormatRule6);
             this.gridView1.GridControl = this.afbGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
@@ -288,28 +300,83 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 273);
+            this.statusStrip1.Location = new System.Drawing.Point(12, 425);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(708, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(892, 20);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 15);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.statusStrip1);
+            this.layoutControl1.Controls.Add(this.afbGridControl);
+            this.layoutControl1.Controls.Add(this.afbBindingNavigator);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(701, 237, 250, 350);
+            this.layoutControl1.Root = this.layoutControlGroup1;
+            this.layoutControl1.Size = new System.Drawing.Size(916, 457);
+            this.layoutControl1.TabIndex = 3;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(916, 457);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.afbGridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(896, 379);
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.afbBindingNavigator;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(896, 34);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.statusStrip1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 413);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(896, 24);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
             // 
             // AfbXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 295);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.afbGridControl);
-            this.Controls.Add(this.afbBindingNavigator);
+            this.ClientSize = new System.Drawing.Size(916, 457);
+            this.Controls.Add(this.layoutControl1);
             this.Name = "AfbXF";
             this.Text = "Muhasebe Fişleri [AfbXF]";
             this.Load += new System.EventHandler(this.AfbXF_Load);
@@ -323,8 +390,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -351,5 +423,10 @@
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fisDetayToolStripMenuItem;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
     }
 }

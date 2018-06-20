@@ -19,6 +19,7 @@ namespace RestClientWinForm
 
             afbGridControl.ExternalRepository = Program.MF.persistentRepository;
             colObjTur.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
+            colTrh.ColumnEdit = Program.MF.DateRepositoryItemDateEdit;
 
         }
 
@@ -93,7 +94,7 @@ namespace RestClientWinForm
             UpdateDB();
             AfdXF frm = new AfdXF();
             object rowPk = gridView1.GetFocusedRowCellValue(colRowPk);
-            frm.ObjAFB = rowPk;
+            frm.AFBRow = (AccDataSet.AFBRow)accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             var dr = frm.ShowDialog();
             if (dr == DialogResult.Yes)
             {

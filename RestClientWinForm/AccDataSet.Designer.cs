@@ -1007,6 +1007,12 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnTut;
             
+            private global::System.Data.DataColumn columnObjDvz;
+            
+            private global::System.Data.DataColumn columnKur;
+            
+            private global::System.Data.DataColumn columnTutTL;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AFDDataTable() {
@@ -1082,6 +1088,30 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ObjDvzColumn {
+                get {
+                    return this.columnObjDvz;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn KurColumn {
+                get {
+                    return this.columnKur;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TutTLColumn {
+                get {
+                    return this.columnTutTL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1117,14 +1147,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AFDRow AddAFDRow(ulong RowPk, ulong ObjAFB, ulong ObjAHP, string Info, double Tut) {
+            public AFDRow AddAFDRow(ulong RowPk, ulong ObjAFB, ulong ObjAHP, string Info, double Tut, ulong ObjDvz, float Kur, double TutTL) {
                 AFDRow rowAFDRow = ((AFDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
                         ObjAFB,
                         ObjAHP,
                         Info,
-                        Tut};
+                        Tut,
+                        ObjDvz,
+                        Kur,
+                        TutTL};
                 rowAFDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAFDRow);
                 return rowAFDRow;
@@ -1152,6 +1185,9 @@ namespace RestClientWinForm {
                 this.columnObjAHP = base.Columns["ObjAHP"];
                 this.columnInfo = base.Columns["Info"];
                 this.columnTut = base.Columns["Tut"];
+                this.columnObjDvz = base.Columns["ObjDvz"];
+                this.columnKur = base.Columns["Kur"];
+                this.columnTutTL = base.Columns["TutTL"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1167,6 +1203,12 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnInfo);
                 this.columnTut = new global::System.Data.DataColumn("Tut", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTut);
+                this.columnObjDvz = new global::System.Data.DataColumn("ObjDvz", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnObjDvz);
+                this.columnKur = new global::System.Data.DataColumn("Kur", typeof(float), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKur);
+                this.columnTutTL = new global::System.Data.DataColumn("TutTL", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTutTL);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1783,6 +1825,54 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ulong ObjDvz {
+                get {
+                    try {
+                        return ((ulong)(this[this.tableAFD.ObjDvzColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ObjDvz\' in table \'AFD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAFD.ObjDvzColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public float Kur {
+                get {
+                    try {
+                        return ((float)(this[this.tableAFD.KurColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Kur\' in table \'AFD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAFD.KurColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double TutTL {
+                get {
+                    try {
+                        return ((double)(this[this.tableAFD.TutTLColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TutTL\' in table \'AFD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAFD.TutTLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsRowPkNull() {
                 return this.IsNull(this.tableAFD.RowPkColumn);
             }
@@ -1839,6 +1929,42 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTutNull() {
                 this[this.tableAFD.TutColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsObjDvzNull() {
+                return this.IsNull(this.tableAFD.ObjDvzColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetObjDvzNull() {
+                this[this.tableAFD.ObjDvzColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsKurNull() {
+                return this.IsNull(this.tableAFD.KurColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetKurNull() {
+                this[this.tableAFD.KurColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTutTLNull() {
+                return this.IsNull(this.tableAFD.TutTLColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTutTLNull() {
+                this[this.tableAFD.TutTLColumn] = global::System.Convert.DBNull;
             }
         }
         

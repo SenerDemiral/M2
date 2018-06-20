@@ -37,7 +37,8 @@
               <xs:element name="RowPk" msprop:Generator_ColumnVarNameInTable="columnRowPk" msprop:Generator_ColumnPropNameInRow="RowPk" msprop:Generator_ColumnPropNameInTable="RowPkColumn" msprop:Generator_UserColumnName="RowPk" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="ObjDvz" msprop:Generator_ColumnVarNameInTable="columnObjDvz" msprop:Generator_ColumnPropNameInRow="ObjDvz" msprop:Generator_ColumnPropNameInTable="ObjDvzColumn" msprop:Generator_UserColumnName="ObjDvz" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="Trh" msprop:Generator_ColumnVarNameInTable="columnTrh" msprop:Generator_ColumnPropNameInRow="Trh" msprop:Generator_ColumnPropNameInTable="TrhColumn" msprop:Generator_UserColumnName="Trh" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="Kur" msprop:Generator_ColumnVarNameInTable="columnKur" msprop:Generator_ColumnPropNameInRow="Kur" msprop:Generator_ColumnPropNameInTable="KurColumn" msprop:Generator_UserColumnName="Kur" type="xs:double" minOccurs="0" />
+              <xs:element name="Kur" msprop:Generator_ColumnVarNameInTable="columnKur" msprop:Generator_ColumnPropNameInRow="Kur" msprop:Generator_ColumnPropNameInTable="KurColumn" msprop:Generator_UserColumnName="Kur" type="xs:float" minOccurs="0" />
+              <xs:element name="Dvz" msprop:Generator_ColumnVarNameInTable="columnDvz" msprop:Generator_ColumnPropNameInRow="Dvz" msprop:Generator_ColumnPropNameInTable="DvzColumn" msprop:Generator_UserColumnName="Dvz" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -40,6 +40,7 @@
             this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.XDKbutton = new System.Windows.Forms.Button();
+            this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -47,6 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // AHPbutton
@@ -74,7 +77,8 @@
             this.persistentRepository.Items.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.AfbTurRepositoryItemLookUpEdit,
             this.DvzRepositoryItemLookUpEdit,
-            this.AHPrepositoryItemSearchLookUpEdit});
+            this.AHPrepositoryItemSearchLookUpEdit,
+            this.DateRepositoryItemDateEdit});
             // 
             // AfbTurRepositoryItemLookUpEdit
             // 
@@ -144,6 +148,16 @@
             this.XDKbutton.UseVisualStyleBackColor = true;
             this.XDKbutton.Click += new System.EventHandler(this.XDKbutton_Click);
             // 
+            // DateRepositoryItemDateEdit
+            // 
+            this.DateRepositoryItemDateEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DateRepositoryItemDateEdit.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DateRepositoryItemDateEdit.Name = "DateRepositoryItemDateEdit";
+            this.DateRepositoryItemDateEdit.ShowWeekNumbers = true;
+            this.DateRepositoryItemDateEdit.WeekNumberRule = DevExpress.XtraEditors.Controls.WeekNumberRule.FirstDay;
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,6 +175,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,5 +194,6 @@
         private System.Windows.Forms.BindingSource ahpBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private System.Windows.Forms.Button XDKbutton;
+        public DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DateRepositoryItemDateEdit;
     }
 }
