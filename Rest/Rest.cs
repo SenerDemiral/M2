@@ -29,42 +29,42 @@ namespace Rest {
             "cmFtGAIgASgJIpABCglUYmxhUHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8K",
             "B3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBmZsZFN0chgEIAEo",
             "CRIOCgZmbGRJbnQYBSABKAUSDgoGZmxkRGJsGAYgASgBEg4KBmZsZERjbRgH",
-            "IAEoARIPCgdmbGREYXRlGAggASgDIoEBCghBSFBwcm94eRIRCglyb3dfc3Rh",
+            "IAEoARIPCgdmbGREYXRlGAggASgDIo4BCghBSFBwcm94eRIRCglyb3dfc3Rh",
             "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoE",
             "T2JqUBgEIAEoBBIKCgJObxgFIAEoCRIKCgJBZBgGIAEoCRINCgVIc3BObxgH",
-            "IAEoCRIMCgRIYXNIGAggASgIIpYBCghBRkJwcm94eRIRCglyb3dfc3RhdGUY",
-            "ASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJo",
-            "GAQgASgDEg4KBk9ialR1chgFIAEoBBILCgNBb0sYBiABKAkSDAoESW5mbxgH",
-            "IAEoCRIOCgZCcmNUb3AYCCABKAESDgoGQWxjVG9wGAkgASgBIsMBCghBRkRw",
-            "cm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZy",
-            "b3dfcGsYAyABKAQSDgoGT2JqQUZCGAQgASgEEg4KBk9iakFIUBgFIAEoBBIq",
-            "CgRJbmZvGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsK",
-            "A1R1dBgHIAEoARIOCgZPYmpEdnoYCCABKAQSCwoDS3VyGAkgASgCEg0KBVR1",
-            "dFRMGAogASgBImQKCFhHVHByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdy",
-            "b3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIMCgRPYmpQGAQgASgEEgoK",
-            "AktkGAUgASgJEgoKAkFkGAYgASgJInUKCFhES3Byb3h5EhEKCXJvd19zdGF0",
-            "ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBILCgNU",
-            "cmgYBCABKAMSDgoGT2JqRHZ6GAUgASgEEgsKA0t1chgGIAEoAhILCgNEdnoY",
-            "ByABKAkywAQKBUNSVURzEi8KCFRibGFGaWxsEg4ucmVzdC5RcnlQcm94eRoP",
-            "LnJlc3QuVGJsYVByb3h5IgAwARIwCgpUYmxhVXBkYXRlEg8ucmVzdC5UYmxh",
-            "UHJveHkaDy5yZXN0LlRibGFQcm94eSIAEi0KB0FIUGZpbGwSDi5yZXN0LlFy",
-            "eVByb3h5Gg4ucmVzdC5BSFBwcm94eSIAMAESLQoJQUhQdXBkYXRlEg4ucmVz",
-            "dC5BSFBwcm94eRoOLnJlc3QuQUhQcHJveHkiABItCgdBRkJmaWxsEg4ucmVz",
-            "dC5RcnlQcm94eRoOLnJlc3QuQUZCcHJveHkiADABEi0KCUFGQnVwZGF0ZRIO",
-            "LnJlc3QuQUZCcHJveHkaDi5yZXN0LkFGQnByb3h5IgASLQoHQUZEZmlsbBIO",
-            "LnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFGRHByb3h5IgAwARItCglBRkR1cGRh",
-            "dGUSDi5yZXN0LkFGRHByb3h5Gg4ucmVzdC5BRkRwcm94eSIAEi0KB1hHVGZp",
-            "bGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdU",
-            "dXBkYXRlEg4ucmVzdC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdY",
-            "REtmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0K",
-            "CVhES3VwZGF0ZRIOLnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgBi",
-            "BnByb3RvMw=="));
+            "IAEoCRILCgNJc1cYCCABKAgSDAoESGFzSBgJIAEoCCKWAQoIQUZCcHJveHkS",
+            "EQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3Br",
+            "GAMgASgEEgsKA1RyaBgEIAEoAxIOCgZPYmpUdXIYBSABKAQSCwoDQW9LGAYg",
+            "ASgJEgwKBEluZm8YByABKAkSDgoGQnJjVG9wGAggASgBEg4KBkFsY1RvcBgJ",
+            "IAEoASLDAQoIQUZEcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg4KBk9iakFGQhgEIAEoBBIOCgZP",
+            "YmpBSFAYBSABKAQSKgoESW5mbxgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5T",
+            "dHJpbmdWYWx1ZRILCgNUdXQYByABKAESDgoGT2JqRHZ6GAggASgEEgsKA0t1",
+            "chgJIAEoAhINCgVUdXRUTBgKIAEoASJkCghYR1Rwcm94eRIRCglyb3dfc3Rh",
+            "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDAoE",
+            "T2JqUBgEIAEoBBIKCgJLZBgFIAEoCRIKCgJBZBgGIAEoCSJ1CghYREtwcm94",
+            "eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3df",
+            "cGsYAyABKAQSCwoDVHJoGAQgASgDEg4KBk9iakR2ehgFIAEoBBILCgNLdXIY",
+            "BiABKAISCwoDRHZ6GAcgASgJMsAECgVDUlVEcxIvCghUYmxhRmlsbBIOLnJl",
+            "c3QuUXJ5UHJveHkaDy5yZXN0LlRibGFQcm94eSIAMAESMAoKVGJsYVVwZGF0",
+            "ZRIPLnJlc3QuVGJsYVByb3h5Gg8ucmVzdC5UYmxhUHJveHkiABItCgdBSFBm",
+            "aWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUhQcHJveHkiADABEi0KCUFI",
+            "UHVwZGF0ZRIOLnJlc3QuQUhQcHJveHkaDi5yZXN0LkFIUHByb3h5IgASLQoH",
+            "QUZCZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFGQnByb3h5IgAwARIt",
+            "CglBRkJ1cGRhdGUSDi5yZXN0LkFGQnByb3h5Gg4ucmVzdC5BRkJwcm94eSIA",
+            "Ei0KB0FGRGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BRkRwcm94eSIA",
+            "MAESLQoJQUZEdXBkYXRlEg4ucmVzdC5BRkRwcm94eRoOLnJlc3QuQUZEcHJv",
+            "eHkiABItCgdYR1RmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWEdUcHJv",
+            "eHkiADABEi0KCVhHVHVwZGF0ZRIOLnJlc3QuWEdUcHJveHkaDi5yZXN0LlhH",
+            "VHByb3h5IgASLQoHWERLZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlhE",
+            "S3Byb3h5IgAwARItCglYREt1cGRhdGUSDi5yZXN0LlhES3Byb3h5Gg4ucmVz",
+            "dC5YREtwcm94eSIAYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query", "Param" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "HasH" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "IsW", "HasH" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "AoK", "Info", "BrcTop", "AlcTop" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjAFB", "ObjAHP", "Info", "Tut", "ObjDvz", "Kur", "TutTL" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "Kd", "Ad" }, null, null, null),
@@ -604,6 +604,7 @@ namespace Rest {
       no_ = other.no_;
       ad_ = other.ad_;
       hspNo_ = other.hspNo_;
+      isW_ = other.isW_;
       hasH_ = other.hasH_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -693,8 +694,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "IsW" field.</summary>
+    public const int IsWFieldNumber = 8;
+    private bool isW_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool IsW {
+      get { return isW_; }
+      set {
+        isW_ = value;
+      }
+    }
+
     /// <summary>Field number for the "HasH" field.</summary>
-    public const int HasHFieldNumber = 8;
+    public const int HasHFieldNumber = 9;
     private bool hasH_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool HasH {
@@ -724,6 +736,7 @@ namespace Rest {
       if (No != other.No) return false;
       if (Ad != other.Ad) return false;
       if (HspNo != other.HspNo) return false;
+      if (IsW != other.IsW) return false;
       if (HasH != other.HasH) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -738,6 +751,7 @@ namespace Rest {
       if (No.Length != 0) hash ^= No.GetHashCode();
       if (Ad.Length != 0) hash ^= Ad.GetHashCode();
       if (HspNo.Length != 0) hash ^= HspNo.GetHashCode();
+      if (IsW != false) hash ^= IsW.GetHashCode();
       if (HasH != false) hash ^= HasH.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -780,8 +794,12 @@ namespace Rest {
         output.WriteRawTag(58);
         output.WriteString(HspNo);
       }
-      if (HasH != false) {
+      if (IsW != false) {
         output.WriteRawTag(64);
+        output.WriteBool(IsW);
+      }
+      if (HasH != false) {
+        output.WriteRawTag(72);
         output.WriteBool(HasH);
       }
       if (_unknownFields != null) {
@@ -812,6 +830,9 @@ namespace Rest {
       }
       if (HspNo.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(HspNo);
+      }
+      if (IsW != false) {
+        size += 1 + 1;
       }
       if (HasH != false) {
         size += 1 + 1;
@@ -847,6 +868,9 @@ namespace Rest {
       }
       if (other.HspNo.Length != 0) {
         HspNo = other.HspNo;
+      }
+      if (other.IsW != false) {
+        IsW = other.IsW;
       }
       if (other.HasH != false) {
         HasH = other.HasH;
@@ -891,6 +915,10 @@ namespace Rest {
             break;
           }
           case 64: {
+            IsW = input.ReadBool();
+            break;
+          }
+          case 72: {
             HasH = input.ReadBool();
             break;
           }

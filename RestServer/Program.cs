@@ -15,6 +15,9 @@ namespace RestServer
 
         static void Main(string[] args)
         {
+            var aaa = Db.FromId(362);
+            int bbb = 0;
+
             Server server = new Server
             {
                 Services = { CRUDs.BindService(new CRUDsImpl()) },

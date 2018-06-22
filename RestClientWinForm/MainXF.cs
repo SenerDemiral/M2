@@ -64,5 +64,32 @@ namespace RestClientWinForm
             XdkXF frm = new XdkXF();
             frm.Show();
         }
+
+        private void AHPrepositoryItemSearchLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void AHPrepositoryItemSearchLookUpEdit_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void AHPrepositoryItemSearchLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+
+        }
+
+        private void AHPrepositoryItemTreeListLookUpEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
+        {
+            var aa = (((AHPrepositoryItemTreeListLookUpEdit.DataSource as BindingSource).Current as DataRowView).Row as MainDataSet.AHPRow).HspNo;
+            Text = $"{e.Value} -- {e.CloseMode} -- {aa}";
+
+            if(e.CloseMode == PopupCloseMode.Normal)
+            {
+                MainDataSet.AHPRow row = (MainDataSet.AHPRow)mainDataSet.AHP.Rows.Find(e.Value);
+                if(!row.IsW)
+                    e.AcceptValue = false;
+            }
+        }
     }
 }

@@ -225,7 +225,7 @@ namespace RestClientWinForm
             dt.AcceptChanges();
             dt.EndLoadData();
             //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            if(nor == 0)
+            if (nor == 0)
                 return "No records found.";
 
             long ems = sw.ElapsedMilliseconds;

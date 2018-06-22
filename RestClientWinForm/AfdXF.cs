@@ -24,7 +24,8 @@ namespace RestClientWinForm
             InitializeComponent();
 
             afdGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
+            //colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
+            colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
             //colObjDvz.ColumnEdit = Program.MF.DvzRepositoryItemLookUpEdit;
         }
 

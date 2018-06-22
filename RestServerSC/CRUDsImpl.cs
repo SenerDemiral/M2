@@ -145,6 +145,7 @@ namespace RestServerSC
                             No = row.No,
                             Ad = row.Ad,
                             HspNo = row.HspNo,
+                            IsW = row.IsW,
                             HasH = row.HasH,
                         };
 
@@ -180,14 +181,27 @@ namespace RestServerSC
                         // Parent Hesabi olmali
                         // Parent Hesap altinada No uniqe olmali 
                         // Parent Hareketleri olmamali
-                        var rec = (AHP)Db.FromId(request.ObjP);
-                        if (request.ObjP > 0 &&  rec == null)
-                            request.RowErr = "Üst Hesabı tanımsız";
-                        //else if (request.RowState == "A" && Db.SQL<AHP>("select r from AHP r where r.ObjP.ObjectNo = ? and r.No = ?", request.ObjP, request.No).FirstOrDefault() != null)
-                        else if (request.RowState == "A" && Db.SQL<AHP>($"select r from {typeof(AHP)} r where {nameof(AHP.ObjP)}.ObjectNo = ? and r.No = ?", request.ObjP, request.No).FirstOrDefault() != null)
-                            request.RowErr = $"{rec.Ad} altında No: {request.No} kullanılmış";
-                        else if (Db.SlowSQL<AFD>("select r from AFD r where r.ObjectNo = ?", request.ObjP).FirstOrDefault() != null)
-                            request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
+
+                        AHP pAhp = (AHP)Db.FromId(request.ObjP);
+                        if (request.RowState == "A")
+                        {
+                            if (request.ObjP > 0 && pAhp == null)
+                                request.RowErr = "Üst Hesabı tanımsız";
+                            else if (pAhp.IsW || pAhp.HasH)
+                                request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
+                            else if (!AccOps.IsAhpNoUnique(pAhp, request.No))
+                                request.RowErr = $"No: {request.No} kullanılmış";
+                        }
+                        else if (request.RowState == "M")
+                        {
+                            AHP oldRec = Db.FromId<AHP>(request.RowPk);
+                            if (request.IsW && oldRec.HasK)
+                                request.RowErr = "Üst hesap çalışamaz.";
+                            else if (!request.IsW && oldRec.HasH)
+                                request.RowErr = "Çalışan hesap, Hareketleri var.";
+                            else if (oldRec.No != request.No && !AccOps.IsAhpNoUnique(pAhp, request.No))
+                                request.RowErr = $"No: {request.No} kullanılmış";
+                        }
 
                         if (request.RowErr == string.Empty)
                         {

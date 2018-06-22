@@ -46,6 +46,7 @@
             this.colHspNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colObjPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colHasH = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -186,6 +187,7 @@
             this.colHspNoT,
             this.colNoT,
             this.colAdT,
+            this.colIsW,
             this.colRowPkT,
             this.colObjPT,
             this.colHasH});
@@ -223,7 +225,7 @@
             this.colHspNoT.OptionsColumn.ReadOnly = true;
             this.colHspNoT.SortOrder = System.Windows.Forms.SortOrder.Ascending;
             this.colHspNoT.Visible = true;
-            this.colHspNoT.VisibleIndex = 2;
+            this.colHspNoT.VisibleIndex = 3;
             this.colHspNoT.Width = 146;
             // 
             // colNoT
@@ -239,8 +241,15 @@
             this.colAdT.FieldName = "Ad";
             this.colAdT.Name = "colAdT";
             this.colAdT.Visible = true;
-            this.colAdT.VisibleIndex = 1;
+            this.colAdT.VisibleIndex = 2;
             this.colAdT.Width = 291;
+            // 
+            // colIsW
+            // 
+            this.colIsW.FieldName = "IsW";
+            this.colIsW.Name = "colIsW";
+            this.colIsW.Visible = true;
+            this.colIsW.VisibleIndex = 1;
             // 
             // colRowPkT
             // 
@@ -249,7 +258,7 @@
             this.colRowPkT.Name = "colRowPkT";
             this.colRowPkT.OptionsColumn.ReadOnly = true;
             this.colRowPkT.Visible = true;
-            this.colRowPkT.VisibleIndex = 3;
+            this.colRowPkT.VisibleIndex = 4;
             this.colRowPkT.Width = 89;
             // 
             // colObjPT
@@ -259,7 +268,7 @@
             this.colObjPT.Name = "colObjPT";
             this.colObjPT.OptionsColumn.ReadOnly = true;
             this.colObjPT.Visible = true;
-            this.colObjPT.VisibleIndex = 4;
+            this.colObjPT.VisibleIndex = 5;
             this.colObjPT.Width = 89;
             // 
             // colHasH
@@ -270,7 +279,7 @@
             this.colHasH.OptionsColumn.FixedWidth = true;
             this.colHasH.OptionsColumn.ReadOnly = true;
             this.colHasH.Visible = true;
-            this.colHasH.VisibleIndex = 5;
+            this.colHasH.VisibleIndex = 6;
             this.colHasH.Width = 28;
             // 
             // contextMenuStrip
@@ -410,5 +419,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHasH;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colIsW;
     }
 }

@@ -14,6 +14,7 @@ namespace M2DB
 
         public double Brc { get; set; }
         public double Alc { get; set; }
+        public bool IsW { get; set; }     // Calisan Hesap?
 
         public bool HasP => ObjP == null ? false : true;
         public bool HasK => Db.SQL<AHP>($"select r from {typeof(AHP)} r where {nameof(ObjP)} = ?", this).FirstOrDefault() == null ? false : true;
@@ -83,6 +84,19 @@ namespace M2DB
 
     public static class AccOps
     {
+        public static bool IsAhpNoUnique(AHP pAhp, string newNo)
+        {
+            AHP ahp;
+            if(pAhp == null)
+                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP IS NULL and r.No = ?", newNo).FirstOrDefault();
+            else
+                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP = ? and r.No = ?", pAhp, newNo).FirstOrDefault();
+
+            if (ahp == null)
+                return true;
+            return false;
+        }
+
         public static void PopAHP()
         {
             if (Db.SQL<AHP>("select r from AHP r").FirstOrDefault() != null)

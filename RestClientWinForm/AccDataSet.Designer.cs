@@ -359,6 +359,8 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnObjP;
             
+            private global::System.Data.DataColumn columnIsW;
+            
             private global::System.Data.DataColumn columnHasH;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -436,6 +438,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IsWColumn {
+                get {
+                    return this.columnIsW;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn HasHColumn {
                 get {
                     return this.columnHasH;
@@ -479,7 +489,7 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string No, string Ad, ulong ObjP, bool HasH) {
+            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string No, string Ad, ulong ObjP, bool IsW, bool HasH) {
                 AHPRow rowAHPRow = ((AHPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
@@ -487,6 +497,7 @@ namespace RestClientWinForm {
                         No,
                         Ad,
                         ObjP,
+                        IsW,
                         HasH};
                 rowAHPRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAHPRow);
@@ -515,6 +526,7 @@ namespace RestClientWinForm {
                 this.columnNo = base.Columns["No"];
                 this.columnAd = base.Columns["Ad"];
                 this.columnObjP = base.Columns["ObjP"];
+                this.columnIsW = base.Columns["IsW"];
                 this.columnHasH = base.Columns["HasH"];
             }
             
@@ -531,8 +543,11 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnAd);
                 this.columnObjP = new global::System.Data.DataColumn("ObjP", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnObjP);
+                this.columnIsW = new global::System.Data.DataColumn("IsW", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsW);
                 this.columnHasH = new global::System.Data.DataColumn("HasH", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHasH);
+                this.columnIsW.Caption = "";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1431,6 +1446,22 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsW {
+                get {
+                    try {
+                        return ((bool)(this[this.tableAHP.IsWColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsW\' in table \'AHP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAHP.IsWColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool HasH {
                 get {
                     try {
@@ -1503,6 +1534,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetObjPNull() {
                 this[this.tableAHP.ObjPColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsIsWNull() {
+                return this.IsNull(this.tableAHP.IsWColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetIsWNull() {
+                this[this.tableAHP.IsWColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -201,8 +201,10 @@ namespace RestClientWinForm
 
             //TreeListNode newNode = treeList1.AppendNode(new object[] { "Sener" }, treeList1.FocusedNode);
             //treeList1.FocusedNode = newNode;
-            if ((bool)treeList1.FocusedNode.GetValue(colHasH))     // Hareketi varsa alt hesabi olamaz
-                XtraMessageBox.Show("Hesabın hareketleri var, Alt hesap ekleyemezsiniz.", "Ekle", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            bool hasH = (bool)treeList1.FocusedNode.GetValue(colHasH);
+            bool iswrk = (bool)treeList1.FocusedNode.GetValue(colIsW);
+            if (hasH)     // Hareketi varsa alt hesabi olamaz
+                XtraMessageBox.Show("Çalışan hesaba veya hareketleri olan hesaba, Alt hesap ekleyemezsiniz.", "Ekle", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
             { 
                 bool ok = true;
