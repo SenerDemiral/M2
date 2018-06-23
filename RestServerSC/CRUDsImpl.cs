@@ -189,7 +189,7 @@ namespace RestServerSC
                                 request.RowErr = "Üst Hesabı tanımsız";
                             else if (pAhp.IsW || pAhp.HasH)
                                 request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
-                            else if (!AccOps.IsAhpNoUnique(pAhp, request.No))
+                            else if (!AHP.IsAhpNoUnique(pAhp, request.No))
                                 request.RowErr = $"No: {request.No} kullanılmış";
                         }
                         else if (request.RowState == "M")
@@ -199,7 +199,7 @@ namespace RestServerSC
                                 request.RowErr = "Üst hesap çalışamaz.";
                             else if (!request.IsW && oldRec.HasH)
                                 request.RowErr = "Çalışan hesap, Hareketleri var.";
-                            else if (oldRec.No != request.No && !AccOps.IsAhpNoUnique(pAhp, request.No))
+                            else if (oldRec.No != request.No && !AHP.IsAhpNoUnique(pAhp, request.No))
                                 request.RowErr = $"No: {request.No} kullanılmış";
                         }
 

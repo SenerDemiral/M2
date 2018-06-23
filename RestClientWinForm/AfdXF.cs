@@ -17,6 +17,7 @@ namespace RestClientWinForm
         public object ObjAFB = (ulong)469;
         public int AfbRowIndex;
         public AccDataSet.AFBRow AFBRow;
+        private object ObjDvzTRL;
 
 
         public AfdXF()
@@ -33,8 +34,10 @@ namespace RestClientWinForm
         {
             ObjAFB = AFBRow.RowPk;
             if (AFBRow.AoK == "K")
+            {
                 gridView1.OptionsBehavior.ReadOnly = true;
-            Text += " Kapalı";
+                Text += " Kapalı";
+            }
 
             QryProxy qp = new QryProxy
             {
@@ -43,8 +46,10 @@ namespace RestClientWinForm
             };
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
+            DataRow[] xdkRows = mainDataSet.XDK.Select("Dvz = 'TRL'");
+            ObjDvzTRL = xdkRows[0]["ObjDvz"];
+
             FillDB();
-            
         }
 
         private void FillDB()
@@ -124,6 +129,9 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colObjAFB, ObjAFB);
+            gridView1.SetFocusedRowCellValue(colObjDvz, ObjDvzTRL);
+            gridView1.SetFocusedRowCellValue(colTut, 0.0);
+            gridView1.SetFocusedRowCellValue(colKur, 1.0);
         }
 
         private void DvzRepositoryItemLookUpEdit1_EditValueChanged(object sender, EventArgs e)
@@ -132,32 +140,26 @@ namespace RestClientWinForm
             DataRowView drv = (DataRowView)(sender as LookUpEdit).GetSelectedDataRow();
             //var ccc = (drv.Row as MainDataSet.XDKRow).Kur;
             var kur = (float)drv.Row["Kur"];
-            var tut = (double)gridView1.GetFocusedRowCellValue(colTut);
-            double tutTL = Math.Round(tut * kur, 2);
             gridView1.SetFocusedRowCellValue(colKur, kur);
-            //gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
-        }
-
-        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
-        {
-            
+            ComputeRow();
         }
 
         private void gridView1_HiddenEditor(object sender, EventArgs e)
         {
+            ComputeRow();
+        }
 
-            }
-
-        private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void ComputeRow()
         {
-            if (e.Column.FieldName == "Tut" || e.Column.FieldName == "Kur")
+            object tut = gridView1.GetFocusedRowCellValue(colTut);
+            object kur = gridView1.GetFocusedRowCellValue(colKur);
+            if (tut != DBNull.Value && kur != DBNull.Value)
             {
-                var tut = (double)gridView1.GetFocusedRowCellValue(colTut);
-                var kur = (float)gridView1.GetFocusedRowCellValue(colKur);
-                double tutTL = Math.Round(tut * kur, 2);
+                double tutTL = Math.Round((double)tut * (float)kur, 2);
                 gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
                 gridView1.UpdateSummary();
             }
+
         }
 
         private void gridView1_CustomDrawFooterCell(object sender, DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs e)
@@ -167,5 +169,6 @@ namespace RestClientWinForm
                 e.Appearance.ForeColor = Color.MediumVioletRed;
             }
         }
+
     }
 }

@@ -50,6 +50,20 @@ namespace M2DB
                 return Lvl;
             }
         }
+
+        public static bool IsAhpNoUnique(AHP pAhp, string newNo)
+        {
+            AHP ahp;
+            if (pAhp == null)
+                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP IS NULL and r.No = ?", newNo).FirstOrDefault();
+            else
+                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP = ? and r.No = ?", pAhp, newNo).FirstOrDefault();
+
+            if (ahp == null)
+                return true;
+            return false;
+        }
+
     }
 
     [Database]
@@ -84,19 +98,6 @@ namespace M2DB
 
     public static class AccOps
     {
-        public static bool IsAhpNoUnique(AHP pAhp, string newNo)
-        {
-            AHP ahp;
-            if(pAhp == null)
-                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP IS NULL and r.No = ?", newNo).FirstOrDefault();
-            else
-                ahp = Db.SQL<AHP>("select r from AHP r where r.ObjP = ? and r.No = ?", pAhp, newNo).FirstOrDefault();
-
-            if (ahp == null)
-                return true;
-            return false;
-        }
-
         public static void PopAHP()
         {
             if (Db.SQL<AHP>("select r from AHP r").FirstOrDefault() != null)

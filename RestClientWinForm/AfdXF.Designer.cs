@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfdXF));
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.afdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
@@ -46,7 +47,6 @@
             this.colObjAFB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjDvz = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DvzRepositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -77,6 +77,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colTut
+            // 
+            this.colTut.AppearanceHeader.Options.UseTextOptions = true;
+            this.colTut.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colTut.DisplayFormat.FormatString = "n";
+            this.colTut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colTut.FieldName = "Tut";
+            this.colTut.MinWidth = 80;
+            this.colTut.Name = "colTut";
+            this.colTut.Visible = true;
+            this.colTut.VisibleIndex = 3;
+            this.colTut.Width = 80;
             // 
             // accDataSet
             // 
@@ -206,8 +219,6 @@
             this.gridView1.CustomDrawFooterCell += new DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(this.gridView1_CustomDrawFooterCell);
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.HiddenEditor += new System.EventHandler(this.gridView1_HiddenEditor);
-            this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
-            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
             // colRowPk
             // 
@@ -247,19 +258,6 @@
             this.colInfo.Visible = true;
             this.colInfo.VisibleIndex = 7;
             this.colInfo.Width = 212;
-            // 
-            // colTut
-            // 
-            this.colTut.AppearanceHeader.Options.UseTextOptions = true;
-            this.colTut.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colTut.DisplayFormat.FormatString = "n";
-            this.colTut.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colTut.FieldName = "Tut";
-            this.colTut.MinWidth = 80;
-            this.colTut.Name = "colTut";
-            this.colTut.Visible = true;
-            this.colTut.VisibleIndex = 3;
-            this.colTut.Width = 80;
             // 
             // colObjDvz
             // 

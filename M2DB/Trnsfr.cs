@@ -17,28 +17,44 @@ namespace M2DB
     /// SatisFatura: AlanMusteri
     /// </summary>
     [Database]
-    public class TTT    // Transfer
+    public class TTB    // Transfer, Baslik
     {
-        public TTT ObjP { get; set; }        // ParentTransfer null:Siparis, Siparis:Irsaliye, Irsaliye:Fatura
-        public KKK ObjOrg { get; set; }        // Nereden/Origin (Musteri/Depo/UretimHatti)
-        public KKK ObjDst { get; set; }        // Nereye/Destination
+        public TTB ObjP { get; set; }        // ParentTransfer null:Siparis, Siparis:Irsaliye, Irsaliye:Fatura. Link Detay'dan
+        public KKK ObjOrg { get; set; }        // Kimden/Nereden/Origin (Musteri/Depo/UretimHatti)
+        public KKK ObjDst { get; set; }        // Kime/Nereye/Destination
         public UUU ObjVrn { get; set; }        // VerenSorumlu
         public UUU ObjAln { get; set; }        // AlanSorumlu
-        public DateTime Trh { get; set; }   // Nazaman
+        public DateTime Trh { get; set; }      // Nazaman
 
         public XGT ObjSkl { get; set; }     // Siparis/Irsaliye/Fatura
+        public XGT ObjTur { get; set; }     // Seklin Turu: Spr:?, Irs:Normal/Iade/Konsinye, Ftr:Alis/AlisIade/Satis/SatisIade
         public XGT ObjDrm { get; set; }     // Durum/Statu (Acik/Kapali)
 
-        public string No { get; set; }      // BelgeNo
+        public string BlgNo { get; set; }
         public string Ack { get; set; }     // Aciklama/Neden
 
     }
 
-    public class TSB : TTT    // Transfer.Siparis.Baslik
+    [Database]
+    public class TTD    // Transfer, Detay
     {
-        public XGT ObjTur { get; set; }     // ??
-        public DateTime ETD { get; set; }   // EstimatedTimeofDelivery
-        public DateTime ATD { get; set; }   // ActualTimeofDelivery
+        public TTB ObjTTB { get; set; }        // Baslik
+        public NNN ObjNNN { get; set; }        // Ne
+        public TTD ObjTTD { get; set; }        // Ref Spr/Irs/Ftr
+        public double Mik { get; set; }        // Nekadar
+        //public string Brm { get; set; }      // Birim NNN'den gelir
+        public double Fyt { get; set; }
+        public ulong ObjDvz { get; set; }
+        public float Kur { get; set; }
+    }
+
+
+    public class TSB : TTB    // Transfer.Siparis.Baslik
+    {
+        public DateTime ROH { get; set; }   // RequestOnHand. Alc belirtir
+        public DateTime EOH { get; set; }   // ExpectedOnHand. Stc belirtir
+        public DateTime ETD { get; set; }   // EstimatedTimeofDelivery. Stc
+        //public DateTime ATD { get; set; }   // ActualTimeofDelivery
         public string Bilgi { get; set; }   // Siparisi veren vs
                                             // AlimSiparis:  ORG var DST yok, VRN yok ALN var (Siparis Kimden gelecek)
                                             // SatimSiparis: DST var ORG yok (Siparis Kime gidecek)
@@ -89,9 +105,8 @@ namespace M2DB
         public double Fyt { get; set; }     // Kaca
     }
 
-    public class TIB : TTT    // Transfer Irsaliye Baslik
+    public class TIB : TTB    // Transfer Irsaliye Baslik
     {
-        public XGT ObjTur { get; set; }     // Normal/Iade/Konsinye
         // Nakliye Araca toplu Irsaliye kesilir(Depo->Arac), Musterilere ayri(Arac->Musteri)
     }
 
@@ -106,9 +121,8 @@ namespace M2DB
 
     }
 
-    public class TFB : TTT    // Transfer Fatura Baslik
+    public class TFB : TTB    // Transfer Fatura Baslik
     {
-        public XGT ObjTur { get; set; }     // Alis/AlisIade/Satis/SatisIade
     }
 
     [Database]
@@ -119,8 +133,9 @@ namespace M2DB
         public TID ObjTID { get; set; }        // RefIrsaliye
         public double Mik { get; set; }     // Nekadar
         public string Brm { get; set; }     // Birim
-        public double Fyt { get; set; }     // Kaca
-        public string Dvz { get; set; }     // FiyatBirimi
+        public double Fyt { get; set; }
+        public ulong ObjDvz { get; set; }
+        public float Kur { get; set; }      
     }
 
 }
