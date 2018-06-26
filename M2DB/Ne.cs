@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Starcounter;
 
 namespace M2DB
@@ -97,7 +99,7 @@ namespace M2DB
     /// Birim Fiyat Analizleri gibi. TemelKalemler(Atom/Indivisible:Element) -> Analiz(Molekul) -> Aktivite(Polymer)
     /// </summary>
     [Database]
-    public class NHT // Ne.Hiyerarsi.Tree
+    public class NHT // Ne.Hiyerarsi.Tree IPTAL
     {
         public NNN ObjPrnNNN { get; set; }
         public NNN ObjKidNNN { get; set; }
@@ -108,4 +110,157 @@ namespace M2DB
         public string KidAd => ObjKidNNN?.Ad;
         public string KidNo => ObjKidNNN?.No;
     }
+
+    [Database]
+    public class NNR // Ne.Relation
+    {
+        public NNN ObjNeP { get; set; } // Parent
+        public NNN ObjNeK { get; set; } // Kid
+        public double Mik { get; set; }
+
+        public string PrnAd => ObjNeP?.Ad;
+        public string KidAd => ObjNeK?.Ad;
+
+        public static void KidInRootsMik(ulong KidObjNo)
+        {
+            if (!(Db.FromId(KidObjNo) is NNN Kid))
+                return;
+
+            //NNN Kid = Db.FromId(KidObjNo) as NNN;
+            //if (Kid == null)
+            //    return;
+
+            StringBuilder sb = new StringBuilder();
+            Dictionary<ulong, double> MikDict = new Dictionary<ulong, double>();
+
+            Console.WriteLine("");
+            Console.WriteLine("KidInRootsMikDty++++");
+
+            MikDict.Clear();
+            KidInRootsMikDty(KidObjNo, MikDict);
+
+            NNN Ne;
+            foreach (var i in MikDict)
+            {
+                Ne = Db.FromId<NNN>(i.Key);
+                if (!Ne.HasPrn)  // Root
+                    Console.WriteLine($">>{Kid.Ad}@{Ne.Ad}={i.Value:n}");
+
+            }
+            Console.WriteLine("");
+            Console.WriteLine("KidInRootsMikDty----");
+        }
+
+        public static void KidInRootsMikDty(ulong sNo, Dictionary<ulong, double> mD)
+        {
+            ulong PoNo = 0, KoNo = 0;
+            double pMik = 0, kMik = 0;
+            string s = "";
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.ObjK.ObjectNo = ?", sNo))
+            {
+                PoNo = r.ObjNeP.GetObjectNo();
+                KoNo = r.ObjNeK.GetObjectNo();
+
+                if (!mD.ContainsKey(PoNo))
+                    mD[PoNo] = 0;
+
+                kMik = mD.ContainsKey(KoNo) ? mD[KoNo] : 1;
+
+                if (!r.ObjNeP.HasPrn)  // Root
+                {
+                    pMik = mD[PoNo];
+                    mD[PoNo] += kMik * r.Mik;
+                    s = $"{r.PrnAd}.{r.KidAd}:{r.Mik} =>";
+                    Console.WriteLine($"+ {s,40} {r.PrnAd}[{pMik}] + ({r.Mik} x {r.KidAd}[{kMik}] = {kMik * r.Mik}) => {r.PrnAd}[{mD[PoNo]}]");
+                    //Console.WriteLine($"\t+ {r.PrnAd}.{r.KidAd}:{r.Mik}\t{r.PrnAd}[{pMik}] + ({r.Mik} x {r.KidAd}[{kMik}] = {kMik * r.Mik}) => {r.PrnAd}[{mD[PoNo]}]");
+                }
+                else
+                {
+                    mD[PoNo] = kMik * r.Mik;
+                    s = $"{r.PrnAd}.{r.KidAd}:{r.Mik} =>";
+                    if (mD.ContainsKey(KoNo))
+                        Console.WriteLine($"* {s,40} {r.KidAd}[{kMik}] x {r.Mik} => {r.PrnAd}[{mD[PoNo]}]");
+                    else
+                        Console.WriteLine($"& {s,40} {r.PrnAd}[{mD[PoNo]}]");
+                }
+
+
+                if (r.ObjNeP.HasPrn)
+                    KidInRootsMikDty(r.ObjNeP.GetObjectNo(), mD);
+            }
+
+            return;
+        }
+
+        public static void NodeGerekenKidsMik(ulong node, double Mik)
+        {
+            // node dan Mik kadar isteniyor, stoktakiler kullanildiginda ne kadar Kids alinmali.
+            Dictionary<ulong, double> S = new Dictionary<ulong, double>();  // Stok
+            Dictionary<ulong, double> G = new Dictionary<ulong, double>();  // Gereken
+
+            // Burasi Siparis listesindeki her kalem icin donerek, gereken toplam miktarlar alinabilir.
+            //foreach(var r in Db.SQL<TTT>("select r from TSD r where r.Prn.ObjectNo = ?", TSBoNo))
+            //{
+            //    NodeKidsMikDty(node, 1, S, G);
+            //}
+            NodeGerekenKidsMikDty(node, Mik, S, G);
+            NNN s = Db.FromId<NNN>(node);
+            Console.WriteLine($"Nodes @{s.Ad} ---------->");
+            foreach (var r in G)
+            {
+                s = Db.FromId<NNN>(r.Key);
+                Console.WriteLine($"{s.Ad} -> Stok: {S[r.Key]}, Gereken: {r.Value}");
+            }
+            /*
+            var aaa = Db.FromId(46);    // Musteri
+            var bbb = Db.FromId(29);    // Depo
+            var tsb = Db.FromId(47) as TSB;    // TSB
+
+            var ccc = ((KMT)tsb.DST).Adres; // DST is KKK
+            */
+        }
+
+        public static void NodeGerekenKidsMikDty(ulong Prn, double Mik, Dictionary<ulong, double> S, Dictionary<ulong, double> G)
+        {
+            ulong Kid = 0;
+            double GMik = 0;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.ObjNeP.ObjectNo = ?", Prn))
+            {
+                Kid = r.ObjNeK.GetObjectNo();
+
+                if (!S.ContainsKey(Kid))
+                    S[Kid] = 0; //StokMik(Kid);
+
+                GMik = Mik * r.Mik;
+                if (GMik > S[Kid])
+                {
+                    GMik -= S[Kid];
+                    S[Kid] = 0;
+                }
+                else
+                {
+                    S[Kid] -= GMik;
+                    GMik = 0;
+                }
+
+                if (!G.ContainsKey(Kid))
+                    G[Kid] = 0;
+                G[Kid] += GMik;
+
+                if (GMik > 0 && r.ObjNeK.HasKid)
+                    NodeGerekenKidsMikDty(Kid, GMik, S, G);
+            }
+        }
+
+
+
+    }
+
+
+
+
+
+
 }
