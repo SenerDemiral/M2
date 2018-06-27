@@ -112,7 +112,7 @@ namespace M2DB
     }
 
     [Database]
-    public class NNR // Ne.Relation
+    public class NNR // Ne.Recete
     {
         public NNN ObjNeP { get; set; } // Parent
         public NNN ObjNeK { get; set; } // Kid
@@ -151,7 +151,7 @@ namespace M2DB
             Console.WriteLine("KidInRootsMikDty----");
         }
 
-        public static void KidInRootsMikDty(ulong sNo, Dictionary<ulong, double> mD)
+        private static void KidInRootsMikDty(ulong sNo, Dictionary<ulong, double> mD)
         {
             ulong PoNo = 0, KoNo = 0;
             double pMik = 0, kMik = 0;
@@ -221,7 +221,7 @@ namespace M2DB
             */
         }
 
-        public static void NodeGerekenKidsMikDty(ulong Prn, double Mik, Dictionary<ulong, double> S, Dictionary<ulong, double> G)
+        private static void NodeGerekenKidsMikDty(ulong Prn, double Mik, Dictionary<ulong, double> S, Dictionary<ulong, double> G)
         {
             ulong Kid = 0;
             double GMik = 0;

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using Rest;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace RestClientWinForm
 {
@@ -134,14 +135,20 @@ namespace RestClientWinForm
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
         }
 
-        private void DvzRepositoryItemLookUpEdit1_EditValueChanged(object sender, EventArgs e)
+        private void DvzRepositoryItemLookUpEdit1_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
         {
-            //var aaa = (sender as LookUpEdit).EditValue;
-            DataRowView drv = (DataRowView)(sender as LookUpEdit).GetSelectedDataRow();
-            //var ccc = (drv.Row as MainDataSet.XDKRow).Kur;
-            var kur = (float)drv.Row["Kur"];
-            gridView1.SetFocusedRowCellValue(colKur, kur);
-            ComputeRow();
+            var editValue = (sender as LookUpEdit).EditValue;
+            var oldEditValue = (sender as LookUpEdit).OldEditValue;
+            if (editValue != oldEditValue)
+            {
+                DataRowView drv = (DataRowView)(sender as LookUpEdit).GetSelectedDataRow();
+                gridView1.SetFocusedRowCellValue(colKur, drv.Row["Kur"]);
+
+                // Bu da calisiyor
+                //DataRow[] xdkRows = mainDataSet.XDK.Select($"ObjDvz = {editValue}");
+                //gridView1.SetFocusedRowCellValue(colKur, xdkRows[0]["Kur"]);
+                ComputeRow();
+            }
         }
 
         private void gridView1_HiddenEditor(object sender, EventArgs e)
@@ -157,18 +164,37 @@ namespace RestClientWinForm
             {
                 double tutTL = Math.Round((double)tut * (float)kur, 2);
                 gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
+                gridView1.PostEditor();
                 gridView1.UpdateSummary();
             }
-
         }
 
         private void gridView1_CustomDrawFooterCell(object sender, DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs e)
         {
-            if(e.Column.FieldName == "TutTL" && (double)e.Info.Value < 0)
+            if (e.Info != null)
             {
-                e.Appearance.ForeColor = Color.MediumVioletRed;
+                if (e.Column.FieldName == "TutTL" && (double)e.Info.Value < 0)
+                {
+                    e.Appearance.ForeColor = Color.MediumVioletRed;
+                }
             }
         }
 
+        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (View.GetRowCellDisplayText(e.RowHandle, colObjDvz) == "TRL")
+            {
+                View.SetRowCellValue(e.RowHandle, colKur, 1.0);
+                View.SetRowCellValue(e.RowHandle, colTutTL, View.GetRowCellValue(e.RowHandle, colTut));
+            }
+        }
+
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (View.GetFocusedRowCellDisplayText(colObjDvz) == "TRL" && View.FocusedColumn == colKur)
+                e.Cancel = true;
+        }
     }
 }

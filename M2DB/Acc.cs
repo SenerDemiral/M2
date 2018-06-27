@@ -64,6 +64,16 @@ namespace M2DB
             return false;
         }
 
+        public static void AhpAfdTopUpd(AHP ahp)
+        {
+            Db.Transact(() =>
+            {
+                Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.ObjAHP = ?", ahp).FirstOrDefault();
+                ahp.Brc = res.Item1;
+                ahp.Alc = res.Item2;
+            });
+         }
+
     }
 
     [Database]

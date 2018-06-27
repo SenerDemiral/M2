@@ -217,8 +217,10 @@
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRowPk, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawFooterCell += new DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(this.gridView1_CustomDrawFooterCell);
+            this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.HiddenEditor += new System.EventHandler(this.gridView1_HiddenEditor);
+            this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
             // colRowPk
             // 
@@ -278,7 +280,7 @@
             this.DvzRepositoryItemLookUpEdit1.DisplayMember = "Dvz";
             this.DvzRepositoryItemLookUpEdit1.Name = "DvzRepositoryItemLookUpEdit1";
             this.DvzRepositoryItemLookUpEdit1.ValueMember = "ObjDvz";
-            this.DvzRepositoryItemLookUpEdit1.EditValueChanged += new System.EventHandler(this.DvzRepositoryItemLookUpEdit1_EditValueChanged);
+            this.DvzRepositoryItemLookUpEdit1.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DvzRepositoryItemLookUpEdit1_Closed);
             // 
             // xdkBindingSource
             // 

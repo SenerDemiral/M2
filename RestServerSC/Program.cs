@@ -17,6 +17,16 @@ namespace RestServerSC
 
         static void Main()
         {
+            
+            Hook<AFD>.AfterCommitInsert += (sender, id) => {
+                var afd = Db.FromId<AFD>(id);
+                AHP.AhpAfdTopUpd(afd.ObjAHP);
+            };
+            Hook<AFD>.AfterCommitUpdate += (sender, id) => {
+                var afd = Db.FromId<AFD>(id);
+                AHP.AhpAfdTopUpd(afd.ObjAHP);
+            };
+            
             M2DB.AccOps.PopAHP();
             M2DB.GnlOps.PopXGT();
 
