@@ -147,6 +147,8 @@ namespace RestServerSC
                             HspNo = row.HspNo,
                             IsW = row.IsW,
                             HasH = row.HasH,
+                            Brc = row.Brc,
+                            Alc = row.Alc,
                         };
 
                         proxyList.Add(proxy);
@@ -231,6 +233,18 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        public override Task<AFBproxy> AFBgetByPK(PKproxy request, ServerCallContext context)
+        {
+            AFBproxy prxy = new AFBproxy();
+            Scheduling.RunTask(() =>
+            {
+                AFB afb = Db.FromId(request.PK) as AFB;
+                prxy = CRUDsHelper.ToProxy<AFBproxy, AFB>(afb);
+            }).Wait();
+
+            return Task.FromResult(prxy);
+        }
+
         public override async Task AFBfill(QryProxy request, IServerStreamWriter<AFBproxy> responseStream, ServerCallContext context)
         {
             AFBproxy proxy = new AFBproxy();
@@ -252,10 +266,10 @@ namespace RestServerSC
                             RowPk = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
                             ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
-                            AoK = row.AoK,
+                            Drm = row.Drm,
                             Info = row.Info ?? "",
-                            BrcTop = row.BrcTop,
-                            AlcTop = row.AlcTop,
+                            Brc = row.Brc,
+                            Alc = row.Alc,
                         };
 
                         proxyList.Add(proxy);
@@ -275,23 +289,33 @@ namespace RestServerSC
             {
                 RowPk = request.RowPk,
             };
-
             Scheduling.RunTask(() =>
             {
                 // RowState: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
+                    request.RowErr = "";
                     if (request.RowState == "A" || request.RowState == "M")
                     {
-                        // Add Control
-                        // Parent Hesabi olmali
-
                         if(request.RowState == "M")
                         {
-                            AFB oldAFB = Db.FromId<AFB>(request.RowPk);
-                            if(request.AoK == "K")
+                            AFB sonAFB = Db.FromId<AFB>(request.RowPk);
+                            if (request.Drm == "P")
                             {
-                                if (oldAFB.BrcTop != oldAFB.AlcTop)
+                                if (sonAFB.Drm == "P")
+                                {
+                                    request = CRUDsHelper.ToProxy<AFBproxy, AFB>(sonAFB);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.RowErr = "LOCKED Already";
+                                }
+                                else
+                                {
+                                    request = CRUDsHelper.ToProxy<AFBproxy, AFB>(sonAFB);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.Drm = "P";
+                                }
+                            }
+                            else if (request.Drm == "K")
+                            {
+                                if (sonAFB.Brc != sonAFB.Alc)
                                     request.RowErr = "Brc = Alc olmalı.";
                             }
                         }
@@ -305,7 +329,7 @@ namespace RestServerSC
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowState == "D" && request.Drm == "A")
                     {
                         var rec = (AFB)Db.FromId(request.RowPk);
                         if (rec == null)

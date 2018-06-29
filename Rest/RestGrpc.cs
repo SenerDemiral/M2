@@ -34,6 +34,7 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.TblaProxy> __Marshaller_TblaProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AHPproxy> __Marshaller_AHPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AHPproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AFBproxy> __Marshaller_AFBproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AFBproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.PKproxy> __Marshaller_PKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.PKproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AFDproxy> __Marshaller_AFDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AFDproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XDKproxy> __Marshaller_XDKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XDKproxy.Parser.ParseFrom);
@@ -78,6 +79,13 @@ namespace Rest {
         __ServiceName,
         "AFBupdate",
         __Marshaller_AFBproxy,
+        __Marshaller_AFBproxy);
+
+    static readonly grpc::Method<global::Rest.PKproxy, global::Rest.AFBproxy> __Method_AFBgetByPK = new grpc::Method<global::Rest.PKproxy, global::Rest.AFBproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "AFBgetByPK",
+        __Marshaller_PKproxy,
         __Marshaller_AFBproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.AFDproxy> __Method_AFDfill = new grpc::Method<global::Rest.QryProxy, global::Rest.AFDproxy>(
@@ -157,6 +165,11 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Rest.AFBproxy> AFBupdate(global::Rest.AFBproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.AFBproxy> AFBgetByPK(global::Rest.PKproxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -288,6 +301,22 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_AFBupdate, null, options, request);
       }
+      public virtual global::Rest.AFBproxy AFBgetByPK(global::Rest.PKproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AFBgetByPK(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.AFBproxy AFBgetByPK(global::Rest.PKproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_AFBgetByPK, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.AFBproxy> AFBgetByPKAsync(global::Rest.PKproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AFBgetByPKAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.AFBproxy> AFBgetByPKAsync(global::Rest.PKproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_AFBgetByPK, null, options, request);
+      }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.AFDproxy> AFDfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return AFDfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -378,6 +407,7 @@ namespace Rest {
           .AddMethod(__Method_AHPupdate, serviceImpl.AHPupdate)
           .AddMethod(__Method_AFBfill, serviceImpl.AFBfill)
           .AddMethod(__Method_AFBupdate, serviceImpl.AFBupdate)
+          .AddMethod(__Method_AFBgetByPK, serviceImpl.AFBgetByPK)
           .AddMethod(__Method_AFDfill, serviceImpl.AFDfill)
           .AddMethod(__Method_AFDupdate, serviceImpl.AFDupdate)
           .AddMethod(__Method_XGTfill, serviceImpl.XGTfill)

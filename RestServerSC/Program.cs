@@ -20,11 +20,11 @@ namespace RestServerSC
             
             Hook<AFD>.AfterCommitInsert += (sender, id) => {
                 var afd = Db.FromId<AFD>(id);
-                AHP.AhpAfdTopUpd(afd.ObjAHP);
+                AHP.AhpTopUpdAfd(afd.ObjAHP);
             };
             Hook<AFD>.AfterCommitUpdate += (sender, id) => {
                 var afd = Db.FromId<AFD>(id);
-                AHP.AhpAfdTopUpd(afd.ObjAHP);
+                AHP.AhpTopUpdAfd(afd.ObjAHP);
             };
             
             M2DB.AccOps.PopAHP();
@@ -34,7 +34,7 @@ namespace RestServerSC
             {
                 new AFB
                 {
-                    AoK = "A",
+                    Drm = "A",
                     Trh = DateTime.Today,
                 };
                 /*

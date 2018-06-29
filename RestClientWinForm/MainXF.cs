@@ -91,5 +91,20 @@ namespace RestClientWinForm
                     e.AcceptValue = false;
             }
         }
+
+        private void MainXF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            List<Form> of = new List<Form>(); 
+            foreach (Form f in Application.OpenForms)
+            {
+                of.Add(f);
+            }
+            foreach (Form f in of)
+            {
+                if(f.Name != "MainXF")
+                    f.Close();
+            }
+
+        }
     }
 }

@@ -58,6 +58,8 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingNavigator)).BeginInit();
@@ -190,7 +192,9 @@
             this.colIsW,
             this.colRowPkT,
             this.colObjPT,
-            this.colHasH});
+            this.colHasH,
+            this.colBrc,
+            this.colAlc});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.ahpBindingSource;
@@ -363,6 +367,28 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // colBrc
+            // 
+            this.colBrc.FieldName = "Brc";
+            this.colBrc.Format.FormatString = "n";
+            this.colBrc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colBrc.Name = "colBrc";
+            this.colBrc.OptionsColumn.AllowFocus = false;
+            this.colBrc.OptionsColumn.ReadOnly = true;
+            this.colBrc.Visible = true;
+            this.colBrc.VisibleIndex = 7;
+            // 
+            // colAlc
+            // 
+            this.colAlc.FieldName = "Alc";
+            this.colAlc.Format.FormatString = "n";
+            this.colAlc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colAlc.Name = "colAlc";
+            this.colAlc.OptionsColumn.AllowFocus = false;
+            this.colAlc.OptionsColumn.ReadOnly = true;
+            this.colAlc.Visible = true;
+            this.colAlc.VisibleIndex = 8;
+            // 
             // AhpXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,5 +446,7 @@
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHasH;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colIsW;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colBrc;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colAlc;
     }
 }

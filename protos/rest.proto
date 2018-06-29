@@ -27,6 +27,7 @@ service CRUDs {
 
   rpc AFBfill (QryProxy) returns (stream AFBproxy) {}
   rpc AFBupdate (AFBproxy) returns (AFBproxy) {}
+  rpc AFBgetByPK (PKproxy) returns (AFBproxy) {}
 
   rpc AFDfill (QryProxy) returns (stream AFDproxy) {}
   rpc AFDupdate (AFDproxy) returns (AFDproxy) {}
@@ -36,6 +37,10 @@ service CRUDs {
 
   rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
   rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
+}
+
+message PKproxy {
+  uint64 PK = 1;
 }
 
 message QryProxy {
@@ -66,8 +71,10 @@ message AHPproxy {
   string No = 5;
   string Ad = 6;
   string HspNo = 7;
-  bool IsW = 8;
-  bool HasH = 9;
+  double Brc = 8;
+  double Alc = 9;
+  bool IsW = 10;
+  bool HasH = 11;
 }
 
 // Muhasebe Fisleri
@@ -78,10 +85,10 @@ message AFBproxy {
 
   int64 Trh = 4;
   uint64 ObjTur = 5;
-  string AoK = 6;
-  string Info = 7;
-  double BrcTop = 8;
-  double AlcTop = 9;
+  string Drm = 6;
+  google.protobuf.StringValue Info = 7;
+  double Brc = 8;
+  double Alc = 9;
 }
 
 // Muhasebe Fis Detaylari

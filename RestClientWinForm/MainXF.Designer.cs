@@ -45,6 +45,8 @@
             this.colHspNo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.XDKbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
@@ -175,7 +177,9 @@
             this.repositoryItemTreeListLookUpEdit1TreeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.colHspNo,
             this.colAd,
-            this.colIsW});
+            this.colIsW,
+            this.colBrc,
+            this.colAlc});
             this.repositoryItemTreeListLookUpEdit1TreeList.DataSource = this.ahpBindingSource;
             this.repositoryItemTreeListLookUpEdit1TreeList.KeyFieldName = "RowPk";
             this.repositoryItemTreeListLookUpEdit1TreeList.Location = new System.Drawing.Point(0, 0);
@@ -213,6 +217,24 @@
             this.colIsW.Visible = true;
             this.colIsW.VisibleIndex = 2;
             // 
+            // colBrc
+            // 
+            this.colBrc.FieldName = "Brc";
+            this.colBrc.Format.FormatString = "n";
+            this.colBrc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colBrc.Name = "colBrc";
+            this.colBrc.Visible = true;
+            this.colBrc.VisibleIndex = 3;
+            // 
+            // colAlc
+            // 
+            this.colAlc.FieldName = "Alc";
+            this.colAlc.Format.FormatString = "n";
+            this.colAlc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colAlc.Name = "colAlc";
+            this.colAlc.Visible = true;
+            this.colAlc.VisibleIndex = 4;
+            // 
             // XDKbutton
             // 
             this.XDKbutton.Location = new System.Drawing.Point(22, 97);
@@ -233,6 +255,7 @@
             this.Controls.Add(this.AHPbutton);
             this.Name = "MainXF";
             this.Text = "MainXF";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainXF_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
@@ -267,5 +290,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNo;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAd;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colIsW;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colBrc;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colAlc;
     }
 }

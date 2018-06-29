@@ -34,7 +34,7 @@ namespace RestClientWinForm
         private void AfdXF_Load(object sender, EventArgs e)
         {
             ObjAFB = AFBRow.RowPk;
-            if (AFBRow.AoK == "K")
+            if (AFBRow.Drm == "K")
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
                 Text += " Kapalı";

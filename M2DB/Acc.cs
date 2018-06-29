@@ -64,13 +64,38 @@ namespace M2DB
             return false;
         }
 
-        public static void AhpAfdTopUpd(AHP ahp)
+        public static void AhpTopUpdAfd(AHP ahp)
         {
             Db.Transact(() =>
             {
-                Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.ObjAHP = ?", ahp).FirstOrDefault();
-                ahp.Brc = res.Item1;
-                ahp.Alc = res.Item2;
+                //Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.ObjAHP = ? and r.ObjAFB.Drm = ?", ahp, "K")?.FirstOrDefault();
+                Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.ObjAHP = ?", ahp)?.FirstOrDefault();
+                if (res != null)
+                {
+                    ahp.Brc = res.Item1;
+                    ahp.Alc = res.Item2;
+
+                    if (ahp.ObjP != null)   // Ust hesabi varsa
+                    {
+                        AHP pAHP = ahp.ObjP;
+                        double Brc = 0, Alc = 0;
+                        do
+                        {
+                            Brc = 0;
+                            Alc = 0;
+                            foreach (var m in Db.SQL<AHP>("select m from AHP m where m.ObjP = ?", pAHP))
+                            {
+                                Brc += m.Brc;
+                                Alc += m.Alc;
+                            }
+                            pAHP.Brc = Brc;
+                            pAHP.Alc = Alc;
+
+                            pAHP = pAHP.ObjP;
+                        }
+                        while (pAHP != null);
+                    }
+                }
             });
          }
 
@@ -81,11 +106,11 @@ namespace M2DB
     {
         public DateTime Trh { get; set; }
         public XGT ObjTur { get; set; }     // Tür 
-        public string AoK { get; set; }     // Acik/Kapali
+        public string Drm { get; set; }     // Acik/Kapali/Pending
         public string Info { get; set; }
 
-        public double BrcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.ObjAFB = ?", this).Sum(x => x.Brc);
-        public double AlcTop => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE {nameof(AFD.ObjAFB)} = ?", this).Sum(x => x.Alc);
+        public double Brc => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.ObjAFB = ?", this).Sum(x => x.Brc);
+        public double Alc => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE {nameof(AFD.ObjAFB)} = ?", this).Sum(x => x.Alc);
         public bool HasD => Db.SQL<AFD>($"select r from {typeof(AFD)} r where {nameof(AFD.ObjAFB)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
     }
 

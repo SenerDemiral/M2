@@ -98,6 +98,14 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
+        public AFBproxy AFBgetByPK(ulong pk)
+        {
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+
+            return client.AFBgetByPK(new PKproxy { PK = pk });
+        }
+
         public async Task<string> AFBfill()
         {
             var dt = AFB;
@@ -176,7 +184,9 @@ namespace RestClientWinForm
                     {
                         dt.Rows[i].RowError = reply.RowErr;
                         sb.AppendLine(reply.RowErr);
-                        dt.Rows[i].RejectChanges();
+                        //dt.Rows[i].RejectChanges();
+                        ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
+                        dt.Rows[i].AcceptChanges();
 
                     }
                 }

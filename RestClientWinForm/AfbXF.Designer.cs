@@ -44,6 +44,7 @@
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.afbGridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fisDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,10 +52,11 @@
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjTur = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAoK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBrcTop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAlcTop = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowErr = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -100,7 +102,8 @@
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
-            this.revertToolStripButton});
+            this.revertToolStripButton,
+            this.editToolStripButton});
             this.afbBindingNavigator.Location = new System.Drawing.Point(12, 12);
             this.afbBindingNavigator.MoveFirstItem = null;
             this.afbBindingNavigator.MoveLastItem = null;
@@ -162,6 +165,16 @@
             this.revertToolStripButton.Text = "toolStripButton6";
             this.revertToolStripButton.Click += new System.EventHandler(this.revertToolStripButton_Click);
             // 
+            // editToolStripButton
+            // 
+            this.editToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.editToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("editToolStripButton.Image")));
+            this.editToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.editToolStripButton.Name = "editToolStripButton";
+            this.editToolStripButton.Size = new System.Drawing.Size(23, 27);
+            this.editToolStripButton.Text = "toolStripButton1";
+            this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
+            // 
             // afbGridControl
             // 
             this.afbGridControl.ContextMenuStrip = this.contextMenuStrip1;
@@ -194,10 +207,11 @@
             this.colRowPk,
             this.colTrh,
             this.colObjTur,
-            this.colAoK,
+            this.colDrm,
             this.colInfo,
             this.colBrcTop,
-            this.colAlcTop});
+            this.colAlcTop,
+            this.colRowErr});
             gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Name = "Format0";
             formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -229,8 +243,15 @@
             this.gridView1.GridControl = this.afbGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
             // colRowPk
             // 
@@ -238,7 +259,7 @@
             this.colRowPk.Name = "colRowPk";
             this.colRowPk.OptionsColumn.ReadOnly = true;
             this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
+            this.colRowPk.VisibleIndex = 1;
             this.colRowPk.Width = 98;
             // 
             // colTrh
@@ -246,7 +267,7 @@
             this.colTrh.FieldName = "Trh";
             this.colTrh.Name = "colTrh";
             this.colTrh.Visible = true;
-            this.colTrh.VisibleIndex = 1;
+            this.colTrh.VisibleIndex = 2;
             this.colTrh.Width = 98;
             // 
             // colObjTur
@@ -255,49 +276,56 @@
             this.colObjTur.FieldName = "ObjTur";
             this.colObjTur.Name = "colObjTur";
             this.colObjTur.Visible = true;
-            this.colObjTur.VisibleIndex = 2;
+            this.colObjTur.VisibleIndex = 3;
             this.colObjTur.Width = 98;
             // 
-            // colAoK
+            // colDrm
             // 
-            this.colAoK.AppearanceCell.Options.UseTextOptions = true;
-            this.colAoK.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.colAoK.Caption = "A/K";
-            this.colAoK.FieldName = "AoK";
-            this.colAoK.Name = "colAoK";
-            this.colAoK.Visible = true;
-            this.colAoK.VisibleIndex = 3;
-            this.colAoK.Width = 38;
+            this.colDrm.AppearanceCell.Options.UseTextOptions = true;
+            this.colDrm.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.colDrm.Caption = "Drm";
+            this.colDrm.FieldName = "Drm";
+            this.colDrm.Name = "colDrm";
+            this.colDrm.Visible = true;
+            this.colDrm.VisibleIndex = 4;
+            this.colDrm.Width = 38;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 4;
+            this.colInfo.VisibleIndex = 5;
             this.colInfo.Width = 117;
             // 
             // colBrcTop
             // 
             this.colBrcTop.DisplayFormat.FormatString = "n";
             this.colBrcTop.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colBrcTop.FieldName = "BrcTop";
+            this.colBrcTop.FieldName = "Brc";
             this.colBrcTop.Name = "colBrcTop";
             this.colBrcTop.OptionsColumn.ReadOnly = true;
             this.colBrcTop.Visible = true;
-            this.colBrcTop.VisibleIndex = 5;
+            this.colBrcTop.VisibleIndex = 6;
             this.colBrcTop.Width = 117;
             // 
             // colAlcTop
             // 
             this.colAlcTop.DisplayFormat.FormatString = "n";
             this.colAlcTop.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colAlcTop.FieldName = "AlcTop";
+            this.colAlcTop.FieldName = "Alc";
             this.colAlcTop.Name = "colAlcTop";
             this.colAlcTop.OptionsColumn.ReadOnly = true;
             this.colAlcTop.Visible = true;
-            this.colAlcTop.VisibleIndex = 6;
+            this.colAlcTop.VisibleIndex = 7;
             this.colAlcTop.Width = 124;
+            // 
+            // colRowErr
+            // 
+            this.colRowErr.FieldName = "RowErr";
+            this.colRowErr.Name = "colRowErr";
+            this.colRowErr.Visible = true;
+            this.colRowErr.VisibleIndex = 8;
             // 
             // statusStrip1
             // 
@@ -380,6 +408,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "AfbXF";
             this.Text = "Muhasebe Fişleri [AfbXF]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AfbXF_FormClosing);
             this.Load += new System.EventHandler(this.AfbXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.afbBindingSource)).EndInit();
@@ -411,7 +440,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colObjTur;
-        private DevExpress.XtraGrid.Columns.GridColumn colAoK;
+        private DevExpress.XtraGrid.Columns.GridColumn colDrm;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colBrcTop;
         private DevExpress.XtraGrid.Columns.GridColumn colAlcTop;
@@ -429,5 +458,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private System.Windows.Forms.ToolStripButton editToolStripButton;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowErr;
     }
 }
