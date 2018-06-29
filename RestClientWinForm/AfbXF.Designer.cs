@@ -186,6 +186,7 @@
             this.afbGridControl.TabIndex = 1;
             this.afbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.afbGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.afbGridControl_ProcessGridKey);
             // 
             // contextMenuStrip1
             // 
@@ -243,6 +244,7 @@
             this.gridView1.GridControl = this.afbGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
+            this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;

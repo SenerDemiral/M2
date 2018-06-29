@@ -19,6 +19,7 @@ namespace RestClientWinForm
         public int AfbRowIndex;
         public AccDataSet.AFBRow AFBRow;
         private object ObjDvzTRL;
+        public bool readOnly = true;
 
 
         public AfdXF()
@@ -34,9 +35,10 @@ namespace RestClientWinForm
         private void AfdXF_Load(object sender, EventArgs e)
         {
             ObjAFB = AFBRow.RowPk;
-            if (AFBRow.Drm == "K")
+            if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
+                afdBindingNavigator.Enabled = !readOnly;
                 Text += " Kapalı";
             }
 
@@ -120,6 +122,9 @@ namespace RestClientWinForm
 
         private void AfdXF_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (readOnly)
+                return;
+
             DialogResult dr = UpdateDB();
             if (dr == DialogResult.Cancel)
                 e.Cancel = true;

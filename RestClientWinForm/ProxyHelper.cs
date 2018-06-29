@@ -18,7 +18,7 @@ namespace RestClientWinForm
             for (int c = 0; c < tbl.Columns.Count; c++)
             {
                 colName = tbl.Columns[c].ColumnName;
-                objVal = obj.GetType().GetProperty(colName).GetValue(obj);
+                objVal = obj.GetType().GetProperty(colName)?.GetValue(obj);
 
                 if (objVal != null)
                 {
@@ -49,7 +49,7 @@ namespace RestClientWinForm
                     else if (tbl.Columns[c].DataType.Name == "Decimal")
                         colVal = Convert.ToDouble(colVal);
 
-                    obj.GetType().GetProperty(colName).SetValue(obj, colVal);
+                    obj.GetType().GetProperty(colName)?.SetValue(obj, colVal);
                 }
             }
         }

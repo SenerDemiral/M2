@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfdXF));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -199,16 +199,16 @@
             this.colObjDvz,
             this.colKur,
             this.colTutTL});
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.colTut;
-            gridFormatRule1.Name = "FormatAlc";
-            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
-            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Less;
-            formatConditionRuleValue1.Value1 = 0D;
-            gridFormatRule1.Rule = formatConditionRuleValue1;
-            gridFormatRule1.StopIfTrue = true;
-            this.gridView1.FormatRules.Add(gridFormatRule1);
+            gridFormatRule2.ApplyToRow = true;
+            gridFormatRule2.Column = this.colTut;
+            gridFormatRule2.Name = "FormatAlc";
+            formatConditionRuleValue2.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
+            formatConditionRuleValue2.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Less;
+            formatConditionRuleValue2.Value1 = 0D;
+            gridFormatRule2.Rule = formatConditionRuleValue2;
+            gridFormatRule2.StopIfTrue = true;
+            this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.GridControl = this.afdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
