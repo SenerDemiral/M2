@@ -85,6 +85,14 @@ namespace RestClientWinForm
             FillDB();
         }
 
+        private void AfbXF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (gridView1.SelectedRowsCount != 0)
+                UpdateDB(true);
+            else
+                UpdateDB();
+        }
+
         private void addToolStripButton_Click(object sender, EventArgs e)
         {
             gridView1.AddNewRow();
@@ -133,11 +141,25 @@ namespace RestClientWinForm
             if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 readOnly = false;
 
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowPk) == 0)
+            {
+                readOnly = false;
+                gridView1.SetFocusedRowCellValue(colDrm, "P");
+                gridView1.SetFocusedRowModified();
+                UpdateDB(true);
+            }
+
             object rowPk = gridView1.GetFocusedRowCellValue(colRowPk);
             AfdXF frm = new AfdXF();
             frm.AFBRow = (AccDataSet.AFBRow)accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
             var dr = frm.ShowDialog();
+            if (!readOnly)
+            {
+                gridView1.SetFocusedRowCellValue(colDrm, "A");
+                UpdateDB(true);
+                gridView1.UnselectRow(gridView1.FocusedRowHandle);
+            }
 
             /*
             //var prxy = accDataSet.AFBgetByPK((ulong)rowPk);
@@ -215,14 +237,6 @@ namespace RestClientWinForm
                 UpdateDB(true);
                 gridView1.UnselectRow(e.PrevFocusedRowHandle);
             }
-        }
-
-        private void AfbXF_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (gridView1.SelectedRowsCount != 0)
-                UpdateDB(true);
-            else
-                UpdateDB();
         }
 
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
