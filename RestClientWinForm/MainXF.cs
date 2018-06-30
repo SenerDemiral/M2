@@ -87,8 +87,11 @@ namespace RestClientWinForm
             if(e.CloseMode == PopupCloseMode.Normal)
             {
                 MainDataSet.AHPRow row = (MainDataSet.AHPRow)mainDataSet.AHP.Rows.Find(e.Value);
-                if(!row.IsW)
-                    e.AcceptValue = false;
+                if (!row.IsW)
+                {
+                    e.Value = DBNull.Value;
+                    //e.AcceptValue = false;
+                }              
             }
         }
 

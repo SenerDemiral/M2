@@ -271,5 +271,19 @@ namespace RestClientWinForm
 
         }
 
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addToolStripButton.PerformClick();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editToolStripButton.PerformClick();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveToolStripButton.PerformClick();
+        }
     }
 }

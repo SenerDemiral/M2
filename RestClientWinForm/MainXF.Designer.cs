@@ -42,12 +42,11 @@
             this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.AHPrepositoryItemTreeListLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit();
             this.repositoryItemTreeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
-            this.colHspNo = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.XDKbutton = new System.Windows.Forms.Button();
+            this.colHspNoAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -163,11 +162,16 @@
             // 
             // AHPrepositoryItemTreeListLookUpEdit
             // 
+            this.AHPrepositoryItemTreeListLookUpEdit.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.AHPrepositoryItemTreeListLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.AHPrepositoryItemTreeListLookUpEdit.DataSource = this.ahpBindingSource;
-            this.AHPrepositoryItemTreeListLookUpEdit.DisplayMember = "HspNo";
+            this.AHPrepositoryItemTreeListLookUpEdit.DisplayMember = "HspNoAd";
+            this.AHPrepositoryItemTreeListLookUpEdit.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
+            this.AHPrepositoryItemTreeListLookUpEdit.ImmediatePopup = true;
             this.AHPrepositoryItemTreeListLookUpEdit.Name = "AHPrepositoryItemTreeListLookUpEdit";
+            this.AHPrepositoryItemTreeListLookUpEdit.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
+            this.AHPrepositoryItemTreeListLookUpEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.AHPrepositoryItemTreeListLookUpEdit.TreeList = this.repositoryItemTreeListLookUpEdit1TreeList;
             this.AHPrepositoryItemTreeListLookUpEdit.ValueMember = "RowPk";
             this.AHPrepositoryItemTreeListLookUpEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.AHPrepositoryItemTreeListLookUpEdit_CloseUp);
@@ -175,8 +179,7 @@
             // repositoryItemTreeListLookUpEdit1TreeList
             // 
             this.repositoryItemTreeListLookUpEdit1TreeList.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
-            this.colHspNo,
-            this.colAd,
+            this.colHspNoAd,
             this.colIsW,
             this.colBrc,
             this.colAlc});
@@ -193,22 +196,6 @@
             this.repositoryItemTreeListLookUpEdit1TreeList.ParentFieldName = "ObjP";
             this.repositoryItemTreeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
             this.repositoryItemTreeListLookUpEdit1TreeList.TabIndex = 0;
-            // 
-            // colHspNo
-            // 
-            this.colHspNo.FieldName = "HspNo";
-            this.colHspNo.Name = "colHspNo";
-            this.colHspNo.Visible = true;
-            this.colHspNo.VisibleIndex = 0;
-            this.colHspNo.Width = 128;
-            // 
-            // colAd
-            // 
-            this.colAd.FieldName = "Ad";
-            this.colAd.Name = "colAd";
-            this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 1;
-            this.colAd.Width = 128;
             // 
             // colIsW
             // 
@@ -244,6 +231,13 @@
             this.XDKbutton.Text = "XDK";
             this.XDKbutton.UseVisualStyleBackColor = true;
             this.XDKbutton.Click += new System.EventHandler(this.XDKbutton_Click);
+            // 
+            // colHspNoAd
+            // 
+            this.colHspNoAd.FieldName = "HspNoAd";
+            this.colHspNoAd.Name = "colHspNoAd";
+            this.colHspNoAd.Visible = true;
+            this.colHspNoAd.VisibleIndex = 0;
             // 
             // MainXF
             // 
@@ -287,10 +281,9 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DateRepositoryItemDateEdit;
         public DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit AHPrepositoryItemTreeListLookUpEdit;
         private DevExpress.XtraTreeList.TreeList repositoryItemTreeListLookUpEdit1TreeList;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNo;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colAd;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colIsW;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colBrc;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAlc;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoAd;
     }
 }

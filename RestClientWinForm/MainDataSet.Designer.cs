@@ -41,6 +41,7 @@ namespace RestClientWinForm {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -52,6 +53,9 @@ namespace RestClientWinForm {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -78,6 +82,7 @@ namespace RestClientWinForm {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -159,6 +164,7 @@ namespace RestClientWinForm {
         public override global::System.Data.DataSet Clone() {
             MainDataSet cln = ((MainDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -254,7 +260,7 @@ namespace RestClientWinForm {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableXGT = new XGTDataTable();
             base.Tables.Add(this.tableXGT);
-            this.tableAHP = new AHPDataTable();
+            this.tableAHP = new AHPDataTable(false);
             base.Tables.Add(this.tableAHP);
             this.tableXDK = new XDKDataTable();
             base.Tables.Add(this.tableXDK);
@@ -331,6 +337,12 @@ namespace RestClientWinForm {
             }
             xs.Add(dsSchema);
             return type;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitExpressions() {
+            this.AHP.HspNoAdColumn.Expression = "HspNo+\' \'+Ad";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -652,12 +664,23 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnAlc;
             
+            private global::System.Data.DataColumn columnHspNoAd;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AHPDataTable() {
+            public AHPDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AHPDataTable(bool initExpressions) {
                 this.TableName = "AHP";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -743,6 +766,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HspNoAdColumn {
+                get {
+                    return this.columnHspNoAd;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -778,6 +809,24 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong ObjP, bool IsW, double Brc, double Alc, string HspNoAd) {
+                AHPRow rowAHPRow = ((AHPRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        RowPk,
+                        HspNo,
+                        Ad,
+                        ObjP,
+                        IsW,
+                        Brc,
+                        Alc,
+                        HspNoAd};
+                rowAHPRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAHPRow);
+                return rowAHPRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong ObjP, bool IsW, double Brc, double Alc) {
                 AHPRow rowAHPRow = ((AHPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -787,7 +836,8 @@ namespace RestClientWinForm {
                         ObjP,
                         IsW,
                         Brc,
-                        Alc};
+                        Alc,
+                        null};
                 rowAHPRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowAHPRow);
                 return rowAHPRow;
@@ -824,6 +874,7 @@ namespace RestClientWinForm {
                 this.columnIsW = base.Columns["IsW"];
                 this.columnBrc = base.Columns["Brc"];
                 this.columnAlc = base.Columns["Alc"];
+                this.columnHspNoAd = base.Columns["HspNoAd"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -843,10 +894,13 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnBrc);
                 this.columnAlc = new global::System.Data.DataColumn("Alc", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAlc);
+                this.columnHspNoAd = new global::System.Data.DataColumn("HspNoAd", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHspNoAd);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRowPk}, true));
                 this.columnRowPk.AllowDBNull = false;
                 this.columnRowPk.Unique = true;
+                this.columnHspNoAd.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -865,6 +919,12 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(AHPRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitExpressions() {
+                this.HspNoAdColumn.Expression = "HspNo+\' \'+Ad";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1526,6 +1586,22 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string HspNoAd {
+                get {
+                    try {
+                        return ((string)(this[this.tableAHP.HspNoAdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HspNoAd\' in table \'AHP\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAHP.HspNoAdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsHspNoNull() {
                 return this.IsNull(this.tableAHP.HspNoColumn);
             }
@@ -1594,6 +1670,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetAlcNull() {
                 this[this.tableAHP.AlcColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHspNoAdNull() {
+                return this.IsNull(this.tableAHP.HspNoAdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHspNoAdNull() {
+                this[this.tableAHP.HspNoAdColumn] = global::System.Convert.DBNull;
             }
         }
         

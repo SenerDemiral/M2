@@ -67,7 +67,11 @@ namespace RestClientWinForm
 
         private DialogResult UpdateDB()
         {
-            gridView1.PostEditor();
+            if (!Validate())
+                return DialogResult.Cancel;
+            afdBindingSource.EndEdit();
+
+            gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
             DialogResult dr = DialogResult.OK;
 
@@ -134,6 +138,7 @@ namespace RestClientWinForm
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
+            gridView1.SetFocusedRowCellValue(colRowPk, 0);
             gridView1.SetFocusedRowCellValue(colObjAFB, ObjAFB);
             gridView1.SetFocusedRowCellValue(colObjDvz, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colTut, 0.0);
@@ -152,7 +157,8 @@ namespace RestClientWinForm
                 // Bu da calisiyor
                 //DataRow[] xdkRows = mainDataSet.XDK.Select($"ObjDvz = {editValue}");
                 //gridView1.SetFocusedRowCellValue(colKur, xdkRows[0]["Kur"]);
-                ComputeRow();
+                
+                ///ComputeRow();
             }
         }
 
@@ -169,7 +175,8 @@ namespace RestClientWinForm
             {
                 double tutTL = Math.Round((double)tut * (float)kur, 2);
                 gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
-                gridView1.PostEditor();
+                //gridView1.PostEditor();
+                gridView1.UpdateCurrentRow();
                 gridView1.UpdateSummary();
             }
         }
@@ -178,7 +185,7 @@ namespace RestClientWinForm
         {
             if (e.Info != null)
             {
-                if (e.Column.FieldName == "TutTL" && (double)e.Info.Value < 0)
+                if (e.Column.FieldName == "TutTL" && (double)e.Info?.Value < 0)
                 {
                     e.Appearance.ForeColor = Color.MediumVioletRed;
                 }
@@ -188,6 +195,18 @@ namespace RestClientWinForm
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView View = sender as GridView;
+            var aaa = View.GetRowCellValue(e.RowHandle, colObjAHP);
+            if (View.GetRowCellValue(e.RowHandle, colObjAHP) == DBNull.Value)
+            {
+                View.SetColumnError(colObjAHP, "Hesap girin");
+                e.Valid = false;
+            }
+            else
+            {
+                View.ClearColumnErrors();
+                e.Valid = true;
+            }
+
             if (View.GetRowCellDisplayText(e.RowHandle, colObjDvz) == "TRL")
             {
                 View.SetRowCellValue(e.RowHandle, colKur, 1.0);
@@ -200,6 +219,11 @@ namespace RestClientWinForm
             GridView View = sender as GridView;
             if (View.GetFocusedRowCellDisplayText(colObjDvz) == "TRL" && View.FocusedColumn == colKur)
                 e.Cancel = true;
+        }
+
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addToolStripButton.PerformClick();
         }
     }
 }

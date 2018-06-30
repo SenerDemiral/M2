@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfdXF));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.accDataSet = new RestClientWinForm.AccDataSet();
             this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -42,6 +42,8 @@
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.afdGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colObjAFB = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,11 +62,13 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).BeginInit();
             this.afdBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
@@ -178,6 +182,7 @@
             // 
             // afdGridControl
             // 
+            this.afdGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.afdGridControl.Location = new System.Drawing.Point(12, 46);
             this.afdGridControl.MainView = this.gridView1;
             this.afdGridControl.Name = "afdGridControl";
@@ -187,6 +192,22 @@
             this.afdGridControl.TabIndex = 0;
             this.afdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.insertToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // insertToolStripMenuItem
+            // 
+            this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
+            this.insertToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.insertToolStripMenuItem.Text = "Insert";
+            this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -199,16 +220,16 @@
             this.colObjDvz,
             this.colKur,
             this.colTutTL});
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colTut;
-            gridFormatRule2.Name = "FormatAlc";
-            formatConditionRuleValue2.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
-            formatConditionRuleValue2.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Less;
-            formatConditionRuleValue2.Value1 = 0D;
-            gridFormatRule2.Rule = formatConditionRuleValue2;
-            gridFormatRule2.StopIfTrue = true;
-            this.gridView1.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colTut;
+            gridFormatRule1.Name = "FormatAlc";
+            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
+            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Less;
+            formatConditionRuleValue1.Value1 = 0D;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gridFormatRule1.StopIfTrue = true;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
             this.gridView1.GridControl = this.afdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
@@ -392,6 +413,13 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
             // AfdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,6 +436,7 @@
             this.afdBindingNavigator.ResumeLayout(false);
             this.afdBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
@@ -454,5 +483,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
