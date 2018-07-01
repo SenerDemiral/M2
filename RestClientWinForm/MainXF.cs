@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace RestClientWinForm
 {
@@ -25,6 +27,21 @@ namespace RestClientWinForm
                 await mainDataSet.AHPfill();
                 InitLookups();
             }); //.Wait();
+
+        }
+
+        private void MainXF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            List<Form> of = new List<Form>();
+            foreach (Form f in Application.OpenForms)
+            {
+                of.Add(f);
+            }
+            foreach (Form f in of)
+            {
+                if (f.Name != "MainXF")
+                    f.Close();
+            }
 
         }
 
@@ -81,6 +98,8 @@ namespace RestClientWinForm
 
         private void AHPrepositoryItemTreeListLookUpEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
+            //  AHPrepositoryItemTreeListLookUpEdit_QueryCloseUp kullan
+            /*
             var aa = (((AHPrepositoryItemTreeListLookUpEdit.DataSource as BindingSource).Current as DataRowView).Row as MainDataSet.AHPRow).HspNo;
             Text = $"{e.Value} -- {e.CloseMode} -- {aa}";
 
@@ -93,21 +112,19 @@ namespace RestClientWinForm
                     //e.AcceptValue = false;
                 }              
             }
+            */
         }
 
-        private void MainXF_FormClosing(object sender, FormClosingEventArgs e)
+        private void AHPrepositoryItemTreeListLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
-            List<Form> of = new List<Form>(); 
-            foreach (Form f in Application.OpenForms)
-            {
-                of.Add(f);
-            }
-            foreach (Form f in of)
-            {
-                if(f.Name != "MainXF")
-                    f.Close();
-            }
+            e.Cancel = IsIncorrectNodeSelected(sender as TreeListLookUpEdit);
+        }
 
+        private bool IsIncorrectNodeSelected(TreeListLookUpEdit tlLookUpEdit)
+        {
+            TreeList tl = tlLookUpEdit.Properties.TreeList;
+            TreeListNode focusedNode = tl.FocusedNode;
+            return (bool)focusedNode["IsW"] == false;
         }
     }
 }

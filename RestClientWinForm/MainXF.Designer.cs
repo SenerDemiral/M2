@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.AHPbutton = new System.Windows.Forms.Button();
             this.AFBbutton = new System.Windows.Forms.Button();
             this.persistentRepository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
@@ -42,11 +43,10 @@
             this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.AHPrepositoryItemTreeListLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit();
             this.repositoryItemTreeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
-            this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colHspNoAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.XDKbutton = new System.Windows.Forms.Button();
-            this.colHspNoAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -59,6 +59,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).BeginInit();
             this.SuspendLayout();
+            // 
+            // colIsW
+            // 
+            this.colIsW.FieldName = "IsW";
+            this.colIsW.Name = "colIsW";
+            this.colIsW.Visible = true;
+            this.colIsW.VisibleIndex = 1;
             // 
             // AHPbutton
             // 
@@ -170,10 +177,13 @@
             this.AHPrepositoryItemTreeListLookUpEdit.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.AHPrepositoryItemTreeListLookUpEdit.ImmediatePopup = true;
             this.AHPrepositoryItemTreeListLookUpEdit.Name = "AHPrepositoryItemTreeListLookUpEdit";
+            this.AHPrepositoryItemTreeListLookUpEdit.NullValuePrompt = "Hesap girin/";
+            this.AHPrepositoryItemTreeListLookUpEdit.NullValuePromptShowForEmptyValue = true;
             this.AHPrepositoryItemTreeListLookUpEdit.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.AHPrepositoryItemTreeListLookUpEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.AHPrepositoryItemTreeListLookUpEdit.TreeList = this.repositoryItemTreeListLookUpEdit1TreeList;
             this.AHPrepositoryItemTreeListLookUpEdit.ValueMember = "RowPk";
+            this.AHPrepositoryItemTreeListLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.AHPrepositoryItemTreeListLookUpEdit_QueryCloseUp);
             this.AHPrepositoryItemTreeListLookUpEdit.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.AHPrepositoryItemTreeListLookUpEdit_CloseUp);
             // 
             // repositoryItemTreeListLookUpEdit1TreeList
@@ -197,12 +207,12 @@
             this.repositoryItemTreeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
             this.repositoryItemTreeListLookUpEdit1TreeList.TabIndex = 0;
             // 
-            // colIsW
+            // colHspNoAd
             // 
-            this.colIsW.FieldName = "IsW";
-            this.colIsW.Name = "colIsW";
-            this.colIsW.Visible = true;
-            this.colIsW.VisibleIndex = 2;
+            this.colHspNoAd.FieldName = "HspNoAd";
+            this.colHspNoAd.Name = "colHspNoAd";
+            this.colHspNoAd.Visible = true;
+            this.colHspNoAd.VisibleIndex = 0;
             // 
             // colBrc
             // 
@@ -211,7 +221,7 @@
             this.colBrc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colBrc.Name = "colBrc";
             this.colBrc.Visible = true;
-            this.colBrc.VisibleIndex = 3;
+            this.colBrc.VisibleIndex = 2;
             // 
             // colAlc
             // 
@@ -220,7 +230,7 @@
             this.colAlc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colAlc.Name = "colAlc";
             this.colAlc.Visible = true;
-            this.colAlc.VisibleIndex = 4;
+            this.colAlc.VisibleIndex = 3;
             // 
             // XDKbutton
             // 
@@ -231,13 +241,6 @@
             this.XDKbutton.Text = "XDK";
             this.XDKbutton.UseVisualStyleBackColor = true;
             this.XDKbutton.Click += new System.EventHandler(this.XDKbutton_Click);
-            // 
-            // colHspNoAd
-            // 
-            this.colHspNoAd.FieldName = "HspNoAd";
-            this.colHspNoAd.Name = "colHspNoAd";
-            this.colHspNoAd.Visible = true;
-            this.colHspNoAd.VisibleIndex = 0;
             // 
             // MainXF
             // 
