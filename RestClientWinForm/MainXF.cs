@@ -82,20 +82,6 @@ namespace RestClientWinForm
             frm.Show();
         }
 
-        private void AHPrepositoryItemSearchLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
-        {
-        }
-
-        private void AHPrepositoryItemSearchLookUpEdit_Validating(object sender, CancelEventArgs e)
-        {
-
-        }
-
-        private void AHPrepositoryItemSearchLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-        {
-
-        }
-
         private void AHPrepositoryItemTreeListLookUpEdit_CloseUp(object sender, DevExpress.XtraEditors.Controls.CloseUpEventArgs e)
         {
             //  AHPrepositoryItemTreeListLookUpEdit_QueryCloseUp kullan
@@ -117,14 +103,9 @@ namespace RestClientWinForm
 
         private void AHPrepositoryItemTreeListLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
-            e.Cancel = IsIncorrectNodeSelected(sender as TreeListLookUpEdit);
-        }
-
-        private bool IsIncorrectNodeSelected(TreeListLookUpEdit tlLookUpEdit)
-        {
-            TreeList tl = tlLookUpEdit.Properties.TreeList;
+            TreeList tl = (sender as TreeListLookUpEdit).Properties.TreeList;
             TreeListNode focusedNode = tl.FocusedNode;
-            return (bool)focusedNode["IsW"] == false;
+            e.Cancel = (bool)focusedNode["IsW"] == false;
         }
     }
 }

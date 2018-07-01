@@ -267,7 +267,7 @@ namespace RestServerSC
                             Trh = ((DateTime)row.Trh).Ticks,
                             ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
                             Drm = row.Drm,
-                            Info = row.Info ?? "",
+                            Info = row.Info, //row.Info ?? "",
                             Brc = row.Brc,
                             Alc = row.Alc,
                         };
@@ -423,6 +423,81 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
+
+
+        public override async Task KMTfill(QryProxy request, IServerStreamWriter<KMTproxy> responseStream, ServerCallContext context)
+        {
+            KMTproxy proxy = new KMTproxy();
+            List<KMTproxy> proxyList = new List<KMTproxy>();
+            string sel = $"SELECT r FROM KMT r";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<KMT>(sel, ulong.Parse(request.Param)))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new KMTproxy
+                    {
+                        RowPk = row.GetObjectNo(),
+                        ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
+                        Ad = row.Ad,
+                        Adres = row.Adres,
+                        Tel = row.Tel,
+                        Sorumlu = row.Sorumlu,
+                        VrgDN = row.VrgDN,
+                        ObjAHPbrc = row.ObjAHPbrc == null ? 0 : row.ObjAHPbrc.GetObjectNo(),
+                        ObjAHPalc = row.ObjAHPalc == null ? 0 : row.ObjAHPalc.GetObjectNo(),
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<KMTproxy> KMTupdate(KMTproxy request, ServerCallContext context)
+        {
+            var proxy = new KMTproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            KMT row = CRUDsHelper.FromProxy<KMTproxy, KMT>(request);
+                            request = CRUDsHelper.ToProxy<KMTproxy, KMT>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Müşteri Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+
 
         public override async Task XGTfill(QryProxy request, IServerStreamWriter<XGTproxy> responseStream, ServerCallContext context)
         {

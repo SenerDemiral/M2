@@ -44,6 +44,8 @@ namespace M2DB
         public string Ad { get; set; }
         public XGT ObjTur { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
         public XGT ObjBrm { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
+        public AHP ObjAHPbrc { get; set; }  // Borclu Ne Hesap
+        public AHP ObjAHPalc { get; set; }  // Alacakli Ne Hesap
         public double Fyt { get; set; }  // Simdilik
         public bool HasKid
         {

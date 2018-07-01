@@ -37,9 +37,7 @@
             this.xgtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.DvzRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.AHPrepositoryItemSearchLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit();
             this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.repositoryItemSearchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.AHPrepositoryItemTreeListLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit();
             this.repositoryItemTreeListLookUpEdit1TreeList = new DevExpress.XtraTreeList.TreeList();
@@ -51,9 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).BeginInit();
@@ -92,7 +88,6 @@
             this.persistentRepository.Items.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.AfbTurRepositoryItemLookUpEdit,
             this.DvzRepositoryItemLookUpEdit,
-            this.AHPrepositoryItemSearchLookUpEdit,
             this.DateRepositoryItemDateEdit,
             this.AHPrepositoryItemTreeListLookUpEdit});
             // 
@@ -132,30 +127,10 @@
             this.DvzRepositoryItemLookUpEdit.Name = "DvzRepositoryItemLookUpEdit";
             this.DvzRepositoryItemLookUpEdit.ValueMember = "RowPk";
             // 
-            // AHPrepositoryItemSearchLookUpEdit
-            // 
-            this.AHPrepositoryItemSearchLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.AHPrepositoryItemSearchLookUpEdit.DataSource = this.ahpBindingSource;
-            this.AHPrepositoryItemSearchLookUpEdit.DisplayMember = "Ad";
-            this.AHPrepositoryItemSearchLookUpEdit.Name = "AHPrepositoryItemSearchLookUpEdit";
-            this.AHPrepositoryItemSearchLookUpEdit.ValueMember = "RowPk";
-            this.AHPrepositoryItemSearchLookUpEdit.View = this.repositoryItemSearchLookUpEdit1View;
-            this.AHPrepositoryItemSearchLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.AHPrepositoryItemSearchLookUpEdit_QueryCloseUp);
-            this.AHPrepositoryItemSearchLookUpEdit.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.AHPrepositoryItemSearchLookUpEdit_EditValueChanging);
-            this.AHPrepositoryItemSearchLookUpEdit.Validating += new System.ComponentModel.CancelEventHandler(this.AHPrepositoryItemSearchLookUpEdit_Validating);
-            // 
             // ahpBindingSource
             // 
             this.ahpBindingSource.DataMember = "AHP";
             this.ahpBindingSource.DataSource = this.mainDataSet;
-            // 
-            // repositoryItemSearchLookUpEdit1View
-            // 
-            this.repositoryItemSearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemSearchLookUpEdit1View.Name = "repositoryItemSearchLookUpEdit1View";
-            this.repositoryItemSearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemSearchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
             // DateRepositoryItemDateEdit
             // 
@@ -257,9 +232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemSearchLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemSearchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).EndInit();
@@ -277,9 +250,7 @@
         private System.Windows.Forms.BindingSource xgtBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DvzRepositoryItemLookUpEdit;
         public DevExpress.XtraEditors.Repository.PersistentRepository persistentRepository;
-        public DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit AHPrepositoryItemSearchLookUpEdit;
         private System.Windows.Forms.BindingSource ahpBindingSource;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;
         private System.Windows.Forms.Button XDKbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DateRepositoryItemDateEdit;
         public DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit AHPrepositoryItemTreeListLookUpEdit;

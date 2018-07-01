@@ -27,16 +27,26 @@ service CRUDs {
 
   rpc AFBfill (QryProxy) returns (stream AFBproxy) {}
   rpc AFBupdate (AFBproxy) returns (AFBproxy) {}
-  rpc AFBgetByPK (PKproxy) returns (AFBproxy) {}
+  rpc AFBgetByPK (PKproxy) returns (AFBproxy) {}	// Kullanilmiyor
 
   rpc AFDfill (QryProxy) returns (stream AFDproxy) {}
   rpc AFDupdate (AFDproxy) returns (AFDproxy) {}
+
+  rpc ABBfill (QryProxy) returns (stream ABBproxy) {}
+  rpc ABBupdate (ABBproxy) returns (ABBproxy) {}
+
+  rpc ABDfill (QryProxy) returns (stream ABDproxy) {}
+  rpc ABDupdate (ABDproxy) returns (ABDproxy) {}
 
   rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
   rpc XGTupdate (XGTproxy) returns (XGTproxy) {}
 
   rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
   rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
+
+  rpc KMTfill (QryProxy) returns (stream KMTproxy) {}
+  rpc KMTupdate (KMTproxy) returns (KMTproxy) {}
+
 }
 
 message PKproxy {
@@ -106,6 +116,40 @@ message AFDproxy {
   double TutTL = 10;
 }
 
+// Muhasebe Bill/Fatura Baslik
+message ABBproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  int64 Trh = 4;
+  uint64 ObjTur = 5;
+  string Drm = 6;
+  uint64 ObjKKK = 7;
+  string BA = 8;
+  uint64 ObjDvz = 9;
+  float Kur = 10;
+  double Tut = 11;
+  google.protobuf.StringValue Info = 12;
+}
+
+// Muhasebe Bill/Fatura Detay
+message ABDproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+
+  uint64 ObjABB = 4;
+  uint64 ObjNNN = 5;
+  uint64 ObjAHP = 6;
+  double Fyt = 7;
+  uint64 ObjDvz = 8;
+  double Mik = 9;
+  float Kur = 10;
+  float KDY = 11;
+  google.protobuf.StringValue Info = 12;
+}
+
 // GenelTanimlari
 message XGTproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
@@ -128,4 +172,20 @@ message XDKproxy {
   float Kur = 6;	// Dovizin TRL karsiligi
   string Dvz = 7;
 }
+
+message KMTproxy {
+	string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+	string row_err = 2;
+	uint64 row_pk = 3;
+
+	google.protobuf.StringValue Ad = 4;
+	uint64 ObjTur = 5;
+	google.protobuf.StringValue Tel = 6;
+	google.protobuf.StringValue Adres = 7;
+	google.protobuf.StringValue Sorumlu = 8;
+	google.protobuf.StringValue VrgDN = 9;
+	uint64 ObjAHPbrc = 10;
+	uint64 ObjAHPalc = 11;
+}
+
 

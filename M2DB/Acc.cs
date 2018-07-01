@@ -104,9 +104,11 @@ namespace M2DB
     [Database]
     public class AFB    // Account: FisBaslik
     {
-        public DateTime Trh { get; set; }
-        public XGT ObjTur { get; set; }     // Tür 
         public string Drm { get; set; }     // Acik/Kapali/Pending
+        public DateTime Trh { get; set; }
+        public XGT ObjTur { get; set; }     // Tür
+        public string RefTo { get; set; }   // Master (Nerden geldi)
+        public ulong RefNo { get; set; }    // Master No
         public string Info { get; set; }
 
         public double Brc => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.ObjAFB = ?", this).Sum(x => x.Brc);
@@ -129,6 +131,92 @@ namespace M2DB
         public string BA => Tut >= 0 ? "B" : "A";
         public double Brc => Tut >= 0 ? TutTL : 0;
         public double Alc => Tut < 0 ? -TutTL : 0;
+    }
+
+    [Database]
+    public class ABB    // Account: Bill/Fatura Baslik
+    {
+        public string Drm { get; set; }     // Acik/Kapali/Pending
+        public DateTime Trh { get; set; }
+        public XGT ObjTur { get; set; }     // BillTür Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
+        public KKK ObjKKK { get; set; }     // Kim/Musteri
+        public string BA { get; set; }      // Kim Brclu/Alacakli
+        public XGT ObjDvz { get; set; }     // Fatura Doviz
+        public float Kur { get; set; }      // Doviz Kuru
+        public string Info { get; set; }
+
+        public double Tut => Db.SQL<ABD>($"SELECT r FROM {typeof(ABD)} r WHERE r.ObjABB = ?", this).Sum(x => x.TutB);
+        public bool HasD => Db.SQL<ABD>($"select r from {typeof(ABD)} r where {nameof(ABD.ObjABB)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
+
+        public static void ABB2AFB(ABB abb) // Insert AFB & AFDs from ABB & ABDs
+        {
+            Db.Transact(() =>
+            {
+                double TopTut = 0;
+                double TopTutTL = 0;
+
+                AFB afb = new AFB();
+                afb.RefTo = "ABB";  // Bill/Fatura dan yaratildi
+                afb.RefNo = abb.GetObjectNo();
+
+                AFD afd;
+
+                // Icindekileri Fise koy
+                foreach (var abd in Db.SQL<ABD>("SELECT r FROM ABD r WHERE r.ObjABB = ?", abb))
+                {
+                    afd = new AFD();
+                    afd.ObjAFB = afb;
+
+                    if (abb.BA == "A")  // Basligin tersi
+                        afd.ObjAHP = abd.ObjNNN.ObjAHPbrc;
+                    else
+                        afd.ObjAHP = abd.ObjNNN.ObjAHPalc;
+
+                    afd.Tut = abd.TutB;
+                    afd.ObjDvz = abb.ObjDvz;
+                    afd.Kur = abb.Kur;
+                    afd.TutTL = abd.TutTL;
+
+                    TopTut += afd.Tut;
+                    TopTutTL += afd.TutTL;
+                }
+
+                // Bill Musteriyi Detaya Koy BA
+                afd = new AFD();
+                afd.ObjAFB = afb;
+
+                if (abb.BA == "B")
+                    afd.ObjAHP = (abb.ObjKKK as KMT).ObjAHPbrc;
+                else
+                    afd.ObjAHP = (abb.ObjKKK as KMT).ObjAHPalc;
+                afd.Tut = TopTut;
+                afd.ObjDvz = abb.ObjDvz;
+                afd.Kur = abb.Kur;
+                afd.TutTL = TopTutTL;
+            });
+        }
+    }
+
+    [Database]
+    public class ABD    // Account: Bill/Fatura Detay
+    {
+        public ABB ObjABB { get; set; }    // Baslik
+        public NNN ObjNNN { get; set; }    // Ne
+        public AHP ObjAHP { get; set; }    // Ne Hesap
+
+        public double Fyt { get; set; }
+        public double Mik { get; set; }
+        public XGT ObjDvz { get; set; }
+        public float Kur { get; set; }
+        public float KDY { get; set; }
+        public string Info { get; set; }
+
+        public double Tut => Math.Round(Fyt * Mik * (1.0 + KDY), 2);
+        public double TutTL => Math.Round(Tut * Kur, 2);
+        public double TutB => ObjDvz == ObjABB.ObjDvz ? Tut : Math.Round(TutTL / ObjABB.Kur, 2);    // BaslikDovize gore
+
+        public double TutNet => Math.Round(Fyt * Mik, 2);
+        public double TutNetTL => Math.Round(TutNet * Kur, 2);
     }
 
     public static class AccOps
