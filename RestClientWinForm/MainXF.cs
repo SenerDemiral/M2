@@ -15,6 +15,8 @@ namespace RestClientWinForm
 {
     public partial class MainXF : DevExpress.XtraEditors.XtraForm
     {
+        public Dictionary<string, ulong> XgtDic;
+
         public MainXF()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace RestClientWinForm
 
         public void InitLookups()
         {
-            Dictionary<string, ulong> XgtDic = new Dictionary<string, ulong>();
+            XgtDic = new Dictionary<string, ulong>();
             foreach(MainDataSet.XGTRow r in mainDataSet.XGT.Rows)
             {
                 if(r.ObjP == 0)
@@ -58,9 +60,12 @@ namespace RestClientWinForm
                  
             DataView DvzDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
             DvzRepositoryItemLookUpEdit.DataSource = DvzDV;
+
             DataView AfbTurDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["AFB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             AfbTurRepositoryItemLookUpEdit.DataSource = AfbTurDV;
 
+            DataView KmtTurDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            KmtTurRepositoryItemLookUpEdit.DataSource = KmtTurDV;
         }
 
         private void AHPbutton_Click(object sender, EventArgs e)
@@ -106,6 +111,12 @@ namespace RestClientWinForm
             TreeList tl = (sender as TreeListLookUpEdit).Properties.TreeList;
             TreeListNode focusedNode = tl.FocusedNode;
             e.Cancel = (bool)focusedNode["IsW"] == false;
+        }
+
+        private void KMTbutton_Click(object sender, EventArgs e)
+        {
+            KmtXF frm = new KmtXF();
+            frm.Show();
         }
     }
 }

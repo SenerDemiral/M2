@@ -124,6 +124,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KmtXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KmtXF.Designer.cs">
+      <DependentUpon>KmtXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainDataSet.cs">
       <DependentUpon>MainDataSet.xsd</DependentUpon>
       <SubType>code</SubType>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KmtXF.resx">
+      <DependentUpon>KmtXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainXF.resx">
       <DependentUpon>MainXF.cs</DependentUpon>

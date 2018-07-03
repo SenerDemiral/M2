@@ -245,6 +245,7 @@ namespace RestServerSC
             return Task.FromResult(prxy);
         }
 
+
         public override async Task AFBfill(QryProxy request, IServerStreamWriter<AFBproxy> responseStream, ServerCallContext context)
         {
             AFBproxy proxy = new AFBproxy();
@@ -350,6 +351,7 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+
         public override async Task AFDfill(QryProxy request, IServerStreamWriter<AFDproxy> responseStream, ServerCallContext context)
         {
             AFDproxy proxy = new AFDproxy();
@@ -425,6 +427,186 @@ namespace RestServerSC
         }
 
 
+        public override async Task ABBfill(QryProxy request, IServerStreamWriter<ABBproxy> responseStream, ServerCallContext context)
+        {
+            ABBproxy proxy = new ABBproxy();
+            List<ABBproxy> proxyList = new List<ABBproxy>();
+
+            Type proxyType = typeof(ABBproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<ABB>("select r from ABB r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new ABBproxy
+                        {
+                            RowPk = row.GetObjectNo(),
+                            Trh = ((DateTime)row.Trh).Ticks,
+                            ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
+                            ObjKKK = row.ObjKKK == null ? 0 : row.ObjKKK.GetObjectNo(),
+                            ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                            BA = row.BA,
+                            Kur = row.Kur,
+                            Drm = row.Drm,
+                            Info = row.Info, //row.Info ?? "",
+                            Tut = row.Tut,
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<ABBproxy> ABBupdate(ABBproxy request, ServerCallContext context)
+        {
+            var proxy = new ABBproxy
+            {
+                RowPk = request.RowPk,
+            };
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    request.RowErr = "";
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        if (request.RowState == "M")
+                        {
+                            ABB latestRec = Db.FromId<ABB>(request.RowPk);  // Record'un enSon/enYeni/Guncel hali
+                            if (request.Drm == "P")
+                            {
+                                request = CRUDsHelper.ToProxy<ABBproxy, ABB>(latestRec);   // Latest Row gonder, baskasi tarafindan degistirilmis
+                                if (latestRec.Drm == "P")
+                                    request.RowErr = "LOCKED Already";
+                                else
+                                    request.Drm = "P";
+                            }
+                            else if (request.Drm == "K")    // Kapama istegi
+                            {
+                                request.RowErr = "Not implemented yet.";
+                            }
+                        }
+                        if (request.RowErr == string.Empty)
+                        {
+                            if (request.ObjTur == 0)
+                                request.ObjTur = GnlOps.XGTfind("ABB.TUR", "BS").GetObjectNo();
+
+                            ABB row = CRUDsHelper.FromProxy<ABBproxy, ABB>(request);
+                            request = CRUDsHelper.ToProxy<ABBproxy, ABB>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D" && request.Drm == "A")
+                    {
+                        var rec = (AFB)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            if (Db.SQL<ABD>("select r from ABD r where r.ObjABB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                                request.RowErr = $"Detayı var silemezsiniz.";
+                            else
+                                rec.Delete();
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+
+        public override async Task ABDfill(QryProxy request, IServerStreamWriter<ABDproxy> responseStream, ServerCallContext context)
+        {
+            ABDproxy proxy = new ABDproxy();
+            List<ABDproxy> proxyList = new List<ABDproxy>();
+            string sel = $"SELECT r FROM ABD r WHERE r.{request.Query}";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<ABD>(sel, ulong.Parse(request.Param)))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new ABDproxy
+                    {
+                        RowPk = row.GetObjectNo(),
+                        ObjABB = row.ObjABB == null ? 0 : row.ObjABB.GetObjectNo(),
+                        ObjNNN = row.ObjNNN == null ? 0 : row.ObjNNN.GetObjectNo(),
+                        ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
+                        ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                        Fyt = row.Fyt,
+                        Mik = row.Mik,
+                        KDY = row.KDY,
+                        Kur = row.Kur,
+                        Info = row.Info,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<ABDproxy> ABDupdate(ABDproxy request, ServerCallContext context)
+        {
+            var proxy = new ABDproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            ABD row = CRUDsHelper.FromProxy<ABDproxy, ABD>(request);
+                            request = CRUDsHelper.ToProxy<ABDproxy, ABD>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        var rec = (ABD)Db.FromId(request.RowPk);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+
         public override async Task KMTfill(QryProxy request, IServerStreamWriter<KMTproxy> responseStream, ServerCallContext context)
         {
             KMTproxy proxy = new KMTproxy();
@@ -436,7 +618,7 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                foreach (var row in Db.SQL<KMT>(sel, ulong.Parse(request.Param)))
+                foreach (var row in Db.SQL<KMT>("SELECT r FROM KMT r"))
                 {
                     //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
 
