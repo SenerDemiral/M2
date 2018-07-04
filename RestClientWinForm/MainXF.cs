@@ -52,19 +52,19 @@ namespace RestClientWinForm
             XgtDic = new Dictionary<string, ulong>();
             foreach(MainDataSet.XGTRow r in mainDataSet.XGT.Rows)
             {
-                if(r.ObjP == 0)
+                if(r.P == 0)
                 {
                     XgtDic[r.Kd] = r.RowPk;
                 }
             }
                  
-            DataView DvzDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
-            DvzRepositoryItemLookUpEdit.DataSource = DvzDV;
+            DataView DvzDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
+            DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
-            DataView AfbTurDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["AFB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            DataView AfbTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["AFB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             AfbTurRepositoryItemLookUpEdit.DataSource = AfbTurDV;
 
-            DataView KmtTurDV = new DataView(mainDataSet.XGT, $"ObjP = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            DataView KmtTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             KmtTurRepositoryItemLookUpEdit.DataSource = KmtTurDV;
         }
 

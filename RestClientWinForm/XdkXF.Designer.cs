@@ -41,7 +41,7 @@
             this.xdkGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjDvz = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -158,7 +158,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowPk,
-            this.colObjDvz,
+            this.colDVT,
             this.colTrh,
             this.colKur});
             this.gridView1.GridControl = this.xdkGridControl;
@@ -173,14 +173,14 @@
             this.colRowPk.Visible = true;
             this.colRowPk.VisibleIndex = 0;
             // 
-            // colObjDvz
+            // colDVT
             // 
-            this.colObjDvz.Caption = "Dvz";
-            this.colObjDvz.FieldName = "ObjDvz";
-            this.colObjDvz.Name = "colObjDvz";
-            this.colObjDvz.OptionsColumn.ReadOnly = true;
-            this.colObjDvz.Visible = true;
-            this.colObjDvz.VisibleIndex = 1;
+            this.colDVT.Caption = "Dvz";
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.Name = "colDVT";
+            this.colDVT.OptionsColumn.ReadOnly = true;
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 1;
             // 
             // colTrh
             // 
@@ -263,7 +263,7 @@
         private DevExpress.XtraGrid.GridControl xdkGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjDvz;
+        private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;
         private System.Windows.Forms.StatusStrip statusStrip1;

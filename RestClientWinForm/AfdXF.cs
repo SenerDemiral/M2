@@ -28,8 +28,8 @@ namespace RestClientWinForm
 
             afdGridControl.ExternalRepository = Program.MF.persistentRepository;
             //colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
-            colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
-            //colObjDvz.ColumnEdit = Program.MF.DvzRepositoryItemLookUpEdit;
+            colAHP.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
+            colDVT.ColumnEdit = Program.MF.DVTrepositoryItemLookUpEdit;
         }
 
         private void AfdXF_Load(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace RestClientWinForm
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
             DataRow[] xdkRows = mainDataSet.XDK.Select("Dvz = 'TRL'");
-            ObjDvzTRL = xdkRows[0]["ObjDvz"];
+            ObjDvzTRL = xdkRows[0]["DVT"];
 
             FillDB();
         }
@@ -139,8 +139,8 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowPk, 0);
-            gridView1.SetFocusedRowCellValue(colObjAFB, ObjAFB);
-            gridView1.SetFocusedRowCellValue(colObjDvz, ObjDvzTRL);
+            gridView1.SetFocusedRowCellValue(colAFB, ObjAFB);
+            gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colTut, 0.0);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
         }
@@ -195,10 +195,10 @@ namespace RestClientWinForm
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
         {
             GridView View = sender as GridView;
-            var aaa = View.GetRowCellValue(e.RowHandle, colObjAHP);
-            if (View.GetRowCellValue(e.RowHandle, colObjAHP) == DBNull.Value)
+            var aaa = View.GetRowCellValue(e.RowHandle, colAHP);
+            if (View.GetRowCellValue(e.RowHandle, colAHP) == DBNull.Value)
             {
-                View.SetColumnError(colObjAHP, "Hesap girin");
+                View.SetColumnError(colAHP, "Hesap girin");
                 e.Valid = false;
             }
             else
@@ -207,7 +207,7 @@ namespace RestClientWinForm
                 e.Valid = true;
             }
 
-            if (View.GetRowCellDisplayText(e.RowHandle, colObjDvz) == "TRL")
+            if (View.GetRowCellDisplayText(e.RowHandle, colDVT) == "TRL")
             {
                 View.SetRowCellValue(e.RowHandle, colKur, 1.0);
                 View.SetRowCellValue(e.RowHandle, colTutTL, View.GetRowCellValue(e.RowHandle, colTut));
@@ -217,7 +217,7 @@ namespace RestClientWinForm
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
         {
             GridView View = sender as GridView;
-            if (View.GetFocusedRowCellDisplayText(colObjDvz) == "TRL" && View.FocusedColumn == colKur)
+            if (View.GetFocusedRowCellDisplayText(colDVT) == "TRL" && View.FocusedColumn == colKur)
                 e.Cancel = true;
         }
 

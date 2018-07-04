@@ -48,8 +48,10 @@
             this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colObjPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colHasH = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -58,8 +60,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingNavigator)).BeginInit();
@@ -191,7 +191,7 @@
             this.colAdT,
             this.colIsW,
             this.colRowPkT,
-            this.colObjPT,
+            this.colPT,
             this.colHasH,
             this.colBrc,
             this.colAlc});
@@ -215,7 +215,7 @@
             this.treeList1.OptionsSelection.SelectNodesOnRightClick = true;
             this.treeList1.OptionsSelection.UseIndicatorForSelection = true;
             this.treeList1.OptionsView.EnableAppearanceEvenRow = true;
-            this.treeList1.ParentFieldName = "ObjP";
+            this.treeList1.ParentFieldName = "P";
             this.treeList1.Size = new System.Drawing.Size(886, 400);
             this.treeList1.TabIndex = 7;
             this.treeList1.TreeLineStyle = DevExpress.XtraTreeList.LineStyle.Dark;
@@ -265,15 +265,15 @@
             this.colRowPkT.VisibleIndex = 4;
             this.colRowPkT.Width = 89;
             // 
-            // colObjPT
+            // colPT
             // 
-            this.colObjPT.Caption = "ObjP";
-            this.colObjPT.FieldName = "ObjP";
-            this.colObjPT.Name = "colObjPT";
-            this.colObjPT.OptionsColumn.ReadOnly = true;
-            this.colObjPT.Visible = true;
-            this.colObjPT.VisibleIndex = 5;
-            this.colObjPT.Width = 89;
+            this.colPT.Caption = "ObjP";
+            this.colPT.FieldName = "P";
+            this.colPT.Name = "colPT";
+            this.colPT.OptionsColumn.ReadOnly = true;
+            this.colPT.Visible = true;
+            this.colPT.VisibleIndex = 5;
+            this.colPT.Width = 89;
             // 
             // colHasH
             // 
@@ -285,6 +285,28 @@
             this.colHasH.Visible = true;
             this.colHasH.VisibleIndex = 6;
             this.colHasH.Width = 28;
+            // 
+            // colBrc
+            // 
+            this.colBrc.FieldName = "Brc";
+            this.colBrc.Format.FormatString = "n";
+            this.colBrc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colBrc.Name = "colBrc";
+            this.colBrc.OptionsColumn.AllowFocus = false;
+            this.colBrc.OptionsColumn.ReadOnly = true;
+            this.colBrc.Visible = true;
+            this.colBrc.VisibleIndex = 7;
+            // 
+            // colAlc
+            // 
+            this.colAlc.FieldName = "Alc";
+            this.colAlc.Format.FormatString = "n";
+            this.colAlc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colAlc.Name = "colAlc";
+            this.colAlc.OptionsColumn.AllowFocus = false;
+            this.colAlc.OptionsColumn.ReadOnly = true;
+            this.colAlc.Visible = true;
+            this.colAlc.VisibleIndex = 8;
             // 
             // contextMenuStrip
             // 
@@ -367,28 +389,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colBrc
-            // 
-            this.colBrc.FieldName = "Brc";
-            this.colBrc.Format.FormatString = "n";
-            this.colBrc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colBrc.Name = "colBrc";
-            this.colBrc.OptionsColumn.AllowFocus = false;
-            this.colBrc.OptionsColumn.ReadOnly = true;
-            this.colBrc.Visible = true;
-            this.colBrc.VisibleIndex = 7;
-            // 
-            // colAlc
-            // 
-            this.colAlc.FieldName = "Alc";
-            this.colAlc.Format.FormatString = "n";
-            this.colAlc.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colAlc.Name = "colAlc";
-            this.colAlc.OptionsColumn.AllowFocus = false;
-            this.colAlc.OptionsColumn.ReadOnly = true;
-            this.colAlc.Visible = true;
-            this.colAlc.VisibleIndex = 8;
-            // 
             // AhpXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,7 +426,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAdT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPkT;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colObjPT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colPT;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;

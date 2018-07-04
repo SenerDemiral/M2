@@ -36,7 +36,7 @@
             this.AfbTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xgtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
-            this.DvzRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.AHPrepositoryItemTreeListLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit();
             this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,13 +44,13 @@
             this.colHspNoAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.KmtTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.XDKbutton = new System.Windows.Forms.Button();
             this.KMTbutton = new System.Windows.Forms.Button();
-            this.KmtTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).BeginInit();
@@ -90,7 +90,7 @@
             // 
             this.persistentRepository.Items.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.AfbTurRepositoryItemLookUpEdit,
-            this.DvzRepositoryItemLookUpEdit,
+            this.DVTrepositoryItemLookUpEdit,
             this.DateRepositoryItemDateEdit,
             this.AHPrepositoryItemTreeListLookUpEdit,
             this.KmtTurRepositoryItemLookUpEdit});
@@ -118,18 +118,18 @@
             this.mainDataSet.DataSetName = "MainDataSet";
             this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DvzRepositoryItemLookUpEdit
+            // DVTrepositoryItemLookUpEdit
             // 
-            this.DvzRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DVTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DvzRepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            this.DVTrepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowPk", "Row Pk", 58, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
-            this.DvzRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
-            this.DvzRepositoryItemLookUpEdit.DisplayMember = "Kd";
-            this.DvzRepositoryItemLookUpEdit.Name = "DvzRepositoryItemLookUpEdit";
-            this.DvzRepositoryItemLookUpEdit.ValueMember = "RowPk";
+            this.DVTrepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
+            this.DVTrepositoryItemLookUpEdit.DisplayMember = "Kd";
+            this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
+            this.DVTrepositoryItemLookUpEdit.ValueMember = "RowPk";
             // 
             // DateRepositoryItemDateEdit
             // 
@@ -151,7 +151,7 @@
             this.AHPrepositoryItemTreeListLookUpEdit.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Buffered;
             this.AHPrepositoryItemTreeListLookUpEdit.ImmediatePopup = true;
             this.AHPrepositoryItemTreeListLookUpEdit.Name = "AHPrepositoryItemTreeListLookUpEdit";
-            this.AHPrepositoryItemTreeListLookUpEdit.NullValuePrompt = "Hesap girin/";
+            this.AHPrepositoryItemTreeListLookUpEdit.NullValuePrompt = "Hesap girin";
             this.AHPrepositoryItemTreeListLookUpEdit.NullValuePromptShowForEmptyValue = true;
             this.AHPrepositoryItemTreeListLookUpEdit.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains;
             this.AHPrepositoryItemTreeListLookUpEdit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
@@ -182,7 +182,7 @@
             this.repositoryItemTreeListLookUpEdit1TreeList.OptionsFilter.FilterMode = DevExpress.XtraTreeList.FilterMode.Extended;
             this.repositoryItemTreeListLookUpEdit1TreeList.OptionsFind.AllowFindPanel = true;
             this.repositoryItemTreeListLookUpEdit1TreeList.OptionsView.ShowIndentAsRowStyle = true;
-            this.repositoryItemTreeListLookUpEdit1TreeList.ParentFieldName = "ObjP";
+            this.repositoryItemTreeListLookUpEdit1TreeList.ParentFieldName = "P";
             this.repositoryItemTreeListLookUpEdit1TreeList.Size = new System.Drawing.Size(400, 200);
             this.repositoryItemTreeListLookUpEdit1TreeList.TabIndex = 0;
             // 
@@ -211,6 +211,19 @@
             this.colAlc.Visible = true;
             this.colAlc.VisibleIndex = 3;
             // 
+            // KmtTurRepositoryItemLookUpEdit
+            // 
+            this.KmtTurRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.KmtTurRepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowPk", "Row Pk", 58, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
+            this.KmtTurRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
+            this.KmtTurRepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.KmtTurRepositoryItemLookUpEdit.Name = "KmtTurRepositoryItemLookUpEdit";
+            this.KmtTurRepositoryItemLookUpEdit.ValueMember = "RowPk";
+            // 
             // XDKbutton
             // 
             this.XDKbutton.Location = new System.Drawing.Point(22, 97);
@@ -231,19 +244,6 @@
             this.KMTbutton.UseVisualStyleBackColor = true;
             this.KMTbutton.Click += new System.EventHandler(this.KMTbutton_Click);
             // 
-            // KmtTurRepositoryItemLookUpEdit
-            // 
-            this.KmtTurRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KmtTurRepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowPk", "Row Pk", 58, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
-            this.KmtTurRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
-            this.KmtTurRepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.KmtTurRepositoryItemLookUpEdit.Name = "KmtTurRepositoryItemLookUpEdit";
-            this.KmtTurRepositoryItemLookUpEdit.ValueMember = "RowPk";
-            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -259,7 +259,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).EndInit();
@@ -275,7 +275,7 @@
         private System.Windows.Forms.Button AFBbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AfbTurRepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource xgtBindingSource;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DvzRepositoryItemLookUpEdit;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DVTrepositoryItemLookUpEdit;
         public DevExpress.XtraEditors.Repository.PersistentRepository persistentRepository;
         private System.Windows.Forms.BindingSource ahpBindingSource;
         private System.Windows.Forms.Button XDKbutton;

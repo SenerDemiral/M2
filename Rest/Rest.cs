@@ -30,75 +30,75 @@ namespace Rest {
             "eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3df",
             "cGsYAyABKAQSDgoGZmxkU3RyGAQgASgJEg4KBmZsZEludBgFIAEoBRIOCgZm",
             "bGREYmwYBiABKAESDgoGZmxkRGNtGAcgASgBEg8KB2ZsZERhdGUYCCABKAMi",
-            "qAEKCEFIUHByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIg",
-            "ASgJEg4KBnJvd19waxgDIAEoBBIMCgRPYmpQGAQgASgEEgoKAk5vGAUgASgJ",
-            "EgoKAkFkGAYgASgJEg0KBUhzcE5vGAcgASgJEgsKA0JyYxgIIAEoARILCgNB",
-            "bGMYCSABKAESCwoDSXNXGAogASgIEgwKBEhhc0gYCyABKAgirgEKCEFGQnBy",
+            "tgEKCEFIUHByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIg",
+            "ASgJEg4KBnJvd19waxgDIAEoBBIPCgdyb3dfdXNyGAQgASgEEgkKAVAYBSAB",
+            "KAQSCgoCTm8YBiABKAkSCgoCQWQYByABKAkSDQoFSHNwTm8YCCABKAkSCwoD",
+            "QnJjGAkgASgBEgsKA0FsYxgKIAEoARILCgNJc1cYCyABKAgSDAoESGFzSBgM",
+            "IAEoCCKrAQoIQUZCcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgEIAEoAxILCgNUVVIY",
+            "BSABKAQSCwoDRHJtGAYgASgJEioKBEluZm8YByABKAsyHC5nb29nbGUucHJv",
+            "dG9idWYuU3RyaW5nVmFsdWUSCwoDQnJjGAggASgBEgsKA0FsYxgJIAEoASK6",
+            "AQoIQUZEcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiAB",
+            "KAkSDgoGcm93X3BrGAMgASgEEgsKA0FGQhgEIAEoBBILCgNBSFAYBSABKAQS",
+            "KgoESW5mbxgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIL",
+            "CgNUdXQYByABKAESCwoDRFZUGAggASgEEgsKA0t1chgJIAEoAhINCgVUdXRU",
+            "TBgKIAEoASLRAQoIQUJCcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jv",
+            "d19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgEIAEoAxILCgNU",
+            "VVIYBSABKAQSCwoDRHJtGAYgASgJEgsKA0tLSxgHIAEoBBIKCgJCQRgIIAEo",
+            "CRILCgNEVlQYCSABKAQSCwoDS3VyGAogASgCEgsKA1R1dBgLIAEoARIqCgRJ",
+            "bmZvGAwgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlItIBCghB",
+            "QkRwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIO",
+            "CgZyb3dfcGsYAyABKAQSCwoDQUJCGAQgASgEEgsKA05OThgFIAEoBBILCgNB",
+            "SFAYBiABKAQSCwoDRnl0GAcgASgBEgsKA0RWVBgIIAEoBBILCgNNaWsYCSAB",
+            "KAESCwoDS3VyGAogASgCEgsKA0tEWRgLIAEoAhIqCgRJbmZvGAwgASgLMhwu",
+            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlImEKCFhHVHByb3h5EhEKCXJv",
+            "d19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEo",
+            "BBIJCgFQGAQgASgEEgoKAktkGAUgASgJEgoKAkFkGAYgASgJInIKCFhES3By",
             "b3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJv",
-            "d19waxgDIAEoBBILCgNUcmgYBCABKAMSDgoGT2JqVHVyGAUgASgEEgsKA0Ry",
-            "bRgGIAEoCRIqCgRJbmZvGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmlu",
-            "Z1ZhbHVlEgsKA0JyYxgIIAEoARILCgNBbGMYCSABKAEiwwEKCEFGRHByb3h5",
-            "EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19w",
-            "axgDIAEoBBIOCgZPYmpBRkIYBCABKAQSDgoGT2JqQUhQGAUgASgEEioKBElu",
-            "Zm8YBiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSCwoDVHV0",
-            "GAcgASgBEg4KBk9iakR2ehgIIAEoBBILCgNLdXIYCSABKAISDQoFVHV0VEwY",
-            "CiABKAEi2gEKCEFCQnByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3df",
-            "ZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBILCgNUcmgYBCABKAMSDgoGT2Jq",
-            "VHVyGAUgASgEEgsKA0RybRgGIAEoCRIOCgZPYmpLS0sYByABKAQSCgoCQkEY",
-            "CCABKAkSDgoGT2JqRHZ6GAkgASgEEgsKA0t1chgKIAEoAhILCgNUdXQYCyAB",
-            "KAESKgoESW5mbxgMIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
-            "ZSLeAQoIQUJEcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIY",
-            "AiABKAkSDgoGcm93X3BrGAMgASgEEg4KBk9iakFCQhgEIAEoBBIOCgZPYmpO",
-            "Tk4YBSABKAQSDgoGT2JqQUhQGAYgASgEEgsKA0Z5dBgHIAEoARIOCgZPYmpE",
-            "dnoYCCABKAQSCwoDTWlrGAkgASgBEgsKA0t1chgKIAEoAhILCgNLRFkYCyAB",
-            "KAISKgoESW5mbxgMIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
-            "ZSJkCghYR1Rwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgC",
-            "IAEoCRIOCgZyb3dfcGsYAyABKAQSDAoET2JqUBgEIAEoBBIKCgJLZBgFIAEo",
-            "CRIKCgJBZBgGIAEoCSJ1CghYREtwcm94eRIRCglyb3dfc3RhdGUYASABKAkS",
-            "DwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSCwoDVHJoGAQgASgD",
-            "Eg4KBk9iakR2ehgFIAEoBBILCgNLdXIYBiABKAISCwoDRHZ6GAcgASgJItIC",
-            "CghLTVRwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEo",
-            "CRIOCgZyb3dfcGsYAyABKAQSKAoCQWQYBCABKAsyHC5nb29nbGUucHJvdG9i",
-            "dWYuU3RyaW5nVmFsdWUSDgoGT2JqVHVyGAUgASgEEikKA1RlbBgGIAEoCzIc",
-            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIrCgVBZHJlcxgHIAEoCzIc",
-            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRItCgdTb3J1bWx1GAggASgL",
-            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEisKBVZyZ0ROGAkgASgL",
-            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEhEKCU9iakFIUGJyYxgK",
-            "IAEoBBIRCglPYmpBSFBhbGMYCyABKAQyiQcKBUNSVURzEi8KCFRibGFGaWxs",
-            "Eg4ucmVzdC5RcnlQcm94eRoPLnJlc3QuVGJsYVByb3h5IgAwARIwCgpUYmxh",
-            "VXBkYXRlEg8ucmVzdC5UYmxhUHJveHkaDy5yZXN0LlRibGFQcm94eSIAEi0K",
-            "B0FIUGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BSFBwcm94eSIAMAES",
-            "LQoJQUhQdXBkYXRlEg4ucmVzdC5BSFBwcm94eRoOLnJlc3QuQUhQcHJveHki",
-            "ABItCgdBRkJmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZCcHJveHki",
-            "ADABEi0KCUFGQnVwZGF0ZRIOLnJlc3QuQUZCcHJveHkaDi5yZXN0LkFGQnBy",
-            "b3h5IgASLQoKQUZCZ2V0QnlQSxINLnJlc3QuUEtwcm94eRoOLnJlc3QuQUZC",
-            "cHJveHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZE",
-            "cHJveHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3QuQUZEcHJveHkaDi5yZXN0",
-            "LkFGRHByb3h5IgASLQoHQUJCZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0",
-            "LkFCQnByb3h5IgAwARItCglBQkJ1cGRhdGUSDi5yZXN0LkFCQnByb3h5Gg4u",
-            "cmVzdC5BQkJwcm94eSIAEi0KB0FCRGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4u",
-            "cmVzdC5BQkRwcm94eSIAMAESLQoJQUJEdXBkYXRlEg4ucmVzdC5BQkRwcm94",
-            "eRoOLnJlc3QuQUJEcHJveHkiABItCgdYR1RmaWxsEg4ucmVzdC5RcnlQcm94",
-            "eRoOLnJlc3QuWEdUcHJveHkiADABEi0KCVhHVHVwZGF0ZRIOLnJlc3QuWEdU",
-            "cHJveHkaDi5yZXN0LlhHVHByb3h5IgASLQoHWERLZmlsbBIOLnJlc3QuUXJ5",
-            "UHJveHkaDi5yZXN0LlhES3Byb3h5IgAwARItCglYREt1cGRhdGUSDi5yZXN0",
-            "LlhES3Byb3h5Gg4ucmVzdC5YREtwcm94eSIAEi0KB0tNVGZpbGwSDi5yZXN0",
-            "LlFyeVByb3h5Gg4ucmVzdC5LTVRwcm94eSIAMAESLQoJS01UdXBkYXRlEg4u",
-            "cmVzdC5LTVRwcm94eRoOLnJlc3QuS01UcHJveHkiAGIGcHJvdG8z"));
+            "d19waxgDIAEoBBILCgNUcmgYBCABKAMSCwoDRFZUGAUgASgEEgsKA0t1chgG",
+            "IAEoAhILCgNEdnoYByABKAkiyQIKCEtNVHByb3h5EhEKCXJvd19zdGF0ZRgB",
+            "IAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIoCgJBZBgE",
+            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRILCgNUVVIYBSAB",
+            "KAQSKQoDVGVsGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "EisKBUFkcmVzGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "Ei0KB1NvcnVtbHUYCCABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUSKwoFVnJnRE4YCSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUSDgoGQUhQYnJjGAogASgEEg4KBkFIUGFsYxgLIAEoBDKJBwoFQ1JVRHMS",
+            "LwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJveHki",
+            "ADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJlc3QuVGJs",
+            "YVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFI",
+            "UHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4ucmVz",
+            "dC5BSFBwcm94eSIAEi0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVz",
+            "dC5BRkJwcm94eSIAMAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJwcm94eRoO",
+            "LnJlc3QuQUZCcHJveHkiABItCgpBRkJnZXRCeVBLEg0ucmVzdC5QS3Byb3h5",
+            "Gg4ucmVzdC5BRkJwcm94eSIAEi0KB0FGRGZpbGwSDi5yZXN0LlFyeVByb3h5",
+            "Gg4ucmVzdC5BRkRwcm94eSIAMAESLQoJQUZEdXBkYXRlEg4ucmVzdC5BRkRw",
+            "cm94eRoOLnJlc3QuQUZEcHJveHkiABItCgdBQkJmaWxsEg4ucmVzdC5RcnlQ",
+            "cm94eRoOLnJlc3QuQUJCcHJveHkiADABEi0KCUFCQnVwZGF0ZRIOLnJlc3Qu",
+            "QUJCcHJveHkaDi5yZXN0LkFCQnByb3h5IgASLQoHQUJEZmlsbBIOLnJlc3Qu",
+            "UXJ5UHJveHkaDi5yZXN0LkFCRHByb3h5IgAwARItCglBQkR1cGRhdGUSDi5y",
+            "ZXN0LkFCRHByb3h5Gg4ucmVzdC5BQkRwcm94eSIAEi0KB1hHVGZpbGwSDi5y",
+            "ZXN0LlFyeVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdUdXBkYXRl",
+            "Eg4ucmVzdC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdYREtmaWxs",
+            "Eg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0KCVhES3Vw",
+            "ZGF0ZRIOLnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgASLQoHS01U",
+            "ZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LktNVHByb3h5IgAwARItCglL",
+            "TVR1cGRhdGUSDi5yZXN0LktNVHByb3h5Gg4ucmVzdC5LTVRwcm94eSIAYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.PKproxy), global::Rest.PKproxy.Parser, new[]{ "PK" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query", "Param" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "No", "Ad", "HspNo", "Brc", "Alc", "IsW", "HasH" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "Drm", "Info", "Brc", "Alc" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjAFB", "ObjAHP", "Info", "Tut", "ObjDvz", "Kur", "TutTL" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABBproxy), global::Rest.ABBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjTur", "Drm", "ObjKKK", "BA", "ObjDvz", "Kur", "Tut", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjABB", "ObjNNN", "ObjAHP", "Fyt", "ObjDvz", "Mik", "Kur", "KDY", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ObjP", "Kd", "Ad" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "ObjDvz", "Kur", "Dvz" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KMTproxy), global::Rest.KMTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Ad", "ObjTur", "Tel", "Adres", "Sorumlu", "VrgDN", "ObjAHPbrc", "ObjAHPalc" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "P", "No", "Ad", "HspNo", "Brc", "Alc", "IsW", "HasH" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "TUR", "Drm", "Info", "Brc", "Alc" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "AFB", "AHP", "Info", "Tut", "DVT", "Kur", "TutTL" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABBproxy), global::Rest.ABBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "TUR", "Drm", "KKK", "BA", "DVT", "Kur", "Tut", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ABB", "NNN", "AHP", "Fyt", "DVT", "Mik", "Kur", "KDY", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "P", "Kd", "Ad" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "DVT", "Kur", "Dvz" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KMTproxy), global::Rest.KMTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Ad", "TUR", "Tel", "Adres", "Sorumlu", "VrgDN", "AHPbrc", "AHPalc" }, null, null, null)
           }));
     }
     #endregion
@@ -759,7 +759,8 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
-      objP_ = other.objP_;
+      rowUsr_ = other.rowUsr_;
+      p_ = other.p_;
       no_ = other.no_;
       ad_ = other.ad_;
       hspNo_ = other.hspNo_;
@@ -811,19 +812,30 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjP" field.</summary>
-    public const int ObjPFieldNumber = 4;
-    private ulong objP_;
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjP {
-      get { return objP_; }
+    public ulong RowUsr {
+      get { return rowUsr_; }
       set {
-        objP_ = value;
+        rowUsr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "P" field.</summary>
+    public const int PFieldNumber = 5;
+    private ulong p_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong P {
+      get { return p_; }
+      set {
+        p_ = value;
       }
     }
 
     /// <summary>Field number for the "No" field.</summary>
-    public const int NoFieldNumber = 5;
+    public const int NoFieldNumber = 6;
     private string no_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string No {
@@ -834,7 +846,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Ad" field.</summary>
-    public const int AdFieldNumber = 6;
+    public const int AdFieldNumber = 7;
     private string ad_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Ad {
@@ -845,7 +857,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "HspNo" field.</summary>
-    public const int HspNoFieldNumber = 7;
+    public const int HspNoFieldNumber = 8;
     private string hspNo_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string HspNo {
@@ -856,7 +868,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Brc" field.</summary>
-    public const int BrcFieldNumber = 8;
+    public const int BrcFieldNumber = 9;
     private double brc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Brc {
@@ -867,7 +879,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Alc" field.</summary>
-    public const int AlcFieldNumber = 9;
+    public const int AlcFieldNumber = 10;
     private double alc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Alc {
@@ -878,7 +890,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "IsW" field.</summary>
-    public const int IsWFieldNumber = 10;
+    public const int IsWFieldNumber = 11;
     private bool isW_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsW {
@@ -889,7 +901,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "HasH" field.</summary>
-    public const int HasHFieldNumber = 11;
+    public const int HasHFieldNumber = 12;
     private bool hasH_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool HasH {
@@ -915,7 +927,8 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
-      if (ObjP != other.ObjP) return false;
+      if (RowUsr != other.RowUsr) return false;
+      if (P != other.P) return false;
       if (No != other.No) return false;
       if (Ad != other.Ad) return false;
       if (HspNo != other.HspNo) return false;
@@ -932,7 +945,8 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
-      if (ObjP != 0UL) hash ^= ObjP.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
+      if (P != 0UL) hash ^= P.GetHashCode();
       if (No.Length != 0) hash ^= No.GetHashCode();
       if (Ad.Length != 0) hash ^= Ad.GetHashCode();
       if (HspNo.Length != 0) hash ^= HspNo.GetHashCode();
@@ -965,36 +979,40 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (ObjP != 0UL) {
+      if (RowUsr != 0UL) {
         output.WriteRawTag(32);
-        output.WriteUInt64(ObjP);
+        output.WriteUInt64(RowUsr);
+      }
+      if (P != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(P);
       }
       if (No.Length != 0) {
-        output.WriteRawTag(42);
+        output.WriteRawTag(50);
         output.WriteString(No);
       }
       if (Ad.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Ad);
       }
       if (HspNo.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(HspNo);
       }
       if (Brc != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(73);
         output.WriteDouble(Brc);
       }
       if (Alc != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Alc);
       }
       if (IsW != false) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(88);
         output.WriteBool(IsW);
       }
       if (HasH != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(96);
         output.WriteBool(HasH);
       }
       if (_unknownFields != null) {
@@ -1014,8 +1032,11 @@ namespace Rest {
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
       }
-      if (ObjP != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjP);
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
+      }
+      if (P != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(P);
       }
       if (No.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(No);
@@ -1058,8 +1079,11 @@ namespace Rest {
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
       }
-      if (other.ObjP != 0UL) {
-        ObjP = other.ObjP;
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
+      }
+      if (other.P != 0UL) {
+        P = other.P;
       }
       if (other.No.Length != 0) {
         No = other.No;
@@ -1106,34 +1130,38 @@ namespace Rest {
             break;
           }
           case 32: {
-            ObjP = input.ReadUInt64();
+            RowUsr = input.ReadUInt64();
             break;
           }
-          case 42: {
-            No = input.ReadString();
+          case 40: {
+            P = input.ReadUInt64();
             break;
           }
           case 50: {
-            Ad = input.ReadString();
+            No = input.ReadString();
             break;
           }
           case 58: {
+            Ad = input.ReadString();
+            break;
+          }
+          case 66: {
             HspNo = input.ReadString();
             break;
           }
-          case 65: {
+          case 73: {
             Brc = input.ReadDouble();
             break;
           }
-          case 73: {
+          case 81: {
             Alc = input.ReadDouble();
             break;
           }
-          case 80: {
+          case 88: {
             IsW = input.ReadBool();
             break;
           }
-          case 88: {
+          case 96: {
             HasH = input.ReadBool();
             break;
           }
@@ -1175,7 +1203,7 @@ namespace Rest {
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
       trh_ = other.trh_;
-      objTur_ = other.objTur_;
+      tUR_ = other.tUR_;
       drm_ = other.drm_;
       Info = other.Info;
       brc_ = other.brc_;
@@ -1235,14 +1263,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjTur" field.</summary>
-    public const int ObjTurFieldNumber = 5;
-    private ulong objTur_;
+    /// <summary>Field number for the "TUR" field.</summary>
+    public const int TURFieldNumber = 5;
+    private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjTur {
-      get { return objTur_; }
+    public ulong TUR {
+      get { return tUR_; }
       set {
-        objTur_ = value;
+        tUR_ = value;
       }
     }
 
@@ -1308,7 +1336,7 @@ namespace Rest {
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
       if (Trh != other.Trh) return false;
-      if (ObjTur != other.ObjTur) return false;
+      if (TUR != other.TUR) return false;
       if (Drm != other.Drm) return false;
       if (Info != other.Info) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Brc, other.Brc)) return false;
@@ -1323,7 +1351,7 @@ namespace Rest {
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
-      if (ObjTur != 0UL) hash ^= ObjTur.GetHashCode();
+      if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (Drm.Length != 0) hash ^= Drm.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (Brc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Brc);
@@ -1357,9 +1385,9 @@ namespace Rest {
         output.WriteRawTag(32);
         output.WriteInt64(Trh);
       }
-      if (ObjTur != 0UL) {
+      if (TUR != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjTur);
+        output.WriteUInt64(TUR);
       }
       if (Drm.Length != 0) {
         output.WriteRawTag(50);
@@ -1396,8 +1424,8 @@ namespace Rest {
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
       }
-      if (ObjTur != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjTur);
+      if (TUR != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TUR);
       }
       if (Drm.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Drm);
@@ -1434,8 +1462,8 @@ namespace Rest {
       if (other.Trh != 0L) {
         Trh = other.Trh;
       }
-      if (other.ObjTur != 0UL) {
-        ObjTur = other.ObjTur;
+      if (other.TUR != 0UL) {
+        TUR = other.TUR;
       }
       if (other.Drm.Length != 0) {
         Drm = other.Drm;
@@ -1479,7 +1507,7 @@ namespace Rest {
             break;
           }
           case 40: {
-            ObjTur = input.ReadUInt64();
+            TUR = input.ReadUInt64();
             break;
           }
           case 50: {
@@ -1538,11 +1566,11 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
-      objAFB_ = other.objAFB_;
-      objAHP_ = other.objAHP_;
+      aFB_ = other.aFB_;
+      aHP_ = other.aHP_;
       Info = other.Info;
       tut_ = other.tut_;
-      objDvz_ = other.objDvz_;
+      dVT_ = other.dVT_;
       kur_ = other.kur_;
       tutTL_ = other.tutTL_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -1589,25 +1617,25 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjAFB" field.</summary>
-    public const int ObjAFBFieldNumber = 4;
-    private ulong objAFB_;
+    /// <summary>Field number for the "AFB" field.</summary>
+    public const int AFBFieldNumber = 4;
+    private ulong aFB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjAFB {
-      get { return objAFB_; }
+    public ulong AFB {
+      get { return aFB_; }
       set {
-        objAFB_ = value;
+        aFB_ = value;
       }
     }
 
-    /// <summary>Field number for the "ObjAHP" field.</summary>
-    public const int ObjAHPFieldNumber = 5;
-    private ulong objAHP_;
+    /// <summary>Field number for the "AHP" field.</summary>
+    public const int AHPFieldNumber = 5;
+    private ulong aHP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjAHP {
-      get { return objAHP_; }
+    public ulong AHP {
+      get { return aHP_; }
       set {
-        objAHP_ = value;
+        aHP_ = value;
       }
     }
 
@@ -1634,14 +1662,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjDvz" field.</summary>
-    public const int ObjDvzFieldNumber = 8;
-    private ulong objDvz_;
+    /// <summary>Field number for the "DVT" field.</summary>
+    public const int DVTFieldNumber = 8;
+    private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjDvz {
-      get { return objDvz_; }
+    public ulong DVT {
+      get { return dVT_; }
       set {
-        objDvz_ = value;
+        dVT_ = value;
       }
     }
 
@@ -1683,11 +1711,11 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
-      if (ObjAFB != other.ObjAFB) return false;
-      if (ObjAHP != other.ObjAHP) return false;
+      if (AFB != other.AFB) return false;
+      if (AHP != other.AHP) return false;
       if (Info != other.Info) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Tut, other.Tut)) return false;
-      if (ObjDvz != other.ObjDvz) return false;
+      if (DVT != other.DVT) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(TutTL, other.TutTL)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -1699,11 +1727,11 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
-      if (ObjAFB != 0UL) hash ^= ObjAFB.GetHashCode();
-      if (ObjAHP != 0UL) hash ^= ObjAHP.GetHashCode();
+      if (AFB != 0UL) hash ^= AFB.GetHashCode();
+      if (AHP != 0UL) hash ^= AHP.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
-      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (DVT != 0UL) hash ^= DVT.GetHashCode();
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (TutTL != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(TutTL);
       if (_unknownFields != null) {
@@ -1731,13 +1759,13 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (ObjAFB != 0UL) {
+      if (AFB != 0UL) {
         output.WriteRawTag(32);
-        output.WriteUInt64(ObjAFB);
+        output.WriteUInt64(AFB);
       }
-      if (ObjAHP != 0UL) {
+      if (AHP != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjAHP);
+        output.WriteUInt64(AHP);
       }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
@@ -1746,9 +1774,9 @@ namespace Rest {
         output.WriteRawTag(57);
         output.WriteDouble(Tut);
       }
-      if (ObjDvz != 0UL) {
+      if (DVT != 0UL) {
         output.WriteRawTag(64);
-        output.WriteUInt64(ObjDvz);
+        output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
         output.WriteRawTag(77);
@@ -1775,11 +1803,11 @@ namespace Rest {
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
       }
-      if (ObjAFB != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAFB);
+      if (AFB != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AFB);
       }
-      if (ObjAHP != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAHP);
+      if (AHP != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AHP);
       }
       if (info_ != null) {
         size += _single_info_codec.CalculateSizeWithTag(Info);
@@ -1787,8 +1815,8 @@ namespace Rest {
       if (Tut != 0D) {
         size += 1 + 8;
       }
-      if (ObjDvz != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      if (DVT != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(DVT);
       }
       if (Kur != 0F) {
         size += 1 + 4;
@@ -1816,11 +1844,11 @@ namespace Rest {
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
       }
-      if (other.ObjAFB != 0UL) {
-        ObjAFB = other.ObjAFB;
+      if (other.AFB != 0UL) {
+        AFB = other.AFB;
       }
-      if (other.ObjAHP != 0UL) {
-        ObjAHP = other.ObjAHP;
+      if (other.AHP != 0UL) {
+        AHP = other.AHP;
       }
       if (other.info_ != null) {
         if (info_ == null || other.Info != "") {
@@ -1830,8 +1858,8 @@ namespace Rest {
       if (other.Tut != 0D) {
         Tut = other.Tut;
       }
-      if (other.ObjDvz != 0UL) {
-        ObjDvz = other.ObjDvz;
+      if (other.DVT != 0UL) {
+        DVT = other.DVT;
       }
       if (other.Kur != 0F) {
         Kur = other.Kur;
@@ -1863,11 +1891,11 @@ namespace Rest {
             break;
           }
           case 32: {
-            ObjAFB = input.ReadUInt64();
+            AFB = input.ReadUInt64();
             break;
           }
           case 40: {
-            ObjAHP = input.ReadUInt64();
+            AHP = input.ReadUInt64();
             break;
           }
           case 50: {
@@ -1882,7 +1910,7 @@ namespace Rest {
             break;
           }
           case 64: {
-            ObjDvz = input.ReadUInt64();
+            DVT = input.ReadUInt64();
             break;
           }
           case 77: {
@@ -1931,11 +1959,11 @@ namespace Rest {
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
       trh_ = other.trh_;
-      objTur_ = other.objTur_;
+      tUR_ = other.tUR_;
       drm_ = other.drm_;
-      objKKK_ = other.objKKK_;
+      kKK_ = other.kKK_;
       bA_ = other.bA_;
-      objDvz_ = other.objDvz_;
+      dVT_ = other.dVT_;
       kur_ = other.kur_;
       tut_ = other.tut_;
       Info = other.Info;
@@ -1994,14 +2022,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjTur" field.</summary>
-    public const int ObjTurFieldNumber = 5;
-    private ulong objTur_;
+    /// <summary>Field number for the "TUR" field.</summary>
+    public const int TURFieldNumber = 5;
+    private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjTur {
-      get { return objTur_; }
+    public ulong TUR {
+      get { return tUR_; }
       set {
-        objTur_ = value;
+        tUR_ = value;
       }
     }
 
@@ -2016,14 +2044,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjKKK" field.</summary>
-    public const int ObjKKKFieldNumber = 7;
-    private ulong objKKK_;
+    /// <summary>Field number for the "KKK" field.</summary>
+    public const int KKKFieldNumber = 7;
+    private ulong kKK_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjKKK {
-      get { return objKKK_; }
+    public ulong KKK {
+      get { return kKK_; }
       set {
-        objKKK_ = value;
+        kKK_ = value;
       }
     }
 
@@ -2038,14 +2066,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjDvz" field.</summary>
-    public const int ObjDvzFieldNumber = 9;
-    private ulong objDvz_;
+    /// <summary>Field number for the "DVT" field.</summary>
+    public const int DVTFieldNumber = 9;
+    private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjDvz {
-      get { return objDvz_; }
+    public ulong DVT {
+      get { return dVT_; }
       set {
-        objDvz_ = value;
+        dVT_ = value;
       }
     }
 
@@ -2100,11 +2128,11 @@ namespace Rest {
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
       if (Trh != other.Trh) return false;
-      if (ObjTur != other.ObjTur) return false;
+      if (TUR != other.TUR) return false;
       if (Drm != other.Drm) return false;
-      if (ObjKKK != other.ObjKKK) return false;
+      if (KKK != other.KKK) return false;
       if (BA != other.BA) return false;
-      if (ObjDvz != other.ObjDvz) return false;
+      if (DVT != other.DVT) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Tut, other.Tut)) return false;
       if (Info != other.Info) return false;
@@ -2118,11 +2146,11 @@ namespace Rest {
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
-      if (ObjTur != 0UL) hash ^= ObjTur.GetHashCode();
+      if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (Drm.Length != 0) hash ^= Drm.GetHashCode();
-      if (ObjKKK != 0UL) hash ^= ObjKKK.GetHashCode();
+      if (KKK != 0UL) hash ^= KKK.GetHashCode();
       if (BA.Length != 0) hash ^= BA.GetHashCode();
-      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (DVT != 0UL) hash ^= DVT.GetHashCode();
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
       if (info_ != null) hash ^= Info.GetHashCode();
@@ -2155,25 +2183,25 @@ namespace Rest {
         output.WriteRawTag(32);
         output.WriteInt64(Trh);
       }
-      if (ObjTur != 0UL) {
+      if (TUR != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjTur);
+        output.WriteUInt64(TUR);
       }
       if (Drm.Length != 0) {
         output.WriteRawTag(50);
         output.WriteString(Drm);
       }
-      if (ObjKKK != 0UL) {
+      if (KKK != 0UL) {
         output.WriteRawTag(56);
-        output.WriteUInt64(ObjKKK);
+        output.WriteUInt64(KKK);
       }
       if (BA.Length != 0) {
         output.WriteRawTag(66);
         output.WriteString(BA);
       }
-      if (ObjDvz != 0UL) {
+      if (DVT != 0UL) {
         output.WriteRawTag(72);
-        output.WriteUInt64(ObjDvz);
+        output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
         output.WriteRawTag(85);
@@ -2206,20 +2234,20 @@ namespace Rest {
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
       }
-      if (ObjTur != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjTur);
+      if (TUR != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TUR);
       }
       if (Drm.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Drm);
       }
-      if (ObjKKK != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjKKK);
+      if (KKK != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(KKK);
       }
       if (BA.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(BA);
       }
-      if (ObjDvz != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      if (DVT != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(DVT);
       }
       if (Kur != 0F) {
         size += 1 + 4;
@@ -2253,20 +2281,20 @@ namespace Rest {
       if (other.Trh != 0L) {
         Trh = other.Trh;
       }
-      if (other.ObjTur != 0UL) {
-        ObjTur = other.ObjTur;
+      if (other.TUR != 0UL) {
+        TUR = other.TUR;
       }
       if (other.Drm.Length != 0) {
         Drm = other.Drm;
       }
-      if (other.ObjKKK != 0UL) {
-        ObjKKK = other.ObjKKK;
+      if (other.KKK != 0UL) {
+        KKK = other.KKK;
       }
       if (other.BA.Length != 0) {
         BA = other.BA;
       }
-      if (other.ObjDvz != 0UL) {
-        ObjDvz = other.ObjDvz;
+      if (other.DVT != 0UL) {
+        DVT = other.DVT;
       }
       if (other.Kur != 0F) {
         Kur = other.Kur;
@@ -2307,7 +2335,7 @@ namespace Rest {
             break;
           }
           case 40: {
-            ObjTur = input.ReadUInt64();
+            TUR = input.ReadUInt64();
             break;
           }
           case 50: {
@@ -2315,7 +2343,7 @@ namespace Rest {
             break;
           }
           case 56: {
-            ObjKKK = input.ReadUInt64();
+            KKK = input.ReadUInt64();
             break;
           }
           case 66: {
@@ -2323,7 +2351,7 @@ namespace Rest {
             break;
           }
           case 72: {
-            ObjDvz = input.ReadUInt64();
+            DVT = input.ReadUInt64();
             break;
           }
           case 85: {
@@ -2378,11 +2406,11 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
-      objABB_ = other.objABB_;
-      objNNN_ = other.objNNN_;
-      objAHP_ = other.objAHP_;
+      aBB_ = other.aBB_;
+      nNN_ = other.nNN_;
+      aHP_ = other.aHP_;
       fyt_ = other.fyt_;
-      objDvz_ = other.objDvz_;
+      dVT_ = other.dVT_;
       mik_ = other.mik_;
       kur_ = other.kur_;
       kDY_ = other.kDY_;
@@ -2431,36 +2459,36 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjABB" field.</summary>
-    public const int ObjABBFieldNumber = 4;
-    private ulong objABB_;
+    /// <summary>Field number for the "ABB" field.</summary>
+    public const int ABBFieldNumber = 4;
+    private ulong aBB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjABB {
-      get { return objABB_; }
+    public ulong ABB {
+      get { return aBB_; }
       set {
-        objABB_ = value;
+        aBB_ = value;
       }
     }
 
-    /// <summary>Field number for the "ObjNNN" field.</summary>
-    public const int ObjNNNFieldNumber = 5;
-    private ulong objNNN_;
+    /// <summary>Field number for the "NNN" field.</summary>
+    public const int NNNFieldNumber = 5;
+    private ulong nNN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjNNN {
-      get { return objNNN_; }
+    public ulong NNN {
+      get { return nNN_; }
       set {
-        objNNN_ = value;
+        nNN_ = value;
       }
     }
 
-    /// <summary>Field number for the "ObjAHP" field.</summary>
-    public const int ObjAHPFieldNumber = 6;
-    private ulong objAHP_;
+    /// <summary>Field number for the "AHP" field.</summary>
+    public const int AHPFieldNumber = 6;
+    private ulong aHP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjAHP {
-      get { return objAHP_; }
+    public ulong AHP {
+      get { return aHP_; }
       set {
-        objAHP_ = value;
+        aHP_ = value;
       }
     }
 
@@ -2475,14 +2503,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjDvz" field.</summary>
-    public const int ObjDvzFieldNumber = 8;
-    private ulong objDvz_;
+    /// <summary>Field number for the "DVT" field.</summary>
+    public const int DVTFieldNumber = 8;
+    private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjDvz {
-      get { return objDvz_; }
+    public ulong DVT {
+      get { return dVT_; }
       set {
-        objDvz_ = value;
+        dVT_ = value;
       }
     }
 
@@ -2547,11 +2575,11 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
-      if (ObjABB != other.ObjABB) return false;
-      if (ObjNNN != other.ObjNNN) return false;
-      if (ObjAHP != other.ObjAHP) return false;
+      if (ABB != other.ABB) return false;
+      if (NNN != other.NNN) return false;
+      if (AHP != other.AHP) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Fyt, other.Fyt)) return false;
-      if (ObjDvz != other.ObjDvz) return false;
+      if (DVT != other.DVT) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Mik, other.Mik)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(KDY, other.KDY)) return false;
@@ -2565,11 +2593,11 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
-      if (ObjABB != 0UL) hash ^= ObjABB.GetHashCode();
-      if (ObjNNN != 0UL) hash ^= ObjNNN.GetHashCode();
-      if (ObjAHP != 0UL) hash ^= ObjAHP.GetHashCode();
+      if (ABB != 0UL) hash ^= ABB.GetHashCode();
+      if (NNN != 0UL) hash ^= NNN.GetHashCode();
+      if (AHP != 0UL) hash ^= AHP.GetHashCode();
       if (Fyt != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Fyt);
-      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (DVT != 0UL) hash ^= DVT.GetHashCode();
       if (Mik != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Mik);
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (KDY != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(KDY);
@@ -2599,25 +2627,25 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (ObjABB != 0UL) {
+      if (ABB != 0UL) {
         output.WriteRawTag(32);
-        output.WriteUInt64(ObjABB);
+        output.WriteUInt64(ABB);
       }
-      if (ObjNNN != 0UL) {
+      if (NNN != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjNNN);
+        output.WriteUInt64(NNN);
       }
-      if (ObjAHP != 0UL) {
+      if (AHP != 0UL) {
         output.WriteRawTag(48);
-        output.WriteUInt64(ObjAHP);
+        output.WriteUInt64(AHP);
       }
       if (Fyt != 0D) {
         output.WriteRawTag(57);
         output.WriteDouble(Fyt);
       }
-      if (ObjDvz != 0UL) {
+      if (DVT != 0UL) {
         output.WriteRawTag(64);
-        output.WriteUInt64(ObjDvz);
+        output.WriteUInt64(DVT);
       }
       if (Mik != 0D) {
         output.WriteRawTag(73);
@@ -2651,20 +2679,20 @@ namespace Rest {
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
       }
-      if (ObjABB != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjABB);
+      if (ABB != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ABB);
       }
-      if (ObjNNN != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjNNN);
+      if (NNN != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(NNN);
       }
-      if (ObjAHP != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAHP);
+      if (AHP != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AHP);
       }
       if (Fyt != 0D) {
         size += 1 + 8;
       }
-      if (ObjDvz != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      if (DVT != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(DVT);
       }
       if (Mik != 0D) {
         size += 1 + 8;
@@ -2698,20 +2726,20 @@ namespace Rest {
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
       }
-      if (other.ObjABB != 0UL) {
-        ObjABB = other.ObjABB;
+      if (other.ABB != 0UL) {
+        ABB = other.ABB;
       }
-      if (other.ObjNNN != 0UL) {
-        ObjNNN = other.ObjNNN;
+      if (other.NNN != 0UL) {
+        NNN = other.NNN;
       }
-      if (other.ObjAHP != 0UL) {
-        ObjAHP = other.ObjAHP;
+      if (other.AHP != 0UL) {
+        AHP = other.AHP;
       }
       if (other.Fyt != 0D) {
         Fyt = other.Fyt;
       }
-      if (other.ObjDvz != 0UL) {
-        ObjDvz = other.ObjDvz;
+      if (other.DVT != 0UL) {
+        DVT = other.DVT;
       }
       if (other.Mik != 0D) {
         Mik = other.Mik;
@@ -2751,15 +2779,15 @@ namespace Rest {
             break;
           }
           case 32: {
-            ObjABB = input.ReadUInt64();
+            ABB = input.ReadUInt64();
             break;
           }
           case 40: {
-            ObjNNN = input.ReadUInt64();
+            NNN = input.ReadUInt64();
             break;
           }
           case 48: {
-            ObjAHP = input.ReadUInt64();
+            AHP = input.ReadUInt64();
             break;
           }
           case 57: {
@@ -2767,7 +2795,7 @@ namespace Rest {
             break;
           }
           case 64: {
-            ObjDvz = input.ReadUInt64();
+            DVT = input.ReadUInt64();
             break;
           }
           case 73: {
@@ -2826,7 +2854,7 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
-      objP_ = other.objP_;
+      p_ = other.p_;
       kd_ = other.kd_;
       ad_ = other.ad_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -2873,14 +2901,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjP" field.</summary>
-    public const int ObjPFieldNumber = 4;
-    private ulong objP_;
+    /// <summary>Field number for the "P" field.</summary>
+    public const int PFieldNumber = 4;
+    private ulong p_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjP {
-      get { return objP_; }
+    public ulong P {
+      get { return p_; }
       set {
-        objP_ = value;
+        p_ = value;
       }
     }
 
@@ -2922,7 +2950,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
-      if (ObjP != other.ObjP) return false;
+      if (P != other.P) return false;
       if (Kd != other.Kd) return false;
       if (Ad != other.Ad) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -2934,7 +2962,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
-      if (ObjP != 0UL) hash ^= ObjP.GetHashCode();
+      if (P != 0UL) hash ^= P.GetHashCode();
       if (Kd.Length != 0) hash ^= Kd.GetHashCode();
       if (Ad.Length != 0) hash ^= Ad.GetHashCode();
       if (_unknownFields != null) {
@@ -2962,9 +2990,9 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (ObjP != 0UL) {
+      if (P != 0UL) {
         output.WriteRawTag(32);
-        output.WriteUInt64(ObjP);
+        output.WriteUInt64(P);
       }
       if (Kd.Length != 0) {
         output.WriteRawTag(42);
@@ -2991,8 +3019,8 @@ namespace Rest {
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
       }
-      if (ObjP != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjP);
+      if (P != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(P);
       }
       if (Kd.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Kd);
@@ -3020,8 +3048,8 @@ namespace Rest {
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
       }
-      if (other.ObjP != 0UL) {
-        ObjP = other.ObjP;
+      if (other.P != 0UL) {
+        P = other.P;
       }
       if (other.Kd.Length != 0) {
         Kd = other.Kd;
@@ -3053,7 +3081,7 @@ namespace Rest {
             break;
           }
           case 32: {
-            ObjP = input.ReadUInt64();
+            P = input.ReadUInt64();
             break;
           }
           case 42: {
@@ -3102,7 +3130,7 @@ namespace Rest {
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
       trh_ = other.trh_;
-      objDvz_ = other.objDvz_;
+      dVT_ = other.dVT_;
       kur_ = other.kur_;
       dvz_ = other.dvz_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -3160,14 +3188,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjDvz" field.</summary>
-    public const int ObjDvzFieldNumber = 5;
-    private ulong objDvz_;
+    /// <summary>Field number for the "DVT" field.</summary>
+    public const int DVTFieldNumber = 5;
+    private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjDvz {
-      get { return objDvz_; }
+    public ulong DVT {
+      get { return dVT_; }
       set {
-        objDvz_ = value;
+        dVT_ = value;
       }
     }
 
@@ -3213,7 +3241,7 @@ namespace Rest {
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
       if (Trh != other.Trh) return false;
-      if (ObjDvz != other.ObjDvz) return false;
+      if (DVT != other.DVT) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (Dvz != other.Dvz) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -3226,7 +3254,7 @@ namespace Rest {
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
-      if (ObjDvz != 0UL) hash ^= ObjDvz.GetHashCode();
+      if (DVT != 0UL) hash ^= DVT.GetHashCode();
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (Dvz.Length != 0) hash ^= Dvz.GetHashCode();
       if (_unknownFields != null) {
@@ -3258,9 +3286,9 @@ namespace Rest {
         output.WriteRawTag(32);
         output.WriteInt64(Trh);
       }
-      if (ObjDvz != 0UL) {
+      if (DVT != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjDvz);
+        output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
         output.WriteRawTag(53);
@@ -3290,8 +3318,8 @@ namespace Rest {
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
       }
-      if (ObjDvz != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjDvz);
+      if (DVT != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(DVT);
       }
       if (Kur != 0F) {
         size += 1 + 4;
@@ -3322,8 +3350,8 @@ namespace Rest {
       if (other.Trh != 0L) {
         Trh = other.Trh;
       }
-      if (other.ObjDvz != 0UL) {
-        ObjDvz = other.ObjDvz;
+      if (other.DVT != 0UL) {
+        DVT = other.DVT;
       }
       if (other.Kur != 0F) {
         Kur = other.Kur;
@@ -3359,7 +3387,7 @@ namespace Rest {
             break;
           }
           case 40: {
-            ObjDvz = input.ReadUInt64();
+            DVT = input.ReadUInt64();
             break;
           }
           case 53: {
@@ -3405,13 +3433,13 @@ namespace Rest {
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
       Ad = other.Ad;
-      objTur_ = other.objTur_;
+      tUR_ = other.tUR_;
       Tel = other.Tel;
       Adres = other.Adres;
       Sorumlu = other.Sorumlu;
       VrgDN = other.VrgDN;
-      objAHPbrc_ = other.objAHPbrc_;
-      objAHPalc_ = other.objAHPalc_;
+      aHPbrc_ = other.aHPbrc_;
+      aHPalc_ = other.aHPalc_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -3468,14 +3496,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjTur" field.</summary>
-    public const int ObjTurFieldNumber = 5;
-    private ulong objTur_;
+    /// <summary>Field number for the "TUR" field.</summary>
+    public const int TURFieldNumber = 5;
+    private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjTur {
-      get { return objTur_; }
+    public ulong TUR {
+      get { return tUR_; }
       set {
-        objTur_ = value;
+        tUR_ = value;
       }
     }
 
@@ -3527,25 +3555,25 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "ObjAHPbrc" field.</summary>
-    public const int ObjAHPbrcFieldNumber = 10;
-    private ulong objAHPbrc_;
+    /// <summary>Field number for the "AHPbrc" field.</summary>
+    public const int AHPbrcFieldNumber = 10;
+    private ulong aHPbrc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjAHPbrc {
-      get { return objAHPbrc_; }
+    public ulong AHPbrc {
+      get { return aHPbrc_; }
       set {
-        objAHPbrc_ = value;
+        aHPbrc_ = value;
       }
     }
 
-    /// <summary>Field number for the "ObjAHPalc" field.</summary>
-    public const int ObjAHPalcFieldNumber = 11;
-    private ulong objAHPalc_;
+    /// <summary>Field number for the "AHPalc" field.</summary>
+    public const int AHPalcFieldNumber = 11;
+    private ulong aHPalc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ulong ObjAHPalc {
-      get { return objAHPalc_; }
+    public ulong AHPalc {
+      get { return aHPalc_; }
       set {
-        objAHPalc_ = value;
+        aHPalc_ = value;
       }
     }
 
@@ -3566,13 +3594,13 @@ namespace Rest {
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
       if (Ad != other.Ad) return false;
-      if (ObjTur != other.ObjTur) return false;
+      if (TUR != other.TUR) return false;
       if (Tel != other.Tel) return false;
       if (Adres != other.Adres) return false;
       if (Sorumlu != other.Sorumlu) return false;
       if (VrgDN != other.VrgDN) return false;
-      if (ObjAHPbrc != other.ObjAHPbrc) return false;
-      if (ObjAHPalc != other.ObjAHPalc) return false;
+      if (AHPbrc != other.AHPbrc) return false;
+      if (AHPalc != other.AHPalc) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -3583,13 +3611,13 @@ namespace Rest {
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
       if (ad_ != null) hash ^= Ad.GetHashCode();
-      if (ObjTur != 0UL) hash ^= ObjTur.GetHashCode();
+      if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (tel_ != null) hash ^= Tel.GetHashCode();
       if (adres_ != null) hash ^= Adres.GetHashCode();
       if (sorumlu_ != null) hash ^= Sorumlu.GetHashCode();
       if (vrgDN_ != null) hash ^= VrgDN.GetHashCode();
-      if (ObjAHPbrc != 0UL) hash ^= ObjAHPbrc.GetHashCode();
-      if (ObjAHPalc != 0UL) hash ^= ObjAHPalc.GetHashCode();
+      if (AHPbrc != 0UL) hash ^= AHPbrc.GetHashCode();
+      if (AHPalc != 0UL) hash ^= AHPalc.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -3618,9 +3646,9 @@ namespace Rest {
       if (ad_ != null) {
         _single_ad_codec.WriteTagAndValue(output, Ad);
       }
-      if (ObjTur != 0UL) {
+      if (TUR != 0UL) {
         output.WriteRawTag(40);
-        output.WriteUInt64(ObjTur);
+        output.WriteUInt64(TUR);
       }
       if (tel_ != null) {
         _single_tel_codec.WriteTagAndValue(output, Tel);
@@ -3634,13 +3662,13 @@ namespace Rest {
       if (vrgDN_ != null) {
         _single_vrgDN_codec.WriteTagAndValue(output, VrgDN);
       }
-      if (ObjAHPbrc != 0UL) {
+      if (AHPbrc != 0UL) {
         output.WriteRawTag(80);
-        output.WriteUInt64(ObjAHPbrc);
+        output.WriteUInt64(AHPbrc);
       }
-      if (ObjAHPalc != 0UL) {
+      if (AHPalc != 0UL) {
         output.WriteRawTag(88);
-        output.WriteUInt64(ObjAHPalc);
+        output.WriteUInt64(AHPalc);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -3662,8 +3690,8 @@ namespace Rest {
       if (ad_ != null) {
         size += _single_ad_codec.CalculateSizeWithTag(Ad);
       }
-      if (ObjTur != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjTur);
+      if (TUR != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(TUR);
       }
       if (tel_ != null) {
         size += _single_tel_codec.CalculateSizeWithTag(Tel);
@@ -3677,11 +3705,11 @@ namespace Rest {
       if (vrgDN_ != null) {
         size += _single_vrgDN_codec.CalculateSizeWithTag(VrgDN);
       }
-      if (ObjAHPbrc != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAHPbrc);
+      if (AHPbrc != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AHPbrc);
       }
-      if (ObjAHPalc != 0UL) {
-        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ObjAHPalc);
+      if (AHPalc != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AHPalc);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -3708,8 +3736,8 @@ namespace Rest {
           Ad = other.Ad;
         }
       }
-      if (other.ObjTur != 0UL) {
-        ObjTur = other.ObjTur;
+      if (other.TUR != 0UL) {
+        TUR = other.TUR;
       }
       if (other.tel_ != null) {
         if (tel_ == null || other.Tel != "") {
@@ -3731,11 +3759,11 @@ namespace Rest {
           VrgDN = other.VrgDN;
         }
       }
-      if (other.ObjAHPbrc != 0UL) {
-        ObjAHPbrc = other.ObjAHPbrc;
+      if (other.AHPbrc != 0UL) {
+        AHPbrc = other.AHPbrc;
       }
-      if (other.ObjAHPalc != 0UL) {
-        ObjAHPalc = other.ObjAHPalc;
+      if (other.AHPalc != 0UL) {
+        AHPalc = other.AHPalc;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -3768,7 +3796,7 @@ namespace Rest {
             break;
           }
           case 40: {
-            ObjTur = input.ReadUInt64();
+            TUR = input.ReadUInt64();
             break;
           }
           case 50: {
@@ -3800,11 +3828,11 @@ namespace Rest {
             break;
           }
           case 80: {
-            ObjAHPbrc = input.ReadUInt64();
+            AHPbrc = input.ReadUInt64();
             break;
           }
           case 88: {
-            ObjAHPalc = input.ReadUInt64();
+            AHPalc = input.ReadUInt64();
             break;
           }
         }

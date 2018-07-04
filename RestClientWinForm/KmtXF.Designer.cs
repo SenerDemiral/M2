@@ -41,14 +41,14 @@
             this.kmtGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjTur = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdres = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSorumlu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTel = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVrgDN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjAHPbrc = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjAHPalc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAHPbrc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAHPalc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -170,14 +170,14 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowPk,
-            this.colObjTur,
+            this.colTUR,
             this.colAd,
             this.colAdres,
             this.colSorumlu,
             this.colTel,
             this.colVrgDN,
-            this.colObjAHPbrc,
-            this.colObjAHPalc});
+            this.colAHPbrc,
+            this.colAHPalc});
             this.gridView1.GridControl = this.kmtGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
@@ -191,16 +191,16 @@
             this.colRowPk.VisibleIndex = 0;
             this.colRowPk.Width = 88;
             // 
-            // colObjTur
+            // colTUR
             // 
-            this.colObjTur.Caption = "Tür";
-            this.colObjTur.FieldName = "ObjTur";
-            this.colObjTur.Name = "colObjTur";
-            this.colObjTur.OptionsColumn.AllowEdit = false;
-            this.colObjTur.OptionsColumn.AllowFocus = false;
-            this.colObjTur.Visible = true;
-            this.colObjTur.VisibleIndex = 1;
-            this.colObjTur.Width = 46;
+            this.colTUR.Caption = "Tür";
+            this.colTUR.FieldName = "TUR";
+            this.colTUR.Name = "colTUR";
+            this.colTUR.OptionsColumn.AllowEdit = false;
+            this.colTUR.OptionsColumn.AllowFocus = false;
+            this.colTUR.Visible = true;
+            this.colTUR.VisibleIndex = 1;
+            this.colTUR.Width = 46;
             // 
             // colAd
             // 
@@ -242,23 +242,23 @@
             this.colVrgDN.VisibleIndex = 6;
             this.colVrgDN.Width = 93;
             // 
-            // colObjAHPbrc
+            // colAHPbrc
             // 
-            this.colObjAHPbrc.Caption = "Borçlu Hesap";
-            this.colObjAHPbrc.FieldName = "ObjAHPbrc";
-            this.colObjAHPbrc.Name = "colObjAHPbrc";
-            this.colObjAHPbrc.Visible = true;
-            this.colObjAHPbrc.VisibleIndex = 7;
-            this.colObjAHPbrc.Width = 93;
+            this.colAHPbrc.Caption = "Borçlu Hesap";
+            this.colAHPbrc.FieldName = "AHPbrc";
+            this.colAHPbrc.Name = "colAHPbrc";
+            this.colAHPbrc.Visible = true;
+            this.colAHPbrc.VisibleIndex = 7;
+            this.colAHPbrc.Width = 93;
             // 
-            // colObjAHPalc
+            // colAHPalc
             // 
-            this.colObjAHPalc.Caption = "Alacaklı Hesap";
-            this.colObjAHPalc.FieldName = "ObjAHPalc";
-            this.colObjAHPalc.Name = "colObjAHPalc";
-            this.colObjAHPalc.Visible = true;
-            this.colObjAHPalc.VisibleIndex = 8;
-            this.colObjAHPalc.Width = 102;
+            this.colAHPalc.Caption = "Alacaklı Hesap";
+            this.colAHPalc.FieldName = "AHPalc";
+            this.colAHPalc.Name = "colAHPalc";
+            this.colAHPalc.Visible = true;
+            this.colAHPalc.VisibleIndex = 8;
+            this.colAHPalc.Width = 102;
             // 
             // layoutControl1
             // 
@@ -368,14 +368,14 @@
         private DevExpress.XtraGrid.GridControl kmtGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjTur;
+        private DevExpress.XtraGrid.Columns.GridColumn colTUR;
         private DevExpress.XtraGrid.Columns.GridColumn colAd;
         private DevExpress.XtraGrid.Columns.GridColumn colAdres;
         private DevExpress.XtraGrid.Columns.GridColumn colSorumlu;
         private DevExpress.XtraGrid.Columns.GridColumn colTel;
         private DevExpress.XtraGrid.Columns.GridColumn colVrgDN;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjAHPbrc;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjAHPalc;
+        private DevExpress.XtraGrid.Columns.GridColumn colAHPbrc;
+        private DevExpress.XtraGrid.Columns.GridColumn colAHPalc;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;

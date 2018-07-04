@@ -141,7 +141,7 @@ namespace RestServerSC
                         proxy = new AHPproxy
                         {
                             RowPk = row.GetObjectNo(),
-                            ObjP = row.ObjP == null ? 0 : row.ObjP.GetObjectNo(),
+                            P = row.P == null ? 0 : row.P.GetObjectNo(),
                             No = row.No,
                             Ad = row.Ad,
                             HspNo = row.HspNo,
@@ -184,10 +184,10 @@ namespace RestServerSC
                         // Parent Hesap altinada No uniqe olmali 
                         // Parent Hareketleri olmamali
 
-                        AHP pAhp = (AHP)Db.FromId(request.ObjP);
+                        AHP pAhp = (AHP)Db.FromId(request.P);
                         if (request.RowState == "A")
                         {
-                            if (request.ObjP > 0 && pAhp == null)
+                            if (request.P > 0 && pAhp == null)
                                 request.RowErr = "Üst Hesabı tanımsız";
                             else if (pAhp.IsW || pAhp.HasH)
                                 request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
@@ -221,7 +221,7 @@ namespace RestServerSC
                         }
                         else
                         {
-                            if (Db.SQL<AHP>("select r from AHP r where r.ObjP.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<AHP>("select r from AHP r where r.P.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
                                 rec.Delete();
@@ -266,7 +266,7 @@ namespace RestServerSC
                         {
                             RowPk = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
-                            ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
+                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
                             Drm = row.Drm,
                             Info = row.Info, //row.Info ?? "",
                             Brc = row.Brc,
@@ -322,8 +322,8 @@ namespace RestServerSC
                         }
                         if (request.RowErr == string.Empty)
                         {
-                            if (request.ObjTur == 0)
-                                request.ObjTur = GnlOps.XGTfind("AFB.Tur", "MHS").GetObjectNo();
+                            if (request.TUR == 0)
+                                request.TUR = GnlOps.XGTfind("AFB.TUR", "MHS").GetObjectNo();
 
                             AFB row = CRUDsHelper.FromProxy<AFBproxy, AFB>(request);
                             request = CRUDsHelper.ToProxy<AFBproxy, AFB>(row);
@@ -339,7 +339,7 @@ namespace RestServerSC
                         }
                         else
                         {
-                            if (Db.SQL<AFD>("select r from AFD r where r.ObjAFB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<AFD>("select r from AFD r where r.AFB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
                                 rec.Delete();
@@ -370,11 +370,11 @@ namespace RestServerSC
                     proxy = new AFDproxy
                     {
                         RowPk = row.GetObjectNo(),
-                        ObjAFB = row.ObjAFB == null ? 0 : row.ObjAFB.GetObjectNo(),
-                        ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
+                        AFB = row.AFB == null ? 0 : row.AFB.GetObjectNo(),
+                        AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
                         Info = row.Info,
                         Tut = row.Tut,
-                        ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                        DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                         Kur = row.Kur,
                         TutTL = row.TutTL,
                     };
@@ -447,9 +447,9 @@ namespace RestServerSC
                         {
                             RowPk = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
-                            ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
-                            ObjKKK = row.ObjKKK == null ? 0 : row.ObjKKK.GetObjectNo(),
-                            ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                            KKK = row.KKK == null ? 0 : row.KKK.GetObjectNo(),
+                            DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                             BA = row.BA,
                             Kur = row.Kur,
                             Drm = row.Drm,
@@ -500,8 +500,8 @@ namespace RestServerSC
                         }
                         if (request.RowErr == string.Empty)
                         {
-                            if (request.ObjTur == 0)
-                                request.ObjTur = GnlOps.XGTfind("ABB.TUR", "BS").GetObjectNo();
+                            if (request.TUR == 0)
+                                request.TUR = GnlOps.XGTfind("ABB.TUR", "BS").GetObjectNo();
 
                             ABB row = CRUDsHelper.FromProxy<ABBproxy, ABB>(request);
                             request = CRUDsHelper.ToProxy<ABBproxy, ABB>(row);
@@ -517,7 +517,7 @@ namespace RestServerSC
                         }
                         else
                         {
-                            if (Db.SQL<ABD>("select r from ABD r where r.ObjABB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<ABD>("select r from ABD r where r.ABB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
                                 rec.Delete();
@@ -548,10 +548,10 @@ namespace RestServerSC
                     proxy = new ABDproxy
                     {
                         RowPk = row.GetObjectNo(),
-                        ObjABB = row.ObjABB == null ? 0 : row.ObjABB.GetObjectNo(),
-                        ObjNNN = row.ObjNNN == null ? 0 : row.ObjNNN.GetObjectNo(),
-                        ObjAHP = row.ObjAHP == null ? 0 : row.ObjAHP.GetObjectNo(),
-                        ObjDvz = row.ObjDvz == null ? 0 : row.ObjDvz.GetObjectNo(),
+                        ABB = row.ABB == null ? 0 : row.ABB.GetObjectNo(),
+                        NNN = row.NNN == null ? 0 : row.NNN.GetObjectNo(),
+                        AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
+                        DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                         Fyt = row.Fyt,
                         Mik = row.Mik,
                         KDY = row.KDY,
@@ -625,14 +625,14 @@ namespace RestServerSC
                     proxy = new KMTproxy
                     {
                         RowPk = row.GetObjectNo(),
-                        ObjTur = row.ObjTur == null ? 0 : row.ObjTur.GetObjectNo(),
+                        TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
                         Ad = row.Ad,
                         Adres = row.Adres,
                         Tel = row.Tel,
                         Sorumlu = row.Sorumlu,
                         VrgDN = row.VrgDN,
-                        ObjAHPbrc = row.ObjAHPbrc == null ? 0 : row.ObjAHPbrc.GetObjectNo(),
-                        ObjAHPalc = row.ObjAHPalc == null ? 0 : row.ObjAHPalc.GetObjectNo(),
+                        AHPbrc = row.AHPbrc == null ? 0 : row.AHPbrc.GetObjectNo(),
+                        AHPalc = row.AHPalc == null ? 0 : row.AHPalc.GetObjectNo(),
                     };
                     proxyList.Add(proxy);
                 }
@@ -700,7 +700,7 @@ namespace RestServerSC
                         proxy = new XGTproxy
                         {
                             RowPk = row.GetObjectNo(),
-                            ObjP = row.ObjP == null ? 0 : row.ObjP.GetObjectNo(),
+                            P = row.P == null ? 0 : row.P.GetObjectNo(),
                             Kd = row.Kd,
                             Ad = row.Ad,
                         };
@@ -737,7 +737,7 @@ namespace RestServerSC
                         // Parent Hesabi olmali
                         // Parent Hesap altinada No uniqe olmali 
                         // Parent Hareketleri olmamali
-                        var rec = (XGT)Db.FromId(request.ObjP);
+                        var rec = (XGT)Db.FromId(request.P);
 
                         if (request.RowErr == string.Empty)
                         {
@@ -755,7 +755,7 @@ namespace RestServerSC
                         }
                         else
                         {
-                            if (Db.SQL<XGT>("select r from XGT r where r.ObjP.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<XGT>("select r from XGT r where r.P.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
                                 rec.Delete();
@@ -784,21 +784,21 @@ namespace RestServerSC
                 var aaa = dt;
                 await Scheduling.RunTask(() =>
                 {
-                    var dvzP = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP IS NULL and r.Kd = ?", "Dvz").FirstOrDefault();
-                    var dvzs = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP = ?", dvzP);
+                    var dvzP = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.P IS NULL and r.Kd = ?", "DVZ").FirstOrDefault();
+                    var dvts = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.P = ?", dvzP);
 
-                    foreach (var dvz in dvzs)
+                    foreach (var dvt in dvts)
                     {
-                        var row = Db.SQL<XDK>("select r from XDK r WHERE r.Trh = ? and r.ObjDvz = ?", dt, dvz).FirstOrDefault();
+                        var row = Db.SQL<XDK>("select r from XDK r WHERE r.Trh = ? and r.DVT = ?", dt, dvt).FirstOrDefault();
                         if(row == null)
                         {
                             proxy = new XDKproxy
                             {
                                 RowPk = 0,
-                                ObjDvz = dvz.GetObjectNo(),
+                                DVT = dvt.GetObjectNo(),
                                 Trh = dt.Ticks,
-                                Kur = dvz.Kd == "TRL" ? 1 : 0,
-                                Dvz = dvz.Kd,
+                                Kur = dvt.Kd == "TRL" ? 1 : 0,
+                                Dvz = dvt.Kd,
                             };
                         }
                         else

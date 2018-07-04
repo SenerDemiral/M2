@@ -98,8 +98,8 @@ namespace M2DB
     [Database]
     public class TSD // Transfer, Siparis Detay
     {
-        public TSB ObjTSB { get; set; }        // Baslik
-        public NNN ObjNNN { get; set; }        // Ne
+        public TSB TSB { get; set; }        // Baslik
+        public NNN NNN { get; set; }        // Ne
         public double Mik { get; set; }     // Nekadar
         public string Brm { get; set; }     // Birim
         public double Fyt { get; set; }     // Kaca
@@ -113,9 +113,9 @@ namespace M2DB
     [Database]
     public class TID // Transfer, Irsaliye Detay
     {
-        public TIB ObjTIB { get; set; }        // Baslik
-        public NNN ObjNNN { get; set; }        // Ne
-        public TSD ObjTSD { get; set; }        // RefSiparis
+        public TIB TIB { get; set; }        // Baslik
+        public NNN NNN { get; set; }        // Ne
+        public TSD TSD { get; set; }        // RefSiparis
         public double Mik { get; set; }     // Nekadar
         public string Brm { get; set; }     // Birim degismez NNN'den almali
 
@@ -128,13 +128,13 @@ namespace M2DB
     [Database]
     public class TFD // Transfer, Fatura Detay
     {
-        public TFB ObjTFB { get; set; }        // Baslik
-        public NNN ObjNNN { get; set; }        // Ne
-        public TID ObjTID { get; set; }        // RefIrsaliye
+        public TFB TFB { get; set; }        // Baslik
+        public NNN NNN { get; set; }        // Ne
+        public TID TID { get; set; }        // RefIrsaliye
         public double Mik { get; set; }     // Nekadar
         public string Brm { get; set; }     // Birim
         public double Fyt { get; set; }
-        public ulong ObjDvz { get; set; }
+        public XGT DVT { get; set; }
         public float Kur { get; set; }      
     }
 

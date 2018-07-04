@@ -398,7 +398,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnRowPk;
             
-            private global::System.Data.DataColumn columnObjP;
+            private global::System.Data.DataColumn columnP;
             
             private global::System.Data.DataColumn columnKd;
             
@@ -447,9 +447,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjPColumn {
+            public global::System.Data.DataColumn PColumn {
                 get {
-                    return this.columnObjP;
+                    return this.columnP;
                 }
             }
             
@@ -506,11 +506,11 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public XGTRow AddXGTRow(ulong RowPk, ulong ObjP, string Kd, string Ad) {
+            public XGTRow AddXGTRow(ulong RowPk, ulong P, string Kd, string Ad) {
                 XGTRow rowXGTRow = ((XGTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
-                        ObjP,
+                        P,
                         Kd,
                         Ad};
                 rowXGTRow.ItemArray = columnValuesArray;
@@ -536,7 +536,7 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnRowPk = base.Columns["RowPk"];
-                this.columnObjP = base.Columns["ObjP"];
+                this.columnP = base.Columns["P"];
                 this.columnKd = base.Columns["Kd"];
                 this.columnAd = base.Columns["Ad"];
             }
@@ -546,8 +546,8 @@ namespace RestClientWinForm {
             private void InitClass() {
                 this.columnRowPk = new global::System.Data.DataColumn("RowPk", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRowPk);
-                this.columnObjP = new global::System.Data.DataColumn("ObjP", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjP);
+                this.columnP = new global::System.Data.DataColumn("P", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnP);
                 this.columnKd = new global::System.Data.DataColumn("Kd", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKd);
                 this.columnAd = new global::System.Data.DataColumn("Ad", typeof(string), null, global::System.Data.MappingType.Element);
@@ -691,7 +691,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnAd;
             
-            private global::System.Data.DataColumn columnObjP;
+            private global::System.Data.DataColumn columnP;
             
             private global::System.Data.DataColumn columnIsW;
             
@@ -769,9 +769,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjPColumn {
+            public global::System.Data.DataColumn PColumn {
                 get {
-                    return this.columnObjP;
+                    return this.columnP;
                 }
             }
             
@@ -844,13 +844,13 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong ObjP, bool IsW, double Brc, double Alc, string HspNoAd) {
+            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong P, bool IsW, double Brc, double Alc, string HspNoAd) {
                 AHPRow rowAHPRow = ((AHPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
                         HspNo,
                         Ad,
-                        ObjP,
+                        P,
                         IsW,
                         Brc,
                         Alc,
@@ -862,13 +862,13 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong ObjP, bool IsW, double Brc, double Alc) {
+            public AHPRow AddAHPRow(ulong RowPk, string HspNo, string Ad, ulong P, bool IsW, double Brc, double Alc) {
                 AHPRow rowAHPRow = ((AHPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
                         HspNo,
                         Ad,
-                        ObjP,
+                        P,
                         IsW,
                         Brc,
                         Alc,
@@ -905,7 +905,7 @@ namespace RestClientWinForm {
                 this.columnRowPk = base.Columns["RowPk"];
                 this.columnHspNo = base.Columns["HspNo"];
                 this.columnAd = base.Columns["Ad"];
-                this.columnObjP = base.Columns["ObjP"];
+                this.columnP = base.Columns["P"];
                 this.columnIsW = base.Columns["IsW"];
                 this.columnBrc = base.Columns["Brc"];
                 this.columnAlc = base.Columns["Alc"];
@@ -921,8 +921,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnHspNo);
                 this.columnAd = new global::System.Data.DataColumn("Ad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAd);
-                this.columnObjP = new global::System.Data.DataColumn("ObjP", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjP);
+                this.columnP = new global::System.Data.DataColumn("P", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnP);
                 this.columnIsW = new global::System.Data.DataColumn("IsW", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIsW);
                 this.columnBrc = new global::System.Data.DataColumn("Brc", typeof(double), null, global::System.Data.MappingType.Element);
@@ -1077,7 +1077,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnRowPk;
             
-            private global::System.Data.DataColumn columnObjDvz;
+            private global::System.Data.DataColumn columnDVT;
             
             private global::System.Data.DataColumn columnTrh;
             
@@ -1128,9 +1128,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjDvzColumn {
+            public global::System.Data.DataColumn DVTColumn {
                 get {
-                    return this.columnObjDvz;
+                    return this.columnDVT;
                 }
             }
             
@@ -1195,11 +1195,11 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public XDKRow AddXDKRow(ulong RowPk, ulong ObjDvz, System.DateTime Trh, float Kur, string Dvz) {
+            public XDKRow AddXDKRow(ulong RowPk, ulong DVT, System.DateTime Trh, float Kur, string Dvz) {
                 XDKRow rowXDKRow = ((XDKRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
-                        ObjDvz,
+                        DVT,
                         Trh,
                         Kur,
                         Dvz};
@@ -1226,7 +1226,7 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnRowPk = base.Columns["RowPk"];
-                this.columnObjDvz = base.Columns["ObjDvz"];
+                this.columnDVT = base.Columns["DVT"];
                 this.columnTrh = base.Columns["Trh"];
                 this.columnKur = base.Columns["Kur"];
                 this.columnDvz = base.Columns["Dvz"];
@@ -1237,8 +1237,8 @@ namespace RestClientWinForm {
             private void InitClass() {
                 this.columnRowPk = new global::System.Data.DataColumn("RowPk", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRowPk);
-                this.columnObjDvz = new global::System.Data.DataColumn("ObjDvz", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjDvz);
+                this.columnDVT = new global::System.Data.DataColumn("DVT", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDVT);
                 this.columnTrh = new global::System.Data.DataColumn("Trh", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrh);
                 this.columnKur = new global::System.Data.DataColumn("Kur", typeof(float), null, global::System.Data.MappingType.Element);
@@ -1380,7 +1380,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnRowPk;
             
-            private global::System.Data.DataColumn columnObjTur;
+            private global::System.Data.DataColumn columnTUR;
             
             private global::System.Data.DataColumn columnAd;
             
@@ -1392,9 +1392,9 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnVrgDN;
             
-            private global::System.Data.DataColumn columnObjAHPbrc;
+            private global::System.Data.DataColumn columnAHPbrc;
             
-            private global::System.Data.DataColumn columnObjAHPalc;
+            private global::System.Data.DataColumn columnAHPalc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1439,9 +1439,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjTurColumn {
+            public global::System.Data.DataColumn TURColumn {
                 get {
-                    return this.columnObjTur;
+                    return this.columnTUR;
                 }
             }
             
@@ -1487,17 +1487,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjAHPbrcColumn {
+            public global::System.Data.DataColumn AHPbrcColumn {
                 get {
-                    return this.columnObjAHPbrc;
+                    return this.columnAHPbrc;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ObjAHPalcColumn {
+            public global::System.Data.DataColumn AHPalcColumn {
                 get {
-                    return this.columnObjAHPalc;
+                    return this.columnAHPalc;
                 }
             }
             
@@ -1538,18 +1538,18 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public KMTRow AddKMTRow(ulong RowPk, ulong ObjTur, string Ad, string Adres, string Sorumlu, string Tel, string VrgDN, ulong ObjAHPbrc, ulong ObjAHPalc) {
+            public KMTRow AddKMTRow(ulong RowPk, ulong TUR, string Ad, string Adres, string Sorumlu, string Tel, string VrgDN, ulong AHPbrc, ulong AHPalc) {
                 KMTRow rowKMTRow = ((KMTRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowPk,
-                        ObjTur,
+                        TUR,
                         Ad,
                         Adres,
                         Sorumlu,
                         Tel,
                         VrgDN,
-                        ObjAHPbrc,
-                        ObjAHPalc};
+                        AHPbrc,
+                        AHPalc};
                 rowKMTRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowKMTRow);
                 return rowKMTRow;
@@ -1573,14 +1573,14 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
                 this.columnRowPk = base.Columns["RowPk"];
-                this.columnObjTur = base.Columns["ObjTur"];
+                this.columnTUR = base.Columns["TUR"];
                 this.columnAd = base.Columns["Ad"];
                 this.columnAdres = base.Columns["Adres"];
                 this.columnSorumlu = base.Columns["Sorumlu"];
                 this.columnTel = base.Columns["Tel"];
                 this.columnVrgDN = base.Columns["VrgDN"];
-                this.columnObjAHPbrc = base.Columns["ObjAHPbrc"];
-                this.columnObjAHPalc = base.Columns["ObjAHPalc"];
+                this.columnAHPbrc = base.Columns["AHPbrc"];
+                this.columnAHPalc = base.Columns["AHPalc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1588,8 +1588,8 @@ namespace RestClientWinForm {
             private void InitClass() {
                 this.columnRowPk = new global::System.Data.DataColumn("RowPk", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRowPk);
-                this.columnObjTur = new global::System.Data.DataColumn("ObjTur", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjTur);
+                this.columnTUR = new global::System.Data.DataColumn("TUR", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTUR);
                 this.columnAd = new global::System.Data.DataColumn("Ad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAd);
                 this.columnAdres = new global::System.Data.DataColumn("Adres", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1600,10 +1600,10 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnTel);
                 this.columnVrgDN = new global::System.Data.DataColumn("VrgDN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVrgDN);
-                this.columnObjAHPbrc = new global::System.Data.DataColumn("ObjAHPbrc", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjAHPbrc);
-                this.columnObjAHPalc = new global::System.Data.DataColumn("ObjAHPalc", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnObjAHPalc);
+                this.columnAHPbrc = new global::System.Data.DataColumn("AHPbrc", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAHPbrc);
+                this.columnAHPalc = new global::System.Data.DataColumn("AHPalc", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAHPalc);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1762,17 +1762,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjP {
+            public ulong P {
                 get {
                     try {
-                        return ((ulong)(this[this.tableXGT.ObjPColumn]));
+                        return ((ulong)(this[this.tableXGT.PColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjP\' in table \'XGT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'P\' in table \'XGT\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableXGT.ObjPColumn] = value;
+                    this[this.tableXGT.PColumn] = value;
                 }
             }
             
@@ -1822,14 +1822,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjPNull() {
-                return this.IsNull(this.tableXGT.ObjPColumn);
+            public bool IsPNull() {
+                return this.IsNull(this.tableXGT.PColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjPNull() {
-                this[this.tableXGT.ObjPColumn] = global::System.Convert.DBNull;
+            public void SetPNull() {
+                this[this.tableXGT.PColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1916,17 +1916,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjP {
+            public ulong P {
                 get {
                     try {
-                        return ((ulong)(this[this.tableAHP.ObjPColumn]));
+                        return ((ulong)(this[this.tableAHP.PColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjP\' in table \'AHP\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'P\' in table \'AHP\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableAHP.ObjPColumn] = value;
+                    this[this.tableAHP.PColumn] = value;
                 }
             }
             
@@ -2020,14 +2020,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjPNull() {
-                return this.IsNull(this.tableAHP.ObjPColumn);
+            public bool IsPNull() {
+                return this.IsNull(this.tableAHP.PColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjPNull() {
-                this[this.tableAHP.ObjPColumn] = global::System.Convert.DBNull;
+            public void SetPNull() {
+                this[this.tableAHP.PColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2111,17 +2111,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjDvz {
+            public ulong DVT {
                 get {
                     try {
-                        return ((ulong)(this[this.tableXDK.ObjDvzColumn]));
+                        return ((ulong)(this[this.tableXDK.DVTColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjDvz\' in table \'XDK\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DVT\' in table \'XDK\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableXDK.ObjDvzColumn] = value;
+                    this[this.tableXDK.DVTColumn] = value;
                 }
             }
             
@@ -2187,14 +2187,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjDvzNull() {
-                return this.IsNull(this.tableXDK.ObjDvzColumn);
+            public bool IsDVTNull() {
+                return this.IsNull(this.tableXDK.DVTColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjDvzNull() {
-                this[this.tableXDK.ObjDvzColumn] = global::System.Convert.DBNull;
+            public void SetDVTNull() {
+                this[this.tableXDK.DVTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2266,17 +2266,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjTur {
+            public ulong TUR {
                 get {
                     try {
-                        return ((ulong)(this[this.tableKMT.ObjTurColumn]));
+                        return ((ulong)(this[this.tableKMT.TURColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjTur\' in table \'KMT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TUR\' in table \'KMT\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableKMT.ObjTurColumn] = value;
+                    this[this.tableKMT.TURColumn] = value;
                 }
             }
             
@@ -2362,33 +2362,33 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjAHPbrc {
+            public ulong AHPbrc {
                 get {
                     try {
-                        return ((ulong)(this[this.tableKMT.ObjAHPbrcColumn]));
+                        return ((ulong)(this[this.tableKMT.AHPbrcColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjAHPbrc\' in table \'KMT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AHPbrc\' in table \'KMT\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableKMT.ObjAHPbrcColumn] = value;
+                    this[this.tableKMT.AHPbrcColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong ObjAHPalc {
+            public ulong AHPalc {
                 get {
                     try {
-                        return ((ulong)(this[this.tableKMT.ObjAHPalcColumn]));
+                        return ((ulong)(this[this.tableKMT.AHPalcColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ObjAHPalc\' in table \'KMT\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AHPalc\' in table \'KMT\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableKMT.ObjAHPalcColumn] = value;
+                    this[this.tableKMT.AHPalcColumn] = value;
                 }
             }
             
@@ -2406,14 +2406,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjTurNull() {
-                return this.IsNull(this.tableKMT.ObjTurColumn);
+            public bool IsTURNull() {
+                return this.IsNull(this.tableKMT.TURColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjTurNull() {
-                this[this.tableKMT.ObjTurColumn] = global::System.Convert.DBNull;
+            public void SetTURNull() {
+                this[this.tableKMT.TURColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2478,26 +2478,26 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjAHPbrcNull() {
-                return this.IsNull(this.tableKMT.ObjAHPbrcColumn);
+            public bool IsAHPbrcNull() {
+                return this.IsNull(this.tableKMT.AHPbrcColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjAHPbrcNull() {
-                this[this.tableKMT.ObjAHPbrcColumn] = global::System.Convert.DBNull;
+            public void SetAHPbrcNull() {
+                this[this.tableKMT.AHPbrcColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsObjAHPalcNull() {
-                return this.IsNull(this.tableKMT.ObjAHPalcColumn);
+            public bool IsAHPalcNull() {
+                return this.IsNull(this.tableKMT.AHPalcColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetObjAHPalcNull() {
-                this[this.tableKMT.ObjAHPalcColumn] = global::System.Convert.DBNull;
+            public void SetAHPalcNull() {
+                this[this.tableKMT.AHPalcColumn] = global::System.Convert.DBNull;
             }
         }
         

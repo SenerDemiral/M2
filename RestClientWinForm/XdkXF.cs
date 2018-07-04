@@ -19,7 +19,7 @@ namespace RestClientWinForm
             InitializeComponent();
 
             xdkGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colObjDvz.ColumnEdit = Program.MF.DvzRepositoryItemLookUpEdit;
+            colDVT.ColumnEdit = Program.MF.DVTrepositoryItemLookUpEdit;
 
             dateEdit1.DateTime = DateTime.Today;
         }
@@ -91,7 +91,7 @@ namespace RestClientWinForm
 
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
         {
-            if (gridView1.GetFocusedRowCellDisplayText(colObjDvz) == "TRL")
+            if (gridView1.GetFocusedRowCellDisplayText(colDVT) == "TRL")
                 e.Cancel = true;
 
         }

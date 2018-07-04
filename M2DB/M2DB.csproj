@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acc.cs" />
+    <Compile Include="BaseClass.cs" />
     <Compile Include="Entity1.cs" />
     <Compile Include="Gnl.cs" />
     <Compile Include="Kim.cs" />

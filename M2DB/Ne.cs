@@ -42,10 +42,10 @@ namespace M2DB
     {
         public string No { get; set; }
         public string Ad { get; set; }
-        public XGT ObjTur { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
-        public XGT ObjBrm { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
-        public AHP ObjAHPbrc { get; set; }  // Borclu Ne Hesap
-        public AHP ObjAHPalc { get; set; }  // Alacakli Ne Hesap
+        public XGT TUR { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
+        public XGT BRM { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
+        public AHP AHPbrc { get; set; }  // Borclu Ne Hesap
+        public AHP AHPalc { get; set; }  // Alacakli Ne Hesap
         public double Fyt { get; set; }  // Simdilik
         public bool HasKid
         {
@@ -70,8 +70,8 @@ namespace M2DB
     [Database]
     public class NKM    // Ne.Kimde.Miktar
     {
-        public NNN ObjNNN { get; set; }
-        public KKK ObjKKK { get; set; }
+        public NNN NNN { get; set; }
+        public KKK KKK { get; set; }
         public double GirMik { get; set; }
         public double CikMik { get; set; }
         public double KlnMik => GirMik - CikMik;
@@ -85,8 +85,8 @@ namespace M2DB
     [Database]
     public class NFA    // Ne.FiyatAnlasmalari
     {
-        public NNN ObjNNN { get; set; }    // NeyinFiyati
-        public KKK ObjKKK { get; set; }    // Musteri
+        public NNN NNN { get; set; }    // NeyinFiyati
+        public KKK KKK { get; set; }    // Musteri
         public string AoS { get; set; } // Alis/Satis
         public DateTime BasTrh { get; set; }    // AnlasmaBaslangic
         public DateTime BitTrh { get; set; }
@@ -103,25 +103,25 @@ namespace M2DB
     [Database]
     public class NHT // Ne.Hiyerarsi.Tree IPTAL
     {
-        public NNN ObjPrnNNN { get; set; }
-        public NNN ObjKidNNN { get; set; }
+        public NNN P { get; set; }
+        public NNN K { get; set; }
         public double Mik { get; set; }
 
-        public string PrnAd => ObjPrnNNN?.Ad;
-        public string PrnNo => ObjPrnNNN?.No;
-        public string KidAd => ObjKidNNN?.Ad;
-        public string KidNo => ObjKidNNN?.No;
+        public string PAd => P?.Ad;
+        public string PNo => P?.No;
+        public string KAd => K?.Ad;
+        public string KNo => K?.No;
     }
 
     [Database]
     public class NNR // Ne.Recete
     {
-        public NNN ObjNeP { get; set; } // Parent
-        public NNN ObjNeK { get; set; } // Kid
+        public NNN NNNP { get; set; } // Parent
+        public NNN NNNK { get; set; } // Kid
         public double Mik { get; set; }
 
-        public string PrnAd => ObjNeP?.Ad;
-        public string KidAd => ObjNeK?.Ad;
+        public string PAd => NNNP?.Ad;
+        public string KAd => NNNK?.Ad;
 
         public static void KidInRootsMik(ulong KidObjNo)
         {
@@ -159,37 +159,37 @@ namespace M2DB
             double pMik = 0, kMik = 0;
             string s = "";
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.ObjK.ObjectNo = ?", sNo))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNK.ObjectNo = ?", sNo))
             {
-                PoNo = r.ObjNeP.GetObjectNo();
-                KoNo = r.ObjNeK.GetObjectNo();
+                PoNo = r.NNNP.GetObjectNo();
+                KoNo = r.NNNK.GetObjectNo();
 
                 if (!mD.ContainsKey(PoNo))
                     mD[PoNo] = 0;
 
                 kMik = mD.ContainsKey(KoNo) ? mD[KoNo] : 1;
 
-                if (!r.ObjNeP.HasPrn)  // Root
+                if (!r.NNNP.HasPrn)  // Root
                 {
                     pMik = mD[PoNo];
                     mD[PoNo] += kMik * r.Mik;
-                    s = $"{r.PrnAd}.{r.KidAd}:{r.Mik} =>";
-                    Console.WriteLine($"+ {s,40} {r.PrnAd}[{pMik}] + ({r.Mik} x {r.KidAd}[{kMik}] = {kMik * r.Mik}) => {r.PrnAd}[{mD[PoNo]}]");
+                    s = $"{r.PAd}.{r.KAd}:{r.Mik} =>";
+                    Console.WriteLine($"+ {s,40} {r.PAd}[{pMik}] + ({r.Mik} x {r.KAd}[{kMik}] = {kMik * r.Mik}) => {r.PAd}[{mD[PoNo]}]");
                     //Console.WriteLine($"\t+ {r.PrnAd}.{r.KidAd}:{r.Mik}\t{r.PrnAd}[{pMik}] + ({r.Mik} x {r.KidAd}[{kMik}] = {kMik * r.Mik}) => {r.PrnAd}[{mD[PoNo]}]");
                 }
                 else
                 {
                     mD[PoNo] = kMik * r.Mik;
-                    s = $"{r.PrnAd}.{r.KidAd}:{r.Mik} =>";
+                    s = $"{r.PAd}.{r.KAd}:{r.Mik} =>";
                     if (mD.ContainsKey(KoNo))
-                        Console.WriteLine($"* {s,40} {r.KidAd}[{kMik}] x {r.Mik} => {r.PrnAd}[{mD[PoNo]}]");
+                        Console.WriteLine($"* {s,40} {r.KAd}[{kMik}] x {r.Mik} => {r.PAd}[{mD[PoNo]}]");
                     else
-                        Console.WriteLine($"& {s,40} {r.PrnAd}[{mD[PoNo]}]");
+                        Console.WriteLine($"& {s,40} {r.PAd}[{mD[PoNo]}]");
                 }
 
 
-                if (r.ObjNeP.HasPrn)
-                    KidInRootsMikDty(r.ObjNeP.GetObjectNo(), mD);
+                if (r.NNNP.HasPrn)
+                    KidInRootsMikDty(r.NNNP.GetObjectNo(), mD);
             }
 
             return;
@@ -228,9 +228,9 @@ namespace M2DB
             ulong Kid = 0;
             double GMik = 0;
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.ObjNeP.ObjectNo = ?", Prn))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ?", Prn))
             {
-                Kid = r.ObjNeK.GetObjectNo();
+                Kid = r.NNNK.GetObjectNo();
 
                 if (!S.ContainsKey(Kid))
                     S[Kid] = 0; //StokMik(Kid);
@@ -251,7 +251,7 @@ namespace M2DB
                     G[Kid] = 0;
                 G[Kid] += GMik;
 
-                if (GMik > 0 && r.ObjNeK.HasKid)
+                if (GMik > 0 && r.NNNK.HasKid)
                     NodeGerekenKidsMikDty(Kid, GMik, S, G);
             }
         }

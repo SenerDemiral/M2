@@ -76,15 +76,16 @@ message AHPproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;
+  uint64 row_usr = 4;
 
-  uint64 ObjP = 4;
-  string No = 5;
-  string Ad = 6;
-  string HspNo = 7;
-  double Brc = 8;
-  double Alc = 9;
-  bool IsW = 10;
-  bool HasH = 11;
+  uint64 P = 5;
+  string No = 6;
+  string Ad = 7;
+  string HspNo = 8;
+  double Brc = 9;
+  double Alc = 10;
+  bool IsW = 11;
+  bool HasH = 12;
 }
 
 // Muhasebe Fisleri
@@ -94,7 +95,7 @@ message AFBproxy {
   uint64 row_pk = 3;
 
   int64 Trh = 4;
-  uint64 ObjTur = 5;
+  uint64 TUR = 5;
   string Drm = 6;
   google.protobuf.StringValue Info = 7;
   double Brc = 8;
@@ -107,11 +108,11 @@ message AFDproxy {
   string row_err = 2;
   uint64 row_pk = 3;
 
-  uint64 ObjAFB = 4;
-  uint64 ObjAHP = 5;
+  uint64 AFB = 4;
+  uint64 AHP = 5;
   google.protobuf.StringValue Info = 6;
   double Tut = 7;
-  uint64 ObjDvz = 8;
+  uint64 DVT = 8;
   float Kur = 9;
   double TutTL = 10;
 }
@@ -123,11 +124,11 @@ message ABBproxy {
   uint64 row_pk = 3;
 
   int64 Trh = 4;
-  uint64 ObjTur = 5;
+  uint64 TUR = 5;
   string Drm = 6;
-  uint64 ObjKKK = 7;
+  uint64 KKK = 7;
   string BA = 8;
-  uint64 ObjDvz = 9;
+  uint64 DVT = 9;
   float Kur = 10;
   double Tut = 11;
   google.protobuf.StringValue Info = 12;
@@ -139,11 +140,11 @@ message ABDproxy {
   string row_err = 2;
   uint64 row_pk = 3;
 
-  uint64 ObjABB = 4;
-  uint64 ObjNNN = 5;
-  uint64 ObjAHP = 6;
+  uint64 ABB = 4;
+  uint64 NNN = 5;
+  uint64 AHP = 6;
   double Fyt = 7;
-  uint64 ObjDvz = 8;
+  uint64 DVT = 8;
   double Mik = 9;
   float Kur = 10;
   float KDY = 11;
@@ -156,7 +157,7 @@ message XGTproxy {
   string row_err = 2;
   uint64 row_pk = 3;
 
-  uint64 ObjP = 4;
+  uint64 P = 4;
   string Kd = 5;
   string Ad = 6;
 }
@@ -168,7 +169,7 @@ message XDKproxy {
   uint64 row_pk = 3;
 
   int64 Trh = 4;
-  uint64 ObjDvz = 5;
+  uint64 DVT = 5;
   float Kur = 6;	// Dovizin TRL karsiligi
   string Dvz = 7;
 }
@@ -179,13 +180,13 @@ message KMTproxy {
 	uint64 row_pk = 3;
 
 	google.protobuf.StringValue Ad = 4;
-	uint64 ObjTur = 5;
+	uint64 TUR = 5;
 	google.protobuf.StringValue Tel = 6;
 	google.protobuf.StringValue Adres = 7;
 	google.protobuf.StringValue Sorumlu = 8;
 	google.protobuf.StringValue VrgDN = 9;
-	uint64 ObjAHPbrc = 10;
-	uint64 ObjAHPalc = 11;
+	uint64 AHPbrc = 10;
+	uint64 AHPalc = 11;
 }
 
 

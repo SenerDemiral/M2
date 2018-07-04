@@ -24,7 +24,7 @@ namespace RestClientWinForm
             GridLocalizer.Active = new CustomGridLocalizer();
 
             afbGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colObjTur.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
+            colTUR.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
             colTrh.ColumnEdit = Program.MF.DateRepositoryItemDateEdit;
 
             gridView1.OptionsSelection.MultiSelect = true;
@@ -132,6 +132,37 @@ namespace RestClientWinForm
             accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
 
+        private void editToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
+                return;
+
+            if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
+                return;
+
+            editToolStripButton.Enabled = false;
+            gridView1.SetFocusedRowCellValue(colDrm, "P");
+            gridView1.SetFocusedRowModified();
+
+            if (UpdateDB(true) != DialogResult.Abort)
+            {
+                gridView1.SetFocusedRowCellValue(colDrm, "A");
+                gridView1.SelectRow(gridView1.FocusedRowHandle);
+            }
+        }
+
+        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            if (gridView1.IsRowSelected(e.PrevFocusedRowHandle))
+            {
+                UpdateDB(true);
+                gridView1.UnselectRow(e.PrevFocusedRowHandle);
+            }
+        }
+
         private void fisDetayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
@@ -157,6 +188,7 @@ namespace RestClientWinForm
             if (!readOnly)
             {
                 gridView1.SetFocusedRowCellValue(colDrm, "A");
+                gridView1.CloseEditor();
                 UpdateDB(true);
                 gridView1.UnselectRow(gridView1.FocusedRowHandle);
             }
@@ -210,33 +242,6 @@ namespace RestClientWinForm
 
             if ((ulong)gridView1.GetFocusedRowCellValue(colRowPk) != 0 && !gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 e.Cancel = true;
-        }
-
-        private void editToolStripButton_Click(object sender, EventArgs e)
-        {
-            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
-                return;
-
-            if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
-                return;
-
-            gridView1.SetFocusedRowCellValue(colDrm, "P");
-            gridView1.SetFocusedRowModified();
-
-            if (UpdateDB(true) != DialogResult.Abort)
-            {
-                gridView1.SetFocusedRowCellValue(colDrm, "A");
-                gridView1.SelectRow(gridView1.FocusedRowHandle);
-            }
-        }
-
-        private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (gridView1.IsRowSelected(e.PrevFocusedRowHandle))
-            {
-                UpdateDB(true);
-                gridView1.UnselectRow(e.PrevFocusedRowHandle);
-            }
         }
 
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)

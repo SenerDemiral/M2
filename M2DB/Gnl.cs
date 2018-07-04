@@ -5,26 +5,17 @@ using Starcounter;
 
 namespace M2DB
 {
-    [Database]
-    public class XOM    // Genel.Object.Modify
-    {
-        public ulong RefNo { get; set; }    // RefTableObjNo
-        public string RefTo { get; set; }   // Table
-        public DateTime? Ins { get; set; }
-        public DateTime? Upd { get; set; }
-    }
-
     /// <summary>
     /// Bir kaydin birden cok onayi olabilir
     /// </summary>
     [Database]
-    public class XOO    // Genel.Object.Onay
+    public class XOO    // Genel.ect.Onay
     {
-        public ulong RefNo { get; set; }    // RefTableObjNo
+        public ulong RefNo { get; set; }    // RefTableNo
         public string RefTo { get; set; }   // Table
         public DateTime? Trh { get; set; }
-        public UUU ObjUsr { get; set; }        // Onaylayan (veya Vekil)
-        public UYT ObjYtk { get; set; }        // Yetki 
+        public UUU USR { get; set; }        // Onaylayan (veya Vekil)
+        public UYT UYT { get; set; }        // Yetki 
     }
 
     /// <summary>
@@ -44,8 +35,8 @@ namespace M2DB
     [Database]
     public class XGT    // Genel Tanimlar
     {
-        public XGT ObjP { get; set; }
-        public string PKd => ObjP?.Kd;
+        public XGT P { get; set; }
+        public string PKd => P?.Kd;
         public string Kd { get; set; }
         public string Ad { get; set; }
     }
@@ -53,19 +44,19 @@ namespace M2DB
     [Database]
     public class XDK    // Genel DovizKurlari
     {
-        public XGT ObjDvz { get; set; }
+        public XGT DVT { get; set; }
         public DateTime Trh { get; set; }
         public float Kur { get; set; }
 
-        public string Dvz => ObjDvz?.Kd;
+        public string Dvz => DVT?.Kd;
     }
 
     public static class GnlOps
     {
         public static XGT XGTfind(string pKd, string Kd)
         {
-            var pxgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP IS NULL and Kd = ?", pKd).FirstOrDefault();
-            var xgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.ObjP = ? and Kd = ?", pxgt, Kd).FirstOrDefault();
+            var pxgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.P IS NULL and Kd = ?", pKd).FirstOrDefault();
+            var xgt = Db.SQL<XGT>("SELECT r FROM XGT r WHERE r.P = ? and Kd = ?", pxgt, Kd).FirstOrDefault();
             return xgt;
         }
 
@@ -92,11 +83,11 @@ namespace M2DB
                         xgt = null;
                         if (!string.IsNullOrWhiteSpace(ra[0]))
                         {
-                            xgt = Db.SQL<XGT>("select r FROM XGT r WHERE r.ObjP IS NULL and r.Kd = ?", ra[0]).FirstOrDefault();
+                            xgt = Db.SQL<XGT>("select r FROM XGT r WHERE r.P IS NULL and r.Kd = ?", ra[0]).FirstOrDefault();
                         }
                         new XGT
                         {
-                            ObjP = xgt,
+                            P = xgt,
                             Kd = ra[1],
                             Ad = ra[2]
                         };

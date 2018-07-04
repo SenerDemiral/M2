@@ -20,16 +20,16 @@ namespace RestClientWinForm
             InitializeComponent();
 
             kmtGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colObjTur.ColumnEdit = Program.MF.KmtTurRepositoryItemLookUpEdit;
-            colObjAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
-            colObjAHPalc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
+            colTUR.ColumnEdit = Program.MF.KmtTurRepositoryItemLookUpEdit;
+            colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
+            colAHPalc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
 
         }
 
         private void KmtXF_Load(object sender, EventArgs e)
         {
             // KKK.TUR deki F yi bul
-            DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"ObjP = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
+            DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
             ObjTur = xgtRows[0]["RowPk"];
 
             FillDB();
@@ -102,7 +102,7 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowPk, 0);
-            gridView1.SetFocusedRowCellValue(colObjTur, ObjTur);
+            gridView1.SetFocusedRowCellValue(colTUR, ObjTur);
 
         }
     }

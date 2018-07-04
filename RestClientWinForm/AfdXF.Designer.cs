@@ -44,12 +44,13 @@
             this.afdGridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjAFB = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjAHP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAFB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colObjDvz = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DvzRepositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
@@ -62,7 +63,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).BeginInit();
@@ -199,25 +199,32 @@
             this.insertToolStripMenuItem,
             this.saveToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 48);
             // 
             // insertToolStripMenuItem
             // 
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
             this.insertToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.insertToolStripMenuItem.Text = "Insert";
             this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.saveToolStripMenuItem.Text = "Save";
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowPk,
-            this.colObjAFB,
-            this.colObjAHP,
+            this.colAFB,
+            this.colAHP,
             this.colInfo,
             this.colTut,
-            this.colObjDvz,
+            this.colDVT,
             this.colKur,
             this.colTutTL});
             gridFormatRule1.ApplyToRow = true;
@@ -255,24 +262,24 @@
             this.colRowPk.VisibleIndex = 0;
             this.colRowPk.Width = 65;
             // 
-            // colObjAFB
+            // colAFB
             // 
-            this.colObjAFB.Caption = "AFB#";
-            this.colObjAFB.FieldName = "ObjAFB";
-            this.colObjAFB.Name = "colObjAFB";
-            this.colObjAFB.OptionsColumn.ReadOnly = true;
-            this.colObjAFB.Visible = true;
-            this.colObjAFB.VisibleIndex = 1;
-            this.colObjAFB.Width = 59;
+            this.colAFB.Caption = "AFB#";
+            this.colAFB.FieldName = "AFB";
+            this.colAFB.Name = "colAFB";
+            this.colAFB.OptionsColumn.ReadOnly = true;
+            this.colAFB.Visible = true;
+            this.colAFB.VisibleIndex = 1;
+            this.colAFB.Width = 59;
             // 
-            // colObjAHP
+            // colAHP
             // 
-            this.colObjAHP.Caption = "Hesap";
-            this.colObjAHP.FieldName = "ObjAHP";
-            this.colObjAHP.Name = "colObjAHP";
-            this.colObjAHP.Visible = true;
-            this.colObjAHP.VisibleIndex = 2;
-            this.colObjAHP.Width = 139;
+            this.colAHP.Caption = "Hesap";
+            this.colAHP.FieldName = "AHP";
+            this.colAHP.Name = "colAHP";
+            this.colAHP.Visible = true;
+            this.colAHP.VisibleIndex = 2;
+            this.colAHP.Width = 139;
             // 
             // colInfo
             // 
@@ -282,15 +289,15 @@
             this.colInfo.VisibleIndex = 7;
             this.colInfo.Width = 212;
             // 
-            // colObjDvz
+            // colDVT
             // 
-            this.colObjDvz.Caption = "Dvz";
-            this.colObjDvz.ColumnEdit = this.DvzRepositoryItemLookUpEdit1;
-            this.colObjDvz.FieldName = "ObjDvz";
-            this.colObjDvz.Name = "colObjDvz";
-            this.colObjDvz.Visible = true;
-            this.colObjDvz.VisibleIndex = 4;
-            this.colObjDvz.Width = 45;
+            this.colDVT.Caption = "Dvz";
+            this.colDVT.ColumnEdit = this.DvzRepositoryItemLookUpEdit1;
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 4;
+            this.colDVT.Width = 45;
             // 
             // DvzRepositoryItemLookUpEdit1
             // 
@@ -413,13 +420,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
             // AfdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,13 +466,13 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjAFB;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjAHP;
+        private DevExpress.XtraGrid.Columns.GridColumn colAFB;
+        private DevExpress.XtraGrid.Columns.GridColumn colAHP;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colTut;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private DevExpress.XtraGrid.Columns.GridColumn colObjDvz;
+        private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;
         private DevExpress.XtraGrid.Columns.GridColumn colTutTL;
         private MainDataSet mainDataSet;
