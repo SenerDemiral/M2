@@ -122,6 +122,8 @@ namespace RestServerSC
             }*/
         }
 
+
+        // HesapPlani
         public override async Task AHPfill(QryProxy request, IServerStreamWriter<AHPproxy> responseStream, ServerCallContext context)
         {
             AHPproxy proxy = new AHPproxy();
@@ -208,14 +210,15 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             AHP row = CRUDsHelper.FromProxy<AHPproxy, AHP>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
                             request = CRUDsHelper.ToProxy<AHPproxy, AHP>(row);
                         }
 
                     }
                     else if (request.RowState == "D")
                     {
-                        var rec = (AHP)Db.FromId(request.RowPk);
-                        if (rec == null)
+                        var row = (AHP)Db.FromId(request.RowPk);
+                        if (row == null)
                         {
                             request.RowErr = "AHP Rec not found";
                         }
@@ -224,7 +227,10 @@ namespace RestServerSC
                             if (Db.SQL<AHP>("select r from AHP r where r.P.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
-                                rec.Delete();
+                            {
+                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                row.Delete();
+                            }
                         }
                     }
                 });
@@ -245,7 +251,8 @@ namespace RestServerSC
             return Task.FromResult(prxy);
         }
 
-
+        
+        // Fis
         public override async Task AFBfill(QryProxy request, IServerStreamWriter<AFBproxy> responseStream, ServerCallContext context)
         {
             AFBproxy proxy = new AFBproxy();
@@ -326,14 +333,15 @@ namespace RestServerSC
                                 request.TUR = GnlOps.XGTfind("AFB.TUR", "MHS").GetObjectNo();
 
                             AFB row = CRUDsHelper.FromProxy<AFBproxy, AFB>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
                             request = CRUDsHelper.ToProxy<AFBproxy, AFB>(row);
                         }
 
                     }
                     else if (request.RowState == "D" && request.Drm == "A")
                     {
-                        var rec = (AFB)Db.FromId(request.RowPk);
-                        if (rec == null)
+                        var row = (AFB)Db.FromId(request.RowPk);
+                        if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
@@ -342,7 +350,10 @@ namespace RestServerSC
                             if (Db.SQL<AFD>("select r from AFD r where r.AFB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
-                                rec.Delete();
+                            {
+                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                row.Delete();
+                            }
                         }
                     }
                 });
@@ -350,7 +361,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
 
         public override async Task AFDfill(QryProxy request, IServerStreamWriter<AFDproxy> responseStream, ServerCallContext context)
         {
@@ -408,16 +418,21 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             AFD row = CRUDsHelper.FromProxy<AFDproxy, AFD>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
                             request = CRUDsHelper.ToProxy<AFDproxy, AFD>(row);
                         }
-
                     }
                     else if (request.RowState == "D")
                     {
-                        var rec = (AFD)Db.FromId(request.RowPk);
-                        if (rec == null)
+                        var row = (AFD)Db.FromId(request.RowPk);
+                        if (row == null)
                         {
                             request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                            row.Delete();
                         }
                     }
                 });
@@ -427,6 +442,7 @@ namespace RestServerSC
         }
 
 
+        // Bill/Fatura
         public override async Task ABBfill(QryProxy request, IServerStreamWriter<ABBproxy> responseStream, ServerCallContext context)
         {
             ABBproxy proxy = new ABBproxy();
@@ -504,14 +520,15 @@ namespace RestServerSC
                                 request.TUR = GnlOps.XGTfind("ABB.TUR", "BS").GetObjectNo();
 
                             ABB row = CRUDsHelper.FromProxy<ABBproxy, ABB>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
                             request = CRUDsHelper.ToProxy<ABBproxy, ABB>(row);
                         }
 
                     }
                     else if (request.RowState == "D" && request.Drm == "A")
                     {
-                        var rec = (AFB)Db.FromId(request.RowPk);
-                        if (rec == null)
+                        var row = (AFB)Db.FromId(request.RowPk);
+                        if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
@@ -520,7 +537,10 @@ namespace RestServerSC
                             if (Db.SQL<ABD>("select r from ABD r where r.ABB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
-                                rec.Delete();
+                            {
+                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                row.Delete();
+                            }
                         }
                     }
                 });
@@ -528,7 +548,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
 
         public override async Task ABDfill(QryProxy request, IServerStreamWriter<ABDproxy> responseStream, ServerCallContext context)
         {
@@ -588,16 +607,22 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             ABD row = CRUDsHelper.FromProxy<ABDproxy, ABD>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
                             request = CRUDsHelper.ToProxy<ABDproxy, ABD>(row);
                         }
 
                     }
                     else if (request.RowState == "D")
                     {
-                        var rec = (ABD)Db.FromId(request.RowPk);
-                        if (rec == null)
+                        var row = (ABD)Db.FromId(request.RowPk);
+                        if (row == null)
                         {
                             request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                            row.Delete();
                         }
                     }
                 });
@@ -606,11 +631,12 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
-
-        public override async Task KMTfill(QryProxy request, IServerStreamWriter<KMTproxy> responseStream, ServerCallContext context)
+        
+        // FirmaTanim
+        public override async Task KFTfill(QryProxy request, IServerStreamWriter<KFTproxy> responseStream, ServerCallContext context)
         {
-            KMTproxy proxy = new KMTproxy();
-            List<KMTproxy> proxyList = new List<KMTproxy>();
+            KFTproxy proxy = new KFTproxy();
+            List<KFTproxy> proxyList = new List<KFTproxy>();
             string sel = $"SELECT r FROM KMT r";
 
             Type proxyType = typeof(AFDproxy);
@@ -618,11 +644,11 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                foreach (var row in Db.SQL<KMT>("SELECT r FROM KMT r"))
+                foreach (var row in Db.SQL<KFT>("SELECT r FROM KFT r"))
                 {
                     //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
 
-                    proxy = new KMTproxy
+                    proxy = new KFTproxy
                     {
                         RowPk = row.GetObjectNo(),
                         TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
@@ -644,9 +670,9 @@ namespace RestServerSC
             }
         }
 
-        public override Task<KMTproxy> KMTupdate(KMTproxy request, ServerCallContext context)
+        public override Task<KFTproxy> KFTupdate(KFTproxy request, ServerCallContext context)
         {
-            var proxy = new KMTproxy
+            var proxy = new KFTproxy
             {
                 RowPk = request.RowPk,
             };
@@ -663,15 +689,16 @@ namespace RestServerSC
 
                         if (request.RowErr == string.Empty)
                         {
-                            KMT row = CRUDsHelper.FromProxy<KMTproxy, KMT>(request);
-                            request = CRUDsHelper.ToProxy<KMTproxy, KMT>(row);
+                            KFT row = CRUDsHelper.FromProxy<KFTproxy, KFT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            request = CRUDsHelper.ToProxy<KFTproxy, KFT>(row);
                         }
 
                     }
                     else if (request.RowState == "D")
                     {
                         // Ilgili kayit varsa sildirme
-                        request.RowErr = "Müşteri Silemezsiniz";    // Simdilik
+                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
                     }
                 });
             }).Wait();
@@ -680,7 +707,7 @@ namespace RestServerSC
         }
 
 
-
+        // GenelTanim
         public override async Task XGTfill(QryProxy request, IServerStreamWriter<XGTproxy> responseStream, ServerCallContext context)
         {
             XGTproxy proxy = new XGTproxy();
@@ -767,6 +794,8 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+
+        // DovizKur
         public override async Task XDKfill(QryProxy request, IServerStreamWriter<XDKproxy> responseStream, ServerCallContext context)
         {
             XDKproxy proxy;// = new XDKproxy();
@@ -857,6 +886,209 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
+
+
+        // User
+        public override async Task UUUfill(QryProxy request, IServerStreamWriter<UUUproxy> responseStream, ServerCallContext context)
+        {
+            UUUproxy proxy = new UUUproxy();
+            List<UUUproxy> proxyList = new List<UUUproxy>();
+            string sel = $"SELECT r FROM UUU r";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<UUU>("SELECT r FROM UUU r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new UUUproxy
+                    {
+                        RowPk = row.GetObjectNo(),
+                        UYT = row.UYT == null ? 0 : row.UYT.GetObjectNo(),
+                        Ad = row.Ad,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<UUUproxy> UUUupdate(UUUproxy request, ServerCallContext context)
+        {
+            var proxy = new UUUproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            UUU row = CRUDsHelper.FromProxy<UUUproxy, UUU>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            request = CRUDsHelper.ToProxy<UUUproxy, UUU>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        public override async Task UYTfill(QryProxy request, IServerStreamWriter<UYTproxy> responseStream, ServerCallContext context)
+        {
+            UYTproxy proxy = new UYTproxy();
+            List<UYTproxy> proxyList = new List<UYTproxy>();
+            string sel = $"SELECT r FROM UYT r";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<UYT>("SELECT r FROM UYT r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new UYTproxy
+                    {
+                        RowPk = row.GetObjectNo(),
+                        Ad = row.Ad,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<UYTproxy> UYTupdate(UYTproxy request, ServerCallContext context)
+        {
+            var proxy = new UYTproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            UYT row = CRUDsHelper.FromProxy<UYTproxy, UYT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            request = CRUDsHelper.ToProxy<UYTproxy, UYT>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        public override async Task UYHfill(QryProxy request, IServerStreamWriter<UYHproxy> responseStream, ServerCallContext context)
+        {
+            UYHproxy proxy = new UYHproxy();
+            List<UYHproxy> proxyList = new List<UYHproxy>();
+            string sel = $"SELECT r FROM UYH r";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<UYH>("SELECT r FROM UYH r WHERE r.P.ObjectNo = ? or r.K.ObjectNo = ?", 248, 248))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new UYHproxy
+                    {
+                        RowPk = row.GetObjectNo(),
+                        P = row.P == null ? 0 : row.P.GetObjectNo(),
+                        K = row.K == null ? 0 : row.K.GetObjectNo(),
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<UYHproxy> UYHupdate(UYHproxy request, ServerCallContext context)
+        {
+            var proxy = new UYHproxy
+            {
+                RowPk = request.RowPk,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowState: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowState == "A" || request.RowState == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            UYH row = CRUDsHelper.FromProxy<UYHproxy, UYH>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            request = CRUDsHelper.ToProxy<UYHproxy, UYH>(row);
+                        }
+
+                    }
+                    else if (request.RowState == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
 
     }
 

@@ -47,6 +47,19 @@ namespace RestClientWinForm
             }
         }
 
+        private void AfbXF_Load(object sender, EventArgs e)
+        {
+            FillDB();
+        }
+
+        private void AfbXF_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (gridView1.SelectedRowsCount != 0)
+                UpdateDB(true);
+            else
+                UpdateDB();
+        }
+
         private void FillDB()
         {
             string res = "";
@@ -78,19 +91,6 @@ namespace RestClientWinForm
             }
 
             return dr;
-        }
-
-        private void AfbXF_Load(object sender, EventArgs e)
-        {
-            FillDB();
-        }
-
-        private void AfbXF_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (gridView1.SelectedRowsCount != 0)
-                UpdateDB(true);
-            else
-                UpdateDB();
         }
 
         private void addToolStripButton_Click(object sender, EventArgs e)
@@ -143,7 +143,6 @@ namespace RestClientWinForm
             if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 return;
 
-            editToolStripButton.Enabled = false;
             gridView1.SetFocusedRowCellValue(colDrm, "P");
             gridView1.SetFocusedRowModified();
 

@@ -65,7 +65,7 @@ namespace RestClientWinForm
             AfbTurRepositoryItemLookUpEdit.DataSource = AfbTurDV;
 
             DataView KmtTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            KmtTurRepositoryItemLookUpEdit.DataSource = KmtTurDV;
+            KftTurRepositoryItemLookUpEdit.DataSource = KmtTurDV;
         }
 
         private void AHPbutton_Click(object sender, EventArgs e)
@@ -113,9 +113,21 @@ namespace RestClientWinForm
             e.Cancel = (bool)focusedNode["IsW"] == false;
         }
 
-        private void KMTbutton_Click(object sender, EventArgs e)
+        private void KFTbutton_Click(object sender, EventArgs e)
         {
-            KmtXF frm = new KmtXF();
+            KftXF frm = new KftXF();
+            frm.Show();
+        }
+
+        private void UYHbutton_Click(object sender, EventArgs e)
+        {
+            UyhXF frm = new UyhXF();
+            frm.Show();
+        }
+
+        private void ABBbutton_Click(object sender, EventArgs e)
+        {
+            AbbXF frm = new AbbXF();
             frm.Show();
         }
     }

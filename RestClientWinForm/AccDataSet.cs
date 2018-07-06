@@ -167,6 +167,7 @@ namespace RestClientWinForm
                 {
                     dt.Rows[i].ClearErrors();
                     request.RowState = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
                         request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
@@ -269,6 +270,7 @@ namespace RestClientWinForm
                 {
                     dt.Rows[i].ClearErrors();
                     request.RowState = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
                         request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
@@ -358,6 +360,7 @@ namespace RestClientWinForm
                 {
                     dt.Rows[i].ClearErrors();
                     request.RowState = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
                         request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
@@ -460,6 +463,7 @@ namespace RestClientWinForm
                 {
                     dt.Rows[i].ClearErrors();
                     request.RowState = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
                         request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];

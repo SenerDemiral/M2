@@ -51,7 +51,7 @@
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DvzRepositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,7 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -187,7 +187,7 @@
             this.afdGridControl.MainView = this.gridView1;
             this.afdGridControl.Name = "afdGridControl";
             this.afdGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.DvzRepositoryItemLookUpEdit1});
+            this.DVTrepositoryItemLookUpEdit});
             this.afdGridControl.Size = new System.Drawing.Size(774, 322);
             this.afdGridControl.TabIndex = 0;
             this.afdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -292,23 +292,23 @@
             // colDVT
             // 
             this.colDVT.Caption = "Dvz";
-            this.colDVT.ColumnEdit = this.DvzRepositoryItemLookUpEdit1;
+            this.colDVT.ColumnEdit = this.DVTrepositoryItemLookUpEdit;
             this.colDVT.FieldName = "DVT";
             this.colDVT.Name = "colDVT";
             this.colDVT.Visible = true;
             this.colDVT.VisibleIndex = 4;
             this.colDVT.Width = 45;
             // 
-            // DvzRepositoryItemLookUpEdit1
+            // DVTrepositoryItemLookUpEdit
             // 
-            this.DvzRepositoryItemLookUpEdit1.AutoHeight = false;
-            this.DvzRepositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.DVTrepositoryItemLookUpEdit.AutoHeight = false;
+            this.DVTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DvzRepositoryItemLookUpEdit1.DataSource = this.xdkBindingSource;
-            this.DvzRepositoryItemLookUpEdit1.DisplayMember = "Dvz";
-            this.DvzRepositoryItemLookUpEdit1.Name = "DvzRepositoryItemLookUpEdit1";
-            this.DvzRepositoryItemLookUpEdit1.ValueMember = "ObjDvz";
-            this.DvzRepositoryItemLookUpEdit1.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DvzRepositoryItemLookUpEdit1_Closed);
+            this.DVTrepositoryItemLookUpEdit.DataSource = this.xdkBindingSource;
+            this.DVTrepositoryItemLookUpEdit.DisplayMember = "Dvz";
+            this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
+            this.DVTrepositoryItemLookUpEdit.ValueMember = "DVT";
+            this.DVTrepositoryItemLookUpEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DVTrepositoryItemLookUpEdit_Closed);
             // 
             // xdkBindingSource
             // 
@@ -438,7 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DvzRepositoryItemLookUpEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -476,7 +476,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKur;
         private DevExpress.XtraGrid.Columns.GridColumn colTutTL;
         private MainDataSet mainDataSet;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DvzRepositoryItemLookUpEdit1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DVTrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource xdkBindingSource;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;

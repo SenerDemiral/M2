@@ -34,57 +34,72 @@ namespace Rest {
             "ASgJEg4KBnJvd19waxgDIAEoBBIPCgdyb3dfdXNyGAQgASgEEgkKAVAYBSAB",
             "KAQSCgoCTm8YBiABKAkSCgoCQWQYByABKAkSDQoFSHNwTm8YCCABKAkSCwoD",
             "QnJjGAkgASgBEgsKA0FsYxgKIAEoARILCgNJc1cYCyABKAgSDAoESGFzSBgM",
-            "IAEoCCKrAQoIQUZCcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
-            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgEIAEoAxILCgNUVVIY",
-            "BSABKAQSCwoDRHJtGAYgASgJEioKBEluZm8YByABKAsyHC5nb29nbGUucHJv",
-            "dG9idWYuU3RyaW5nVmFsdWUSCwoDQnJjGAggASgBEgsKA0FsYxgJIAEoASK6",
-            "AQoIQUZEcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiAB",
-            "KAkSDgoGcm93X3BrGAMgASgEEgsKA0FGQhgEIAEoBBILCgNBSFAYBSABKAQS",
-            "KgoESW5mbxgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIL",
-            "CgNUdXQYByABKAESCwoDRFZUGAggASgEEgsKA0t1chgJIAEoAhINCgVUdXRU",
-            "TBgKIAEoASLRAQoIQUJCcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jv",
-            "d19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgEIAEoAxILCgNU",
-            "VVIYBSABKAQSCwoDRHJtGAYgASgJEgsKA0tLSxgHIAEoBBIKCgJCQRgIIAEo",
-            "CRILCgNEVlQYCSABKAQSCwoDS3VyGAogASgCEgsKA1R1dBgLIAEoARIqCgRJ",
-            "bmZvGAwgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlItIBCghB",
-            "QkRwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgCIAEoCRIO",
-            "CgZyb3dfcGsYAyABKAQSCwoDQUJCGAQgASgEEgsKA05OThgFIAEoBBILCgNB",
-            "SFAYBiABKAQSCwoDRnl0GAcgASgBEgsKA0RWVBgIIAEoBBILCgNNaWsYCSAB",
-            "KAESCwoDS3VyGAogASgCEgsKA0tEWRgLIAEoAhIqCgRJbmZvGAwgASgLMhwu",
-            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlImEKCFhHVHByb3h5EhEKCXJv",
-            "d19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEo",
-            "BBIJCgFQGAQgASgEEgoKAktkGAUgASgJEgoKAkFkGAYgASgJInIKCFhES3By",
-            "b3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJv",
-            "d19waxgDIAEoBBILCgNUcmgYBCABKAMSCwoDRFZUGAUgASgEEgsKA0t1chgG",
-            "IAEoAhILCgNEdnoYByABKAkiyQIKCEtNVHByb3h5EhEKCXJvd19zdGF0ZRgB",
-            "IAEoCRIPCgdyb3dfZXJyGAIgASgJEg4KBnJvd19waxgDIAEoBBIoCgJBZBgE",
-            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRILCgNUVVIYBSAB",
-            "KAQSKQoDVGVsGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "EisKBUFkcmVzGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "Ei0KB1NvcnVtbHUYCCABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
-            "dWUSKwoFVnJnRE4YCSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
-            "dWUSDgoGQUhQYnJjGAogASgEEg4KBkFIUGFsYxgLIAEoBDKJBwoFQ1JVRHMS",
-            "LwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJveHki",
-            "ADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJlc3QuVGJs",
-            "YVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LkFI",
-            "UHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4ucmVz",
-            "dC5BSFBwcm94eSIAEi0KB0FGQmZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVz",
-            "dC5BRkJwcm94eSIAMAESLQoJQUZCdXBkYXRlEg4ucmVzdC5BRkJwcm94eRoO",
-            "LnJlc3QuQUZCcHJveHkiABItCgpBRkJnZXRCeVBLEg0ucmVzdC5QS3Byb3h5",
-            "Gg4ucmVzdC5BRkJwcm94eSIAEi0KB0FGRGZpbGwSDi5yZXN0LlFyeVByb3h5",
-            "Gg4ucmVzdC5BRkRwcm94eSIAMAESLQoJQUZEdXBkYXRlEg4ucmVzdC5BRkRw",
-            "cm94eRoOLnJlc3QuQUZEcHJveHkiABItCgdBQkJmaWxsEg4ucmVzdC5RcnlQ",
-            "cm94eRoOLnJlc3QuQUJCcHJveHkiADABEi0KCUFCQnVwZGF0ZRIOLnJlc3Qu",
-            "QUJCcHJveHkaDi5yZXN0LkFCQnByb3h5IgASLQoHQUJEZmlsbBIOLnJlc3Qu",
-            "UXJ5UHJveHkaDi5yZXN0LkFCRHByb3h5IgAwARItCglBQkR1cGRhdGUSDi5y",
-            "ZXN0LkFCRHByb3h5Gg4ucmVzdC5BQkRwcm94eSIAEi0KB1hHVGZpbGwSDi5y",
-            "ZXN0LlFyeVByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAMAESLQoJWEdUdXBkYXRl",
-            "Eg4ucmVzdC5YR1Rwcm94eRoOLnJlc3QuWEdUcHJveHkiABItCgdYREtmaWxs",
-            "Eg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWERLcHJveHkiADABEi0KCVhES3Vw",
-            "ZGF0ZRIOLnJlc3QuWERLcHJveHkaDi5yZXN0LlhES3Byb3h5IgASLQoHS01U",
-            "ZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LktNVHByb3h5IgAwARItCglL",
-            "TVR1cGRhdGUSDi5yZXN0LktNVHByb3h5Gg4ucmVzdC5LTVRwcm94eSIAYgZw",
-            "cm90bzM="));
+            "IAEoCCK8AQoIQUZCcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEg8KB3Jvd191c3IYBCABKAQSCwoD",
+            "VHJoGAUgASgDEgsKA1RVUhgGIAEoBBILCgNEcm0YByABKAkSKgoESW5mbxgI",
+            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRILCgNCcmMYCSAB",
+            "KAESCwoDQWxjGAogASgBIssBCghBRkRwcm94eRIRCglyb3dfc3RhdGUYASAB",
+            "KAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDwoHcm93X3Vz",
+            "chgEIAEoBBILCgNBRkIYBSABKAQSCwoDQUhQGAYgASgEEioKBEluZm8YByAB",
+            "KAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSCwoDVHV0GAggASgB",
+            "EgsKA0RWVBgJIAEoBBILCgNLdXIYCiABKAISDQoFVHV0VEwYCyABKAEi4gEK",
+            "CEFCQnByb3h5EhEKCXJvd19zdGF0ZRgBIAEoCRIPCgdyb3dfZXJyGAIgASgJ",
+            "Eg4KBnJvd19waxgDIAEoBBIPCgdyb3dfdXNyGAQgASgEEgsKA1RyaBgFIAEo",
+            "AxILCgNUVVIYBiABKAQSCwoDRHJtGAcgASgJEgsKA0tLSxgIIAEoBBIKCgJC",
+            "QRgJIAEoCRILCgNEVlQYCiABKAQSCwoDS3VyGAsgASgCEgsKA1R1dBgMIAEo",
+            "ARIqCgRJbmZvGA0gASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "IuMBCghBQkRwcm94eRIRCglyb3dfc3RhdGUYASABKAkSDwoHcm93X2VychgC",
+            "IAEoCRIOCgZyb3dfcGsYAyABKAQSDwoHcm93X3VzchgEIAEoBBILCgNBQkIY",
+            "BSABKAQSCwoDTk5OGAYgASgEEgsKA0FIUBgHIAEoBBILCgNGeXQYCCABKAES",
+            "CwoDRFZUGAkgASgEEgsKA01paxgKIAEoARILCgNLdXIYCyABKAISCwoDS0RZ",
+            "GAwgASgCEioKBEluZm8YDSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5n",
+            "VmFsdWUiYQoIWEdUcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19l",
+            "cnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgkKAVAYBCABKAQSCgoCS2QYBSAB",
+            "KAkSCgoCQWQYBiABKAkicgoIWERLcHJveHkSEQoJcm93X3N0YXRlGAEgASgJ",
+            "Eg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMgASgEEgsKA1RyaBgEIAEo",
+            "AxILCgNEVlQYBSABKAQSCwoDS3VyGAYgASgCEgsKA0R2ehgHIAEoCSLaAgoI",
+            "S0ZUcHJveHkSEQoJcm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiABKAkS",
+            "DgoGcm93X3BrGAMgASgEEg8KB3Jvd191c3IYBCABKAQSKAoCQWQYBSABKAsy",
+            "HC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSCwoDVFVSGAYgASgEEikK",
+            "A1RlbBgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIrCgVB",
+            "ZHJlcxgIIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRItCgdT",
+            "b3J1bWx1GAkgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEisK",
+            "BVZyZ0ROGAogASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEg4K",
+            "BkFIUGJyYxgLIAEoBBIOCgZBSFBhbGMYDCABKAQidQoIVVVVcHJveHkSEQoJ",
+            "cm93X3N0YXRlGAEgASgJEg8KB3Jvd19lcnIYAiABKAkSDgoGcm93X3BrGAMg",
+            "ASgEEg8KB3Jvd191c3IYBCABKAQSCwoDVVlUGAUgASgEEgoKAkFkGAYgASgJ",
+            "EgsKA1B3ZBgHIAEoCSJbCghVWVRwcm94eRIRCglyb3dfc3RhdGUYASABKAkS",
+            "DwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDwoHcm93X3VzchgE",
+            "IAEoBBIKCgJBZBgFIAEoCSJlCghVWUhwcm94eRIRCglyb3dfc3RhdGUYASAB",
+            "KAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDwoHcm93X3Vz",
+            "chgEIAEoBBIJCgFQGAUgASgEEgkKAUsYBiABKAQyowkKBUNSVURzEi8KCFRi",
+            "bGFGaWxsEg4ucmVzdC5RcnlQcm94eRoPLnJlc3QuVGJsYVByb3h5IgAwARIw",
+            "CgpUYmxhVXBkYXRlEg8ucmVzdC5UYmxhUHJveHkaDy5yZXN0LlRibGFQcm94",
+            "eSIAEi0KB0FIUGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5BSFBwcm94",
+            "eSIAMAESLQoJQUhQdXBkYXRlEg4ucmVzdC5BSFBwcm94eRoOLnJlc3QuQUhQ",
+            "cHJveHkiABItCgdBRkJmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuQUZC",
+            "cHJveHkiADABEi0KCUFGQnVwZGF0ZRIOLnJlc3QuQUZCcHJveHkaDi5yZXN0",
+            "LkFGQnByb3h5IgASLQoKQUZCZ2V0QnlQSxINLnJlc3QuUEtwcm94eRoOLnJl",
+            "c3QuQUZCcHJveHkiABItCgdBRkRmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJl",
+            "c3QuQUZEcHJveHkiADABEi0KCUFGRHVwZGF0ZRIOLnJlc3QuQUZEcHJveHka",
+            "Di5yZXN0LkFGRHByb3h5IgASLQoHQUJCZmlsbBIOLnJlc3QuUXJ5UHJveHka",
+            "Di5yZXN0LkFCQnByb3h5IgAwARItCglBQkJ1cGRhdGUSDi5yZXN0LkFCQnBy",
+            "b3h5Gg4ucmVzdC5BQkJwcm94eSIAEi0KB0FCRGZpbGwSDi5yZXN0LlFyeVBy",
+            "b3h5Gg4ucmVzdC5BQkRwcm94eSIAMAESLQoJQUJEdXBkYXRlEg4ucmVzdC5B",
+            "QkRwcm94eRoOLnJlc3QuQUJEcHJveHkiABItCgdYR1RmaWxsEg4ucmVzdC5R",
+            "cnlQcm94eRoOLnJlc3QuWEdUcHJveHkiADABEi0KCVhHVHVwZGF0ZRIOLnJl",
+            "c3QuWEdUcHJveHkaDi5yZXN0LlhHVHByb3h5IgASLQoHWERLZmlsbBIOLnJl",
+            "c3QuUXJ5UHJveHkaDi5yZXN0LlhES3Byb3h5IgAwARItCglYREt1cGRhdGUS",
+            "Di5yZXN0LlhES3Byb3h5Gg4ucmVzdC5YREtwcm94eSIAEi0KB0tGVGZpbGwS",
+            "Di5yZXN0LlFyeVByb3h5Gg4ucmVzdC5LRlRwcm94eSIAMAESLQoJS0ZUdXBk",
+            "YXRlEg4ucmVzdC5LRlRwcm94eRoOLnJlc3QuS0ZUcHJveHkiABItCgdVVVVm",
+            "aWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuVVVVcHJveHkiADABEi0KCVVV",
+            "VXVwZGF0ZRIOLnJlc3QuVVVVcHJveHkaDi5yZXN0LlVVVXByb3h5IgASLQoH",
+            "VVlUZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlVZVHByb3h5IgAwARIt",
+            "CglVWVR1cGRhdGUSDi5yZXN0LlVZVHByb3h5Gg4ucmVzdC5VWVRwcm94eSIA",
+            "Ei0KB1VZSGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5VWUhwcm94eSIA",
+            "MAESLQoJVVlIdXBkYXRlEg4ucmVzdC5VWUhwcm94eRoOLnJlc3QuVVlIcHJv",
+            "eHkiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -92,13 +107,16 @@ namespace Rest {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QryProxy), global::Rest.QryProxy.Parser, new[]{ "Query", "Param" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "P", "No", "Ad", "HspNo", "Brc", "Alc", "IsW", "HasH" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "TUR", "Drm", "Info", "Brc", "Alc" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "AFB", "AHP", "Info", "Tut", "DVT", "Kur", "TutTL" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABBproxy), global::Rest.ABBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "TUR", "Drm", "KKK", "BA", "DVT", "Kur", "Tut", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "ABB", "NNN", "AHP", "Fyt", "DVT", "Mik", "Kur", "KDY", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFBproxy), global::Rest.AFBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "Trh", "TUR", "Drm", "Info", "Brc", "Alc" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AFDproxy), global::Rest.AFDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "AFB", "AHP", "Info", "Tut", "DVT", "Kur", "TutTL" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABBproxy), global::Rest.ABBproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "Trh", "TUR", "Drm", "KKK", "BA", "DVT", "Kur", "Tut", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "ABB", "NNN", "AHP", "Fyt", "DVT", "Mik", "Kur", "KDY", "Info" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "P", "Kd", "Ad" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Trh", "DVT", "Kur", "Dvz" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KMTproxy), global::Rest.KMTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "Ad", "TUR", "Tel", "Adres", "Sorumlu", "VrgDN", "AHPbrc", "AHPalc" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KFTproxy), global::Rest.KFTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "Ad", "TUR", "Tel", "Adres", "Sorumlu", "VrgDN", "AHPbrc", "AHPalc" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UUUproxy), global::Rest.UUUproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "UYT", "Ad", "Pwd" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UYTproxy), global::Rest.UYTproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "Ad" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UYHproxy), global::Rest.UYHproxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "RowUsr", "P", "K" }, null, null, null)
           }));
     }
     #endregion
@@ -1202,6 +1220,7 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
       trh_ = other.trh_;
       tUR_ = other.tUR_;
       drm_ = other.drm_;
@@ -1252,8 +1271,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Trh" field.</summary>
-    public const int TrhFieldNumber = 4;
+    public const int TrhFieldNumber = 5;
     private long trh_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Trh {
@@ -1264,7 +1294,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TUR" field.</summary>
-    public const int TURFieldNumber = 5;
+    public const int TURFieldNumber = 6;
     private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong TUR {
@@ -1275,7 +1305,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Drm" field.</summary>
-    public const int DrmFieldNumber = 6;
+    public const int DrmFieldNumber = 7;
     private string drm_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Drm {
@@ -1286,8 +1316,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 7;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    public const int InfoFieldNumber = 8;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(66);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -1298,7 +1328,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Brc" field.</summary>
-    public const int BrcFieldNumber = 8;
+    public const int BrcFieldNumber = 9;
     private double brc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Brc {
@@ -1309,7 +1339,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Alc" field.</summary>
-    public const int AlcFieldNumber = 9;
+    public const int AlcFieldNumber = 10;
     private double alc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Alc {
@@ -1335,6 +1365,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
       if (Trh != other.Trh) return false;
       if (TUR != other.TUR) return false;
       if (Drm != other.Drm) return false;
@@ -1350,6 +1381,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
       if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (Drm.Length != 0) hash ^= Drm.GetHashCode();
@@ -1381,27 +1413,31 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (Trh != 0L) {
+      if (RowUsr != 0UL) {
         output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (Trh != 0L) {
+        output.WriteRawTag(40);
         output.WriteInt64(Trh);
       }
       if (TUR != 0UL) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt64(TUR);
       }
       if (Drm.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Drm);
       }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (Brc != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(73);
         output.WriteDouble(Brc);
       }
       if (Alc != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Alc);
       }
       if (_unknownFields != null) {
@@ -1420,6 +1456,9 @@ namespace Rest {
       }
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
       }
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
@@ -1458,6 +1497,9 @@ namespace Rest {
       }
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
       }
       if (other.Trh != 0L) {
         Trh = other.Trh;
@@ -1503,29 +1545,33 @@ namespace Rest {
             break;
           }
           case 32: {
-            Trh = input.ReadInt64();
+            RowUsr = input.ReadUInt64();
             break;
           }
           case 40: {
+            Trh = input.ReadInt64();
+            break;
+          }
+          case 48: {
             TUR = input.ReadUInt64();
             break;
           }
-          case 50: {
+          case 58: {
             Drm = input.ReadString();
             break;
           }
-          case 58: {
+          case 66: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
             }
             break;
           }
-          case 65: {
+          case 73: {
             Brc = input.ReadDouble();
             break;
           }
-          case 73: {
+          case 81: {
             Alc = input.ReadDouble();
             break;
           }
@@ -1566,6 +1612,7 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
       aFB_ = other.aFB_;
       aHP_ = other.aHP_;
       Info = other.Info;
@@ -1617,8 +1664,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
     /// <summary>Field number for the "AFB" field.</summary>
-    public const int AFBFieldNumber = 4;
+    public const int AFBFieldNumber = 5;
     private ulong aFB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong AFB {
@@ -1629,7 +1687,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "AHP" field.</summary>
-    public const int AHPFieldNumber = 5;
+    public const int AHPFieldNumber = 6;
     private ulong aHP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong AHP {
@@ -1640,8 +1698,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 6;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(50);
+    public const int InfoFieldNumber = 7;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(58);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -1652,7 +1710,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Tut" field.</summary>
-    public const int TutFieldNumber = 7;
+    public const int TutFieldNumber = 8;
     private double tut_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Tut {
@@ -1663,7 +1721,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "DVT" field.</summary>
-    public const int DVTFieldNumber = 8;
+    public const int DVTFieldNumber = 9;
     private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong DVT {
@@ -1674,7 +1732,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Kur" field.</summary>
-    public const int KurFieldNumber = 9;
+    public const int KurFieldNumber = 10;
     private float kur_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Kur {
@@ -1685,7 +1743,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TutTL" field.</summary>
-    public const int TutTLFieldNumber = 10;
+    public const int TutTLFieldNumber = 11;
     private double tutTL_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double TutTL {
@@ -1711,6 +1769,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
       if (AFB != other.AFB) return false;
       if (AHP != other.AHP) return false;
       if (Info != other.Info) return false;
@@ -1727,6 +1786,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (AFB != 0UL) hash ^= AFB.GetHashCode();
       if (AHP != 0UL) hash ^= AHP.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
@@ -1759,31 +1819,35 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (AFB != 0UL) {
+      if (RowUsr != 0UL) {
         output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (AFB != 0UL) {
+        output.WriteRawTag(40);
         output.WriteUInt64(AFB);
       }
       if (AHP != 0UL) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt64(AHP);
       }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (Tut != 0D) {
-        output.WriteRawTag(57);
+        output.WriteRawTag(65);
         output.WriteDouble(Tut);
       }
       if (DVT != 0UL) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
-        output.WriteRawTag(77);
+        output.WriteRawTag(85);
         output.WriteFloat(Kur);
       }
       if (TutTL != 0D) {
-        output.WriteRawTag(81);
+        output.WriteRawTag(89);
         output.WriteDouble(TutTL);
       }
       if (_unknownFields != null) {
@@ -1802,6 +1866,9 @@ namespace Rest {
       }
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
       }
       if (AFB != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AFB);
@@ -1843,6 +1910,9 @@ namespace Rest {
       }
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
       }
       if (other.AFB != 0UL) {
         AFB = other.AFB;
@@ -1891,33 +1961,37 @@ namespace Rest {
             break;
           }
           case 32: {
-            AFB = input.ReadUInt64();
+            RowUsr = input.ReadUInt64();
             break;
           }
           case 40: {
+            AFB = input.ReadUInt64();
+            break;
+          }
+          case 48: {
             AHP = input.ReadUInt64();
             break;
           }
-          case 50: {
+          case 58: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
             }
             break;
           }
-          case 57: {
+          case 65: {
             Tut = input.ReadDouble();
             break;
           }
-          case 64: {
+          case 72: {
             DVT = input.ReadUInt64();
             break;
           }
-          case 77: {
+          case 85: {
             Kur = input.ReadFloat();
             break;
           }
-          case 81: {
+          case 89: {
             TutTL = input.ReadDouble();
             break;
           }
@@ -1958,6 +2032,7 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
       trh_ = other.trh_;
       tUR_ = other.tUR_;
       drm_ = other.drm_;
@@ -2011,8 +2086,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Trh" field.</summary>
-    public const int TrhFieldNumber = 4;
+    public const int TrhFieldNumber = 5;
     private long trh_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Trh {
@@ -2023,7 +2109,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TUR" field.</summary>
-    public const int TURFieldNumber = 5;
+    public const int TURFieldNumber = 6;
     private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong TUR {
@@ -2034,7 +2120,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Drm" field.</summary>
-    public const int DrmFieldNumber = 6;
+    public const int DrmFieldNumber = 7;
     private string drm_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Drm {
@@ -2045,7 +2131,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "KKK" field.</summary>
-    public const int KKKFieldNumber = 7;
+    public const int KKKFieldNumber = 8;
     private ulong kKK_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong KKK {
@@ -2056,7 +2142,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "BA" field.</summary>
-    public const int BAFieldNumber = 8;
+    public const int BAFieldNumber = 9;
     private string bA_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BA {
@@ -2067,7 +2153,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "DVT" field.</summary>
-    public const int DVTFieldNumber = 9;
+    public const int DVTFieldNumber = 10;
     private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong DVT {
@@ -2078,7 +2164,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Kur" field.</summary>
-    public const int KurFieldNumber = 10;
+    public const int KurFieldNumber = 11;
     private float kur_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Kur {
@@ -2089,7 +2175,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Tut" field.</summary>
-    public const int TutFieldNumber = 11;
+    public const int TutFieldNumber = 12;
     private double tut_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Tut {
@@ -2100,8 +2186,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 12;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(98);
+    public const int InfoFieldNumber = 13;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(106);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -2127,6 +2213,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
       if (Trh != other.Trh) return false;
       if (TUR != other.TUR) return false;
       if (Drm != other.Drm) return false;
@@ -2145,6 +2232,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
       if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (Drm.Length != 0) hash ^= Drm.GetHashCode();
@@ -2179,36 +2267,40 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (Trh != 0L) {
+      if (RowUsr != 0UL) {
         output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (Trh != 0L) {
+        output.WriteRawTag(40);
         output.WriteInt64(Trh);
       }
       if (TUR != 0UL) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt64(TUR);
       }
       if (Drm.Length != 0) {
-        output.WriteRawTag(50);
+        output.WriteRawTag(58);
         output.WriteString(Drm);
       }
       if (KKK != 0UL) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(64);
         output.WriteUInt64(KKK);
       }
       if (BA.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(74);
         output.WriteString(BA);
       }
       if (DVT != 0UL) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(80);
         output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
-        output.WriteRawTag(85);
+        output.WriteRawTag(93);
         output.WriteFloat(Kur);
       }
       if (Tut != 0D) {
-        output.WriteRawTag(89);
+        output.WriteRawTag(97);
         output.WriteDouble(Tut);
       }
       if (info_ != null) {
@@ -2230,6 +2322,9 @@ namespace Rest {
       }
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
       }
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
@@ -2277,6 +2372,9 @@ namespace Rest {
       }
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
       }
       if (other.Trh != 0L) {
         Trh = other.Trh;
@@ -2331,38 +2429,42 @@ namespace Rest {
             break;
           }
           case 32: {
-            Trh = input.ReadInt64();
+            RowUsr = input.ReadUInt64();
             break;
           }
           case 40: {
+            Trh = input.ReadInt64();
+            break;
+          }
+          case 48: {
             TUR = input.ReadUInt64();
             break;
           }
-          case 50: {
+          case 58: {
             Drm = input.ReadString();
             break;
           }
-          case 56: {
+          case 64: {
             KKK = input.ReadUInt64();
             break;
           }
-          case 66: {
+          case 74: {
             BA = input.ReadString();
             break;
           }
-          case 72: {
+          case 80: {
             DVT = input.ReadUInt64();
             break;
           }
-          case 85: {
+          case 93: {
             Kur = input.ReadFloat();
             break;
           }
-          case 89: {
+          case 97: {
             Tut = input.ReadDouble();
             break;
           }
-          case 98: {
+          case 106: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
@@ -2406,6 +2508,7 @@ namespace Rest {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
       aBB_ = other.aBB_;
       nNN_ = other.nNN_;
       aHP_ = other.aHP_;
@@ -2459,8 +2562,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
     /// <summary>Field number for the "ABB" field.</summary>
-    public const int ABBFieldNumber = 4;
+    public const int ABBFieldNumber = 5;
     private ulong aBB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong ABB {
@@ -2471,7 +2585,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "NNN" field.</summary>
-    public const int NNNFieldNumber = 5;
+    public const int NNNFieldNumber = 6;
     private ulong nNN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong NNN {
@@ -2482,7 +2596,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "AHP" field.</summary>
-    public const int AHPFieldNumber = 6;
+    public const int AHPFieldNumber = 7;
     private ulong aHP_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong AHP {
@@ -2493,7 +2607,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Fyt" field.</summary>
-    public const int FytFieldNumber = 7;
+    public const int FytFieldNumber = 8;
     private double fyt_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Fyt {
@@ -2504,7 +2618,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "DVT" field.</summary>
-    public const int DVTFieldNumber = 8;
+    public const int DVTFieldNumber = 9;
     private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong DVT {
@@ -2515,7 +2629,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Mik" field.</summary>
-    public const int MikFieldNumber = 9;
+    public const int MikFieldNumber = 10;
     private double mik_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Mik {
@@ -2526,7 +2640,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Kur" field.</summary>
-    public const int KurFieldNumber = 10;
+    public const int KurFieldNumber = 11;
     private float kur_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Kur {
@@ -2537,7 +2651,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "KDY" field.</summary>
-    public const int KDYFieldNumber = 11;
+    public const int KDYFieldNumber = 12;
     private float kDY_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float KDY {
@@ -2548,8 +2662,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 12;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(98);
+    public const int InfoFieldNumber = 13;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(106);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -2575,6 +2689,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
       if (ABB != other.ABB) return false;
       if (NNN != other.NNN) return false;
       if (AHP != other.AHP) return false;
@@ -2593,6 +2708,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (ABB != 0UL) hash ^= ABB.GetHashCode();
       if (NNN != 0UL) hash ^= NNN.GetHashCode();
       if (AHP != 0UL) hash ^= AHP.GetHashCode();
@@ -2627,36 +2743,40 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
-      if (ABB != 0UL) {
+      if (RowUsr != 0UL) {
         output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (ABB != 0UL) {
+        output.WriteRawTag(40);
         output.WriteUInt64(ABB);
       }
       if (NNN != 0UL) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt64(NNN);
       }
       if (AHP != 0UL) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteUInt64(AHP);
       }
       if (Fyt != 0D) {
-        output.WriteRawTag(57);
+        output.WriteRawTag(65);
         output.WriteDouble(Fyt);
       }
       if (DVT != 0UL) {
-        output.WriteRawTag(64);
+        output.WriteRawTag(72);
         output.WriteUInt64(DVT);
       }
       if (Mik != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Mik);
       }
       if (Kur != 0F) {
-        output.WriteRawTag(85);
+        output.WriteRawTag(93);
         output.WriteFloat(Kur);
       }
       if (KDY != 0F) {
-        output.WriteRawTag(93);
+        output.WriteRawTag(101);
         output.WriteFloat(KDY);
       }
       if (info_ != null) {
@@ -2678,6 +2798,9 @@ namespace Rest {
       }
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
       }
       if (ABB != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ABB);
@@ -2725,6 +2848,9 @@ namespace Rest {
       }
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
       }
       if (other.ABB != 0UL) {
         ABB = other.ABB;
@@ -2779,38 +2905,42 @@ namespace Rest {
             break;
           }
           case 32: {
-            ABB = input.ReadUInt64();
+            RowUsr = input.ReadUInt64();
             break;
           }
           case 40: {
-            NNN = input.ReadUInt64();
+            ABB = input.ReadUInt64();
             break;
           }
           case 48: {
+            NNN = input.ReadUInt64();
+            break;
+          }
+          case 56: {
             AHP = input.ReadUInt64();
             break;
           }
-          case 57: {
+          case 65: {
             Fyt = input.ReadDouble();
             break;
           }
-          case 64: {
+          case 72: {
             DVT = input.ReadUInt64();
             break;
           }
-          case 73: {
+          case 81: {
             Mik = input.ReadDouble();
             break;
           }
-          case 85: {
+          case 93: {
             Kur = input.ReadFloat();
             break;
           }
-          case 93: {
+          case 101: {
             KDY = input.ReadFloat();
             break;
           }
-          case 98: {
+          case 106: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
@@ -3404,11 +3534,11 @@ namespace Rest {
 
   }
 
-  public sealed partial class KMTproxy : pb::IMessage<KMTproxy> {
-    private static readonly pb::MessageParser<KMTproxy> _parser = new pb::MessageParser<KMTproxy>(() => new KMTproxy());
+  public sealed partial class KFTproxy : pb::IMessage<KFTproxy> {
+    private static readonly pb::MessageParser<KFTproxy> _parser = new pb::MessageParser<KFTproxy>(() => new KFTproxy());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<KMTproxy> Parser { get { return _parser; } }
+    public static pb::MessageParser<KFTproxy> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -3421,17 +3551,18 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public KMTproxy() {
+    public KFTproxy() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public KMTproxy(KMTproxy other) : this() {
+    public KFTproxy(KFTproxy other) : this() {
       rowState_ = other.rowState_;
       rowErr_ = other.rowErr_;
       rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
       Ad = other.Ad;
       tUR_ = other.tUR_;
       Tel = other.Tel;
@@ -3444,8 +3575,8 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public KMTproxy Clone() {
-      return new KMTproxy(this);
+    public KFTproxy Clone() {
+      return new KFTproxy(this);
     }
 
     /// <summary>Field number for the "row_state" field.</summary>
@@ -3484,9 +3615,20 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Ad" field.</summary>
-    public const int AdFieldNumber = 4;
-    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(34);
+    public const int AdFieldNumber = 5;
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(42);
     private string ad_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Ad {
@@ -3497,7 +3639,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TUR" field.</summary>
-    public const int TURFieldNumber = 5;
+    public const int TURFieldNumber = 6;
     private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong TUR {
@@ -3508,8 +3650,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Tel" field.</summary>
-    public const int TelFieldNumber = 6;
-    private static readonly pb::FieldCodec<string> _single_tel_codec = pb::FieldCodec.ForClassWrapper<string>(50);
+    public const int TelFieldNumber = 7;
+    private static readonly pb::FieldCodec<string> _single_tel_codec = pb::FieldCodec.ForClassWrapper<string>(58);
     private string tel_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Tel {
@@ -3520,8 +3662,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Adres" field.</summary>
-    public const int AdresFieldNumber = 7;
-    private static readonly pb::FieldCodec<string> _single_adres_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    public const int AdresFieldNumber = 8;
+    private static readonly pb::FieldCodec<string> _single_adres_codec = pb::FieldCodec.ForClassWrapper<string>(66);
     private string adres_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Adres {
@@ -3532,8 +3674,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Sorumlu" field.</summary>
-    public const int SorumluFieldNumber = 8;
-    private static readonly pb::FieldCodec<string> _single_sorumlu_codec = pb::FieldCodec.ForClassWrapper<string>(66);
+    public const int SorumluFieldNumber = 9;
+    private static readonly pb::FieldCodec<string> _single_sorumlu_codec = pb::FieldCodec.ForClassWrapper<string>(74);
     private string sorumlu_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Sorumlu {
@@ -3544,8 +3686,8 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "VrgDN" field.</summary>
-    public const int VrgDNFieldNumber = 9;
-    private static readonly pb::FieldCodec<string> _single_vrgDN_codec = pb::FieldCodec.ForClassWrapper<string>(74);
+    public const int VrgDNFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _single_vrgDN_codec = pb::FieldCodec.ForClassWrapper<string>(82);
     private string vrgDN_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string VrgDN {
@@ -3556,7 +3698,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "AHPbrc" field.</summary>
-    public const int AHPbrcFieldNumber = 10;
+    public const int AHPbrcFieldNumber = 11;
     private ulong aHPbrc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong AHPbrc {
@@ -3567,7 +3709,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "AHPalc" field.</summary>
-    public const int AHPalcFieldNumber = 11;
+    public const int AHPalcFieldNumber = 12;
     private ulong aHPalc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong AHPalc {
@@ -3579,11 +3721,11 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as KMTproxy);
+      return Equals(other as KFTproxy);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(KMTproxy other) {
+    public bool Equals(KFTproxy other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -3593,6 +3735,7 @@ namespace Rest {
       if (RowState != other.RowState) return false;
       if (RowErr != other.RowErr) return false;
       if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
       if (Ad != other.Ad) return false;
       if (TUR != other.TUR) return false;
       if (Tel != other.Tel) return false;
@@ -3610,6 +3753,7 @@ namespace Rest {
       if (RowState.Length != 0) hash ^= RowState.GetHashCode();
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (ad_ != null) hash ^= Ad.GetHashCode();
       if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (tel_ != null) hash ^= Tel.GetHashCode();
@@ -3643,11 +3787,15 @@ namespace Rest {
         output.WriteRawTag(24);
         output.WriteUInt64(RowPk);
       }
+      if (RowUsr != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
       if (ad_ != null) {
         _single_ad_codec.WriteTagAndValue(output, Ad);
       }
       if (TUR != 0UL) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(48);
         output.WriteUInt64(TUR);
       }
       if (tel_ != null) {
@@ -3663,11 +3811,11 @@ namespace Rest {
         _single_vrgDN_codec.WriteTagAndValue(output, VrgDN);
       }
       if (AHPbrc != 0UL) {
-        output.WriteRawTag(80);
+        output.WriteRawTag(88);
         output.WriteUInt64(AHPbrc);
       }
       if (AHPalc != 0UL) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(96);
         output.WriteUInt64(AHPalc);
       }
       if (_unknownFields != null) {
@@ -3686,6 +3834,9 @@ namespace Rest {
       }
       if (RowPk != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
       }
       if (ad_ != null) {
         size += _single_ad_codec.CalculateSizeWithTag(Ad);
@@ -3718,7 +3869,7 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(KMTproxy other) {
+    public void MergeFrom(KFTproxy other) {
       if (other == null) {
         return;
       }
@@ -3730,6 +3881,9 @@ namespace Rest {
       }
       if (other.RowPk != 0UL) {
         RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
       }
       if (other.ad_ != null) {
         if (ad_ == null || other.Ad != "") {
@@ -3788,51 +3942,880 @@ namespace Rest {
             RowPk = input.ReadUInt64();
             break;
           }
-          case 34: {
+          case 32: {
+            RowUsr = input.ReadUInt64();
+            break;
+          }
+          case 42: {
             string value = _single_ad_codec.Read(input);
             if (ad_ == null || value != "") {
               Ad = value;
             }
             break;
           }
-          case 40: {
+          case 48: {
             TUR = input.ReadUInt64();
             break;
           }
-          case 50: {
+          case 58: {
             string value = _single_tel_codec.Read(input);
             if (tel_ == null || value != "") {
               Tel = value;
             }
             break;
           }
-          case 58: {
+          case 66: {
             string value = _single_adres_codec.Read(input);
             if (adres_ == null || value != "") {
               Adres = value;
             }
             break;
           }
-          case 66: {
+          case 74: {
             string value = _single_sorumlu_codec.Read(input);
             if (sorumlu_ == null || value != "") {
               Sorumlu = value;
             }
             break;
           }
-          case 74: {
+          case 82: {
             string value = _single_vrgDN_codec.Read(input);
             if (vrgDN_ == null || value != "") {
               VrgDN = value;
             }
             break;
           }
-          case 80: {
+          case 88: {
             AHPbrc = input.ReadUInt64();
             break;
           }
-          case 88: {
+          case 96: {
             AHPalc = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// User
+  /// </summary>
+  public sealed partial class UUUproxy : pb::IMessage<UUUproxy> {
+    private static readonly pb::MessageParser<UUUproxy> _parser = new pb::MessageParser<UUUproxy>(() => new UUUproxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UUUproxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.RestReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UUUproxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UUUproxy(UUUproxy other) : this() {
+      rowState_ = other.rowState_;
+      rowErr_ = other.rowErr_;
+      rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
+      uYT_ = other.uYT_;
+      ad_ = other.ad_;
+      pwd_ = other.pwd_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UUUproxy Clone() {
+      return new UUUproxy(this);
+    }
+
+    /// <summary>Field number for the "row_state" field.</summary>
+    public const int RowStateFieldNumber = 1;
+    private string rowState_ = "";
+    /// <summary>
+    /// Inserted/Modified/Deleted/Unchanged
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowState {
+      get { return rowState_; }
+      set {
+        rowState_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_err" field.</summary>
+    public const int RowErrFieldNumber = 2;
+    private string rowErr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowErr {
+      get { return rowErr_; }
+      set {
+        rowErr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_pk" field.</summary>
+    public const int RowPkFieldNumber = 3;
+    private ulong rowPk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowPk {
+      get { return rowPk_; }
+      set {
+        rowPk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "UYT" field.</summary>
+    public const int UYTFieldNumber = 5;
+    private ulong uYT_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong UYT {
+      get { return uYT_; }
+      set {
+        uYT_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 6;
+    private string ad_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Pwd" field.</summary>
+    public const int PwdFieldNumber = 7;
+    private string pwd_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Pwd {
+      get { return pwd_; }
+      set {
+        pwd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UUUproxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UUUproxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowState != other.RowState) return false;
+      if (RowErr != other.RowErr) return false;
+      if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
+      if (UYT != other.UYT) return false;
+      if (Ad != other.Ad) return false;
+      if (Pwd != other.Pwd) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowState.Length != 0) hash ^= RowState.GetHashCode();
+      if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
+      if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
+      if (UYT != 0UL) hash ^= UYT.GetHashCode();
+      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
+      if (Pwd.Length != 0) hash ^= Pwd.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowState.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RowState);
+      }
+      if (RowErr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RowErr);
+      }
+      if (RowPk != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (UYT != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(UYT);
+      }
+      if (Ad.Length != 0) {
+        output.WriteRawTag(50);
+        output.WriteString(Ad);
+      }
+      if (Pwd.Length != 0) {
+        output.WriteRawTag(58);
+        output.WriteString(Pwd);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowState.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowState);
+      }
+      if (RowErr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowErr);
+      }
+      if (RowPk != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
+      }
+      if (UYT != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(UYT);
+      }
+      if (Ad.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
+      }
+      if (Pwd.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Pwd);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UUUproxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowState.Length != 0) {
+        RowState = other.RowState;
+      }
+      if (other.RowErr.Length != 0) {
+        RowErr = other.RowErr;
+      }
+      if (other.RowPk != 0UL) {
+        RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
+      }
+      if (other.UYT != 0UL) {
+        UYT = other.UYT;
+      }
+      if (other.Ad.Length != 0) {
+        Ad = other.Ad;
+      }
+      if (other.Pwd.Length != 0) {
+        Pwd = other.Pwd;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RowState = input.ReadString();
+            break;
+          }
+          case 18: {
+            RowErr = input.ReadString();
+            break;
+          }
+          case 24: {
+            RowPk = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            RowUsr = input.ReadUInt64();
+            break;
+          }
+          case 40: {
+            UYT = input.ReadUInt64();
+            break;
+          }
+          case 50: {
+            Ad = input.ReadString();
+            break;
+          }
+          case 58: {
+            Pwd = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// UserYetkiTanimlari
+  /// </summary>
+  public sealed partial class UYTproxy : pb::IMessage<UYTproxy> {
+    private static readonly pb::MessageParser<UYTproxy> _parser = new pb::MessageParser<UYTproxy>(() => new UYTproxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UYTproxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.RestReflection.Descriptor.MessageTypes[12]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYTproxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYTproxy(UYTproxy other) : this() {
+      rowState_ = other.rowState_;
+      rowErr_ = other.rowErr_;
+      rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
+      ad_ = other.ad_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYTproxy Clone() {
+      return new UYTproxy(this);
+    }
+
+    /// <summary>Field number for the "row_state" field.</summary>
+    public const int RowStateFieldNumber = 1;
+    private string rowState_ = "";
+    /// <summary>
+    /// Inserted/Modified/Deleted/Unchanged
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowState {
+      get { return rowState_; }
+      set {
+        rowState_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_err" field.</summary>
+    public const int RowErrFieldNumber = 2;
+    private string rowErr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowErr {
+      get { return rowErr_; }
+      set {
+        rowErr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_pk" field.</summary>
+    public const int RowPkFieldNumber = 3;
+    private ulong rowPk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowPk {
+      get { return rowPk_; }
+      set {
+        rowPk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 5;
+    private string ad_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UYTproxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UYTproxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowState != other.RowState) return false;
+      if (RowErr != other.RowErr) return false;
+      if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
+      if (Ad != other.Ad) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowState.Length != 0) hash ^= RowState.GetHashCode();
+      if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
+      if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
+      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowState.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RowState);
+      }
+      if (RowErr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RowErr);
+      }
+      if (RowPk != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (Ad.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Ad);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowState.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowState);
+      }
+      if (RowErr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowErr);
+      }
+      if (RowPk != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
+      }
+      if (Ad.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UYTproxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowState.Length != 0) {
+        RowState = other.RowState;
+      }
+      if (other.RowErr.Length != 0) {
+        RowErr = other.RowErr;
+      }
+      if (other.RowPk != 0UL) {
+        RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
+      }
+      if (other.Ad.Length != 0) {
+        Ad = other.Ad;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RowState = input.ReadString();
+            break;
+          }
+          case 18: {
+            RowErr = input.ReadString();
+            break;
+          }
+          case 24: {
+            RowPk = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            RowUsr = input.ReadUInt64();
+            break;
+          }
+          case 42: {
+            Ad = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// UserYetkiHiyerarsi
+  /// </summary>
+  public sealed partial class UYHproxy : pb::IMessage<UYHproxy> {
+    private static readonly pb::MessageParser<UYHproxy> _parser = new pb::MessageParser<UYHproxy>(() => new UYHproxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UYHproxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.RestReflection.Descriptor.MessageTypes[13]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYHproxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYHproxy(UYHproxy other) : this() {
+      rowState_ = other.rowState_;
+      rowErr_ = other.rowErr_;
+      rowPk_ = other.rowPk_;
+      rowUsr_ = other.rowUsr_;
+      p_ = other.p_;
+      k_ = other.k_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UYHproxy Clone() {
+      return new UYHproxy(this);
+    }
+
+    /// <summary>Field number for the "row_state" field.</summary>
+    public const int RowStateFieldNumber = 1;
+    private string rowState_ = "";
+    /// <summary>
+    /// Inserted/Modified/Deleted/Unchanged
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowState {
+      get { return rowState_; }
+      set {
+        rowState_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_err" field.</summary>
+    public const int RowErrFieldNumber = 2;
+    private string rowErr_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string RowErr {
+      get { return rowErr_; }
+      set {
+        rowErr_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "row_pk" field.</summary>
+    public const int RowPkFieldNumber = 3;
+    private ulong rowPk_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowPk {
+      get { return rowPk_; }
+      set {
+        rowPk_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "row_usr" field.</summary>
+    public const int RowUsrFieldNumber = 4;
+    private ulong rowUsr_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowUsr {
+      get { return rowUsr_; }
+      set {
+        rowUsr_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "P" field.</summary>
+    public const int PFieldNumber = 5;
+    private ulong p_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong P {
+      get { return p_; }
+      set {
+        p_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "K" field.</summary>
+    public const int KFieldNumber = 6;
+    private ulong k_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong K {
+      get { return k_; }
+      set {
+        k_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UYHproxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UYHproxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowState != other.RowState) return false;
+      if (RowErr != other.RowErr) return false;
+      if (RowPk != other.RowPk) return false;
+      if (RowUsr != other.RowUsr) return false;
+      if (P != other.P) return false;
+      if (K != other.K) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowState.Length != 0) hash ^= RowState.GetHashCode();
+      if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
+      if (RowPk != 0UL) hash ^= RowPk.GetHashCode();
+      if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
+      if (P != 0UL) hash ^= P.GetHashCode();
+      if (K != 0UL) hash ^= K.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowState.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(RowState);
+      }
+      if (RowErr.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(RowErr);
+      }
+      if (RowPk != 0UL) {
+        output.WriteRawTag(24);
+        output.WriteUInt64(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        output.WriteRawTag(32);
+        output.WriteUInt64(RowUsr);
+      }
+      if (P != 0UL) {
+        output.WriteRawTag(40);
+        output.WriteUInt64(P);
+      }
+      if (K != 0UL) {
+        output.WriteRawTag(48);
+        output.WriteUInt64(K);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowState.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowState);
+      }
+      if (RowErr.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(RowErr);
+      }
+      if (RowPk != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowPk);
+      }
+      if (RowUsr != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowUsr);
+      }
+      if (P != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(P);
+      }
+      if (K != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(K);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UYHproxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowState.Length != 0) {
+        RowState = other.RowState;
+      }
+      if (other.RowErr.Length != 0) {
+        RowErr = other.RowErr;
+      }
+      if (other.RowPk != 0UL) {
+        RowPk = other.RowPk;
+      }
+      if (other.RowUsr != 0UL) {
+        RowUsr = other.RowUsr;
+      }
+      if (other.P != 0UL) {
+        P = other.P;
+      }
+      if (other.K != 0UL) {
+        K = other.K;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            RowState = input.ReadString();
+            break;
+          }
+          case 18: {
+            RowErr = input.ReadString();
+            break;
+          }
+          case 24: {
+            RowPk = input.ReadUInt64();
+            break;
+          }
+          case 32: {
+            RowUsr = input.ReadUInt64();
+            break;
+          }
+          case 40: {
+            P = input.ReadUInt64();
+            break;
+          }
+          case 48: {
+            K = input.ReadUInt64();
             break;
           }
         }

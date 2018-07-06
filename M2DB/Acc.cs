@@ -6,6 +6,13 @@ using Starcounter;
 namespace M2DB
 {
     [Database]
+    public class AKH    // KDV Hesaplari
+    {
+        public string Key { get; set; }     // B/A+KDY   B1, B8, B18, A1, A8, A18
+        public AHP AHP { get; set; }
+    }
+
+    [Database]
     public class AHP // Account: HesapPlani 1toM
     {
         public AHP P { get; set; }     // Parent Hesap
@@ -186,9 +193,9 @@ namespace M2DB
                 afd.AFB = afb;
 
                 if (abb.BA == "B")
-                    afd.AHP = (abb.KKK as KMT).AHPbrc;
+                    afd.AHP = (abb.KKK as KFT).AHPbrc;
                 else
-                    afd.AHP = (abb.KKK as KMT).AHPalc;
+                    afd.AHP = (abb.KKK as KFT).AHPalc;
                 afd.Tut = TopTut;
                 afd.DVT = abb.DVT;
                 afd.Kur = abb.Kur;
@@ -208,7 +215,7 @@ namespace M2DB
         public double Mik { get; set; }
         public XGT DVT { get; set; }
         public float Kur { get; set; }
-        public float KDY { get; set; }
+        public Int16 KDY { get; set; }
         public string Info { get; set; }
 
         public double Tut => Math.Round(Fyt * Mik * (1.0 + KDY), 2);

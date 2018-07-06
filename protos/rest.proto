@@ -44,9 +44,15 @@ service CRUDs {
   rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
   rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
 
-  rpc KMTfill (QryProxy) returns (stream KMTproxy) {}
-  rpc KMTupdate (KMTproxy) returns (KMTproxy) {}
+  rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
+  rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
 
+  rpc UUUfill (QryProxy) returns (stream UUUproxy) {}
+  rpc UUUupdate (UUUproxy) returns (UUUproxy) {}
+  rpc UYTfill (QryProxy) returns (stream UYTproxy) {}
+  rpc UYTupdate (UYTproxy) returns (UYTproxy) {}
+  rpc UYHfill (QryProxy) returns (stream UYHproxy) {}
+  rpc UYHupdate (UYHproxy) returns (UYHproxy) {}
 }
 
 message PKproxy {
@@ -93,13 +99,14 @@ message AFBproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;
+  uint64 row_usr = 4;
 
-  int64 Trh = 4;
-  uint64 TUR = 5;
-  string Drm = 6;
-  google.protobuf.StringValue Info = 7;
-  double Brc = 8;
-  double Alc = 9;
+  int64 Trh = 5;
+  uint64 TUR = 6;
+  string Drm = 7;
+  google.protobuf.StringValue Info = 8;
+  double Brc = 9;
+  double Alc = 10;
 }
 
 // Muhasebe Fis Detaylari
@@ -107,14 +114,15 @@ message AFDproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;
+  uint64 row_usr = 4;
 
-  uint64 AFB = 4;
-  uint64 AHP = 5;
-  google.protobuf.StringValue Info = 6;
-  double Tut = 7;
-  uint64 DVT = 8;
-  float Kur = 9;
-  double TutTL = 10;
+  uint64 AFB = 5;
+  uint64 AHP = 6;
+  google.protobuf.StringValue Info = 7;
+  double Tut = 8;
+  uint64 DVT = 9;
+  float Kur = 10;
+  double TutTL = 11;
 }
 
 // Muhasebe Bill/Fatura Baslik
@@ -122,16 +130,17 @@ message ABBproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;
+  uint64 row_usr = 4;
 
-  int64 Trh = 4;
-  uint64 TUR = 5;
-  string Drm = 6;
-  uint64 KKK = 7;
-  string BA = 8;
-  uint64 DVT = 9;
-  float Kur = 10;
-  double Tut = 11;
-  google.protobuf.StringValue Info = 12;
+  int64 Trh = 5;
+  uint64 TUR = 6;
+  string Drm = 7;
+  uint64 KKK = 8;
+  string BA = 9;
+  uint64 DVT = 10;
+  float Kur = 11;
+  double Tut = 12;
+  google.protobuf.StringValue Info = 13;
 }
 
 // Muhasebe Bill/Fatura Detay
@@ -139,16 +148,17 @@ message ABDproxy {
   string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
   string row_err = 2;
   uint64 row_pk = 3;
+  uint64 row_usr = 4;
 
-  uint64 ABB = 4;
-  uint64 NNN = 5;
-  uint64 AHP = 6;
-  double Fyt = 7;
-  uint64 DVT = 8;
-  double Mik = 9;
-  float Kur = 10;
-  float KDY = 11;
-  google.protobuf.StringValue Info = 12;
+  uint64 ABB = 5;
+  uint64 NNN = 6;
+  uint64 AHP = 7;
+  double Fyt = 8;
+  uint64 DVT = 9;
+  double Mik = 10;
+  float Kur = 11;
+  int16 KDY = 12;
+  google.protobuf.StringValue Info = 13;
 }
 
 // GenelTanimlari
@@ -174,19 +184,52 @@ message XDKproxy {
   string Dvz = 7;
 }
 
-message KMTproxy {
+message KFTproxy {
 	string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
 	string row_err = 2;
 	uint64 row_pk = 3;
+	uint64 row_usr = 4;
 
-	google.protobuf.StringValue Ad = 4;
-	uint64 TUR = 5;
-	google.protobuf.StringValue Tel = 6;
-	google.protobuf.StringValue Adres = 7;
-	google.protobuf.StringValue Sorumlu = 8;
-	google.protobuf.StringValue VrgDN = 9;
-	uint64 AHPbrc = 10;
-	uint64 AHPalc = 11;
+	google.protobuf.StringValue Ad = 5;
+	uint64 TUR = 6;
+	google.protobuf.StringValue Tel = 7;
+	google.protobuf.StringValue Adres = 8;
+	google.protobuf.StringValue Sorumlu = 9;
+	google.protobuf.StringValue VrgDN = 10;
+	uint64 AHPbrc = 11;
+	uint64 AHPalc = 12;
 }
 
+// User
+message UUUproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+  uint64 row_usr = 4;
+
+  uint64 UYT = 5;
+  string Ad = 6;
+  string Pwd = 7;
+}
+
+// UserYetkiTanimlari
+message UYTproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+  uint64 row_usr = 4;
+
+  string Ad = 5;
+}
+
+// UserYetkiHiyerarsi
+message UYHproxy {
+  string row_state = 1;	// Inserted/Modified/Deleted/Unchanged
+  string row_err = 2;
+  uint64 row_pk = 3;
+  uint64 row_usr = 4;
+
+  uint64 P = 5;
+  uint64 K = 6;
+}
 

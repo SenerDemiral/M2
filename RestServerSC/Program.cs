@@ -29,6 +29,7 @@ namespace RestServerSC
             
             M2DB.AccOps.PopAHP();
             M2DB.GnlOps.PopXGT();
+            M2DB.UsrOps.PopUUU();
 
             Db.Transact(() =>
             {

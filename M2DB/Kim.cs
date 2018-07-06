@@ -16,7 +16,7 @@ namespace M2DB
         public string Tel { get; set; }
     }
 
-    public class KMT : KKK   // Kim.Musteri.Tanim
+    public class KFT : KKK   // Kim.Musteri.Tanim
     {
         public string Tel { get; set; }
         public string Adres { get; set; }
@@ -29,7 +29,7 @@ namespace M2DB
 
     public class KMC : KKK   // Kim.Musteri.Contact
     {
-        public KMT KMT { get; set; }
+        public KFT KFT { get; set; }
         public string Tel { get; set; }
         public string KmlNo { get; set; }
         public string TAGs { get; set; }

@@ -86,6 +86,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbbXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbbXF.Designer.cs">
+      <DependentUpon>AbbXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AbdXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AbdXF.Designer.cs">
+      <DependentUpon>AbdXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="AccDataSet.cs">
       <DependentUpon>AccDataSet.xsd</DependentUpon>
     </Compile>
@@ -124,11 +136,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="KmtXF.cs">
+    <Compile Include="KftXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KmtXF.Designer.cs">
-      <DependentUpon>KmtXF.cs</DependentUpon>
+    <Compile Include="KftXF.Designer.cs">
+      <DependentUpon>KftXF.cs</DependentUpon>
     </Compile>
     <Compile Include="MainDataSet.cs">
       <DependentUpon>MainDataSet.xsd</DependentUpon>
@@ -148,12 +160,30 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProxyHelper.cs" />
+    <Compile Include="UuuXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UuuXF.Designer.cs">
+      <DependentUpon>UuuXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UyhXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UyhXF.Designer.cs">
+      <DependentUpon>UyhXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="XdkXF.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XdkXF.Designer.cs">
       <DependentUpon>XdkXF.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AbbXF.resx">
+      <DependentUpon>AbbXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AbdXF.resx">
+      <DependentUpon>AbdXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AfbXF.resx">
       <DependentUpon>AfbXF.cs</DependentUpon>
     </EmbeddedResource>
@@ -169,8 +199,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KmtXF.resx">
-      <DependentUpon>KmtXF.cs</DependentUpon>
+    <EmbeddedResource Include="KftXF.resx">
+      <DependentUpon>KftXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainXF.resx">
       <DependentUpon>MainXF.cs</DependentUpon>
@@ -186,6 +216,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UuuXF.resx">
+      <DependentUpon>UuuXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UyhXF.resx">
+      <DependentUpon>UyhXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XdkXF.resx">
       <DependentUpon>XdkXF.cs</DependentUpon>
     </EmbeddedResource>

@@ -11,16 +11,16 @@ using DevExpress.XtraEditors;
 
 namespace RestClientWinForm
 {
-    public partial class KmtXF : DevExpress.XtraEditors.XtraForm
+    public partial class KftXF : DevExpress.XtraEditors.XtraForm
     {
         private object ObjTur;  // KimTur Musteri
 
-        public KmtXF()
+        public KftXF()
         {
             InitializeComponent();
 
-            kmtGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colTUR.ColumnEdit = Program.MF.KmtTurRepositoryItemLookUpEdit;
+            kftGridControl.ExternalRepository = Program.MF.persistentRepository;
+            colTUR.ColumnEdit = Program.MF.KftTurRepositoryItemLookUpEdit;
             colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
             colAHPalc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
 
@@ -38,18 +38,18 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            kmtGridControl.DataSource = null;
-            mainDataSet.KMT.Clear();
-            Task.Run(async () => { res = await mainDataSet.KMTfill(); }).Wait();
+            kftGridControl.DataSource = null;
+            mainDataSet.KFT.Clear();
+            Task.Run(async () => { res = await mainDataSet.KFTfill(); }).Wait();
             toolStripStatusLabel1.Text = res;
-            kmtGridControl.DataSource = kmtBindingSource;
+            kftGridControl.DataSource = kftBindingSource;
         }
 
         private DialogResult UpdateDB()
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            kmtBindingSource.EndEdit();
+            kftBindingSource.EndEdit();
 
             gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
@@ -65,7 +65,7 @@ namespace RestClientWinForm
                 dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = mainDataSet.KMTupdate();
+                    string err = mainDataSet.KFTupdate();
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);
@@ -96,7 +96,7 @@ namespace RestClientWinForm
         {
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
-            mainDataSet.KMT.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+            mainDataSet.KFT.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)

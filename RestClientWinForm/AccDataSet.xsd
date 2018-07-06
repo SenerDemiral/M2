@@ -64,6 +64,7 @@
               <xs:element name="TUR" msprop:Generator_ColumnVarNameInTable="columnTUR" msprop:Generator_ColumnPropNameInRow="TUR" msprop:Generator_ColumnPropNameInTable="TURColumn" msprop:Generator_UserColumnName="TUR" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="KKK" msprop:Generator_ColumnVarNameInTable="columnKKK" msprop:Generator_ColumnPropNameInRow="KKK" msprop:Generator_ColumnPropNameInTable="KKKColumn" msprop:Generator_UserColumnName="KKK" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="BA" msprop:Generator_ColumnVarNameInTable="columnBA" msprop:Generator_ColumnPropNameInRow="BA" msprop:Generator_ColumnPropNameInTable="BAColumn" msprop:Generator_UserColumnName="BA" type="xs:string" minOccurs="0" />
+              <xs:element name="DVT" msprop:Generator_ColumnVarNameInTable="columnDVT" msprop:Generator_ColumnPropNameInRow="DVT" msprop:Generator_ColumnPropNameInTable="DVTColumn" msprop:Generator_UserColumnName="DVT" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="Kur" msprop:Generator_ColumnVarNameInTable="columnKur" msprop:Generator_ColumnPropNameInRow="Kur" msprop:Generator_ColumnPropNameInTable="KurColumn" msprop:Generator_UserColumnName="Kur" type="xs:float" minOccurs="0" />
               <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
               <xs:element name="Tut" msprop:Generator_ColumnVarNameInTable="columnTut" msprop:Generator_ColumnPropNameInRow="Tut" msprop:Generator_ColumnPropNameInTable="TutColumn" msprop:Generator_UserColumnName="Tut" type="xs:double" minOccurs="0" />
@@ -81,7 +82,7 @@
               <xs:element name="Fyt" msprop:Generator_ColumnVarNameInTable="columnFyt" msprop:Generator_ColumnPropNameInRow="Fyt" msprop:Generator_ColumnPropNameInTable="FytColumn" msprop:Generator_UserColumnName="Fyt" type="xs:double" minOccurs="0" />
               <xs:element name="Mik" msprop:Generator_ColumnVarNameInTable="columnMik" msprop:Generator_ColumnPropNameInRow="Mik" msprop:Generator_ColumnPropNameInTable="MikColumn" msprop:Generator_UserColumnName="Mik" type="xs:double" minOccurs="0" />
               <xs:element name="Kur" msprop:Generator_ColumnVarNameInTable="columnKur" msprop:Generator_ColumnPropNameInRow="Kur" msprop:Generator_ColumnPropNameInTable="KurColumn" msprop:Generator_UserColumnName="Kur" type="xs:float" minOccurs="0" />
-              <xs:element name="KDY" msprop:Generator_ColumnVarNameInTable="columnKDY" msprop:Generator_ColumnPropNameInRow="KDY" msprop:Generator_ColumnPropNameInTable="KDYColumn" msprop:Generator_UserColumnName="KDY" type="xs:float" minOccurs="0" />
+              <xs:element name="KDY" msprop:Generator_ColumnVarNameInTable="columnKDY" msprop:Generator_ColumnPropNameInRow="KDY" msprop:Generator_ColumnPropNameInTable="KDYColumn" msprop:Generator_UserColumnName="KDY" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

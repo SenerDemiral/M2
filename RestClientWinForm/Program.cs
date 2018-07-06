@@ -13,7 +13,7 @@ namespace RestClientWinForm
         /// The main entry point for the application.
         /// </summary>
         /// 
-        public static ulong ObjUsr = 0;
+        public static ulong ObjUsr = 262;
         public static MainXF MF;
         [STAThread]
         static void Main()

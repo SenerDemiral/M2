@@ -13,38 +13,35 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace RestClientWinForm
 {
-    public partial class AfdXF : DevExpress.XtraEditors.XtraForm
+    public partial class AbdXF : DevExpress.XtraEditors.XtraForm
     {
-        public object ObjAFB = (ulong)469;
-        public AccDataSet.AFBRow AFBRow;
+        public object ObjABB = (ulong)469;
+        public AccDataSet.ABBRow ABBRow;
         public bool readOnly = true;
         private object ObjDvzTRL;
 
-
-        public AfdXF()
+        public AbdXF()
         {
             InitializeComponent();
 
-            afdGridControl.ExternalRepository = Program.MF.persistentRepository;
+            abdGridControl.ExternalRepository = Program.MF.persistentRepository;
             //colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
-            colAHP.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
-            colDVT.ColumnEdit = Program.MF.DVTrepositoryItemLookUpEdit;
         }
 
-        private void AfdXF_Load(object sender, EventArgs e)
+        private void AbdXF_Load(object sender, EventArgs e)
         {
-            ObjAFB = AFBRow.RowPk;
+            ObjABB = ABBRow.RowPk;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
-                afdBindingNavigator.Enabled = !readOnly;
+                abdBindingNavigator.Enabled = !readOnly;
                 Text += " Kapalı";
             }
 
             QryProxy qp = new QryProxy
             {
                 Query = "Trh",
-                Param = AFBRow.Trh.Ticks.ToString(),
+                Param = ABBRow.Trh.Ticks.ToString(),
             };
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
@@ -54,7 +51,7 @@ namespace RestClientWinForm
             FillDB();
         }
 
-        private void AfdXF_FormClosing(object sender, FormClosingEventArgs e)
+        private void AbdXF_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (readOnly)
                 return;
@@ -69,18 +66,18 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            afdGridControl.DataSource = null;
+            abdGridControl.DataSource = null;
             accDataSet.AFD.Clear();
-            Task.Run(async () => { res = await accDataSet.AFDfill((ulong)ObjAFB); }).Wait();
+            Task.Run(async () => { res = await accDataSet.ABDfill((ulong)ObjABB); }).Wait();
             toolStripStatusLabel1.Text = res;
-            afdGridControl.DataSource = afdBindingSource;
+            abdGridControl.DataSource = abdBindingSource;
         }
 
         private DialogResult UpdateDB()
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            afdBindingSource.EndEdit();
+            abdBindingSource.EndEdit();
 
             gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
@@ -138,57 +135,16 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowPk, 0);
-            gridView1.SetFocusedRowCellValue(colAFB, ObjAFB);
+            gridView1.SetFocusedRowCellValue(colABB, ObjABB);
             gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
-            gridView1.SetFocusedRowCellValue(colTut, 0.0);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
         }
 
-        private void DVTrepositoryItemLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
         {
-            var editValue = (sender as LookUpEdit).EditValue;
-            var oldEditValue = (sender as LookUpEdit).OldEditValue;
-            if (editValue != oldEditValue)
-            {
-                DataRowView drv = (DataRowView)(sender as LookUpEdit).GetSelectedDataRow();
-                gridView1.SetFocusedRowCellValue(colKur, drv.Row["Kur"]);
-
-                // Bu da calisiyor
-                //DataRow[] xdkRows = mainDataSet.XDK.Select($"ObjDvz = {editValue}");
-                //gridView1.SetFocusedRowCellValue(colKur, xdkRows[0]["Kur"]);
-
-                ///ComputeRow();
-            }
-        }
-
-        private void gridView1_HiddenEditor(object sender, EventArgs e)
-        {
-            ComputeRow();
-        }
-
-        private void ComputeRow()
-        {
-            object tut = gridView1.GetFocusedRowCellValue(colTut);
-            object kur = gridView1.GetFocusedRowCellValue(colKur);
-            if (tut != DBNull.Value && kur != DBNull.Value)
-            {
-                double tutTL = Math.Round((double)tut * (float)kur, 2);
-                gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
-                //gridView1.PostEditor();
-                gridView1.UpdateCurrentRow();
-                gridView1.UpdateSummary();
-            }
-        }
-
-        private void gridView1_CustomDrawFooterCell(object sender, DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventArgs e)
-        {
-            if (e.Info != null)
-            {
-                if (e.Column.FieldName == "TutTL" && (double)e.Info?.Value < 0)
-                {
-                    e.Appearance.ForeColor = Color.MediumVioletRed;
-                }
-            }
+            GridView View = sender as GridView;
+            if (View.GetFocusedRowCellDisplayText(colDVT) == "TRL" && View.FocusedColumn == colKur)
+                e.Cancel = true;
         }
 
         private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
@@ -209,20 +165,49 @@ namespace RestClientWinForm
             if (View.GetRowCellDisplayText(e.RowHandle, colDVT) == "TRL")
             {
                 View.SetRowCellValue(e.RowHandle, colKur, 1.0);
-                View.SetRowCellValue(e.RowHandle, colTutTL, View.GetRowCellValue(e.RowHandle, colTut));
+                //View.SetRowCellValue(e.RowHandle, colTutTL, View.GetRowCellValue(e.RowHandle, colTut));
             }
         }
 
-        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        private void gridView1_HiddenEditor(object sender, EventArgs e)
         {
-            GridView View = sender as GridView;
-            if (View.GetFocusedRowCellDisplayText(colDVT) == "TRL" && View.FocusedColumn == colKur)
-                e.Cancel = true;
+            ComputeRow();
         }
 
-        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ComputeRow()
         {
-            addToolStripButton.PerformClick();
+            /*
+            object tut = gridView1.GetFocusedRowCellValue(colTut);
+            object kur = gridView1.GetFocusedRowCellValue(colKur);
+            if (tut != DBNull.Value && kur != DBNull.Value)
+            {
+                double tutTL = Math.Round((double)tut * (float)kur, 2);
+                gridView1.SetFocusedRowCellValue(colTutTL, tutTL);
+                //gridView1.PostEditor();
+                gridView1.UpdateCurrentRow();
+                gridView1.UpdateSummary();
+            }
+            */
         }
+
+        private void DVTrepositoryItemLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
+        {
+            var editValue = (sender as LookUpEdit).EditValue;
+            var oldEditValue = (sender as LookUpEdit).OldEditValue;
+            if (editValue != oldEditValue)
+            {
+                DataRowView drv = (DataRowView)(sender as LookUpEdit).GetSelectedDataRow();
+                gridView1.SetFocusedRowCellValue(colKur, drv.Row["Kur"]);
+
+                // Bu da calisiyor
+                //DataRow[] xdkRows = mainDataSet.XDK.Select($"ObjDvz = {editValue}");
+                //gridView1.SetFocusedRowCellValue(colKur, xdkRows[0]["Kur"]);
+
+                ///ComputeRow();
+            }
+        }
+
+
+
     }
 }
