@@ -40,7 +40,7 @@
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.xdkGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -157,7 +157,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colKey,
             this.colDVT,
             this.colTrh,
             this.colKur});
@@ -165,13 +165,13 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
             // 
-            // colRowPk
+            // colKey
             // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.OptionsColumn.ReadOnly = true;
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
+            this.colKey.FieldName = "Key";
+            this.colKey.Name = "colKey";
+            this.colKey.OptionsColumn.ReadOnly = true;
+            this.colKey.Visible = true;
+            this.colKey.VisibleIndex = 0;
             // 
             // colDVT
             // 
@@ -262,7 +262,7 @@
         private System.Windows.Forms.BindingNavigator xdkBindingNavigator;
         private DevExpress.XtraGrid.GridControl xdkGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colKey;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;

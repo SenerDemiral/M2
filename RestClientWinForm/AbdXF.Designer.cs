@@ -40,14 +40,7 @@
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abdGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colABB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNNN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -56,15 +49,25 @@
             this.colMik = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKDY = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.mainDataSet = new RestClientWinForm.MainDataSet();
-            this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mainDataSet = new RestClientWinForm.MainDataSet();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abdBindingNavigator)).BeginInit();
             this.abdBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abdGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -72,9 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // accDataSet
@@ -174,11 +174,12 @@
             this.abdGridControl.TabIndex = 2;
             this.abdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.abdGridControl.Click += new System.EventHandler(this.abdGridControl_Click);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colRowKey,
             this.colABB,
             this.colNNN,
             this.colAHP,
@@ -190,6 +191,90 @@
             this.gridView1.GridControl = this.abdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
+            // 
+            // colRowKey
+            // 
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 0;
+            // 
+            // colABB
+            // 
+            this.colABB.FieldName = "ABB";
+            this.colABB.Name = "colABB";
+            this.colABB.Visible = true;
+            this.colABB.VisibleIndex = 1;
+            // 
+            // colNNN
+            // 
+            this.colNNN.FieldName = "NNN";
+            this.colNNN.Name = "colNNN";
+            this.colNNN.Visible = true;
+            this.colNNN.VisibleIndex = 2;
+            // 
+            // colAHP
+            // 
+            this.colAHP.FieldName = "AHP";
+            this.colAHP.Name = "colAHP";
+            this.colAHP.Visible = true;
+            this.colAHP.VisibleIndex = 3;
+            // 
+            // colDVT
+            // 
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 4;
+            // 
+            // colFyt
+            // 
+            this.colFyt.FieldName = "Fyt";
+            this.colFyt.Name = "colFyt";
+            this.colFyt.Visible = true;
+            this.colFyt.VisibleIndex = 5;
+            // 
+            // colMik
+            // 
+            this.colMik.FieldName = "Mik";
+            this.colMik.Name = "colMik";
+            this.colMik.Visible = true;
+            this.colMik.VisibleIndex = 6;
+            // 
+            // colKur
+            // 
+            this.colKur.FieldName = "Kur";
+            this.colKur.Name = "colKur";
+            this.colKur.Visible = true;
+            this.colKur.VisibleIndex = 7;
+            // 
+            // colKDY
+            // 
+            this.colKDY.FieldName = "KDY";
+            this.colKDY.Name = "colKDY";
+            this.colKDY.Visible = true;
+            this.colKDY.VisibleIndex = 8;
+            // 
+            // DVTrepositoryItemLookUpEdit
+            // 
+            this.DVTrepositoryItemLookUpEdit.AutoHeight = false;
+            this.DVTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.DVTrepositoryItemLookUpEdit.DataSource = this.xdkBindingSource;
+            this.DVTrepositoryItemLookUpEdit.DisplayMember = "Dvz";
+            this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
+            this.DVTrepositoryItemLookUpEdit.ValueMember = "DVT";
+            this.DVTrepositoryItemLookUpEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DVTrepositoryItemLookUpEdit_Closed);
+            // 
+            // xdkBindingSource
+            // 
+            this.xdkBindingSource.DataMember = "XDK";
+            this.xdkBindingSource.DataSource = this.mainDataSet;
+            // 
+            // mainDataSet
+            // 
+            this.mainDataSet.DataSetName = "MainDataSet";
+            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // statusStrip1
             // 
@@ -262,90 +347,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colRowPk
-            // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
-            // 
-            // colABB
-            // 
-            this.colABB.FieldName = "ABB";
-            this.colABB.Name = "colABB";
-            this.colABB.Visible = true;
-            this.colABB.VisibleIndex = 1;
-            // 
-            // colNNN
-            // 
-            this.colNNN.FieldName = "NNN";
-            this.colNNN.Name = "colNNN";
-            this.colNNN.Visible = true;
-            this.colNNN.VisibleIndex = 2;
-            // 
-            // colAHP
-            // 
-            this.colAHP.FieldName = "AHP";
-            this.colAHP.Name = "colAHP";
-            this.colAHP.Visible = true;
-            this.colAHP.VisibleIndex = 3;
-            // 
-            // colDVT
-            // 
-            this.colDVT.FieldName = "DVT";
-            this.colDVT.Name = "colDVT";
-            this.colDVT.Visible = true;
-            this.colDVT.VisibleIndex = 4;
-            // 
-            // colFyt
-            // 
-            this.colFyt.FieldName = "Fyt";
-            this.colFyt.Name = "colFyt";
-            this.colFyt.Visible = true;
-            this.colFyt.VisibleIndex = 5;
-            // 
-            // colMik
-            // 
-            this.colMik.FieldName = "Mik";
-            this.colMik.Name = "colMik";
-            this.colMik.Visible = true;
-            this.colMik.VisibleIndex = 6;
-            // 
-            // colKur
-            // 
-            this.colKur.FieldName = "Kur";
-            this.colKur.Name = "colKur";
-            this.colKur.Visible = true;
-            this.colKur.VisibleIndex = 7;
-            // 
-            // colKDY
-            // 
-            this.colKDY.FieldName = "KDY";
-            this.colKDY.Name = "colKDY";
-            this.colKDY.Visible = true;
-            this.colKDY.VisibleIndex = 8;
-            // 
-            // mainDataSet
-            // 
-            this.mainDataSet.DataSetName = "MainDataSet";
-            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // xdkBindingSource
-            // 
-            this.xdkBindingSource.DataMember = "XDK";
-            this.xdkBindingSource.DataSource = this.mainDataSet;
-            // 
-            // DVTrepositoryItemLookUpEdit
-            // 
-            this.DVTrepositoryItemLookUpEdit.AutoHeight = false;
-            this.DVTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DVTrepositoryItemLookUpEdit.DataSource = this.xdkBindingSource;
-            this.DVTrepositoryItemLookUpEdit.DisplayMember = "Dvz";
-            this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
-            this.DVTrepositoryItemLookUpEdit.ValueMember = "DVT";
-            this.DVTrepositoryItemLookUpEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DVTrepositoryItemLookUpEdit_Closed);
-            // 
             // AbdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,6 +362,9 @@
             this.abdBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abdGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -369,9 +373,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -395,7 +396,7 @@
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colABB;
         private DevExpress.XtraGrid.Columns.GridColumn colNNN;
         private DevExpress.XtraGrid.Columns.GridColumn colAHP;

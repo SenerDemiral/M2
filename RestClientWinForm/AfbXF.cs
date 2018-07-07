@@ -72,7 +72,7 @@ namespace RestClientWinForm
 
         private DialogResult UpdateDB(bool silent = false)
         {
-            gridView1.PostEditor();
+            gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
             DialogResult dr = DialogResult.Yes;
             if (accDataSet.HasChanges())
@@ -82,6 +82,7 @@ namespace RestClientWinForm
                 if (dr == DialogResult.Yes)
                 {
                     string err = accDataSet.AFBupdate();
+                    gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);
@@ -171,7 +172,7 @@ namespace RestClientWinForm
             if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 readOnly = false;
 
-            if ((ulong)gridView1.GetFocusedRowCellValue(colRowPk) == 0)
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) == 0)
             {
                 readOnly = false;
                 gridView1.SetFocusedRowCellValue(colDrm, "P");
@@ -179,7 +180,7 @@ namespace RestClientWinForm
                 UpdateDB(true);
             }
 
-            object rowPk = gridView1.GetFocusedRowCellValue(colRowPk);
+            object Key = gridView1.GetFocusedRowCellValue(colRowKey);
             AfdXF frm = new AfdXF();
             frm.AFBRow = (AccDataSet.AFBRow)accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
@@ -187,13 +188,12 @@ namespace RestClientWinForm
             if (!readOnly)
             {
                 gridView1.SetFocusedRowCellValue(colDrm, "A");
-                gridView1.CloseEditor();
                 UpdateDB(true);
                 gridView1.UnselectRow(gridView1.FocusedRowHandle);
             }
 
             /*
-            //var prxy = accDataSet.AFBgetByPK((ulong)rowPk);
+            //var prxy = accDataSet.AFBgetByPK((ulong)Key);
             //string sonDrm = prxy.Drm;
 
             if (sonDrm == "P") // Baska bir tarafindan degistirilyor, Revert
@@ -239,13 +239,13 @@ namespace RestClientWinForm
             if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
                 e.Cancel = true;
 
-            if ((ulong)gridView1.GetFocusedRowCellValue(colRowPk) != 0 && !gridView1.IsRowSelected(gridView1.FocusedRowHandle))
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) != 0 && !gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 e.Cancel = true;
         }
 
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            gridView1.SetFocusedRowCellValue(colRowPk, 0);
+            gridView1.SetFocusedRowCellValue(colRowKey, 0);
             gridView1.SetFocusedRowCellValue(colTrh, DateTime.Today);
             gridView1.SetFocusedRowCellValue(colDrm, "A");
         }

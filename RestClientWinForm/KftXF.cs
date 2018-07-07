@@ -20,7 +20,6 @@ namespace RestClientWinForm
             InitializeComponent();
 
             kftGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colTUR.ColumnEdit = Program.MF.KftTurRepositoryItemLookUpEdit;
             colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
             colAHPalc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
 
@@ -30,7 +29,7 @@ namespace RestClientWinForm
         {
             // KKK.TUR deki F yi bul
             DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
-            ObjTur = xgtRows[0]["RowPk"];
+            ObjTur = xgtRows[0]["RowKey"];
 
             FillDB();
         }
@@ -101,8 +100,7 @@ namespace RestClientWinForm
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            gridView1.SetFocusedRowCellValue(colRowPk, 0);
-            gridView1.SetFocusedRowCellValue(colTUR, ObjTur);
+            gridView1.SetFocusedRowCellValue(colRowKey, 0);
 
         }
     }

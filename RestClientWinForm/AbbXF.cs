@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Localization;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.Utils;
 
 namespace RestClientWinForm
 {
@@ -20,6 +23,7 @@ namespace RestClientWinForm
             GridLocalizer.Active = new CustomGridLocalizer();
 
             abbGridControl.ExternalRepository = Program.MF.persistentRepository;
+            colTUR.ColumnEdit = Program.MF.AbbTurRepositoryItemLookUpEdit;
         }
 
         public class CustomGridLocalizer : GridLocalizer
@@ -59,8 +63,12 @@ namespace RestClientWinForm
 
         private DialogResult UpdateDB(bool silent = false)
         {
-            gridView1.PostEditor();
-            gridView1.UpdateCurrentRow();
+            if (!Validate())
+                return DialogResult.Cancel;
+            abbBindingSource.EndEdit();
+
+            //gridView1.CloseEditor();
+            //gridView1.UpdateCurrentRow();
             DialogResult dr = DialogResult.Yes;
             if (accDataSet.HasChanges())
             {
@@ -68,7 +76,8 @@ namespace RestClientWinForm
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = accDataSet.AFBupdate();
+                    string err = accDataSet.ABBupdate();
+                    gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);
@@ -158,7 +167,7 @@ namespace RestClientWinForm
             if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 readOnly = false;
 
-            if ((ulong)gridView1.GetFocusedRowCellValue(colRowPk) == 0)
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) == 0)
             {
                 readOnly = false;
                 gridView1.SetFocusedRowCellValue(colDrm, "P");
@@ -166,7 +175,7 @@ namespace RestClientWinForm
                 UpdateDB(true);
             }
 
-            object rowPk = gridView1.GetFocusedRowCellValue(colRowPk);
+            object Key = gridView1.GetFocusedRowCellValue(colRowKey);
             AbdXF frm = new AbdXF();
             frm.ABBRow = (AccDataSet.ABBRow)accDataSet.ABB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
@@ -174,11 +183,75 @@ namespace RestClientWinForm
             if (!readOnly)
             {
                 gridView1.SetFocusedRowCellValue(colDrm, "A");
-                gridView1.CloseEditor();
                 UpdateDB(true);
                 gridView1.UnselectRow(gridView1.FocusedRowHandle);
             }
 
         }
+
+        private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
+        {
+            gridView1.SetFocusedRowCellValue(colRowKey, 0);
+            gridView1.SetFocusedRowCellValue(colDrm, "A");
+            gridView1.SetFocusedRowCellValue(colKur, 1);
+
+        }
+
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            var aaa = gridView1.FocusedColumn.Caption;
+            if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
+                e.Cancel = true;
+
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) != 0 && !gridView1.IsRowSelected(gridView1.FocusedRowHandle))
+                e.Cancel = true;
+        }
+
+        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            GridView View = sender as GridView;
+            var aaa = View.GetRowCellValue(e.RowHandle, colKFT);
+            if (View.GetRowCellValue(e.RowHandle, colKFT) == DBNull.Value)
+            {
+                View.SetColumnError(colKFT, "Hesap girin");
+                e.Valid = false;
+            }
+            else
+            {
+                View.ClearColumnErrors();
+                e.Valid = true;
+            }
+
+            if (View.GetRowCellDisplayText(e.RowHandle, colDVT) == "TRL")
+            {
+                View.SetRowCellValue(e.RowHandle, colKur, 1.0);
+            }
+        }
+
+        private void gridView1_MouseDown(object sender, MouseEventArgs e)
+        {
+            // SelectCheckBox MouseClick ile secilmesini engelle
+            GridView view = sender as GridView;
+            GridHitInfo hitInfo = view.CalcHitInfo(e.Location);
+            if (hitInfo.Column?.FieldName == "DX$CheckboxSelectorColumn")
+            {
+                DXMouseEventArgs ea = DXMouseEventArgs.GetMouseArgs(e);
+                ea.Handled = true;
+            }
+        }
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // SelectCheckBox SpaceBar ile secilmesini engelle
+            if (gridView1.FocusedColumn.AbsoluteIndex == -1)
+                e.SuppressKeyPress = true;
+        }
+        private void abbGridControl_ProcessGridKey(object sender, KeyEventArgs e)
+        {
+            // Ctrl+A ile hepsini secmemesi icin MultiSelect
+            if (e.Control && e.KeyValue == 65)
+                e.Handled = true;
+
+        }
+
     }
 }

@@ -47,7 +47,7 @@
             this.colNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colRowKeyT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colHasH = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -190,7 +190,7 @@
             this.colNoT,
             this.colAdT,
             this.colIsW,
-            this.colRowPkT,
+            this.colRowKeyT,
             this.colPT,
             this.colHasH,
             this.colBrc,
@@ -198,7 +198,7 @@
             this.treeList1.ContextMenuStrip = this.contextMenuStrip;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.ahpBindingSource;
-            this.treeList1.KeyFieldName = "RowPk";
+            this.treeList1.KeyFieldName = "RowKey";
             this.treeList1.Location = new System.Drawing.Point(12, 46);
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsBehavior.EnableFiltering = true;
@@ -255,15 +255,15 @@
             this.colIsW.Visible = true;
             this.colIsW.VisibleIndex = 1;
             // 
-            // colRowPkT
+            // colRowKeyT
             // 
-            this.colRowPkT.Caption = "RowPk";
-            this.colRowPkT.FieldName = "RowPk";
-            this.colRowPkT.Name = "colRowPkT";
-            this.colRowPkT.OptionsColumn.ReadOnly = true;
-            this.colRowPkT.Visible = true;
-            this.colRowPkT.VisibleIndex = 4;
-            this.colRowPkT.Width = 89;
+            this.colRowKeyT.Caption = "Key";
+            this.colRowKeyT.FieldName = "RowKey";
+            this.colRowKeyT.Name = "colRowKeyT";
+            this.colRowKeyT.OptionsColumn.ReadOnly = true;
+            this.colRowKeyT.Visible = true;
+            this.colRowKeyT.VisibleIndex = 4;
+            this.colRowKeyT.Width = 89;
             // 
             // colPT
             // 
@@ -425,7 +425,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAdT;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPkT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colRowKeyT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colPT;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;

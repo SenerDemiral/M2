@@ -53,7 +53,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -243,7 +243,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colRowKey,
             this.colTrh,
             this.colTUR,
             this.colDrm,
@@ -293,14 +293,14 @@
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
-            // colRowPk
+            // colRowKey
             // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.OptionsColumn.ReadOnly = true;
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 1;
-            this.colRowPk.Width = 98;
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.OptionsColumn.ReadOnly = true;
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 1;
+            this.colRowKey.Width = 98;
             // 
             // colTrh
             // 
@@ -362,7 +362,7 @@
             // 
             // colRowErr
             // 
-            this.colRowErr.FieldName = "RowErr";
+            this.colRowErr.FieldName = "Row.Err";
             this.colRowErr.Name = "colRowErr";
             this.colRowErr.Visible = true;
             this.colRowErr.VisibleIndex = 8;
@@ -477,7 +477,7 @@
         private System.Windows.Forms.BindingNavigator afbBindingNavigator;
         private DevExpress.XtraGrid.GridControl afbGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colTUR;
         private DevExpress.XtraGrid.Columns.GridColumn colDrm;

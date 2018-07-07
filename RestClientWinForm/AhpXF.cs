@@ -49,7 +49,7 @@ namespace RestClientWinForm
             frm.dt = accDataSet.AHP;
             frm.dr = row;
             frm.id = id;
-            frm.ObjP = row["RowPK"];
+            frm.ObjP = row["RowKey"];
             frm.ShowDialog();
 
             //aHPBindingSource.EndEdit();
@@ -74,7 +74,7 @@ namespace RestClientWinForm
             if (e.Node.Level == 0)
                 e.Appearance.Font = new Font(e.Appearance.Font.FontFamily, 10.0F);
         }
-
+        /*
         async Task xxAHPfill()
         {
             var dt = accDataSet.AHP;
@@ -128,24 +128,24 @@ namespace RestClientWinForm
                 dt.Rows[i].ClearErrors();
 
                 // States: Added, Modified, Deletede, Unchanged
-                rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
+                rs = dt.Rows[i].Row.State.ToString().Substring(0, 1);
 
                 if (rs == "A" || rs == "M")
                 {
-                    request.RowState = rs;
+                    request.Row.State = rs;
 
                     ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
                     var reply = client.AHPupdate(request);
 
-                    if (string.IsNullOrEmpty(reply.RowErr))
+                    if (string.IsNullOrEmpty(reply.Row.Err))
                     {
                         ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
                         dt.Rows[i].AcceptChanges();
                     }
                     else
                     {
-                        dt.Rows[i].RowError = reply.RowErr;
+                        dt.Rows[i].Row.Error = reply.Row.Err;
                         dt.Rows[i].RejectChanges();
 
                     }
@@ -155,7 +155,7 @@ namespace RestClientWinForm
 
 
         }
-
+        */
         private void FillDB()
         {
             string res = "";
@@ -191,11 +191,11 @@ namespace RestClientWinForm
             AccDataSet.AHPRow oldRow = accDataSet.AHP.Rows[treeList1.FocusedNode.Id] as AccDataSet.AHPRow;
             //aHPBindingSource.AddNew();
             //AccDataSet.AHPRow newRow = accDataSet.AHP.Rows[aHPBindingSource.Position] as AccDataSet.AHPRow;
-            //newRow.ObjP = oldRow.RowPk;
+            //newRow.ObjP = oldRow.Key;
 
 
             AccDataSet.AHPRow row = (AccDataSet.AHPRow)accDataSet.AHP.NewRow();
-            row.ObjP = oldRow.RowPk;
+            row.ObjP = oldRow.Key;
             accDataSet.AHP.AddAHPRow(row);
             */
 

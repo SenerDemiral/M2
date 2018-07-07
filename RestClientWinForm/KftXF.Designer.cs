@@ -40,8 +40,7 @@
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.kftGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdres = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSorumlu = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,8 +168,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
-            this.colTUR,
+            this.colRowKey,
             this.colAd,
             this.colAdres,
             this.colSorumlu,
@@ -182,32 +180,21 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             // 
-            // colRowPk
+            // colRowKey
             // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.OptionsColumn.ReadOnly = true;
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
-            this.colRowPk.Width = 88;
-            // 
-            // colTUR
-            // 
-            this.colTUR.Caption = "Tür";
-            this.colTUR.FieldName = "TUR";
-            this.colTUR.Name = "colTUR";
-            this.colTUR.OptionsColumn.AllowEdit = false;
-            this.colTUR.OptionsColumn.AllowFocus = false;
-            this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 1;
-            this.colTUR.Width = 46;
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.OptionsColumn.ReadOnly = true;
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 0;
+            this.colRowKey.Width = 88;
             // 
             // colAd
             // 
             this.colAd.FieldName = "Ad";
             this.colAd.Name = "colAd";
             this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 2;
+            this.colAd.VisibleIndex = 1;
             this.colAd.Width = 93;
             // 
             // colAdres
@@ -215,7 +202,7 @@
             this.colAdres.FieldName = "Adres";
             this.colAdres.Name = "colAdres";
             this.colAdres.Visible = true;
-            this.colAdres.VisibleIndex = 3;
+            this.colAdres.VisibleIndex = 2;
             this.colAdres.Width = 93;
             // 
             // colSorumlu
@@ -223,7 +210,7 @@
             this.colSorumlu.FieldName = "Sorumlu";
             this.colSorumlu.Name = "colSorumlu";
             this.colSorumlu.Visible = true;
-            this.colSorumlu.VisibleIndex = 4;
+            this.colSorumlu.VisibleIndex = 3;
             this.colSorumlu.Width = 93;
             // 
             // colTel
@@ -231,7 +218,7 @@
             this.colTel.FieldName = "Tel";
             this.colTel.Name = "colTel";
             this.colTel.Visible = true;
-            this.colTel.VisibleIndex = 5;
+            this.colTel.VisibleIndex = 4;
             this.colTel.Width = 93;
             // 
             // colVrgDN
@@ -239,7 +226,7 @@
             this.colVrgDN.FieldName = "VrgDN";
             this.colVrgDN.Name = "colVrgDN";
             this.colVrgDN.Visible = true;
-            this.colVrgDN.VisibleIndex = 6;
+            this.colVrgDN.VisibleIndex = 5;
             this.colVrgDN.Width = 93;
             // 
             // colAHPbrc
@@ -248,7 +235,7 @@
             this.colAHPbrc.FieldName = "AHPbrc";
             this.colAHPbrc.Name = "colAHPbrc";
             this.colAHPbrc.Visible = true;
-            this.colAHPbrc.VisibleIndex = 7;
+            this.colAHPbrc.VisibleIndex = 6;
             this.colAHPbrc.Width = 93;
             // 
             // colAHPalc
@@ -257,7 +244,7 @@
             this.colAHPalc.FieldName = "AHPalc";
             this.colAHPalc.Name = "colAHPalc";
             this.colAHPalc.Visible = true;
-            this.colAHPalc.VisibleIndex = 8;
+            this.colAHPalc.VisibleIndex = 7;
             this.colAHPalc.Width = 102;
             // 
             // layoutControl1
@@ -367,8 +354,7 @@
         private System.Windows.Forms.BindingNavigator kftBindingNavigator;
         private DevExpress.XtraGrid.GridControl kftGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
-        private DevExpress.XtraGrid.Columns.GridColumn colTUR;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colAd;
         private DevExpress.XtraGrid.Columns.GridColumn colAdres;
         private DevExpress.XtraGrid.Columns.GridColumn colSorumlu;

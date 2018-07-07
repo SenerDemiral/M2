@@ -30,7 +30,7 @@ namespace RestClientWinForm
 
         private void AbdXF_Load(object sender, EventArgs e)
         {
-            ObjABB = ABBRow.RowPk;
+            ObjABB = ABBRow.RowKey;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
@@ -134,7 +134,7 @@ namespace RestClientWinForm
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            gridView1.SetFocusedRowCellValue(colRowPk, 0);
+            gridView1.SetFocusedRowCellValue(colRowKey, 0);
             gridView1.SetFocusedRowCellValue(colABB, ObjABB);
             gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
@@ -207,7 +207,9 @@ namespace RestClientWinForm
             }
         }
 
+        private void abdGridControl_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

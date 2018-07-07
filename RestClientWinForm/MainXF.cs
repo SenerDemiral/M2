@@ -54,18 +54,21 @@ namespace RestClientWinForm
             {
                 if(r.P == 0)
                 {
-                    XgtDic[r.Kd] = r.RowPk;
+                    XgtDic[r.Kd] = r.RowKey;
                 }
             }
-                 
             DataView DvzDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
             DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
             DataView AfbTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["AFB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             AfbTurRepositoryItemLookUpEdit.DataSource = AfbTurDV;
 
-            DataView KmtTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            KftTurRepositoryItemLookUpEdit.DataSource = KmtTurDV;
+            DataView KkkTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            KkkTurRepositoryItemLookUpEdit.DataSource = KkkTurDV;
+
+            DataView AbbTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["ABB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            AbbTurRepositoryItemLookUpEdit.DataSource = AbbTurDV;
+
         }
 
         private void AHPbutton_Click(object sender, EventArgs e)

@@ -41,12 +41,13 @@
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abbGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colKKK = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKFT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -181,85 +182,106 @@
             this.abbGridControl.TabIndex = 2;
             this.abbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.abbGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.abbGridControl_ProcessGridKey);
             // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colRowKey,
             this.colDrm,
             this.colTrh,
             this.colTUR,
-            this.colKKK,
+            this.colKFT,
             this.colBA,
+            this.colDVT,
             this.colKur,
             this.colInfo,
             this.colTut});
             this.gridView1.GridControl = this.abbGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.False;
+            this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridView1_FocusedRowChanged);
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            this.gridView1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView1_MouseDown);
             // 
-            // colRowPk
+            // colRowKey
             // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 1;
             // 
             // colDrm
             // 
             this.colDrm.FieldName = "Drm";
             this.colDrm.Name = "colDrm";
             this.colDrm.Visible = true;
-            this.colDrm.VisibleIndex = 1;
+            this.colDrm.VisibleIndex = 2;
             // 
             // colTrh
             // 
             this.colTrh.FieldName = "Trh";
             this.colTrh.Name = "colTrh";
             this.colTrh.Visible = true;
-            this.colTrh.VisibleIndex = 2;
+            this.colTrh.VisibleIndex = 3;
             // 
             // colTUR
             // 
             this.colTUR.FieldName = "TUR";
             this.colTUR.Name = "colTUR";
             this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 3;
+            this.colTUR.VisibleIndex = 4;
             // 
-            // colKKK
+            // colKFT
             // 
-            this.colKKK.FieldName = "KKK";
-            this.colKKK.Name = "colKKK";
-            this.colKKK.Visible = true;
-            this.colKKK.VisibleIndex = 4;
+            this.colKFT.Caption = "Firma KFT";
+            this.colKFT.FieldName = "KFT";
+            this.colKFT.Name = "colKFT";
+            this.colKFT.Visible = true;
+            this.colKFT.VisibleIndex = 5;
+            this.colKFT.Width = 78;
             // 
             // colBA
             // 
             this.colBA.FieldName = "BA";
             this.colBA.Name = "colBA";
             this.colBA.Visible = true;
-            this.colBA.VisibleIndex = 5;
+            this.colBA.VisibleIndex = 6;
+            // 
+            // colDVT
+            // 
+            this.colDVT.Caption = "Dvz DVT";
+            this.colDVT.FieldName = "DVT";
+            this.colDVT.Name = "colDVT";
+            this.colDVT.Visible = true;
+            this.colDVT.VisibleIndex = 7;
+            this.colDVT.Width = 88;
             // 
             // colKur
             // 
             this.colKur.FieldName = "Kur";
             this.colKur.Name = "colKur";
             this.colKur.Visible = true;
-            this.colKur.VisibleIndex = 6;
+            this.colKur.VisibleIndex = 8;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 7;
+            this.colInfo.VisibleIndex = 9;
             // 
             // colTut
             // 
             this.colTut.FieldName = "Tut";
             this.colTut.Name = "colTut";
             this.colTut.Visible = true;
-            this.colTut.VisibleIndex = 8;
+            this.colTut.VisibleIndex = 10;
             // 
             // layoutControl1
             // 
@@ -343,7 +365,7 @@
             // faturaDetayToolStripMenuItem
             // 
             this.faturaDetayToolStripMenuItem.Name = "faturaDetayToolStripMenuItem";
-            this.faturaDetayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.faturaDetayToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.faturaDetayToolStripMenuItem.Text = "Fatura Detay";
             this.faturaDetayToolStripMenuItem.Click += new System.EventHandler(this.faturaDetayToolStripMenuItem_Click);
             // 
@@ -397,16 +419,17 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private System.Windows.Forms.ToolStripButton editToolStripButton;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colDrm;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colTUR;
-        private DevExpress.XtraGrid.Columns.GridColumn colKKK;
+        private DevExpress.XtraGrid.Columns.GridColumn colKFT;
         private DevExpress.XtraGrid.Columns.GridColumn colBA;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colTut;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem faturaDetayToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colDVT;
     }
 }

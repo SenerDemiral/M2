@@ -46,7 +46,7 @@
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAFB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -183,6 +183,7 @@
             // afdGridControl
             // 
             this.afdGridControl.ContextMenuStrip = this.contextMenuStrip1;
+            this.afdGridControl.DataSource = this.afdBindingSource;
             this.afdGridControl.Location = new System.Drawing.Point(12, 46);
             this.afdGridControl.MainView = this.gridView1;
             this.afdGridControl.Name = "afdGridControl";
@@ -219,7 +220,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colRowKey,
             this.colAFB,
             this.colAHP,
             this.colInfo,
@@ -243,24 +244,23 @@
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView1.OptionsView.ShowFooter = true;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRowPk, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRowKey, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.CustomDrawFooterCell += new DevExpress.XtraGrid.Views.Grid.FooterCellCustomDrawEventHandler(this.gridView1_CustomDrawFooterCell);
             this.gridView1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridView1_ShowingEditor);
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             this.gridView1.HiddenEditor += new System.EventHandler(this.gridView1_HiddenEditor);
             this.gridView1.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridView1_ValidateRow);
             // 
-            // colRowPk
+            // colRowKey
             // 
-            this.colRowPk.Caption = "AFD#";
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.OptionsColumn.ReadOnly = true;
-            this.colRowPk.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "RowPk", "{0}")});
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
-            this.colRowPk.Width = 65;
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.OptionsColumn.ReadOnly = true;
+            this.colRowKey.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Key", "{0}")});
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 0;
+            this.colRowKey.Width = 65;
             // 
             // colAFB
             // 
@@ -465,7 +465,7 @@
         private System.Windows.Forms.ToolStripButton deleteToolStripButton;
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colAFB;
         private DevExpress.XtraGrid.Columns.GridColumn colAHP;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;

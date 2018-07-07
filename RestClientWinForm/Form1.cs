@@ -109,7 +109,7 @@ namespace RestClientWinForm
                     var reply = client.TblaUpdate(request);
 
                     ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
-                    //dt.Rows[i]["RowPk"] = reply.RowPk;
+                    //dt.Rows[i]["Key"] = reply.Key;
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                         dt.Rows[i].AcceptChanges();
@@ -201,11 +201,11 @@ namespace RestClientWinForm
         {
             var dt = dataSet1.Tables[1];
 
-            object rowPk = treeList1.FocusedNode.GetValue(colRowPkT);
+            object Key = treeList1.FocusedNode.GetValue(colKeyT);
             object rowHspNo = treeList1.FocusedNode.GetValue(colHspNoT);
             DataRow row = dt.NewRow();
             //ObjectToRow(dt, row, response.ResponseStream.Current);
-            row["ObjP"] = rowPk;
+            row["ObjP"] = Key;
             row["No"] = "x";
             row["Ad"] = "XXXXX";
             row["HspNo"] = $"{rowHspNo}.x";
@@ -235,7 +235,7 @@ namespace RestClientWinForm
 
                 if (rs == "A" || rs == "M")
                 {
-                    request.RowState = rs;
+                    request.RowSte = rs;
 
                     ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 

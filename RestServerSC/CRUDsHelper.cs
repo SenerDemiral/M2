@@ -39,8 +39,8 @@ namespace RestServerSC
                     }
                 }
             }
-            // Should every proxy hase rowPk property? Maybe not
-            proxy.GetType().GetProperty("RowPk")?.SetValue(proxy, row.GetObjectNo());
+            // Should every proxy hase Key property? Maybe not
+            proxy.GetType().GetProperty("RowKey")?.SetValue(proxy, row.GetObjectNo());
 
             return proxy;
         }
@@ -82,7 +82,7 @@ namespace RestServerSC
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
             PropertyInfo[] databaseProperties = databaseType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
 
-            ulong pk = (ulong)proxy.GetType().GetProperty("RowPk")?.GetValue(proxy);
+            ulong pk = (ulong)proxy.GetType().GetProperty("RowKey")?.GetValue(proxy);
 
             if (pk > 0)
                 row = Db.FromId<TDatabase>(pk);

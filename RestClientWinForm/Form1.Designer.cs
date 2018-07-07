@@ -47,7 +47,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colRowPk = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFldStr = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFldInt = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFldDbl = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -59,13 +59,13 @@
             this.colHspNoG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAdG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colRowPkG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKeyG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coObjPG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.colHspNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colNoT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAdT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colRowPkT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colKeyT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colObjPT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.altHesapEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,7 +111,7 @@
             // 
             // dataColumn1
             // 
-            this.dataColumn1.ColumnName = "RowPk";
+            this.dataColumn1.ColumnName = "Key";
             this.dataColumn1.DataType = typeof(ulong);
             // 
             // dataColumn2
@@ -162,7 +162,7 @@
             // 
             // dataColumn10
             // 
-            this.dataColumn10.ColumnName = "RowPk";
+            this.dataColumn10.ColumnName = "Key";
             this.dataColumn10.DataType = typeof(ulong);
             // 
             // dataColumn11
@@ -195,7 +195,7 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colRowPk,
+            this.colKey,
             this.colFldStr,
             this.colFldInt,
             this.colFldDbl,
@@ -206,15 +206,15 @@
             this.gridView1.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Top;
             this.gridView1.OptionsView.ShowFooter = true;
             // 
-            // colRowPk
+            // colKey
             // 
-            this.colRowPk.FieldName = "RowPk";
-            this.colRowPk.Name = "colRowPk";
-            this.colRowPk.OptionsColumn.ReadOnly = true;
-            this.colRowPk.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "RowPk", "{0:n0}")});
-            this.colRowPk.Visible = true;
-            this.colRowPk.VisibleIndex = 0;
+            this.colKey.FieldName = "Key";
+            this.colKey.Name = "colKey";
+            this.colKey.OptionsColumn.ReadOnly = true;
+            this.colKey.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Key", "{0:n0}")});
+            this.colKey.Visible = true;
+            this.colKey.VisibleIndex = 0;
             // 
             // colFldStr
             // 
@@ -281,7 +281,7 @@
             this.colHspNoG,
             this.colNoG,
             this.colAdG,
-            this.colRowPkG,
+            this.colKeyG,
             this.coObjPG});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
@@ -309,15 +309,15 @@
             this.colAdG.Visible = true;
             this.colAdG.VisibleIndex = 2;
             // 
-            // colRowPkG
+            // colKeyG
             // 
-            this.colRowPkG.Caption = "RowPk";
-            this.colRowPkG.DisplayFormat.FormatString = "n0";
-            this.colRowPkG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colRowPkG.FieldName = "RowPk";
-            this.colRowPkG.Name = "colRowPkG";
-            this.colRowPkG.Visible = true;
-            this.colRowPkG.VisibleIndex = 3;
+            this.colKeyG.Caption = "Key";
+            this.colKeyG.DisplayFormat.FormatString = "n0";
+            this.colKeyG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colKeyG.FieldName = "Key";
+            this.colKeyG.Name = "colKeyG";
+            this.colKeyG.Visible = true;
+            this.colKeyG.VisibleIndex = 3;
             // 
             // coObjPG
             // 
@@ -333,13 +333,13 @@
             this.colHspNoT,
             this.colNoT,
             this.colAdT,
-            this.colRowPkT,
+            this.colKeyT,
             this.colObjPT});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataMember = "AHP";
             this.treeList1.DataSource = this.dataSet1;
-            this.treeList1.KeyFieldName = "RowPk";
+            this.treeList1.KeyFieldName = "Key";
             this.treeList1.Location = new System.Drawing.Point(12, 278);
             this.treeList1.Name = "treeList1";
             this.treeList1.OptionsBehavior.Editable = false;
@@ -383,13 +383,13 @@
             this.colAdT.VisibleIndex = 2;
             this.colAdT.Width = 125;
             // 
-            // colRowPkT
+            // colKeyT
             // 
-            this.colRowPkT.FieldName = "RowPk";
-            this.colRowPkT.Name = "colRowPkT";
-            this.colRowPkT.Visible = true;
-            this.colRowPkT.VisibleIndex = 3;
-            this.colRowPkT.Width = 124;
+            this.colKeyT.FieldName = "Key";
+            this.colKeyT.Name = "colKeyT";
+            this.colKeyT.Visible = true;
+            this.colKeyT.VisibleIndex = 3;
+            this.colKeyT.Width = 124;
             // 
             // colObjPT
             // 
@@ -464,7 +464,7 @@
         private System.Windows.Forms.Button button2;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPk;
+        private DevExpress.XtraGrid.Columns.GridColumn colKey;
         private DevExpress.XtraGrid.Columns.GridColumn colFldStr;
         private DevExpress.XtraGrid.Columns.GridColumn colFldInt;
         private DevExpress.XtraGrid.Columns.GridColumn colFldDbl;
@@ -481,7 +481,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHspNoG;
         private DevExpress.XtraGrid.Columns.GridColumn colNoG;
         private DevExpress.XtraGrid.Columns.GridColumn colAdG;
-        private DevExpress.XtraGrid.Columns.GridColumn colRowPkG;
+        private DevExpress.XtraGrid.Columns.GridColumn colKeyG;
         private System.Data.DataColumn dataColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn coObjPG;
         private DevExpress.XtraTreeList.TreeList treeList1;
@@ -490,7 +490,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colNoT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAdT;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colRowPkT;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colKeyT;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colObjPT;
         private System.Windows.Forms.Button button4;
     }

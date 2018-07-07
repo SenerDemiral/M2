@@ -28,7 +28,7 @@ namespace RestServerSC
             TblaProxy proxy = null;
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.TransactAsync(() =>
                 {
                     if (request.RowState == "A" || request.RowState == "M")
@@ -142,7 +142,7 @@ namespace RestServerSC
                         
                         proxy = new AHPproxy
                         {
-                            RowPk = row.GetObjectNo(),
+                            RowKey = row.GetObjectNo(),
                             P = row.P == null ? 0 : row.P.GetObjectNo(),
                             No = row.No,
                             Ad = row.Ad,
@@ -166,17 +166,12 @@ namespace RestServerSC
 
         public override Task<AHPproxy> AHPupdate(AHPproxy request, ServerCallContext context)
         {
-            var proxy = new AHPproxy
-            {
-                RowPk = request.RowPk,
-            };
-
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Hata deneme
                         //request.RowErr = "HATA";
@@ -187,7 +182,7 @@ namespace RestServerSC
                         // Parent Hareketleri olmamali
 
                         AHP pAhp = (AHP)Db.FromId(request.P);
-                        if (request.RowState == "A")
+                        if (request.RowSte == "A")
                         {
                             if (request.P > 0 && pAhp == null)
                                 request.RowErr = "Üst Hesabı tanımsız";
@@ -196,9 +191,9 @@ namespace RestServerSC
                             else if (!AHP.IsAhpNoUnique(pAhp, request.No))
                                 request.RowErr = $"No: {request.No} kullanılmış";
                         }
-                        else if (request.RowState == "M")
+                        else if (request.RowSte == "M")
                         {
-                            AHP oldRec = Db.FromId<AHP>(request.RowPk);
+                            AHP oldRec = Db.FromId<AHP>(request.RowKey);
                             if (request.IsW && oldRec.HasK)
                                 request.RowErr = "Üst hesap çalışamaz.";
                             else if (!request.IsW && oldRec.HasH)
@@ -210,25 +205,25 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             AHP row = CRUDsHelper.FromProxy<AHPproxy, AHP>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<AHPproxy, AHP>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
-                        var row = (AHP)Db.FromId(request.RowPk);
+                        var row = (AHP)Db.FromId(request.RowKey);
                         if (row == null)
                         {
                             request.RowErr = "AHP Rec not found";
                         }
                         else
                         {
-                            if (Db.SQL<AHP>("select r from AHP r where r.P.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<AHP>("select r from AHP r where r.P.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
                             {
-                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
                                 row.Delete();
                             }
                         }
@@ -271,7 +266,7 @@ namespace RestServerSC
 
                         proxy = new AFBproxy
                         {
-                            RowPk = row.GetObjectNo(),
+                            RowKey = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
                             TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
                             Drm = row.Drm,
@@ -293,21 +288,17 @@ namespace RestServerSC
 
         public override Task<AFBproxy> AFBupdate(AFBproxy request, ServerCallContext context)
         {
-            var proxy = new AFBproxy
-            {
-                RowPk = request.RowPk,
-            };
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
                     request.RowErr = "";
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
-                        if(request.RowState == "M")
+                        if(request.RowSte == "M")
                         {
-                            AFB sonAFB = Db.FromId<AFB>(request.RowPk);
+                            AFB sonAFB = Db.FromId<AFB>(request.RowKey);
                             if (request.Drm == "P")
                             {
                                 if (sonAFB.Drm == "P")
@@ -333,25 +324,25 @@ namespace RestServerSC
                                 request.TUR = GnlOps.XGTfind("AFB.TUR", "MHS").GetObjectNo();
 
                             AFB row = CRUDsHelper.FromProxy<AFBproxy, AFB>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<AFBproxy, AFB>(row);
                         }
 
                     }
-                    else if (request.RowState == "D" && request.Drm == "A")
+                    else if (request.RowSte == "D" && request.Drm == "A")
                     {
-                        var row = (AFB)Db.FromId(request.RowPk);
+                        var row = (AFB)Db.FromId(request.RowKey);
                         if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
                         else
                         {
-                            if (Db.SQL<AFD>("select r from AFD r where r.AFB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<AFD>("select r from AFD r where r.AFB.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
                             {
-                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
                                 row.Delete();
                             }
                         }
@@ -379,7 +370,7 @@ namespace RestServerSC
 
                     proxy = new AFDproxy
                     {
-                        RowPk = row.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         AFB = row.AFB == null ? 0 : row.AFB.GetObjectNo(),
                         AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
                         Info = row.Info,
@@ -400,17 +391,12 @@ namespace RestServerSC
 
         public override Task<AFDproxy> AFDupdate(AFDproxy request, ServerCallContext context)
         {
-            var proxy = new AFDproxy
-            {
-                RowPk = request.RowPk,
-            };
-
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -418,20 +404,20 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             AFD row = CRUDsHelper.FromProxy<AFDproxy, AFD>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<AFDproxy, AFD>(row);
                         }
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
-                        var row = (AFD)Db.FromId(request.RowPk);
+                        var row = (AFD)Db.FromId(request.RowKey);
                         if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
                         else
                         {
-                            UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                            UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
                             row.Delete();
                         }
                     }
@@ -461,10 +447,10 @@ namespace RestServerSC
 
                         proxy = new ABBproxy
                         {
-                            RowPk = row.GetObjectNo(),
+                            RowKey = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
                             TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
-                            KKK = row.KKK == null ? 0 : row.KKK.GetObjectNo(),
+                            KFT = row.KFT == null ? 0 : row.KFT.GetObjectNo(),
                             DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                             BA = row.BA,
                             Kur = row.Kur,
@@ -486,21 +472,17 @@ namespace RestServerSC
 
         public override Task<ABBproxy> ABBupdate(ABBproxy request, ServerCallContext context)
         {
-            var proxy = new ABBproxy
-            {
-                RowPk = request.RowPk,
-            };
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
                     request.RowErr = "";
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
-                        if (request.RowState == "M")
+                        if (request.RowSte == "M")
                         {
-                            ABB latestRec = Db.FromId<ABB>(request.RowPk);  // Record'un enSon/enYeni/Guncel hali
+                            ABB latestRec = Db.FromId<ABB>(request.RowKey);  // Record'un enSon/enYeni/Guncel hali
                             if (request.Drm == "P")
                             {
                                 request = CRUDsHelper.ToProxy<ABBproxy, ABB>(latestRec);   // Latest Row gonder, baskasi tarafindan degistirilmis
@@ -520,25 +502,25 @@ namespace RestServerSC
                                 request.TUR = GnlOps.XGTfind("ABB.TUR", "BS").GetObjectNo();
 
                             ABB row = CRUDsHelper.FromProxy<ABBproxy, ABB>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<ABBproxy, ABB>(row);
                         }
 
                     }
-                    else if (request.RowState == "D" && request.Drm == "A")
+                    else if (request.RowSte == "D" && request.Drm == "A")
                     {
-                        var row = (AFB)Db.FromId(request.RowPk);
+                        var row = (AFB)Db.FromId(request.RowKey);
                         if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
                         else
                         {
-                            if (Db.SQL<ABD>("select r from ABD r where r.ABB.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<ABD>("select r from ABD r where r.ABB.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
                             {
-                                UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                                UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
                                 row.Delete();
                             }
                         }
@@ -566,7 +548,7 @@ namespace RestServerSC
 
                     proxy = new ABDproxy
                     {
-                        RowPk = row.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         ABB = row.ABB == null ? 0 : row.ABB.GetObjectNo(),
                         NNN = row.NNN == null ? 0 : row.NNN.GetObjectNo(),
                         AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
@@ -589,17 +571,12 @@ namespace RestServerSC
 
         public override Task<ABDproxy> ABDupdate(ABDproxy request, ServerCallContext context)
         {
-            var proxy = new ABDproxy
-            {
-                RowPk = request.RowPk,
-            };
-
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -607,21 +584,21 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             ABD row = CRUDsHelper.FromProxy<ABDproxy, ABD>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<ABDproxy, ABD>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
-                        var row = (ABD)Db.FromId(request.RowPk);
+                        var row = (ABD)Db.FromId(request.RowKey);
                         if (row == null)
                         {
                             request.RowErr = "Rec not found";
                         }
                         else
                         {
-                            UHT.Append(request.RowUsr, request.RowPk, request.RowState);
+                            UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
                             row.Delete();
                         }
                     }
@@ -650,8 +627,7 @@ namespace RestServerSC
 
                     proxy = new KFTproxy
                     {
-                        RowPk = row.GetObjectNo(),
-                        TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         Ad = row.Ad,
                         Adres = row.Adres,
                         Tel = row.Tel,
@@ -674,15 +650,15 @@ namespace RestServerSC
         {
             var proxy = new KFTproxy
             {
-                RowPk = request.RowPk,
+                RowKey = request.RowKey,
             };
 
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -690,12 +666,13 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             KFT row = CRUDsHelper.FromProxy<KFTproxy, KFT>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            row.Tur = "F";
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<KFTproxy, KFT>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
                         // Ilgili kayit varsa sildirme
                         request.RowErr = "Firma Silemezsiniz";    // Simdilik
@@ -726,7 +703,7 @@ namespace RestServerSC
 
                         proxy = new XGTproxy
                         {
-                            RowPk = row.GetObjectNo(),
+                            RowKey = row.GetObjectNo(),
                             P = row.P == null ? 0 : row.P.GetObjectNo(),
                             Kd = row.Kd,
                             Ad = row.Ad,
@@ -747,15 +724,15 @@ namespace RestServerSC
         {
             var proxy = new XGTproxy
             {
-                RowPk = request.RowPk,
+                RowKey = request.RowKey,
             };
 
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Hata deneme
                         //request.RowErr = "HATA";
@@ -773,16 +750,16 @@ namespace RestServerSC
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
-                        var rec = (XGT)Db.FromId(request.RowPk);
+                        var rec = (XGT)Db.FromId(request.RowKey);
                         if (rec == null)
                         {
                             request.RowErr = "AHP Rec not found";
                         }
                         else
                         {
-                            if (Db.SQL<XGT>("select r from XGT r where r.P.ObjectNo = ?", request.RowPk).FirstOrDefault() != null)
+                            if (Db.SQL<XGT>("select r from XGT r where r.P.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
                                 request.RowErr = $"Alt hesabı var silemezsiniz";
                             else
                                 rec.Delete();
@@ -823,7 +800,7 @@ namespace RestServerSC
                         {
                             proxy = new XDKproxy
                             {
-                                RowPk = 0,
+                                RowKey = 0,
                                 DVT = dvt.GetObjectNo(),
                                 Trh = dt.Ticks,
                                 Kur = dvt.Kd == "TRL" ? 1 : 0,
@@ -861,10 +838,10 @@ namespace RestServerSC
         {
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         if (request.RowErr == string.Empty)
                         {
@@ -873,9 +850,9 @@ namespace RestServerSC
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
-                        var rec = (XDK)Db.FromId(request.RowPk);
+                        var rec = (XDK)Db.FromId(request.RowKey);
                         if (rec == null)
                         {
                             request.RowErr = "Rec not found";
@@ -906,7 +883,7 @@ namespace RestServerSC
 
                     proxy = new UUUproxy
                     {
-                        RowPk = row.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         UYT = row.UYT == null ? 0 : row.UYT.GetObjectNo(),
                         Ad = row.Ad,
                     };
@@ -924,15 +901,15 @@ namespace RestServerSC
         {
             var proxy = new UUUproxy
             {
-                RowPk = request.RowPk,
+                RowKey = request.RowKey,
             };
 
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -940,12 +917,12 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             UUU row = CRUDsHelper.FromProxy<UUUproxy, UUU>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<UUUproxy, UUU>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
                         // Ilgili kayit varsa sildirme
                         request.RowErr = "Silemezsiniz";    // Simdilik
@@ -973,7 +950,7 @@ namespace RestServerSC
 
                     proxy = new UYTproxy
                     {
-                        RowPk = row.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         Ad = row.Ad,
                     };
                     proxyList.Add(proxy);
@@ -990,15 +967,15 @@ namespace RestServerSC
         {
             var proxy = new UYTproxy
             {
-                RowPk = request.RowPk,
+                RowKey = request.RowKey,
             };
 
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -1006,12 +983,12 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             UYT row = CRUDsHelper.FromProxy<UYTproxy, UYT>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<UYTproxy, UYT>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
                         // Ilgili kayit varsa sildirme
                         request.RowErr = "Silemezsiniz";    // Simdilik
@@ -1039,7 +1016,7 @@ namespace RestServerSC
 
                     proxy = new UYHproxy
                     {
-                        RowPk = row.GetObjectNo(),
+                        RowKey = row.GetObjectNo(),
                         P = row.P == null ? 0 : row.P.GetObjectNo(),
                         K = row.K == null ? 0 : row.K.GetObjectNo(),
                     };
@@ -1057,15 +1034,15 @@ namespace RestServerSC
         {
             var proxy = new UYHproxy
             {
-                RowPk = request.RowPk,
+                RowKey = request.RowKey,
             };
 
             Scheduling.RunTask(() =>
             {
-                // RowState: Added, Modified, Deletede, Unchanged
+                // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
-                    if (request.RowState == "A" || request.RowState == "M")
+                    if (request.RowSte == "A" || request.RowSte == "M")
                     {
                         // Add Control
                         // Parent Hesabi olmali
@@ -1073,12 +1050,12 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             UYH row = CRUDsHelper.FromProxy<UYHproxy, UYH>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowState);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<UYHproxy, UYH>(row);
                         }
 
                     }
-                    else if (request.RowState == "D")
+                    else if (request.RowSte == "D")
                     {
                         // Ilgili kayit varsa sildirme
                         request.RowErr = "Silemezsiniz";    // Simdilik

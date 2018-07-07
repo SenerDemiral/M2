@@ -146,7 +146,7 @@ namespace M2DB
         public string Drm { get; set; }     // Acik/Kapali/Pending
         public DateTime Trh { get; set; }
         public XGT TUR { get; set; }     // BillTür Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
-        public KKK KKK { get; set; }     // Kim/Musteri
+        public KFT KFT { get; set; }     // Kim/Firma
         public string BA { get; set; }      // Kim Brclu/Alacakli
         public XGT DVT { get; set; }     // Fatura Doviz
         public float Kur { get; set; }      // Doviz Kuru
@@ -193,9 +193,9 @@ namespace M2DB
                 afd.AFB = afb;
 
                 if (abb.BA == "B")
-                    afd.AHP = (abb.KKK as KFT).AHPbrc;
+                    afd.AHP = abb.KFT.AHPbrc;
                 else
-                    afd.AHP = (abb.KKK as KFT).AHPalc;
+                    afd.AHP = abb.KFT.AHPalc;
                 afd.Tut = TopTut;
                 afd.DVT = abb.DVT;
                 afd.Kur = abb.Kur;
@@ -215,7 +215,7 @@ namespace M2DB
         public double Mik { get; set; }
         public XGT DVT { get; set; }
         public float Kur { get; set; }
-        public Int16 KDY { get; set; }
+        public int KDY { get; set; }
         public string Info { get; set; }
 
         public double Tut => Math.Round(Fyt * Mik * (1.0 + KDY), 2);

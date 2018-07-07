@@ -40,6 +40,7 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.ABDproxy> __Marshaller_ABDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABDproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XDKproxy> __Marshaller_XDKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XDKproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KKKproxy> __Marshaller_KKKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KKKproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KFTproxy> __Marshaller_KFTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KFTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UUUproxy> __Marshaller_UUUproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UUUproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UYTproxy> __Marshaller_UYTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYTproxy.Parser.ParseFrom);
@@ -163,6 +164,13 @@ namespace Rest {
         "XDKupdate",
         __Marshaller_XDKproxy,
         __Marshaller_XDKproxy);
+
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy> __Method_KKKfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "KKKfill",
+        __Marshaller_QryProxy,
+        __Marshaller_KKKproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy> __Method_KFTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy>(
         grpc::MethodType.ServerStreaming,
@@ -310,6 +318,11 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Rest.XDKproxy> XDKupdate(global::Rest.XDKproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task KKKfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.KKKproxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -587,6 +600,14 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_XDKupdate, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KKKproxy> KKKfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return KKKfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KKKproxy> KKKfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_KKKfill, null, options, request);
+      }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.KFTproxy> KFTfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KFTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -712,6 +733,7 @@ namespace Rest {
           .AddMethod(__Method_XGTupdate, serviceImpl.XGTupdate)
           .AddMethod(__Method_XDKfill, serviceImpl.XDKfill)
           .AddMethod(__Method_XDKupdate, serviceImpl.XDKupdate)
+          .AddMethod(__Method_KKKfill, serviceImpl.KKKfill)
           .AddMethod(__Method_KFTfill, serviceImpl.KFTfill)
           .AddMethod(__Method_KFTupdate, serviceImpl.KFTupdate)
           .AddMethod(__Method_UUUfill, serviceImpl.UUUfill)

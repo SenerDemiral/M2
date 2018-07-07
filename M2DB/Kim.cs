@@ -7,7 +7,7 @@ namespace M2DB
     public class KKK    // Kim, Musteri/Depo/UretimHatti/Personel
     {
         public string Ad { get; set; }
-        public XGT TUR { get; set; }     //Depo, UretimHatti, Musteri, Personel, Imha, Fire, Kayip
+        public string Tur { get; set; }     //DP:Depo, UH:UretimHatti, Firma, Personel, Imha, Fire, Kayip
     }
 
     public class KDT : KKK   // Kim.Depo.Tanim

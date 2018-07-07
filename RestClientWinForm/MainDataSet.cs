@@ -104,10 +104,11 @@ namespace RestClientWinForm
                 if (rs == "A" || rs == "M" || rs == "D")
                 {
                     dt.Rows[i].ClearErrors();
-                    request.RowState = rs;
+                    request.RowSte = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
-                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
+                        request.RowKey = (ulong)dt.Rows[i]["RowKey", DataRowVersion.Original];
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
@@ -195,10 +196,11 @@ namespace RestClientWinForm
                 if (rs == "A" || rs == "M" || rs == "D")
                 {
                     dt.Rows[i].ClearErrors();
-                    request.RowState = rs;
+                    request.RowSte = rs;
+                    request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
-                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
+                        request.RowKey = (ulong)dt.Rows[i]["RowKey", DataRowVersion.Original];
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
@@ -281,11 +283,11 @@ namespace RestClientWinForm
                 if (rs == "A" || rs == "M" || rs == "D")
                 {
                     dt.Rows[i].ClearErrors();
-                    request.RowState = rs;
+                    request.RowSte = rs;
                     request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
-                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
+                        request.RowKey = (ulong)dt.Rows[i]["RowKey", DataRowVersion.Original];
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
@@ -370,11 +372,11 @@ namespace RestClientWinForm
                 if (rs == "A" || rs == "M" || rs == "D")
                 {
                     dt.Rows[i].ClearErrors();
-                    request.RowState = rs;
+                    request.RowSte = rs;
                     request.RowUsr = Program.ObjUsr;
 
                     if (rs == "D")
-                        request.RowPk = (ulong)dt.Rows[i]["RowPk", DataRowVersion.Original];
+                        request.RowKey = (ulong)dt.Rows[i]["RowKey", DataRowVersion.Original];
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 

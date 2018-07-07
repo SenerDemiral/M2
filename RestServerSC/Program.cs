@@ -80,12 +80,12 @@ namespace RestServerSC
 
             });
             TblaProxy a = ReflectionExample.ToProxy<TblaProxy, M2DB.TblB>(tb);
-            a.RowErr = "";
+            a.Row.Err = "";
 
             Console.WriteLine("Deneme");
 
             a.FldStr = a.FldStr.ToUpper();
-            //a.RowPk = 0;
+            //a.Key = 0;
 
             Db.Transact(() =>
             {
