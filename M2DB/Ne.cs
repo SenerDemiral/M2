@@ -40,7 +40,7 @@ namespace M2DB
     [Database]
     public class NNN // Ne
     {
-        public string No { get; set; }
+        public string Kd { get; set; }
         public string Ad { get; set; }
         public XGT TUR { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
         public XGT BRM { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
@@ -51,7 +51,7 @@ namespace M2DB
         {
             get
             {
-                if (Db.SQL<NHT>("select r from M1DB.NHT r where r.Prn = ?", this).FirstOrDefault() == null)
+                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NNNP = ?", this).FirstOrDefault() == null)
                     return false;
                 return true;
             }
@@ -60,7 +60,7 @@ namespace M2DB
         {
             get
             {
-                if (Db.SQL<NHT>("select r from M1DB.NHT r where r.Kid = ? and r.Prn is not null", this).FirstOrDefault() == null)
+                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NNNK = ?", this).FirstOrDefault() == null)
                     return false;
                 return true;
             }
@@ -108,13 +108,13 @@ namespace M2DB
         public double Mik { get; set; }
 
         public string PAd => P?.Ad;
-        public string PNo => P?.No;
+        public string PKd => P?.Kd;
         public string KAd => K?.Ad;
-        public string KNo => K?.No;
+        public string KKd => K?.Kd;
     }
 
     [Database]
-    public class NNR // Ne.Recete
+    public class NNR // Ne.Recete/Relation
     {
         public NNN NNNP { get; set; } // Parent
         public NNN NNNK { get; set; } // Kid
@@ -122,6 +122,76 @@ namespace M2DB
 
         public string PAd => NNNP?.Ad;
         public string KAd => NNNK?.Ad;
+
+        public static bool HasParentsExistsInKids(NNN startNe, NNN searchNe)
+        {
+            // startNe and Parents
+            List<string> pList = new List<string>();
+            Parents(startNe, pList);
+
+            // searchNe and Kids
+            bool rv = HasKidInParents(searchNe, pList);
+
+            /*
+            // pList de kList.item var ise true
+            List<string> kList = new List<string>();
+            kList.Add(searchNe.Ad);  // Kendisini de ekle
+            Kids((searchNe, kList);
+            foreach (var p in pList)
+            {
+                foreach (var k in kList)
+                {
+                    if (p == k)
+                        return true;
+                }
+            }
+            */
+            return rv;
+        }
+
+        private static void Parents(NNN startNe, List<string> pList)
+        {
+            NNR nnr = null;
+            NNN pNe;
+            do
+            {
+                pNe = nnr?.NNNP ?? startNe;
+                pList.Add(pNe.Ad);
+                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", pNe).FirstOrDefault();
+            } while (nnr != null);
+        }
+
+        private static bool HasKidInParents(NNN Kid, List<string> pList)
+        {
+            bool rv = false;
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
+            {
+                var aaa = r.NNNK.Ad;
+                foreach (var p in pList)
+                {
+                    if (p == r.NNNK.Ad)
+                    {
+                        rv = true;
+                        break;
+                    }
+                }
+                if (rv)
+                    break;
+                else if (r.NNNK.HasKid)
+                    HasKidInParents(r.NNNK, pList);
+            }
+            return rv;
+        }
+
+        private static void Kids(NNN Kid, List<string> kList)
+        {
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
+            {
+                kList.Add(r.NNNK.Ad);
+                if (r.NNNK.HasKid)
+                    Kids(r.NNNK, kList);
+            }
+        }
 
         public static void KidInRootsMik(ulong KidObjNo)
         {
@@ -257,12 +327,199 @@ namespace M2DB
         }
 
 
-
     }
 
+    public static class NeOps
+    {
+        public static void initNNN()
+        {
+            if (Db.SQL<NNN>("select r from NNN r").FirstOrDefault() != null)
+                return; // Kayit var yapma
 
+            Db.Transact(() =>
+            {
+                Db.SQL("DELETE FROM NNR");
+                Db.SQL("DELETE FROM NNN");
 
+                var ahmet = new NNN
+                {
+                    Kd = "40",
+                    Ad = "Ahmet",
+                    Fyt = 100
+                };
+                var mehmet = new NNN
+                {
+                    Kd = "50",
+                    Ad = "Mehmet",
+                    Fyt = 110,
+                };
+                var suzan = new NNN
+                {
+                    Kd = "30",
+                    Ad = "Suzan"
+                };
+                var senay = new NNN
+                {
+                    Kd = "30.10",
+                    Ad = "Senay"
+                };
+                var umut = new NNN
+                {
+                    Kd = "30.10.1",
+                    Ad = "Umut",
+                    Fyt = 20
+                };
+                var nazli = new NNN
+                {
+                    Kd = "30.10.2",
+                    Ad = "Nazli",
+                    Fyt = 30
+                };
+                var sener = new NNN
+                {
+                    Kd = "30.20",
+                    Ad = "Sener"
+                };
+                var can = new NNN
+                {
+                    Kd = "30.20.1",
+                    Ad = "Can",
+                    Fyt = 0
+                };
+                var ali = new NNN
+                {
+                    Kd = "30.20.1.1",
+                    Ad = "Ali",
+                    Fyt = 50
+                };
+                var ayse = new NNN
+                {
+                    Kd = "30.20.1.2",
+                    Ad = "Ayse",
+                    Fyt = 60
+                };
+                var veli = new NNN
+                {
+                    Kd = "30.20.1.3",
+                    Ad = "Veli",
+                    Fyt = 70
+                };
 
+                var kemal = new NNN
+                {
+                    Kd = "kk",
+                    Ad = "Kemal",
+                    Fyt = 30
+                };
 
+                new NNR
+                {
+                    NNNP = suzan,
+                    NNNK = senay,
+                    Mik = 2
+                };
+                new NNR
+                {
+                    NNNP = senay,
+                    NNNK = umut,
+                    Mik = 3
+                };
+                new NNR
+                {
+                    NNNP = senay,
+                    NNNK = nazli,
+                    Mik = 4
+                };
 
+                new NNR
+                {
+                    NNNP = suzan,
+                    NNNK = sener,
+                    Mik = 5
+                };
+                new NNR
+                {
+                    NNNP = sener,
+                    NNNK = can,
+                    Mik = 6
+                };
+                new NNR
+                {
+                    NNNP = can,
+                    NNNK = ali,
+                    Mik = 7
+                };
+                new NNR
+                {
+                    NNNP = can,
+                    NNNK = ayse,
+                    Mik = 8
+                };
+                new NNR
+                {
+                    NNNP = can,
+                    NNNK = veli,
+                    Mik = 9
+                };
+                new NNR
+                {
+                    NNNP = nazli,
+                    NNNK = can,
+
+                    Mik = 10
+                };
+
+                new NNR
+                {
+                    NNNP = sener,
+                    NNNK = ahmet,
+
+                    Mik = 11
+                };
+                new NNR
+                {
+                    NNNP = sener,
+                    NNNK = mehmet,
+
+                    Mik = 12
+                };
+                new NNR
+                {
+                    NNNP = sener,
+                    NNNK = senay,
+
+                    Mik = 13
+                };
+                new NNR
+                {
+                    NNNP = kemal,
+                    NNNK = nazli,
+
+                    Mik = 14
+                };
+                new NNR
+                {
+                    NNNP = kemal,
+                    NNNK = sener,
+
+                    Mik = 15
+                };
+                new NNR
+                {
+                    NNNP = suzan,
+                    NNNK = ali,
+
+                    Mik = 17
+                };
+                new NNR
+                {
+                    NNNP = sener,
+                    NNNK = ali,
+
+                    Mik = 18
+                };
+            });
+
+        }
+    }
 }

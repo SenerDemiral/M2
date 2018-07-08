@@ -30,6 +30,11 @@ namespace RestServerSC
             M2DB.AccOps.PopAHP();
             M2DB.GnlOps.PopXGT();
             M2DB.UsrOps.PopUUU();
+            M2DB.NeOps.initNNN();
+
+            NNN startNe = Db.FromId<NNN>(278);  // Sener
+            NNN searchNe = Db.FromId<NNN>(283);  // Kemal
+            NNR.HasParentsExistsInKids(startNe, searchNe);
 
             Db.Transact(() =>
             {
