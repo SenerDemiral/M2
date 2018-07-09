@@ -183,13 +183,101 @@ namespace M2DB
             return rv;
         }
 
-        private static void Kids(NNN Kid, List<string> kList)
+        private static void Kids(NNN Kid, List<string> kList)   // HasKidInParents ile yap bunu kullanma
         {
             foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
             {
                 kList.Add(r.NNNK.Ad);
                 if (r.NNNK.HasKid)
                     Kids(r.NNNK, kList);
+            }
+        }
+
+        public static double NeMaliyet(ulong sNo)
+        {
+            double Fyt = 0;
+            NNN s = Db.FromId(sNo) as NNN;
+            if (s != null)
+            {
+                if (s.HasKid)
+                    Fyt = NeMaliyetDty(sNo);
+                else
+                    Fyt = s.Fyt;
+
+                //if (dbg)
+                    Console.WriteLine($"{s.Ad}#{sNo} Maliyeti = {Fyt:n}");
+            }
+            else
+            {
+                Fyt = -1;
+                //if (dbg)
+                    Console.WriteLine($"Ne:#{sNo} Bulunamadi");
+            }
+            return Fyt;
+        }
+
+        public static double NeMaliyetDty(ulong sNo)     // Value  KidTut += Mik * Fyt, PrnTut += KidTut * Mik
+        {
+            double T = 0, kT = 0, pT = 0;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ? order by r.NNNK.HasKid DESC", sNo))
+            {
+                if (r.NNNK.HasKid)
+                {
+                    kT = NeMaliyetDty(r.NNNK.GetObjectNo());
+                    pT = T;
+                    T += r.Mik * kT;
+                    //if (dbg)
+                        Console.WriteLine($"2:{r.PAd}.{r.KAd}: {pT:n}[{r.PAd}] + {r.Mik}x{kT}={r.Mik * kT}[{r.KAd}] => {T:n}[{r.PAd}]");
+                }
+                else
+                {
+                    pT = T;
+                    T += r.Mik * r.NNNK.Fyt;
+                    //if (dbg)
+                        Console.WriteLine($"1:{r.PAd}.{r.KAd}:  {pT:n}[{r.PAd}] + {r.Mik}x{r.NNNK.Fyt}={r.Mik * r.NNNK.Fyt}[{r.KAd}] => {T:n}[{r.PAd}]");
+                }
+            }
+            Console.WriteLine($"--:T={T}, kT={kT}, pT={pT}");
+            return T;
+        }
+
+        // Kullanilmiyor
+        public static void KidsParents()
+        {
+            Dictionary<NNN, Dictionary<NNN, double>> kp = new Dictionary<NNN, Dictionary<NNN, double>>();
+
+            foreach(var k in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
+            {
+                var aaa = k.Ad;
+                kp.Add(k, new Dictionary<NNN, double>());
+            }
+
+            foreach(var k in kp)
+            {
+                KidParents(k.Key, k.Value);
+            }
+
+            foreach (var k in kp)
+            {
+                Console.WriteLine($"{k.Key.Ad}");
+                foreach (var p in k.Value)
+                {
+                    Console.WriteLine($"{p.Key.Ad} {p.Value}");
+                }
+                Console.WriteLine();
+            }
+        }
+
+        // Kullanilmiyor
+        public static void KidParents(NNN k, Dictionary<NNN, double> ps)
+        {
+            foreach(var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", k))
+            {
+                ps[r.NNNP] = r.Mik;
+                if (r.NNNP.HasPrn)
+                    KidParents(r.NNNP, ps);
+
             }
         }
 

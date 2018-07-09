@@ -35,6 +35,12 @@ namespace RestServerSC
             NNN startNe = Db.FromId<NNN>(278);  // Sener
             NNN searchNe = Db.FromId<NNN>(283);  // Kemal
             NNR.HasParentsExistsInKids(startNe, searchNe);
+            NNR.KidInRootsMik(280);
+
+            // Kullanilmiyor
+            //NNR.KidsParents(); 
+
+            NNR.NeMaliyet(274); // Suzan
 
             Db.Transact(() =>
             {
