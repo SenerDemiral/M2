@@ -41,7 +41,7 @@ namespace RestServerSC
             // Kullanilmiyor
             //NNR.KidsParents(); 
 
-            NNR.NeMaliyet(274); // Suzan
+            NNN.NeMaliyet(274); // Suzan
 
             Db.Transact(() =>
             {

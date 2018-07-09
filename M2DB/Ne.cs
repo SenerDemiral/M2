@@ -74,42 +74,20 @@ namespace M2DB
             if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP = ? AND r.NNNK = ?", curNe, apndNe).FirstOrDefault() != null)
                 return false;
 
-            // curNe and Parents
             List<string> pList = new List<string>();
-            Parents(curNe, pList);
-
-            // Search Kids, Varsa true
-            bool rv = !HasKidInParents(apndNe, pList);
-
-            /*
-            // pList de kList.item var ise true
-            List<string> kList = new List<string>();
-            kList.Add(searchNe.Ad);  // Kendisini de ekle
-            Kids((searchNe, kList);
-            foreach (var p in pList)
-            {
-                foreach (var k in kList)
-                {
-                    if (p == k)
-                        return true;
-                }
-            }
-            */
-            return rv;
-        }
-
-        private static void Parents(NNN Ne, List<string> pList)
-        {
+            // curNe and Parents
             NNR nnr = null;
             NNN pNe;
             do
             {
-                pNe = nnr?.NNNP ?? Ne;
+                pNe = nnr?.NNNP ?? curNe;
                 pList.Add(pNe.Ad);
                 nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", pNe).FirstOrDefault();
             } while (nnr != null);
-        }
 
+            // Search Kids, Varsa true
+            return !HasKidInParents(apndNe, pList);
+        }
         private static bool HasKidInParents(NNN Kid, List<string> pList)
         {
             bool rv = false;
@@ -132,7 +110,53 @@ namespace M2DB
             return rv;
         }
 
+        public static double NeMaliyet(ulong sNo)
+        {
+            double Fyt = 0;
+            NNN s = Db.FromId(sNo) as NNN;
+            if (s != null)
+            {
+                if (s.HasKid)
+                    Fyt = NeMaliyetDty(sNo);
+                else
+                    Fyt = s.Fyt;
 
+                //if (dbg)
+                Console.WriteLine($"{s.Ad}#{sNo} Maliyeti = {Fyt:n}");
+            }
+            else
+            {
+                Fyt = -1;
+                //if (dbg)
+                Console.WriteLine($"Ne:#{sNo} Bulunamadi");
+            }
+            return Fyt;
+        }
+        public static double NeMaliyetDty(ulong sNo)     // Value  KidTut += Mik * Fyt, PrnTut += KidTut * Mik
+        {
+            double T = 0, kT = 0, pT = 0;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ? order by r.NNNK.HasKid DESC", sNo))
+            {
+                if (r.NNNK.HasKid)
+                {
+                    kT = NeMaliyetDty(r.NNNK.GetObjectNo());
+                    pT = T;
+                    T += r.Mik * kT;
+                    //if (dbg)
+                    Console.WriteLine($"2:{r.PAd}.{r.KAd}: {pT:n}[{r.PAd}] + {r.Mik}x{kT}={r.Mik * kT}[{r.KAd}] => {T:n}[{r.PAd}]");
+                }
+                else
+                {
+                    pT = T;
+                    T += r.Mik * r.NNNK.Fyt;
+                    //if (dbg)
+                    Console.WriteLine($"1:{r.PAd}.{r.KAd}:  {pT:n}[{r.PAd}] + {r.Mik}x{r.NNNK.Fyt}={r.Mik * r.NNNK.Fyt}[{r.KAd}] => {T:n}[{r.PAd}]");
+                }
+            }
+            Console.WriteLine($"--:T={T}, kT={kT}, pT={pT}");
+            return T;
+        }
     }
 
     [Database]
@@ -199,55 +223,6 @@ namespace M2DB
                 if (r.NNNK.HasKid)
                     Kids(r.NNNK, kList);
             }
-        }
-
-        public static double NeMaliyet(ulong sNo)
-        {
-            double Fyt = 0;
-            NNN s = Db.FromId(sNo) as NNN;
-            if (s != null)
-            {
-                if (s.HasKid)
-                    Fyt = NeMaliyetDty(sNo);
-                else
-                    Fyt = s.Fyt;
-
-                //if (dbg)
-                    Console.WriteLine($"{s.Ad}#{sNo} Maliyeti = {Fyt:n}");
-            }
-            else
-            {
-                Fyt = -1;
-                //if (dbg)
-                    Console.WriteLine($"Ne:#{sNo} Bulunamadi");
-            }
-            return Fyt;
-        }
-
-        public static double NeMaliyetDty(ulong sNo)     // Value  KidTut += Mik * Fyt, PrnTut += KidTut * Mik
-        {
-            double T = 0, kT = 0, pT = 0;
-
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ? order by r.NNNK.HasKid DESC", sNo))
-            {
-                if (r.NNNK.HasKid)
-                {
-                    kT = NeMaliyetDty(r.NNNK.GetObjectNo());
-                    pT = T;
-                    T += r.Mik * kT;
-                    //if (dbg)
-                        Console.WriteLine($"2:{r.PAd}.{r.KAd}: {pT:n}[{r.PAd}] + {r.Mik}x{kT}={r.Mik * kT}[{r.KAd}] => {T:n}[{r.PAd}]");
-                }
-                else
-                {
-                    pT = T;
-                    T += r.Mik * r.NNNK.Fyt;
-                    //if (dbg)
-                        Console.WriteLine($"1:{r.PAd}.{r.KAd}:  {pT:n}[{r.PAd}] + {r.Mik}x{r.NNNK.Fyt}={r.Mik * r.NNNK.Fyt}[{r.KAd}] => {T:n}[{r.PAd}]");
-                }
-            }
-            Console.WriteLine($"--:T={T}, kT={kT}, pT={pT}");
-            return T;
         }
 
         // Kullanilmiyor
