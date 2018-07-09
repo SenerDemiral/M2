@@ -32,9 +32,10 @@ namespace RestServerSC
             M2DB.UsrOps.PopUUU();
             M2DB.NeOps.initNNN();
 
-            NNN startNe = Db.FromId<NNN>(278);  // Sener
-            NNN searchNe = Db.FromId<NNN>(283);  // Kemal
-            NNR.HasParentsExistsInKids(startNe, searchNe);
+            NNN curNe = Db.FromId<NNN>(274);  // Suzan
+            NNN apndNe = Db.FromId<NNN>(283);  // Kemal
+            NNN.CanAppend(curNe, apndNe);
+
             NNR.KidInRootsMik(280);
 
             // Kullanilmiyor

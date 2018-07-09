@@ -65,6 +65,74 @@ namespace M2DB
                 return true;
             }
         }
+
+        public static bool CanAppend(NNN curNe, NNN apndNe)
+        {
+            // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids
+            
+            // Zaten eklenmis ise
+            if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP = ? AND r.NNNK = ?", curNe, apndNe).FirstOrDefault() != null)
+                return false;
+
+            // curNe and Parents
+            List<string> pList = new List<string>();
+            Parents(curNe, pList);
+
+            // Search Kids, Varsa true
+            bool rv = !HasKidInParents(apndNe, pList);
+
+            /*
+            // pList de kList.item var ise true
+            List<string> kList = new List<string>();
+            kList.Add(searchNe.Ad);  // Kendisini de ekle
+            Kids((searchNe, kList);
+            foreach (var p in pList)
+            {
+                foreach (var k in kList)
+                {
+                    if (p == k)
+                        return true;
+                }
+            }
+            */
+            return rv;
+        }
+
+        private static void Parents(NNN Ne, List<string> pList)
+        {
+            NNR nnr = null;
+            NNN pNe;
+            do
+            {
+                pNe = nnr?.NNNP ?? Ne;
+                pList.Add(pNe.Ad);
+                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", pNe).FirstOrDefault();
+            } while (nnr != null);
+        }
+
+        private static bool HasKidInParents(NNN Kid, List<string> pList)
+        {
+            bool rv = false;
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
+            {
+                var aaa = r.NNNK.Ad;
+                foreach (var p in pList)
+                {
+                    if (p == r.NNNK.Ad)
+                    {
+                        rv = true;
+                        break;
+                    }
+                }
+                if (rv)
+                    break;
+                else if (r.NNNK.HasKid)
+                    HasKidInParents(r.NNNK, pList);
+            }
+            return rv;
+        }
+
+
     }
 
     [Database]
@@ -122,66 +190,6 @@ namespace M2DB
 
         public string PAd => NNNP?.Ad;
         public string KAd => NNNK?.Ad;
-
-        public static bool HasParentsExistsInKids(NNN startNe, NNN searchNe)
-        {
-            // startNe and Parents
-            List<string> pList = new List<string>();
-            Parents(startNe, pList);
-
-            // searchNe and Kids
-            bool rv = HasKidInParents(searchNe, pList);
-
-            /*
-            // pList de kList.item var ise true
-            List<string> kList = new List<string>();
-            kList.Add(searchNe.Ad);  // Kendisini de ekle
-            Kids((searchNe, kList);
-            foreach (var p in pList)
-            {
-                foreach (var k in kList)
-                {
-                    if (p == k)
-                        return true;
-                }
-            }
-            */
-            return rv;
-        }
-
-        private static void Parents(NNN startNe, List<string> pList)
-        {
-            NNR nnr = null;
-            NNN pNe;
-            do
-            {
-                pNe = nnr?.NNNP ?? startNe;
-                pList.Add(pNe.Ad);
-                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", pNe).FirstOrDefault();
-            } while (nnr != null);
-        }
-
-        private static bool HasKidInParents(NNN Kid, List<string> pList)
-        {
-            bool rv = false;
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
-            {
-                var aaa = r.NNNK.Ad;
-                foreach (var p in pList)
-                {
-                    if (p == r.NNNK.Ad)
-                    {
-                        rv = true;
-                        break;
-                    }
-                }
-                if (rv)
-                    break;
-                else if (r.NNNK.HasKid)
-                    HasKidInParents(r.NNNK, pList);
-            }
-            return rv;
-        }
 
         private static void Kids(NNN Kid, List<string> kList)   // HasKidInParents ile yap bunu kullanma
         {
