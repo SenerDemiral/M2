@@ -43,6 +43,8 @@ namespace RestServerSC
 
             NNN.NeMaliyet(274); // Suzan
 
+            NNR.Deneme2();
+
             Db.Transact(() =>
             {
                 new AFB

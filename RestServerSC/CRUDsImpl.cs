@@ -1067,6 +1067,71 @@ namespace RestServerSC
         }
 
 
+        // FirmaTanim
+        public override async Task NNNfill(QryProxy request, IServerStreamWriter<NNNproxy> responseStream, ServerCallContext context)
+        {
+            NNNproxy proxy = new NNNproxy();
+            List<NNNproxy> proxyList = new List<NNNproxy>();
+            string sel = $"SELECT r FROM KMT r";
+
+            Type proxyType = typeof(AFDproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<NNN>("SELECT r FROM NNN r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new NNNproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                        BRM = row.BRM == null ? 0 : row.BRM.GetObjectNo(),
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+
+        public override Task<NNNproxy> NNNupdate(NNNproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            NNN row = CRUDsHelper.FromProxy<NNNproxy, NNN>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<NNNproxy, NNN>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+
     }
 
 }

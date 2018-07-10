@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -214,6 +215,123 @@ namespace M2DB
 
         public string PAd => NNNP?.Ad;
         public string KAd => NNNK?.Ad;
+
+        public static void Deneme2()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("L", typeof(int));
+            table.Columns.Add("P", typeof(int));
+            table.Columns.Add("K", typeof(int));
+            table.Columns.Add("A", typeof(string));
+            table.Columns.Add("N", typeof(ulong));
+
+            int P = 0;
+            int K = 1;
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
+            {
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo());
+                K++;
+            }
+
+            for (int L = 1; L < 10; L++)
+            {
+                DataRow[] dr = table.Select($"L = {L-1}");
+                foreach (var r in dr)
+                {
+                    P = (int)r["K"]; // (int)r.ItemArray[2];
+
+                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
+                    {
+                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo());
+                        K++;
+                    }
+
+                }
+            }
+
+        }
+
+        public static void Deneme()
+        {
+            List<string> nList = new List<string>();
+            foreach (var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            {
+                nList.Add(r.Ad);
+            }
+
+            Dictionary<string, List<string>> nd = new Dictionary<string,List<string>>();
+            foreach(var nl in nList)
+            {
+                //Dictionary<string, string> sa = new Dictionary<string, string>();
+                List<string> sl = new List<string>();
+                foreach (var n in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.Ad = ?", nl))
+                {
+                    sl.Add(n.KAd);
+                }
+                nd[nl] = sl;
+            }
+            char[] charSeparators = new char[] { ',' };
+
+            for (int i = 0; i < 4; i++)
+            {
+                foreach (var nl in nList)
+                {
+                    List<string> sl = new List<string>();
+                    foreach (var r in nd[nl])
+                    {
+                        if (r == "[" || r == "]")
+                            sl.Add(r);
+                        else if (r.EndsWith(":"))
+                            sl.Add(r);
+                        else if (r != "[" && r != "]" && nd[r].Count > 0)
+                        {
+                            sl.Add(r + ":");
+                            sl.Add("[");
+                            foreach (var x in nd[r])
+                                sl.Add(x);
+                            sl.Add("]");
+                        }
+                        else
+                            sl.Add(r);
+                    }
+
+                    nd[nl] = sl;
+                }
+            }
+            foreach (var n in nd)
+            {
+                string s = "";
+                foreach (var l in n.Value)
+                {
+                    s += l + " ";
+                }
+            }
+
+            /*
+            foreach (var nl in nList)
+            {
+                List<string> sl = new List<string>();
+                foreach (var r in nd[nl])
+                {
+                    if (r.EndsWith(":"))
+                        sl.Add(r);
+                    else
+                    {
+                        sl.Add(r + ":");
+
+                        if (r != "[" && r != "]" && nd[r].Count > 0)
+                        {
+                            sl.Add("[");
+                            foreach (var x in nd[r])
+                                sl.Add(x);
+                            sl.Add("]");
+                        }
+                    }
+                }
+
+                nd[nl] = sl;
+            }*/
+        }
 
         private static void Kids(NNN Kid, List<string> kList)   // HasKidInParents ile yap bunu kullanma
         {

@@ -55,6 +55,10 @@ service CRUDs {
   rpc UYTupdate (UYTproxy) returns (UYTproxy) {}
   rpc UYHfill (QryProxy) returns (stream UYHproxy) {}
   rpc UYHupdate (UYHproxy) returns (UYHproxy) {}
+
+  rpc NNNfill (QryProxy) returns (stream NNNproxy) {}
+  rpc NNNupdate (NNNproxy) returns (NNNproxy) {}
+
 }
 
 message PKproxy {
@@ -242,3 +246,13 @@ message UYHproxy {
   uint64 K = 6;
 }
 
+// NNN Ne
+message NNNproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+	uint64 BRM = 7;
+}
