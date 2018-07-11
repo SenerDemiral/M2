@@ -46,6 +46,7 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.UYTproxy> __Marshaller_UYTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UYHproxy> __Marshaller_UYHproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYHproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NNNproxy> __Marshaller_NNNproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNNproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NeTreeProxy> __Marshaller_NeTreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeTreeProxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
@@ -243,6 +244,20 @@ namespace Rest {
         __Marshaller_NNNproxy,
         __Marshaller_NNNproxy);
 
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy> __Method_NeUpFill = new grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "NeUpFill",
+        __Marshaller_QryProxy,
+        __Marshaller_NeTreeProxy);
+
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy> __Method_NeDownFill = new grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "NeDownFill",
+        __Marshaller_QryProxy,
+        __Marshaller_NeTreeProxy);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -388,6 +403,16 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task<global::Rest.NNNproxy> NNNupdate(global::Rest.NNNproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task NeUpFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NeTreeProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task NeDownFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NeTreeProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -753,6 +778,22 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_NNNupdate, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeUpFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NeUpFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeUpFill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_NeUpFill, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeDownFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NeDownFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeDownFill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_NeDownFill, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override CRUDsClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -792,7 +833,9 @@ namespace Rest {
           .AddMethod(__Method_UYHfill, serviceImpl.UYHfill)
           .AddMethod(__Method_UYHupdate, serviceImpl.UYHupdate)
           .AddMethod(__Method_NNNfill, serviceImpl.NNNfill)
-          .AddMethod(__Method_NNNupdate, serviceImpl.NNNupdate).Build();
+          .AddMethod(__Method_NNNupdate, serviceImpl.NNNupdate)
+          .AddMethod(__Method_NeUpFill, serviceImpl.NeUpFill)
+          .AddMethod(__Method_NeDownFill, serviceImpl.NeDownFill).Build();
     }
 
   }

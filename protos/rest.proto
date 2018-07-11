@@ -59,6 +59,18 @@ service CRUDs {
   rpc NNNfill (QryProxy) returns (stream NNNproxy) {}
   rpc NNNupdate (NNNproxy) returns (NNNproxy) {}
 
+  rpc NeUpFill (QryProxy) returns (stream NeTreeProxy) {}
+  rpc NeDownFill (QryProxy) returns (stream NeTreeProxy) {}
+}
+
+message NeTreeProxy {
+	int32 L = 1;
+	int32 P = 2;
+	int32 K = 3;
+	string A = 4;
+	uint64 N = 5;
+	double M = 6;
+	double MT = 7;
 }
 
 message PKproxy {

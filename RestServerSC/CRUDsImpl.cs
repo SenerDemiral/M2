@@ -8,6 +8,7 @@ using Rest;
 using System.Reflection;
 using Starcounter;
 using M2DB;
+using System.Data;
 
 namespace RestServerSC
 {
@@ -1132,6 +1133,63 @@ namespace RestServerSC
         }
 
 
+        public override async Task NeUpFill(QryProxy request, IServerStreamWriter<NeTreeProxy> responseStream, ServerCallContext context)
+        {
+            NeTreeProxy proxy;
+            DataTable table = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                table = M2DB.NNR.DenemeUp();
+            });
+
+
+            foreach (DataRow r in table.Rows)
+            {
+                proxy = new NeTreeProxy
+                {
+                    L = (int)r["L"],
+                    P = (int)r["P"],
+                    K = (int)r["K"],
+                    A = (string)r["A"],
+                    N = (ulong)r["N"],
+                    M = (double)r["M"],
+                    MT = 1,
+                };
+
+                await responseStream.WriteAsync(proxy);
+
+            }
+        }
+
+        public override async Task NeDownFill(QryProxy request, IServerStreamWriter<NeTreeProxy> responseStream, ServerCallContext context)
+        {
+            NeTreeProxy proxy;
+            DataTable table = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                table = M2DB.NNR.DenemeDown();
+            });
+
+
+            foreach (DataRow r in table.Rows)
+            {
+                proxy = new NeTreeProxy
+                {
+                    L = (int)r["L"],
+                    P = (int)r["P"],
+                    K = (int)r["K"],
+                    A = (string)r["A"],
+                    N = (ulong)r["N"],
+                    M = (double)r["M"],
+                    MT = 1,
+                };
+
+                await responseStream.WriteAsync(proxy);
+
+            }
+        }
     }
 
 }

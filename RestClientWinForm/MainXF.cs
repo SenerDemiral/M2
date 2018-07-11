@@ -133,5 +133,18 @@ namespace RestClientWinForm
             AbbXF frm = new AbbXF();
             frm.Show();
         }
+
+        private void NeUpButton_Click(object sender, EventArgs e)
+        {
+            NeUpXF frm = new NeUpXF();
+            frm.Show();
+        }
+
+        private void NeDownButton_Click(object sender, EventArgs e)
+        {
+            NeDownXF frm = new NeDownXF();
+            frm.Show();
+
+        }
     }
 }

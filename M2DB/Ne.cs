@@ -216,20 +216,21 @@ namespace M2DB
         public string PAd => NNNP?.Ad;
         public string KAd => NNNK?.Ad;
 
-        public static void Deneme2()
+        public static DataTable DenemeUp()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("L", typeof(int));
-            table.Columns.Add("P", typeof(int));
-            table.Columns.Add("K", typeof(int));
-            table.Columns.Add("A", typeof(string));
-            table.Columns.Add("N", typeof(ulong));
+            table.Columns.Add("L", typeof(int));    // Level
+            table.Columns.Add("P", typeof(int));    // Parent
+            table.Columns.Add("K", typeof(int));    // Kid
+            table.Columns.Add("A", typeof(string)); // Ad
+            table.Columns.Add("N", typeof(ulong));  // No
+            table.Columns.Add("M", typeof(double)); // Miktar
 
             int P = 0;
             int K = 1;
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
             {
-                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo());
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1);
                 K++;
             }
 
@@ -240,15 +241,57 @@ namespace M2DB
                 {
                     P = (int)r["K"]; // (int)r.ItemArray[2];
 
-                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
+                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo());
+                        table.Rows.Add(L, P, K, nr.PAd, nr.NNNP.GetObjectNo(), nr.Mik);
                         K++;
                     }
 
                 }
             }
 
+            foreach(DataRow r in table.Rows)
+            {
+                Console.WriteLine($"{r["L"]}, {r["P"]}, {r["K"]}, {r["A"]}, {r["N"]}, {r["M"]}");
+
+            }
+            return table;
+        }
+
+        public static DataTable DenemeDown()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("L", typeof(int));
+            table.Columns.Add("P", typeof(int));
+            table.Columns.Add("K", typeof(int));
+            table.Columns.Add("A", typeof(string));
+            table.Columns.Add("N", typeof(ulong));
+            table.Columns.Add("M", typeof(double)); // Miktar
+
+            int P = 0;
+            int K = 1;
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
+            {
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 0);
+                K++;
+            }
+
+            for (int L = 1; L < 10; L++)
+            {
+                DataRow[] dr = table.Select($"L = {L - 1}");
+                foreach (var r in dr)
+                {
+                    P = (int)r["K"]; // (int)r.ItemArray[2];
+
+                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
+                    {
+                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik);
+                        K++;
+                    }
+
+                }
+            }
+            return table;
         }
 
         public static void Deneme()

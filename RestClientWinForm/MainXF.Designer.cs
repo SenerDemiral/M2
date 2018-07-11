@@ -50,6 +50,8 @@
             this.KFTbutton = new System.Windows.Forms.Button();
             this.UYHbutton = new System.Windows.Forms.Button();
             this.ABBbutton = new System.Windows.Forms.Button();
+            this.NeUpButton = new System.Windows.Forms.Button();
+            this.NeDownButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -278,11 +280,33 @@
             this.ABBbutton.UseVisualStyleBackColor = true;
             this.ABBbutton.Click += new System.EventHandler(this.ABBbutton_Click);
             // 
+            // NeUpButton
+            // 
+            this.NeUpButton.Location = new System.Drawing.Point(22, 210);
+            this.NeUpButton.Name = "NeUpButton";
+            this.NeUpButton.Size = new System.Drawing.Size(75, 23);
+            this.NeUpButton.TabIndex = 6;
+            this.NeUpButton.Text = "NeUp";
+            this.NeUpButton.UseVisualStyleBackColor = true;
+            this.NeUpButton.Click += new System.EventHandler(this.NeUpButton_Click);
+            // 
+            // NeDownButton
+            // 
+            this.NeDownButton.Location = new System.Drawing.Point(113, 210);
+            this.NeDownButton.Name = "NeDownButton";
+            this.NeDownButton.Size = new System.Drawing.Size(75, 23);
+            this.NeDownButton.TabIndex = 7;
+            this.NeDownButton.Text = "NeDown";
+            this.NeDownButton.UseVisualStyleBackColor = true;
+            this.NeDownButton.Click += new System.EventHandler(this.NeDownButton_Click);
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.NeDownButton);
+            this.Controls.Add(this.NeUpButton);
             this.Controls.Add(this.ABBbutton);
             this.Controls.Add(this.UYHbutton);
             this.Controls.Add(this.KFTbutton);
@@ -329,5 +353,7 @@
         private System.Windows.Forms.Button UYHbutton;
         private System.Windows.Forms.Button ABBbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbbTurRepositoryItemLookUpEdit;
+        private System.Windows.Forms.Button NeUpButton;
+        private System.Windows.Forms.Button NeDownButton;
     }
 }

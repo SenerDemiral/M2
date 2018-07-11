@@ -43,7 +43,8 @@ namespace RestServerSC
 
             NNN.NeMaliyet(274); // Suzan
 
-            NNR.Deneme2();
+            NNR.DenemeUp();
+            NNR.DenemeDown();
 
             Db.Transact(() =>
             {

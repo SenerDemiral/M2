@@ -80,11 +80,45 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="NeUp" msprop:Generator_TableClassName="NeUpDataTable" msprop:Generator_TableVarName="tableNeUp" msprop:Generator_RowChangedName="NeUpRowChanged" msprop:Generator_TablePropName="NeUp" msprop:Generator_RowDeletingName="NeUpRowDeleting" msprop:Generator_RowChangingName="NeUpRowChanging" msprop:Generator_RowEvHandlerName="NeUpRowChangeEventHandler" msprop:Generator_RowDeletedName="NeUpRowDeleted" msprop:Generator_RowClassName="NeUpRow" msprop:Generator_UserTableName="NeUp" msprop:Generator_RowEvArgName="NeUpRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="L" msprop:Generator_ColumnVarNameInTable="columnL" msprop:Generator_ColumnPropNameInRow="L" msprop:Generator_ColumnPropNameInTable="LColumn" msprop:Generator_UserColumnName="L" type="xs:int" minOccurs="0" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:int" minOccurs="0" />
+              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:int" />
+              <xs:element name="A" msprop:Generator_ColumnVarNameInTable="columnA" msprop:Generator_ColumnPropNameInRow="A" msprop:Generator_ColumnPropNameInTable="AColumn" msprop:Generator_UserColumnName="A" type="xs:string" minOccurs="0" />
+              <xs:element name="N" msprop:Generator_ColumnVarNameInTable="columnN" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_UserColumnName="N" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
+              <xs:element name="MT" msprop:Generator_ColumnVarNameInTable="columnMT" msprop:Generator_ColumnPropNameInRow="MT" msprop:Generator_ColumnPropNameInTable="MTColumn" msprop:Generator_UserColumnName="MT" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NeDown" msprop:Generator_TableClassName="NeDownDataTable" msprop:Generator_TableVarName="tableNeDown" msprop:Generator_TablePropName="NeDown" msprop:Generator_RowDeletingName="NeDownRowDeleting" msprop:Generator_RowChangingName="NeDownRowChanging" msprop:Generator_RowEvHandlerName="NeDownRowChangeEventHandler" msprop:Generator_RowDeletedName="NeDownRowDeleted" msprop:Generator_UserTableName="NeDown" msprop:Generator_RowChangedName="NeDownRowChanged" msprop:Generator_RowEvArgName="NeDownRowChangeEvent" msprop:Generator_RowClassName="NeDownRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="L" msprop:Generator_ColumnVarNameInTable="columnL" msprop:Generator_ColumnPropNameInRow="L" msprop:Generator_ColumnPropNameInTable="LColumn" msprop:Generator_UserColumnName="L" type="xs:int" minOccurs="0" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:int" minOccurs="0" />
+              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:int" />
+              <xs:element name="A" msprop:Generator_ColumnVarNameInTable="columnA" msprop:Generator_ColumnPropNameInRow="A" msprop:Generator_ColumnPropNameInTable="AColumn" msprop:Generator_UserColumnName="A" type="xs:string" minOccurs="0" />
+              <xs:element name="N" msprop:Generator_ColumnVarNameInTable="columnN" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_UserColumnName="N" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
+              <xs:element name="MT" msprop:Generator_ColumnVarNameInTable="columnMT" msprop:Generator_ColumnPropNameInRow="MT" msprop:Generator_ColumnPropNameInTable="MTColumn" msprop:Generator_UserColumnName="MT" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:AHP" />
       <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="NeUp_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NeUp" />
+      <xs:field xpath="mstns:K" />
+    </xs:unique>
+    <xs:unique name="NeDown_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:NeDown" />
+      <xs:field xpath="mstns:K" />
     </xs:unique>
   </xs:element>
 </xs:schema>
