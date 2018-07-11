@@ -225,12 +225,13 @@ namespace M2DB
             table.Columns.Add("A", typeof(string)); // Ad
             table.Columns.Add("N", typeof(ulong));  // No
             table.Columns.Add("M", typeof(double)); // Miktar
+            table.Columns.Add("F", typeof(double)); // Fiyat
 
             int P = 0;
             int K = 1;
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
             {
-                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1);
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, n.Fyt);
                 K++;
             }
 
@@ -243,7 +244,7 @@ namespace M2DB
 
                     foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.PAd, nr.NNNP.GetObjectNo(), nr.Mik);
+                        table.Rows.Add(L, P, K, nr.PAd, nr.NNNP.GetObjectNo(), nr.Mik, 0);
                         K++;
                     }
 
@@ -252,7 +253,7 @@ namespace M2DB
 
             foreach(DataRow r in table.Rows)
             {
-                Console.WriteLine($"{r["L"]}, {r["P"]}, {r["K"]}, {r["A"]}, {r["N"]}, {r["M"]}");
+                Console.WriteLine($"{r["L"]}, {r["P"]}, {r["K"]}, {r["A"]}, {r["N"]}, {r["M"]}, {r["F"]}");
 
             }
             return table;
@@ -267,12 +268,13 @@ namespace M2DB
             table.Columns.Add("A", typeof(string));
             table.Columns.Add("N", typeof(ulong));
             table.Columns.Add("M", typeof(double)); // Miktar
+            table.Columns.Add("F", typeof(double)); // Fiyat
 
             int P = 0;
             int K = 1;
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
             {
-                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 0);
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, 0);
                 K++;
             }
 
@@ -285,7 +287,7 @@ namespace M2DB
 
                     foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik);
+                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik, nr.NNNK.Fyt);
                         K++;
                     }
 
@@ -447,7 +449,7 @@ namespace M2DB
             foreach (var i in MikDict)
             {
                 Ne = Db.FromId<NNN>(i.Key);
-                if (!Ne.HasPrn)  // Root
+                //if (!Ne.HasPrn)  // Root
                     Console.WriteLine($">>{Kid.Ad}@{Ne.Ad}={i.Value:n}");
 
             }

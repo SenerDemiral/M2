@@ -71,6 +71,7 @@ message NeTreeProxy {
 	uint64 N = 5;
 	double M = 6;
 	double MT = 7;
+	double F = 8;
 }
 
 message PKproxy {

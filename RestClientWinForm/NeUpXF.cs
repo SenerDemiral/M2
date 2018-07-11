@@ -32,7 +32,7 @@ namespace RestClientWinForm
             DataRow[] dr0 = table.Select($"L = 0");
             foreach (var r0 in dr0)
                 r0["MT"] = 1;
-*/
+            */
             for (int L = 1; L < 10; L++)
             {
                 DataRow[] dr = table.Select($"L = {L}");

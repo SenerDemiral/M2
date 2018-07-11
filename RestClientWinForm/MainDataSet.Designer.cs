@@ -2441,6 +2441,8 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnMT;
             
+            private global::System.Data.DataColumn columnF;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public NeUpDataTable() {
@@ -2532,6 +2534,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FColumn {
+                get {
+                    return this.columnF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2567,7 +2577,7 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public NeUpRow AddNeUpRow(int L, int P, int K, string A, ulong N, double M, double MT) {
+            public NeUpRow AddNeUpRow(int L, int P, int K, string A, ulong N, double M, double MT, double F) {
                 NeUpRow rowNeUpRow = ((NeUpRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         L,
@@ -2576,7 +2586,8 @@ namespace RestClientWinForm {
                         A,
                         N,
                         M,
-                        MT};
+                        MT,
+                        F};
                 rowNeUpRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNeUpRow);
                 return rowNeUpRow;
@@ -2613,6 +2624,7 @@ namespace RestClientWinForm {
                 this.columnN = base.Columns["N"];
                 this.columnM = base.Columns["M"];
                 this.columnMT = base.Columns["MT"];
+                this.columnF = base.Columns["F"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2632,6 +2644,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnM);
                 this.columnMT = new global::System.Data.DataColumn("MT", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMT);
+                this.columnF = new global::System.Data.DataColumn("F", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnF);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnK}, true));
                 this.columnK.AllowDBNull = false;
@@ -2783,6 +2797,8 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnMT;
             
+            private global::System.Data.DataColumn columnF;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public NeDownDataTable() {
@@ -2874,6 +2890,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FColumn {
+                get {
+                    return this.columnF;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2909,7 +2933,7 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public NeDownRow AddNeDownRow(int L, int P, int K, string A, ulong N, double M, double MT) {
+            public NeDownRow AddNeDownRow(int L, int P, int K, string A, ulong N, double M, double MT, double F) {
                 NeDownRow rowNeDownRow = ((NeDownRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         L,
@@ -2918,7 +2942,8 @@ namespace RestClientWinForm {
                         A,
                         N,
                         M,
-                        MT};
+                        MT,
+                        F};
                 rowNeDownRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNeDownRow);
                 return rowNeDownRow;
@@ -2955,6 +2980,7 @@ namespace RestClientWinForm {
                 this.columnN = base.Columns["N"];
                 this.columnM = base.Columns["M"];
                 this.columnMT = base.Columns["MT"];
+                this.columnF = base.Columns["F"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2974,6 +3000,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnM);
                 this.columnMT = new global::System.Data.DataColumn("MT", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMT);
+                this.columnF = new global::System.Data.DataColumn("F", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnF);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnK}, true));
                 this.columnK.AllowDBNull = false;
@@ -4196,6 +4224,22 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double F {
+                get {
+                    try {
+                        return ((double)(this[this.tableNeUp.FColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'F\' in table \'NeUp\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNeUp.FColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLNull() {
                 return this.IsNull(this.tableNeUp.LColumn);
             }
@@ -4264,6 +4308,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMTNull() {
                 this[this.tableNeUp.MTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFNull() {
+                return this.IsNull(this.tableNeUp.FColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFNull() {
+                this[this.tableNeUp.FColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4390,6 +4446,22 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double F {
+                get {
+                    try {
+                        return ((double)(this[this.tableNeDown.FColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'F\' in table \'NeDown\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNeDown.FColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLNull() {
                 return this.IsNull(this.tableNeDown.LColumn);
             }
@@ -4458,6 +4530,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetMTNull() {
                 this[this.tableNeDown.MTColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFNull() {
+                return this.IsNull(this.tableNeDown.FColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFNull() {
+                this[this.tableNeDown.FColumn] = global::System.Convert.DBNull;
             }
         }
         

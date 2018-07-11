@@ -39,10 +39,13 @@
             this.colP = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colK = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colMT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colF = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calcTopMikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.calcFiyatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.neDownBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
@@ -68,7 +71,9 @@
             this.colM,
             this.colP,
             this.colK,
-            this.colMT});
+            this.colMT,
+            this.colF,
+            this.treeListColumn1});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.neDownBindingSource;
@@ -79,13 +84,15 @@
             this.treeList1.ParentFieldName = "P";
             this.treeList1.Size = new System.Drawing.Size(619, 318);
             this.treeList1.TabIndex = 2;
+            this.treeList1.HiddenEditor += new System.EventHandler(this.treeList1_HiddenEditor);
+            this.treeList1.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.treeList1_ShowingEditor);
             // 
             // colL
             // 
             this.colL.FieldName = "L";
             this.colL.Name = "colL";
             this.colL.Visible = true;
-            this.colL.VisibleIndex = 3;
+            this.colL.VisibleIndex = 4;
             this.colL.Width = 63;
             // 
             // colA
@@ -101,7 +108,7 @@
             this.colN.FieldName = "N";
             this.colN.Name = "colN";
             this.colN.Visible = true;
-            this.colN.VisibleIndex = 6;
+            this.colN.VisibleIndex = 7;
             this.colN.Width = 64;
             // 
             // colM
@@ -119,14 +126,14 @@
             this.colP.FieldName = "P";
             this.colP.Name = "colP";
             this.colP.Visible = true;
-            this.colP.VisibleIndex = 4;
+            this.colP.VisibleIndex = 5;
             // 
             // colK
             // 
             this.colK.FieldName = "K";
             this.colK.Name = "colK";
             this.colK.Visible = true;
-            this.colK.VisibleIndex = 5;
+            this.colK.VisibleIndex = 6;
             // 
             // colMT
             // 
@@ -134,37 +141,64 @@
             this.colMT.Format.FormatString = "n";
             this.colMT.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colMT.Name = "colMT";
-            this.colMT.Visible = true;
-            this.colMT.VisibleIndex = 2;
+            // 
+            // colF
+            // 
+            this.colF.FieldName = "F";
+            this.colF.Format.FormatString = "n";
+            this.colF.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colF.Name = "colF";
+            this.colF.Visible = true;
+            this.colF.VisibleIndex = 2;
+            // 
+            // treeListColumn1
+            // 
+            this.treeListColumn1.Caption = "T";
+            this.treeListColumn1.FieldName = "treeListColumn1";
+            this.treeListColumn1.Format.FormatString = "n";
+            this.treeListColumn1.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.treeListColumn1.Name = "treeListColumn1";
+            this.treeListColumn1.UnboundExpression = "[M] * [F]";
+            this.treeListColumn1.UnboundType = DevExpress.XtraTreeList.Data.UnboundColumnType.Decimal;
+            this.treeListColumn1.Visible = true;
+            this.treeListColumn1.VisibleIndex = 3;
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.calcTopMikToolStripMenuItem,
             this.expandToolStripMenuItem,
-            this.collapseToolStripMenuItem});
+            this.collapseToolStripMenuItem,
+            this.calcFiyatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 92);
             // 
             // calcTopMikToolStripMenuItem
             // 
             this.calcTopMikToolStripMenuItem.Name = "calcTopMikToolStripMenuItem";
-            this.calcTopMikToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.calcTopMikToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.calcTopMikToolStripMenuItem.Text = "Calc TopMik";
             // 
             // expandToolStripMenuItem
             // 
             this.expandToolStripMenuItem.Name = "expandToolStripMenuItem";
-            this.expandToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.expandToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.expandToolStripMenuItem.Text = "Expand";
             this.expandToolStripMenuItem.Click += new System.EventHandler(this.expandToolStripMenuItem_Click);
             // 
             // collapseToolStripMenuItem
             // 
             this.collapseToolStripMenuItem.Name = "collapseToolStripMenuItem";
-            this.collapseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.collapseToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.collapseToolStripMenuItem.Text = "Collapse";
             this.collapseToolStripMenuItem.Click += new System.EventHandler(this.collapseToolStripMenuItem_Click);
+            // 
+            // calcFiyatToolStripMenuItem
+            // 
+            this.calcFiyatToolStripMenuItem.Name = "calcFiyatToolStripMenuItem";
+            this.calcFiyatToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.calcFiyatToolStripMenuItem.Text = "Calc Fiyat";
+            this.calcFiyatToolStripMenuItem.Click += new System.EventHandler(this.calcFiyatToolStripMenuItem_Click);
             // 
             // NeDownXF
             // 
@@ -199,5 +233,8 @@
         private System.Windows.Forms.ToolStripMenuItem calcTopMikToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem expandToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem collapseToolStripMenuItem;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colF;
+        private System.Windows.Forms.ToolStripMenuItem calcFiyatToolStripMenuItem;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
     }
 }

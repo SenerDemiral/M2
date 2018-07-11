@@ -1154,6 +1154,7 @@ namespace RestServerSC
                     A = (string)r["A"],
                     N = (ulong)r["N"],
                     M = (double)r["M"],
+                    F = (double)r["F"],
                     MT = 1,
                 };
 
@@ -1183,6 +1184,7 @@ namespace RestServerSC
                     A = (string)r["A"],
                     N = (ulong)r["N"],
                     M = (double)r["M"],
+                    F = (double)r["F"],
                     MT = 1,
                 };
 
