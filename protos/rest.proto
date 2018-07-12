@@ -72,6 +72,7 @@ message NeTreeProxy {
 	double M = 6;
 	double MT = 7;
 	double F = 8;
+	bool HasKid = 9;	// HasKid
 }
 
 message PKproxy {

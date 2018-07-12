@@ -1185,6 +1185,7 @@ namespace RestServerSC
                     N = (ulong)r["N"],
                     M = (double)r["M"],
                     F = (double)r["F"],
+                    HasKid = (bool)r["HasKid"],
                     MT = 1,
                 };
 

@@ -216,6 +216,33 @@ namespace M2DB
         public string PAd => NNNP?.Ad;
         public string KAd => NNNK?.Ad;
 
+        public static void Deneme2()
+        {
+            Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
+            List<List<string>> lls = new List<List<string>>();
+
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            {
+                NNN cn = n;
+                bool fnd = true;
+                string bbb = cn.Ad;
+                string aaa = "";
+                while (fnd)
+                {
+                    NNR nr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", cn).FirstOrDefault();
+                    if (nr == null)
+                        fnd = false;
+                    else
+                    {
+                        cn = nr.NNNP;
+                        aaa = aaa + " " + cn.Ad;
+                    }
+                }
+
+            }
+
+        }
+
         public static DataTable DenemeUp()
         {
             DataTable table = new DataTable();
@@ -269,12 +296,13 @@ namespace M2DB
             table.Columns.Add("N", typeof(ulong));
             table.Columns.Add("M", typeof(double)); // Miktar
             table.Columns.Add("F", typeof(double)); // Fiyat
+            table.Columns.Add("HasKid", typeof(bool));
 
             int P = 0;
             int K = 1;
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
             {
-                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, 0);
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, 0, n.HasKid);
                 K++;
             }
 
@@ -287,7 +315,7 @@ namespace M2DB
 
                     foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik, nr.NNNK.Fyt);
+                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik, nr.NNNK.Fyt, nr.NNNK.HasKid);
                         K++;
                     }
 
@@ -427,7 +455,22 @@ namespace M2DB
             }
         }
 
-        public static void KidInRootsMik(ulong KidObjNo)
+        public static DataTable KidsInNodesMik()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("kNo", typeof(ulong));
+            table.Columns.Add("nNo", typeof(ulong));
+            table.Columns.Add("kAd", typeof(string));
+            table.Columns.Add("nAd", typeof(string));
+            table.Columns.Add("M", typeof(double));
+
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", true))
+                KidInNodesMik(n.GetObjectNo(), table);
+
+            return table;
+        }
+
+        public static void KidInNodesMik(ulong KidObjNo, DataTable table)
         {
             if (!(Db.FromId(KidObjNo) is NNN Kid))
                 return;
@@ -436,14 +479,13 @@ namespace M2DB
             //if (Kid == null)
             //    return;
 
-            StringBuilder sb = new StringBuilder();
             Dictionary<ulong, double> MikDict = new Dictionary<ulong, double>();
 
             Console.WriteLine("");
-            Console.WriteLine("KidInRootsMikDty++++");
+            Console.WriteLine("KidInRootsMik++++");
 
             MikDict.Clear();
-            KidInRootsMikDty(KidObjNo, MikDict);
+            KidInNodesMikDty(KidObjNo, MikDict);
 
             NNN Ne;
             foreach (var i in MikDict)
@@ -451,13 +493,13 @@ namespace M2DB
                 Ne = Db.FromId<NNN>(i.Key);
                 //if (!Ne.HasPrn)  // Root
                     Console.WriteLine($">>{Kid.Ad}@{Ne.Ad}={i.Value:n}");
-
+                table.Rows.Add(Kid.GetObjectNo(), Ne.GetObjectNo(), Kid.Ad, Ne.Ad, i.Value);
             }
             Console.WriteLine("");
-            Console.WriteLine("KidInRootsMikDty----");
+            Console.WriteLine("KidInRootsMik----");
         }
 
-        private static void KidInRootsMikDty(ulong sNo, Dictionary<ulong, double> mD)
+        private static void KidInNodesMikDty(ulong sNo, Dictionary<ulong, double> mD)
         {
             ulong PoNo = 0, KoNo = 0;
             double pMik = 0, kMik = 0;
@@ -493,7 +535,7 @@ namespace M2DB
 
 
                 if (r.NNNP.HasPrn)
-                    KidInRootsMikDty(r.NNNP.GetObjectNo(), mD);
+                    KidInNodesMikDty(r.NNNP.GetObjectNo(), mD);
             }
 
             return;
@@ -607,7 +649,6 @@ namespace M2DB
                 {
                     Kd = "30.10.2",
                     Ad = "Nazli",
-                    Fyt = 30
                 };
                 var sener = new NNN
                 {
@@ -618,7 +659,6 @@ namespace M2DB
                 {
                     Kd = "30.20.1",
                     Ad = "Can",
-                    Fyt = 0
                 };
                 var ali = new NNN
                 {

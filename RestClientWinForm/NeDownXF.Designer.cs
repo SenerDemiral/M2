@@ -46,6 +46,7 @@
             this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calcFiyatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colHasKid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.neDownBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
@@ -73,7 +74,8 @@
             this.colK,
             this.colMT,
             this.colF,
-            this.treeListColumn1});
+            this.treeListColumn1,
+            this.colHasKid});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.neDownBindingSource;
@@ -200,6 +202,13 @@
             this.calcFiyatToolStripMenuItem.Text = "Calc Fiyat";
             this.calcFiyatToolStripMenuItem.Click += new System.EventHandler(this.calcFiyatToolStripMenuItem_Click);
             // 
+            // colHasKid
+            // 
+            this.colHasKid.FieldName = "HasKid";
+            this.colHasKid.Name = "colHasKid";
+            this.colHasKid.Visible = true;
+            this.colHasKid.VisibleIndex = 8;
+            // 
             // NeDownXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +245,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colF;
         private System.Windows.Forms.ToolStripMenuItem calcFiyatToolStripMenuItem;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colHasKid;
     }
 }

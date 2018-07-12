@@ -36,7 +36,8 @@ namespace RestServerSC
             NNN apndNe = Db.FromId<NNN>(283);  // Kemal
             NNN.CanAppend(curNe, apndNe);
 
-            NNR.KidInRootsMik(280);
+            //NNR.KidInNodesMik(279);
+            NNR.KidsInNodesMik();
 
             // Kullanilmiyor
             //NNR.KidsParents(); 
@@ -46,8 +47,15 @@ namespace RestServerSC
             NNR.DenemeUp();
             NNR.DenemeDown();
 
+            NNR.Deneme2();
+            NNR.Deneme();
+
+
             Db.Transact(() =>
             {
+                NNN nazli = Db.FromId<NNN>(277);
+                nazli.Fyt = 0;
+
                 new AFB
                 {
                     Drm = "A",

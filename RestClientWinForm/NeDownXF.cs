@@ -46,6 +46,12 @@ namespace RestClientWinForm
             foreach (var r0 in dr0)
                 r0["MT"] = 1;
             */
+            foreach(DataRow r in table.Rows)
+            {
+                if ((bool)r["HasKid"])
+                    r["F"] = 0;
+            }
+
             double f = 0;
             for (int L = 9; L > 0; L--)
             {

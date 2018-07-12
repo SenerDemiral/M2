@@ -2799,6 +2799,8 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnF;
             
+            private global::System.Data.DataColumn columnHasKid;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public NeDownDataTable() {
@@ -2898,6 +2900,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HasKidColumn {
+                get {
+                    return this.columnHasKid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -2933,7 +2943,7 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public NeDownRow AddNeDownRow(int L, int P, int K, string A, ulong N, double M, double MT, double F) {
+            public NeDownRow AddNeDownRow(int L, int P, int K, string A, ulong N, double M, double MT, double F, bool HasKid) {
                 NeDownRow rowNeDownRow = ((NeDownRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         L,
@@ -2943,7 +2953,8 @@ namespace RestClientWinForm {
                         N,
                         M,
                         MT,
-                        F};
+                        F,
+                        HasKid};
                 rowNeDownRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNeDownRow);
                 return rowNeDownRow;
@@ -2981,6 +2992,7 @@ namespace RestClientWinForm {
                 this.columnM = base.Columns["M"];
                 this.columnMT = base.Columns["MT"];
                 this.columnF = base.Columns["F"];
+                this.columnHasKid = base.Columns["HasKid"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3002,6 +3014,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnMT);
                 this.columnF = new global::System.Data.DataColumn("F", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnF);
+                this.columnHasKid = new global::System.Data.DataColumn("HasKid", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHasKid);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnK}, true));
                 this.columnK.AllowDBNull = false;
@@ -4462,6 +4476,22 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool HasKid {
+                get {
+                    try {
+                        return ((bool)(this[this.tableNeDown.HasKidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HasKid\' in table \'NeDown\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableNeDown.HasKidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsLNull() {
                 return this.IsNull(this.tableNeDown.LColumn);
             }
@@ -4542,6 +4572,18 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFNull() {
                 this[this.tableNeDown.FColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHasKidNull() {
+                return this.IsNull(this.tableNeDown.HasKidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHasKidNull() {
+                this[this.tableNeDown.HasKidColumn] = global::System.Convert.DBNull;
             }
         }
         
