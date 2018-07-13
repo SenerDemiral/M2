@@ -146,5 +146,19 @@ namespace RestClientWinForm
             frm.Show();
 
         }
+
+        private void KidsInParentsButton_Click(object sender, EventArgs e)
+        {
+            KidsInParentsXF frm = new KidsInParentsXF();
+            frm.Show();
+
+        }
+
+        private void NodesInParentsButton_Click(object sender, EventArgs e)
+        {
+            NodesInParentsXF frm = new NodesInParentsXF();
+            frm.Show();
+
+        }
     }
 }

@@ -109,6 +109,28 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="KidsInParents" msprop:Generator_TableClassName="KidsInParentsDataTable" msprop:Generator_TableVarName="tableKidsInParents" msprop:Generator_RowChangedName="KidsInParentsRowChanged" msprop:Generator_TablePropName="KidsInParents" msprop:Generator_RowDeletingName="KidsInParentsRowDeleting" msprop:Generator_RowChangingName="KidsInParentsRowChanging" msprop:Generator_RowEvHandlerName="KidsInParentsRowChangeEventHandler" msprop:Generator_RowDeletedName="KidsInParentsRowDeleted" msprop:Generator_RowClassName="KidsInParentsRow" msprop:Generator_UserTableName="KidsInParents" msprop:Generator_RowEvArgName="KidsInParentsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KNo" msprop:Generator_ColumnVarNameInTable="columnKNo" msprop:Generator_ColumnPropNameInRow="KNo" msprop:Generator_ColumnPropNameInTable="KNoColumn" msprop:Generator_UserColumnName="KNo" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="PNo" msprop:Generator_ColumnVarNameInTable="columnPNo" msprop:Generator_ColumnPropNameInRow="PNo" msprop:Generator_ColumnPropNameInTable="PNoColumn" msprop:Generator_UserColumnName="PNo" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="KAd" msprop:Generator_ColumnVarNameInTable="columnKAd" msprop:Generator_ColumnPropNameInRow="KAd" msprop:Generator_ColumnPropNameInTable="KAdColumn" msprop:Generator_UserColumnName="KAd" type="xs:string" minOccurs="0" />
+              <xs:element name="PAd" msprop:Generator_ColumnVarNameInTable="columnPAd" msprop:Generator_ColumnPropNameInRow="PAd" msprop:Generator_ColumnPropNameInTable="PAdColumn" msprop:Generator_UserColumnName="PAd" type="xs:string" minOccurs="0" />
+              <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NodesInParents" msprop:Generator_TableClassName="NodesInParentsDataTable" msprop:Generator_TableVarName="tableNodesInParents" msprop:Generator_TablePropName="NodesInParents" msprop:Generator_RowDeletingName="NodesInParentsRowDeleting" msprop:Generator_RowChangingName="NodesInParentsRowChanging" msprop:Generator_RowEvHandlerName="NodesInParentsRowChangeEventHandler" msprop:Generator_RowDeletedName="NodesInParentsRowDeleted" msprop:Generator_UserTableName="NodesInParents" msprop:Generator_RowChangedName="NodesInParentsRowChanged" msprop:Generator_RowEvArgName="NodesInParentsRowChangeEvent" msprop:Generator_RowClassName="NodesInParentsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KNo" msprop:Generator_ColumnVarNameInTable="columnKNo" msprop:Generator_ColumnPropNameInRow="KNo" msprop:Generator_ColumnPropNameInTable="KNoColumn" msprop:Generator_UserColumnName="KNo" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="PNo" msprop:Generator_ColumnVarNameInTable="columnPNo" msprop:Generator_ColumnPropNameInRow="PNo" msprop:Generator_ColumnPropNameInTable="PNoColumn" msprop:Generator_UserColumnName="PNo" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="KAd" msprop:Generator_ColumnVarNameInTable="columnKAd" msprop:Generator_ColumnPropNameInRow="KAd" msprop:Generator_ColumnPropNameInTable="KAdColumn" msprop:Generator_UserColumnName="KAd" type="xs:string" minOccurs="0" />
+              <xs:element name="PAd" msprop:Generator_ColumnVarNameInTable="columnPAd" msprop:Generator_ColumnPropNameInRow="PAd" msprop:Generator_ColumnPropNameInTable="PAdColumn" msprop:Generator_UserColumnName="PAd" type="xs:string" minOccurs="0" />
+              <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">

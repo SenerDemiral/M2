@@ -1193,6 +1193,58 @@ namespace RestServerSC
 
             }
         }
+
+        public override async Task KidsInParentsFill(QryProxy request, IServerStreamWriter<KidsInParentsProxy> responseStream, ServerCallContext context)
+        {
+            KidsInParentsProxy proxy;
+            DataTable table = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                table = M2DB.NNR.KidsInParentsMik();
+            });
+
+
+            foreach (DataRow r in table.Rows)
+            {
+                proxy = new KidsInParentsProxy
+                {
+                    KNo = (ulong)r["KNo"],
+                    PNo = (ulong)r["PNo"],
+                    KAd = (string)r["KAd"],
+                    PAd = (string)r["PAd"],
+                    M = (double)r["M"],
+                };
+
+                await responseStream.WriteAsync(proxy);
+            }
+        }
+
+        public override async Task NodesInParentsFill(QryProxy request, IServerStreamWriter<NodesInParentsProxy> responseStream, ServerCallContext context)
+        {
+            NodesInParentsProxy proxy;
+            DataTable table = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                table = M2DB.NNR.NodesInParents();
+            });
+
+
+            foreach (DataRow r in table.Rows)
+            {
+                proxy = new NodesInParentsProxy
+                {
+                    KNo = (ulong)r["KNo"],
+                    PNo = (ulong)r["PNo"],
+                    KAd = (string)r["KAd"],
+                    PAd = (string)r["PAd"],
+                    M = (double)r["M"],
+                };
+
+                await responseStream.WriteAsync(proxy);
+            }
+        }
     }
 
 }

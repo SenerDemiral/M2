@@ -61,6 +61,8 @@ service CRUDs {
 
   rpc NeUpFill (QryProxy) returns (stream NeTreeProxy) {}
   rpc NeDownFill (QryProxy) returns (stream NeTreeProxy) {}
+  rpc KidsInParentsFill (QryProxy) returns (stream KidsInParentsProxy) {}
+  rpc NodesInParentsFill (QryProxy) returns (stream NodesInParentsProxy) {}
 }
 
 message NeTreeProxy {
@@ -73,6 +75,22 @@ message NeTreeProxy {
 	double MT = 7;
 	double F = 8;
 	bool HasKid = 9;	// HasKid
+}
+
+message KidsInParentsProxy {
+	uint64 KNo = 1;
+	uint64 PNo = 2;
+	string KAd = 3;
+	string PAd = 4;
+	double M = 5;
+}
+
+message NodesInParentsProxy {
+	uint64 KNo = 1;
+	uint64 PNo = 2;
+	string KAd = 3;
+	string PAd = 4;
+	double M = 5;
 }
 
 message PKproxy {

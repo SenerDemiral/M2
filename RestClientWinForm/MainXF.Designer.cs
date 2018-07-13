@@ -52,6 +52,8 @@
             this.ABBbutton = new System.Windows.Forms.Button();
             this.NeUpButton = new System.Windows.Forms.Button();
             this.NeDownButton = new System.Windows.Forms.Button();
+            this.KidsInParentsButton = new System.Windows.Forms.Button();
+            this.NodesInParentsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -300,11 +302,33 @@
             this.NeDownButton.UseVisualStyleBackColor = true;
             this.NeDownButton.Click += new System.EventHandler(this.NeDownButton_Click);
             // 
+            // KidsInParentsButton
+            // 
+            this.KidsInParentsButton.Location = new System.Drawing.Point(206, 210);
+            this.KidsInParentsButton.Name = "KidsInParentsButton";
+            this.KidsInParentsButton.Size = new System.Drawing.Size(137, 23);
+            this.KidsInParentsButton.TabIndex = 8;
+            this.KidsInParentsButton.Text = "KidsInParents YANLIS";
+            this.KidsInParentsButton.UseVisualStyleBackColor = true;
+            this.KidsInParentsButton.Click += new System.EventHandler(this.KidsInParentsButton_Click);
+            // 
+            // NodesInParentsButton
+            // 
+            this.NodesInParentsButton.Location = new System.Drawing.Point(349, 210);
+            this.NodesInParentsButton.Name = "NodesInParentsButton";
+            this.NodesInParentsButton.Size = new System.Drawing.Size(75, 23);
+            this.NodesInParentsButton.TabIndex = 9;
+            this.NodesInParentsButton.Text = "NodesInParents";
+            this.NodesInParentsButton.UseVisualStyleBackColor = true;
+            this.NodesInParentsButton.Click += new System.EventHandler(this.NodesInParentsButton_Click);
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(488, 261);
+            this.Controls.Add(this.NodesInParentsButton);
+            this.Controls.Add(this.KidsInParentsButton);
             this.Controls.Add(this.NeDownButton);
             this.Controls.Add(this.NeUpButton);
             this.Controls.Add(this.ABBbutton);
@@ -355,5 +379,7 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbbTurRepositoryItemLookUpEdit;
         private System.Windows.Forms.Button NeUpButton;
         private System.Windows.Forms.Button NeDownButton;
+        private System.Windows.Forms.Button KidsInParentsButton;
+        private System.Windows.Forms.Button NodesInParentsButton;
     }
 }

@@ -455,23 +455,29 @@ namespace M2DB
             }
         }
 
-        public static DataTable KidsInNodesMik()
+        public static DataTable KidsInParentsMik()
         {
             DataTable table = new DataTable();
-            table.Columns.Add("kNo", typeof(ulong));
-            table.Columns.Add("nNo", typeof(ulong));
-            table.Columns.Add("kAd", typeof(string));
-            table.Columns.Add("nAd", typeof(string));
+            table.Columns.Add("KNo", typeof(ulong));
+            table.Columns.Add("PNo", typeof(ulong));
+            table.Columns.Add("KAd", typeof(string));
+            table.Columns.Add("PAd", typeof(string));
             table.Columns.Add("M", typeof(double));
 
+
+            NNR.KidInParentsMik(280, table);   // Ali
+            return table;
+
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", true))
-                KidInNodesMik(n.GetObjectNo(), table);
+                KidInParentsMik(n.GetObjectNo(), table);
 
             return table;
         }
 
-        public static void KidInNodesMik(ulong KidObjNo, DataTable table)
+        public static void KidInParentsMik(ulong KidObjNo, DataTable table)
         {
+
+
             if (!(Db.FromId(KidObjNo) is NNN Kid))
                 return;
 
@@ -485,7 +491,7 @@ namespace M2DB
             Console.WriteLine("KidInRootsMik++++");
 
             MikDict.Clear();
-            KidInNodesMikDty(KidObjNo, MikDict);
+            KidInParentsMikDty(KidObjNo, MikDict);
 
             NNN Ne;
             foreach (var i in MikDict)
@@ -499,7 +505,7 @@ namespace M2DB
             Console.WriteLine("KidInRootsMik----");
         }
 
-        private static void KidInNodesMikDty(ulong sNo, Dictionary<ulong, double> mD)
+        private static void KidInParentsMikDty(ulong sNo, Dictionary<ulong, double> mD)
         {
             ulong PoNo = 0, KoNo = 0;
             double pMik = 0, kMik = 0;
@@ -535,11 +541,78 @@ namespace M2DB
 
 
                 if (r.NNNP.HasPrn)
-                    KidInNodesMikDty(r.NNNP.GetObjectNo(), mD);
+                    KidInParentsMikDty(r.NNNP.GetObjectNo(), mD);
             }
 
             return;
         }
+
+        public static DataTable NodesInParents()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("PNo", typeof(ulong));
+            table.Columns.Add("KNo", typeof(ulong));
+            table.Columns.Add("PAd", typeof(string));
+            table.Columns.Add("KAd", typeof(string));
+            table.Columns.Add("M", typeof(double));
+
+            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", true))
+                NodeInParents(n.GetObjectNo(), table);
+            return table;
+        }
+        public static void NodeInParents(ulong parent, DataTable table)
+        {
+            Dictionary<ulong, double> mikD = new Dictionary<ulong, double>();  // Gereken
+
+            NodeInParent(parent, 1, mikD);
+
+            NNN s = Db.FromId<NNN>(parent);
+
+            Console.WriteLine($"Nodes @{s.Ad} ---------->");
+            ulong pNo = s.GetObjectNo();
+            string pAd = s.Ad;
+            foreach (var r in mikD)
+            {
+                s = Db.FromId<NNN>(r.Key);
+                Console.WriteLine($"{pAd}.{s.Ad} -> Mik: {r.Value}");
+                table.Rows.Add(pNo, s.GetObjectNo(), pAd, s.Ad, r.Value);
+            }
+
+        }
+        private static void NodeInParent(ulong node, double Mik, Dictionary<ulong, double> mD)
+        {
+            ulong Kid = 0;
+            double GMik = 0;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ?", node))
+            {
+                Kid = r.NNNK.GetObjectNo();
+                /*
+                if (!S.ContainsKey(Kid))
+                    S[Kid] = 0; //StokMik(Kid);
+                */
+                GMik = Mik * r.Mik;
+                /*
+                if (GMik > S[Kid])
+                {
+                    GMik -= S[Kid];
+                    S[Kid] = 0;
+                }
+                else
+                {
+                    S[Kid] -= GMik;
+                    GMik = 0;
+                }
+                */
+                if (!mD.ContainsKey(Kid))
+                    mD[Kid] = 0;
+                mD[Kid] += GMik;
+
+                if (GMik > 0 && r.NNNK.HasKid)
+                    NodeInParent(Kid, GMik, mD);
+            }
+        }
+
 
         public static void NodeGerekenKidsMik(ulong node, double Mik)
         {

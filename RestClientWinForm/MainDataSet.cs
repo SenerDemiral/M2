@@ -557,5 +557,67 @@ namespace RestClientWinForm
             return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
         }
 
+        public async Task<string> KidsInParentsFill()
+        {
+            var dt = KidsInParents;
+
+            dt.BeginLoadData();
+            int nor = 0;
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+            CancellationToken token = new CancellationToken();
+
+            DataRow row;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            using (var response = client.KidsInParentsFill(new QryProxy { Query = "abc" }))
+            {
+                while (await response.ResponseStream.MoveNext(token))
+                {
+                    row = dt.NewRow();
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
+                    dt.Rows.Add(row);
+
+                    nor++;
+                }
+            }
+            sw.Stop();
+            dt.AcceptChanges();
+            dt.EndLoadData();
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+        }
+
+        public async Task<string> NodesInParentsFill()
+        {
+            var dt = NodesInParents;
+
+            dt.BeginLoadData();
+            int nor = 0;
+            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
+            var client = new CRUDs.CRUDsClient(channel);
+            CancellationToken token = new CancellationToken();
+
+            DataRow row;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            using (var response = client.NodesInParentsFill(new QryProxy { Query = "abc" }))
+            {
+                while (await response.ResponseStream.MoveNext(token))
+                {
+                    row = dt.NewRow();
+                    ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
+                    dt.Rows.Add(row);
+
+                    nor++;
+                }
+            }
+            sw.Stop();
+            dt.AcceptChanges();
+            dt.EndLoadData();
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+        }
+
     }
 }
