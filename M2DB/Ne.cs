@@ -566,16 +566,30 @@ namespace M2DB
 
             NodeInParent(parent, 1, mikD);
 
-            NNN s = Db.FromId<NNN>(parent);
+            NNN p = Db.FromId<NNN>(parent);
+            NNN n = null;
 
-            Console.WriteLine($"Nodes @{s.Ad} ---------->");
-            ulong pNo = s.GetObjectNo();
-            string pAd = s.Ad;
+            Console.WriteLine($"Nodes @{p.Ad} ---------->");
+            ulong pNo = p.GetObjectNo();
+            string nAd = "";
+            string pAd = p.Ad;
+            // ↑↓↕↔
+            // ▲▼●
+            if (!p.HasPrn)
+                pAd = "+ " + pAd;  // root
+            else
+                pAd = "* " + pAd;
+
             foreach (var r in mikD)
             {
-                s = Db.FromId<NNN>(r.Key);
-                Console.WriteLine($"{pAd}.{s.Ad} -> Mik: {r.Value}");
-                table.Rows.Add(pNo, s.GetObjectNo(), pAd, s.Ad, r.Value);
+                n = Db.FromId<NNN>(r.Key);
+                Console.WriteLine($"{pAd}.{p.Ad} -> Mik: {r.Value}");
+                nAd = n.Ad;
+                if (!n.HasKid)
+                    nAd = "- " + nAd;  // leaf
+                else
+                    nAd = "* " + nAd;
+                table.Rows.Add(pNo, p.GetObjectNo(), pAd, nAd, r.Value);
             }
 
         }
