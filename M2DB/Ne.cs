@@ -67,6 +67,32 @@ namespace M2DB
             }
         }
 
+        public static Dictionary<NNN, double> UreteninUrunuIcinTukettikleri(string ureten, ulong urunNo)
+        {
+            NNN urun = Db.FromId<NNN>(urunNo);
+            // if(n.Ureten != ureten)
+            // return null;  // Urunu Ureten imal etmiyorsa cik
+            Dictionary<NNN, double> mD = new Dictionary<NNN, double>();
+            UreteninUrunuIcinTukettikleriDty(ureten, urun, 10, mD);
+            return mD;
+        }
+        public static void UreteninUrunuIcinTukettikleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
+        {
+            foreach(var nnr in Db.SQL<NNR>("SELECT n from NNR n WHERE n.NNNP = ?", n))
+            {
+                NNN kid = nnr.NNNK;
+                var aaa = kid.Ad;
+                
+                if (!mD.ContainsKey(kid))
+                    mD[kid] = 0;
+
+                mD[kid] += mik * nnr.Mik;
+                if (kid.HasKid) // && kid.GetObjectNo() != 275)
+                    UreteninUrunuIcinTukettikleriDty(ureten, kid, mik * nnr.Mik, mD);
+
+            }
+        }
+
         public static bool CanAppend(NNN curNe, NNN apndNe)
         {
             // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids
@@ -576,9 +602,9 @@ namespace M2DB
             // ↑↓↕↔
             // ▲▼●
             if (!p.HasPrn)
-                pAd = "+ " + pAd;  // root
+                pAd = "+" + pAd;  // root
             else
-                pAd = "* " + pAd;
+                pAd = "*" + pAd;
 
             foreach (var r in mikD)
             {
@@ -586,9 +612,9 @@ namespace M2DB
                 Console.WriteLine($"{pAd}.{p.Ad} -> Mik: {r.Value}");
                 nAd = n.Ad;
                 if (!n.HasKid)
-                    nAd = "- " + nAd;  // leaf
+                    nAd = "-" + nAd;  // leaf
                 else
-                    nAd = "* " + nAd;
+                    nAd = "*" + nAd;
                 table.Rows.Add(pNo, p.GetObjectNo(), pAd, nAd, r.Value);
             }
 

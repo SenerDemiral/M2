@@ -69,6 +69,13 @@ namespace RestClientWinForm
 
         private void treeList1_ShowingEditor(object sender, CancelEventArgs e)
         {
+            if (treeList1.FocusedColumn == colF && !treeList1.FocusedNode.HasChildren)
+                e.Cancel = false;
+            else if (treeList1.FocusedColumn == colKim)
+                e.Cancel = false;
+            else
+                e.Cancel = true;
+            /*
             if (treeList1.FocusedNode.HasChildren)
             {
                 e.Cancel = true;
@@ -76,18 +83,35 @@ namespace RestClientWinForm
             if (treeList1.FocusedColumn != colF)
             {
                 e.Cancel = true;
-            }
+            }*/
         }
 
         private void treeList1_HiddenEditor(object sender, EventArgs e)
         {
-            double f = 0;
-            f = (double)treeList1.FocusedNode.GetValue(colF);
-            var cr = mainDataSet.NeDown.Rows[treeList1.FocusedNode.Id];
-            var n = cr["N"];    // Ne.ObjNo
-            DataRow[] dr = mainDataSet.NeDown.Select($"N = {n}");
-            foreach (var r in dr)
-                r["F"] = f;
+            if (treeList1.FocusedColumn == colF)
+            {
+                double f = 0;
+                f = (double)treeList1.FocusedNode.GetValue(colF);
+                var cr = mainDataSet.NeDown.Rows[treeList1.FocusedNode.Id];
+                var n = cr["N"];    // Ne.ObjNo
+                DataRow[] dr = mainDataSet.NeDown.Select($"N = {n}");
+                foreach (var r in dr)
+                {
+                    r["F"] = f;
+                }
+                calcFiyatToolStripMenuItem.PerformClick();
+            }
+            if (treeList1.FocusedColumn == colKim)
+            {
+                string kim = treeList1.FocusedNode.GetValue(colKim).ToString();
+                var cr = mainDataSet.NeDown.Rows[treeList1.FocusedNode.Id];
+                var n = cr["N"];    // Ne.ObjNo
+                DataRow[] dr = mainDataSet.NeDown.Select($"N = {n}");
+                foreach (var r in dr)
+                {
+                    r["Kim"] = kim;
+                }
+            }
         }
     }
 }

@@ -106,6 +106,7 @@
               <xs:element name="MT" msprop:Generator_ColumnVarNameInTable="columnMT" msprop:Generator_ColumnPropNameInRow="MT" msprop:Generator_ColumnPropNameInTable="MTColumn" msprop:Generator_UserColumnName="MT" type="xs:double" minOccurs="0" />
               <xs:element name="F" msprop:Generator_ColumnVarNameInTable="columnF" msprop:Generator_ColumnPropNameInRow="F" msprop:Generator_ColumnPropNameInTable="FColumn" msprop:Generator_UserColumnName="F" type="xs:double" minOccurs="0" />
               <xs:element name="HasKid" msprop:Generator_ColumnVarNameInTable="columnHasKid" msprop:Generator_ColumnPropNameInRow="HasKid" msprop:Generator_ColumnPropNameInTable="HasKidColumn" msprop:Generator_UserColumnName="HasKid" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Kim" msprop:Generator_ColumnVarNameInTable="columnKim" msprop:Generator_ColumnPropNameInRow="Kim" msprop:Generator_ColumnPropNameInTable="KimColumn" msprop:Generator_UserColumnName="Kim" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

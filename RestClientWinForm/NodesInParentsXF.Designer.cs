@@ -81,6 +81,10 @@
             this.gridView1.GridControl = this.nodesInParentsGridControl;
             this.gridView1.GroupFormat = "{1} {2}";
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AllowFixedGroups = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.OptionsClipboard.AllowCsvFormat = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsSelection.MultiSelect = true;
             // 
             // colKNo
             // 
@@ -94,7 +98,7 @@
             // 
             // colKAd
             // 
-            this.colKAd.Caption = "↑↑HamMadde / ↔YarıMamül";
+            this.colKAd.Caption = "- HamMadde / * YarıMamül";
             this.colKAd.FieldName = "KAd";
             this.colKAd.Name = "colKAd";
             this.colKAd.Visible = true;
@@ -102,7 +106,7 @@
             // 
             // colPAd
             // 
-            this.colPAd.Caption = "↓↓Mamül / ↔YarıMamül";
+            this.colPAd.Caption = "+ Mamül / * YarıMamül";
             this.colPAd.FieldName = "PAd";
             this.colPAd.Name = "colPAd";
             this.colPAd.Visible = true;

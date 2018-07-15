@@ -41,12 +41,13 @@
             this.colMT = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colF = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colHasKid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colKim = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calcTopMikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calcFiyatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colHasKid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.neDownBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
@@ -75,7 +76,8 @@
             this.colMT,
             this.colF,
             this.treeListColumn1,
-            this.colHasKid});
+            this.colHasKid,
+            this.colKim});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.neDownBindingSource;
@@ -165,6 +167,22 @@
             this.treeListColumn1.Visible = true;
             this.treeListColumn1.VisibleIndex = 3;
             // 
+            // colHasKid
+            // 
+            this.colHasKid.FieldName = "HasKid";
+            this.colHasKid.Name = "colHasKid";
+            this.colHasKid.Visible = true;
+            this.colHasKid.VisibleIndex = 8;
+            // 
+            // colKim
+            // 
+            this.colKim.Caption = "Üreten(ler)";
+            this.colKim.FieldName = "Kim";
+            this.colKim.Name = "colKim";
+            this.colKim.Visible = true;
+            this.colKim.VisibleIndex = 9;
+            this.colKim.Width = 120;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -201,13 +219,6 @@
             this.calcFiyatToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.calcFiyatToolStripMenuItem.Text = "Calc Fiyat";
             this.calcFiyatToolStripMenuItem.Click += new System.EventHandler(this.calcFiyatToolStripMenuItem_Click);
-            // 
-            // colHasKid
-            // 
-            this.colHasKid.FieldName = "HasKid";
-            this.colHasKid.Name = "colHasKid";
-            this.colHasKid.Visible = true;
-            this.colHasKid.VisibleIndex = 8;
             // 
             // NeDownXF
             // 
@@ -246,5 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem calcFiyatToolStripMenuItem;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHasKid;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colKim;
     }
 }

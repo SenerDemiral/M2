@@ -45,6 +45,8 @@ namespace RestServerSC
             NNR.NodeGerekenKidsMik(274, 1);
             NNR.NodesInParents();
 
+            NNN.UreteninUrunuIcinTukettikleri("ureten", 274);
+
             /*
             NNR.DenemeUp();
             NNR.DenemeDown();
