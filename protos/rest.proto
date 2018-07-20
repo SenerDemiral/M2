@@ -63,6 +63,24 @@ service CRUDs {
   rpc NeDownFill (QryProxy) returns (stream NeTreeProxy) {}
   rpc KidsInParentsFill (QryProxy) returns (stream KidsInParentsProxy) {}
   rpc NodesInParentsFill (QryProxy) returns (stream NodesInParentsProxy) {}
+
+  rpc ToKPTfill (QryPproxy) returns (stream ToKPTproxy) {}
+  rpc ToKPTupdate (ToKPTproxy) returns (ToKPTproxy) {}
+  rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
+  rpc ToKDTupdate (ToKDTproxy) returns (ToKDTproxy) {}
+}
+
+message PKproxy {
+  uint64 PK = 1;
+}
+
+message QryPproxy {
+  uint64 P = 1;
+}
+
+message QryProxy {
+  string query = 1;
+  string param = 2;
 }
 
 message NeTreeProxy {
@@ -91,15 +109,6 @@ message NodesInParentsProxy {
 	string KAd = 3;
 	string PAd = 4;
 	double M = 5;
-}
-
-message PKproxy {
-  uint64 PK = 1;
-}
-
-message QryProxy {
-  string query = 1;
-  string param = 2;
 }
 
 // Deneme
@@ -287,4 +296,27 @@ message NNNproxy {
 	google.protobuf.StringValue Kd = 5;
 	google.protobuf.StringValue Ad = 6;
 	uint64 BRM = 7;
+	double Fyt = 8;
+}
+
+// ToKPT KimPersonelTanim
+message ToKPTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 P = 5;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+}
+
+// ToKDT KimDepartmanTanim
+message ToKDTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 P = 5;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
 }

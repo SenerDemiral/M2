@@ -17,7 +17,7 @@ namespace RestServerSC
 
         static void Main()
         {
-            
+            /*
             Hook<AFD>.AfterCommitInsert += (sender, id) => {
                 var afd = Db.FromId<AFD>(id);
                 AHP.AhpTopUpdAfd(afd.AHP);
@@ -26,26 +26,26 @@ namespace RestServerSC
                 var afd = Db.FromId<AFD>(id);
                 AHP.AhpTopUpdAfd(afd.AHP);
             };
-            
+            */
             M2DB.AccOps.PopAHP();
             M2DB.GnlOps.PopXGT();
             M2DB.UsrOps.PopUUU();
             M2DB.NeOps.initNNN();
 
-            NNN curNe = Db.FromId<NNN>(274);  // Suzan
-            NNN apndNe = Db.FromId<NNN>(283);  // Kemal
-            NNN.CanAppend(curNe, apndNe);
+            //NNN curNe = Db.FromId<NNN>(279);  // Suzan
+            //NNN apndNe = Db.FromId<NNN>(288);  // Kemal
+            //NNN.CanAppend(curNe, apndNe);
 
             NNR.KidsInParentsMik();
 
             // Kullanilmiyor
             //NNR.KidsParents(); 
 
-            NNN.NeMaliyet(274); // Suzan
-            NNR.NodeGerekenKidsMik(274, 1);
-            NNR.NodesInParents();
+            //NNN.NeMaliyet(274); // Suzan
+            //NNR.NodeGerekenKidsMik(274, 1);
+            //NNR.NodesInParents();
 
-            NNN.UreteninUrunuIcinTukettikleri("ureten", 274);
+            NNN.UretenUrunTuketimleri("ureten", 295, 1);   //295Suzan
 
             /*
             NNR.DenemeUp();
@@ -55,10 +55,26 @@ namespace RestServerSC
             NNR.Deneme();
             */
 
+            dnmC.dnm();
+
             Db.Transact(() =>
             {
-                NNN nazli = Db.FromId<NNN>(277);
-                nazli.Fyt = 0;
+                //NNN nazli = Db.FromId<NNN>(277);
+                //nazli.Fyt = 0;
+                new dnmA
+                {
+                    Ad = "CAN"
+                };
+
+                var sener = new dnmB
+                {
+                    Ad = "Sener",
+                    Soyad = "Demiral"
+                };
+                new dnmC
+                {
+                    A = sener,
+                };
 
                 new AFB
                 {

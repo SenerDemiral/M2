@@ -78,19 +78,22 @@ namespace M2DB
                     XGT xgt = null;
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string[] ra = line.Split('|');
+                        if (!string.IsNullOrWhiteSpace(line))
+                        {
+                            string[] ra = line.Split('|');
 
-                        xgt = null;
-                        if (!string.IsNullOrWhiteSpace(ra[0]))
-                        {
-                            xgt = Db.SQL<XGT>("select r FROM XGT r WHERE r.P IS NULL and r.Kd = ?", ra[0]).FirstOrDefault();
+                            xgt = null;
+                            if (!string.IsNullOrWhiteSpace(ra[0]))
+                            {
+                                xgt = Db.SQL<XGT>("select r FROM XGT r WHERE r.P IS NULL and r.Kd = ?", ra[0]).FirstOrDefault();
+                            }
+                            new XGT
+                            {
+                                P = xgt,
+                                Kd = ra[1],
+                                Ad = ra[2]
+                            };
                         }
-                        new XGT
-                        {
-                            P = xgt,
-                            Kd = ra[1],
-                            Ad = ra[2]
-                        };
                     }
                 });
 

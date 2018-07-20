@@ -4,35 +4,93 @@ using Starcounter;
 namespace M2DB
 {
     [Database]
-    public class KKK    // Kim, Musteri/Depo/UretimHatti/Personel
+    public class KKK    // Kim (Base) IPTAL
     {
+        public string Tur { get; set; }     // FRM:Firma, DPT:Departman (Uretim/Depo/Fire/Imha/Kayip), PRS:Personel, CNT:Contact, HBR:Haberlesme, TAG:Etiket
         public string Ad { get; set; }
-        public string Tur { get; set; }     //DP:Depo, UH:UretimHatti, Firma, Personel, Imha, Fire, Kayip
+        public string Info { get; set; }
     }
 
-    public class KDT : KKK   // Kim.Depo.Tanim
+    [Database]
+    public class KFT : BB   // Kim.Firma.Tanim
     {
-        public string Sorumlu { get; set; }
-        public string Tel { get; set; }
-    }
-
-    public class KFT : KKK   // Kim.Musteri.Tanim
-    {
-        public string Tel { get; set; }
-        public string Adres { get; set; }
-        public string Sorumlu { get; set; }
+        public string Skl { get; set; }         // ALC:Alıcı/STC:Satıcı/A&S:AliciSatici....
         public string VrgDN { get; set; }
-        public XGT ObjMusFytGrp { get; set; }     // MusteriFiyatGrubu: A, B, C
+        public XGT ObjMusFytGrp { get; set; }  // MusteriFiyatGrubu: A, B, C
         public AHP AHPbrc { get; set; }        // Borclu Musteri Hesap
         public AHP AHPalc { get; set; }        // Alacakli Musteri Hesap
+        public KFT()
+        {
+            Tbl = "KFT";
+        }
     }
 
-    public class KMC : KKK   // Kim.Musteri.Contact
+    public class KCT : BB   // Kim.Contact.Tanim
     {
-        public KFT KFT { get; set; }
-        public string Tel { get; set; }
-        public string KmlNo { get; set; }
+        public string Unvan { get; set; }
         public string TAGs { get; set; }
+        public KCT()
+        {
+            Tbl = "KCT";
+        }
+    }
+
+    [Database]
+    public class KDT : BB   // Kim.Departman.Tanim
+    {
+        public string Skl { get; set; }     // Uretim/Depo/Fire/Imha/Kayip
+        public KDT()
+        {
+            Tbl = "KDT";
+        }
+    }
+
+    [Database]
+    public class KPT : BB   // Kim.Personel.Tanim
+    {
+        public string KmlNo { get; set; }
+        public DateTime IsGrsTrh { get; set; }
+        public DateTime IsCksTrh { get; set; }
+        public DateTime DgmTrh { get; set; }
+        public KPT()
+        {
+            Tbl = "KPT";
+        }
+    }
+
+    [Database]
+    public class KHT : BB   // Kim.Haberlesme.Tanim
+    {
+        public string Skl { get; set; }     // STL:SabitTel, MTL:MobilTel, EML:eMail, ADR:Adres, WEB:Web 
+        public int Oncelik { get; set; }    // 0,1,2,3
+        public KHT()
+        {
+            Tbl = "KHT";
+        }
+    }
+
+    [Database]
+    public class KKR    // Kim.Relation IPTAL
+    {
+        public KKK KP { get; set; } // Parent/Left Kim
+        public KKK KC { get; set; } // Child/Right Kim
+        /*
+        public static void deneme()
+        {
+            KFT kft = null;
+            KCT kct = null;
+            new KKR
+            {
+                KP = kft,
+                KC = kct,
+            };
+            new KKR
+            {
+                KP = Db.FromId(111) as KDT,
+                KC = Db.FromId(222) as KPT,
+            };
+
+        }*/
     }
 
 }

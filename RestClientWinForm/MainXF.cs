@@ -160,5 +160,12 @@ namespace RestClientWinForm
             frm.Show();
 
         }
+
+        private void NNNbutton_Click(object sender, EventArgs e)
+        {
+            NnnXF frm = new NnnXF();
+            frm.Show();
+
+        }
     }
 }

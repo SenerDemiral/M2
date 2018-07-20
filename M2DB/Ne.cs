@@ -39,12 +39,10 @@ namespace M2DB
     /// KolaKasa: 200Adt
     /// </summary>
     [Database]
-    public class NNN // Ne
+    public class NNN : BB  // Ne
     {
-        public string Kd { get; set; }
-        public string Ad { get; set; }
-        public XGT TUR { get; set; }     // HamMadde, YariMamul, Mamul, TuketimMlz.Su/Elektrik/Yakit, Iscilik
         public XGT BRM { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
+        public KDT KDT { get; set; }     // Ureten Kim Departman
         public AHP AHPbrc { get; set; }  // Borclu Ne Hesap
         public AHP AHPalc { get; set; }  // Alacakli Ne Hesap
         public double Fyt { get; set; }  // Simdilik
@@ -52,7 +50,7 @@ namespace M2DB
         {
             get
             {
-                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NNNP = ?", this).FirstOrDefault() == null)
+                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NP = ?", this).FirstOrDefault() == null)
                     return false;
                 return true;
             }
@@ -61,26 +59,39 @@ namespace M2DB
         {
             get
             {
-                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NNNK = ?", this).FirstOrDefault() == null)
+                if (Db.SQL<NNR>("select r from M2DB.NNR r where r.NC = ?", this).FirstOrDefault() == null)
                     return false;
                 return true;
             }
         }
+        public NNN()
+        {
+            Tbl = "NNN";
+        }
 
-        public static Dictionary<NNN, double> UreteninUrunuIcinTukettikleri(string ureten, ulong urunNo)
+        public static Dictionary<NNN, double> UretenUrunTuketimleri(string ureten, ulong urunNo, double uretimMik)
         {
             NNN urun = Db.FromId<NNN>(urunNo);
             // if(n.Ureten != ureten)
             // return null;  // Urunu Ureten imal etmiyorsa cik
             Dictionary<NNN, double> mD = new Dictionary<NNN, double>();
-            UreteninUrunuIcinTukettikleriDty(ureten, urun, 10, mD);
+            UretenUrunTuketimleriDty(ureten, urun, uretimMik, mD);
+
+            NNN u = Db.FromId<NNN>(urunNo);
+            Console.WriteLine($"{urunNo} {u.Ad,10}:");
+            foreach (var d in mD)
+            {
+                Console.WriteLine($"{d.Key.GetObjectNo()} {d.Key.Ad,10}: {d.Value}");
+            }
+            Console.WriteLine();
+
             return mD;
         }
-        public static void UreteninUrunuIcinTukettikleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
+        public static void UretenUrunTuketimleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
         {
-            foreach(var nnr in Db.SQL<NNR>("SELECT n from NNR n WHERE n.NNNP = ?", n))
+            foreach(var nnr in Db.SQL<NNR>("SELECT n from NNR n WHERE n.NP = ?", n))
             {
-                NNN kid = nnr.NNNK;
+                NNN kid = nnr.NC;
                 var aaa = kid.Ad;
                 
                 if (!mD.ContainsKey(kid))
@@ -88,7 +99,7 @@ namespace M2DB
 
                 mD[kid] += mik * nnr.Mik;
                 if (kid.HasKid) // && kid.GetObjectNo() != 275)
-                    UreteninUrunuIcinTukettikleriDty(ureten, kid, mik * nnr.Mik, mD);
+                    UretenUrunTuketimleriDty(ureten, kid, mik * nnr.Mik, mD);
 
             }
         }
@@ -98,7 +109,7 @@ namespace M2DB
             // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids
             
             // Zaten eklenmis ise
-            if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP = ? AND r.NNNK = ?", curNe, apndNe).FirstOrDefault() != null)
+            if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP = ? AND r.NC = ?", curNe, apndNe).FirstOrDefault() != null)
                 return false;
 
             List<string> pList = new List<string>();
@@ -107,9 +118,9 @@ namespace M2DB
             NNN pNe;
             do
             {
-                pNe = nnr?.NNNP ?? curNe;
+                pNe = nnr?.NP ?? curNe;
                 pList.Add(pNe.Ad);
-                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", pNe).FirstOrDefault();
+                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC = ?", pNe).FirstOrDefault();
             } while (nnr != null);
 
             // Search Kids, Varsa true
@@ -118,12 +129,12 @@ namespace M2DB
         private static bool HasKidInParents(NNN Kid, List<string> pList)
         {
             bool rv = false;
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", Kid))
             {
-                var aaa = r.NNNK.Ad;
+                var aaa = r.NC.Ad;
                 foreach (var p in pList)
                 {
-                    if (p == r.NNNK.Ad)
+                    if (p == r.NC.Ad)
                     {
                         rv = true;
                         break;
@@ -131,8 +142,8 @@ namespace M2DB
                 }
                 if (rv)
                     break;
-                else if (r.NNNK.HasKid)
-                    HasKidInParents(r.NNNK, pList);
+                else if (r.NC.HasKid)
+                    HasKidInParents(r.NC, pList);
             }
             return rv;
         }
@@ -163,11 +174,11 @@ namespace M2DB
         {
             double T = 0, kT = 0, pT = 0;
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ? order by r.NNNK.HasKid DESC", sNo))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ? order by r.NC.HasKid DESC", sNo))
             {
-                if (r.NNNK.HasKid)
+                if (r.NC.HasKid)
                 {
-                    kT = NeMaliyetDty(r.NNNK.GetObjectNo());
+                    kT = NeMaliyetDty(r.NC.GetObjectNo());
                     pT = T;
                     T += r.Mik * kT;
                     //if (dbg)
@@ -176,9 +187,9 @@ namespace M2DB
                 else
                 {
                     pT = T;
-                    T += r.Mik * r.NNNK.Fyt;
+                    T += r.Mik * r.NC.Fyt;
                     //if (dbg)
-                    Console.WriteLine($"1:{r.PAd}.{r.KAd}:  {pT:n}[{r.PAd}] + {r.Mik}x{r.NNNK.Fyt}={r.Mik * r.NNNK.Fyt}[{r.KAd}] => {T:n}[{r.PAd}]");
+                    Console.WriteLine($"1:{r.PAd}.{r.KAd}:  {pT:n}[{r.PAd}] + {r.Mik}x{r.NC.Fyt}={r.Mik * r.NC.Fyt}[{r.KAd}] => {T:n}[{r.PAd}]");
                 }
             }
             Console.WriteLine($"--:T={T}, kT={kT}, pT={pT}");
@@ -187,7 +198,7 @@ namespace M2DB
     }
 
     [Database]
-    public class NKM    // Ne.Kimde.Miktar
+    public class NKM    // Ne.Kimde.Miktar      BB'den yap
     {
         public NNN NNN { get; set; }
         public KKK KKK { get; set; }
@@ -216,31 +227,15 @@ namespace M2DB
 
     }
 
-    /// <summary>
-    /// Birim Fiyat Analizleri gibi. TemelKalemler(Atom/Indivisible:Element) -> Analiz(Molekul) -> Aktivite(Polymer)
-    /// </summary>
     [Database]
-    public class NHT // Ne.Hiyerarsi.Tree IPTAL
+    public class NNR // Ne.Recete
     {
-        public NNN P { get; set; }
-        public NNN K { get; set; }
+        public NNN NP { get; set; } // Parent
+        public NNN NC { get; set; } // Kid
         public double Mik { get; set; }
 
-        public string PAd => P?.Ad;
-        public string PKd => P?.Kd;
-        public string KAd => K?.Ad;
-        public string KKd => K?.Kd;
-    }
-
-    [Database]
-    public class NNR // Ne.Recete/Relation
-    {
-        public NNN NNNP { get; set; } // Parent
-        public NNN NNNK { get; set; } // Kid
-        public double Mik { get; set; }
-
-        public string PAd => NNNP?.Ad;
-        public string KAd => NNNK?.Ad;
+        public string PAd => NP?.Ad;
+        public string KAd => NC?.Ad;
 
         public static void Deneme2()
         {
@@ -255,12 +250,12 @@ namespace M2DB
                 string aaa = "";
                 while (fnd)
                 {
-                    NNR nr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", cn).FirstOrDefault();
+                    NNR nr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC = ?", cn).FirstOrDefault();
                     if (nr == null)
                         fnd = false;
                     else
                     {
-                        cn = nr.NNNP;
+                        cn = nr.NP;
                         aaa = aaa + " " + cn.Ad;
                     }
                 }
@@ -295,9 +290,9 @@ namespace M2DB
                 {
                     P = (int)r["K"]; // (int)r.ItemArray[2];
 
-                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK.ObjectNo = ?", r["N"]))
+                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.PAd, nr.NNNP.GetObjectNo(), nr.Mik, 0);
+                        table.Rows.Add(L, P, K, nr.PAd, nr.NP.GetObjectNo(), nr.Mik, 0);
                         K++;
                     }
 
@@ -339,9 +334,9 @@ namespace M2DB
                 {
                     P = (int)r["K"]; // (int)r.ItemArray[2];
 
-                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.ObjectNo = ?", r["N"]))
+                    foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", r["N"]))
                     {
-                        table.Rows.Add(L, P, K, nr.KAd, nr.NNNK.GetObjectNo(), nr.Mik, nr.NNNK.Fyt, nr.NNNK.HasKid);
+                        table.Rows.Add(L, P, K, nr.KAd, nr.NC.GetObjectNo(), nr.Mik, nr.NC.Fyt, nr.NC.HasKid);
                         K++;
                     }
 
@@ -363,7 +358,7 @@ namespace M2DB
             {
                 //Dictionary<string, string> sa = new Dictionary<string, string>();
                 List<string> sl = new List<string>();
-                foreach (var n in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNP.Ad = ?", nl))
+                foreach (var n in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.Ad = ?", nl))
                 {
                     sl.Add(n.KAd);
                 }
@@ -434,11 +429,11 @@ namespace M2DB
 
         private static void Kids(NNN Kid, List<string> kList)   // HasKidInParents ile yap bunu kullanma
         {
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP = ?", Kid))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", Kid))
             {
-                kList.Add(r.NNNK.Ad);
-                if (r.NNNK.HasKid)
-                    Kids(r.NNNK, kList);
+                kList.Add(r.NC.Ad);
+                if (r.NC.HasKid)
+                    Kids(r.NC, kList);
             }
         }
 
@@ -472,11 +467,11 @@ namespace M2DB
         // Kullanilmiyor
         public static void KidParents(NNN k, Dictionary<NNN, double> ps)
         {
-            foreach(var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NNNK = ?", k))
+            foreach(var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC = ?", k))
             {
-                ps[r.NNNP] = r.Mik;
-                if (r.NNNP.HasPrn)
-                    KidParents(r.NNNP, ps);
+                ps[r.NP] = r.Mik;
+                if (r.NP.HasPrn)
+                    KidParents(r.NP, ps);
 
             }
         }
@@ -499,7 +494,6 @@ namespace M2DB
 
             return table;
         }
-
         public static void KidInParentsMik(ulong KidObjNo, DataTable table)
         {
 
@@ -530,24 +524,23 @@ namespace M2DB
             Console.WriteLine("");
             Console.WriteLine("KidInRootsMik----");
         }
-
         private static void KidInParentsMikDty(ulong sNo, Dictionary<ulong, double> mD)
         {
             ulong PoNo = 0, KoNo = 0;
             double pMik = 0, kMik = 0;
             string s = "";
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNK.ObjectNo = ?", sNo))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NC.ObjectNo = ?", sNo))
             {
-                PoNo = r.NNNP.GetObjectNo();
-                KoNo = r.NNNK.GetObjectNo();
+                PoNo = r.NP.GetObjectNo();
+                KoNo = r.NC.GetObjectNo();
 
                 if (!mD.ContainsKey(PoNo))
                     mD[PoNo] = 0;
 
                 kMik = mD.ContainsKey(KoNo) ? mD[KoNo] : 1;
 
-                if (!r.NNNP.HasPrn)  // Root
+                if (!r.NP.HasPrn)  // Root
                 {
                     pMik = mD[PoNo];
                     mD[PoNo] += kMik * r.Mik;
@@ -566,8 +559,8 @@ namespace M2DB
                 }
 
 
-                if (r.NNNP.HasPrn)
-                    KidInParentsMikDty(r.NNNP.GetObjectNo(), mD);
+                if (r.NP.HasPrn)
+                    KidInParentsMikDty(r.NP.GetObjectNo(), mD);
             }
 
             return;
@@ -624,9 +617,9 @@ namespace M2DB
             ulong Kid = 0;
             double GMik = 0;
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ?", node))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ?", node))
             {
-                Kid = r.NNNK.GetObjectNo();
+                Kid = r.NC.GetObjectNo();
                 /*
                 if (!S.ContainsKey(Kid))
                     S[Kid] = 0; //StokMik(Kid);
@@ -648,7 +641,7 @@ namespace M2DB
                     mD[Kid] = 0;
                 mD[Kid] += GMik;
 
-                if (GMik > 0 && r.NNNK.HasKid)
+                if (GMik > 0 && r.NC.HasKid)
                     NodeInParent(Kid, GMik, mD);
             }
         }
@@ -687,9 +680,9 @@ namespace M2DB
             ulong Kid = 0;
             double GMik = 0;
 
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NNNP.ObjectNo = ?", Prn))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ?", Prn))
             {
-                Kid = r.NNNK.GetObjectNo();
+                Kid = r.NC.GetObjectNo();
 
                 if (!S.ContainsKey(Kid))
                     S[Kid] = 0; //StokMik(Kid);
@@ -710,7 +703,7 @@ namespace M2DB
                     G[Kid] = 0;
                 G[Kid] += GMik;
 
-                if (GMik > 0 && r.NNNK.HasKid)
+                if (GMik > 0 && r.NC.HasKid)
                     NodeGerekenKidsMikDty(Kid, GMik, S, G);
             }
         }
@@ -801,107 +794,107 @@ namespace M2DB
 
                 new NNR
                 {
-                    NNNP = suzan,
-                    NNNK = senay,
+                    NP = suzan,
+                    NC = senay,
                     Mik = 2
                 };
                 new NNR
                 {
-                    NNNP = senay,
-                    NNNK = umut,
+                    NP = senay,
+                    NC = umut,
                     Mik = 3
                 };
                 new NNR
                 {
-                    NNNP = senay,
-                    NNNK = nazli,
+                    NP = senay,
+                    NC = nazli,
                     Mik = 4
                 };
 
                 new NNR
                 {
-                    NNNP = suzan,
-                    NNNK = sener,
+                    NP = suzan,
+                    NC = sener,
                     Mik = 5
                 };
                 new NNR
                 {
-                    NNNP = sener,
-                    NNNK = can,
+                    NP = sener,
+                    NC = can,
                     Mik = 6
                 };
                 new NNR
                 {
-                    NNNP = can,
-                    NNNK = ali,
+                    NP = can,
+                    NC = ali,
                     Mik = 7
                 };
                 new NNR
                 {
-                    NNNP = can,
-                    NNNK = ayse,
+                    NP = can,
+                    NC = ayse,
                     Mik = 8
                 };
                 new NNR
                 {
-                    NNNP = can,
-                    NNNK = veli,
+                    NP = can,
+                    NC = veli,
                     Mik = 9
                 };
                 new NNR
                 {
-                    NNNP = nazli,
-                    NNNK = can,
+                    NP = nazli,
+                    NC = can,
 
                     Mik = 10
                 };
 
                 new NNR
                 {
-                    NNNP = sener,
-                    NNNK = ahmet,
+                    NP = sener,
+                    NC = ahmet,
 
                     Mik = 11
                 };
                 new NNR
                 {
-                    NNNP = sener,
-                    NNNK = mehmet,
+                    NP = sener,
+                    NC = mehmet,
 
                     Mik = 12
                 };
                 new NNR
                 {
-                    NNNP = sener,
-                    NNNK = senay,
+                    NP = sener,
+                    NC = senay,
 
                     Mik = 13
                 };
                 new NNR
                 {
-                    NNNP = kemal,
-                    NNNK = nazli,
+                    NP = kemal,
+                    NC = nazli,
 
                     Mik = 14
                 };
                 new NNR
                 {
-                    NNNP = kemal,
-                    NNNK = sener,
+                    NP = kemal,
+                    NC = sener,
 
                     Mik = 15
                 };
                 new NNR
                 {
-                    NNNP = suzan,
-                    NNNK = ali,
+                    NP = suzan,
+                    NC = ali,
 
                     Mik = 17
                 };
                 new NNR
                 {
-                    NNNP = sener,
-                    NNNK = ali,
+                    NP = sener,
+                    NC = ali,
 
                     Mik = 18
                 };

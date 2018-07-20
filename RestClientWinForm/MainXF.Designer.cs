@@ -54,6 +54,7 @@
             this.NeDownButton = new System.Windows.Forms.Button();
             this.KidsInParentsButton = new System.Windows.Forms.Button();
             this.NodesInParentsButton = new System.Windows.Forms.Button();
+            this.NNNbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -322,11 +323,22 @@
             this.NodesInParentsButton.UseVisualStyleBackColor = true;
             this.NodesInParentsButton.Click += new System.EventHandler(this.NodesInParentsButton_Click);
             // 
+            // NNNbutton
+            // 
+            this.NNNbutton.Location = new System.Drawing.Point(22, 239);
+            this.NNNbutton.Name = "NNNbutton";
+            this.NNNbutton.Size = new System.Drawing.Size(75, 23);
+            this.NNNbutton.TabIndex = 10;
+            this.NNNbutton.Text = "NNN";
+            this.NNNbutton.UseVisualStyleBackColor = true;
+            this.NNNbutton.Click += new System.EventHandler(this.NNNbutton_Click);
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 261);
+            this.ClientSize = new System.Drawing.Size(488, 363);
+            this.Controls.Add(this.NNNbutton);
             this.Controls.Add(this.NodesInParentsButton);
             this.Controls.Add(this.KidsInParentsButton);
             this.Controls.Add(this.NeDownButton);
@@ -381,5 +393,6 @@
         private System.Windows.Forms.Button NeDownButton;
         private System.Windows.Forms.Button KidsInParentsButton;
         private System.Windows.Forms.Button NodesInParentsButton;
+        private System.Windows.Forms.Button NNNbutton;
     }
 }

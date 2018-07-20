@@ -13,7 +13,7 @@ namespace RestClientWinForm
 {
     public partial class KftXF : DevExpress.XtraEditors.XtraForm
     {
-        private object ObjTur;  // KimTur Musteri
+        private object ObjTur;  // KimTur Musteri KULLANILMIYOR
 
         public KftXF()
         {
@@ -28,8 +28,8 @@ namespace RestClientWinForm
         private void KmtXF_Load(object sender, EventArgs e)
         {
             // KKK.TUR deki F yi bul
-            DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
-            ObjTur = xgtRows[0]["RowKey"];
+            //DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
+            //ObjTur = xgtRows[0]["RowKey"];
 
             FillDB();
         }
