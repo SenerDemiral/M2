@@ -46,6 +46,10 @@
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.KkkTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.AbbTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.KDTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.kdtBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.KPTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.kptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.XDKbutton = new System.Windows.Forms.Button();
             this.KFTbutton = new System.Windows.Forms.Button();
             this.UYHbutton = new System.Windows.Forms.Button();
@@ -55,6 +59,10 @@
             this.KidsInParentsButton = new System.Windows.Forms.Button();
             this.NodesInParentsButton = new System.Windows.Forms.Button();
             this.NNNbutton = new System.Windows.Forms.Button();
+            this.KPTbutton = new System.Windows.Forms.Button();
+            this.KDTbutton = new System.Windows.Forms.Button();
+            this.NNNrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -66,6 +74,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AbbTurRepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KPTrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -103,7 +117,10 @@
             this.DateRepositoryItemDateEdit,
             this.AHPrepositoryItemTreeListLookUpEdit,
             this.KkkTurRepositoryItemLookUpEdit,
-            this.AbbTurRepositoryItemLookUpEdit});
+            this.AbbTurRepositoryItemLookUpEdit,
+            this.KDTrepositoryItemLookUpEdit,
+            this.KPTrepositoryItemLookUpEdit,
+            this.NNNrepositoryItemLookUpEdit});
             // 
             // AfbTurRepositoryItemLookUpEdit
             // 
@@ -243,6 +260,34 @@
             this.AbbTurRepositoryItemLookUpEdit.Name = "AbbTurRepositoryItemLookUpEdit";
             this.AbbTurRepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
+            // KDTrepositoryItemLookUpEdit
+            // 
+            this.KDTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.KDTrepositoryItemLookUpEdit.DataSource = this.kdtBindingSource;
+            this.KDTrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.KDTrepositoryItemLookUpEdit.Name = "KDTrepositoryItemLookUpEdit";
+            this.KDTrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // kdtBindingSource
+            // 
+            this.kdtBindingSource.DataMember = "KDT";
+            this.kdtBindingSource.DataSource = this.mainDataSet;
+            // 
+            // KPTrepositoryItemLookUpEdit
+            // 
+            this.KPTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.KPTrepositoryItemLookUpEdit.DataSource = this.kptBindingSource;
+            this.KPTrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.KPTrepositoryItemLookUpEdit.Name = "KPTrepositoryItemLookUpEdit";
+            this.KPTrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // kptBindingSource
+            // 
+            this.kptBindingSource.DataMember = "KPT";
+            this.kptBindingSource.DataSource = this.mainDataSet;
+            // 
             // XDKbutton
             // 
             this.XDKbutton.Location = new System.Drawing.Point(22, 97);
@@ -333,11 +378,47 @@
             this.NNNbutton.UseVisualStyleBackColor = true;
             this.NNNbutton.Click += new System.EventHandler(this.NNNbutton_Click);
             // 
+            // KPTbutton
+            // 
+            this.KPTbutton.Location = new System.Drawing.Point(113, 142);
+            this.KPTbutton.Name = "KPTbutton";
+            this.KPTbutton.Size = new System.Drawing.Size(75, 23);
+            this.KPTbutton.TabIndex = 11;
+            this.KPTbutton.Text = "KPT";
+            this.KPTbutton.UseVisualStyleBackColor = true;
+            this.KPTbutton.Click += new System.EventHandler(this.KPTbutton_Click);
+            // 
+            // KDTbutton
+            // 
+            this.KDTbutton.Location = new System.Drawing.Point(206, 142);
+            this.KDTbutton.Name = "KDTbutton";
+            this.KDTbutton.Size = new System.Drawing.Size(75, 23);
+            this.KDTbutton.TabIndex = 12;
+            this.KDTbutton.Text = "KDT";
+            this.KDTbutton.UseVisualStyleBackColor = true;
+            this.KDTbutton.Click += new System.EventHandler(this.KDTbutton_Click);
+            // 
+            // NNNrepositoryItemLookUpEdit
+            // 
+            this.NNNrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NNNrepositoryItemLookUpEdit.DataSource = this.nnnBindingSource;
+            this.NNNrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.NNNrepositoryItemLookUpEdit.Name = "NNNrepositoryItemLookUpEdit";
+            this.NNNrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // nnnBindingSource
+            // 
+            this.nnnBindingSource.DataMember = "NNN";
+            this.nnnBindingSource.DataSource = this.mainDataSet;
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 363);
+            this.Controls.Add(this.KDTbutton);
+            this.Controls.Add(this.KPTbutton);
             this.Controls.Add(this.NNNbutton);
             this.Controls.Add(this.NodesInParentsButton);
             this.Controls.Add(this.KidsInParentsButton);
@@ -363,6 +444,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AbbTurRepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KPTrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -394,5 +481,13 @@
         private System.Windows.Forms.Button KidsInParentsButton;
         private System.Windows.Forms.Button NodesInParentsButton;
         private System.Windows.Forms.Button NNNbutton;
+        private System.Windows.Forms.Button KPTbutton;
+        private System.Windows.Forms.Button KDTbutton;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KDTrepositoryItemLookUpEdit;
+        private System.Windows.Forms.BindingSource kdtBindingSource;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KPTrepositoryItemLookUpEdit;
+        private System.Windows.Forms.BindingSource kptBindingSource;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NNNrepositoryItemLookUpEdit;
+        private System.Windows.Forms.BindingSource nnnBindingSource;
     }
 }

@@ -136,6 +136,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="KdtXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KdtXF.Designer.cs">
+      <DependentUpon>KdtXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KptXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KptXF.Designer.cs">
+      <DependentUpon>KptXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToBrXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToBrXF.Designer.cs">
+      <DependentUpon>ToBrXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToKctXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -253,11 +271,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KdtXF.resx">
+      <DependentUpon>KdtXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KftXF.resx">
       <DependentUpon>KftXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KidsInParentsXF.resx">
       <DependentUpon>KidsInParentsXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KptXF.resx">
+      <DependentUpon>KptXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainXF.resx">
       <DependentUpon>MainXF.cs</DependentUpon>
@@ -285,6 +309,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToBrXF.resx">
+      <DependentUpon>ToBrXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ToKdtXF.resx">
       <DependentUpon>ToKdtXF.cs</DependentUpon>
     </EmbeddedResource>

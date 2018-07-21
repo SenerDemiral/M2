@@ -34,8 +34,36 @@ namespace M2DB
         public BB C { get; set; } // Base Child/Right
 
         public string Ptyp => P?.GetType().Name;
+        public string Pad => P?.Ad;
         public string Ctyp => C?.GetType().Name;
+        public string Cad => C?.Ad;
 
+        public string PofC
+        {
+            get
+            {
+                var list = new List<string>();
+                foreach (var r in Db.SQL<BR>("SELECT r FROM M2DB.BR r WHERE r.C = ?", C))
+                {
+                    if (r.GetObjectNo() != this.GetObjectNo() && r.Ptyp == Ptyp && r.Ctyp == Ctyp)
+                        list.Add(r.Pad);
+                }
+                return string.Join<string>(", ", list);
+            }
+        }
+        public string CofP
+        {
+            get
+            {
+                var list = new List<string>();
+                foreach (var r in Db.SQL<BR>("SELECT r FROM M2DB.BR r WHERE r.P = ?", P))
+                {
+                    if (r.GetObjectNo() != this.GetObjectNo() && r.Ptyp == Ptyp && r.Ctyp == Ctyp)
+                        list.Add(r.Cad);
+                }
+                return string.Join<string>(", ", list);
+            }
+        }
     }
 
     [Database]

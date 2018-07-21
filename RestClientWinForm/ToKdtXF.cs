@@ -18,6 +18,9 @@ namespace RestClientWinForm
         public ToKdtXF()
         {
             InitializeComponent();
+
+            toKDTGridControl.ExternalRepository = Program.MF.persistentRepository;
+            //colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
         }
 
         private void ToKdtXF_Load(object sender, EventArgs e)

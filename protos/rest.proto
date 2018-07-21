@@ -44,11 +44,6 @@ service CRUDs {
   rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
   rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
 
-  rpc KKKfill (QryProxy) returns (stream KKKproxy) {}
-
-  rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
-  rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
-
   rpc UUUfill (QryProxy) returns (stream UUUproxy) {}
   rpc UUUupdate (UUUproxy) returns (UUUproxy) {}
   rpc UYTfill (QryProxy) returns (stream UYTproxy) {}
@@ -64,6 +59,20 @@ service CRUDs {
   rpc KidsInParentsFill (QryProxy) returns (stream KidsInParentsProxy) {}
   rpc NodesInParentsFill (QryProxy) returns (stream NodesInParentsProxy) {}
 
+  rpc KKKfill (QryProxy) returns (stream KKKproxy) {}
+
+  rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
+  rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
+
+  rpc KPTfill (QryProxy) returns (stream KPTproxy) {}
+  rpc KPTupdate (KPTproxy) returns (KPTproxy) {}
+
+  rpc KDTfill (QryProxy) returns (stream KDTproxy) {}
+  rpc KDTupdate (KDTproxy) returns (KDTproxy) {}
+
+  rpc BRfill (QryBRproxy) returns (stream BRproxy) {}
+  rpc BRupdate (BRproxy) returns (BRproxy) {}
+
   rpc ToKPTfill (QryPproxy) returns (stream ToKPTproxy) {}
   rpc ToKPTupdate (ToKPTproxy) returns (ToKPTproxy) {}
   rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
@@ -72,6 +81,12 @@ service CRUDs {
 
 message PKproxy {
   uint64 PK = 1;
+}
+
+message QryBRproxy {
+  uint64 M = 1;
+  string Mtyp = 2;
+  string Dtyp = 3;
 }
 
 message QryPproxy {
@@ -233,30 +248,6 @@ message XDKproxy {
 	string Dvz = 8;
 }
 
-// KKK Kim Base
-message KKKproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	string Ad = 5;
-	string Tur = 6;	// FR:Firma, DP:Depo, UH:Uretim, IM:Imha, 
-}
-
-message KFTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	google.protobuf.StringValue Ad = 5;
-	google.protobuf.StringValue Tel = 6;
-	google.protobuf.StringValue Adres = 7;
-	google.protobuf.StringValue Sorumlu = 8;
-	google.protobuf.StringValue VrgDN = 9;
-	uint64 AHPbrc = 10;
-	uint64 AHPalc = 11;
-}
-
 // User
 message UUUproxy {
   string RowSte = 1;
@@ -299,7 +290,62 @@ message NNNproxy {
 	double Fyt = 8;
 }
 
-// ToKPT KimPersonelTanim
+// BR BaseRelation
+message BRproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 P = 5;
+	uint64 C = 6;
+	string PofC = 7;
+}
+
+// KKK Kim Base
+message KKKproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	string Ad = 5;
+	string Tur = 6;	// FR:Firma, DP:Depo, UH:Uretim, IM:Imha, 
+}
+
+message KFTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Ad = 5;
+	google.protobuf.StringValue Tel = 6;
+	google.protobuf.StringValue Adres = 7;
+	google.protobuf.StringValue Sorumlu = 8;
+	google.protobuf.StringValue VrgDN = 9;
+	uint64 AHPbrc = 10;
+	uint64 AHPalc = 11;
+}
+
+// KimPersonelTanim
+message KPTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+}
+
+// KimDepartmanTanim
+message KDTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+}
+
+// ToKPT Master -> KimPersonelTanim
 message ToKPTproxy {
 	string RowSte = 1;
 	string RowErr = 2;

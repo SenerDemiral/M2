@@ -609,78 +609,6 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
-        
-        // FirmaTanim
-        public override async Task KFTfill(QryProxy request, IServerStreamWriter<KFTproxy> responseStream, ServerCallContext context)
-        {
-            KFTproxy proxy = new KFTproxy();
-            List<KFTproxy> proxyList = new List<KFTproxy>();
-            string sel = $"SELECT r FROM KMT r";
-
-            Type proxyType = typeof(KFTproxy);
-            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
-
-            await Scheduling.RunTask(() =>
-            {
-                foreach (var row in Db.SQL<KFT>("SELECT r FROM KFT r"))
-                {
-                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
-
-                    proxy = new KFTproxy
-                    {
-                        RowKey = row.GetObjectNo(),
-                        Ad = row.Ad,
-                        VrgDN = row.VrgDN,
-                        AHPbrc = row.AHPbrc == null ? 0 : row.AHPbrc.GetObjectNo(),
-                        AHPalc = row.AHPalc == null ? 0 : row.AHPalc.GetObjectNo(),
-                    };
-                    proxyList.Add(proxy);
-                }
-            });
-
-            foreach (var p in proxyList)
-            {
-                await responseStream.WriteAsync(p);
-            }
-        }
-
-        public override Task<KFTproxy> KFTupdate(KFTproxy request, ServerCallContext context)
-        {
-            var proxy = new KFTproxy
-            {
-                RowKey = request.RowKey,
-            };
-
-            Scheduling.RunTask(() =>
-            {
-                // RowSte: Added, Modified, Deletede, Unchanged
-                Db.Transact(() =>
-                {
-                    if (request.RowSte == "A" || request.RowSte == "M")
-                    {
-                        // Add Control
-                        // Parent Hesabi olmali
-
-                        if (request.RowErr == string.Empty)
-                        {
-                            KFT row = CRUDsHelper.FromProxy<KFTproxy, KFT>(request);
-                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
-                            request = CRUDsHelper.ToProxy<KFTproxy, KFT>(row);
-                        }
-
-                    }
-                    else if (request.RowSte == "D")
-                    {
-                        // Ilgili kayit varsa sildirme
-                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
-                    }
-                });
-            }).Wait();
-
-            return Task.FromResult(request);
-        }
-
-
         // GenelTanim
         public override async Task XGTfill(QryProxy request, IServerStreamWriter<XGTproxy> responseStream, ServerCallContext context)
         {
@@ -716,7 +644,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<XGTproxy> XGTupdate(XGTproxy request, ServerCallContext context)
         {
             var proxy = new XGTproxy
@@ -830,7 +757,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<XDKproxy> XDKupdate(XDKproxy request, ServerCallContext context)
         {
             Scheduling.RunTask(() =>
@@ -1064,7 +990,7 @@ namespace RestServerSC
         }
 
 
-        // Ne Tanim
+        // NeTanim
         public override async Task NNNfill(QryProxy request, IServerStreamWriter<NNNproxy> responseStream, ServerCallContext context)
         {
             NNNproxy proxy = new NNNproxy();
@@ -1097,7 +1023,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<NNNproxy> NNNupdate(NNNproxy request, ServerCallContext context)
         {
             Scheduling.RunTask(() =>
@@ -1128,7 +1053,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
 
         public override async Task NeUpFill(QryProxy request, IServerStreamWriter<NeTreeProxy> responseStream, ServerCallContext context)
         {
@@ -1243,12 +1167,202 @@ namespace RestServerSC
             }
         }
 
+        // KimFirmaTanim
+        public override async Task KFTfill(QryProxy request, IServerStreamWriter<KFTproxy> responseStream, ServerCallContext context)
+        {
+            KFTproxy proxy = new KFTproxy();
+            List<KFTproxy> proxyList = new List<KFTproxy>();
+            string sel = $"SELECT r FROM KMT r";
+
+            Type proxyType = typeof(KFTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<KFT>("SELECT r FROM KFT r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new KFTproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        Ad = row.Ad,
+                        VrgDN = row.VrgDN,
+                        AHPbrc = row.AHPbrc == null ? 0 : row.AHPbrc.GetObjectNo(),
+                        AHPalc = row.AHPalc == null ? 0 : row.AHPalc.GetObjectNo(),
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<KFTproxy> KFTupdate(KFTproxy request, ServerCallContext context)
+        {
+            var proxy = new KFTproxy
+            {
+                RowKey = request.RowKey,
+            };
+
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            KFT row = CRUDsHelper.FromProxy<KFTproxy, KFT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<KFTproxy, KFT>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        // KimPersonelTanim
+        public override async Task KPTfill(QryProxy request, IServerStreamWriter<KPTproxy> responseStream, ServerCallContext context)
+        {
+            KPTproxy proxy = new KPTproxy();
+            List<KPTproxy> proxyList = new List<KPTproxy>();
+
+            Type proxyType = typeof(KPTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<KPT>("SELECT r FROM KPT r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new KPTproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<KPTproxy> KPTupdate(KPTproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            KPT row = CRUDsHelper.FromProxy<KPTproxy, KPT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<KPTproxy, KPT>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        // KimDepartmanTanim
+        public override async Task KDTfill(QryProxy request, IServerStreamWriter<KDTproxy> responseStream, ServerCallContext context)
+        {
+            KDTproxy proxy = new KDTproxy();
+            List<KDTproxy> proxyList = new List<KDTproxy>();
+
+            Type proxyType = typeof(KDTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<KDT>("SELECT r FROM KDT r"))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new KDTproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<KDTproxy> KDTupdate(KDTproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            KDT row = CRUDsHelper.FromProxy<KDTproxy, KDT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<KDTproxy, KDT>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Firma Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
 
         public override async Task ToKPTfill(QryPproxy request, IServerStreamWriter<ToKPTproxy> responseStream, ServerCallContext context)
         {
             ToKPTproxy proxy = new ToKPTproxy();
             List<ToKPTproxy> proxyList = new List<ToKPTproxy>();
-            string sel = $"SELECT r FROM KMT r";
 
             Type proxyType = typeof(ToKPTproxy);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
@@ -1265,6 +1379,7 @@ namespace RestServerSC
                         proxy = new ToKPTproxy
                         {
                             RowKey = row.GetObjectNo(),
+                            P = r.P.GetObjectNo(),
                             Kd = row.Kd,
                             Ad = row.Ad,
                         };
@@ -1285,10 +1400,11 @@ namespace RestServerSC
                 // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
+                    var P = request.P;
                     if (request.RowSte == "A")
                     {
                         KPT row = CRUDsHelper.FromProxy<ToKPTproxy, KPT>(request);
-                        var p = Db.FromId(request.P);
+                        //var p = Db.FromId(request.P);
                         
                         new BR
                         {
@@ -1297,6 +1413,7 @@ namespace RestServerSC
                         };
                         UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                         request = CRUDsHelper.ToProxy<ToKPTproxy, KPT>(row);
+                        request.P = P;
                     }
 
                     if (request.RowSte == "M")
@@ -1306,6 +1423,7 @@ namespace RestServerSC
                             KPT row = CRUDsHelper.FromProxy<ToKPTproxy, KPT>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<ToKPTproxy, KPT>(row);
+                            request.P = P;
                         }
                     }
                     else if (request.RowSte == "D")
@@ -1323,7 +1441,6 @@ namespace RestServerSC
         {
             ToKDTproxy proxy = new ToKDTproxy();
             List<ToKDTproxy> proxyList = new List<ToKDTproxy>();
-            string sel = $"SELECT r FROM KMT r";
 
             Type proxyType = typeof(ToKDTproxy);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
@@ -1361,15 +1478,14 @@ namespace RestServerSC
                 // RowSte: Added, Modified, Deletede, Unchanged
                 Db.Transact(() =>
                 {
+                    var P = request.P;
                     if (request.RowSte == "A")
                     {
                         KDT row = CRUDsHelper.FromProxy<ToKDTproxy, KDT>(request);
-                        var P = request.P;
-                        var p = Db.FromId(request.P);
 
                         new BR
                         {
-                            P = Db.FromId(request.P) as BB,
+                            P = Db.FromId(P) as BB,
                             C = row,
                         };
                         UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
@@ -1384,6 +1500,7 @@ namespace RestServerSC
                             KDT row = CRUDsHelper.FromProxy<ToKDTproxy, KDT>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<ToKDTproxy, KDT>(row);
+                            request.P = P;
                         }
                     }
                     else if (request.RowSte == "D")
@@ -1397,6 +1514,81 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        public override async Task BRfill(QryBRproxy request, IServerStreamWriter<BRproxy> responseStream, ServerCallContext context)
+        {
+            BRproxy proxy = new BRproxy();
+            List<BRproxy> proxyList = new List<BRproxy>();
+
+            Type proxyType = typeof(ToKDTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                IEnumerable<BR> brs;
+                bool isP2C = false;
+                if (string.Compare(request.Mtyp, request.Dtyp) < 0)  // P is Master
+                {
+                    brs = Db.SQL<BR>("SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", request.M, request.Mtyp, request.Dtyp);
+                    isP2C = true;
+                }
+                else // C is Master
+                    brs = Db.SQL<BR>("SELECT r FROM BR r WHERE r.C.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", request.M, request.Dtyp, request.Mtyp);
+
+                foreach (var r in brs)
+                {
+                    proxy = new BRproxy
+                    {
+                        RowKey = r.GetObjectNo(),
+                        P = r.P.GetObjectNo(),
+                        C = r.C.GetObjectNo(),
+                        PofC = isP2C ? r.PofC : r.CofP,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<BRproxy> BRupdate(BRproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A")
+                    {
+                        BR row = new BR
+                        {
+                            P = Db.FromId(request.P) as BB,
+                            C = Db.FromId(request.C) as BB,
+                        };
+                        UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                        request = CRUDsHelper.ToProxy<BRproxy, BR>(row);
+                    }
+
+                    if (request.RowSte == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            BR row = CRUDsHelper.FromProxy<BRproxy, BR>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<BRproxy, BR>(row);
+                        }
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
     }
 
 }

@@ -11,40 +11,33 @@ using DevExpress.XtraEditors;
 
 namespace RestClientWinForm
 {
-    public partial class NnnXF : DevExpress.XtraEditors.XtraForm
+    public partial class KdtXF : DevExpress.XtraEditors.XtraForm
     {
-        public NnnXF()
+        public KdtXF()
         {
             InitializeComponent();
-
-            nNNGridControl.ExternalRepository = Program.MF.persistentRepository;
-            //colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
         }
 
-        private void NnnXF_Load(object sender, EventArgs e)
+        private void KdtXF_Load(object sender, EventArgs e)
         {
-            // KKK.TUR deki F yi bul
-            //DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
-            //ObjTur = xgtRows[0]["RowKey"];
-
             FillDB();
         }
 
         private void FillDB()
         {
             string res = "";
-            nNNGridControl.DataSource = null;
-            mainDataSet.KFT.Clear();
-            Task.Run(async () => { res = await mainDataSet.NNNfill(); }).Wait();
-            toolStripStatusLabel1.Text = res;
-            nNNGridControl.DataSource = nnnBindingSource;
+            kdtGridControl.DataSource = null;
+            mainDataSet.KDT.Clear();
+            Task.Run(async () => { res = await mainDataSet.KDTfill(); }).Wait();
+            //toolStripStatusLabel1.Text = res;
+            kdtGridControl.DataSource = kdtBindingSource;
         }
 
         private DialogResult UpdateDB(bool silent = false)
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            nnnBindingSource.EndEdit();
+            kdtBindingSource.EndEdit();
 
             //gridView1.CloseEditor();
             //gridView1.UpdateCurrentRow();
@@ -55,7 +48,7 @@ namespace RestClientWinForm
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = mainDataSet.NNNupdate();
+                    string err = mainDataSet.KDTupdate();
                     gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {
@@ -83,18 +76,34 @@ namespace RestClientWinForm
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
         }
 
-
-        private void uretenDepartmanToolStripMenuItem_Click(object sender, EventArgs e)
+        private void personelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
                 return;
 
             ToBrXF frm = new ToBrXF();
-            frm.ChildIs = "KDT";
-            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Üretim Departmanları";
+            frm.ChildIs = "KPT";
+            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Personeli";
 
-            frm.Mtyp = "NNN";
-            frm.Dtyp = "KDT";
+            frm.Mtyp = "KDT";
+            frm.Dtyp = "KPT";
+            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+
+            frm.ShowDialog();
+
+        }
+
+        private void urunlerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            ToBrXF frm = new ToBrXF();
+            frm.ChildIs = "NNN";
+            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Ürünleri";
+
+            frm.Mtyp = "KDT";
+            frm.Dtyp = "NNN";
             frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
 
             frm.ShowDialog();

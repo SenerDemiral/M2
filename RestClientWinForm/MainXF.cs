@@ -27,6 +27,9 @@ namespace RestClientWinForm
             Task.Run(async () => {
                 await mainDataSet.XGTfill();
                 await mainDataSet.AHPfill();
+                await mainDataSet.KDTfill();
+                await mainDataSet.KPTfill();
+                await mainDataSet.NNNfill();
                 InitLookups();
             }); //.Wait();
 
@@ -166,6 +169,18 @@ namespace RestClientWinForm
             NnnXF frm = new NnnXF();
             frm.Show();
 
+        }
+
+        private void KPTbutton_Click(object sender, EventArgs e)
+        {
+            KptXF frm = new KptXF();
+            frm.Show();
+        }
+
+        private void KDTbutton_Click(object sender, EventArgs e)
+        {
+            KdtXF frm = new KdtXF();
+            frm.Show();
         }
     }
 }
