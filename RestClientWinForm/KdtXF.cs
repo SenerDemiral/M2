@@ -82,7 +82,6 @@ namespace RestClientWinForm
                 return;
 
             ToBrXF frm = new ToBrXF();
-            frm.ChildIs = "KPT";
             frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Personeli";
 
             frm.Mtyp = "KDT";
@@ -99,7 +98,6 @@ namespace RestClientWinForm
                 return;
 
             ToBrXF frm = new ToBrXF();
-            frm.ChildIs = "NNN";
             frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Ürünleri";
 
             frm.Mtyp = "KDT";

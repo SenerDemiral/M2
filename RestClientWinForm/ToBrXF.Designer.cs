@@ -44,7 +44,7 @@
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colPofC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colOthers = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brBindingNavigator)).BeginInit();
@@ -161,7 +161,7 @@
             this.colRowKey,
             this.colP,
             this.colC,
-            this.colPofC});
+            this.colOthers});
             this.gridView1.GridControl = this.brGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
@@ -190,12 +190,12 @@
             this.colC.Visible = true;
             this.colC.VisibleIndex = 2;
             // 
-            // colPofC
+            // colOthers
             // 
-            this.colPofC.FieldName = "PofC";
-            this.colPofC.Name = "colPofC";
-            this.colPofC.Visible = true;
-            this.colPofC.VisibleIndex = 3;
+            this.colOthers.FieldName = "Others";
+            this.colOthers.Name = "colOthers";
+            this.colOthers.Visible = true;
+            this.colOthers.VisibleIndex = 3;
             // 
             // ToBrXF
             // 
@@ -235,6 +235,6 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private System.Windows.Forms.ToolStripButton editToolStripButton;
-        private DevExpress.XtraGrid.Columns.GridColumn colPofC;
+        private DevExpress.XtraGrid.Columns.GridColumn colOthers;
     }
 }

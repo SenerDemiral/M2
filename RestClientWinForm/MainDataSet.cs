@@ -594,7 +594,7 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.BRfill(new QryBRproxy { M = M, Mtyp = Mtyp, Dtyp = Dtyp}))
+            using (var response = client.BRfill(new QryBRproxy { M = M, Mtyp = Mtyp, Dtyp = Dtyp }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {

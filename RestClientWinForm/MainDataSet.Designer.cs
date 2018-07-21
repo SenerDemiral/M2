@@ -4800,7 +4800,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnC;
             
-            private global::System.Data.DataColumn columnPofC;
+            private global::System.Data.DataColumn columnOthers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -4861,9 +4861,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PofCColumn {
+            public global::System.Data.DataColumn OthersColumn {
                 get {
-                    return this.columnPofC;
+                    return this.columnOthers;
                 }
             }
             
@@ -4904,13 +4904,13 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public BRRow AddBRRow(ulong RowKey, ulong P, ulong C, string PofC) {
+            public BRRow AddBRRow(ulong RowKey, ulong P, ulong C, string Others) {
                 BRRow rowBRRow = ((BRRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowKey,
                         P,
                         C,
-                        PofC};
+                        Others};
                 rowBRRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBRRow);
                 return rowBRRow;
@@ -4936,7 +4936,7 @@ namespace RestClientWinForm {
                 this.columnRowKey = base.Columns["RowKey"];
                 this.columnP = base.Columns["P"];
                 this.columnC = base.Columns["C"];
-                this.columnPofC = base.Columns["PofC"];
+                this.columnOthers = base.Columns["Others"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4948,8 +4948,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnP);
                 this.columnC = new global::System.Data.DataColumn("C", typeof(ulong), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnC);
-                this.columnPofC = new global::System.Data.DataColumn("PofC", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPofC);
+                this.columnOthers = new global::System.Data.DataColumn("Others", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOthers);
                 this.columnP.Caption = "Parent";
                 this.columnC.Caption = "Child";
             }
@@ -7190,17 +7190,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string PofC {
+            public string Others {
                 get {
                     try {
-                        return ((string)(this[this.tableBR.PofCColumn]));
+                        return ((string)(this[this.tableBR.OthersColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PofC\' in table \'BR\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Others\' in table \'BR\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBR.PofCColumn] = value;
+                    this[this.tableBR.OthersColumn] = value;
                 }
             }
             
@@ -7242,14 +7242,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPofCNull() {
-                return this.IsNull(this.tableBR.PofCColumn);
+            public bool IsOthersNull() {
+                return this.IsNull(this.tableBR.OthersColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPofCNull() {
-                this[this.tableBR.PofCColumn] = global::System.Convert.DBNull;
+            public void SetOthersNull() {
+                this[this.tableBR.OthersColumn] = global::System.Convert.DBNull;
             }
         }
         

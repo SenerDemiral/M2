@@ -298,7 +298,7 @@ message BRproxy {
 	uint64 RowKey = 4;
 	uint64 P = 5;
 	uint64 C = 6;
-	string PofC = 7;
+	string Others = 7;
 }
 
 // KKK Kim Base

@@ -13,7 +13,6 @@ namespace RestClientWinForm
 {
     public partial class ToBrXF : DevExpress.XtraEditors.XtraForm
     {
-        public string ChildIs = "";
         public ulong M = 0;
         public string Mtyp = "";
         public string Dtyp = "";
@@ -33,13 +32,13 @@ namespace RestClientWinForm
             if (string.Compare(Mtyp, Dtyp) < 0)
                 IsP2C = true;
 
-            if (ChildIs == "KDT")
+            if (Dtyp == "KDT")
             {
                 if (IsP2C)
                 {
                     colC.ColumnEdit = Program.MF.KDTrepositoryItemLookUpEdit;
                     colC.Caption = "Üretim Departmanı";
-                    colPofC.Caption = "Diğer Ürünleri";
+                    colOthers.Caption = "Diğer Ürünleri";
                     colP.OptionsColumn.ReadOnly = true;
                     colP.Visible = false;
                 }
@@ -47,18 +46,18 @@ namespace RestClientWinForm
                 {
                     colP.ColumnEdit = Program.MF.KDTrepositoryItemLookUpEdit;
                     colP.Caption = "Üretim Departmanı";
-                    colPofC.Caption = "Diğer Ürünleri";
+                    colOthers.Caption = "Diğer Ürünleri";
                     colC.OptionsColumn.ReadOnly = true;
                     colC.Visible = false;
                 }
             }
-            else if (ChildIs == "KPT")
+            else if (Dtyp == "KPT")
             {
                 if (IsP2C)
                 {
                     colC.ColumnEdit = Program.MF.KPTrepositoryItemLookUpEdit;
                     colC.Caption = "Personel";
-                    colPofC.Caption = "Diğer Departmanları";
+                    colOthers.Caption = "Diğer Departmanları";
                     colP.OptionsColumn.ReadOnly = true;
                     colP.Visible = false;
                 }
@@ -66,18 +65,18 @@ namespace RestClientWinForm
                 {
                     colP.ColumnEdit = Program.MF.KPTrepositoryItemLookUpEdit;
                     colP.Caption = "Personel";
-                    colPofC.Caption = "Diğer Departmanları";
+                    colOthers.Caption = "Diğer Departmanları";
                     colC.OptionsColumn.ReadOnly = true;
                     colC.Visible = false;
                 }
             }
-            else if (ChildIs == "NNN")
+            else if (Dtyp == "NNN")
             {
                 if (IsP2C)
                 {
                     colC.ColumnEdit = Program.MF.NNNrepositoryItemLookUpEdit;
                     colC.Caption = "Ürün";
-                    colPofC.Caption = "Diğer Departmanları";
+                    colOthers.Caption = "Diğer Departmanları";
                     colP.OptionsColumn.ReadOnly = true;
                     colP.Visible = false;
                 }
@@ -85,7 +84,7 @@ namespace RestClientWinForm
                 {
                     colP.ColumnEdit = Program.MF.NNNrepositoryItemLookUpEdit;
                     colP.Caption = "Ürün";
-                    colPofC.Caption = "Diğer Departmanları";
+                    colOthers.Caption = "Diğer Departmanları";
                     colC.OptionsColumn.ReadOnly = true;
                     colC.Visible = false;
                 }

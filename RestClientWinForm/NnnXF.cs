@@ -90,7 +90,6 @@ namespace RestClientWinForm
                 return;
 
             ToBrXF frm = new ToBrXF();
-            frm.ChildIs = "KDT";
             frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Üretim Departmanları";
 
             frm.Mtyp = "NNN";

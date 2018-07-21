@@ -1541,7 +1541,7 @@ namespace RestServerSC
                         RowKey = r.GetObjectNo(),
                         P = r.P.GetObjectNo(),
                         C = r.C.GetObjectNo(),
-                        PofC = isP2C ? r.PofC : r.CofP,
+                        Others = isP2C ? r.PofC : r.CofP,
                     };
                     proxyList.Add(proxy);
                 }
