@@ -98,7 +98,7 @@ namespace RestClientWinForm
                 return;
 
             ToBrXF frm = new ToBrXF();
-            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Ürünleri";
+            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Departman Üretimleri";
 
             frm.Mtyp = "KDT";
             frm.Dtyp = "NNN";
@@ -106,6 +106,17 @@ namespace RestClientWinForm
 
             frm.ShowDialog();
 
+        }
+
+        private void haberlesmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            ToKhtXF frm = new ToKhtXF();
+            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+            frm.Ptyp = "KDT";
+            frm.ShowDialog();
         }
     }
 }

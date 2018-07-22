@@ -82,8 +82,8 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="L" msprop:Generator_ColumnVarNameInTable="columnL" msprop:Generator_ColumnPropNameInRow="L" msprop:Generator_ColumnPropNameInTable="LColumn" msprop:Generator_UserColumnName="L" type="xs:int" minOccurs="0" />
-              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:int" minOccurs="0" />
-              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:int" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:unsignedLong" />
               <xs:element name="A" msprop:Generator_ColumnVarNameInTable="columnA" msprop:Generator_ColumnPropNameInRow="A" msprop:Generator_ColumnPropNameInTable="AColumn" msprop:Generator_UserColumnName="A" type="xs:string" minOccurs="0" />
               <xs:element name="N" msprop:Generator_ColumnVarNameInTable="columnN" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_UserColumnName="N" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
@@ -96,15 +96,15 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="L" msprop:Generator_ColumnVarNameInTable="columnL" msprop:Generator_ColumnPropNameInRow="L" msprop:Generator_ColumnPropNameInTable="LColumn" msprop:Generator_UserColumnName="L" type="xs:int" minOccurs="0" />
-              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:int" minOccurs="0" />
-              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:int" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="K" msprop:Generator_ColumnVarNameInTable="columnK" msprop:Generator_ColumnPropNameInRow="K" msprop:Generator_ColumnPropNameInTable="KColumn" msprop:Generator_UserColumnName="K" type="xs:unsignedLong" />
               <xs:element name="A" msprop:Generator_ColumnVarNameInTable="columnA" msprop:Generator_ColumnPropNameInRow="A" msprop:Generator_ColumnPropNameInTable="AColumn" msprop:Generator_UserColumnName="A" type="xs:string" minOccurs="0" />
               <xs:element name="N" msprop:Generator_ColumnVarNameInTable="columnN" msprop:Generator_ColumnPropNameInRow="N" msprop:Generator_ColumnPropNameInTable="NColumn" msprop:Generator_UserColumnName="N" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="M" msprop:Generator_ColumnVarNameInTable="columnM" msprop:Generator_ColumnPropNameInRow="M" msprop:Generator_ColumnPropNameInTable="MColumn" msprop:Generator_UserColumnName="M" type="xs:double" minOccurs="0" />
               <xs:element name="MT" msprop:Generator_ColumnVarNameInTable="columnMT" msprop:Generator_ColumnPropNameInRow="MT" msprop:Generator_ColumnPropNameInTable="MTColumn" msprop:Generator_UserColumnName="MT" type="xs:double" minOccurs="0" />
               <xs:element name="F" msprop:Generator_ColumnVarNameInTable="columnF" msprop:Generator_ColumnPropNameInRow="F" msprop:Generator_ColumnPropNameInTable="FColumn" msprop:Generator_UserColumnName="F" type="xs:double" minOccurs="0" />
               <xs:element name="HasKid" msprop:Generator_ColumnVarNameInTable="columnHasKid" msprop:Generator_ColumnPropNameInRow="HasKid" msprop:Generator_ColumnPropNameInTable="HasKidColumn" msprop:Generator_UserColumnName="HasKid" type="xs:boolean" minOccurs="0" />
-              <xs:element name="Kim" msprop:Generator_ColumnVarNameInTable="columnKim" msprop:Generator_ColumnPropNameInRow="Kim" msprop:Generator_ColumnPropNameInTable="KimColumn" msprop:Generator_UserColumnName="Kim" type="xs:string" minOccurs="0" />
+              <xs:element name="Ureten" msprop:Generator_ColumnVarNameInTable="columnUreten" msprop:Generator_ColumnPropNameInRow="Ureten" msprop:Generator_ColumnPropNameInTable="UretenColumn" msprop:Generator_UserColumnName="Ureten" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -165,6 +165,18 @@
               <xs:element name="P" msdata:Caption="Parent" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="C" msdata:Caption="Child" msprop:Generator_ColumnVarNameInTable="columnC" msprop:Generator_ColumnPropNameInRow="C" msprop:Generator_ColumnPropNameInTable="CColumn" msprop:Generator_UserColumnName="C" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="Others" msprop:Generator_ColumnVarNameInTable="columnOthers" msprop:Generator_ColumnPropNameInRow="Others" msprop:Generator_ColumnPropNameInTable="OthersColumn" msprop:Generator_UserColumnName="Others" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ToKHT" msprop:Generator_TableClassName="ToKHTDataTable" msprop:Generator_TableVarName="tableToKHT" msprop:Generator_TablePropName="ToKHT" msprop:Generator_RowDeletingName="ToKHTRowDeleting" msprop:Generator_RowChangingName="ToKHTRowChanging" msprop:Generator_RowEvHandlerName="ToKHTRowChangeEventHandler" msprop:Generator_RowDeletedName="ToKHTRowDeleted" msprop:Generator_UserTableName="ToKHT" msprop:Generator_RowChangedName="ToKHTRowChanged" msprop:Generator_RowEvArgName="ToKHTRowChangeEvent" msprop:Generator_RowClassName="ToKHTRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Skl" msprop:Generator_ColumnVarNameInTable="columnSkl" msprop:Generator_ColumnPropNameInRow="Skl" msprop:Generator_ColumnPropNameInTable="SklColumn" msprop:Generator_UserColumnName="Skl" type="xs:string" minOccurs="0" />
+              <xs:element name="Oncelik" msprop:Generator_ColumnVarNameInTable="columnOncelik" msprop:Generator_ColumnPropNameInRow="Oncelik" msprop:Generator_ColumnPropNameInTable="OncelikColumn" msprop:Generator_UserColumnName="Oncelik" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

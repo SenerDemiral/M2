@@ -38,7 +38,7 @@ namespace RestClientWinForm
                 DataRow[] dr = table.Select($"L = {L}");
                 foreach (var r in dr)
                 {
-                    var pR = table.FindByK((int)r["P"]);
+                    var pR = table.FindByK((ulong)r["P"]);
                     r["MT"] = (double)r["M"] * (double)pR["MT"];
 
                 }

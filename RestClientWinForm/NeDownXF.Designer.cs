@@ -42,7 +42,7 @@
             this.colF = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colHasKid = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.colKim = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.colUreten = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.calcTopMikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +77,7 @@
             this.colF,
             this.treeListColumn1,
             this.colHasKid,
-            this.colKim});
+            this.colUreten});
             this.treeList1.ContextMenuStrip = this.contextMenuStrip1;
             this.treeList1.Cursor = System.Windows.Forms.Cursors.Default;
             this.treeList1.DataSource = this.neDownBindingSource;
@@ -174,14 +174,14 @@
             this.colHasKid.Visible = true;
             this.colHasKid.VisibleIndex = 8;
             // 
-            // colKim
+            // colUreten
             // 
-            this.colKim.Caption = "Üreten(ler)";
-            this.colKim.FieldName = "Kim";
-            this.colKim.Name = "colKim";
-            this.colKim.Visible = true;
-            this.colKim.VisibleIndex = 9;
-            this.colKim.Width = 120;
+            this.colUreten.Caption = "Üreten(ler)";
+            this.colUreten.FieldName = "Ureten";
+            this.colUreten.Name = "colUreten";
+            this.colUreten.Visible = true;
+            this.colUreten.VisibleIndex = 9;
+            this.colUreten.Width = 120;
             // 
             // contextMenuStrip1
             // 
@@ -257,6 +257,6 @@
         private System.Windows.Forms.ToolStripMenuItem calcFiyatToolStripMenuItem;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn1;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHasKid;
-        private DevExpress.XtraTreeList.Columns.TreeListColumn colKim;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn colUreten;
     }
 }

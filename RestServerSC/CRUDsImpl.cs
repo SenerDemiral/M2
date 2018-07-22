@@ -1070,8 +1070,8 @@ namespace RestServerSC
                 proxy = new NeTreeProxy
                 {
                     L = (int)r["L"],
-                    P = (int)r["P"],
-                    K = (int)r["K"],
+                    P = (ulong)r["P"],
+                    K = (ulong)r["K"],
                     A = (string)r["A"],
                     N = (ulong)r["N"],
                     M = (double)r["M"],
@@ -1083,7 +1083,6 @@ namespace RestServerSC
 
             }
         }
-
         public override async Task NeDownFill(QryProxy request, IServerStreamWriter<NeTreeProxy> responseStream, ServerCallContext context)
         {
             NeTreeProxy proxy;
@@ -1100,21 +1099,21 @@ namespace RestServerSC
                 proxy = new NeTreeProxy
                 {
                     L = (int)r["L"],
-                    P = (int)r["P"],
-                    K = (int)r["K"],
+                    P = (ulong)r["P"],
+                    K = (ulong)r["K"],
                     A = (string)r["A"],
                     N = (ulong)r["N"],
                     M = (double)r["M"],
                     F = (double)r["F"],
                     HasKid = (bool)r["HasKid"],
                     MT = 1,
+                    Ureten = (string)r["Ureten"]
                 };
 
                 await responseStream.WriteAsync(proxy);
 
             }
         }
-
         public override async Task KidsInParentsFill(QryProxy request, IServerStreamWriter<KidsInParentsProxy> responseStream, ServerCallContext context)
         {
             KidsInParentsProxy proxy;
@@ -1140,7 +1139,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(proxy);
             }
         }
-
         public override async Task NodesInParentsFill(QryProxy request, IServerStreamWriter<NodesInParentsProxy> responseStream, ServerCallContext context)
         {
             NodesInParentsProxy proxy;
@@ -1358,6 +1356,84 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        public override async Task ToKHTfill(QryPproxy request, IServerStreamWriter<ToKHTproxy> responseStream, ServerCallContext context)
+        {
+            ToKHTproxy proxy = new ToKHTproxy();
+            List<ToKHTproxy> proxyList = new List<ToKHTproxy>();
+
+            Type proxyType = typeof(ToKHTproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                IEnumerable<BR> brs;
+                brs = Db.SQL<BR>("SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", request.P, request.Ptyp, "KHT");
+                var p = request.P;
+                foreach (var br in brs)
+                {
+                    KHT row = br.C as KHT;
+                    proxy = new ToKHTproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        P = p,
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                        Skl = row.Skl,
+                        Oncelik = row.Oncelik
+                    };
+
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<ToKHTproxy> ToKHTupdate(ToKHTproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    var P = request.P;
+                    if (request.RowSte == "A")
+                    {
+                        KHT row = CRUDsHelper.FromProxy<ToKHTproxy, KHT>(request);
+                        //var p = Db.FromId(request.P);
+
+                        new BR
+                        {
+                            P = Db.FromId(request.P) as BB,
+                            C = row,
+                        };
+                        UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                        request = CRUDsHelper.ToProxy<ToKHTproxy, KHT>(row);
+                        request.P = P;
+                    }
+
+                    if (request.RowSte == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            KHT row = CRUDsHelper.FromProxy<ToKHTproxy, KHT>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<ToKHTproxy, KHT>(row);
+                            request.P = P;
+                        }
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
 
         public override async Task ToKPTfill(QryPproxy request, IServerStreamWriter<ToKPTproxy> responseStream, ServerCallContext context)
         {
@@ -1371,7 +1447,6 @@ namespace RestServerSC
             {
                 foreach (var r in Db.SQL<BR>("SELECT r FROM BR r WHERE r.P.ObjectNo = ?", request.P))
                 {
-                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
                     //KPT row = r.C as KPT;   //Db.FromId(r.C)
 
                     if (r.C is KPT row)

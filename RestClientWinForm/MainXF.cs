@@ -182,5 +182,10 @@ namespace RestClientWinForm
             KdtXF frm = new KdtXF();
             frm.Show();
         }
+
+        private void FillLookupsButton_Click(object sender, EventArgs e)
+        {
+            FillTanimlar();
+        }
     }
 }

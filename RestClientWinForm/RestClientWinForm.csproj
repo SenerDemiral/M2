@@ -315,6 +315,9 @@
     <EmbeddedResource Include="ToKdtXF.resx">
       <DependentUpon>ToKdtXF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ToKhtXF.resx">
+      <DependentUpon>ToKhtXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UuuXF.resx">
       <DependentUpon>UuuXF.cs</DependentUpon>
     </EmbeddedResource>

@@ -50,6 +50,8 @@
             this.kdtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.KPTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.kptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.NNNrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.XDKbutton = new System.Windows.Forms.Button();
             this.KFTbutton = new System.Windows.Forms.Button();
             this.UYHbutton = new System.Windows.Forms.Button();
@@ -61,8 +63,7 @@
             this.NNNbutton = new System.Windows.Forms.Button();
             this.KPTbutton = new System.Windows.Forms.Button();
             this.KDTbutton = new System.Windows.Forms.Button();
-            this.NNNrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FillLookupsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -288,6 +289,20 @@
             this.kptBindingSource.DataMember = "KPT";
             this.kptBindingSource.DataSource = this.mainDataSet;
             // 
+            // NNNrepositoryItemLookUpEdit
+            // 
+            this.NNNrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NNNrepositoryItemLookUpEdit.DataSource = this.nnnBindingSource;
+            this.NNNrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.NNNrepositoryItemLookUpEdit.Name = "NNNrepositoryItemLookUpEdit";
+            this.NNNrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // nnnBindingSource
+            // 
+            this.nnnBindingSource.DataMember = "NNN";
+            this.nnnBindingSource.DataSource = this.mainDataSet;
+            // 
             // XDKbutton
             // 
             this.XDKbutton.Location = new System.Drawing.Point(22, 97);
@@ -398,25 +413,22 @@
             this.KDTbutton.UseVisualStyleBackColor = true;
             this.KDTbutton.Click += new System.EventHandler(this.KDTbutton_Click);
             // 
-            // NNNrepositoryItemLookUpEdit
+            // FillLookupsButton
             // 
-            this.NNNrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NNNrepositoryItemLookUpEdit.DataSource = this.nnnBindingSource;
-            this.NNNrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.NNNrepositoryItemLookUpEdit.Name = "NNNrepositoryItemLookUpEdit";
-            this.NNNrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // nnnBindingSource
-            // 
-            this.nnnBindingSource.DataMember = "NNN";
-            this.nnnBindingSource.DataSource = this.mainDataSet;
+            this.FillLookupsButton.Location = new System.Drawing.Point(385, 12);
+            this.FillLookupsButton.Name = "FillLookupsButton";
+            this.FillLookupsButton.Size = new System.Drawing.Size(75, 23);
+            this.FillLookupsButton.TabIndex = 13;
+            this.FillLookupsButton.Text = "FillLookups";
+            this.FillLookupsButton.UseVisualStyleBackColor = true;
+            this.FillLookupsButton.Click += new System.EventHandler(this.FillLookupsButton_Click);
             // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(488, 363);
+            this.Controls.Add(this.FillLookupsButton);
             this.Controls.Add(this.KDTbutton);
             this.Controls.Add(this.KPTbutton);
             this.Controls.Add(this.NNNbutton);
@@ -489,5 +501,6 @@
         private System.Windows.Forms.BindingSource kptBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NNNrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource nnnBindingSource;
+        private System.Windows.Forms.Button FillLookupsButton;
     }
 }

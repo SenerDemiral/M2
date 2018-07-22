@@ -58,7 +58,7 @@ namespace RestClientWinForm
                 DataRow[] dr = table.Select($"L = {L}");
                 foreach (var r in dr)
                 {
-                    var pR = table.FindByK((int)r["P"]);
+                    var pR = table.FindByK((ulong)r["P"]);
                     f = (double)r["M"] * (double)r["F"];
                     pR["F"] = (double)pR["F"] + f;
 
@@ -71,7 +71,7 @@ namespace RestClientWinForm
         {
             if (treeList1.FocusedColumn == colF && !treeList1.FocusedNode.HasChildren)
                 e.Cancel = false;
-            else if (treeList1.FocusedColumn == colKim)
+            else if (treeList1.FocusedColumn == colUreten)
                 e.Cancel = false;
             else
                 e.Cancel = true;
@@ -101,9 +101,9 @@ namespace RestClientWinForm
                 }
                 calcFiyatToolStripMenuItem.PerformClick();
             }
-            if (treeList1.FocusedColumn == colKim)
+            if (treeList1.FocusedColumn == colUreten)
             {
-                string kim = treeList1.FocusedNode.GetValue(colKim).ToString();
+                string kim = treeList1.FocusedNode.GetValue(colUreten).ToString();
                 var cr = mainDataSet.NeDown.Rows[treeList1.FocusedNode.Id];
                 var n = cr["N"];    // Ne.ObjNo
                 DataRow[] dr = mainDataSet.NeDown.Select($"N = {n}");

@@ -75,5 +75,16 @@ namespace RestClientWinForm
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
         }
+
+        private void haberlesmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            ToKhtXF frm = new ToKhtXF();
+            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+            frm.Ptyp = "KPT";
+            frm.ShowDialog();
+        }
     }
 }

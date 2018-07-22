@@ -75,6 +75,10 @@ service CRUDs {
 
   rpc ToKPTfill (QryPproxy) returns (stream ToKPTproxy) {}
   rpc ToKPTupdate (ToKPTproxy) returns (ToKPTproxy) {}
+  
+  rpc ToKHTfill (QryPproxy) returns (stream ToKHTproxy) {}
+  rpc ToKHTupdate (ToKHTproxy) returns (ToKHTproxy) {}
+
   rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
   rpc ToKDTupdate (ToKDTproxy) returns (ToKDTproxy) {}
 }
@@ -91,6 +95,7 @@ message QryBRproxy {
 
 message QryPproxy {
   uint64 P = 1;
+  string Ptyp = 2;
 }
 
 message QryProxy {
@@ -100,14 +105,15 @@ message QryProxy {
 
 message NeTreeProxy {
 	int32 L = 1;
-	int32 P = 2;
-	int32 K = 3;
+	uint64 P = 2;
+	uint64 K = 3;
 	string A = 4;
 	uint64 N = 5;
 	double M = 6;
 	double MT = 7;
 	double F = 8;
 	bool HasKid = 9;	// HasKid
+	string Ureten = 10;
 }
 
 message KidsInParentsProxy {
@@ -345,7 +351,20 @@ message KDTproxy {
 	google.protobuf.StringValue Ad = 6;
 }
 
-// ToKPT Master -> KimPersonelTanim
+// ToKHT Master -> KimHaberlesmeTanim (Master:KFT,KCT,KPT,KDT)
+message ToKHTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 P = 5;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	string Skl = 8;
+	int32 Oncelik = 9;
+}
+
+// ToKPT Master -> KimPersonelTanim SIL
 message ToKPTproxy {
 	string RowSte = 1;
 	string RowErr = 2;
@@ -356,7 +375,7 @@ message ToKPTproxy {
 	google.protobuf.StringValue Ad = 7;
 }
 
-// ToKDT KimDepartmanTanim
+// ToKDT KimDepartmanTanim SIL
 message ToKDTproxy {
 	string RowSte = 1;
 	string RowErr = 2;

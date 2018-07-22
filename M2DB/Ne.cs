@@ -69,6 +69,19 @@ namespace M2DB
             Tbl = "NNN";
         }
 
+        public static string NeUretenler(ulong n)
+        {
+            var list = new List<string>();
+            foreach (var r in Db.SQL<BR>("SELECT r FROM M2DB.BR r WHERE r.C.ObjectNo = ?", n))
+            {
+                if (r.Ptyp == "KDT" && r.Ctyp == "NNN")
+                    list.Add(r.P.Kd);
+            }
+            if (list.Count == 0)
+                return "";
+            return string.Join<string>(", ", list);
+        }
+
         public static Dictionary<NNN, double> UretenUrunTuketimleri(string ureten, ulong urunNo, double uretimMik)
         {
             NNN urun = Db.FromId<NNN>(urunNo);
@@ -268,15 +281,15 @@ namespace M2DB
         {
             DataTable table = new DataTable();
             table.Columns.Add("L", typeof(int));    // Level
-            table.Columns.Add("P", typeof(int));    // Parent
-            table.Columns.Add("K", typeof(int));    // Kid
+            table.Columns.Add("P", typeof(ulong));    // Parent
+            table.Columns.Add("K", typeof(ulong));    // Kid
             table.Columns.Add("A", typeof(string)); // Ad
             table.Columns.Add("N", typeof(ulong));  // No
             table.Columns.Add("M", typeof(double)); // Miktar
             table.Columns.Add("F", typeof(double)); // Fiyat
 
-            int P = 0;
-            int K = 1;
+            ulong P = 0;
+            ulong K = 1;
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
             {
                 table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, n.Fyt);
@@ -288,7 +301,7 @@ namespace M2DB
                 DataRow[] dr = table.Select($"L = {L-1}");
                 foreach (var r in dr)
                 {
-                    P = (int)r["K"]; // (int)r.ItemArray[2];
+                    P = (ulong)r["K"]; // (int)r.ItemArray[2];
 
                     foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", r["N"]))
                     {
@@ -311,16 +324,17 @@ namespace M2DB
         {
             DataTable table = new DataTable();
             table.Columns.Add("L", typeof(int));
-            table.Columns.Add("P", typeof(int));
-            table.Columns.Add("K", typeof(int));
+            table.Columns.Add("P", typeof(ulong));
+            table.Columns.Add("K", typeof(ulong));
             table.Columns.Add("A", typeof(string));
             table.Columns.Add("N", typeof(ulong));
             table.Columns.Add("M", typeof(double)); // Miktar
             table.Columns.Add("F", typeof(double)); // Fiyat
             table.Columns.Add("HasKid", typeof(bool));
+            table.Columns.Add("Ureten", typeof(string));
 
-            int P = 0;
-            int K = 1;
+            ulong P = 0;
+            ulong K = 1;
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
             {
                 table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, 0, n.HasKid);
@@ -332,7 +346,7 @@ namespace M2DB
                 DataRow[] dr = table.Select($"L = {L - 1}");
                 foreach (var r in dr)
                 {
-                    P = (int)r["K"]; // (int)r.ItemArray[2];
+                    P = (ulong)r["K"]; // (int)r.ItemArray[2];
 
                     foreach (var nr in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", r["N"]))
                     {
@@ -341,6 +355,10 @@ namespace M2DB
                     }
 
                 }
+            }
+            foreach(DataRow t in table.Rows)
+            {
+                t["Ureten"] = NNN.NeUretenler((ulong)t["N"]);
             }
             return table;
         }
