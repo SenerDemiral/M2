@@ -11,14 +11,17 @@ using DevExpress.XtraEditors;
 
 namespace RestClientWinForm
 {
-    public partial class KptXF : DevExpress.XtraEditors.XtraForm
+    public partial class KhtXF : DevExpress.XtraEditors.XtraForm
     {
-        public KptXF()
+        public ulong M = 0;
+        public string Mtyp = "";
+
+        public KhtXF()
         {
             InitializeComponent();
         }
 
-        private void KptXF_Load(object sender, EventArgs e)
+        private void KhtXF_Load(object sender, EventArgs e)
         {
             FillDB();
         }
@@ -26,18 +29,18 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            kptGridControl.DataSource = null;
-            mainDataSet.KPT.Clear();
-            Task.Run(async () => { res = await mainDataSet.KPTfill(); }).Wait();
+            khtGridControl.DataSource = null;
+            mainDataSet.KDT.Clear();
+            Task.Run(async () => { res = await mainDataSet.KHTfill(M, Mtyp); }).Wait();
             //toolStripStatusLabel1.Text = res;
-            kptGridControl.DataSource = kptBindingSource;
+            khtGridControl.DataSource = khtBindingSource;
         }
 
         private DialogResult UpdateDB(bool silent = false)
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            kptBindingSource.EndEdit();
+            khtBindingSource.EndEdit();
 
             //gridView1.CloseEditor();
             //gridView1.UpdateCurrentRow();
@@ -48,7 +51,7 @@ namespace RestClientWinForm
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = mainDataSet.KPTupdate();
+                    string err = mainDataSet.KHTupdate();
                     gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {
@@ -74,22 +77,8 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
+            gridView1.SetFocusedRowCellValue(colM, M);
         }
 
-        private void haberlesmeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
-                return;
-
-            KhtXF frm = new KhtXF();
-            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Mtyp = "KFT";
-            frm.ShowDialog();
-            /*
-            ToKhtXF frm = new ToKhtXF();
-            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Ptyp = "KPT";
-            frm.ShowDialog();*/
-        }
     }
 }

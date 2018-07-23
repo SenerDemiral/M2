@@ -39,6 +39,9 @@
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.kftGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,13 +55,14 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingNavigator)).BeginInit();
             this.kftBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kftGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -67,7 +71,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainDataSet
@@ -166,11 +169,35 @@
             this.kftGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.haberlesmeToolStripMenuItem,
+            this.contactToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 48);
+            // 
+            // haberlesmeToolStripMenuItem
+            // 
+            this.haberlesmeToolStripMenuItem.Name = "haberlesmeToolStripMenuItem";
+            this.haberlesmeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.haberlesmeToolStripMenuItem.Text = "Haberlesme";
+            this.haberlesmeToolStripMenuItem.Click += new System.EventHandler(this.haberlesmeToolStripMenuItem_Click);
+            // 
+            // contactToolStripMenuItem
+            // 
+            this.contactToolStripMenuItem.Name = "contactToolStripMenuItem";
+            this.contactToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.contactToolStripMenuItem.Text = "Contact";
+            this.contactToolStripMenuItem.Click += new System.EventHandler(this.contactToolStripMenuItem_Click);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
+            this.colKd,
             this.colAd,
+            this.colInfo,
             this.colVrgDN,
             this.colAHPbrc,
             this.colAHPalc});
@@ -192,7 +219,7 @@
             this.colAd.FieldName = "Ad";
             this.colAd.Name = "colAd";
             this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 1;
+            this.colAd.VisibleIndex = 2;
             this.colAd.Width = 93;
             // 
             // colVrgDN
@@ -200,7 +227,7 @@
             this.colVrgDN.FieldName = "VrgDN";
             this.colVrgDN.Name = "colVrgDN";
             this.colVrgDN.Visible = true;
-            this.colVrgDN.VisibleIndex = 2;
+            this.colVrgDN.VisibleIndex = 4;
             this.colVrgDN.Width = 93;
             // 
             // colAHPbrc
@@ -209,7 +236,7 @@
             this.colAHPbrc.FieldName = "AHPbrc";
             this.colAHPbrc.Name = "colAHPbrc";
             this.colAHPbrc.Visible = true;
-            this.colAHPbrc.VisibleIndex = 3;
+            this.colAHPbrc.VisibleIndex = 5;
             this.colAHPbrc.Width = 93;
             // 
             // colAHPalc
@@ -218,7 +245,7 @@
             this.colAHPalc.FieldName = "AHPalc";
             this.colAHPalc.Name = "colAHPalc";
             this.colAHPalc.Visible = true;
-            this.colAHPalc.VisibleIndex = 4;
+            this.colAHPalc.VisibleIndex = 6;
             this.colAHPalc.Width = 102;
             // 
             // layoutControl1
@@ -293,19 +320,19 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // contextMenuStrip1
+            // colKd
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.haberlesmeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 26);
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 1;
             // 
-            // haberlesmeToolStripMenuItem
+            // colInfo
             // 
-            this.haberlesmeToolStripMenuItem.Name = "haberlesmeToolStripMenuItem";
-            this.haberlesmeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.haberlesmeToolStripMenuItem.Text = "Haberlesme";
-            this.haberlesmeToolStripMenuItem.Click += new System.EventHandler(this.haberlesmeToolStripMenuItem_Click);
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 3;
             // 
             // KftXF
             // 
@@ -314,7 +341,7 @@
             this.ClientSize = new System.Drawing.Size(836, 443);
             this.Controls.Add(this.layoutControl1);
             this.Name = "KftXF";
-            this.Text = "Firma Tanımları [KftXF]";
+            this.Text = "Firma [KftXF]";
             this.Load += new System.EventHandler(this.KmtXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingSource)).EndInit();
@@ -322,6 +349,7 @@
             this.kftBindingNavigator.ResumeLayout(false);
             this.kftBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kftGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -331,7 +359,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -362,5 +389,8 @@
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem haberlesmeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem contactToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colKd;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo;
     }
 }

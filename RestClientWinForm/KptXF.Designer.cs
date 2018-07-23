@@ -40,33 +40,34 @@
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.kptGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingNavigator)).BeginInit();
             this.kptBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kptGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainDataSet
@@ -173,12 +174,27 @@
             this.kptGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.haberlesmeToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 26);
+            // 
+            // haberlesmeToolStripMenuItem
+            // 
+            this.haberlesmeToolStripMenuItem.Name = "haberlesmeToolStripMenuItem";
+            this.haberlesmeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.haberlesmeToolStripMenuItem.Text = "Haberlesme";
+            this.haberlesmeToolStripMenuItem.Click += new System.EventHandler(this.haberlesmeToolStripMenuItem_Click);
+            // 
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
             this.colKd,
-            this.colAd});
+            this.colAd,
+            this.colInfo});
             this.gridView1.GridControl = this.kptGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
@@ -222,6 +238,24 @@
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(12, 282);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(720, 20);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 15);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -253,24 +287,6 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.AutoSize = false;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(12, 282);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(720, 20);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 15);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.statusStrip1;
@@ -280,19 +296,12 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // contextMenuStrip1
+            // colInfo
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.haberlesmeToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // haberlesmeToolStripMenuItem
-            // 
-            this.haberlesmeToolStripMenuItem.Name = "haberlesmeToolStripMenuItem";
-            this.haberlesmeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.haberlesmeToolStripMenuItem.Text = "Haberlesme";
-            this.haberlesmeToolStripMenuItem.Click += new System.EventHandler(this.haberlesmeToolStripMenuItem_Click);
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 3;
             // 
             // KptXF
             // 
@@ -301,7 +310,7 @@
             this.ClientSize = new System.Drawing.Size(744, 314);
             this.Controls.Add(this.layoutControl1);
             this.Name = "KptXF";
-            this.Text = "Personel Tanım [KptXF]";
+            this.Text = "Personel [KptXF]";
             this.Load += new System.EventHandler(this.KptXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).EndInit();
@@ -309,16 +318,16 @@
             this.kptBindingNavigator.ResumeLayout(false);
             this.kptBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kptGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -348,5 +357,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem haberlesmeToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo;
     }
 }

@@ -108,10 +108,27 @@ namespace RestClientWinForm
         {
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
                 return;
+            KhtXF frm = new KhtXF();
+            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+            frm.Mtyp = "KFT";
+            frm.ShowDialog();
 
+            /*
             ToKhtXF frm = new ToKhtXF();
             frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
             frm.Ptyp = "KFT";
+            frm.ShowDialog();*/
+
+        }
+
+        private void contactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            KctXF frm = new KctXF();
+            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+            frm.Mtyp = "KFT";
             frm.ShowDialog();
 
         }

@@ -27,6 +27,7 @@ namespace M2DB
 
     public class KCT : BB   // Kim.Contact.Tanim
     {
+        public BB M { get; set; }       // Masters is KFT
         public string Unvan { get; set; }
         public string TAGs { get; set; }
         public KCT()
@@ -61,8 +62,11 @@ namespace M2DB
     [Database]
     public class KHT : BB   // Kim.Haberlesme.Tanim
     {
-        public string Skl { get; set; }     // STL:SabitTel, MTL:MobilTel, EML:eMail, ADR:Adres, WEB:Web 
-        public int Oncelik { get; set; }    // 0,1,2,3
+        public BB M { get; set; }       // Masters are KDT,KPT,KFT,KCT,
+
+        public string Mtyp => M?.GetType().Name;
+        public string Mad => M?.Ad;
+
         public KHT()
         {
             Tbl = "KHT";

@@ -395,7 +395,7 @@
             // 
             // KPTbutton
             // 
-            this.KPTbutton.Location = new System.Drawing.Point(113, 142);
+            this.KPTbutton.Location = new System.Drawing.Point(255, 142);
             this.KPTbutton.Name = "KPTbutton";
             this.KPTbutton.Size = new System.Drawing.Size(75, 23);
             this.KPTbutton.TabIndex = 11;
@@ -405,7 +405,7 @@
             // 
             // KDTbutton
             // 
-            this.KDTbutton.Location = new System.Drawing.Point(206, 142);
+            this.KDTbutton.Location = new System.Drawing.Point(349, 142);
             this.KDTbutton.Name = "KDTbutton";
             this.KDTbutton.Size = new System.Drawing.Size(75, 23);
             this.KDTbutton.TabIndex = 12;

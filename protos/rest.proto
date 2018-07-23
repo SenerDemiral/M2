@@ -81,6 +81,12 @@ service CRUDs {
 
   rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
   rpc ToKDTupdate (ToKDTproxy) returns (ToKDTproxy) {}
+
+  rpc KHTfill (QryPproxy) returns (stream KHTproxy) {}
+  rpc KHTupdate (KHTproxy) returns (KHTproxy) {}
+
+  rpc KCTfill (QryPproxy) returns (stream KCTproxy) {}
+  rpc KCTupdate (KCTproxy) returns (KCTproxy) {}
 }
 
 message PKproxy {
@@ -307,7 +313,7 @@ message BRproxy {
 	string Others = 7;
 }
 
-// KKK Kim Base
+// KKK Kim Base SIL
 message KKKproxy {
 	string RowSte = 1;
 	string RowErr = 2;
@@ -322,23 +328,27 @@ message KFTproxy {
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	google.protobuf.StringValue Ad = 5;
-	google.protobuf.StringValue Tel = 6;
-	google.protobuf.StringValue Adres = 7;
-	google.protobuf.StringValue Sorumlu = 8;
-	google.protobuf.StringValue VrgDN = 9;
-	uint64 AHPbrc = 10;
-	uint64 AHPalc = 11;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+	google.protobuf.StringValue Info = 7;
+	google.protobuf.StringValue Tel = 8;
+	google.protobuf.StringValue Adres = 9;
+	google.protobuf.StringValue Sorumlu = 10;
+	google.protobuf.StringValue VrgDN = 11;
+	uint64 AHPbrc = 12;
+	uint64 AHPalc = 13;
 }
 
-// KimPersonelTanim
-message KPTproxy {
+// KCT Master -> KimHaberlesmeTanim (Master:KFT,KCT,KPT,KDT)
+message KCTproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	google.protobuf.StringValue Kd = 5;
-	google.protobuf.StringValue Ad = 6;
+	uint64 M = 5;	// Master is KFT
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue info = 8;
 }
 
 // KimDepartmanTanim
@@ -349,6 +359,30 @@ message KDTproxy {
 	uint64 RowKey = 4;
 	google.protobuf.StringValue Kd = 5;
 	google.protobuf.StringValue Ad = 6;
+	google.protobuf.StringValue info = 7;
+}
+
+// KimPersonelTanim
+message KPTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+	google.protobuf.StringValue info = 7;
+}
+
+// KHT Master -> KimHaberlesmeTanim
+message KHTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 M = 5;	// Masters are KDT,KPT,KFT,KCT,
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue info = 8;
 }
 
 // ToKHT Master -> KimHaberlesmeTanim (Master:KFT,KCT,KPT,KDT)
@@ -357,11 +391,12 @@ message ToKHTproxy {
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	uint64 P = 5;
+	uint64 M = 5;
 	google.protobuf.StringValue Kd = 6;
 	google.protobuf.StringValue Ad = 7;
 	string Skl = 8;
 	int32 Oncelik = 9;
+	uint64 P = 10;
 }
 
 // ToKPT Master -> KimPersonelTanim SIL
