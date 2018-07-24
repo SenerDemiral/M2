@@ -76,7 +76,7 @@ namespace RestServerSC
                     A = sener,
                 };
 
-                new AFB
+                new AVM
                 {
                     Drm = "A",
                     Trh = DateTime.Today,

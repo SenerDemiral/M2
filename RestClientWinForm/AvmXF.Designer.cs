@@ -1,6 +1,6 @@
 ﻿namespace RestClientWinForm
 {
-    partial class AfbXF
+    partial class AvmXF
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfbXF));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvmXF));
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
@@ -37,15 +37,15 @@
             DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue3 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.accDataSet = new RestClientWinForm.AccDataSet();
-            this.afbBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.afbBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.avmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avmBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.afbGridControl = new DevExpress.XtraGrid.GridControl();
+            this.avmGridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fisDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -69,10 +69,10 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afbBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afbBindingNavigator)).BeginInit();
-            this.afbBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.afbGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avmBindingNavigator)).BeginInit();
+            this.avmBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avmGridControl)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -89,35 +89,35 @@
             this.accDataSet.DataSetName = "AccDataSet";
             this.accDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // afbBindingSource
+            // avmBindingSource
             // 
-            this.afbBindingSource.DataMember = "AFB";
-            this.afbBindingSource.DataSource = this.accDataSet;
+            this.avmBindingSource.DataMember = "AVM";
+            this.avmBindingSource.DataSource = this.accDataSet;
             // 
-            // afbBindingNavigator
+            // avmBindingNavigator
             // 
-            this.afbBindingNavigator.AddNewItem = null;
-            this.afbBindingNavigator.AutoSize = false;
-            this.afbBindingNavigator.CountItem = null;
-            this.afbBindingNavigator.DeleteItem = null;
-            this.afbBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.afbBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.avmBindingNavigator.AddNewItem = null;
+            this.avmBindingNavigator.AutoSize = false;
+            this.avmBindingNavigator.CountItem = null;
+            this.avmBindingNavigator.DeleteItem = null;
+            this.avmBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.avmBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
             this.revertToolStripButton,
             this.editToolStripButton});
-            this.afbBindingNavigator.Location = new System.Drawing.Point(12, 12);
-            this.afbBindingNavigator.MoveFirstItem = null;
-            this.afbBindingNavigator.MoveLastItem = null;
-            this.afbBindingNavigator.MoveNextItem = null;
-            this.afbBindingNavigator.MovePreviousItem = null;
-            this.afbBindingNavigator.Name = "afbBindingNavigator";
-            this.afbBindingNavigator.PositionItem = null;
-            this.afbBindingNavigator.Size = new System.Drawing.Size(892, 30);
-            this.afbBindingNavigator.TabIndex = 0;
-            this.afbBindingNavigator.Text = "bindingNavigator1";
+            this.avmBindingNavigator.Location = new System.Drawing.Point(12, 12);
+            this.avmBindingNavigator.MoveFirstItem = null;
+            this.avmBindingNavigator.MoveLastItem = null;
+            this.avmBindingNavigator.MoveNextItem = null;
+            this.avmBindingNavigator.MovePreviousItem = null;
+            this.avmBindingNavigator.Name = "avmBindingNavigator";
+            this.avmBindingNavigator.PositionItem = null;
+            this.avmBindingNavigator.Size = new System.Drawing.Size(892, 30);
+            this.avmBindingNavigator.TabIndex = 0;
+            this.avmBindingNavigator.Text = "bindingNavigator1";
             // 
             // addToolStripButton
             // 
@@ -179,18 +179,18 @@
             this.editToolStripButton.Text = "toolStripButton1";
             this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
             // 
-            // afbGridControl
+            // avmGridControl
             // 
-            this.afbGridControl.ContextMenuStrip = this.contextMenuStrip1;
-            this.afbGridControl.DataSource = this.afbBindingSource;
-            this.afbGridControl.Location = new System.Drawing.Point(12, 46);
-            this.afbGridControl.MainView = this.gridView1;
-            this.afbGridControl.Name = "afbGridControl";
-            this.afbGridControl.Size = new System.Drawing.Size(892, 375);
-            this.afbGridControl.TabIndex = 1;
-            this.afbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.avmGridControl.ContextMenuStrip = this.contextMenuStrip1;
+            this.avmGridControl.DataSource = this.avmBindingSource;
+            this.avmGridControl.Location = new System.Drawing.Point(12, 46);
+            this.avmGridControl.MainView = this.gridView1;
+            this.avmGridControl.Name = "avmGridControl";
+            this.avmGridControl.Size = new System.Drawing.Size(892, 375);
+            this.avmGridControl.TabIndex = 1;
+            this.avmGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.afbGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.afbGridControl_ProcessGridKey);
+            this.avmGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.avmGridControl_ProcessGridKey);
             // 
             // contextMenuStrip1
             // 
@@ -279,7 +279,7 @@
             this.gridView1.FormatRules.Add(gridFormatRule1);
             this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.FormatRules.Add(gridFormatRule3);
-            this.gridView1.GridControl = this.afbGridControl;
+            this.gridView1.GridControl = this.avmGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
@@ -388,8 +388,8 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
-            this.layoutControl1.Controls.Add(this.afbGridControl);
-            this.layoutControl1.Controls.Add(this.afbBindingNavigator);
+            this.layoutControl1.Controls.Add(this.avmGridControl);
+            this.layoutControl1.Controls.Add(this.avmBindingNavigator);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -414,7 +414,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.afbGridControl;
+            this.layoutControlItem1.Control = this.avmGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(896, 379);
@@ -424,7 +424,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.afbBindingNavigator;
+            this.layoutControlItem2.Control = this.avmBindingNavigator;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(896, 34);
@@ -446,16 +446,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 457);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "AfbXF";
-            this.Text = "Muhasebe Fişleri [AfbXF]";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AfbXF_FormClosing);
-            this.Load += new System.EventHandler(this.AfbXF_Load);
+            this.Name = "AvmXF";
+            this.Text = "Muhasebe Fişleri [AvmXF]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AvmXF_FormClosing);
+            this.Load += new System.EventHandler(this.AvmXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afbBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afbBindingNavigator)).EndInit();
-            this.afbBindingNavigator.ResumeLayout(false);
-            this.afbBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.afbGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avmBindingNavigator)).EndInit();
+            this.avmBindingNavigator.ResumeLayout(false);
+            this.avmBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avmGridControl)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -473,9 +473,9 @@
         #endregion
 
         private AccDataSet accDataSet;
-        private System.Windows.Forms.BindingSource afbBindingSource;
-        private System.Windows.Forms.BindingNavigator afbBindingNavigator;
-        private DevExpress.XtraGrid.GridControl afbGridControl;
+        private System.Windows.Forms.BindingSource avmBindingSource;
+        private System.Windows.Forms.BindingNavigator avmBindingNavigator;
+        private DevExpress.XtraGrid.GridControl avmGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;

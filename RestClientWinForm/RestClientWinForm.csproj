@@ -86,11 +86,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbbXF.cs">
+    <Compile Include="AbmXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbbXF.Designer.cs">
-      <DependentUpon>AbbXF.cs</DependentUpon>
+    <Compile Include="AbmXF.Designer.cs">
+      <DependentUpon>AbmXF.cs</DependentUpon>
     </Compile>
     <Compile Include="AbdXF.cs">
       <SubType>Form</SubType>
@@ -106,17 +106,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AfbXF.cs">
+    <Compile Include="AvmXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AfbXF.Designer.cs">
-      <DependentUpon>AfbXF.cs</DependentUpon>
+    <Compile Include="AvmXF.Designer.cs">
+      <DependentUpon>AvmXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AfdXF.cs">
+    <Compile Include="AvdXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AfdXF.Designer.cs">
-      <DependentUpon>AfdXF.cs</DependentUpon>
+    <Compile Include="AvdXF.Designer.cs">
+      <DependentUpon>AvdXF.cs</DependentUpon>
     </Compile>
     <Compile Include="AhpEditXF.cs">
       <SubType>Form</SubType>
@@ -262,17 +262,17 @@
     <Compile Include="XdkXF.Designer.cs">
       <DependentUpon>XdkXF.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AbbXF.resx">
-      <DependentUpon>AbbXF.cs</DependentUpon>
+    <EmbeddedResource Include="AbmXF.resx">
+      <DependentUpon>AbmXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AbdXF.resx">
       <DependentUpon>AbdXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AfbXF.resx">
-      <DependentUpon>AfbXF.cs</DependentUpon>
+    <EmbeddedResource Include="AvmXF.resx">
+      <DependentUpon>AvmXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AfdXF.resx">
-      <DependentUpon>AfdXF.cs</DependentUpon>
+    <EmbeddedResource Include="AvdXF.resx">
+      <DependentUpon>AvdXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AhpEditXF.resx">
       <DependentUpon>AhpEditXF.cs</DependentUpon>

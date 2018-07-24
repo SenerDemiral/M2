@@ -48,6 +48,7 @@
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -55,7 +56,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kdtBindingNavigator)).BeginInit();
@@ -240,6 +240,13 @@
             this.colAd.VisibleIndex = 2;
             this.colAd.Width = 172;
             // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 3;
+            // 
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
@@ -311,13 +318,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colInfo
-            // 
-            this.colInfo.FieldName = "Info";
-            this.colInfo.Name = "colInfo";
-            this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 3;
-            // 
             // KdtXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,7 +325,7 @@
             this.ClientSize = new System.Drawing.Size(720, 325);
             this.Controls.Add(this.layoutControl1);
             this.Name = "KdtXF";
-            this.Text = "Departman [KdtXF]";
+            this.Text = "Departmanlar [KdtXF]";
             this.Load += new System.EventHandler(this.KdtXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).EndInit();

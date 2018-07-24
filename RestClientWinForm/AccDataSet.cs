@@ -100,17 +100,9 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public AFBproxy AFBgetByPK(ulong pk)
+        public async Task<string> AVMfill()
         {
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
-            return client.AFBgetByPK(new PKproxy { PK = pk });
-        }
-
-        public async Task<string> AFBfill()
-        {
-            var dt = AFB;
+            var dt = AVM;
 
             dt.BeginLoadData();
             int nor = 0, ml = 0;
@@ -122,7 +114,7 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AFBfill(new QryProxy { Query = "abc" }))
+            using (var response = client.AVMfill(new QryProxy { Query = "abc" }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
@@ -143,12 +135,11 @@ namespace RestClientWinForm
             //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
             return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
         }
-
-        public string AFBupdate()
+        public string AVMupdate()
         {
             StringBuilder sb = new StringBuilder();
-            var dt = AFB;
-            var request = new AFBproxy();
+            var dt = AVM;
+            var request = new AVMproxy();
 
             string rs = "";
 
@@ -175,7 +166,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AFBupdate(request);  // --------->
+                    var reply = client.AVMupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -199,9 +190,9 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public async Task<string> AFDfill(ulong ObjAFB)
+        public async Task<string> AVDfill(ulong ObjAVM)
         {
-            var dt = AFD;
+            var dt = AVD;
 
             dt.BeginLoadData();
             int nor = 0, ml = 0;
@@ -213,14 +204,8 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            var q = new QryProxy();
-            if (ObjAFB != 0)
-            {
-                q.Query = "AFB.ObjectNo = ?";
-                q.Param = ObjAFB.ToString();
-            }
 
-            using (var response = client.AFDfill(q))
+            using (var response = client.AVDfill(new QryMDproxy { M = ObjAVM, Mtyp = "AVM" }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
@@ -246,12 +231,11 @@ namespace RestClientWinForm
                 ems = 1;
             return $"{nor:n0} records retrieved in {ems:n0} ms  ({(nor / ems * 1000):n0} recs/sec)";
         }
-
-        public string AFDupdate()
+        public string AVDupdate()
         {
             StringBuilder sb = new StringBuilder();
-            var dt = AFD;
-            var request = new AFDproxy();
+            var dt = AVD;
+            var request = new AVDproxy();
 
             string rs = "";
 
@@ -278,7 +262,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AFDupdate(request);  // --------->
+                    var reply = client.AVDupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -300,10 +284,9 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-
-        public async Task<string> ABBfill()
+        public async Task<string> ABMfill()
         {
-            var dt = ABB;
+            var dt = ABM;
 
             dt.BeginLoadData();
             int nor = 0, ml = 0;
@@ -315,7 +298,7 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.ABBfill(new QryProxy { Query = "abc" }))
+            using (var response = client.ABMfill(new QryProxy { Query = "abc" }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
@@ -336,12 +319,11 @@ namespace RestClientWinForm
             //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
             return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
         }
-
-        public string ABBupdate()
+        public string ABMupdate()
         {
             StringBuilder sb = new StringBuilder();
-            var dt = ABB;
-            var request = new ABBproxy();
+            var dt = ABM;
+            var request = new ABMproxy();
 
             string rs = "";
 
@@ -368,7 +350,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.ABBupdate(request);  // --------->
+                    var reply = client.ABMupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -392,7 +374,7 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public async Task<string> ABDfill(ulong ObjABB)
+        public async Task<string> ABDfill(ulong ObjABM)
         {
             var dt = ABD;
 
@@ -406,14 +388,8 @@ namespace RestClientWinForm
             DataRow row;
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            var q = new QryProxy();
-            if (ObjABB != 0)
-            {
-                q.Query = "ObjABB.ObjectNo = ?";
-                q.Param = ObjABB.ToString();
-            }
 
-            using (var response = client.ABDfill(q))
+            using (var response = client.ABDfill(new QryMDproxy { M = ObjABM, Mtyp = "ABM" }))
             {
                 while (await response.ResponseStream.MoveNext(token))
                 {
@@ -439,7 +415,6 @@ namespace RestClientWinForm
                 ems = 1;
             return $"{nor:n0} records retrieved in {ems:n0} ms  ({(nor / ems * 1000):n0} recs/sec)";
         }
-
         public string ABDupdate()
         {
             StringBuilder sb = new StringBuilder();

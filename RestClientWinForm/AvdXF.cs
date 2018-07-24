@@ -13,38 +13,38 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace RestClientWinForm
 {
-    public partial class AfdXF : DevExpress.XtraEditors.XtraForm
+    public partial class AvdXF : DevExpress.XtraEditors.XtraForm
     {
-        public object ObjAFB = (ulong)469;
-        public AccDataSet.AFBRow AFBRow;
+        public object ObjAVM = (ulong)469;
+        public AccDataSet.AVMRow AVMRow;
         public bool readOnly = true;
         private object ObjDvzTRL;
 
 
-        public AfdXF()
+        public AvdXF()
         {
             InitializeComponent();
 
-            afdGridControl.ExternalRepository = Program.MF.persistentRepository;
+            avdGridControl.ExternalRepository = Program.MF.persistentRepository;
             //colObjAHP.ColumnEdit = Program.MF.AHPrepositoryItemSearchLookUpEdit;
             colAHP.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
             colDVT.ColumnEdit = Program.MF.DVTrepositoryItemLookUpEdit;
         }
 
-        private void AfdXF_Load(object sender, EventArgs e)
+        private void AvdXF_Load(object sender, EventArgs e)
         {
-            ObjAFB = AFBRow.RowKey;
+            ObjAVM = AVMRow.RowKey;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
-                afdBindingNavigator.Enabled = !readOnly;
+                avdBindingNavigator.Enabled = !readOnly;
                 Text += " Kapalı";
             }
 
             QryProxy qp = new QryProxy
             {
                 Query = "Trh",
-                Param = AFBRow.Trh.Ticks.ToString(),
+                Param = AVMRow.Trh.Ticks.ToString(),
             };
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
@@ -54,7 +54,7 @@ namespace RestClientWinForm
             FillDB();
         }
 
-        private void AfdXF_FormClosing(object sender, FormClosingEventArgs e)
+        private void AvdXF_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (readOnly)
                 return;
@@ -69,18 +69,18 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            afdGridControl.DataSource = null;
-            accDataSet.AFD.Clear();
-            Task.Run(async () => { res = await accDataSet.AFDfill((ulong)ObjAFB); }).Wait();
+            avdGridControl.DataSource = null;
+            accDataSet.AVD.Clear();
+            Task.Run(async () => { res = await accDataSet.AVDfill((ulong)ObjAVM); }).Wait();
             toolStripStatusLabel1.Text = res;
-            afdGridControl.DataSource = afdBindingSource;
+            avdGridControl.DataSource = avdBindingSource;
         }
 
         private DialogResult UpdateDB()
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            afdBindingSource.EndEdit();
+            avdBindingSource.EndEdit();
 
             gridView1.CloseEditor();
             gridView1.UpdateCurrentRow();
@@ -96,7 +96,7 @@ namespace RestClientWinForm
                 dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = accDataSet.AFDupdate();
+                    string err = accDataSet.AVDupdate();
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);
@@ -132,13 +132,13 @@ namespace RestClientWinForm
         {
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
-            accDataSet.AFD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+            accDataSet.AVD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
-            gridView1.SetFocusedRowCellValue(colAFB, ObjAFB);
+            gridView1.SetFocusedRowCellValue(colAVM, ObjAVM);
             gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colTut, 0.0);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);

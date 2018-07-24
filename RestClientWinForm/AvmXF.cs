@@ -8,22 +8,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-using DevExpress.XtraGrid.Localization;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.Utils;
+using DevExpress.XtraGrid.Localization;
 
 namespace RestClientWinForm
 {
-    public partial class AbbXF : DevExpress.XtraEditors.XtraForm
+    public partial class AvmXF : DevExpress.XtraEditors.XtraForm
     {
-        public AbbXF()
+        public AvmXF()
         {
             InitializeComponent();
+
             GridLocalizer.Active = new CustomGridLocalizer();
 
-            abbGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colTUR.ColumnEdit = Program.MF.AbbTurRepositoryItemLookUpEdit;
+            avmGridControl.ExternalRepository = Program.MF.persistentRepository;
+            colTUR.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
+            colTrh.ColumnEdit = Program.MF.DateRepositoryItemDateEdit;
+
+            gridView1.OptionsSelection.MultiSelect = true;
+            gridView1.OptionsSelection.MultiSelectMode = GridMultiSelectMode.CheckBoxRowSelect;
+            gridView1.OptionsSelection.ResetSelectionClickOutsideCheckboxSelector = false;
+            gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DefaultBoolean.False;
+            // Ctrl+A ile hepsini secmemesini engelle
+            // MouseClick ve SpaceBar ile secilmesini engelle
         }
 
         public class CustomGridLocalizer : GridLocalizer
@@ -38,12 +47,12 @@ namespace RestClientWinForm
             }
         }
 
-        private void AbbXF_Load(object sender, EventArgs e)
+        private void AvmXF_Load(object sender, EventArgs e)
         {
             FillDB();
         }
 
-        private void AbbXF_FormClosing(object sender, FormClosingEventArgs e)
+        private void AvmXF_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (gridView1.SelectedRowsCount != 0)
                 UpdateDB(true);
@@ -54,29 +63,25 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            abbGridControl.DataSource = null;
-            accDataSet.ABB.Clear();
-            Task.Run(async () => { res = await accDataSet.ABBfill(); }).Wait();
+            avmGridControl.DataSource = null;
+            accDataSet.AVM.Clear();
+            Task.Run(async () => { res = await accDataSet.AVMfill(); }).Wait();
             toolStripStatusLabel1.Text = res;
-            abbGridControl.DataSource = abbBindingSource;
+            avmGridControl.DataSource = avmBindingSource;
         }
 
         private DialogResult UpdateDB(bool silent = false)
         {
-            if (!Validate())
-                return DialogResult.Cancel;
-            abbBindingSource.EndEdit();
-
-            //gridView1.CloseEditor();
-            //gridView1.UpdateCurrentRow();
+            gridView1.CloseEditor();
+            gridView1.UpdateCurrentRow();
             DialogResult dr = DialogResult.Yes;
             if (accDataSet.HasChanges())
             {
-                if (silent == false)
+                if(silent == false)
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = accDataSet.ABBupdate();
+                    string err = accDataSet.AVMupdate();
                     gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {
@@ -112,7 +117,7 @@ namespace RestClientWinForm
 
         private void refreshToolStripButton_Click(object sender, EventArgs e)
         {
-            if (UpdateDB() != DialogResult.Abort)
+            if(UpdateDB() != DialogResult.Abort)
                 FillDB();
         }
 
@@ -125,7 +130,7 @@ namespace RestClientWinForm
                 return;
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
-            accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+            accDataSet.AVM.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
 
         private void editToolStripButton_Click(object sender, EventArgs e)
@@ -158,7 +163,7 @@ namespace RestClientWinForm
             }
         }
 
-        private void faturaDetayToolStripMenuItem_Click(object sender, EventArgs e)
+        private void fisDetayToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
                 return;
@@ -176,8 +181,8 @@ namespace RestClientWinForm
             }
 
             object Key = gridView1.GetFocusedRowCellValue(colRowKey);
-            AbdXF frm = new AbdXF();
-            frm.ABBRow = (AccDataSet.ABBRow)accDataSet.ABB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            AvdXF frm = new AvdXF();
+            frm.AVMRow = (AccDataSet.AVMRow)accDataSet.AVM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
             var dr = frm.ShowDialog();
             if (!readOnly)
@@ -187,14 +192,45 @@ namespace RestClientWinForm
                 gridView1.UnselectRow(gridView1.FocusedRowHandle);
             }
 
-        }
+            /*
+            //var prxy = accDataSet.AFBgetByPK((ulong)Key);
+            //string sonDrm = prxy.Drm;
 
-        private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
-        {
-            gridView1.SetFocusedRowCellValue(colRowKey, 0);
-            gridView1.SetFocusedRowCellValue(colDrm, "A");
-            gridView1.SetFocusedRowCellValue(colKur, 1);
+            if (sonDrm == "P") // Baska bir tarafindan degistirilyor, Revert
+            {
+                XtraMessageBox.Show("Baska bir tarafindan degistirilyor", "Fis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (sonDrm == "A")
+            {
+                gridView1.SetFocusedRowCellValue(colDrm, "P");  // Mark pending
+                UpdateDB(true);
 
+            }
+            AfdXF frm = new AfdXF();
+            frm.AFBRow = (AccDataSet.AFBRow)accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            var dr = frm.ShowDialog();
+            if (sonDrm == "A") // && dr == DialogResult.Yes)
+            {
+                //accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].SetModified();
+                gridView1.SetFocusedRowCellValue(colDrm, "A");  // Pending Mark kaldir
+                UpdateDB(true);
+            }
+            */
+            /*
+            UpdateDB();
+            // Update'den sonra refresh oldugu icin son deger gelir ama Drm da degisir!!
+            // Update etmeden Drm kontrol edilmeli, AFB okunduktan sonra baska biri degistirmis olabilir!!
+
+            AfdXF frm = new AfdXF();
+            frm.AFBRow = (AccDataSet.AFBRow)accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            var dr = frm.ShowDialog();
+            if (dr == DialogResult.Yes)
+            {
+                accDataSet.AFB.Rows[gridView1.GetFocusedDataSourceRowIndex()].SetModified();
+                UpdateDB(true);
+            }
+            */
+            //gridView1.SetFocusedRowModified();
         }
 
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
@@ -207,25 +243,11 @@ namespace RestClientWinForm
                 e.Cancel = true;
         }
 
-        private void gridView1_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            GridView View = sender as GridView;
-            var aaa = View.GetRowCellValue(e.RowHandle, colKFT);
-            if (View.GetRowCellValue(e.RowHandle, colKFT) == DBNull.Value)
-            {
-                View.SetColumnError(colKFT, "Hesap girin");
-                e.Valid = false;
-            }
-            else
-            {
-                View.ClearColumnErrors();
-                e.Valid = true;
-            }
-
-            if (View.GetRowCellDisplayText(e.RowHandle, colDVT) == "TRL")
-            {
-                View.SetRowCellValue(e.RowHandle, colKur, 1.0);
-            }
+            gridView1.SetFocusedRowCellValue(colRowKey, 0);
+            gridView1.SetFocusedRowCellValue(colTrh, DateTime.Today);
+            gridView1.SetFocusedRowCellValue(colDrm, "A");
         }
 
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
@@ -245,7 +267,7 @@ namespace RestClientWinForm
             if (gridView1.FocusedColumn.AbsoluteIndex == -1)
                 e.SuppressKeyPress = true;
         }
-        private void abbGridControl_ProcessGridKey(object sender, KeyEventArgs e)
+        private void avmGridControl_ProcessGridKey(object sender, KeyEventArgs e)
         {
             // Ctrl+A ile hepsini secmemesi icin MultiSelect
             if (e.Control && e.KeyValue == 65)
@@ -253,5 +275,19 @@ namespace RestClientWinForm
 
         }
 
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            addToolStripButton.PerformClick();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            editToolStripButton.PerformClick();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveToolStripButton.PerformClick();
+        }
     }
 }

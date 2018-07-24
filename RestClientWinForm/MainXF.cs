@@ -83,7 +83,7 @@ namespace RestClientWinForm
         private void AFBbutton_Click(object sender, EventArgs e)
         {
             var aaa = mainDataSet.XGT;
-            AfbXF frm = new AfbXF();
+            AvmXF frm = new AvmXF();
             frm.Show();
         }
 
@@ -133,7 +133,7 @@ namespace RestClientWinForm
 
         private void ABBbutton_Click(object sender, EventArgs e)
         {
-            AbbXF frm = new AbbXF();
+            AbmXF frm = new AbmXF();
             frm.Show();
         }
 

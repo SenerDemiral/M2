@@ -1,6 +1,6 @@
 ﻿namespace RestClientWinForm
 {
-    partial class AbbXF
+    partial class AbmXF
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbbXF));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbmXF));
             this.accDataSet = new RestClientWinForm.AccDataSet();
-            this.abbBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.abbBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.abmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.abmBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.abbGridControl = new DevExpress.XtraGrid.GridControl();
+            this.abmGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,10 +61,10 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.faturaDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abbBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abbBindingNavigator)).BeginInit();
-            this.abbBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.abbGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abmBindingNavigator)).BeginInit();
+            this.abmBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.abmGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -81,36 +81,36 @@
             this.accDataSet.DataSetName = "AccDataSet";
             this.accDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // abbBindingSource
+            // abmBindingSource
             // 
-            this.abbBindingSource.DataMember = "ABB";
-            this.abbBindingSource.DataSource = this.accDataSet;
+            this.abmBindingSource.DataMember = "ABM";
+            this.abmBindingSource.DataSource = this.accDataSet;
             // 
-            // abbBindingNavigator
+            // abmBindingNavigator
             // 
-            this.abbBindingNavigator.AddNewItem = null;
-            this.abbBindingNavigator.AutoSize = false;
-            this.abbBindingNavigator.BindingSource = this.abbBindingSource;
-            this.abbBindingNavigator.CountItem = null;
-            this.abbBindingNavigator.DeleteItem = null;
-            this.abbBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.abbBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abmBindingNavigator.AddNewItem = null;
+            this.abmBindingNavigator.AutoSize = false;
+            this.abmBindingNavigator.BindingSource = this.abmBindingSource;
+            this.abmBindingNavigator.CountItem = null;
+            this.abmBindingNavigator.DeleteItem = null;
+            this.abmBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.abmBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
             this.revertToolStripButton,
             this.editToolStripButton});
-            this.abbBindingNavigator.Location = new System.Drawing.Point(12, 12);
-            this.abbBindingNavigator.MoveFirstItem = null;
-            this.abbBindingNavigator.MoveLastItem = null;
-            this.abbBindingNavigator.MoveNextItem = null;
-            this.abbBindingNavigator.MovePreviousItem = null;
-            this.abbBindingNavigator.Name = "abbBindingNavigator";
-            this.abbBindingNavigator.PositionItem = null;
-            this.abbBindingNavigator.Size = new System.Drawing.Size(825, 30);
-            this.abbBindingNavigator.TabIndex = 0;
-            this.abbBindingNavigator.Text = "bindingNavigator1";
+            this.abmBindingNavigator.Location = new System.Drawing.Point(12, 12);
+            this.abmBindingNavigator.MoveFirstItem = null;
+            this.abmBindingNavigator.MoveLastItem = null;
+            this.abmBindingNavigator.MoveNextItem = null;
+            this.abmBindingNavigator.MovePreviousItem = null;
+            this.abmBindingNavigator.Name = "abmBindingNavigator";
+            this.abmBindingNavigator.PositionItem = null;
+            this.abmBindingNavigator.Size = new System.Drawing.Size(825, 30);
+            this.abmBindingNavigator.TabIndex = 0;
+            this.abmBindingNavigator.Text = "bindingNavigator1";
             // 
             // addToolStripButton
             // 
@@ -172,17 +172,17 @@
             this.editToolStripButton.Text = "toolStripButton1";
             this.editToolStripButton.Click += new System.EventHandler(this.editToolStripButton_Click);
             // 
-            // abbGridControl
+            // abmGridControl
             // 
-            this.abbGridControl.DataSource = this.abbBindingSource;
-            this.abbGridControl.Location = new System.Drawing.Point(12, 46);
-            this.abbGridControl.MainView = this.gridView1;
-            this.abbGridControl.Name = "abbGridControl";
-            this.abbGridControl.Size = new System.Drawing.Size(825, 241);
-            this.abbGridControl.TabIndex = 2;
-            this.abbGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.abmGridControl.DataSource = this.abmBindingSource;
+            this.abmGridControl.Location = new System.Drawing.Point(12, 46);
+            this.abmGridControl.MainView = this.gridView1;
+            this.abmGridControl.Name = "abmGridControl";
+            this.abmGridControl.Size = new System.Drawing.Size(825, 241);
+            this.abmGridControl.TabIndex = 2;
+            this.abmGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.abbGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.abbGridControl_ProcessGridKey);
+            this.abmGridControl.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.abmGridControl_ProcessGridKey);
             // 
             // gridView1
             // 
@@ -197,7 +197,7 @@
             this.colKur,
             this.colInfo,
             this.colTut});
-            this.gridView1.GridControl = this.abbGridControl;
+            this.gridView1.GridControl = this.abmGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
             this.gridView1.OptionsSelection.MultiSelect = true;
@@ -286,8 +286,8 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
-            this.layoutControl1.Controls.Add(this.abbBindingNavigator);
-            this.layoutControl1.Controls.Add(this.abbGridControl);
+            this.layoutControl1.Controls.Add(this.abmBindingNavigator);
+            this.layoutControl1.Controls.Add(this.abmGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -329,7 +329,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.abbGridControl;
+            this.layoutControlItem1.Control = this.abmGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(829, 245);
@@ -339,7 +339,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.abbBindingNavigator;
+            this.layoutControlItem2.Control = this.abmBindingNavigator;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(829, 34);
@@ -369,22 +369,22 @@
             this.faturaDetayToolStripMenuItem.Text = "Fatura Detay";
             this.faturaDetayToolStripMenuItem.Click += new System.EventHandler(this.faturaDetayToolStripMenuItem_Click);
             // 
-            // AbbXF
+            // AbmXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(849, 323);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "AbbXF";
-            this.Text = "Fatura [AbbXF]";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AbbXF_FormClosing);
-            this.Load += new System.EventHandler(this.AbbXF_Load);
+            this.Name = "AbmXF";
+            this.Text = "Faturalar [AbmXF]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AbmXF_FormClosing);
+            this.Load += new System.EventHandler(this.AbmXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abbBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abbBindingNavigator)).EndInit();
-            this.abbBindingNavigator.ResumeLayout(false);
-            this.abbBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.abbGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abmBindingNavigator)).EndInit();
+            this.abmBindingNavigator.ResumeLayout(false);
+            this.abmBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.abmGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
@@ -402,9 +402,9 @@
         #endregion
 
         private AccDataSet accDataSet;
-        private System.Windows.Forms.BindingSource abbBindingSource;
-        private System.Windows.Forms.BindingNavigator abbBindingNavigator;
-        private DevExpress.XtraGrid.GridControl abbGridControl;
+        private System.Windows.Forms.BindingSource abmBindingSource;
+        private System.Windows.Forms.BindingNavigator abmBindingNavigator;
+        private DevExpress.XtraGrid.GridControl abmGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;

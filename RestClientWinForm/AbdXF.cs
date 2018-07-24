@@ -15,8 +15,8 @@ namespace RestClientWinForm
 {
     public partial class AbdXF : DevExpress.XtraEditors.XtraForm
     {
-        public object ObjABB = (ulong)469;
-        public AccDataSet.ABBRow ABBRow;
+        public object ObjABM = (ulong)469;
+        public AccDataSet.ABMRow ABMRow;
         public bool readOnly = true;
         private object ObjDvzTRL;
 
@@ -30,7 +30,7 @@ namespace RestClientWinForm
 
         private void AbdXF_Load(object sender, EventArgs e)
         {
-            ObjABB = ABBRow.RowKey;
+            ObjABM = ABMRow.RowKey;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
@@ -41,7 +41,7 @@ namespace RestClientWinForm
             QryProxy qp = new QryProxy
             {
                 Query = "Trh",
-                Param = ABBRow.Trh.Ticks.ToString(),
+                Param = ABMRow.Trh.Ticks.ToString(),
             };
             Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
 
@@ -67,8 +67,8 @@ namespace RestClientWinForm
         {
             string res = "";
             abdGridControl.DataSource = null;
-            accDataSet.AFD.Clear();
-            Task.Run(async () => { res = await accDataSet.ABDfill((ulong)ObjABB); }).Wait();
+            accDataSet.ABD.Clear();
+            Task.Run(async () => { res = await accDataSet.ABDfill((ulong)ObjABM); }).Wait();
             toolStripStatusLabel1.Text = res;
             abdGridControl.DataSource = abdBindingSource;
         }
@@ -93,7 +93,7 @@ namespace RestClientWinForm
                 dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = accDataSet.AFDupdate();
+                    string err = accDataSet.ABDupdate();
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);
@@ -129,13 +129,13 @@ namespace RestClientWinForm
         {
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
-            accDataSet.AFD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
+            accDataSet.ABD.Rows[gridView1.GetFocusedDataSourceRowIndex()].RejectChanges();
         }
 
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
-            gridView1.SetFocusedRowCellValue(colABB, ObjABB);
+            gridView1.SetFocusedRowCellValue(colABM, ObjABM);
             gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
         }

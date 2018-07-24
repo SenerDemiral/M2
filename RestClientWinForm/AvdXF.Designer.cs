@@ -1,8 +1,9 @@
 ﻿namespace RestClientWinForm
 {
-    partial class AfdXF
+    partial class AvdXF
     {
         /// <summary>
+        /// Required designer variable.
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
@@ -29,25 +30,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AfdXF));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvdXF));
             DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
             DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.accDataSet = new RestClientWinForm.AccDataSet();
-            this.afdBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.afdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.avdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.avdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.afdGridControl = new DevExpress.XtraGrid.GridControl();
+            this.avdGridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAFB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAVM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -64,10 +65,10 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).BeginInit();
-            this.afdBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).BeginInit();
+            this.avdBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avdGridControl)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
@@ -100,35 +101,35 @@
             this.accDataSet.DataSetName = "AccDataSet";
             this.accDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // afdBindingSource
+            // avdBindingSource
             // 
-            this.afdBindingSource.DataMember = "AFD";
-            this.afdBindingSource.DataSource = this.accDataSet;
+            this.avdBindingSource.DataMember = "AVD";
+            this.avdBindingSource.DataSource = this.accDataSet;
             // 
-            // afdBindingNavigator
+            // avdBindingNavigator
             // 
-            this.afdBindingNavigator.AddNewItem = null;
-            this.afdBindingNavigator.AutoSize = false;
-            this.afdBindingNavigator.BindingSource = this.afdBindingSource;
-            this.afdBindingNavigator.CountItem = null;
-            this.afdBindingNavigator.DeleteItem = null;
-            this.afdBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.afdBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.avdBindingNavigator.AddNewItem = null;
+            this.avdBindingNavigator.AutoSize = false;
+            this.avdBindingNavigator.BindingSource = this.avdBindingSource;
+            this.avdBindingNavigator.CountItem = null;
+            this.avdBindingNavigator.DeleteItem = null;
+            this.avdBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.avdBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
             this.revertToolStripButton});
-            this.afdBindingNavigator.Location = new System.Drawing.Point(12, 12);
-            this.afdBindingNavigator.MoveFirstItem = null;
-            this.afdBindingNavigator.MoveLastItem = null;
-            this.afdBindingNavigator.MoveNextItem = null;
-            this.afdBindingNavigator.MovePreviousItem = null;
-            this.afdBindingNavigator.Name = "afdBindingNavigator";
-            this.afdBindingNavigator.PositionItem = null;
-            this.afdBindingNavigator.Size = new System.Drawing.Size(774, 30);
-            this.afdBindingNavigator.TabIndex = 0;
-            this.afdBindingNavigator.Text = "bindingNavigator1";
+            this.avdBindingNavigator.Location = new System.Drawing.Point(12, 12);
+            this.avdBindingNavigator.MoveFirstItem = null;
+            this.avdBindingNavigator.MoveLastItem = null;
+            this.avdBindingNavigator.MoveNextItem = null;
+            this.avdBindingNavigator.MovePreviousItem = null;
+            this.avdBindingNavigator.Name = "avdBindingNavigator";
+            this.avdBindingNavigator.PositionItem = null;
+            this.avdBindingNavigator.Size = new System.Drawing.Size(774, 30);
+            this.avdBindingNavigator.TabIndex = 0;
+            this.avdBindingNavigator.Text = "bindingNavigator1";
             // 
             // addToolStripButton
             // 
@@ -180,18 +181,18 @@
             this.revertToolStripButton.Text = "toolStripButton6";
             this.revertToolStripButton.Click += new System.EventHandler(this.revertToolStripButton_Click);
             // 
-            // afdGridControl
+            // avdGridControl
             // 
-            this.afdGridControl.ContextMenuStrip = this.contextMenuStrip1;
-            this.afdGridControl.DataSource = this.afdBindingSource;
-            this.afdGridControl.Location = new System.Drawing.Point(12, 46);
-            this.afdGridControl.MainView = this.gridView1;
-            this.afdGridControl.Name = "afdGridControl";
-            this.afdGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.avdGridControl.ContextMenuStrip = this.contextMenuStrip1;
+            this.avdGridControl.DataSource = this.avdBindingSource;
+            this.avdGridControl.Location = new System.Drawing.Point(12, 46);
+            this.avdGridControl.MainView = this.gridView1;
+            this.avdGridControl.Name = "avdGridControl";
+            this.avdGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.DVTrepositoryItemLookUpEdit});
-            this.afdGridControl.Size = new System.Drawing.Size(774, 322);
-            this.afdGridControl.TabIndex = 0;
-            this.afdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.avdGridControl.Size = new System.Drawing.Size(774, 322);
+            this.avdGridControl.TabIndex = 0;
+            this.avdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             // 
             // contextMenuStrip1
@@ -221,7 +222,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
-            this.colAFB,
+            this.colAVM,
             this.colAHP,
             this.colInfo,
             this.colTut,
@@ -238,7 +239,7 @@
             gridFormatRule1.Rule = formatConditionRuleValue1;
             gridFormatRule1.StopIfTrue = true;
             this.gridView1.FormatRules.Add(gridFormatRule1);
-            this.gridView1.GridControl = this.afdGridControl;
+            this.gridView1.GridControl = this.avdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
             this.gridView1.OptionsView.EnableAppearanceEvenRow = true;
@@ -262,15 +263,15 @@
             this.colRowKey.VisibleIndex = 0;
             this.colRowKey.Width = 65;
             // 
-            // colAFB
+            // colAVM
             // 
-            this.colAFB.Caption = "AFB#";
-            this.colAFB.FieldName = "AFB";
-            this.colAFB.Name = "colAFB";
-            this.colAFB.OptionsColumn.ReadOnly = true;
-            this.colAFB.Visible = true;
-            this.colAFB.VisibleIndex = 1;
-            this.colAFB.Width = 59;
+            this.colAVM.Caption = "AVM#";
+            this.colAVM.FieldName = "AVM";
+            this.colAVM.Name = "colAVM";
+            this.colAVM.OptionsColumn.ReadOnly = true;
+            this.colAVM.Visible = true;
+            this.colAVM.VisibleIndex = 1;
+            this.colAVM.Width = 59;
             // 
             // colAHP
             // 
@@ -369,8 +370,8 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
-            this.layoutControl1.Controls.Add(this.afdBindingNavigator);
-            this.layoutControl1.Controls.Add(this.afdGridControl);
+            this.layoutControl1.Controls.Add(this.avdBindingNavigator);
+            this.layoutControl1.Controls.Add(this.avdGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
@@ -394,7 +395,7 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.afdGridControl;
+            this.layoutControlItem1.Control = this.avdGridControl;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(778, 326);
@@ -404,7 +405,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.afdBindingNavigator;
+            this.layoutControlItem2.Control = this.avdBindingNavigator;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(778, 34);
@@ -420,22 +421,22 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // AfdXF
+            // AvdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(798, 404);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "AfdXF";
-            this.Text = "Muhasebe Fiş Detayları [AfdXF]";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AfdXF_FormClosing);
-            this.Load += new System.EventHandler(this.AfdXF_Load);
+            this.Name = "AvdXF";
+            this.Text = "Muhasebe Fiş Detayları [avdXF]";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AvdXF_FormClosing);
+            this.Load += new System.EventHandler(this.AvdXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afdBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.afdBindingNavigator)).EndInit();
-            this.afdBindingNavigator.ResumeLayout(false);
-            this.afdBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.afdGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).EndInit();
+            this.avdBindingNavigator.ResumeLayout(false);
+            this.avdBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avdGridControl)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
@@ -456,9 +457,9 @@
         #endregion
 
         private AccDataSet accDataSet;
-        private System.Windows.Forms.BindingSource afdBindingSource;
-        private System.Windows.Forms.BindingNavigator afdBindingNavigator;
-        private DevExpress.XtraGrid.GridControl afdGridControl;
+        private System.Windows.Forms.BindingSource avdBindingSource;
+        private System.Windows.Forms.BindingNavigator avdBindingNavigator;
+        private DevExpress.XtraGrid.GridControl avdGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.ToolStripButton addToolStripButton;
         private System.Windows.Forms.ToolStripButton saveToolStripButton;
@@ -466,7 +467,7 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
-        private DevExpress.XtraGrid.Columns.GridColumn colAFB;
+        private DevExpress.XtraGrid.Columns.GridColumn colAVM;
         private DevExpress.XtraGrid.Columns.GridColumn colAHP;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colTut;

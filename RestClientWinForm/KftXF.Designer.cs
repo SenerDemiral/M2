@@ -44,7 +44,9 @@
             this.contactToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colVrgDN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHPbrc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHPalc = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,8 +57,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingNavigator)).BeginInit();
@@ -214,6 +214,13 @@
             this.colRowKey.VisibleIndex = 0;
             this.colRowKey.Width = 88;
             // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 1;
+            // 
             // colAd
             // 
             this.colAd.FieldName = "Ad";
@@ -221,6 +228,13 @@
             this.colAd.Visible = true;
             this.colAd.VisibleIndex = 2;
             this.colAd.Width = 93;
+            // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 3;
             // 
             // colVrgDN
             // 
@@ -320,20 +334,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colKd
-            // 
-            this.colKd.FieldName = "Kd";
-            this.colKd.Name = "colKd";
-            this.colKd.Visible = true;
-            this.colKd.VisibleIndex = 1;
-            // 
-            // colInfo
-            // 
-            this.colInfo.FieldName = "Info";
-            this.colInfo.Name = "colInfo";
-            this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 3;
-            // 
             // KftXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,7 +341,7 @@
             this.ClientSize = new System.Drawing.Size(836, 443);
             this.Controls.Add(this.layoutControl1);
             this.Name = "KftXF";
-            this.Text = "Firma [KftXF]";
+            this.Text = "Firmalar [KftXF]";
             this.Load += new System.EventHandler(this.KmtXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftBindingSource)).EndInit();

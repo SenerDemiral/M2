@@ -25,17 +25,14 @@ service CRUDs {
   rpc AHPfill (QryProxy) returns (stream AHPproxy) {}
   rpc AHPupdate (AHPproxy) returns (AHPproxy) {}
 
-  rpc AFBfill (QryProxy) returns (stream AFBproxy) {}
-  rpc AFBupdate (AFBproxy) returns (AFBproxy) {}
-  rpc AFBgetByPK (PKproxy) returns (AFBproxy) {}	// Kullanilmiyor
+  rpc AVMfill (QryProxy) returns (stream AVMproxy) {}
+  rpc AVMupdate (AVMproxy) returns (AVMproxy) {}
+  rpc AVDfill (QryMDproxy) returns (stream AVDproxy) {}
+  rpc AVDupdate (AVDproxy) returns (AVDproxy) {}
 
-  rpc AFDfill (QryProxy) returns (stream AFDproxy) {}
-  rpc AFDupdate (AFDproxy) returns (AFDproxy) {}
-
-  rpc ABBfill (QryProxy) returns (stream ABBproxy) {}
-  rpc ABBupdate (ABBproxy) returns (ABBproxy) {}
-
-  rpc ABDfill (QryProxy) returns (stream ABDproxy) {}
+  rpc ABMfill (QryProxy) returns (stream ABMproxy) {}
+  rpc ABMupdate (ABMproxy) returns (ABMproxy) {}
+  rpc ABDfill (QryMDproxy) returns (stream ABDproxy) {}
   rpc ABDupdate (ABDproxy) returns (ABDproxy) {}
 
   rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
@@ -98,6 +95,12 @@ message QryBRproxy {
   string Mtyp = 2;
   string Dtyp = 3;
 }
+
+message QryMDproxy {
+  uint64 M = 1;
+  string Mtyp = 2;
+}
+
 
 message QryPproxy {
   uint64 P = 1;
@@ -174,8 +177,8 @@ message AHPproxy {
 	bool HasH = 12;
 }
 
-// Muhasebe Fisleri
-message AFBproxy {
+// Muhasebe Voucher/Fisleri
+message AVMproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;
@@ -188,13 +191,13 @@ message AFBproxy {
 	double Alc = 10;
 }
 
-// Muhasebe Fis Detaylari
-message AFDproxy {
+// Muhasebe Voucher/Fis Detaylari
+message AVDproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	uint64 AFB = 5;
+	uint64 AVM = 5;
 	uint64 AHP = 6;
 	google.protobuf.StringValue Info = 7;
 	double Tut = 8;
@@ -203,8 +206,8 @@ message AFDproxy {
 	double TutTL = 11;
 }
 
-// Muhasebe Bill/Fatura Baslik
-message ABBproxy {
+// Muhasebe Bill/Fatura Master
+message ABMproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;
@@ -226,7 +229,7 @@ message ABDproxy {
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	uint64 ABB = 5;
+	uint64 ABM = 5;
 	uint64 NNN = 6;
 	uint64 AHP = 7;
 	double Fyt = 8;

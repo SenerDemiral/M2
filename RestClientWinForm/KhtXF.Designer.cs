@@ -46,6 +46,7 @@
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SklRepositoryItemImageComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -53,7 +54,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khtBindingNavigator)).BeginInit();
@@ -191,6 +191,8 @@
             // 
             this.colRowKey.FieldName = "RowKey";
             this.colRowKey.Name = "colRowKey";
+            this.colRowKey.OptionsColumn.FixedWidth = true;
+            this.colRowKey.OptionsColumn.ReadOnly = true;
             this.colRowKey.Visible = true;
             this.colRowKey.VisibleIndex = 0;
             // 
@@ -198,16 +200,20 @@
             // 
             this.colM.FieldName = "M";
             this.colM.Name = "colM";
+            this.colM.OptionsColumn.FixedWidth = true;
+            this.colM.OptionsColumn.ReadOnly = true;
             this.colM.Visible = true;
             this.colM.VisibleIndex = 1;
             // 
             // colKd
             // 
+            this.colKd.Caption = "Şkl";
             this.colKd.ColumnEdit = this.SklRepositoryItemImageComboBox;
             this.colKd.FieldName = "Kd";
             this.colKd.Name = "colKd";
             this.colKd.Visible = true;
             this.colKd.VisibleIndex = 2;
+            this.colKd.Width = 70;
             // 
             // SklRepositoryItemImageComboBox
             // 
@@ -224,10 +230,20 @@
             // 
             // colAd
             // 
+            this.colAd.Caption = "Değer";
             this.colAd.FieldName = "Ad";
             this.colAd.Name = "colAd";
             this.colAd.Visible = true;
             this.colAd.VisibleIndex = 3;
+            this.colAd.Width = 239;
+            // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 4;
+            this.colInfo.Width = 242;
             // 
             // layoutControl1
             // 
@@ -299,13 +315,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(723, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // colInfo
-            // 
-            this.colInfo.FieldName = "Info";
-            this.colInfo.Name = "colInfo";
-            this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 4;
             // 
             // KhtXF
             // 

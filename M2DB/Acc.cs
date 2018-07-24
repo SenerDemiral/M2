@@ -25,7 +25,7 @@ namespace M2DB
 
         public bool HasP => P == null ? false : true;
         public bool HasK => Db.SQL<AHP>($"select r from {typeof(AHP)} r where {nameof(P)} = ?", this).FirstOrDefault() == null ? false : true;
-        public bool HasH => Db.SQL<AFD>($"select r from {typeof(AFD)} r where {nameof(AFD.AHP)} = ?", this).FirstOrDefault() == null ? false : true;
+        public bool HasH => Db.SQL<AVD>($"select r from {typeof(AVD)} r where {nameof(AVD.AHP)} = ?", this).FirstOrDefault() == null ? false : true;
 
         public string HspNo
         {
@@ -109,7 +109,7 @@ namespace M2DB
     }
 
     [Database]
-    public class AFB    // Account: FisBaslik
+    public class AVM    // Account: Voucher/Fis Master
     {
         public string Drm { get; set; }     // Acik/Kapali/Pending
         public DateTime Trh { get; set; }
@@ -118,15 +118,15 @@ namespace M2DB
         public ulong RefNo { get; set; }    // Master No
         public string Info { get; set; }
 
-        public double Brc => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE r.AFB = ?", this).Sum(x => x.Brc);
-        public double Alc => Db.SQL<AFD>($"SELECT r FROM {typeof(AFD)} r WHERE {nameof(AFD.AFB)} = ?", this).Sum(x => x.Alc);
-        public bool HasD => Db.SQL<AFD>($"select r from {typeof(AFD)} r where {nameof(AFD.AFB)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
+        public double Brc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE r.AVM = ?", this).Sum(x => x.Brc);
+        public double Alc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE {nameof(AVD.AVM)} = ?", this).Sum(x => x.Alc);
+        public bool HasD => Db.SQL<AVD>($"select r from {typeof(AVD)} r where {nameof(AVD.AVM)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
     }
 
     [Database]
-    public class AFD    // Account: FisDetay
+    public class AVD    // Account: FisDetay
     {
-        public AFB AFB { get; set; }    // Baslik
+        public AVM AVM { get; set; }    // Master
         public AHP AHP { get; set; }    // Hesap
 
         public string Info { get; set; }
@@ -141,7 +141,7 @@ namespace M2DB
     }
 
     [Database]
-    public class ABB    // Account: Bill/Fatura Baslik
+    public class ABM    // Account: Bill/Fatura Master
     {
         public string Drm { get; set; }     // Acik/Kapali/Pending
         public DateTime Trh { get; set; }
@@ -153,53 +153,53 @@ namespace M2DB
         public string Info { get; set; }
 
         public double Tut => Db.SQL<ABD>($"SELECT r FROM {typeof(ABD)} r WHERE r.ABB = ?", this).Sum(x => x.TutB);
-        public bool HasD => Db.SQL<ABD>($"select r from {typeof(ABD)} r where {nameof(ABD.ABB)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
+        public bool HasD => Db.SQL<ABD>($"select r from {typeof(ABD)} r where {nameof(ABD.ABM)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
 
-        public static void ABB2AFB(ABB abb) // Insert AFB & AFDs from ABB & ABDs
+        public static void AV2AF(ABM abm) // Insert AVM & AVDs from ABM & ABDs
         {
             Db.Transact(() =>
             {
                 double TopTut = 0;
                 double TopTutTL = 0;
 
-                AFB afb = new AFB();
-                afb.RefTo = "ABB";  // Bill/Fatura dan yaratildi
-                afb.RefNo = abb.GetObjectNo();
+                AVM avm = new AVM();
+                avm.RefTo = "ABM";  // Bill/Fatura dan yaratildi
+                avm.RefNo = abm.GetObjectNo();
 
-                AFD afd;
+                AVD avd;
 
                 // Icindekileri Fise koy
-                foreach (var abd in Db.SQL<ABD>("SELECT r FROM ABD r WHERE r.ObjABB = ?", abb))
+                foreach (var abd in Db.SQL<ABD>("SELECT r FROM ABD r WHERE r.ObjABB = ?", abm))
                 {
-                    afd = new AFD();
-                    afd.AFB = afb;
+                    avd = new AVD();
+                    avd.AVM = avm;
 
-                    if (abb.BA == "A")  // Basligin tersi
-                        afd.AHP = abd.NNN.AHPbrc;
+                    if (abm.BA == "A")  // Basligin tersi
+                        avd.AHP = abd.NNN.AHPbrc;
                     else
-                        afd.AHP = abd.NNN.AHPalc;
+                        avd.AHP = abd.NNN.AHPalc;
 
-                    afd.Tut = abd.TutB;
-                    afd.DVT = abb.DVT;
-                    afd.Kur = abb.Kur;
-                    afd.TutTL = abd.TutTL;
+                    avd.Tut = abd.TutB;
+                    avd.DVT = abm.DVT;
+                    avd.Kur = abm.Kur;
+                    avd.TutTL = abd.TutTL;
 
-                    TopTut += afd.Tut;
-                    TopTutTL += afd.TutTL;
+                    TopTut += avd.Tut;
+                    TopTutTL += avd.TutTL;
                 }
 
                 // Bill Musteriyi Detaya Koy BA
-                afd = new AFD();
-                afd.AFB = afb;
+                avd = new AVD();
+                avd.AVM = avm;
 
-                if (abb.BA == "B")
-                    afd.AHP = abb.KFT.AHPbrc;
+                if (abm.BA == "B")
+                    avd.AHP = abm.KFT.AHPbrc;
                 else
-                    afd.AHP = abb.KFT.AHPalc;
-                afd.Tut = TopTut;
-                afd.DVT = abb.DVT;
-                afd.Kur = abb.Kur;
-                afd.TutTL = TopTutTL;
+                    avd.AHP = abm.KFT.AHPalc;
+                avd.Tut = TopTut;
+                avd.DVT = abm.DVT;
+                avd.Kur = abm.Kur;
+                avd.TutTL = TopTutTL;
             });
         }
     }
@@ -207,7 +207,7 @@ namespace M2DB
     [Database]
     public class ABD    // Account: Bill/Fatura Detay
     {
-        public ABB ABB { get; set; }    // Baslik
+        public ABM ABM { get; set; }    // Master
         public NNN NNN { get; set; }    // Ne
         public AHP AHP { get; set; }    // Ne Hesap
 
@@ -220,7 +220,7 @@ namespace M2DB
 
         public double Tut => Math.Round(Fyt * Mik * (1.0 + KDY), 2);
         public double TutTL => Math.Round(Tut * Kur, 2);
-        public double TutB => DVT == ABB.DVT ? Tut : Math.Round(TutTL / ABB.Kur, 2);    // BaslikDovize gore
+        public double TutB => DVT == ABM.DVT ? Tut : Math.Round(TutTL / ABM.Kur, 2);    // BaslikDovize gore
 
         public double TutNet => Math.Round(Fyt * Mik, 2);
         public double TutNetTL => Math.Round(TutNet * Kur, 2);

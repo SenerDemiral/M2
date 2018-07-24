@@ -41,7 +41,7 @@
             this.abdGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colABB = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colABM = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNNN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -180,7 +180,7 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
-            this.colABB,
+            this.colABM,
             this.colNNN,
             this.colAHP,
             this.colDVT,
@@ -199,12 +199,12 @@
             this.colRowKey.Visible = true;
             this.colRowKey.VisibleIndex = 0;
             // 
-            // colABB
+            // colABM
             // 
-            this.colABB.FieldName = "ABB";
-            this.colABB.Name = "colABB";
-            this.colABB.Visible = true;
-            this.colABB.VisibleIndex = 1;
+            this.colABM.FieldName = "ABM";
+            this.colABM.Name = "colABM";
+            this.colABM.Visible = true;
+            this.colABM.VisibleIndex = 1;
             // 
             // colNNN
             // 
@@ -354,7 +354,7 @@
             this.ClientSize = new System.Drawing.Size(689, 326);
             this.Controls.Add(this.layoutControl1);
             this.Name = "AbdXF";
-            this.Text = "AbdXF";
+            this.Text = "Fatura Detayları [AbdXF]";
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abdBindingNavigator)).EndInit();
@@ -397,7 +397,7 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
-        private DevExpress.XtraGrid.Columns.GridColumn colABB;
+        private DevExpress.XtraGrid.Columns.GridColumn colABM;
         private DevExpress.XtraGrid.Columns.GridColumn colNNN;
         private DevExpress.XtraGrid.Columns.GridColumn colAHP;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
