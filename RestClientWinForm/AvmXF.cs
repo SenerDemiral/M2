@@ -236,6 +236,10 @@ namespace RestClientWinForm
         private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
         {
             var aaa = gridView1.FocusedColumn.Caption;
+
+            if ((ulong)gridView1.GetFocusedRowCellValue(colORG) != 0)   // Otomatik uretilmis
+                e.Cancel = true;
+
             if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
                 e.Cancel = true;
 

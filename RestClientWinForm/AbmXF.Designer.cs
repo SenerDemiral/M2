@@ -60,6 +60,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.faturaDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingNavigator)).BeginInit();
@@ -196,7 +198,9 @@
             this.colDVT,
             this.colKur,
             this.colInfo,
-            this.colTut});
+            this.colTut,
+            this.colKd,
+            this.colAd});
             this.gridView1.GridControl = this.abmGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.CheckBoxSelectorColumnWidth = 20;
@@ -274,14 +278,14 @@
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 9;
+            this.colInfo.VisibleIndex = 10;
             // 
             // colTut
             // 
             this.colTut.FieldName = "Tut";
             this.colTut.Name = "colTut";
             this.colTut.Visible = true;
-            this.colTut.VisibleIndex = 10;
+            this.colTut.VisibleIndex = 9;
             // 
             // layoutControl1
             // 
@@ -369,6 +373,20 @@
             this.faturaDetayToolStripMenuItem.Text = "Fatura Detay";
             this.faturaDetayToolStripMenuItem.Click += new System.EventHandler(this.faturaDetayToolStripMenuItem_Click);
             // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 11;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 12;
+            // 
             // AbmXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -431,5 +449,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem faturaDetayToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colKd;
+        private DevExpress.XtraGrid.Columns.GridColumn colAd;
     }
 }

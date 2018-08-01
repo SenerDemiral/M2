@@ -145,8 +145,9 @@ namespace RestServerSC
                         {
                             RowKey = row.GetObjectNo(),
                             P = row.P == null ? 0 : row.P.GetObjectNo(),
-                            No = row.No,
+                            Kd = row.Kd,
                             Ad = row.Ad,
+                            Info = row.Info,
                             HspNo = row.HspNo,
                             IsW = row.IsW,
                             HasH = row.HasH,
@@ -188,8 +189,8 @@ namespace RestServerSC
                                 request.RowErr = "Üst Hesabı tanımsız";
                             else if (pAhp.IsW || pAhp.HasH)
                                 request.RowErr = "Çalışan hesaba alt hesap açamazsınız";
-                            else if (!AHP.IsAhpNoUnique(pAhp, request.No))
-                                request.RowErr = $"No: {request.No} kullanılmış";
+                            else if (!AHP.IsAhpKdUnique(pAhp, request.Kd))
+                                request.RowErr = $"Kd: {request.Kd} kullanılmış";
                         }
                         else if (request.RowSte == "M")
                         {
@@ -198,8 +199,8 @@ namespace RestServerSC
                                 request.RowErr = "Üst hesap çalışamaz.";
                             else if (!request.IsW && oldRec.HasH)
                                 request.RowErr = "Çalışan hesap, Hareketleri var.";
-                            else if (oldRec.No != request.No && !AHP.IsAhpNoUnique(pAhp, request.No))
-                                request.RowErr = $"No: {request.No} kullanılmış";
+                            else if (oldRec.Kd != request.Kd && !AHP.IsAhpKdUnique(pAhp, request.Kd))
+                                request.RowErr = $"Kd: {request.Kd} kullanılmış";
                         }
 
                         if (request.RowErr == string.Empty)
@@ -234,6 +235,7 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // Voucher/Fis Master
         public override async Task AVMfill(QryProxy request, IServerStreamWriter<AVMproxy> responseStream, ServerCallContext context)
         {
             AVMproxy proxy = new AVMproxy();
@@ -253,9 +255,12 @@ namespace RestServerSC
                         proxy = new AVMproxy
                         {
                             RowKey = row.GetObjectNo(),
+                            ORG = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
                             TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
                             Drm = row.Drm,
+                            Kd = row.Kd,
+                            Ad = row.Ad,
                             Info = row.Info, //row.Info ?? "",
                             Brc = row.Brc,
                             Alc = row.Alc,
@@ -338,6 +343,7 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // Voucher/Fis Detay
         public override async Task AVDfill(QryMDproxy request, IServerStreamWriter<AVDproxy> responseStream, ServerCallContext context)
         {
             AVDproxy proxy = new AVDproxy();
@@ -357,7 +363,9 @@ namespace RestServerSC
                         RowKey = row.GetObjectNo(),
                         AVM = row.AVM == null ? 0 : row.AVM.GetObjectNo(),
                         AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
-                        Info = row.Info,
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                        Info = row.Info, //row.Info ?? "",
                         Tut = row.Tut,
                         DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                         Kur = row.Kur,
@@ -411,7 +419,7 @@ namespace RestServerSC
         }
 
 
-        // Bill/Fatura
+        // Bill/Fatura Master
         public override async Task ABMfill(QryProxy request, IServerStreamWriter<ABMproxy> responseStream, ServerCallContext context)
         {
             ABMproxy proxy = new ABMproxy();
@@ -438,6 +446,8 @@ namespace RestServerSC
                             BA = row.BA,
                             Kur = row.Kur,
                             Drm = row.Drm,
+                            Kd = row.Kd,
+                            Ad = row.Ad,
                             Info = row.Info, //row.Info ?? "",
                             Tut = row.Tut,
                         };
@@ -513,6 +523,7 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // Bill/Fatura Detay
         public override async Task ABDfill(QryMDproxy request, IServerStreamWriter<ABDproxy> responseStream, ServerCallContext context)
         {
             ABDproxy proxy = new ABDproxy();
@@ -538,7 +549,9 @@ namespace RestServerSC
                         Mik = row.Mik,
                         KDY = row.KDY,
                         Kur = row.Kur,
-                        Info = row.Info,
+                        Kd = row.Kd,
+                        Ad = row.Ad,
+                        Info = row.Info, //row.Info ?? "",
                     };
                     proxyList.Add(proxy);
                 }
@@ -990,6 +1003,7 @@ namespace RestServerSC
                         RowKey = row.GetObjectNo(),
                         Kd = row.Kd,
                         Ad = row.Ad,
+                        Info = row.Info, //row.Info ?? "",
                         BRM = row.BRM == null ? 0 : row.BRM.GetObjectNo(),
                         Fyt = row.Fyt,
                     };
@@ -1163,7 +1177,9 @@ namespace RestServerSC
                     proxy = new KFTproxy
                     {
                         RowKey = row.GetObjectNo(),
+                        Kd = row.Kd,
                         Ad = row.Ad,
+                        Info = row.Info, //row.Info ?? "",
                         VrgDN = row.VrgDN,
                         AHPbrc = row.AHPbrc == null ? 0 : row.AHPbrc.GetObjectNo(),
                         AHPalc = row.AHPalc == null ? 0 : row.AHPalc.GetObjectNo(),
@@ -1233,6 +1249,7 @@ namespace RestServerSC
                         RowKey = row.GetObjectNo(),
                         Kd = row.Kd,
                         Ad = row.Ad,
+                        Info = row.Info, //row.Info ?? "",
                     };
                     proxyList.Add(proxy);
                 }
@@ -1294,6 +1311,7 @@ namespace RestServerSC
                         RowKey = row.GetObjectNo(),
                         Kd = row.Kd,
                         Ad = row.Ad,
+                        Info = row.Info,
                     };
                     proxyList.Add(proxy);
                 }

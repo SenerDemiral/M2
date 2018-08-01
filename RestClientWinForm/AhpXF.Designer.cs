@@ -234,7 +234,7 @@
             // 
             // colNoT
             // 
-            this.colNoT.FieldName = "No";
+            this.colNoT.FieldName = "Kd";
             this.colNoT.Name = "colNoT";
             this.colNoT.Visible = true;
             this.colNoT.VisibleIndex = 0;

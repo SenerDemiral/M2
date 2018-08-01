@@ -61,6 +61,8 @@
             this.colBrcTop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAlcTop = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRowErr = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -68,6 +70,7 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colORG = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avmBindingNavigator)).BeginInit();
@@ -244,13 +247,16 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
+            this.colORG,
             this.colTrh,
             this.colTUR,
             this.colDrm,
             this.colInfo,
             this.colBrcTop,
             this.colAlcTop,
-            this.colRowErr});
+            this.colRowErr,
+            this.colKd,
+            this.colAd});
             gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Name = "Format0";
             formatConditionRuleValue1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -307,7 +313,7 @@
             this.colTrh.FieldName = "Trh";
             this.colTrh.Name = "colTrh";
             this.colTrh.Visible = true;
-            this.colTrh.VisibleIndex = 2;
+            this.colTrh.VisibleIndex = 3;
             this.colTrh.Width = 98;
             // 
             // colTUR
@@ -316,7 +322,7 @@
             this.colTUR.FieldName = "TUR";
             this.colTUR.Name = "colTUR";
             this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 3;
+            this.colTUR.VisibleIndex = 4;
             this.colTUR.Width = 98;
             // 
             // colDrm
@@ -327,7 +333,7 @@
             this.colDrm.FieldName = "Drm";
             this.colDrm.Name = "colDrm";
             this.colDrm.Visible = true;
-            this.colDrm.VisibleIndex = 4;
+            this.colDrm.VisibleIndex = 5;
             this.colDrm.Width = 38;
             // 
             // colInfo
@@ -335,7 +341,7 @@
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 5;
+            this.colInfo.VisibleIndex = 8;
             this.colInfo.Width = 117;
             // 
             // colBrcTop
@@ -346,7 +352,7 @@
             this.colBrcTop.Name = "colBrcTop";
             this.colBrcTop.OptionsColumn.ReadOnly = true;
             this.colBrcTop.Visible = true;
-            this.colBrcTop.VisibleIndex = 6;
+            this.colBrcTop.VisibleIndex = 9;
             this.colBrcTop.Width = 117;
             // 
             // colAlcTop
@@ -357,15 +363,30 @@
             this.colAlcTop.Name = "colAlcTop";
             this.colAlcTop.OptionsColumn.ReadOnly = true;
             this.colAlcTop.Visible = true;
-            this.colAlcTop.VisibleIndex = 7;
+            this.colAlcTop.VisibleIndex = 10;
             this.colAlcTop.Width = 124;
             // 
             // colRowErr
             // 
             this.colRowErr.FieldName = "Row.Err";
             this.colRowErr.Name = "colRowErr";
+            this.colRowErr.OptionsColumn.ReadOnly = true;
             this.colRowErr.Visible = true;
-            this.colRowErr.VisibleIndex = 8;
+            this.colRowErr.VisibleIndex = 11;
+            // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 6;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 7;
             // 
             // statusStrip1
             // 
@@ -440,7 +461,16 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // AfbXF
+            // colORG
+            // 
+            this.colORG.FieldName = "ORG";
+            this.colORG.Name = "colORG";
+            this.colORG.OptionsColumn.FixedWidth = true;
+            this.colORG.OptionsColumn.ReadOnly = true;
+            this.colORG.Visible = true;
+            this.colORG.VisibleIndex = 2;
+            // 
+            // AvmXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -504,5 +534,8 @@
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colKd;
+        private DevExpress.XtraGrid.Columns.GridColumn colAd;
+        private DevExpress.XtraGrid.Columns.GridColumn colORG;
     }
 }

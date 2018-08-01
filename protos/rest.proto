@@ -168,13 +168,14 @@ message AHPproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	uint64 P = 5;
-	string No = 6;
-	string Ad = 7;
-	string HspNo = 8;
-	double Brc = 9;
-	double Alc = 10;
-	bool IsW = 11;
-	bool HasH = 12;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue Info = 8;
+	string HspNo = 9;
+	double Brc = 10;
+	double Alc = 11;
+	bool IsW = 12;
+	bool HasH = 13;
 }
 
 // Muhasebe Voucher/Fisleri
@@ -183,12 +184,15 @@ message AVMproxy {
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	int64 Trh = 5;
-	uint64 TUR = 6;
-	string Drm = 7;
-	google.protobuf.StringValue Info = 8;
-	double Brc = 9;
-	double Alc = 10;
+	uint64 ORG = 5;
+	int64 Trh = 6;
+	uint64 TUR = 7;
+	string Drm = 8;
+	google.protobuf.StringValue Kd = 9;
+	google.protobuf.StringValue Ad = 10;
+	google.protobuf.StringValue Info = 11;
+	double Brc = 12;
+	double Alc = 13;
 }
 
 // Muhasebe Voucher/Fis Detaylari
@@ -199,11 +203,13 @@ message AVDproxy {
 	uint64 RowKey = 4;
 	uint64 AVM = 5;
 	uint64 AHP = 6;
-	google.protobuf.StringValue Info = 7;
-	double Tut = 8;
-	uint64 DVT = 9;
-	float Kur = 10;
-	double TutTL = 11;
+	google.protobuf.StringValue Kd = 7;
+	google.protobuf.StringValue Ad = 8;
+	google.protobuf.StringValue Info = 9;
+	double Tut = 10;
+	uint64 DVT = 11;
+	float Kur = 12;
+	double TutTL = 13;
 }
 
 // Muhasebe Bill/Fatura Master
@@ -220,7 +226,9 @@ message ABMproxy {
 	uint64 DVT = 10;
 	float Kur = 11;
 	double Tut = 12;
-	google.protobuf.StringValue Info = 13;
+	google.protobuf.StringValue Kd = 13;
+	google.protobuf.StringValue Ad = 14;
+	google.protobuf.StringValue Info = 15;
 }
 
 // Muhasebe Bill/Fatura Detay
@@ -237,7 +245,9 @@ message ABDproxy {
 	double Mik = 10;
 	float Kur = 11;
 	int32 KDY = 12;
-	google.protobuf.StringValue Info = 13;
+	google.protobuf.StringValue Kd = 13;
+	google.protobuf.StringValue Ad = 14;
+	google.protobuf.StringValue Info = 15;
 }
 
 // GenelTanimlari
@@ -301,8 +311,9 @@ message NNNproxy {
 	uint64 RowKey = 4;
 	google.protobuf.StringValue Kd = 5;
 	google.protobuf.StringValue Ad = 6;
-	uint64 BRM = 7;
-	double Fyt = 8;
+	google.protobuf.StringValue Info = 7;
+	uint64 BRM = 8;
+	double Fyt = 9;
 }
 
 // BR BaseRelation

@@ -40,143 +40,154 @@ namespace Rest {
             "dGUYASABKAkSDwoHcm93X2VychgCIAEoCRIOCgZyb3dfcGsYAyABKAQSDgoG",
             "ZmxkU3RyGAQgASgJEg4KBmZsZEludBgFIAEoBRIOCgZmbGREYmwYBiABKAES",
             "DgoGZmxkRGNtGAcgASgBEg8KB2ZsZERhdGUYCCABKAMiMgoHQmFzZVJvdxIN",
-            "CgVTdGF0ZRgBIAEoCRILCgNFcnIYAiABKAkSCwoDVXNyGAMgASgEIrEBCghB",
+            "CgVTdGF0ZRgBIAEoCRILCgNFcnIYAiABKAkSCwoDVXNyGAMgASgEIpkCCghB",
             "SFBwcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJv",
-            "d1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCQoBUBgFIAEoBBIKCgJObxgG",
-            "IAEoCRIKCgJBZBgHIAEoCRINCgVIc3BObxgIIAEoCRILCgNCcmMYCSABKAES",
-            "CwoDQWxjGAogASgBEgsKA0lzVxgLIAEoCBIMCgRIYXNIGAwgASgIIrcBCghB",
-            "Vk1wcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJv",
-            "d1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCwoDVHJoGAUgASgDEgsKA1RV",
-            "UhgGIAEoBBILCgNEcm0YByABKAkSKgoESW5mbxgIIAEoCzIcLmdvb2dsZS5w",
-            "cm90b2J1Zi5TdHJpbmdWYWx1ZRILCgNCcmMYCSABKAESCwoDQWxjGAogASgB",
-            "IsYBCghBVkRwcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJ",
-            "Eg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCwoDQVZNGAUgASgE",
-            "EgsKA0FIUBgGIAEoBBIqCgRJbmZvGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVm",
-            "LlN0cmluZ1ZhbHVlEgsKA1R1dBgIIAEoARILCgNEVlQYCSABKAQSCwoDS3Vy",
-            "GAogASgCEg0KBVR1dFRMGAsgASgBIt0BCghBQk1wcm94eRIOCgZSb3dTdGUY",
+            "d1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCQoBUBgFIAEoBBIoCgJLZBgG",
+            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIoCgJBZBgHIAEo",
+            "CzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIqCgRJbmZvGAggASgL",
+            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEg0KBUhzcE5vGAkgASgJ",
+            "EgsKA0JyYxgKIAEoARILCgNBbGMYCyABKAESCwoDSXNXGAwgASgIEgwKBEhh",
+            "c0gYDSABKAgimAIKCEFWTXByb3h5Eg4KBlJvd1N0ZRgBIAEoCRIOCgZSb3dF",
+            "cnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tleRgEIAEoBBILCgNP",
+            "UkcYBSABKAQSCwoDVHJoGAYgASgDEgsKA1RVUhgHIAEoBBILCgNEcm0YCCAB",
+            "KAkSKAoCS2QYCSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUS",
+            "KAoCQWQYCiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSKgoE",
+            "SW5mbxgLIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRILCgNC",
+            "cmMYDCABKAESCwoDQWxjGA0gASgBIpoCCghBVkRwcm94eRIOCgZSb3dTdGUY",
             "ASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dL",
-            "ZXkYBCABKAQSCwoDVHJoGAUgASgDEgsKA1RVUhgGIAEoBBILCgNEcm0YByAB",
-            "KAkSCwoDS0ZUGAggASgEEgoKAkJBGAkgASgJEgsKA0RWVBgKIAEoBBILCgNL",
-            "dXIYCyABKAISCwoDVHV0GAwgASgBEioKBEluZm8YDSABKAsyHC5nb29nbGUu",
-            "cHJvdG9idWYuU3RyaW5nVmFsdWUi3gEKCEFCRHByb3h5Eg4KBlJvd1N0ZRgB",
-            "IAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tl",
-            "eRgEIAEoBBILCgNBQk0YBSABKAQSCwoDTk5OGAYgASgEEgsKA0FIUBgHIAEo",
-            "BBILCgNGeXQYCCABKAESCwoDRFZUGAkgASgEEgsKA01paxgKIAEoARILCgNL",
-            "dXIYCyABKAISCwoDS0RZGAwgASgFEioKBEluZm8YDSABKAsyHC5nb29nbGUu",
-            "cHJvdG9idWYuU3RyaW5nVmFsdWUibQoIWEdUcHJveHkSDgoGUm93U3RlGAEg",
-            "ASgJEg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93S2V5",
-            "GAQgASgEEgkKAVAYBSABKAQSCgoCS2QYBiABKAkSCgoCQWQYByABKAkifgoI",
-            "WERLcHJveHkSDgoGUm93U3RlGAEgASgJEg4KBlJvd0VychgCIAEoCRIOCgZS",
-            "b3dVc3IYAyABKAQSDgoGUm93S2V5GAQgASgEEgsKA1RyaBgFIAEoAxILCgNE",
-            "VlQYBiABKAQSCwoDS3VyGAcgASgCEgsKA0R2ehgIIAEoCSJwCghVVVVwcm94",
-            "eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgD",
-            "IAEoBBIOCgZSb3dLZXkYBCABKAQSCwoDVVlUGAUgASgEEgoKAkFkGAYgASgJ",
-            "EgsKA1B3ZBgHIAEoCSJWCghVWVRwcm94eRIOCgZSb3dTdGUYASABKAkSDgoG",
-            "Um93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQS",
-            "CgoCQWQYBSABKAkiYAoIVVlIcHJveHkSDgoGUm93U3RlGAEgASgJEg4KBlJv",
-            "d0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93S2V5GAQgASgEEgkK",
-            "AVAYBSABKAQSCQoBSxgGIAEoBCK4AQoITk5OcHJveHkSDgoGUm93U3RlGAEg",
-            "ASgJEg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93S2V5",
-            "GAQgASgEEigKAktkGAUgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1Zh",
-            "bHVlEigKAkFkGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "EgsKA0JSTRgHIAEoBBILCgNGeXQYCCABKAEibwoHQlJwcm94eRIOCgZSb3dT",
-            "dGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZS",
-            "b3dLZXkYBCABKAQSCQoBUBgFIAEoBBIJCgFDGAYgASgEEg4KBk90aGVycxgH",
-            "IAEoCSJjCghLS0twcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIg",
-            "ASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCgoCQWQYBSAB",
-            "KAkSCwoDVHVyGAYgASgJIp4DCghLRlRwcm94eRIOCgZSb3dTdGUYASABKAkS",
+            "ZXkYBCABKAQSCwoDQVZNGAUgASgEEgsKA0FIUBgGIAEoBBIoCgJLZBgHIAEo",
+            "CzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIoCgJBZBgIIAEoCzIc",
+            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIqCgRJbmZvGAkgASgLMhwu",
+            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEgsKA1R1dBgKIAEoARILCgNE",
+            "VlQYCyABKAQSCwoDS3VyGAwgASgCEg0KBVR1dFRMGA0gASgBIrECCghBQk1w",
+            "cm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1Vz",
+            "chgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCwoDVHJoGAUgASgDEgsKA1RVUhgG",
+            "IAEoBBILCgNEcm0YByABKAkSCwoDS0ZUGAggASgEEgoKAkJBGAkgASgJEgsK",
+            "A0RWVBgKIAEoBBILCgNLdXIYCyABKAISCwoDVHV0GAwgASgBEigKAktkGA0g",
+            "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEigKAkFkGA4gASgL",
+            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEioKBEluZm8YDyABKAsy",
+            "HC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUisgIKCEFCRHByb3h5Eg4K",
+            "BlJvd1N0ZRgBIAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgE",
+            "Eg4KBlJvd0tleRgEIAEoBBILCgNBQk0YBSABKAQSCwoDTk5OGAYgASgEEgsK",
+            "A0FIUBgHIAEoBBILCgNGeXQYCCABKAESCwoDRFZUGAkgASgEEgsKA01paxgK",
+            "IAEoARILCgNLdXIYCyABKAISCwoDS0RZGAwgASgFEigKAktkGA0gASgLMhwu",
+            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEigKAkFkGA4gASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEioKBEluZm8YDyABKAsyHC5nb29n",
+            "bGUucHJvdG9idWYuU3RyaW5nVmFsdWUibQoIWEdUcHJveHkSDgoGUm93U3Rl",
+            "GAEgASgJEg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93",
+            "S2V5GAQgASgEEgkKAVAYBSABKAQSCgoCS2QYBiABKAkSCgoCQWQYByABKAki",
+            "fgoIWERLcHJveHkSDgoGUm93U3RlGAEgASgJEg4KBlJvd0VychgCIAEoCRIO",
+            "CgZSb3dVc3IYAyABKAQSDgoGUm93S2V5GAQgASgEEgsKA1RyaBgFIAEoAxIL",
+            "CgNEVlQYBiABKAQSCwoDS3VyGAcgASgCEgsKA0R2ehgIIAEoCSJwCghVVVVw",
+            "cm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1Vz",
+            "chgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCwoDVVlUGAUgASgEEgoKAkFkGAYg",
+            "ASgJEgsKA1B3ZBgHIAEoCSJWCghVWVRwcm94eRIOCgZSb3dTdGUYASABKAkS",
             "DgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCAB",
-            "KAQSKAoCS2QYBSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUS",
-            "KAoCQWQYBiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSKgoE",
-            "SW5mbxgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIpCgNU",
-            "ZWwYCCABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSKwoFQWRy",
-            "ZXMYCSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSLQoHU29y",
-            "dW1sdRgKIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIrCgVW",
-            "cmdEThgLIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIOCgZB",
-            "SFBicmMYDCABKAQSDgoGQUhQYWxjGA0gASgEItUBCghLQ1Rwcm94eRIOCgZS",
-            "b3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIO",
-            "CgZSb3dLZXkYBCABKAQSCQoBTRgFIAEoBBIoCgJLZBgGIAEoCzIcLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIoCgJBZBgHIAEoCzIcLmdvb2dsZS5w",
-            "cm90b2J1Zi5TdHJpbmdWYWx1ZRIqCgRpbmZvGAggASgLMhwuZ29vZ2xlLnBy",
-            "b3RvYnVmLlN0cmluZ1ZhbHVlIsoBCghLRFRwcm94eRIOCgZSb3dTdGUYASAB",
+            "KAQSCgoCQWQYBSABKAkiYAoIVVlIcHJveHkSDgoGUm93U3RlGAEgASgJEg4K",
+            "BlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93S2V5GAQgASgE",
+            "EgkKAVAYBSABKAQSCQoBSxgGIAEoBCLkAQoITk5OcHJveHkSDgoGUm93U3Rl",
+            "GAEgASgJEg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93",
+            "S2V5GAQgASgEEigKAktkGAUgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmlu",
+            "Z1ZhbHVlEigKAkFkGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1Zh",
+            "bHVlEioKBEluZm8YByABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUSCwoDQlJNGAggASgEEgsKA0Z5dBgJIAEoASJvCgdCUnByb3h5Eg4KBlJv",
+            "d1N0ZRgBIAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4K",
+            "BlJvd0tleRgEIAEoBBIJCgFQGAUgASgEEgkKAUMYBiABKAQSDgoGT3RoZXJz",
+            "GAcgASgJImMKCEtLS3Byb3h5Eg4KBlJvd1N0ZRgBIAEoCRIOCgZSb3dFcnIY",
+            "AiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tleRgEIAEoBBIKCgJBZBgF",
+            "IAEoCRILCgNUdXIYBiABKAkingMKCEtGVHByb3h5Eg4KBlJvd1N0ZRgBIAEo",
+            "CRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tleRgE",
+            "IAEoBBIoCgJLZBgFIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
+            "ZRIoCgJBZBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIq",
+            "CgRJbmZvGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEikK",
+            "A1RlbBgIIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIrCgVB",
+            "ZHJlcxgJIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRItCgdT",
+            "b3J1bWx1GAogASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEisK",
+            "BVZyZ0ROGAsgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEg4K",
+            "BkFIUGJyYxgMIAEoBBIOCgZBSFBhbGMYDSABKAQi1QEKCEtDVHByb3h5Eg4K",
+            "BlJvd1N0ZRgBIAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgE",
+            "Eg4KBlJvd0tleRgEIAEoBBIJCgFNGAUgASgEEigKAktkGAYgASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEigKAkFkGAcgASgLMhwuZ29vZ2xl",
+            "LnByb3RvYnVmLlN0cmluZ1ZhbHVlEioKBGluZm8YCCABKAsyHC5nb29nbGUu",
+            "cHJvdG9idWYuU3RyaW5nVmFsdWUiygEKCEtEVHByb3h5Eg4KBlJvd1N0ZRgB",
+            "IAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tl",
+            "eRgEIAEoBBIoCgJLZBgFIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdW",
+            "YWx1ZRIoCgJBZBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
+            "ZRIqCgRpbmZvGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "IsoBCghLUFRwcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJ",
+            "Eg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSKAoCS2QYBSABKAsy",
+            "HC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSKAoCQWQYBiABKAsyHC5n",
+            "b29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSKgoEaW5mbxgHIAEoCzIcLmdv",
+            "b2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSLVAQoIS0hUcHJveHkSDgoGUm93",
+            "U3RlGAEgASgJEg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoG",
+            "Um93S2V5GAQgASgEEgkKAU0YBSABKAQSKAoCS2QYBiABKAsyHC5nb29nbGUu",
+            "cHJvdG9idWYuU3RyaW5nVmFsdWUSKAoCQWQYByABKAsyHC5nb29nbGUucHJv",
+            "dG9idWYuU3RyaW5nVmFsdWUSKgoEaW5mbxgIIAEoCzIcLmdvb2dsZS5wcm90",
+            "b2J1Zi5TdHJpbmdWYWx1ZSLUAQoKVG9LSFRwcm94eRIOCgZSb3dTdGUYASAB",
             "KAkSDgoGUm93RXJyGAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkY",
-            "BCABKAQSKAoCS2QYBSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
-            "dWUSKAoCQWQYBiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUS",
-            "KgoEaW5mbxgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSLK",
-            "AQoIS1BUcHJveHkSDgoGUm93U3RlGAEgASgJEg4KBlJvd0VychgCIAEoCRIO",
-            "CgZSb3dVc3IYAyABKAQSDgoGUm93S2V5GAQgASgEEigKAktkGAUgASgLMhwu",
-            "Z29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEigKAkFkGAYgASgLMhwuZ29v",
-            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEioKBGluZm8YByABKAsyHC5nb29n",
-            "bGUucHJvdG9idWYuU3RyaW5nVmFsdWUi1QEKCEtIVHByb3h5Eg4KBlJvd1N0",
-            "ZRgBIAEoCRIOCgZSb3dFcnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJv",
-            "d0tleRgEIAEoBBIJCgFNGAUgASgEEigKAktkGAYgASgLMhwuZ29vZ2xlLnBy",
-            "b3RvYnVmLlN0cmluZ1ZhbHVlEigKAkFkGAcgASgLMhwuZ29vZ2xlLnByb3Rv",
-            "YnVmLlN0cmluZ1ZhbHVlEioKBGluZm8YCCABKAsyHC5nb29nbGUucHJvdG9i",
-            "dWYuU3RyaW5nVmFsdWUi1AEKClRvS0hUcHJveHkSDgoGUm93U3RlGAEgASgJ",
-            "Eg4KBlJvd0VychgCIAEoCRIOCgZSb3dVc3IYAyABKAQSDgoGUm93S2V5GAQg",
-            "ASgEEgkKAU0YBSABKAQSKAoCS2QYBiABKAsyHC5nb29nbGUucHJvdG9idWYu",
-            "U3RyaW5nVmFsdWUSKAoCQWQYByABKAsyHC5nb29nbGUucHJvdG9idWYuU3Ry",
-            "aW5nVmFsdWUSCwoDU2tsGAggASgJEg8KB09uY2VsaWsYCSABKAUSCQoBUBgK",
-            "IAEoBCKrAQoKVG9LUFRwcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJy",
-            "GAIgASgJEg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCQoBUBgF",
-            "IAEoBBIoCgJLZBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
-            "ZRIoCgJBZBgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSKr",
-            "AQoKVG9LRFRwcm94eRIOCgZSb3dTdGUYASABKAkSDgoGUm93RXJyGAIgASgJ",
-            "Eg4KBlJvd1VzchgDIAEoBBIOCgZSb3dLZXkYBCABKAQSCQoBUBgFIAEoBBIo",
-            "CgJLZBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIoCgJB",
-            "ZBgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZTKFEgoFQ1JV",
-            "RHMSLwoIVGJsYUZpbGwSDi5yZXN0LlFyeVByb3h5Gg8ucmVzdC5UYmxhUHJv",
-            "eHkiADABEjAKClRibGFVcGRhdGUSDy5yZXN0LlRibGFQcm94eRoPLnJlc3Qu",
-            "VGJsYVByb3h5IgASLQoHQUhQZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0",
-            "LkFIUHByb3h5IgAwARItCglBSFB1cGRhdGUSDi5yZXN0LkFIUHByb3h5Gg4u",
-            "cmVzdC5BSFBwcm94eSIAEi0KB0FWTWZpbGwSDi5yZXN0LlFyeVByb3h5Gg4u",
-            "cmVzdC5BVk1wcm94eSIAMAESLQoJQVZNdXBkYXRlEg4ucmVzdC5BVk1wcm94",
-            "eRoOLnJlc3QuQVZNcHJveHkiABIvCgdBVkRmaWxsEhAucmVzdC5RcnlNRHBy",
-            "b3h5Gg4ucmVzdC5BVkRwcm94eSIAMAESLQoJQVZEdXBkYXRlEg4ucmVzdC5B",
-            "VkRwcm94eRoOLnJlc3QuQVZEcHJveHkiABItCgdBQk1maWxsEg4ucmVzdC5R",
-            "cnlQcm94eRoOLnJlc3QuQUJNcHJveHkiADABEi0KCUFCTXVwZGF0ZRIOLnJl",
-            "c3QuQUJNcHJveHkaDi5yZXN0LkFCTXByb3h5IgASLwoHQUJEZmlsbBIQLnJl",
-            "c3QuUXJ5TURwcm94eRoOLnJlc3QuQUJEcHJveHkiADABEi0KCUFCRHVwZGF0",
-            "ZRIOLnJlc3QuQUJEcHJveHkaDi5yZXN0LkFCRHByb3h5IgASLQoHWEdUZmls",
-            "bBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlhHVHByb3h5IgAwARItCglYR1R1",
-            "cGRhdGUSDi5yZXN0LlhHVHByb3h5Gg4ucmVzdC5YR1Rwcm94eSIAEi0KB1hE",
-            "S2ZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5YREtwcm94eSIAMAESLQoJ",
-            "WERLdXBkYXRlEg4ucmVzdC5YREtwcm94eRoOLnJlc3QuWERLcHJveHkiABIt",
-            "CgdVVVVmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuVVVVcHJveHkiADAB",
-            "Ei0KCVVVVXVwZGF0ZRIOLnJlc3QuVVVVcHJveHkaDi5yZXN0LlVVVXByb3h5",
-            "IgASLQoHVVlUZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlVZVHByb3h5",
-            "IgAwARItCglVWVR1cGRhdGUSDi5yZXN0LlVZVHByb3h5Gg4ucmVzdC5VWVRw",
-            "cm94eSIAEi0KB1VZSGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5VWUhw",
-            "cm94eSIAMAESLQoJVVlIdXBkYXRlEg4ucmVzdC5VWUhwcm94eRoOLnJlc3Qu",
-            "VVlIcHJveHkiABItCgdOTk5maWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3Qu",
-            "Tk5OcHJveHkiADABEi0KCU5OTnVwZGF0ZRIOLnJlc3QuTk5OcHJveHkaDi5y",
-            "ZXN0Lk5OTnByb3h5IgASMQoITmVVcEZpbGwSDi5yZXN0LlFyeVByb3h5GhEu",
-            "cmVzdC5OZVRyZWVQcm94eSIAMAESMwoKTmVEb3duRmlsbBIOLnJlc3QuUXJ5",
-            "UHJveHkaES5yZXN0Lk5lVHJlZVByb3h5IgAwARJBChFLaWRzSW5QYXJlbnRz",
-            "RmlsbBIOLnJlc3QuUXJ5UHJveHkaGC5yZXN0LktpZHNJblBhcmVudHNQcm94",
-            "eSIAMAESQwoSTm9kZXNJblBhcmVudHNGaWxsEg4ucmVzdC5RcnlQcm94eRoZ",
-            "LnJlc3QuTm9kZXNJblBhcmVudHNQcm94eSIAMAESLQoHS0tLZmlsbBIOLnJl",
-            "c3QuUXJ5UHJveHkaDi5yZXN0LktLS3Byb3h5IgAwARItCgdLRlRmaWxsEg4u",
-            "cmVzdC5RcnlQcm94eRoOLnJlc3QuS0ZUcHJveHkiADABEi0KCUtGVHVwZGF0",
-            "ZRIOLnJlc3QuS0ZUcHJveHkaDi5yZXN0LktGVHByb3h5IgASLQoHS1BUZmls",
-            "bBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LktQVHByb3h5IgAwARItCglLUFR1",
-            "cGRhdGUSDi5yZXN0LktQVHByb3h5Gg4ucmVzdC5LUFRwcm94eSIAEi0KB0tE",
-            "VGZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5LRFRwcm94eSIAMAESLQoJ",
-            "S0RUdXBkYXRlEg4ucmVzdC5LRFRwcm94eRoOLnJlc3QuS0RUcHJveHkiABIt",
-            "CgZCUmZpbGwSEC5yZXN0LlFyeUJScHJveHkaDS5yZXN0LkJScHJveHkiADAB",
-            "EioKCEJSdXBkYXRlEg0ucmVzdC5CUnByb3h5Gg0ucmVzdC5CUnByb3h5IgAS",
-            "MgoJVG9LUFRmaWxsEg8ucmVzdC5RcnlQcHJveHkaEC5yZXN0LlRvS1BUcHJv",
-            "eHkiADABEjMKC1RvS1BUdXBkYXRlEhAucmVzdC5Ub0tQVHByb3h5GhAucmVz",
-            "dC5Ub0tQVHByb3h5IgASMgoJVG9LSFRmaWxsEg8ucmVzdC5RcnlQcHJveHka",
-            "EC5yZXN0LlRvS0hUcHJveHkiADABEjMKC1RvS0hUdXBkYXRlEhAucmVzdC5U",
-            "b0tIVHByb3h5GhAucmVzdC5Ub0tIVHByb3h5IgASMgoJVG9LRFRmaWxsEg8u",
-            "cmVzdC5RcnlQcHJveHkaEC5yZXN0LlRvS0RUcHJveHkiADABEjMKC1RvS0RU",
-            "dXBkYXRlEhAucmVzdC5Ub0tEVHByb3h5GhAucmVzdC5Ub0tEVHByb3h5IgAS",
-            "LgoHS0hUZmlsbBIPLnJlc3QuUXJ5UHByb3h5Gg4ucmVzdC5LSFRwcm94eSIA",
-            "MAESLQoJS0hUdXBkYXRlEg4ucmVzdC5LSFRwcm94eRoOLnJlc3QuS0hUcHJv",
-            "eHkiABIuCgdLQ1RmaWxsEg8ucmVzdC5RcnlQcHJveHkaDi5yZXN0LktDVHBy",
-            "b3h5IgAwARItCglLQ1R1cGRhdGUSDi5yZXN0LktDVHByb3h5Gg4ucmVzdC5L",
-            "Q1Rwcm94eSIAYgZwcm90bzM="));
+            "BCABKAQSCQoBTRgFIAEoBBIoCgJLZBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1",
+            "Zi5TdHJpbmdWYWx1ZRIoCgJBZBgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5T",
+            "dHJpbmdWYWx1ZRILCgNTa2wYCCABKAkSDwoHT25jZWxpaxgJIAEoBRIJCgFQ",
+            "GAogASgEIqsBCgpUb0tQVHByb3h5Eg4KBlJvd1N0ZRgBIAEoCRIOCgZSb3dF",
+            "cnIYAiABKAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tleRgEIAEoBBIJCgFQ",
+            "GAUgASgEEigKAktkGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1Zh",
+            "bHVlEigKAkFkGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "IqsBCgpUb0tEVHByb3h5Eg4KBlJvd1N0ZRgBIAEoCRIOCgZSb3dFcnIYAiAB",
+            "KAkSDgoGUm93VXNyGAMgASgEEg4KBlJvd0tleRgEIAEoBBIJCgFQGAUgASgE",
+            "EigKAktkGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEigK",
+            "AkFkGAcgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlMoUSCgVD",
+            "UlVEcxIvCghUYmxhRmlsbBIOLnJlc3QuUXJ5UHJveHkaDy5yZXN0LlRibGFQ",
+            "cm94eSIAMAESMAoKVGJsYVVwZGF0ZRIPLnJlc3QuVGJsYVByb3h5Gg8ucmVz",
+            "dC5UYmxhUHJveHkiABItCgdBSFBmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJl",
+            "c3QuQUhQcHJveHkiADABEi0KCUFIUHVwZGF0ZRIOLnJlc3QuQUhQcHJveHka",
+            "Di5yZXN0LkFIUHByb3h5IgASLQoHQVZNZmlsbBIOLnJlc3QuUXJ5UHJveHka",
+            "Di5yZXN0LkFWTXByb3h5IgAwARItCglBVk11cGRhdGUSDi5yZXN0LkFWTXBy",
+            "b3h5Gg4ucmVzdC5BVk1wcm94eSIAEi8KB0FWRGZpbGwSEC5yZXN0LlFyeU1E",
+            "cHJveHkaDi5yZXN0LkFWRHByb3h5IgAwARItCglBVkR1cGRhdGUSDi5yZXN0",
+            "LkFWRHByb3h5Gg4ucmVzdC5BVkRwcm94eSIAEi0KB0FCTWZpbGwSDi5yZXN0",
+            "LlFyeVByb3h5Gg4ucmVzdC5BQk1wcm94eSIAMAESLQoJQUJNdXBkYXRlEg4u",
+            "cmVzdC5BQk1wcm94eRoOLnJlc3QuQUJNcHJveHkiABIvCgdBQkRmaWxsEhAu",
+            "cmVzdC5RcnlNRHByb3h5Gg4ucmVzdC5BQkRwcm94eSIAMAESLQoJQUJEdXBk",
+            "YXRlEg4ucmVzdC5BQkRwcm94eRoOLnJlc3QuQUJEcHJveHkiABItCgdYR1Rm",
+            "aWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuWEdUcHJveHkiADABEi0KCVhH",
+            "VHVwZGF0ZRIOLnJlc3QuWEdUcHJveHkaDi5yZXN0LlhHVHByb3h5IgASLQoH",
+            "WERLZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlhES3Byb3h5IgAwARIt",
+            "CglYREt1cGRhdGUSDi5yZXN0LlhES3Byb3h5Gg4ucmVzdC5YREtwcm94eSIA",
+            "Ei0KB1VVVWZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVzdC5VVVVwcm94eSIA",
+            "MAESLQoJVVVVdXBkYXRlEg4ucmVzdC5VVVVwcm94eRoOLnJlc3QuVVVVcHJv",
+            "eHkiABItCgdVWVRmaWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuVVlUcHJv",
+            "eHkiADABEi0KCVVZVHVwZGF0ZRIOLnJlc3QuVVlUcHJveHkaDi5yZXN0LlVZ",
+            "VHByb3h5IgASLQoHVVlIZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LlVZ",
+            "SHByb3h5IgAwARItCglVWUh1cGRhdGUSDi5yZXN0LlVZSHByb3h5Gg4ucmVz",
+            "dC5VWUhwcm94eSIAEi0KB05OTmZpbGwSDi5yZXN0LlFyeVByb3h5Gg4ucmVz",
+            "dC5OTk5wcm94eSIAMAESLQoJTk5OdXBkYXRlEg4ucmVzdC5OTk5wcm94eRoO",
+            "LnJlc3QuTk5OcHJveHkiABIxCghOZVVwRmlsbBIOLnJlc3QuUXJ5UHJveHka",
+            "ES5yZXN0Lk5lVHJlZVByb3h5IgAwARIzCgpOZURvd25GaWxsEg4ucmVzdC5R",
+            "cnlQcm94eRoRLnJlc3QuTmVUcmVlUHJveHkiADABEkEKEUtpZHNJblBhcmVu",
+            "dHNGaWxsEg4ucmVzdC5RcnlQcm94eRoYLnJlc3QuS2lkc0luUGFyZW50c1By",
+            "b3h5IgAwARJDChJOb2Rlc0luUGFyZW50c0ZpbGwSDi5yZXN0LlFyeVByb3h5",
+            "GhkucmVzdC5Ob2Rlc0luUGFyZW50c1Byb3h5IgAwARItCgdLS0tmaWxsEg4u",
+            "cmVzdC5RcnlQcm94eRoOLnJlc3QuS0tLcHJveHkiADABEi0KB0tGVGZpbGwS",
+            "Di5yZXN0LlFyeVByb3h5Gg4ucmVzdC5LRlRwcm94eSIAMAESLQoJS0ZUdXBk",
+            "YXRlEg4ucmVzdC5LRlRwcm94eRoOLnJlc3QuS0ZUcHJveHkiABItCgdLUFRm",
+            "aWxsEg4ucmVzdC5RcnlQcm94eRoOLnJlc3QuS1BUcHJveHkiADABEi0KCUtQ",
+            "VHVwZGF0ZRIOLnJlc3QuS1BUcHJveHkaDi5yZXN0LktQVHByb3h5IgASLQoH",
+            "S0RUZmlsbBIOLnJlc3QuUXJ5UHJveHkaDi5yZXN0LktEVHByb3h5IgAwARIt",
+            "CglLRFR1cGRhdGUSDi5yZXN0LktEVHByb3h5Gg4ucmVzdC5LRFRwcm94eSIA",
+            "Ei0KBkJSZmlsbBIQLnJlc3QuUXJ5QlJwcm94eRoNLnJlc3QuQlJwcm94eSIA",
+            "MAESKgoIQlJ1cGRhdGUSDS5yZXN0LkJScHJveHkaDS5yZXN0LkJScHJveHki",
+            "ABIyCglUb0tQVGZpbGwSDy5yZXN0LlFyeVBwcm94eRoQLnJlc3QuVG9LUFRw",
+            "cm94eSIAMAESMwoLVG9LUFR1cGRhdGUSEC5yZXN0LlRvS1BUcHJveHkaEC5y",
+            "ZXN0LlRvS1BUcHJveHkiABIyCglUb0tIVGZpbGwSDy5yZXN0LlFyeVBwcm94",
+            "eRoQLnJlc3QuVG9LSFRwcm94eSIAMAESMwoLVG9LSFR1cGRhdGUSEC5yZXN0",
+            "LlRvS0hUcHJveHkaEC5yZXN0LlRvS0hUcHJveHkiABIyCglUb0tEVGZpbGwS",
+            "Dy5yZXN0LlFyeVBwcm94eRoQLnJlc3QuVG9LRFRwcm94eSIAMAESMwoLVG9L",
+            "RFR1cGRhdGUSEC5yZXN0LlRvS0RUcHJveHkaEC5yZXN0LlRvS0RUcHJveHki",
+            "ABIuCgdLSFRmaWxsEg8ucmVzdC5RcnlQcHJveHkaDi5yZXN0LktIVHByb3h5",
+            "IgAwARItCglLSFR1cGRhdGUSDi5yZXN0LktIVHByb3h5Gg4ucmVzdC5LSFRw",
+            "cm94eSIAEi4KB0tDVGZpbGwSDy5yZXN0LlFyeVBwcm94eRoOLnJlc3QuS0NU",
+            "cHJveHkiADABEi0KCUtDVHVwZGF0ZRIOLnJlc3QuS0NUcHJveHkaDi5yZXN0",
+            "LktDVHByb3h5IgBiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
@@ -190,17 +201,17 @@ namespace Rest {
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.NodesInParentsProxy), global::Rest.NodesInParentsProxy.Parser, new[]{ "KNo", "PNo", "KAd", "PAd", "M" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.TblaProxy), global::Rest.TblaProxy.Parser, new[]{ "RowState", "RowErr", "RowPk", "FldStr", "FldInt", "FldDbl", "FldDcm", "FldDate" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.BaseRow), global::Rest.BaseRow.Parser, new[]{ "State", "Err", "Usr" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "P", "No", "Ad", "HspNo", "Brc", "Alc", "IsW", "HasH" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AVMproxy), global::Rest.AVMproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Trh", "TUR", "Drm", "Info", "Brc", "Alc" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AVDproxy), global::Rest.AVDproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "AVM", "AHP", "Info", "Tut", "DVT", "Kur", "TutTL" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABMproxy), global::Rest.ABMproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Trh", "TUR", "Drm", "KFT", "BA", "DVT", "Kur", "Tut", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "ABM", "NNN", "AHP", "Fyt", "DVT", "Mik", "Kur", "KDY", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AHPproxy), global::Rest.AHPproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "P", "Kd", "Ad", "Info", "HspNo", "Brc", "Alc", "IsW", "HasH" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AVMproxy), global::Rest.AVMproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "ORG", "Trh", "TUR", "Drm", "Kd", "Ad", "Info", "Brc", "Alc" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AVDproxy), global::Rest.AVDproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "AVM", "AHP", "Kd", "Ad", "Info", "Tut", "DVT", "Kur", "TutTL" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABMproxy), global::Rest.ABMproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Trh", "TUR", "Drm", "KFT", "BA", "DVT", "Kur", "Tut", "Kd", "Ad", "Info" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.ABDproxy), global::Rest.ABDproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "ABM", "NNN", "AHP", "Fyt", "DVT", "Mik", "Kur", "KDY", "Kd", "Ad", "Info" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XGTproxy), global::Rest.XGTproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "P", "Kd", "Ad" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XDKproxy), global::Rest.XDKproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Trh", "DVT", "Kur", "Dvz" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UUUproxy), global::Rest.UUUproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "UYT", "Ad", "Pwd" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UYTproxy), global::Rest.UYTproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Ad" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.UYHproxy), global::Rest.UYHproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "P", "K" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.NNNproxy), global::Rest.NNNproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Kd", "Ad", "BRM", "Fyt" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.NNNproxy), global::Rest.NNNproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Kd", "Ad", "Info", "BRM", "Fyt" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.BRproxy), global::Rest.BRproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "P", "C", "Others" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KKKproxy), global::Rest.KKKproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Ad", "Tur" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KFTproxy), global::Rest.KFTproxy.Parser, new[]{ "RowSte", "RowErr", "RowUsr", "RowKey", "Kd", "Ad", "Info", "Tel", "Adres", "Sorumlu", "VrgDN", "AHPbrc", "AHPalc" }, null, null, null),
@@ -2429,8 +2440,9 @@ namespace Rest {
       rowUsr_ = other.rowUsr_;
       rowKey_ = other.rowKey_;
       p_ = other.p_;
-      no_ = other.no_;
-      ad_ = other.ad_;
+      Kd = other.Kd;
+      Ad = other.Ad;
+      Info = other.Info;
       hspNo_ = other.hspNo_;
       brc_ = other.brc_;
       alc_ = other.alc_;
@@ -2499,30 +2511,44 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "No" field.</summary>
-    public const int NoFieldNumber = 6;
-    private string no_ = "";
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 6;
+    private static readonly pb::FieldCodec<string> _single_kd_codec = pb::FieldCodec.ForClassWrapper<string>(50);
+    private string kd_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string No {
-      get { return no_; }
+    public string Kd {
+      get { return kd_; }
       set {
-        no_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        kd_ = value;
       }
     }
 
     /// <summary>Field number for the "Ad" field.</summary>
     public const int AdFieldNumber = 7;
-    private string ad_ = "";
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    private string ad_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Ad {
       get { return ad_; }
       set {
-        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        ad_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Info" field.</summary>
+    public const int InfoFieldNumber = 8;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(66);
+    private string info_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Info {
+      get { return info_; }
+      set {
+        info_ = value;
       }
     }
 
     /// <summary>Field number for the "HspNo" field.</summary>
-    public const int HspNoFieldNumber = 8;
+    public const int HspNoFieldNumber = 9;
     private string hspNo_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string HspNo {
@@ -2533,7 +2559,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Brc" field.</summary>
-    public const int BrcFieldNumber = 9;
+    public const int BrcFieldNumber = 10;
     private double brc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Brc {
@@ -2544,7 +2570,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Alc" field.</summary>
-    public const int AlcFieldNumber = 10;
+    public const int AlcFieldNumber = 11;
     private double alc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Alc {
@@ -2555,7 +2581,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "IsW" field.</summary>
-    public const int IsWFieldNumber = 11;
+    public const int IsWFieldNumber = 12;
     private bool isW_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool IsW {
@@ -2566,7 +2592,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "HasH" field.</summary>
-    public const int HasHFieldNumber = 12;
+    public const int HasHFieldNumber = 13;
     private bool hasH_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public bool HasH {
@@ -2594,8 +2620,9 @@ namespace Rest {
       if (RowUsr != other.RowUsr) return false;
       if (RowKey != other.RowKey) return false;
       if (P != other.P) return false;
-      if (No != other.No) return false;
+      if (Kd != other.Kd) return false;
       if (Ad != other.Ad) return false;
+      if (Info != other.Info) return false;
       if (HspNo != other.HspNo) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Brc, other.Brc)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Alc, other.Alc)) return false;
@@ -2612,8 +2639,9 @@ namespace Rest {
       if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
       if (P != 0UL) hash ^= P.GetHashCode();
-      if (No.Length != 0) hash ^= No.GetHashCode();
-      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
+      if (kd_ != null) hash ^= Kd.GetHashCode();
+      if (ad_ != null) hash ^= Ad.GetHashCode();
+      if (info_ != null) hash ^= Info.GetHashCode();
       if (HspNo.Length != 0) hash ^= HspNo.GetHashCode();
       if (Brc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Brc);
       if (Alc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Alc);
@@ -2652,32 +2680,33 @@ namespace Rest {
         output.WriteRawTag(40);
         output.WriteUInt64(P);
       }
-      if (No.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(No);
+      if (kd_ != null) {
+        _single_kd_codec.WriteTagAndValue(output, Kd);
       }
-      if (Ad.Length != 0) {
-        output.WriteRawTag(58);
-        output.WriteString(Ad);
+      if (ad_ != null) {
+        _single_ad_codec.WriteTagAndValue(output, Ad);
+      }
+      if (info_ != null) {
+        _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (HspNo.Length != 0) {
-        output.WriteRawTag(66);
+        output.WriteRawTag(74);
         output.WriteString(HspNo);
       }
       if (Brc != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(81);
         output.WriteDouble(Brc);
       }
       if (Alc != 0D) {
-        output.WriteRawTag(81);
+        output.WriteRawTag(89);
         output.WriteDouble(Alc);
       }
       if (IsW != false) {
-        output.WriteRawTag(88);
+        output.WriteRawTag(96);
         output.WriteBool(IsW);
       }
       if (HasH != false) {
-        output.WriteRawTag(96);
+        output.WriteRawTag(104);
         output.WriteBool(HasH);
       }
       if (_unknownFields != null) {
@@ -2703,11 +2732,14 @@ namespace Rest {
       if (P != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(P);
       }
-      if (No.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(No);
+      if (kd_ != null) {
+        size += _single_kd_codec.CalculateSizeWithTag(Kd);
       }
-      if (Ad.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
+      if (ad_ != null) {
+        size += _single_ad_codec.CalculateSizeWithTag(Ad);
+      }
+      if (info_ != null) {
+        size += _single_info_codec.CalculateSizeWithTag(Info);
       }
       if (HspNo.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(HspNo);
@@ -2750,11 +2782,20 @@ namespace Rest {
       if (other.P != 0UL) {
         P = other.P;
       }
-      if (other.No.Length != 0) {
-        No = other.No;
+      if (other.kd_ != null) {
+        if (kd_ == null || other.Kd != "") {
+          Kd = other.Kd;
+        }
       }
-      if (other.Ad.Length != 0) {
-        Ad = other.Ad;
+      if (other.ad_ != null) {
+        if (ad_ == null || other.Ad != "") {
+          Ad = other.Ad;
+        }
+      }
+      if (other.info_ != null) {
+        if (info_ == null || other.Info != "") {
+          Info = other.Info;
+        }
       }
       if (other.HspNo.Length != 0) {
         HspNo = other.HspNo;
@@ -2803,30 +2844,43 @@ namespace Rest {
             break;
           }
           case 50: {
-            No = input.ReadString();
+            string value = _single_kd_codec.Read(input);
+            if (kd_ == null || value != "") {
+              Kd = value;
+            }
             break;
           }
           case 58: {
-            Ad = input.ReadString();
+            string value = _single_ad_codec.Read(input);
+            if (ad_ == null || value != "") {
+              Ad = value;
+            }
             break;
           }
           case 66: {
+            string value = _single_info_codec.Read(input);
+            if (info_ == null || value != "") {
+              Info = value;
+            }
+            break;
+          }
+          case 74: {
             HspNo = input.ReadString();
             break;
           }
-          case 73: {
+          case 81: {
             Brc = input.ReadDouble();
             break;
           }
-          case 81: {
+          case 89: {
             Alc = input.ReadDouble();
             break;
           }
-          case 88: {
+          case 96: {
             IsW = input.ReadBool();
             break;
           }
-          case 96: {
+          case 104: {
             HasH = input.ReadBool();
             break;
           }
@@ -2868,9 +2922,12 @@ namespace Rest {
       rowErr_ = other.rowErr_;
       rowUsr_ = other.rowUsr_;
       rowKey_ = other.rowKey_;
+      oRG_ = other.oRG_;
       trh_ = other.trh_;
       tUR_ = other.tUR_;
       drm_ = other.drm_;
+      Kd = other.Kd;
+      Ad = other.Ad;
       Info = other.Info;
       brc_ = other.brc_;
       alc_ = other.alc_;
@@ -2926,8 +2983,19 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "ORG" field.</summary>
+    public const int ORGFieldNumber = 5;
+    private ulong oRG_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong ORG {
+      get { return oRG_; }
+      set {
+        oRG_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Trh" field.</summary>
-    public const int TrhFieldNumber = 5;
+    public const int TrhFieldNumber = 6;
     private long trh_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Trh {
@@ -2938,7 +3006,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TUR" field.</summary>
-    public const int TURFieldNumber = 6;
+    public const int TURFieldNumber = 7;
     private ulong tUR_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong TUR {
@@ -2949,7 +3017,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Drm" field.</summary>
-    public const int DrmFieldNumber = 7;
+    public const int DrmFieldNumber = 8;
     private string drm_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Drm {
@@ -2959,9 +3027,33 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 9;
+    private static readonly pb::FieldCodec<string> _single_kd_codec = pb::FieldCodec.ForClassWrapper<string>(74);
+    private string kd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Kd {
+      get { return kd_; }
+      set {
+        kd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(82);
+    private string ad_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 8;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(66);
+    public const int InfoFieldNumber = 11;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(90);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -2972,7 +3064,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Brc" field.</summary>
-    public const int BrcFieldNumber = 9;
+    public const int BrcFieldNumber = 12;
     private double brc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Brc {
@@ -2983,7 +3075,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Alc" field.</summary>
-    public const int AlcFieldNumber = 10;
+    public const int AlcFieldNumber = 13;
     private double alc_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Alc {
@@ -3010,9 +3102,12 @@ namespace Rest {
       if (RowErr != other.RowErr) return false;
       if (RowUsr != other.RowUsr) return false;
       if (RowKey != other.RowKey) return false;
+      if (ORG != other.ORG) return false;
       if (Trh != other.Trh) return false;
       if (TUR != other.TUR) return false;
       if (Drm != other.Drm) return false;
+      if (Kd != other.Kd) return false;
+      if (Ad != other.Ad) return false;
       if (Info != other.Info) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Brc, other.Brc)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Alc, other.Alc)) return false;
@@ -3026,9 +3121,12 @@ namespace Rest {
       if (RowErr.Length != 0) hash ^= RowErr.GetHashCode();
       if (RowUsr != 0UL) hash ^= RowUsr.GetHashCode();
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
+      if (ORG != 0UL) hash ^= ORG.GetHashCode();
       if (Trh != 0L) hash ^= Trh.GetHashCode();
       if (TUR != 0UL) hash ^= TUR.GetHashCode();
       if (Drm.Length != 0) hash ^= Drm.GetHashCode();
+      if (kd_ != null) hash ^= Kd.GetHashCode();
+      if (ad_ != null) hash ^= Ad.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (Brc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Brc);
       if (Alc != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Alc);
@@ -3061,27 +3159,37 @@ namespace Rest {
         output.WriteRawTag(32);
         output.WriteUInt64(RowKey);
       }
-      if (Trh != 0L) {
+      if (ORG != 0UL) {
         output.WriteRawTag(40);
+        output.WriteUInt64(ORG);
+      }
+      if (Trh != 0L) {
+        output.WriteRawTag(48);
         output.WriteInt64(Trh);
       }
       if (TUR != 0UL) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(56);
         output.WriteUInt64(TUR);
       }
       if (Drm.Length != 0) {
-        output.WriteRawTag(58);
+        output.WriteRawTag(66);
         output.WriteString(Drm);
+      }
+      if (kd_ != null) {
+        _single_kd_codec.WriteTagAndValue(output, Kd);
+      }
+      if (ad_ != null) {
+        _single_ad_codec.WriteTagAndValue(output, Ad);
       }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (Brc != 0D) {
-        output.WriteRawTag(73);
+        output.WriteRawTag(97);
         output.WriteDouble(Brc);
       }
       if (Alc != 0D) {
-        output.WriteRawTag(81);
+        output.WriteRawTag(105);
         output.WriteDouble(Alc);
       }
       if (_unknownFields != null) {
@@ -3104,6 +3212,9 @@ namespace Rest {
       if (RowKey != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
       }
+      if (ORG != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(ORG);
+      }
       if (Trh != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Trh);
       }
@@ -3112,6 +3223,12 @@ namespace Rest {
       }
       if (Drm.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Drm);
+      }
+      if (kd_ != null) {
+        size += _single_kd_codec.CalculateSizeWithTag(Kd);
+      }
+      if (ad_ != null) {
+        size += _single_ad_codec.CalculateSizeWithTag(Ad);
       }
       if (info_ != null) {
         size += _single_info_codec.CalculateSizeWithTag(Info);
@@ -3145,6 +3262,9 @@ namespace Rest {
       if (other.RowKey != 0UL) {
         RowKey = other.RowKey;
       }
+      if (other.ORG != 0UL) {
+        ORG = other.ORG;
+      }
       if (other.Trh != 0L) {
         Trh = other.Trh;
       }
@@ -3153,6 +3273,16 @@ namespace Rest {
       }
       if (other.Drm.Length != 0) {
         Drm = other.Drm;
+      }
+      if (other.kd_ != null) {
+        if (kd_ == null || other.Kd != "") {
+          Kd = other.Kd;
+        }
+      }
+      if (other.ad_ != null) {
+        if (ad_ == null || other.Ad != "") {
+          Ad = other.Ad;
+        }
       }
       if (other.info_ != null) {
         if (info_ == null || other.Info != "") {
@@ -3193,29 +3323,47 @@ namespace Rest {
             break;
           }
           case 40: {
-            Trh = input.ReadInt64();
+            ORG = input.ReadUInt64();
             break;
           }
           case 48: {
+            Trh = input.ReadInt64();
+            break;
+          }
+          case 56: {
             TUR = input.ReadUInt64();
             break;
           }
-          case 58: {
+          case 66: {
             Drm = input.ReadString();
             break;
           }
-          case 66: {
+          case 74: {
+            string value = _single_kd_codec.Read(input);
+            if (kd_ == null || value != "") {
+              Kd = value;
+            }
+            break;
+          }
+          case 82: {
+            string value = _single_ad_codec.Read(input);
+            if (ad_ == null || value != "") {
+              Ad = value;
+            }
+            break;
+          }
+          case 90: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
             }
             break;
           }
-          case 73: {
+          case 97: {
             Brc = input.ReadDouble();
             break;
           }
-          case 81: {
+          case 105: {
             Alc = input.ReadDouble();
             break;
           }
@@ -3259,6 +3407,8 @@ namespace Rest {
       rowKey_ = other.rowKey_;
       aVM_ = other.aVM_;
       aHP_ = other.aHP_;
+      Kd = other.Kd;
+      Ad = other.Ad;
       Info = other.Info;
       tut_ = other.tut_;
       dVT_ = other.dVT_;
@@ -3338,9 +3488,33 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 7;
+    private static readonly pb::FieldCodec<string> _single_kd_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    private string kd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Kd {
+      get { return kd_; }
+      set {
+        kd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 8;
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(66);
+    private string ad_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 7;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    public const int InfoFieldNumber = 9;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(74);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -3351,7 +3525,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Tut" field.</summary>
-    public const int TutFieldNumber = 8;
+    public const int TutFieldNumber = 10;
     private double tut_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Tut {
@@ -3362,7 +3536,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "DVT" field.</summary>
-    public const int DVTFieldNumber = 9;
+    public const int DVTFieldNumber = 11;
     private ulong dVT_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong DVT {
@@ -3373,7 +3547,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Kur" field.</summary>
-    public const int KurFieldNumber = 10;
+    public const int KurFieldNumber = 12;
     private float kur_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public float Kur {
@@ -3384,7 +3558,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "TutTL" field.</summary>
-    public const int TutTLFieldNumber = 11;
+    public const int TutTLFieldNumber = 13;
     private double tutTL_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double TutTL {
@@ -3413,6 +3587,8 @@ namespace Rest {
       if (RowKey != other.RowKey) return false;
       if (AVM != other.AVM) return false;
       if (AHP != other.AHP) return false;
+      if (Kd != other.Kd) return false;
+      if (Ad != other.Ad) return false;
       if (Info != other.Info) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Tut, other.Tut)) return false;
       if (DVT != other.DVT) return false;
@@ -3430,6 +3606,8 @@ namespace Rest {
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
       if (AVM != 0UL) hash ^= AVM.GetHashCode();
       if (AHP != 0UL) hash ^= AHP.GetHashCode();
+      if (kd_ != null) hash ^= Kd.GetHashCode();
+      if (ad_ != null) hash ^= Ad.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
       if (DVT != 0UL) hash ^= DVT.GetHashCode();
@@ -3472,23 +3650,29 @@ namespace Rest {
         output.WriteRawTag(48);
         output.WriteUInt64(AHP);
       }
+      if (kd_ != null) {
+        _single_kd_codec.WriteTagAndValue(output, Kd);
+      }
+      if (ad_ != null) {
+        _single_ad_codec.WriteTagAndValue(output, Ad);
+      }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
       if (Tut != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(81);
         output.WriteDouble(Tut);
       }
       if (DVT != 0UL) {
-        output.WriteRawTag(72);
+        output.WriteRawTag(88);
         output.WriteUInt64(DVT);
       }
       if (Kur != 0F) {
-        output.WriteRawTag(85);
+        output.WriteRawTag(101);
         output.WriteFloat(Kur);
       }
       if (TutTL != 0D) {
-        output.WriteRawTag(89);
+        output.WriteRawTag(105);
         output.WriteDouble(TutTL);
       }
       if (_unknownFields != null) {
@@ -3516,6 +3700,12 @@ namespace Rest {
       }
       if (AHP != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(AHP);
+      }
+      if (kd_ != null) {
+        size += _single_kd_codec.CalculateSizeWithTag(Kd);
+      }
+      if (ad_ != null) {
+        size += _single_ad_codec.CalculateSizeWithTag(Ad);
       }
       if (info_ != null) {
         size += _single_info_codec.CalculateSizeWithTag(Info);
@@ -3560,6 +3750,16 @@ namespace Rest {
       }
       if (other.AHP != 0UL) {
         AHP = other.AHP;
+      }
+      if (other.kd_ != null) {
+        if (kd_ == null || other.Kd != "") {
+          Kd = other.Kd;
+        }
+      }
+      if (other.ad_ != null) {
+        if (ad_ == null || other.Ad != "") {
+          Ad = other.Ad;
+        }
       }
       if (other.info_ != null) {
         if (info_ == null || other.Info != "") {
@@ -3614,25 +3814,39 @@ namespace Rest {
             break;
           }
           case 58: {
+            string value = _single_kd_codec.Read(input);
+            if (kd_ == null || value != "") {
+              Kd = value;
+            }
+            break;
+          }
+          case 66: {
+            string value = _single_ad_codec.Read(input);
+            if (ad_ == null || value != "") {
+              Ad = value;
+            }
+            break;
+          }
+          case 74: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
             }
             break;
           }
-          case 65: {
+          case 81: {
             Tut = input.ReadDouble();
             break;
           }
-          case 72: {
+          case 88: {
             DVT = input.ReadUInt64();
             break;
           }
-          case 85: {
+          case 101: {
             Kur = input.ReadFloat();
             break;
           }
-          case 89: {
+          case 105: {
             TutTL = input.ReadDouble();
             break;
           }
@@ -3682,6 +3896,8 @@ namespace Rest {
       dVT_ = other.dVT_;
       kur_ = other.kur_;
       tut_ = other.tut_;
+      Kd = other.Kd;
+      Ad = other.Ad;
       Info = other.Info;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -3823,9 +4039,33 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 13;
+    private static readonly pb::FieldCodec<string> _single_kd_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    private string kd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Kd {
+      get { return kd_; }
+      set {
+        kd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 14;
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(114);
+    private string ad_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 13;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    public const int InfoFieldNumber = 15;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(122);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -3860,6 +4100,8 @@ namespace Rest {
       if (DVT != other.DVT) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Tut, other.Tut)) return false;
+      if (Kd != other.Kd) return false;
+      if (Ad != other.Ad) return false;
       if (Info != other.Info) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -3879,6 +4121,8 @@ namespace Rest {
       if (DVT != 0UL) hash ^= DVT.GetHashCode();
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (Tut != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Tut);
+      if (kd_ != null) hash ^= Kd.GetHashCode();
+      if (ad_ != null) hash ^= Ad.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -3941,6 +4185,12 @@ namespace Rest {
         output.WriteRawTag(97);
         output.WriteDouble(Tut);
       }
+      if (kd_ != null) {
+        _single_kd_codec.WriteTagAndValue(output, Kd);
+      }
+      if (ad_ != null) {
+        _single_ad_codec.WriteTagAndValue(output, Ad);
+      }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
@@ -3987,6 +4237,12 @@ namespace Rest {
       }
       if (Tut != 0D) {
         size += 1 + 8;
+      }
+      if (kd_ != null) {
+        size += _single_kd_codec.CalculateSizeWithTag(Kd);
+      }
+      if (ad_ != null) {
+        size += _single_ad_codec.CalculateSizeWithTag(Ad);
       }
       if (info_ != null) {
         size += _single_info_codec.CalculateSizeWithTag(Info);
@@ -4037,6 +4293,16 @@ namespace Rest {
       }
       if (other.Tut != 0D) {
         Tut = other.Tut;
+      }
+      if (other.kd_ != null) {
+        if (kd_ == null || other.Kd != "") {
+          Kd = other.Kd;
+        }
+      }
+      if (other.ad_ != null) {
+        if (ad_ == null || other.Ad != "") {
+          Ad = other.Ad;
+        }
       }
       if (other.info_ != null) {
         if (info_ == null || other.Info != "") {
@@ -4103,6 +4369,20 @@ namespace Rest {
             break;
           }
           case 106: {
+            string value = _single_kd_codec.Read(input);
+            if (kd_ == null || value != "") {
+              Kd = value;
+            }
+            break;
+          }
+          case 114: {
+            string value = _single_ad_codec.Read(input);
+            if (ad_ == null || value != "") {
+              Ad = value;
+            }
+            break;
+          }
+          case 122: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
@@ -4155,6 +4435,8 @@ namespace Rest {
       mik_ = other.mik_;
       kur_ = other.kur_;
       kDY_ = other.kDY_;
+      Kd = other.Kd;
+      Ad = other.Ad;
       Info = other.Info;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -4296,9 +4578,33 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 13;
+    private static readonly pb::FieldCodec<string> _single_kd_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    private string kd_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Kd {
+      get { return kd_; }
+      set {
+        kd_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 14;
+    private static readonly pb::FieldCodec<string> _single_ad_codec = pb::FieldCodec.ForClassWrapper<string>(114);
+    private string ad_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 13;
-    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    public const int InfoFieldNumber = 15;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(122);
     private string info_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Info {
@@ -4333,6 +4639,8 @@ namespace Rest {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Mik, other.Mik)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Kur, other.Kur)) return false;
       if (KDY != other.KDY) return false;
+      if (Kd != other.Kd) return false;
+      if (Ad != other.Ad) return false;
       if (Info != other.Info) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -4352,6 +4660,8 @@ namespace Rest {
       if (Mik != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Mik);
       if (Kur != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Kur);
       if (KDY != 0) hash ^= KDY.GetHashCode();
+      if (kd_ != null) hash ^= Kd.GetHashCode();
+      if (ad_ != null) hash ^= Ad.GetHashCode();
       if (info_ != null) hash ^= Info.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -4414,6 +4724,12 @@ namespace Rest {
         output.WriteRawTag(96);
         output.WriteInt32(KDY);
       }
+      if (kd_ != null) {
+        _single_kd_codec.WriteTagAndValue(output, Kd);
+      }
+      if (ad_ != null) {
+        _single_ad_codec.WriteTagAndValue(output, Ad);
+      }
       if (info_ != null) {
         _single_info_codec.WriteTagAndValue(output, Info);
       }
@@ -4460,6 +4776,12 @@ namespace Rest {
       }
       if (KDY != 0) {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(KDY);
+      }
+      if (kd_ != null) {
+        size += _single_kd_codec.CalculateSizeWithTag(Kd);
+      }
+      if (ad_ != null) {
+        size += _single_ad_codec.CalculateSizeWithTag(Ad);
       }
       if (info_ != null) {
         size += _single_info_codec.CalculateSizeWithTag(Info);
@@ -4510,6 +4832,16 @@ namespace Rest {
       }
       if (other.KDY != 0) {
         KDY = other.KDY;
+      }
+      if (other.kd_ != null) {
+        if (kd_ == null || other.Kd != "") {
+          Kd = other.Kd;
+        }
+      }
+      if (other.ad_ != null) {
+        if (ad_ == null || other.Ad != "") {
+          Ad = other.Ad;
+        }
       }
       if (other.info_ != null) {
         if (info_ == null || other.Info != "") {
@@ -4576,6 +4908,20 @@ namespace Rest {
             break;
           }
           case 106: {
+            string value = _single_kd_codec.Read(input);
+            if (kd_ == null || value != "") {
+              Kd = value;
+            }
+            break;
+          }
+          case 114: {
+            string value = _single_ad_codec.Read(input);
+            if (ad_ == null || value != "") {
+              Ad = value;
+            }
+            break;
+          }
+          case 122: {
             string value = _single_info_codec.Read(input);
             if (info_ == null || value != "") {
               Info = value;
@@ -6069,6 +6415,7 @@ namespace Rest {
       rowKey_ = other.rowKey_;
       Kd = other.Kd;
       Ad = other.Ad;
+      Info = other.Info;
       bRM_ = other.bRM_;
       fyt_ = other.fyt_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -6147,8 +6494,20 @@ namespace Rest {
       }
     }
 
+    /// <summary>Field number for the "Info" field.</summary>
+    public const int InfoFieldNumber = 7;
+    private static readonly pb::FieldCodec<string> _single_info_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    private string info_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Info {
+      get { return info_; }
+      set {
+        info_ = value;
+      }
+    }
+
     /// <summary>Field number for the "BRM" field.</summary>
-    public const int BRMFieldNumber = 7;
+    public const int BRMFieldNumber = 8;
     private ulong bRM_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public ulong BRM {
@@ -6159,7 +6518,7 @@ namespace Rest {
     }
 
     /// <summary>Field number for the "Fyt" field.</summary>
-    public const int FytFieldNumber = 8;
+    public const int FytFieldNumber = 9;
     private double fyt_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double Fyt {
@@ -6188,6 +6547,7 @@ namespace Rest {
       if (RowKey != other.RowKey) return false;
       if (Kd != other.Kd) return false;
       if (Ad != other.Ad) return false;
+      if (Info != other.Info) return false;
       if (BRM != other.BRM) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Fyt, other.Fyt)) return false;
       return Equals(_unknownFields, other._unknownFields);
@@ -6202,6 +6562,7 @@ namespace Rest {
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
       if (kd_ != null) hash ^= Kd.GetHashCode();
       if (ad_ != null) hash ^= Ad.GetHashCode();
+      if (info_ != null) hash ^= Info.GetHashCode();
       if (BRM != 0UL) hash ^= BRM.GetHashCode();
       if (Fyt != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Fyt);
       if (_unknownFields != null) {
@@ -6239,12 +6600,15 @@ namespace Rest {
       if (ad_ != null) {
         _single_ad_codec.WriteTagAndValue(output, Ad);
       }
+      if (info_ != null) {
+        _single_info_codec.WriteTagAndValue(output, Info);
+      }
       if (BRM != 0UL) {
-        output.WriteRawTag(56);
+        output.WriteRawTag(64);
         output.WriteUInt64(BRM);
       }
       if (Fyt != 0D) {
-        output.WriteRawTag(65);
+        output.WriteRawTag(73);
         output.WriteDouble(Fyt);
       }
       if (_unknownFields != null) {
@@ -6272,6 +6636,9 @@ namespace Rest {
       }
       if (ad_ != null) {
         size += _single_ad_codec.CalculateSizeWithTag(Ad);
+      }
+      if (info_ != null) {
+        size += _single_info_codec.CalculateSizeWithTag(Info);
       }
       if (BRM != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(BRM);
@@ -6310,6 +6677,11 @@ namespace Rest {
       if (other.ad_ != null) {
         if (ad_ == null || other.Ad != "") {
           Ad = other.Ad;
+        }
+      }
+      if (other.info_ != null) {
+        if (info_ == null || other.Info != "") {
+          Info = other.Info;
         }
       }
       if (other.BRM != 0UL) {
@@ -6359,11 +6731,18 @@ namespace Rest {
             }
             break;
           }
-          case 56: {
+          case 58: {
+            string value = _single_info_codec.Read(input);
+            if (info_ == null || value != "") {
+              Info = value;
+            }
+            break;
+          }
+          case 64: {
             BRM = input.ReadUInt64();
             break;
           }
-          case 65: {
+          case 73: {
             Fyt = input.ReadDouble();
             break;
           }

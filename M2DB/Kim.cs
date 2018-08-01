@@ -4,15 +4,12 @@ using Starcounter;
 namespace M2DB
 {
     [Database]
-    public class KKK    // Kim (Base) IPTAL
+    public class KKK : BB    // Kim (Base)
     {
-        public string Tur { get; set; }     // FRM:Firma, DPT:Departman (Uretim/Depo/Fire/Imha/Kayip), PRS:Personel, CNT:Contact, HBR:Haberlesme, TAG:Etiket
-        public string Ad { get; set; }
-        public string Info { get; set; }
     }
 
     [Database]
-    public class KFT : BB   // Kim.Firma.Tanim
+    public class KFT : KKK   // Kim.Firma.Tanim
     {
         public string Skl { get; set; }         // ALC:Alıcı/STC:Satıcı/A&S:AliciSatici....
         public string VrgDN { get; set; }
@@ -25,7 +22,7 @@ namespace M2DB
         }
     }
 
-    public class KCT : BB   // Kim.Contact.Tanim
+    public class KCT : KKK   // Kim.Contact.Tanim
     {
         public BB M { get; set; }       // Masters is KFT
         public string Unvan { get; set; }
@@ -37,7 +34,7 @@ namespace M2DB
     }
 
     [Database]
-    public class KDT : BB   // Kim.Departman.Tanim
+    public class KDT : KKK   // Kim.Departman.Tanim
     {
         public string Skl { get; set; }     // Uretim/Depo/Fire/Imha/Kayip
         public KDT()
@@ -47,7 +44,7 @@ namespace M2DB
     }
 
     [Database]
-    public class KPT : BB   // Kim.Personel.Tanim
+    public class KPT : KKK   // Kim.Personel.Tanim
     {
         public string KmlNo { get; set; }
         public DateTime IsGrsTrh { get; set; }
@@ -60,7 +57,7 @@ namespace M2DB
     }
 
     [Database]
-    public class KHT : BB   // Kim.Haberlesme.Tanim
+    public class KHT : KKK   // Kim.Haberlesme.Tanim
     {
         public BB M { get; set; }       // Masters are KDT,KPT,KFT,KCT,
 
@@ -71,30 +68,6 @@ namespace M2DB
         {
             Tbl = "KHT";
         }
-    }
-
-    [Database]
-    public class KKR    // Kim.Relation IPTAL
-    {
-        public KKK KP { get; set; } // Parent/Left Kim
-        public KKK KC { get; set; } // Child/Right Kim
-        /*
-        public static void deneme()
-        {
-            KFT kft = null;
-            KCT kct = null;
-            new KKR
-            {
-                KP = kft,
-                KC = kct,
-            };
-            new KKR
-            {
-                KP = Db.FromId(111) as KDT,
-                KC = Db.FromId(222) as KPT,
-            };
-
-        }*/
     }
 
 }

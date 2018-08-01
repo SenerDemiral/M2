@@ -116,10 +116,16 @@ namespace M2DB
 
             }
         }
-
+        public static void DenemeCanAppend()
+        {
+            NNN curNe = Db.FromId<NNN>(303);
+            NNN apndNe = Db.FromId<NNN>(299);
+            bool aaa = CanAppend(curNe, apndNe);
+        }
         public static bool CanAppend(NNN curNe, NNN apndNe)
         {
-            // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids
+            // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids, Circular referans olamaz
+            // Su anda Adina bakiyor, oNo ya bakmali
             
             // Zaten eklenmis ise
             if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP = ? AND r.NC = ?", curNe, apndNe).FirstOrDefault() != null)
@@ -361,6 +367,88 @@ namespace M2DB
                 t["Ureten"] = NNN.NeUretenler((ulong)t["N"]);
             }
             return table;
+        }
+
+        public static void DenemeYetki()  // UsrYtk'nin altinda OnyYtk var mi?
+        {
+            // Senay296 da Mehmet294 yok
+            // Mehmet294 de Sener299 yok
+            // Suzan295 de Ali301 var
+            // Senay296 da Ali301 var
+            NNN UsrYtk = Db.FromId<NNN>(304);
+            NNN OnyYtk = Db.FromId<NNN>(301);
+            bool rv = IsOnyYtkMemberOfUsrYtk(UsrYtk, OnyYtk, false); // IsOnyYtkMemberOfUsrYtk
+
+            UpToUsr(OnyYtk, UsrYtk);
+            DownToOny(UsrYtk, OnyYtk);
+        }
+
+        // Yetki deneme, OnyYtk UsrYtk'nin uyesi mi? OnyYtk'nin ustunde UsrYtk var mi? 
+        private static bool IsOnyYtkMemberOfUsrYtk(NNN UsrYtk, NNN OnyYtk, bool varmi)    // UsrYtk, OnyYtk/Constant
+        {
+            if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
+                return true;
+
+            if (!varmi)
+            {
+                foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", UsrYtk))
+                {
+                    var aaa = r.NP.Ad;
+                    var bbb = r.NC.Ad;
+                    if (r.NC.GetObjectNo() == OnyYtk.GetObjectNo())
+                    {
+                        varmi = true;
+                        break;
+                    }
+                    else if (r.NC.HasKid && !varmi)
+                        varmi = IsOnyYtkMemberOfUsrYtk(r.NC, OnyYtk, varmi);
+                }
+            }
+            return varmi;
+        }
+
+        private static void DownToOny(NNN node, NNN OnyYtk)    // Start from Usr=node, Downto Ony
+        {
+            //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
+            //    return true;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", node))
+            {
+                var aaa = r.NP.Ad;
+                var bbb = r.NC.Ad;
+                /*
+                if (r.NP.GetObjectNo() == UsrYtk.GetObjectNo())
+                {
+                    //rv = true;
+                    break;
+                }
+                else*/
+                if (r.NC.HasKid)
+                    DownToOny(r.NC, OnyYtk);
+            }
+            //return rv;
+        }
+
+        private static void UpToUsr(NNN node, NNN UsrYtk)    // Start from Ony=node, Upto Usr
+        {
+            //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
+            //    return true;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NC = ?", node))
+            {
+                var aaa = r.NP.Ad;
+                var bbb = r.NC.Ad;
+                /*
+                if (r.NP.GetObjectNo() == UsrYtk.GetObjectNo())
+                {
+                    //rv = true;
+                    break;
+                }
+                else*/
+                if(r.NP.HasPrn)
+                    UpToUsr(r.NP, UsrYtk);
+            }
+            //return rv;
         }
 
         public static void Deneme()

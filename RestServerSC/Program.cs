@@ -55,7 +55,11 @@ namespace RestServerSC
             NNR.Deneme();
             */
 
+            NNR.DenemeYetki();
+            NNN.DenemeCanAppend();
+
             dnmC.dnm();
+
 
             Db.Transact(() =>
             {

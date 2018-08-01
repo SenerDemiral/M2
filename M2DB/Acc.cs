@@ -13,11 +13,9 @@ namespace M2DB
     }
 
     [Database]
-    public class AHP // Account: HesapPlani 1toM
+    public class AHP : BB // Account: HesapPlani 1toM
     {
         public AHP P { get; set; }     // Parent Hesap
-        public string No { get; set; }    // Node HspNo
-        public string Ad { get; set; }
 
         public double Brc { get; set; }
         public double Alc { get; set; }
@@ -31,12 +29,12 @@ namespace M2DB
         {
             get
             {
-                string HspNo = No;
+                string HspNo = Kd;
                 AHP pH = P;
 
                 while (pH != null)
                 {
-                    HspNo = $"{pH.No}.{HspNo}";
+                    HspNo = $"{pH.Kd}.{HspNo}";
                     pH = pH.P;
                 }
                 return HspNo;
@@ -58,13 +56,13 @@ namespace M2DB
             }
         }
 
-        public static bool IsAhpNoUnique(AHP pAhp, string newNo)
+        public static bool IsAhpKdUnique(AHP pAhp, string newKd)
         {
             AHP ahp;
             if (pAhp == null)
-                ahp = Db.SQL<AHP>("select r from AHP r where r.P IS NULL and r.No = ?", newNo).FirstOrDefault();
+                ahp = Db.SQL<AHP>("select r from AHP r where r.P IS NULL and r.Kd = ?", newKd).FirstOrDefault();
             else
-                ahp = Db.SQL<AHP>("select r from AHP r where r.P = ? and r.No = ?", pAhp, newNo).FirstOrDefault();
+                ahp = Db.SQL<AHP>("select r from AHP r where r.P = ? and r.Kd = ?", pAhp, newKd).FirstOrDefault();
 
             if (ahp == null)
                 return true;
@@ -76,7 +74,7 @@ namespace M2DB
             Db.Transact(() =>
             {
                 //Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.ObjAHP = ? and r.ObjAFB.Drm = ?", ahp, "K")?.FirstOrDefault();
-                Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AFD r WHERE r.AHP = ?", ahp)?.FirstOrDefault();
+                Tuple<double, double> res = Db.SQL<Tuple<double, double>>("SELECT SUM(r.Brc), SUM(r.Alc) FROM AVD r WHERE r.AHP = ?", ahp)?.FirstOrDefault();
                 if (res != null)
                 {
                     ahp.Brc = res.Item1;
@@ -109,14 +107,12 @@ namespace M2DB
     }
 
     [Database]
-    public class AVM    // Account: Voucher/Fis Master
+    public class AVM : BB    // Account: Voucher/Fis Master
     {
-        public string Drm { get; set; }     // Acik/Kapali/Pending
+        public BB ORG { get; set; }         // Origin, Otmatik uretildiyse geldigi kayit (Ftr,Cek,Snt vs den uretilmis olabilir)
+        public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
         public DateTime Trh { get; set; }
-        public XGT TUR { get; set; }     // Tür
-        public string RefTo { get; set; }   // Master (Nerden geldi)
-        public ulong RefNo { get; set; }    // Master No
-        public string Info { get; set; }
+        public XGT TUR { get; set; }        // Tür
 
         public double Brc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE r.AVM = ?", this).Sum(x => x.Brc);
         public double Alc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE {nameof(AVD.AVM)} = ?", this).Sum(x => x.Alc);
@@ -124,12 +120,11 @@ namespace M2DB
     }
 
     [Database]
-    public class AVD    // Account: FisDetay
+    public class AVD : BB    // Account: Voucher/Fis Detay
     {
         public AVM AVM { get; set; }    // Master
         public AHP AHP { get; set; }    // Hesap
 
-        public string Info { get; set; }
         public double Tut { get; set; }     // Brc: +, Alc: -
         public XGT DVT { get; set; }
         public float Kur { get; set; }
@@ -141,18 +136,19 @@ namespace M2DB
     }
 
     [Database]
-    public class ABM    // Account: Bill/Fatura Master
+    public class ABM : BB   // Account: Bill/Fatura Master
     {
-        public string Drm { get; set; }     // Acik/Kapali/Pending
+        public bool HasOrg { get; set; }    // Irsaliyeden otomatik yaratilmis Birden cok irsaliyeden uretilmis ise. Ya bunu ya da ORG'u kullan
+        public BB ORG { get; set; }         // Sadece Irsaliye'den mi uretilir?
+        public string Drm { get; set; }     // Acik/Kapali/Pending/BittiZ (Deftere islendi)
         public DateTime Trh { get; set; }
-        public XGT TUR { get; set; }     // BillTür Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
-        public KFT KFT { get; set; }     // Kim/Firma
+        public XGT TUR { get; set; }        // BillTür Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
+        public KFT KFT { get; set; }        // Kim/Firma
         public string BA { get; set; }      // Kim Brclu/Alacakli
-        public XGT DVT { get; set; }     // Fatura Doviz
+        public XGT DVT { get; set; }        // Fatura Doviz
         public float Kur { get; set; }      // Doviz Kuru
-        public string Info { get; set; }
 
-        public double Tut => Db.SQL<ABD>($"SELECT r FROM {typeof(ABD)} r WHERE r.ABB = ?", this).Sum(x => x.TutB);
+        public double Tut => Db.SQL<ABD>($"SELECT r FROM {typeof(ABD)} r WHERE r.ABM = ?", this).Sum(x => x.TutB);
         public bool HasD => Db.SQL<ABD>($"select r from {typeof(ABD)} r where {nameof(ABD.ABM)} = ?", this).FirstOrDefault() == null ? false : true; // HasDetail
 
         public static void AV2AF(ABM abm) // Insert AVM & AVDs from ABM & ABDs
@@ -163,13 +159,12 @@ namespace M2DB
                 double TopTutTL = 0;
 
                 AVM avm = new AVM();
-                avm.RefTo = "ABM";  // Bill/Fatura dan yaratildi
-                avm.RefNo = abm.GetObjectNo();
+                avm.ORG = abm;    // Bu Fis Bill/Fatura'dan yaratildi
 
                 AVD avd;
 
                 // Icindekileri Fise koy
-                foreach (var abd in Db.SQL<ABD>("SELECT r FROM ABD r WHERE r.ObjABB = ?", abm))
+                foreach (var abd in Db.SQL<ABD>("SELECT r FROM ABD r WHERE r.ABM = ?", abm))
                 {
                     avd = new AVD();
                     avd.AVM = avm;
@@ -190,8 +185,8 @@ namespace M2DB
 
                 // Bill Musteriyi Detaya Koy BA
                 avd = new AVD();
-                avd.AVM = avm;
 
+                avd.AVM = avm;
                 if (abm.BA == "B")
                     avd.AHP = abm.KFT.AHPbrc;
                 else
@@ -205,18 +200,18 @@ namespace M2DB
     }
 
     [Database]
-    public class ABD    // Account: Bill/Fatura Detay
+    public class ABD : BB   // Account: Bill/Fatura Detay
     {
         public ABM ABM { get; set; }    // Master
         public NNN NNN { get; set; }    // Ne
         public AHP AHP { get; set; }    // Ne Hesap
 
+        // BB'den Kd,Ad,Info alanlari geliyor
         public double Fyt { get; set; }
         public double Mik { get; set; }
         public XGT DVT { get; set; }
         public float Kur { get; set; }
         public int KDY { get; set; }
-        public string Info { get; set; }
 
         public double Tut => Math.Round(Fyt * Mik * (1.0 + KDY), 2);
         public double TutTL => Math.Round(Tut * Kur, 2);
@@ -244,7 +239,7 @@ namespace M2DB
 
                         new AHP
                         {
-                            No = ra[0],
+                            Kd = ra[0],
                             Ad = ra[1]
                         };
                     }
@@ -256,25 +251,25 @@ namespace M2DB
             {
                 var MK = new AHP
                 {
-                    No = "01",
+                    Kd = "01",
                     Ad = "Merkez Kasa",
                     P = Db.FromId<AHP>(1)
                 };
                 new AHP
                 {
-                    No = "01",
+                    Kd = "01",
                     Ad = "TL",
                     P = MK
                 };
                 new AHP
                 {
-                    No = "02",
+                    Kd = "02",
                     Ad = "USD",
                     P = MK
                 };
                 new AHP
                 {
-                    No = "03",
+                    Kd = "03",
                     Ad = "EUR",
                     P = MK
                 };

@@ -64,6 +64,8 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).BeginInit();
@@ -228,7 +230,9 @@
             this.colTut,
             this.colDVT,
             this.colKur,
-            this.colTutTL});
+            this.colTutTL,
+            this.colKd,
+            this.colAd});
             gridFormatRule1.ApplyToRow = true;
             gridFormatRule1.Column = this.colTut;
             gridFormatRule1.Name = "FormatAlc";
@@ -421,6 +425,20 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 8;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 9;
+            // 
             // AvdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,5 +505,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn colKd;
+        private DevExpress.XtraGrid.Columns.GridColumn colAd;
     }
 }
