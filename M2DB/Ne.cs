@@ -269,6 +269,7 @@ namespace M2DB
             if (!isFound)
                 isFound = FindInParents(curNo, addNo, false);
 
+            isFound = FindInChildren(curNo, addNo, false);
             return !isFound;
         }
         public static bool FindInSibling(ulong curNo, ulong fndNo)
@@ -292,6 +293,29 @@ namespace M2DB
                 else if (!isFound && r.NP.HasPrn)
                 {
                     isFound = FindInParents(r.NP.GetObjectNo(), fndNo, isFound);
+                    if (isFound)
+                        return isFound;
+                }
+            }
+
+            return isFound;
+        }
+
+        public static bool FindInChildren(ulong curNo, ulong fndNo, bool isFound)
+        {
+            // Once LeafNode lari tara. order by r.NC.HasKid
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? order by r.NC.HasKid", curNo))
+            {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
+                if (r.NC.GetObjectNo() == fndNo)
+                {
+                    isFound = true;
+                    return isFound;
+                }
+                else if (!isFound && r.NC.HasKid)
+                {
+                    isFound = FindInChildren(r.NC.GetObjectNo(), fndNo, isFound);
                     if (isFound)
                         return isFound;
                 }
