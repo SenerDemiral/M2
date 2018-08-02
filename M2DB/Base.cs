@@ -24,7 +24,25 @@ namespace M2DB
         public string Kd { get; set; }
         public string Ad { get; set; }
         public string Info { get; set; }
-
+        /*
+        public bool HasKid
+        {
+            get
+            {
+                if (Db.SQL<BR>("select r from M2DB.BR r where r.P = ?", this).FirstOrDefault() == null)
+                    return false;
+                return true;
+            }
+        }
+        public bool HasPrn
+        {
+            get
+            {
+                if (Db.SQL<BR>("select r from M2DB.BR r where r.C = ?", this).FirstOrDefault() == null)
+                    return false;
+                return true;
+            }
+        }*/
     }
 
     [Database]
@@ -64,6 +82,8 @@ namespace M2DB
                 return string.Join<string>(", ", list);
             }
         }
+
+
     }
 
     [Database]

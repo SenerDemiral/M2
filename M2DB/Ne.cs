@@ -46,6 +46,7 @@ namespace M2DB
         public AHP AHPbrc { get; set; }  // Borclu Ne Hesap
         public AHP AHPalc { get; set; }  // Alacakli Ne Hesap
         public double Fyt { get; set; }  // Simdilik
+        
         public bool HasKid
         {
             get
@@ -64,6 +65,7 @@ namespace M2DB
                 return true;
             }
         }
+        
         public NNN()
         {
             Tbl = "NNN";
@@ -256,6 +258,48 @@ namespace M2DB
         public string PAd => NP?.Ad;
         public string KAd => NC?.Ad;
 
+        /// <summary>
+        /// addNode Sibling de olmamali
+        /// curNode'un Parentlarinda olmamali
+        /// </summary>
+        public static bool CanAddSibling(ulong curNo, ulong addNo)
+        {
+            bool isFound = FindInSibling(curNo, addNo);
+
+            if (!isFound)
+                isFound = FindInParents(curNo, addNo, false);
+
+            return !isFound;
+        }
+        public static bool FindInSibling(ulong curNo, ulong fndNo)
+        {
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", curNo))
+            {
+                if (fndNo == r.NC.GetObjectNo())
+                    return true;
+            }
+            return false;
+        }
+        public static bool FindInParents(ulong curNo, ulong fndNo, bool isFound)
+        {
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", curNo))
+            {
+                if (r.NP.GetObjectNo() == fndNo)
+                {
+                    isFound = true;
+                    return isFound;
+                }
+                else if (!isFound && r.NP.HasPrn)
+                {
+                    isFound = FindInParents(r.NP.GetObjectNo(), fndNo, isFound);
+                    if (isFound)
+                        return isFound;
+                }
+            }
+
+            return isFound;
+        }
+
         public static void Deneme2()
         {
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
@@ -381,9 +425,52 @@ namespace M2DB
 
             UpToUsr(OnyYtk, UsrYtk);
             DownToOny(UsrYtk, OnyYtk);
+
+            Dictionary<NNN, List<NNN>> mD = new Dictionary<NNN, List<NNN>>();
+            foreach(var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            {
+                var list = new List<NNN>();
+                DownTo(r, list);
+                mD[r] = list;
+            }
+
+            // find ony in node 
+            bool fnd = false;
+            foreach(var f in mD[UsrYtk])
+            {
+                if(f.GetObjectNo() == OnyYtk.GetObjectNo())
+                {
+                    fnd = true;
+                    break;
+                }
+            }
+
         }
 
-        // Yetki deneme, OnyYtk UsrYtk'nin uyesi mi? OnyYtk'nin ustunde UsrYtk var mi? 
+        private static void DownTo(NNN node, List<NNN> lst)    // Start from Usr=node, Downto Ony
+        {
+            //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
+            //    return true;
+
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", node))
+            {
+                var aaa = r.NP.Ad;
+                var bbb = r.NC.Ad;
+                /*
+                if (r.NP.GetObjectNo() == UsrYtk.GetObjectNo())
+                {
+                    //rv = true;
+                    break;
+                }
+                else*/
+                lst.Add(r.NC);
+                if (r.NC.HasKid)
+                    DownTo(r.NC, lst);
+            }
+            //return rv;
+        }
+
+        // Yetki deneme, OnyYtk UsrYtk'nin uyesi mi? OnyYtk'nin ustunde UsrYtk var mi? OK
         private static bool IsOnyYtkMemberOfUsrYtk(NNN UsrYtk, NNN OnyYtk, bool varmi)    // UsrYtk, OnyYtk/Constant
         {
             if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
