@@ -54,6 +54,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colORG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,7 +71,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colORG = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avmBindingNavigator)).BeginInit();
@@ -308,6 +308,15 @@
             this.colRowKey.VisibleIndex = 1;
             this.colRowKey.Width = 98;
             // 
+            // colORG
+            // 
+            this.colORG.FieldName = "ORG";
+            this.colORG.Name = "colORG";
+            this.colORG.OptionsColumn.FixedWidth = true;
+            this.colORG.OptionsColumn.ReadOnly = true;
+            this.colORG.Visible = true;
+            this.colORG.VisibleIndex = 2;
+            // 
             // colTrh
             // 
             this.colTrh.FieldName = "Trh";
@@ -460,15 +469,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(896, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // colORG
-            // 
-            this.colORG.FieldName = "ORG";
-            this.colORG.Name = "colORG";
-            this.colORG.OptionsColumn.FixedWidth = true;
-            this.colORG.OptionsColumn.ReadOnly = true;
-            this.colORG.Visible = true;
-            this.colORG.VisibleIndex = 2;
             // 
             // AvmXF
             // 

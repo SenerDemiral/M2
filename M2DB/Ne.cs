@@ -264,27 +264,35 @@ namespace M2DB
         /// </summary>
         public static bool CanAddSibling(ulong curNo, ulong addNo)
         {
-            bool isFound = FindInSibling(curNo, addNo);
-
+            bool isFound;
+            isFound = FindInSibling(curNo, addNo);
             if (!isFound)
                 isFound = FindInParents(curNo, addNo, false);
 
-            isFound = FindInChildren(curNo, addNo, false);
+            //Deneme burda kullanilmiyor
+            //isFound = FindInChildren(curNo, addNo, false);
+            Children(curNo, 0);
             return !isFound;
         }
+
         public static bool FindInSibling(ulong curNo, ulong fndNo)
         {
             foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", curNo))
             {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
                 if (fndNo == r.NC.GetObjectNo())
                     return true;
             }
             return false;
         }
+
         public static bool FindInParents(ulong curNo, ulong fndNo, bool isFound)
         {
             foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", curNo))
             {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
                 if (r.NP.GetObjectNo() == fndNo)
                 {
                     isFound = true;
@@ -303,17 +311,15 @@ namespace M2DB
 
         public static bool FindInChildren(ulong curNo, ulong fndNo, bool isFound)
         {
-            // Once LeafNode lari tara. order by r.NC.HasKid
-            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? order by r.NC.HasKid", curNo))
+            // Once LeafNode lari tara
+            if (FindInSibling(curNo, fndNo))
+                return true;
+
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? AND r.NC.HasKid = ?", curNo, true))
             {
                 string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
                 string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
-                if (r.NC.GetObjectNo() == fndNo)
-                {
-                    isFound = true;
-                    return isFound;
-                }
-                else if (!isFound && r.NC.HasKid)
+                if (!isFound && r.NC.HasKid)
                 {
                     isFound = FindInChildren(r.NC.GetObjectNo(), fndNo, isFound);
                     if (isFound)
@@ -322,6 +328,22 @@ namespace M2DB
             }
 
             return isFound;
+        }
+
+        public static void Children(ulong curNo, int lvl)
+        {
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? order by r.NC.HasKid DESC", curNo))
+            {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
+                //Console.WriteLine($"{ppp} {ccc}: {lvl}");
+                if (r.NC.HasKid)
+                {
+                    Console.WriteLine($"{ppp} {ccc}: {lvl}");
+                    Children(r.NC.GetObjectNo(), lvl++);
+                    Console.WriteLine($"*{ppp} {ccc}: {lvl}");
+                }
+            }
         }
 
         public static void Deneme2()
@@ -494,6 +516,7 @@ namespace M2DB
             //return rv;
         }
 
+        // FindInChildren kullan Eger BR den gidecekse.
         // Yetki deneme, OnyYtk UsrYtk'nin uyesi mi? OnyYtk'nin ustunde UsrYtk var mi? OK
         private static bool IsOnyYtkMemberOfUsrYtk(NNN UsrYtk, NNN OnyYtk, bool varmi)    // UsrYtk, OnyYtk/Constant
         {

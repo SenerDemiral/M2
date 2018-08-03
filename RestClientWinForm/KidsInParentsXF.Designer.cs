@@ -52,12 +52,19 @@
             this.colKAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pivotGridControl2 = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.fieldKNo1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPNo1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldKAd1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPAd1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldM1 = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kidsInParentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kidsInParentsBindingNavigator)).BeginInit();
             this.kidsInParentsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kidsInParentsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl2)).BeginInit();
             this.SuspendLayout();
             // 
             // mainDataSet
@@ -197,7 +204,7 @@
             // kidsInParentsGridControl
             // 
             this.kidsInParentsGridControl.DataSource = this.kidsInParentsBindingSource;
-            this.kidsInParentsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.kidsInParentsGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.kidsInParentsGridControl.Location = new System.Drawing.Point(0, 25);
             this.kidsInParentsGridControl.MainView = this.gridView1;
             this.kidsInParentsGridControl.Name = "kidsInParentsGridControl";
@@ -259,11 +266,57 @@
             this.colM.VisibleIndex = 4;
             this.colM.Width = 140;
             // 
+            // pivotGridControl2
+            // 
+            this.pivotGridControl2.DataSource = this.kidsInParentsBindingSource;
+            this.pivotGridControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGridControl2.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldKNo1,
+            this.fieldPNo1,
+            this.fieldKAd1,
+            this.fieldPAd1,
+            this.fieldM1});
+            this.pivotGridControl2.Location = new System.Drawing.Point(0, 290);
+            this.pivotGridControl2.Name = "pivotGridControl2";
+            this.pivotGridControl2.Size = new System.Drawing.Size(574, 346);
+            this.pivotGridControl2.TabIndex = 3;
+            // 
+            // fieldKNo1
+            // 
+            this.fieldKNo1.AreaIndex = 0;
+            this.fieldKNo1.FieldName = "KNo";
+            this.fieldKNo1.Name = "fieldKNo1";
+            // 
+            // fieldPNo1
+            // 
+            this.fieldPNo1.AreaIndex = 1;
+            this.fieldPNo1.FieldName = "PNo";
+            this.fieldPNo1.Name = "fieldPNo1";
+            // 
+            // fieldKAd1
+            // 
+            this.fieldKAd1.AreaIndex = 2;
+            this.fieldKAd1.FieldName = "KAd";
+            this.fieldKAd1.Name = "fieldKAd1";
+            // 
+            // fieldPAd1
+            // 
+            this.fieldPAd1.AreaIndex = 3;
+            this.fieldPAd1.FieldName = "PAd";
+            this.fieldPAd1.Name = "fieldPAd1";
+            // 
+            // fieldM1
+            // 
+            this.fieldM1.AreaIndex = 4;
+            this.fieldM1.FieldName = "M";
+            this.fieldM1.Name = "fieldM1";
+            // 
             // KidsInParentsXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(574, 290);
+            this.ClientSize = new System.Drawing.Size(574, 636);
+            this.Controls.Add(this.pivotGridControl2);
             this.Controls.Add(this.kidsInParentsGridControl);
             this.Controls.Add(this.kidsInParentsBindingNavigator);
             this.Name = "KidsInParentsXF";
@@ -276,6 +329,7 @@
             this.kidsInParentsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kidsInParentsGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,5 +359,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKAd;
         private DevExpress.XtraGrid.Columns.GridColumn colPAd;
         private DevExpress.XtraGrid.Columns.GridColumn colM;
+        private DevExpress.XtraPivotGrid.PivotGridControl pivotGridControl2;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKNo1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldPNo1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKAd1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldPAd1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldM1;
     }
 }

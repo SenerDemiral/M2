@@ -55,12 +55,14 @@ namespace RestServerSC
             NNR.Deneme();
             */
 
-            NNR.DenemeYetki();
             NNN.DenemeCanAppend();
-            //NNR.CanAdd2Sibling(303, 299); //Veli, Sener
+
+            //NNR.DenemeYetki();
+            //NNR.CanAddSibling(303, 299); //Veli, Sener false
+            //NNR.CanAddSibling(303, 301); //Veli, Sener true
+            NNR.CanAddSibling(295, 303); //Suzan, Veli
             //NNR.CanAddSibling(303, 297); //Veli, Umut
-            //NNR.CanAddSibling(295, 303); //Suzan, Veli
-            NNR.CanAddSibling(295, 293); //Suzan, Ahmet
+            //NNR.CanAddSibling(295, 293); //Suzan, Ahmet
 
             dnmC.dnm();
 

@@ -38,10 +38,17 @@
             this.colKAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colPAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pivotGridControl1 = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.fieldKNo1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPNo1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldKAd1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldPAd1 = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.fieldM1 = new DevExpress.XtraPivotGrid.PivotGridField();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nodesInParentsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nodesInParentsGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).BeginInit();
             this.SuspendLayout();
             // 
             // mainDataSet
@@ -57,11 +64,11 @@
             // nodesInParentsGridControl
             // 
             this.nodesInParentsGridControl.DataSource = this.nodesInParentsBindingSource;
-            this.nodesInParentsGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.nodesInParentsGridControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.nodesInParentsGridControl.Location = new System.Drawing.Point(0, 0);
             this.nodesInParentsGridControl.MainView = this.gridView1;
             this.nodesInParentsGridControl.Name = "nodesInParentsGridControl";
-            this.nodesInParentsGridControl.Size = new System.Drawing.Size(720, 452);
+            this.nodesInParentsGridControl.Size = new System.Drawing.Size(720, 246);
             this.nodesInParentsGridControl.TabIndex = 1;
             this.nodesInParentsGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -121,11 +128,64 @@
             this.colM.Visible = true;
             this.colM.VisibleIndex = 2;
             // 
+            // pivotGridControl1
+            // 
+            this.pivotGridControl1.DataSource = this.nodesInParentsBindingSource;
+            this.pivotGridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pivotGridControl1.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.fieldKNo1,
+            this.fieldPNo1,
+            this.fieldKAd1,
+            this.fieldPAd1,
+            this.fieldM1});
+            this.pivotGridControl1.Location = new System.Drawing.Point(0, 246);
+            this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsView.ShowColumnGrandTotals = false;
+            this.pivotGridControl1.OptionsView.ShowRowGrandTotals = false;
+            this.pivotGridControl1.Size = new System.Drawing.Size(720, 206);
+            this.pivotGridControl1.TabIndex = 2;
+            // 
+            // fieldKNo1
+            // 
+            this.fieldKNo1.AreaIndex = 0;
+            this.fieldKNo1.FieldName = "KNo";
+            this.fieldKNo1.Name = "fieldKNo1";
+            // 
+            // fieldPNo1
+            // 
+            this.fieldPNo1.AreaIndex = 1;
+            this.fieldPNo1.FieldName = "PNo";
+            this.fieldPNo1.Name = "fieldPNo1";
+            // 
+            // fieldKAd1
+            // 
+            this.fieldKAd1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
+            this.fieldKAd1.AreaIndex = 0;
+            this.fieldKAd1.FieldName = "KAd";
+            this.fieldKAd1.Name = "fieldKAd1";
+            // 
+            // fieldPAd1
+            // 
+            this.fieldPAd1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.fieldPAd1.AreaIndex = 0;
+            this.fieldPAd1.FieldName = "PAd";
+            this.fieldPAd1.Name = "fieldPAd1";
+            // 
+            // fieldM1
+            // 
+            this.fieldM1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.fieldM1.AreaIndex = 0;
+            this.fieldM1.CellFormat.FormatString = "n";
+            this.fieldM1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.fieldM1.FieldName = "M";
+            this.fieldM1.Name = "fieldM1";
+            // 
             // NodesInParentsXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(720, 452);
+            this.Controls.Add(this.pivotGridControl1);
             this.Controls.Add(this.nodesInParentsGridControl);
             this.Name = "NodesInParentsXF";
             this.Text = "NodesInParentsXF";
@@ -134,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nodesInParentsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nodesInParentsGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pivotGridControl1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -149,5 +210,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKAd;
         private DevExpress.XtraGrid.Columns.GridColumn colPAd;
         private DevExpress.XtraGrid.Columns.GridColumn colM;
+        private DevExpress.XtraPivotGrid.PivotGridControl pivotGridControl1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKNo1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldPNo1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldKAd1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldPAd1;
+        private DevExpress.XtraPivotGrid.PivotGridField fieldM1;
     }
 }

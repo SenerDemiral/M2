@@ -57,6 +57,8 @@
             this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTutTL = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -64,8 +66,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.accDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).BeginInit();
@@ -353,6 +353,20 @@
             this.colTutTL.VisibleIndex = 6;
             this.colTutTL.Width = 106;
             // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 8;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 9;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.AutoSize = false;
@@ -424,20 +438,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(778, 24);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // colKd
-            // 
-            this.colKd.FieldName = "Kd";
-            this.colKd.Name = "colKd";
-            this.colKd.Visible = true;
-            this.colKd.VisibleIndex = 8;
-            // 
-            // colAd
-            // 
-            this.colAd.FieldName = "Ad";
-            this.colAd.Name = "colAd";
-            this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 9;
             // 
             // AvdXF
             // 
