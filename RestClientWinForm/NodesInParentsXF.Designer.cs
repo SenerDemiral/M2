@@ -105,7 +105,7 @@
             // 
             // colKAd
             // 
-            this.colKAd.Caption = "- HamMadde / * YarıMamül";
+            this.colKAd.Caption = "- HamMadde / + YarıMamül";
             this.colKAd.FieldName = "KAd";
             this.colKAd.Name = "colKAd";
             this.colKAd.Visible = true;
@@ -113,7 +113,7 @@
             // 
             // colPAd
             // 
-            this.colPAd.Caption = "+ Mamül / * YarıMamül";
+            this.colPAd.Caption = "* Mamül / + YarıMamül";
             this.colPAd.FieldName = "PAd";
             this.colPAd.Name = "colPAd";
             this.colPAd.Visible = true;
@@ -140,8 +140,12 @@
             this.fieldM1});
             this.pivotGridControl1.Location = new System.Drawing.Point(0, 246);
             this.pivotGridControl1.Name = "pivotGridControl1";
+            this.pivotGridControl1.OptionsView.ShowColumnGrandTotalHeader = false;
             this.pivotGridControl1.OptionsView.ShowColumnGrandTotals = false;
+            this.pivotGridControl1.OptionsView.ShowColumnTotals = false;
+            this.pivotGridControl1.OptionsView.ShowRowGrandTotalHeader = false;
             this.pivotGridControl1.OptionsView.ShowRowGrandTotals = false;
+            this.pivotGridControl1.OptionsView.ShowRowTotals = false;
             this.pivotGridControl1.Size = new System.Drawing.Size(720, 206);
             this.pivotGridControl1.TabIndex = 2;
             // 
@@ -161,6 +165,7 @@
             // 
             this.fieldKAd1.Area = DevExpress.XtraPivotGrid.PivotArea.ColumnArea;
             this.fieldKAd1.AreaIndex = 0;
+            this.fieldKAd1.Caption = "+ YarıMamül / - HamMadde";
             this.fieldKAd1.FieldName = "KAd";
             this.fieldKAd1.Name = "fieldKAd1";
             // 
@@ -168,14 +173,17 @@
             // 
             this.fieldPAd1.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
             this.fieldPAd1.AreaIndex = 0;
+            this.fieldPAd1.Caption = "* Mamül / + YarıMamül";
             this.fieldPAd1.FieldName = "PAd";
             this.fieldPAd1.Name = "fieldPAd1";
+            this.fieldPAd1.Width = 168;
             // 
             // fieldM1
             // 
             this.fieldM1.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
             this.fieldM1.AreaIndex = 0;
-            this.fieldM1.CellFormat.FormatString = "n";
+            this.fieldM1.Caption = "Miktar";
+            this.fieldM1.CellFormat.FormatString = "G";
             this.fieldM1.CellFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.fieldM1.FieldName = "M";
             this.fieldM1.Name = "fieldM1";

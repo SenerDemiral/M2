@@ -36,8 +36,6 @@ namespace RestServerSC
             //NNN apndNe = Db.FromId<NNN>(288);  // Kemal
             //NNN.CanAppend(curNe, apndNe);
 
-            NNR.KidsInParentsMik();
-
             // Kullanilmiyor
             //NNR.KidsParents(); 
 
@@ -55,15 +53,15 @@ namespace RestServerSC
             NNR.Deneme();
             */
 
-            NNN.DenemeCanAppend();
+            NNN.DenemeCanAddSibling();
 
             //NNR.DenemeYetki();
             //NNR.CanAddSibling(303, 299); //Veli, Sener false
             //NNR.CanAddSibling(303, 301); //Veli, Sener true
-            NNR.CanAddSibling(295, 303); //Suzan, Veli
+            NNR.DenemeGetAvailableParents();
             //NNR.CanAddSibling(303, 297); //Veli, Umut
             //NNR.CanAddSibling(295, 293); //Suzan, Ahmet
-
+            NNN.DenemeYtkParentsDictionary();
             dnmC.dnm();
 
 

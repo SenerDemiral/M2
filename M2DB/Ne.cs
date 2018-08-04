@@ -71,6 +71,71 @@ namespace M2DB
             Tbl = "NNN";
         }
 
+        // All node's parents Bunu Kim de yap, burdaki deneme
+        public static Dictionary<ulong, string> DenemeYtkParentsDictionary()
+        {
+            Dictionary<ulong, string> sD = new Dictionary<ulong, string>();
+
+            foreach (var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            {
+                sD[r.GetObjectNo()] = DenemeYtkParentsDictionary(r.GetObjectNo());
+            }
+
+            return sD;
+        }
+        // Node's parents in string: <1234><456>...
+        // Usage if (DenemeYtkParentsDictionary(r.GetObjectNo()).Contains($"<NodeOno>")) ....
+        public static string DenemeYtkParentsDictionary(ulong node)
+        {
+            var pList = new List<ulong>();
+            ParentsList(node, pList);  // Node's Parents
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var itm in pList)
+                sb.Append($"<{itm}>");
+
+            return sb.ToString();
+        }
+
+        public static List<ulong> GetNeKidsList(ulong node)     // OK   Henuz kullanilmiyor
+        {
+            List<ulong> kList = new List<ulong>();
+            KidsList(node, kList);  // Node's Parents
+            return kList;
+        }
+        private static void KidsList(ulong node, List<ulong> kList) // OK
+        {
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ?", node))
+            {
+                ulong kid = r.NC.GetObjectNo();
+
+                if (!kList.Contains(kid))
+                    kList.Add(kid);
+
+                if (r.NC.HasKid)
+                    KidsList(kid, kList);
+            }
+        }
+
+        public static List<ulong> GetNeParentsList(ulong node)  // OK
+        {
+            List<ulong> pList = new List<ulong>();
+            ParentsList(node, pList);  // Node's Parents
+            return pList;
+        }
+        private static void ParentsList(ulong node, List<ulong> pList)  // OK
+        {
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NC.ObjectNo = ?", node))
+            {
+                ulong parent = r.NP.GetObjectNo();
+
+                if (!pList.Contains(parent))
+                    pList.Add(parent);
+                if (r.NP.HasPrn)
+                    ParentsList(parent, pList);
+            }
+        }
+
         public static string NeUretenler(ulong n)
         {
             var list = new List<string>();
@@ -102,7 +167,7 @@ namespace M2DB
 
             return mD;
         }
-        public static void UretenUrunTuketimleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
+        private static void UretenUrunTuketimleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
         {
             foreach(var nnr in Db.SQL<NNR>("SELECT n from NNR n WHERE n.NP = ?", n))
             {
@@ -118,56 +183,72 @@ namespace M2DB
 
             }
         }
-        public static void DenemeCanAppend()
+        public static void DenemeCanAddSibling()
         {
-            NNN curNe = Db.FromId<NNN>(303);
-            NNN apndNe = Db.FromId<NNN>(299);
-            bool aaa = CanAppend(curNe, apndNe);
+            bool aaa = CanAddSibling(303, 299);
         }
-        public static bool CanAppend(NNN curNe, NNN apndNe)
+        public static bool CanAddSibling(ulong curNo, ulong addNo)  // Henuz Kullanilmiyor
         {
-            // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids, Circular referans olamaz
-            // Su anda Adina bakiyor, oNo ya bakmali
-            
-            // Zaten eklenmis ise
-            if (Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP = ? AND r.NC = ?", curNe, apndNe).FirstOrDefault() != null)
-                return false;
+            bool isFound;
+            isFound = FindInSiblings(curNo, addNo);
+            if (!isFound)
+                isFound = FindInParents(curNo, addNo, false);
 
-            List<string> pList = new List<string>();
-            // curNe and Parents
-            NNR nnr = null;
-            NNN pNe;
-            do
-            {
-                pNe = nnr?.NP ?? curNe;
-                pList.Add(pNe.Ad);
-                nnr = Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC = ?", pNe).FirstOrDefault();
-            } while (nnr != null);
-
-            // Search Kids, Varsa true
-            return !HasKidInParents(apndNe, pList);
+            return !isFound;
         }
-        private static bool HasKidInParents(NNN Kid, List<string> pList)
+        private static bool FindInSiblings(ulong curNo, ulong fndNo)
         {
-            bool rv = false;
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", Kid))
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", curNo))
             {
-                var aaa = r.NC.Ad;
-                foreach (var p in pList)
-                {
-                    if (p == r.NC.Ad)
-                    {
-                        rv = true;
-                        break;
-                    }
-                }
-                if (rv)
-                    break;
-                else if (r.NC.HasKid)
-                    HasKidInParents(r.NC, pList);
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
+                if (fndNo == r.NC.GetObjectNo())
+                    return true;
             }
-            return rv;
+            return false;
         }
+        private static bool FindInParents(ulong curNo, ulong fndNo, bool isFound)
+        {
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", curNo))
+            {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
+                if (r.NP.GetObjectNo() == fndNo)
+                {
+                    isFound = true;
+                    return isFound;
+                }
+                else if (!isFound && r.NP.HasPrn)
+                {
+                    isFound = FindInParents(r.NP.GetObjectNo(), fndNo, isFound);
+                    if (isFound)
+                        return isFound;
+                }
+            }
+
+            return isFound;
+        }
+        private static bool FindInChildren(ulong curNo, ulong fndNo, bool isFound)  // Henuz Kullanilmiyor
+        {
+            // Once LeafNode lari tara
+            if (FindInSiblings(curNo, fndNo))
+                return true;
+
+            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? AND r.NC.HasKid = ?", curNo, true))
+            {
+                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
+                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
+                if (!isFound && r.NC.HasKid)
+                {
+                    isFound = FindInChildren(r.NC.GetObjectNo(), fndNo, isFound);
+                    if (isFound)
+                        return isFound;
+                }
+            }
+
+            return isFound;
+        }
+
 
         public static double NeMaliyet(ulong sNo)
         {
@@ -262,89 +343,74 @@ namespace M2DB
         /// addNode Sibling de olmamali
         /// curNode'un Parentlarinda olmamali
         /// </summary>
-        public static bool CanAddSibling(ulong curNo, ulong addNo)
+        public static void DenemeGetAvailableParents()  // Kullanilmiyor DENEME
         {
-            bool isFound;
-            isFound = FindInSibling(curNo, addNo);
-            if (!isFound)
-                isFound = FindInParents(curNo, addNo, false);
-
-            //Deneme burda kullanilmiyor
-            //isFound = FindInChildren(curNo, addNo, false);
-            Children(curNo, 0);
-            return !isFound;
+            GetAvailableParents(299);
         }
-
-        public static bool FindInSibling(ulong curNo, ulong fndNo)
+        public static DataTable GetAvailableParents(ulong node) // Kullanilmiyor DENEME
         {
-            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", curNo))
-            {
-                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
-                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
-                if (fndNo == r.NC.GetObjectNo())
-                    return true;
-            }
-            return false;
-        }
+            // Deneme KidsList heniz kullanilmiyor
+            //List<ulong> kList = new List<ulong>();
+            //KidsList(295, kList);   // Suzan's Kids
 
-        public static bool FindInParents(ulong curNo, ulong fndNo, bool isFound)
-        {
-            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC.ObjectNo = ?", curNo))
+            // Node'a Sibling eklerken kullanilacak Lookup table
+            // Mevcut Siblings Client da unavailable yapilmali
+
+            // Ya da (Daha az data gidecek)
+            // Nelerin hepsi Lookup olarak client da var
+            // Burdan sadece Available olanlar gitsin
+            // Client da Lookup buna gore olustrulsun
+
+            // Ya da (Daha da az data gidecek)
+            // Sadece Node's Parentlarini gonder, Client geregini yapsin 
+            // ParentsList ve Siblings disindakileri kullanabilir
+            
+            DataTable table = new DataTable();
+            table.Columns.Add("No", typeof(ulong));    // Node
+            table.Columns.Add("Ad", typeof(string));    // Node
+            table.Columns.Add("Avl", typeof(bool));    // Available/Usable
+
+            List<ulong> pList = new List<ulong>();
+            ParentsList(node, pList);  // Node's Parents
+
+            bool avl = false;
+            foreach (var r in Db.SQL<NNN>("SELECT r from NNN r WHERE r.ObjectNo <> ?", node))
             {
-                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
-                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
-                if (r.NP.GetObjectNo() == fndNo)
-                {
-                    isFound = true;
-                    return isFound;
-                }
-                else if (!isFound && r.NP.HasPrn)
-                {
-                    isFound = FindInParents(r.NP.GetObjectNo(), fndNo, isFound);
-                    if (isFound)
-                        return isFound;
-                }
+                avl = pList.Contains(r.GetObjectNo()) ? false : true; 
+                if(avl)
+                table.Rows.Add(r.GetObjectNo(), r.Ad, avl);
             }
 
-            return isFound;
+            return table;
         }
 
-        public static bool FindInChildren(ulong curNo, ulong fndNo, bool isFound)
+        private static void KidsList(ulong node, List<ulong> kList) // DENEME
         {
-            // Once LeafNode lari tara
-            if (FindInSibling(curNo, fndNo))
-                return true;
-
-            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? AND r.NC.HasKid = ?", curNo, true))
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ?", node))
             {
-                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
-                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
-                if (!isFound && r.NC.HasKid)
-                {
-                    isFound = FindInChildren(r.NC.GetObjectNo(), fndNo, isFound);
-                    if (isFound)
-                        return isFound;
-                }
-            }
+                ulong kid = r.NC.GetObjectNo();
 
-            return isFound;
-        }
+                if (!kList.Contains(kid))
+                    kList.Add(kid);
 
-        public static void Children(ulong curNo, int lvl)
-        {
-            foreach (var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ? order by r.NC.HasKid DESC", curNo))
-            {
-                string ppp = r.NP.Ad + " " + r.NP.GetObjectNo().ToString();
-                string ccc = r.NC.Ad + " " + r.NC.GetObjectNo().ToString();
-                //Console.WriteLine($"{ppp} {ccc}: {lvl}");
                 if (r.NC.HasKid)
-                {
-                    Console.WriteLine($"{ppp} {ccc}: {lvl}");
-                    Children(r.NC.GetObjectNo(), lvl++);
-                    Console.WriteLine($"*{ppp} {ccc}: {lvl}");
-                }
+                    KidsList(kid, kList);
             }
         }
+
+        private static void ParentsList(ulong node, List<ulong> pList)  // DENEME
+        {
+            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NC.ObjectNo = ?", node))
+            {
+                ulong parent = r.NP.GetObjectNo();
+
+                if (!pList.Contains(parent))
+                    pList.Add(parent);
+                if (r.NP.HasPrn)
+                    ParentsList(parent, pList);
+            }
+        }
+
 
         public static void Deneme2()
         {
@@ -667,145 +733,6 @@ namespace M2DB
             }*/
         }
 
-        private static void Kids(NNN Kid, List<string> kList)   // HasKidInParents ile yap bunu kullanma
-        {
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP = ?", Kid))
-            {
-                kList.Add(r.NC.Ad);
-                if (r.NC.HasKid)
-                    Kids(r.NC, kList);
-            }
-        }
-
-        // Kullanilmiyor
-        public static void KidsParents()
-        {
-            Dictionary<NNN, Dictionary<NNN, double>> kp = new Dictionary<NNN, Dictionary<NNN, double>>();
-
-            foreach(var k in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
-            {
-                var aaa = k.Ad;
-                kp.Add(k, new Dictionary<NNN, double>());
-            }
-
-            foreach(var k in kp)
-            {
-                KidParents(k.Key, k.Value);
-            }
-
-            foreach (var k in kp)
-            {
-                Console.WriteLine($"{k.Key.Ad}");
-                foreach (var p in k.Value)
-                {
-                    Console.WriteLine($"{p.Key.Ad} {p.Value}");
-                }
-                Console.WriteLine();
-            }
-        }
-
-        // Kullanilmiyor
-        public static void KidParents(NNN k, Dictionary<NNN, double> ps)
-        {
-            foreach(var r in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NC = ?", k))
-            {
-                ps[r.NP] = r.Mik;
-                if (r.NP.HasPrn)
-                    KidParents(r.NP, ps);
-
-            }
-        }
-
-        public static DataTable KidsInParentsMik()
-        {
-            DataTable table = new DataTable();
-            table.Columns.Add("KNo", typeof(ulong));
-            table.Columns.Add("PNo", typeof(ulong));
-            table.Columns.Add("KAd", typeof(string));
-            table.Columns.Add("PAd", typeof(string));
-            table.Columns.Add("M", typeof(double));
-
-
-            NNR.KidInParentsMik(280, table);   // Ali
-            return table;
-
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", true))
-                KidInParentsMik(n.GetObjectNo(), table);
-
-            return table;
-        }
-        public static void KidInParentsMik(ulong KidObjNo, DataTable table)
-        {
-
-
-            if (!(Db.FromId(KidObjNo) is NNN Kid))
-                return;
-
-            //NNN Kid = Db.FromId(KidObjNo) as NNN;
-            //if (Kid == null)
-            //    return;
-
-            Dictionary<ulong, double> MikDict = new Dictionary<ulong, double>();
-
-            Console.WriteLine("");
-            Console.WriteLine("KidInRootsMik++++");
-
-            MikDict.Clear();
-            KidInParentsMikDty(KidObjNo, MikDict);
-
-            NNN Ne;
-            foreach (var i in MikDict)
-            {
-                Ne = Db.FromId<NNN>(i.Key);
-                //if (!Ne.HasPrn)  // Root
-                    Console.WriteLine($">>{Kid.Ad}@{Ne.Ad}={i.Value:n}");
-                table.Rows.Add(Kid.GetObjectNo(), Ne.GetObjectNo(), Kid.Ad, Ne.Ad, i.Value);
-            }
-            Console.WriteLine("");
-            Console.WriteLine("KidInRootsMik----");
-        }
-        private static void KidInParentsMikDty(ulong sNo, Dictionary<ulong, double> mD)
-        {
-            ulong PoNo = 0, KoNo = 0;
-            double pMik = 0, kMik = 0;
-            string s = "";
-
-            foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NC.ObjectNo = ?", sNo))
-            {
-                PoNo = r.NP.GetObjectNo();
-                KoNo = r.NC.GetObjectNo();
-
-                if (!mD.ContainsKey(PoNo))
-                    mD[PoNo] = 0;
-
-                kMik = mD.ContainsKey(KoNo) ? mD[KoNo] : 1;
-
-                if (!r.NP.HasPrn)  // Root
-                {
-                    pMik = mD[PoNo];
-                    mD[PoNo] += kMik * r.Mik;
-                    s = $"{r.PAd}.{r.KAd}:{r.Mik} =>";
-                    Console.WriteLine($"+ {s,40} {r.PAd}[{pMik}] + ({r.Mik} x {r.KAd}[{kMik}] = {kMik * r.Mik}) => {r.PAd}[{mD[PoNo]}]");
-                    //Console.WriteLine($"\t+ {r.PrnAd}.{r.KidAd}:{r.Mik}\t{r.PrnAd}[{pMik}] + ({r.Mik} x {r.KidAd}[{kMik}] = {kMik * r.Mik}) => {r.PrnAd}[{mD[PoNo]}]");
-                }
-                else
-                {
-                    mD[PoNo] = kMik * r.Mik;
-                    s = $"{r.PAd}.{r.KAd}:{r.Mik} =>";
-                    if (mD.ContainsKey(KoNo))
-                        Console.WriteLine($"* {s,40} {r.KAd}[{kMik}] x {r.Mik} => {r.PAd}[{mD[PoNo]}]");
-                    else
-                        Console.WriteLine($"& {s,40} {r.PAd}[{mD[PoNo]}]");
-                }
-
-
-                if (r.NP.HasPrn)
-                    KidInParentsMikDty(r.NP.GetObjectNo(), mD);
-            }
-
-            return;
-        }
-
         public static DataTable NodesInParents()
         {
             DataTable table = new DataTable();
@@ -823,7 +750,7 @@ namespace M2DB
         {
             Dictionary<ulong, double> mikD = new Dictionary<ulong, double>();  // Gereken
 
-            NodeInParent(parent, 1, mikD);
+            NodeInParent(parent, 1, mikD);  // Kid's Mik of parent.
 
             NNN p = Db.FromId<NNN>(parent);
             NNN n = null;
@@ -835,9 +762,9 @@ namespace M2DB
             // ↑↓↕↔
             // ▲▼●
             if (!p.HasPrn)
-                pAd = "+" + pAd;  // root
+                pAd = "*" + pAd;  // root
             else
-                pAd = "*" + pAd;
+                pAd = "+" + pAd;
 
             foreach (var r in mikD)
             {
@@ -847,12 +774,13 @@ namespace M2DB
                 if (!n.HasKid)
                     nAd = "-" + nAd;  // leaf
                 else
-                    nAd = "*" + nAd;
+                    nAd = "+" + nAd;
                 table.Rows.Add(pNo, p.GetObjectNo(), pAd, nAd, r.Value);
             }
 
         }
-        private static void NodeInParent(ulong node, double Mik, Dictionary<ulong, double> mD)
+        // Starting Node altindaki Kid ler nekadar kullaniliyor
+        private static void NodeInParent(ulong node, double Mik, Dictionary<ulong, double> mD)  // Kids Miktar
         {
             ulong Kid = 0;
             double GMik = 0;
@@ -860,23 +788,7 @@ namespace M2DB
             foreach (var r in Db.SQL<NNR>("select r from NNR r where r.NP.ObjectNo = ?", node))
             {
                 Kid = r.NC.GetObjectNo();
-                /*
-                if (!S.ContainsKey(Kid))
-                    S[Kid] = 0; //StokMik(Kid);
-                */
                 GMik = Mik * r.Mik;
-                /*
-                if (GMik > S[Kid])
-                {
-                    GMik -= S[Kid];
-                    S[Kid] = 0;
-                }
-                else
-                {
-                    S[Kid] -= GMik;
-                    GMik = 0;
-                }
-                */
                 if (!mD.ContainsKey(Kid))
                     mD[Kid] = 0;
                 mD[Kid] += GMik;
@@ -885,7 +797,6 @@ namespace M2DB
                     NodeInParent(Kid, GMik, mD);
             }
         }
-
 
         public static void NodeGerekenKidsMik(ulong node, double Mik)
         {
@@ -914,7 +825,6 @@ namespace M2DB
             var ccc = ((KMT)tsb.DST).Adres; // DST is KKK
             */
         }
-
         private static void NodeGerekenKidsMikDty(ulong Prn, double Mik, Dictionary<ulong, double> S, Dictionary<ulong, double> G)
         {
             ulong Kid = 0;

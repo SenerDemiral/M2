@@ -58,7 +58,6 @@
             this.ABBbutton = new System.Windows.Forms.Button();
             this.NeUpButton = new System.Windows.Forms.Button();
             this.NeDownButton = new System.Windows.Forms.Button();
-            this.KidsInParentsButton = new System.Windows.Forms.Button();
             this.NodesInParentsButton = new System.Windows.Forms.Button();
             this.NNNbutton = new System.Windows.Forms.Button();
             this.KPTbutton = new System.Windows.Forms.Button();
@@ -363,21 +362,11 @@
             this.NeDownButton.UseVisualStyleBackColor = true;
             this.NeDownButton.Click += new System.EventHandler(this.NeDownButton_Click);
             // 
-            // KidsInParentsButton
-            // 
-            this.KidsInParentsButton.Location = new System.Drawing.Point(206, 210);
-            this.KidsInParentsButton.Name = "KidsInParentsButton";
-            this.KidsInParentsButton.Size = new System.Drawing.Size(137, 23);
-            this.KidsInParentsButton.TabIndex = 8;
-            this.KidsInParentsButton.Text = "KidsInParents YANLIS";
-            this.KidsInParentsButton.UseVisualStyleBackColor = true;
-            this.KidsInParentsButton.Click += new System.EventHandler(this.KidsInParentsButton_Click);
-            // 
             // NodesInParentsButton
             // 
-            this.NodesInParentsButton.Location = new System.Drawing.Point(349, 210);
+            this.NodesInParentsButton.Location = new System.Drawing.Point(204, 210);
             this.NodesInParentsButton.Name = "NodesInParentsButton";
-            this.NodesInParentsButton.Size = new System.Drawing.Size(75, 23);
+            this.NodesInParentsButton.Size = new System.Drawing.Size(126, 23);
             this.NodesInParentsButton.TabIndex = 9;
             this.NodesInParentsButton.Text = "NodesInParents";
             this.NodesInParentsButton.UseVisualStyleBackColor = true;
@@ -433,7 +422,6 @@
             this.Controls.Add(this.KPTbutton);
             this.Controls.Add(this.NNNbutton);
             this.Controls.Add(this.NodesInParentsButton);
-            this.Controls.Add(this.KidsInParentsButton);
             this.Controls.Add(this.NeDownButton);
             this.Controls.Add(this.NeUpButton);
             this.Controls.Add(this.ABBbutton);
@@ -490,7 +478,6 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbbTurRepositoryItemLookUpEdit;
         private System.Windows.Forms.Button NeUpButton;
         private System.Windows.Forms.Button NeDownButton;
-        private System.Windows.Forms.Button KidsInParentsButton;
         private System.Windows.Forms.Button NodesInParentsButton;
         private System.Windows.Forms.Button NNNbutton;
         private System.Windows.Forms.Button KPTbutton;

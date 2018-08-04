@@ -186,12 +186,6 @@
     <Compile Include="KftXF.Designer.cs">
       <DependentUpon>KftXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KidsInParentsXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="KidsInParentsXF.Designer.cs">
-      <DependentUpon>KidsInParentsXF.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainDataSet.cs">
       <DependentUpon>MainDataSet.xsd</DependentUpon>
       <SubType>code</SubType>
@@ -296,9 +290,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KhtXF.resx">
       <DependentUpon>KhtXF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="KidsInParentsXF.resx">
-      <DependentUpon>KidsInParentsXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KptXF.resx">
       <DependentUpon>KptXF.cs</DependentUpon>
