@@ -50,6 +50,9 @@ service CRUDs {
 
   rpc NNNfill (QryProxy) returns (stream NNNproxy) {}
   rpc NNNupdate (NNNproxy) returns (NNNproxy) {}
+  rpc NNRfill (PKproxy) returns (stream NNRproxy) {}
+  rpc NNRupdate (NNRproxy) returns (NNRproxy) {}
+  rpc NeParentsFill (PKproxy) returns (stream NeParentsProxy) {}	// PKproxy.PK = 0 ise hepsi
 
   rpc NeUpFill (QryProxy) returns (stream NeTreeProxy) {}
   rpc NeDownFill (QryProxy) returns (stream NeTreeProxy) {}
@@ -305,6 +308,22 @@ message NNNproxy {
 	google.protobuf.StringValue Info = 7;
 	uint64 BRM = 8;
 	double Fyt = 9;
+}
+
+// NNR NeRelation
+message NNRproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 NP = 5;
+	uint64 NC = 6;
+	double Mik = 7;
+}
+
+message NeParentsProxy {
+	uint64 Ne = 1;
+	string Parents = 2;
 }
 
 // BR BaseRelation

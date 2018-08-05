@@ -119,6 +119,13 @@ namespace RestClientWinForm
             e.Cancel = (bool)focusedNode["IsW"] == false;
         }
 
+        private void NNNrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+            var gle = (sender as GridLookUpEdit);
+            bool avl = (bool)gle.Properties.View.GetFocusedRowCellValue("Avl");
+            e.Cancel = !avl;
+        }
+
         private void KFTbutton_Click(object sender, EventArgs e)
         {
             KftXF frm = new KftXF();
@@ -180,5 +187,6 @@ namespace RestClientWinForm
         {
             FillTanimlar();
         }
+
     }
 }

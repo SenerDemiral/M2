@@ -1047,6 +1047,85 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // NeRelation
+        public override async Task NNRfill(PKproxy request, IServerStreamWriter<NNRproxy> responseStream, ServerCallContext context)
+        {
+            NNRproxy proxy = new NNRproxy();
+            List<NNRproxy> proxyList = new List<NNRproxy>();
+
+            Type proxyType = typeof(NNRproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                foreach (var row in Db.SQL<NNR>("SELECT r FROM NNR r WHERE r.NP.ObjectNo = ?", request.PK))
+                {
+                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                    proxy = new NNRproxy
+                    {
+                        RowKey = row.GetObjectNo(),
+                        NP = row.NP.GetObjectNo(),
+                        NC = row.NC.GetObjectNo(),
+                        Mik = row.Mik,
+                    };
+                    proxyList.Add(proxy);
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<NNRproxy> NNRupdate(NNRproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        // Add Control
+                        // Parent Hesabi olmali
+
+                        if (request.RowErr == string.Empty)
+                        {
+                            NNR row = CRUDsHelper.FromProxy<NNRproxy, NNR>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<NNRproxy, NNR>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        // Ilgili kayit varsa sildirme
+                        request.RowErr = "Silemezsiniz";    // Simdilik
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+        public override async Task NeParentsFill(PKproxy request, IServerStreamWriter<NeParentsProxy> responseStream, ServerCallContext context)
+        {
+            NeParentsProxy proxy;
+            string pString = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                pString = NNN.GetNeParentsString(request.PK);
+            });
+
+            proxy = new NeParentsProxy
+            {
+                Ne = request.PK,
+                Parents = pString
+            };
+            await responseStream.WriteAsync(proxy);
+        }
+
         public override async Task NeUpFill(QryProxy request, IServerStreamWriter<NeTreeProxy> responseStream, ServerCallContext context)
         {
             NeTreeProxy proxy;
@@ -1114,7 +1193,7 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                table = M2DB.NNR.NodesInParents();
+                table = M2DB.NNR.NodesMikInParents();
             });
 
 

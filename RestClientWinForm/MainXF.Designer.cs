@@ -63,6 +63,8 @@
             this.KPTbutton = new System.Windows.Forms.Button();
             this.KDTbutton = new System.Windows.Forms.Button();
             this.FillLookupsButton = new System.Windows.Forms.Button();
+            this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -80,6 +82,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -120,7 +124,8 @@
             this.AbbTurRepositoryItemLookUpEdit,
             this.KDTrepositoryItemLookUpEdit,
             this.KPTrepositoryItemLookUpEdit,
-            this.NNNrepositoryItemLookUpEdit});
+            this.NNNrepositoryItemLookUpEdit,
+            this.NNNrepositoryItemGridLookUpEdit});
             // 
             // AfbTurRepositoryItemLookUpEdit
             // 
@@ -292,6 +297,13 @@
             // 
             this.NNNrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NNNrepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowKey", "Row Key", 65, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BRM", "BRM", 31, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Fyt", "Fyt", 26, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Avl", "Avl", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
             this.NNNrepositoryItemLookUpEdit.DataSource = this.nnnBindingSource;
             this.NNNrepositoryItemLookUpEdit.DisplayMember = "Ad";
             this.NNNrepositoryItemLookUpEdit.Name = "NNNrepositoryItemLookUpEdit";
@@ -412,6 +424,24 @@
             this.FillLookupsButton.UseVisualStyleBackColor = true;
             this.FillLookupsButton.Click += new System.EventHandler(this.FillLookupsButton_Click);
             // 
+            // NNNrepositoryItemGridLookUpEdit
+            // 
+            this.NNNrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NNNrepositoryItemGridLookUpEdit.DataSource = this.nnnBindingSource;
+            this.NNNrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
+            this.NNNrepositoryItemGridLookUpEdit.Name = "NNNrepositoryItemGridLookUpEdit";
+            this.NNNrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
+            this.NNNrepositoryItemGridLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
+            this.NNNrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.NNNrepositoryItemGridLookUpEdit_QueryCloseUp);
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +480,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,5 +521,7 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NNNrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource nnnBindingSource;
         private System.Windows.Forms.Button FillLookupsButton;
+        public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit NNNrepositoryItemGridLookUpEdit;
+        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
     }
 }

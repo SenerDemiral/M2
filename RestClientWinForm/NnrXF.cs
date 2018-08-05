@@ -11,21 +11,37 @@ using DevExpress.XtraEditors;
 
 namespace RestClientWinForm
 {
-    public partial class NnnXF : DevExpress.XtraEditors.XtraForm
+    public partial class NnrXF : DevExpress.XtraEditors.XtraForm
     {
-        public NnnXF()
+        public ulong P = 0;
+
+        public NnrXF()
         {
             InitializeComponent();
 
-            nnnGridControl.ExternalRepository = Program.MF.persistentRepository;
-            //colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
+            nnrGridControl.ExternalRepository = Program.MF.persistentRepository;
+            //colNC.ColumnEdit = Program.MF.NNNrepositoryItemLookUpEdit;
+            colNC.ColumnEdit = Program.MF.NNNrepositoryItemGridLookUpEdit;
+
+
         }
 
-        private void NnnXF_Load(object sender, EventArgs e)
+        private void NnrXF_Load(object sender, EventArgs e)
         {
             // KKK.TUR deki F yi bul
             //DataRow[] xgtRows = Program.MF.mainDataSet.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
             //ObjTur = xgtRows[0]["RowKey"];
+
+            Task.Run(async () => { await mainDataSet.NeParentsFill(P); }).Wait();
+            string parents = mainDataSet.NeParents.Rows[0]["Parents"].ToString();
+            ulong key = 0;
+            foreach(DataRow row in Program.MF.mainDataSet.NNN.Rows)
+            {
+                key = (ulong)row["RowKey"];
+                row["Avl"] = true;
+                if(parents.Contains($"<{key}>"))
+                   row["Avl"] = false;
+            }
 
             FillDB();
         }
@@ -33,18 +49,18 @@ namespace RestClientWinForm
         private void FillDB()
         {
             string res = "";
-            nnnGridControl.DataSource = null;
+            nnrGridControl.DataSource = null;
             mainDataSet.KFT.Clear();
-            Task.Run(async () => { res = await mainDataSet.NNNfill(); }).Wait();
+            Task.Run(async () => { res = await mainDataSet.NNRfill(P); }).Wait();
             toolStripStatusLabel1.Text = res;
-            nnnGridControl.DataSource = nnnBindingSource;
+            nnrGridControl.DataSource = nnrBindingSource;
         }
 
         private DialogResult UpdateDB(bool silent = false)
         {
             if (!Validate())
                 return DialogResult.Cancel;
-            nnnBindingSource.EndEdit();
+            nnrBindingSource.EndEdit();
 
             //gridView1.CloseEditor();
             //gridView1.UpdateCurrentRow();
@@ -83,35 +99,5 @@ namespace RestClientWinForm
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
         }
 
-
-        private void uretenDepartmanToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
-                return;
-
-            ToBrXF frm = new ToBrXF();
-            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Üretim Departmanları";
-
-            frm.Mtyp = "NNN";
-            frm.Dtyp = "KDT";
-            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-
-            frm.ShowDialog();
-
-        }
-
-        private void relationsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
-                return;
-
-            NnrXF frm = new NnrXF();
-            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Relations";
-
-            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-
-            frm.ShowDialog();
-
-        }
     }
 }

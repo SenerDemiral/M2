@@ -17,7 +17,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#pragma warning disable 1591
+#pragma warning disable 0414, 1591
 #region Designer generated code
 
 using grpc = global::Grpc.Core;
@@ -30,364 +30,380 @@ namespace Rest {
   {
     static readonly string __ServiceName = "rest.CRUDs";
 
-    static readonly grpc::Marshaller<global::Rest.QryProxy> __Marshaller_QryProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.TblaProxy> __Marshaller_TblaProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.AHPproxy> __Marshaller_AHPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AHPproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.AVMproxy> __Marshaller_AVMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AVMproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.QryMDproxy> __Marshaller_QryMDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryMDproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.AVDproxy> __Marshaller_AVDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AVDproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ABMproxy> __Marshaller_ABMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABMproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ABDproxy> __Marshaller_ABDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABDproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.XDKproxy> __Marshaller_XDKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XDKproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.UUUproxy> __Marshaller_UUUproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UUUproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.UYTproxy> __Marshaller_UYTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.UYHproxy> __Marshaller_UYHproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYHproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.NNNproxy> __Marshaller_NNNproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNNproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.NeTreeProxy> __Marshaller_NeTreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeTreeProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KidsInParentsProxy> __Marshaller_KidsInParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KidsInParentsProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.NodesInParentsProxy> __Marshaller_NodesInParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NodesInParentsProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KKKproxy> __Marshaller_KKKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KKKproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KFTproxy> __Marshaller_KFTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KFTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KPTproxy> __Marshaller_KPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KPTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KDTproxy> __Marshaller_KDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KDTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.QryBRproxy> __Marshaller_QryBRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryBRproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.BRproxy> __Marshaller_BRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BRproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.QryPproxy> __Marshaller_QryPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryPproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKPTproxy> __Marshaller_ToKPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKPTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKHTproxy> __Marshaller_ToKHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKHTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKDTproxy> __Marshaller_ToKDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKDTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KHTproxy> __Marshaller_KHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KHTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KCTproxy> __Marshaller_KCTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KCTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryProxy> __Marshaller_rest_QryProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TblaProxy> __Marshaller_rest_TblaProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TblaProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AHPproxy> __Marshaller_rest_AHPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AHPproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AVMproxy> __Marshaller_rest_AVMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AVMproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryMDproxy> __Marshaller_rest_QryMDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryMDproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AVDproxy> __Marshaller_rest_AVDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AVDproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.ABMproxy> __Marshaller_rest_ABMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABMproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.ABDproxy> __Marshaller_rest_ABDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABDproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_rest_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.XDKproxy> __Marshaller_rest_XDKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XDKproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.UUUproxy> __Marshaller_rest_UUUproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UUUproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.UYTproxy> __Marshaller_rest_UYTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.UYHproxy> __Marshaller_rest_UYHproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYHproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NNNproxy> __Marshaller_rest_NNNproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNNproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.PKproxy> __Marshaller_rest_PKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.PKproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NNRproxy> __Marshaller_rest_NNRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNRproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NeParentsProxy> __Marshaller_rest_NeParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeParentsProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NeTreeProxy> __Marshaller_rest_NeTreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeTreeProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NodesInParentsProxy> __Marshaller_rest_NodesInParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NodesInParentsProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KKKproxy> __Marshaller_rest_KKKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KKKproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KFTproxy> __Marshaller_rest_KFTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KFTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KPTproxy> __Marshaller_rest_KPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KPTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KDTproxy> __Marshaller_rest_KDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KDTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryBRproxy> __Marshaller_rest_QryBRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryBRproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.BRproxy> __Marshaller_rest_BRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BRproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryPproxy> __Marshaller_rest_QryPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryPproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.ToKPTproxy> __Marshaller_rest_ToKPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKPTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.ToKHTproxy> __Marshaller_rest_ToKHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKHTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.ToKDTproxy> __Marshaller_rest_ToKDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKDTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KHTproxy> __Marshaller_rest_KHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KHTproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KCTproxy> __Marshaller_rest_KCTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KCTproxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "TblaFill",
-        __Marshaller_QryProxy,
-        __Marshaller_TblaProxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_TblaProxy);
 
     static readonly grpc::Method<global::Rest.TblaProxy, global::Rest.TblaProxy> __Method_TblaUpdate = new grpc::Method<global::Rest.TblaProxy, global::Rest.TblaProxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "TblaUpdate",
-        __Marshaller_TblaProxy,
-        __Marshaller_TblaProxy);
+        __Marshaller_rest_TblaProxy,
+        __Marshaller_rest_TblaProxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.AHPproxy> __Method_AHPfill = new grpc::Method<global::Rest.QryProxy, global::Rest.AHPproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "AHPfill",
-        __Marshaller_QryProxy,
-        __Marshaller_AHPproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_AHPproxy);
 
     static readonly grpc::Method<global::Rest.AHPproxy, global::Rest.AHPproxy> __Method_AHPupdate = new grpc::Method<global::Rest.AHPproxy, global::Rest.AHPproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "AHPupdate",
-        __Marshaller_AHPproxy,
-        __Marshaller_AHPproxy);
+        __Marshaller_rest_AHPproxy,
+        __Marshaller_rest_AHPproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.AVMproxy> __Method_AVMfill = new grpc::Method<global::Rest.QryProxy, global::Rest.AVMproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "AVMfill",
-        __Marshaller_QryProxy,
-        __Marshaller_AVMproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_AVMproxy);
 
     static readonly grpc::Method<global::Rest.AVMproxy, global::Rest.AVMproxy> __Method_AVMupdate = new grpc::Method<global::Rest.AVMproxy, global::Rest.AVMproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "AVMupdate",
-        __Marshaller_AVMproxy,
-        __Marshaller_AVMproxy);
+        __Marshaller_rest_AVMproxy,
+        __Marshaller_rest_AVMproxy);
 
     static readonly grpc::Method<global::Rest.QryMDproxy, global::Rest.AVDproxy> __Method_AVDfill = new grpc::Method<global::Rest.QryMDproxy, global::Rest.AVDproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "AVDfill",
-        __Marshaller_QryMDproxy,
-        __Marshaller_AVDproxy);
+        __Marshaller_rest_QryMDproxy,
+        __Marshaller_rest_AVDproxy);
 
     static readonly grpc::Method<global::Rest.AVDproxy, global::Rest.AVDproxy> __Method_AVDupdate = new grpc::Method<global::Rest.AVDproxy, global::Rest.AVDproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "AVDupdate",
-        __Marshaller_AVDproxy,
-        __Marshaller_AVDproxy);
+        __Marshaller_rest_AVDproxy,
+        __Marshaller_rest_AVDproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.ABMproxy> __Method_ABMfill = new grpc::Method<global::Rest.QryProxy, global::Rest.ABMproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ABMfill",
-        __Marshaller_QryProxy,
-        __Marshaller_ABMproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_ABMproxy);
 
     static readonly grpc::Method<global::Rest.ABMproxy, global::Rest.ABMproxy> __Method_ABMupdate = new grpc::Method<global::Rest.ABMproxy, global::Rest.ABMproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ABMupdate",
-        __Marshaller_ABMproxy,
-        __Marshaller_ABMproxy);
+        __Marshaller_rest_ABMproxy,
+        __Marshaller_rest_ABMproxy);
 
     static readonly grpc::Method<global::Rest.QryMDproxy, global::Rest.ABDproxy> __Method_ABDfill = new grpc::Method<global::Rest.QryMDproxy, global::Rest.ABDproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ABDfill",
-        __Marshaller_QryMDproxy,
-        __Marshaller_ABDproxy);
+        __Marshaller_rest_QryMDproxy,
+        __Marshaller_rest_ABDproxy);
 
     static readonly grpc::Method<global::Rest.ABDproxy, global::Rest.ABDproxy> __Method_ABDupdate = new grpc::Method<global::Rest.ABDproxy, global::Rest.ABDproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ABDupdate",
-        __Marshaller_ABDproxy,
-        __Marshaller_ABDproxy);
+        __Marshaller_rest_ABDproxy,
+        __Marshaller_rest_ABDproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy> __Method_XGTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "XGTfill",
-        __Marshaller_QryProxy,
-        __Marshaller_XGTproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_XGTproxy);
 
     static readonly grpc::Method<global::Rest.XGTproxy, global::Rest.XGTproxy> __Method_XGTupdate = new grpc::Method<global::Rest.XGTproxy, global::Rest.XGTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "XGTupdate",
-        __Marshaller_XGTproxy,
-        __Marshaller_XGTproxy);
+        __Marshaller_rest_XGTproxy,
+        __Marshaller_rest_XGTproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.XDKproxy> __Method_XDKfill = new grpc::Method<global::Rest.QryProxy, global::Rest.XDKproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "XDKfill",
-        __Marshaller_QryProxy,
-        __Marshaller_XDKproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_XDKproxy);
 
     static readonly grpc::Method<global::Rest.XDKproxy, global::Rest.XDKproxy> __Method_XDKupdate = new grpc::Method<global::Rest.XDKproxy, global::Rest.XDKproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "XDKupdate",
-        __Marshaller_XDKproxy,
-        __Marshaller_XDKproxy);
+        __Marshaller_rest_XDKproxy,
+        __Marshaller_rest_XDKproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.UUUproxy> __Method_UUUfill = new grpc::Method<global::Rest.QryProxy, global::Rest.UUUproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "UUUfill",
-        __Marshaller_QryProxy,
-        __Marshaller_UUUproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_UUUproxy);
 
     static readonly grpc::Method<global::Rest.UUUproxy, global::Rest.UUUproxy> __Method_UUUupdate = new grpc::Method<global::Rest.UUUproxy, global::Rest.UUUproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UUUupdate",
-        __Marshaller_UUUproxy,
-        __Marshaller_UUUproxy);
+        __Marshaller_rest_UUUproxy,
+        __Marshaller_rest_UUUproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.UYTproxy> __Method_UYTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.UYTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "UYTfill",
-        __Marshaller_QryProxy,
-        __Marshaller_UYTproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_UYTproxy);
 
     static readonly grpc::Method<global::Rest.UYTproxy, global::Rest.UYTproxy> __Method_UYTupdate = new grpc::Method<global::Rest.UYTproxy, global::Rest.UYTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UYTupdate",
-        __Marshaller_UYTproxy,
-        __Marshaller_UYTproxy);
+        __Marshaller_rest_UYTproxy,
+        __Marshaller_rest_UYTproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.UYHproxy> __Method_UYHfill = new grpc::Method<global::Rest.QryProxy, global::Rest.UYHproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "UYHfill",
-        __Marshaller_QryProxy,
-        __Marshaller_UYHproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_UYHproxy);
 
     static readonly grpc::Method<global::Rest.UYHproxy, global::Rest.UYHproxy> __Method_UYHupdate = new grpc::Method<global::Rest.UYHproxy, global::Rest.UYHproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "UYHupdate",
-        __Marshaller_UYHproxy,
-        __Marshaller_UYHproxy);
+        __Marshaller_rest_UYHproxy,
+        __Marshaller_rest_UYHproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NNNproxy> __Method_NNNfill = new grpc::Method<global::Rest.QryProxy, global::Rest.NNNproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "NNNfill",
-        __Marshaller_QryProxy,
-        __Marshaller_NNNproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_NNNproxy);
 
     static readonly grpc::Method<global::Rest.NNNproxy, global::Rest.NNNproxy> __Method_NNNupdate = new grpc::Method<global::Rest.NNNproxy, global::Rest.NNNproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "NNNupdate",
-        __Marshaller_NNNproxy,
-        __Marshaller_NNNproxy);
+        __Marshaller_rest_NNNproxy,
+        __Marshaller_rest_NNNproxy);
+
+    static readonly grpc::Method<global::Rest.PKproxy, global::Rest.NNRproxy> __Method_NNRfill = new grpc::Method<global::Rest.PKproxy, global::Rest.NNRproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "NNRfill",
+        __Marshaller_rest_PKproxy,
+        __Marshaller_rest_NNRproxy);
+
+    static readonly grpc::Method<global::Rest.NNRproxy, global::Rest.NNRproxy> __Method_NNRupdate = new grpc::Method<global::Rest.NNRproxy, global::Rest.NNRproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "NNRupdate",
+        __Marshaller_rest_NNRproxy,
+        __Marshaller_rest_NNRproxy);
+
+    static readonly grpc::Method<global::Rest.PKproxy, global::Rest.NeParentsProxy> __Method_NeParentsFill = new grpc::Method<global::Rest.PKproxy, global::Rest.NeParentsProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "NeParentsFill",
+        __Marshaller_rest_PKproxy,
+        __Marshaller_rest_NeParentsProxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy> __Method_NeUpFill = new grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "NeUpFill",
-        __Marshaller_QryProxy,
-        __Marshaller_NeTreeProxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_NeTreeProxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy> __Method_NeDownFill = new grpc::Method<global::Rest.QryProxy, global::Rest.NeTreeProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "NeDownFill",
-        __Marshaller_QryProxy,
-        __Marshaller_NeTreeProxy);
-
-    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KidsInParentsProxy> __Method_KidsInParentsFill = new grpc::Method<global::Rest.QryProxy, global::Rest.KidsInParentsProxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "KidsInParentsFill",
-        __Marshaller_QryProxy,
-        __Marshaller_KidsInParentsProxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_NeTreeProxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NodesInParentsProxy> __Method_NodesInParentsFill = new grpc::Method<global::Rest.QryProxy, global::Rest.NodesInParentsProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "NodesInParentsFill",
-        __Marshaller_QryProxy,
-        __Marshaller_NodesInParentsProxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_NodesInParentsProxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy> __Method_KKKfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KKKfill",
-        __Marshaller_QryProxy,
-        __Marshaller_KKKproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_KKKproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy> __Method_KFTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KFTfill",
-        __Marshaller_QryProxy,
-        __Marshaller_KFTproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_KFTproxy);
 
     static readonly grpc::Method<global::Rest.KFTproxy, global::Rest.KFTproxy> __Method_KFTupdate = new grpc::Method<global::Rest.KFTproxy, global::Rest.KFTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KFTupdate",
-        __Marshaller_KFTproxy,
-        __Marshaller_KFTproxy);
+        __Marshaller_rest_KFTproxy,
+        __Marshaller_rest_KFTproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KPTproxy> __Method_KPTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KPTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KPTfill",
-        __Marshaller_QryProxy,
-        __Marshaller_KPTproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_KPTproxy);
 
     static readonly grpc::Method<global::Rest.KPTproxy, global::Rest.KPTproxy> __Method_KPTupdate = new grpc::Method<global::Rest.KPTproxy, global::Rest.KPTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KPTupdate",
-        __Marshaller_KPTproxy,
-        __Marshaller_KPTproxy);
+        __Marshaller_rest_KPTproxy,
+        __Marshaller_rest_KPTproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KDTproxy> __Method_KDTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KDTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KDTfill",
-        __Marshaller_QryProxy,
-        __Marshaller_KDTproxy);
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_KDTproxy);
 
     static readonly grpc::Method<global::Rest.KDTproxy, global::Rest.KDTproxy> __Method_KDTupdate = new grpc::Method<global::Rest.KDTproxy, global::Rest.KDTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KDTupdate",
-        __Marshaller_KDTproxy,
-        __Marshaller_KDTproxy);
+        __Marshaller_rest_KDTproxy,
+        __Marshaller_rest_KDTproxy);
 
     static readonly grpc::Method<global::Rest.QryBRproxy, global::Rest.BRproxy> __Method_BRfill = new grpc::Method<global::Rest.QryBRproxy, global::Rest.BRproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "BRfill",
-        __Marshaller_QryBRproxy,
-        __Marshaller_BRproxy);
+        __Marshaller_rest_QryBRproxy,
+        __Marshaller_rest_BRproxy);
 
     static readonly grpc::Method<global::Rest.BRproxy, global::Rest.BRproxy> __Method_BRupdate = new grpc::Method<global::Rest.BRproxy, global::Rest.BRproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "BRupdate",
-        __Marshaller_BRproxy,
-        __Marshaller_BRproxy);
+        __Marshaller_rest_BRproxy,
+        __Marshaller_rest_BRproxy);
 
     static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKPTproxy> __Method_ToKPTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKPTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ToKPTfill",
-        __Marshaller_QryPproxy,
-        __Marshaller_ToKPTproxy);
+        __Marshaller_rest_QryPproxy,
+        __Marshaller_rest_ToKPTproxy);
 
     static readonly grpc::Method<global::Rest.ToKPTproxy, global::Rest.ToKPTproxy> __Method_ToKPTupdate = new grpc::Method<global::Rest.ToKPTproxy, global::Rest.ToKPTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ToKPTupdate",
-        __Marshaller_ToKPTproxy,
-        __Marshaller_ToKPTproxy);
+        __Marshaller_rest_ToKPTproxy,
+        __Marshaller_rest_ToKPTproxy);
 
     static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKHTproxy> __Method_ToKHTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKHTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ToKHTfill",
-        __Marshaller_QryPproxy,
-        __Marshaller_ToKHTproxy);
+        __Marshaller_rest_QryPproxy,
+        __Marshaller_rest_ToKHTproxy);
 
     static readonly grpc::Method<global::Rest.ToKHTproxy, global::Rest.ToKHTproxy> __Method_ToKHTupdate = new grpc::Method<global::Rest.ToKHTproxy, global::Rest.ToKHTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ToKHTupdate",
-        __Marshaller_ToKHTproxy,
-        __Marshaller_ToKHTproxy);
+        __Marshaller_rest_ToKHTproxy,
+        __Marshaller_rest_ToKHTproxy);
 
     static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKDTproxy> __Method_ToKDTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKDTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "ToKDTfill",
-        __Marshaller_QryPproxy,
-        __Marshaller_ToKDTproxy);
+        __Marshaller_rest_QryPproxy,
+        __Marshaller_rest_ToKDTproxy);
 
     static readonly grpc::Method<global::Rest.ToKDTproxy, global::Rest.ToKDTproxy> __Method_ToKDTupdate = new grpc::Method<global::Rest.ToKDTproxy, global::Rest.ToKDTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "ToKDTupdate",
-        __Marshaller_ToKDTproxy,
-        __Marshaller_ToKDTproxy);
+        __Marshaller_rest_ToKDTproxy,
+        __Marshaller_rest_ToKDTproxy);
 
     static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.KHTproxy> __Method_KHTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.KHTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KHTfill",
-        __Marshaller_QryPproxy,
-        __Marshaller_KHTproxy);
+        __Marshaller_rest_QryPproxy,
+        __Marshaller_rest_KHTproxy);
 
     static readonly grpc::Method<global::Rest.KHTproxy, global::Rest.KHTproxy> __Method_KHTupdate = new grpc::Method<global::Rest.KHTproxy, global::Rest.KHTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KHTupdate",
-        __Marshaller_KHTproxy,
-        __Marshaller_KHTproxy);
+        __Marshaller_rest_KHTproxy,
+        __Marshaller_rest_KHTproxy);
 
     static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.KCTproxy> __Method_KCTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.KCTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KCTfill",
-        __Marshaller_QryPproxy,
-        __Marshaller_KCTproxy);
+        __Marshaller_rest_QryPproxy,
+        __Marshaller_rest_KCTproxy);
 
     static readonly grpc::Method<global::Rest.KCTproxy, global::Rest.KCTproxy> __Method_KCTupdate = new grpc::Method<global::Rest.KCTproxy, global::Rest.KCTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
         "KCTupdate",
-        __Marshaller_KCTproxy,
-        __Marshaller_KCTproxy);
+        __Marshaller_rest_KCTproxy,
+        __Marshaller_rest_KCTproxy);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -518,17 +534,27 @@ namespace Rest {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task NNRfill(global::Rest.PKproxy request, grpc::IServerStreamWriter<global::Rest.NNRproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.NNRproxy> NNRupdate(global::Rest.NNRproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task NeParentsFill(global::Rest.PKproxy request, grpc::IServerStreamWriter<global::Rest.NeParentsProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       public virtual global::System.Threading.Tasks.Task NeUpFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NeTreeProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
       public virtual global::System.Threading.Tasks.Task NeDownFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NeTreeProxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task KidsInParentsFill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.KidsInParentsProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -946,6 +972,38 @@ namespace Rest {
       {
         return CallInvoker.AsyncUnaryCall(__Method_NNNupdate, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNRproxy> NNRfill(global::Rest.PKproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NNRfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNRproxy> NNRfill(global::Rest.PKproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_NNRfill, null, options, request);
+      }
+      public virtual global::Rest.NNRproxy NNRupdate(global::Rest.NNRproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NNRupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.NNRproxy NNRupdate(global::Rest.NNRproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_NNRupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.NNRproxy> NNRupdateAsync(global::Rest.NNRproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NNRupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.NNRproxy> NNRupdateAsync(global::Rest.NNRproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_NNRupdate, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeParentsProxy> NeParentsFill(global::Rest.PKproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return NeParentsFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NeParentsProxy> NeParentsFill(global::Rest.PKproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_NeParentsFill, null, options, request);
+      }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeUpFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return NeUpFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -961,14 +1019,6 @@ namespace Rest {
       public virtual grpc::AsyncServerStreamingCall<global::Rest.NeTreeProxy> NeDownFill(global::Rest.QryProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_NeDownFill, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KidsInParentsProxy> KidsInParentsFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return KidsInParentsFill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KidsInParentsProxy> KidsInParentsFill(global::Rest.QryProxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_KidsInParentsFill, null, options, request);
       }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.NodesInParentsProxy> NodesInParentsFill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -1238,9 +1288,11 @@ namespace Rest {
           .AddMethod(__Method_UYHupdate, serviceImpl.UYHupdate)
           .AddMethod(__Method_NNNfill, serviceImpl.NNNfill)
           .AddMethod(__Method_NNNupdate, serviceImpl.NNNupdate)
+          .AddMethod(__Method_NNRfill, serviceImpl.NNRfill)
+          .AddMethod(__Method_NNRupdate, serviceImpl.NNRupdate)
+          .AddMethod(__Method_NeParentsFill, serviceImpl.NeParentsFill)
           .AddMethod(__Method_NeUpFill, serviceImpl.NeUpFill)
           .AddMethod(__Method_NeDownFill, serviceImpl.NeDownFill)
-          .AddMethod(__Method_KidsInParentsFill, serviceImpl.KidsInParentsFill)
           .AddMethod(__Method_NodesInParentsFill, serviceImpl.NodesInParentsFill)
           .AddMethod(__Method_KKKfill, serviceImpl.KKKfill)
           .AddMethod(__Method_KFTfill, serviceImpl.KFTfill)

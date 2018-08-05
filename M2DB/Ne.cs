@@ -117,9 +117,20 @@ namespace M2DB
             }
         }
 
+        public static string GetNeParentsString(ulong node)
+        {
+            var pList = GetNeParentsList(node);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var itm in pList)
+                sb.Append($"<{itm}>");
+
+            return sb.ToString();
+        }
         public static List<ulong> GetNeParentsList(ulong node)  // OK
         {
             List<ulong> pList = new List<ulong>();
+            pList.Add(node);    // Kendisini de ekle
             ParentsList(node, pList);  // Node's Parents
             return pList;
         }
@@ -733,7 +744,7 @@ namespace M2DB
             }*/
         }
 
-        public static DataTable NodesInParents()
+        public static DataTable NodesMikInParents()
         {
             DataTable table = new DataTable();
             table.Columns.Add("PNo", typeof(ulong));
@@ -743,14 +754,14 @@ namespace M2DB
             table.Columns.Add("M", typeof(double));
 
             foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", true))
-                NodeInParents(n.GetObjectNo(), table);
+                NodeMikInParents(n.GetObjectNo(), table);
             return table;
         }
-        public static void NodeInParents(ulong parent, DataTable table)
+        public static void NodeMikInParents(ulong parent, DataTable table)
         {
             Dictionary<ulong, double> mikD = new Dictionary<ulong, double>();  // Gereken
 
-            NodeInParent(parent, 1, mikD);  // Kid's Mik of parent.
+            NodeMikInParent(parent, 1, mikD);  // Kid's Mik of parent.
 
             NNN p = Db.FromId<NNN>(parent);
             NNN n = null;
@@ -769,18 +780,18 @@ namespace M2DB
             foreach (var r in mikD)
             {
                 n = Db.FromId<NNN>(r.Key);
-                Console.WriteLine($"{pAd}.{p.Ad} -> Mik: {r.Value}");
                 nAd = n.Ad;
                 if (!n.HasKid)
                     nAd = "-" + nAd;  // leaf
                 else
                     nAd = "+" + nAd;
+                //Console.WriteLine($"{pAd}.{nAd} -> Mik: {r.Value}");
                 table.Rows.Add(pNo, p.GetObjectNo(), pAd, nAd, r.Value);
             }
 
         }
         // Starting Node altindaki Kid ler nekadar kullaniliyor
-        private static void NodeInParent(ulong node, double Mik, Dictionary<ulong, double> mD)  // Kids Miktar
+        private static void NodeMikInParent(ulong node, double Mik, Dictionary<ulong, double> mD)  // Kids Miktar
         {
             ulong Kid = 0;
             double GMik = 0;
@@ -794,7 +805,7 @@ namespace M2DB
                 mD[Kid] += GMik;
 
                 if (GMik > 0 && r.NC.HasKid)
-                    NodeInParent(Kid, GMik, mD);
+                    NodeMikInParent(Kid, GMik, mD);
             }
         }
 
