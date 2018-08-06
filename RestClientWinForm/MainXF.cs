@@ -20,6 +20,31 @@ namespace RestClientWinForm
         public MainXF()
         {
             InitializeComponent();
+
+            /*
+            this.KeyPreview = true;
+            //this.KeyDown += new KeyEventHandler(KeyDown);
+            this.menuStrip1.MenuDeactivate += (s, e) => this.menuStrip1.Visible = false;
+            //this.menuStrip1.Visible = false;
+            */
+        }
+        private void MainXF_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*
+            if(e.KeyCode == Keys.Menu)
+            {
+                menuStrip1.Visible = true;
+                contextMenuStrip1.Show(this, new Point(0, 0));
+            }*/
+        }
+
+        private void MainXF_Load(object sender, EventArgs e)
+        {
+            /*
+            menuStrip1.Items.OfType<ToolStripMenuItem>().ToList().ForEach(x =>
+            {
+                x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
+            });*/
         }
 
         public void FillTanimlar()
@@ -77,6 +102,7 @@ namespace RestClientWinForm
         private void AHPbutton_Click(object sender, EventArgs e)
         {
             AhpXF frm = new AhpXF();
+            frm.MdiParent = this;
             frm.Show();
         }
 
@@ -121,8 +147,8 @@ namespace RestClientWinForm
 
         private void NNNrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
-            var gle = (sender as GridLookUpEdit);
-            bool avl = (bool)gle.Properties.View.GetFocusedRowCellValue("Avl");
+            var view = (sender as GridLookUpEdit).Properties.View;
+            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
             e.Cancel = !avl;
         }
 
@@ -188,5 +214,40 @@ namespace RestClientWinForm
             FillTanimlar();
         }
 
+        private void cccccccccToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("dadfadfasd");
+        }
+
+        AhpXF frmAhp;
+        NnnXF frmNnn;
+
+        private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmAhp);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmAhp = new AhpXF();
+                frmAhp.MdiParent = this;
+                frmAhp.Show();
+            }
+
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmNnn);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmNnn = new NnnXF();
+                frmNnn.MdiParent = this;
+                frmNnn.Show();
+            }
+
+        }
     }
 }

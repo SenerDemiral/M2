@@ -52,6 +52,8 @@
             this.kptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NNNrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.XDKbutton = new System.Windows.Forms.Button();
             this.KFTbutton = new System.Windows.Forms.Button();
             this.UYHbutton = new System.Windows.Forms.Button();
@@ -63,8 +65,19 @@
             this.KPTbutton = new System.Windows.Forms.Button();
             this.KDTbutton = new System.Windows.Forms.Button();
             this.FillLookupsButton = new System.Windows.Forms.Button();
-            this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cccccccccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
+            this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
+            this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
+            this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
+            this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -84,6 +97,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
+            this.dockPanel1.SuspendLayout();
+            this.dockPanel1_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -95,7 +115,7 @@
             // 
             // AHPbutton
             // 
-            this.AHPbutton.Location = new System.Drawing.Point(22, 12);
+            this.AHPbutton.Location = new System.Drawing.Point(277, 12);
             this.AHPbutton.Name = "AHPbutton";
             this.AHPbutton.Size = new System.Drawing.Size(75, 23);
             this.AHPbutton.TabIndex = 0;
@@ -105,7 +125,7 @@
             // 
             // AFBbutton
             // 
-            this.AFBbutton.Location = new System.Drawing.Point(22, 55);
+            this.AFBbutton.Location = new System.Drawing.Point(264, 55);
             this.AFBbutton.Name = "AFBbutton";
             this.AFBbutton.Size = new System.Drawing.Size(75, 23);
             this.AFBbutton.TabIndex = 1;
@@ -314,9 +334,27 @@
             this.nnnBindingSource.DataMember = "NNN";
             this.nnnBindingSource.DataSource = this.mainDataSet;
             // 
+            // NNNrepositoryItemGridLookUpEdit
+            // 
+            this.NNNrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.NNNrepositoryItemGridLookUpEdit.DataSource = this.nnnBindingSource;
+            this.NNNrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
+            this.NNNrepositoryItemGridLookUpEdit.Name = "NNNrepositoryItemGridLookUpEdit";
+            this.NNNrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
+            this.NNNrepositoryItemGridLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
+            this.NNNrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.NNNrepositoryItemGridLookUpEdit_QueryCloseUp);
+            // 
+            // repositoryItemGridLookUpEdit1View
+            // 
+            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
+            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
             // XDKbutton
             // 
-            this.XDKbutton.Location = new System.Drawing.Point(22, 97);
+            this.XDKbutton.Location = new System.Drawing.Point(220, 92);
             this.XDKbutton.Name = "XDKbutton";
             this.XDKbutton.Size = new System.Drawing.Size(75, 23);
             this.XDKbutton.TabIndex = 2;
@@ -326,7 +364,7 @@
             // 
             // KFTbutton
             // 
-            this.KFTbutton.Location = new System.Drawing.Point(22, 142);
+            this.KFTbutton.Location = new System.Drawing.Point(220, 171);
             this.KFTbutton.Name = "KFTbutton";
             this.KFTbutton.Size = new System.Drawing.Size(75, 23);
             this.KFTbutton.TabIndex = 3;
@@ -336,7 +374,7 @@
             // 
             // UYHbutton
             // 
-            this.UYHbutton.Location = new System.Drawing.Point(22, 181);
+            this.UYHbutton.Location = new System.Drawing.Point(336, 171);
             this.UYHbutton.Name = "UYHbutton";
             this.UYHbutton.Size = new System.Drawing.Size(75, 23);
             this.UYHbutton.TabIndex = 4;
@@ -346,7 +384,7 @@
             // 
             // ABBbutton
             // 
-            this.ABBbutton.Location = new System.Drawing.Point(122, 55);
+            this.ABBbutton.Location = new System.Drawing.Point(365, 55);
             this.ABBbutton.Name = "ABBbutton";
             this.ABBbutton.Size = new System.Drawing.Size(75, 23);
             this.ABBbutton.TabIndex = 5;
@@ -356,7 +394,7 @@
             // 
             // NeUpButton
             // 
-            this.NeUpButton.Location = new System.Drawing.Point(22, 210);
+            this.NeUpButton.Location = new System.Drawing.Point(237, 239);
             this.NeUpButton.Name = "NeUpButton";
             this.NeUpButton.Size = new System.Drawing.Size(75, 23);
             this.NeUpButton.TabIndex = 6;
@@ -366,7 +404,7 @@
             // 
             // NeDownButton
             // 
-            this.NeDownButton.Location = new System.Drawing.Point(113, 210);
+            this.NeDownButton.Location = new System.Drawing.Point(349, 210);
             this.NeDownButton.Name = "NeDownButton";
             this.NeDownButton.Size = new System.Drawing.Size(75, 23);
             this.NeDownButton.TabIndex = 7;
@@ -386,7 +424,7 @@
             // 
             // NNNbutton
             // 
-            this.NNNbutton.Location = new System.Drawing.Point(22, 239);
+            this.NNNbutton.Location = new System.Drawing.Point(206, 268);
             this.NNNbutton.Name = "NNNbutton";
             this.NNNbutton.Size = new System.Drawing.Size(75, 23);
             this.NNNbutton.TabIndex = 10;
@@ -424,29 +462,128 @@
             this.FillLookupsButton.UseVisualStyleBackColor = true;
             this.FillLookupsButton.Click += new System.EventHandler(this.FillLookupsButton_Click);
             // 
-            // NNNrepositoryItemGridLookUpEdit
+            // contextMenuStrip1
             // 
-            this.NNNrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NNNrepositoryItemGridLookUpEdit.DataSource = this.nnnBindingSource;
-            this.NNNrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
-            this.NNNrepositoryItemGridLookUpEdit.Name = "NNNrepositoryItemGridLookUpEdit";
-            this.NNNrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
-            this.NNNrepositoryItemGridLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
-            this.NNNrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.NNNrepositoryItemGridLookUpEdit_QueryCloseUp);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cccccccccToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 26);
             // 
-            // repositoryItemGridLookUpEdit1View
+            // cccccccccToolStripMenuItem
             // 
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            this.cccccccccToolStripMenuItem.Name = "cccccccccToolStripMenuItem";
+            this.cccccccccToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.cccccccccToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.cccccccccToolStripMenuItem.Text = "ccccccccc";
+            this.cccccccccToolStripMenuItem.Click += new System.EventHandler(this.cccccccccToolStripMenuItem_Click);
+            // 
+            // navBarControl1
+            // 
+            this.navBarControl1.ActiveGroup = this.navBarGroup1;
+            this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
+            this.navBarGroup1,
+            this.navBarGroup2,
+            this.navBarGroup3});
+            this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
+            this.navBarItem1,
+            this.navBarItem2});
+            this.navBarControl1.Location = new System.Drawing.Point(0, 0);
+            this.navBarControl1.Name = "navBarControl1";
+            this.navBarControl1.OptionsNavPane.ExpandedWidth = 191;
+            this.navBarControl1.Size = new System.Drawing.Size(191, 336);
+            this.navBarControl1.TabIndex = 16;
+            this.navBarControl1.Text = "navBarControl1";
+            // 
+            // navBarGroup1
+            // 
+            this.navBarGroup1.Caption = "navBarGroup1";
+            this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
+            this.navBarGroup1.Name = "navBarGroup1";
+            // 
+            // navBarItem1
+            // 
+            this.navBarItem1.Caption = "navBarItem1";
+            this.navBarItem1.Name = "navBarItem1";
+            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
+            // 
+            // navBarItem2
+            // 
+            this.navBarItem2.Caption = "navBarItem2";
+            this.navBarItem2.Name = "navBarItem2";
+            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
+            // 
+            // navBarGroup2
+            // 
+            this.navBarGroup2.Caption = "navBarGroup2";
+            this.navBarGroup2.Name = "navBarGroup2";
+            // 
+            // navBarGroup3
+            // 
+            this.navBarGroup3.Caption = "navBarGroup3";
+            this.navBarGroup3.Name = "navBarGroup3";
+            // 
+            // dockManager1
+            // 
+            this.dockManager1.Form = this;
+            this.dockManager1.RootPanels.AddRange(new DevExpress.XtraBars.Docking.DockPanel[] {
+            this.dockPanel1});
+            this.dockManager1.TopZIndexControls.AddRange(new string[] {
+            "DevExpress.XtraBars.BarDockControl",
+            "DevExpress.XtraBars.StandaloneBarDockControl",
+            "System.Windows.Forms.StatusBar",
+            "System.Windows.Forms.MenuStrip",
+            "System.Windows.Forms.StatusStrip",
+            "DevExpress.XtraBars.Ribbon.RibbonStatusBar",
+            "DevExpress.XtraBars.Ribbon.RibbonControl",
+            "DevExpress.XtraBars.Navigation.OfficeNavigationBar",
+            "DevExpress.XtraBars.Navigation.TileNavPane",
+            "DevExpress.XtraBars.TabFormControl"});
+            // 
+            // dockPanel1
+            // 
+            this.dockPanel1.Controls.Add(this.dockPanel1_Container);
+            this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
+            this.dockPanel1.Footer = "ddddddddddd";
+            this.dockPanel1.ID = new System.Guid("9f6ed72e-1614-4af2-801a-ccdec94c5f47");
+            this.dockPanel1.Location = new System.Drawing.Point(0, 0);
+            this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Options.AllowDockBottom = false;
+            this.dockPanel1.Options.AllowDockFill = false;
+            this.dockPanel1.Options.AllowDockTop = false;
+            this.dockPanel1.Options.ShowCloseButton = false;
+            this.dockPanel1.Options.ShowMaximizeButton = false;
+            this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
+            this.dockPanel1.Size = new System.Drawing.Size(200, 363);
+            this.dockPanel1.Text = "dockPanel1";
+            // 
+            // dockPanel1_Container
+            // 
+            this.dockPanel1_Container.Controls.Add(this.navBarControl1);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Name = "dockPanel1_Container";
+            this.dockPanel1_Container.Size = new System.Drawing.Size(191, 336);
+            this.dockPanel1_Container.TabIndex = 0;
+            // 
+            // documentManager1
+            // 
+            this.documentManager1.MdiParent = this;
+            this.documentManager1.View = this.tabbedView1;
+            this.documentManager1.ViewCollection.AddRange(new DevExpress.XtraBars.Docking2010.Views.BaseView[] {
+            this.tabbedView1});
+            // 
+            // tabbedView1
+            // 
+            this.tabbedView1.RootContainer.Element = null;
             // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 363);
+            this.ClientSize = new System.Drawing.Size(844, 363);
             this.Controls.Add(this.FillLookupsButton);
             this.Controls.Add(this.KDTbutton);
             this.Controls.Add(this.KPTbutton);
@@ -460,9 +597,13 @@
             this.Controls.Add(this.XDKbutton);
             this.Controls.Add(this.AFBbutton);
             this.Controls.Add(this.AHPbutton);
+            this.Controls.Add(this.dockPanel1);
+            this.IsMdiContainer = true;
             this.Name = "MainXF";
             this.Text = "MainXF";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainXF_FormClosing);
+            this.Load += new System.EventHandler(this.MainXF_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainXF_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
@@ -482,6 +623,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
+            this.dockPanel1.ResumeLayout(false);
+            this.dockPanel1_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,5 +671,18 @@
         private System.Windows.Forms.Button FillLookupsButton;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit NNNrepositoryItemGridLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cccccccccToolStripMenuItem;
+        private DevExpress.XtraNavBar.NavBarControl navBarControl1;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
+        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
+        private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
+        private DevExpress.XtraBars.Docking.DockManager dockManager1;
+        private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
+        private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
     }
 }
