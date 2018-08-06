@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
+using DevExpress.XtraBars.Docking;
 
 namespace RestClientWinForm
 {
@@ -221,8 +222,25 @@ namespace RestClientWinForm
 
         AhpXF frmAhp;
         NnnXF frmNnn;
+        KptXF frmKpt;
+        KdtXF frmKdt;
+        KftXF frmKft;
+        XdkXF frmXdk;
+        NeDownXF frmNeDown;
+        NeUpXF frmNeUp;
+        NodesInParentsXF frmNodesInParents;
 
         private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
+
+        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+
+        }
+
+        private void AHPnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             var doc = documentManager1.GetDocument(frmAhp);
             if (doc != null)
@@ -236,7 +254,7 @@ namespace RestClientWinForm
 
         }
 
-        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void NNNnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             var doc = documentManager1.GetDocument(frmNnn);
             if (doc != null)
@@ -247,7 +265,103 @@ namespace RestClientWinForm
                 frmNnn.MdiParent = this;
                 frmNnn.Show();
             }
-
         }
+
+        private void KPTnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmKpt);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmKpt = new KptXF();
+                frmKpt.MdiParent = this;
+                frmKpt.Show();
+            }
+        }
+
+        private void KFTnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmKft);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmKft = new KftXF();
+                frmKft.MdiParent = this;
+                frmKft.Show();
+            }
+        }
+
+        private void KDTnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmKdt);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmKdt = new KdtXF();
+                frmKdt.MdiParent = this;
+                frmKdt.Show();
+            }
+        }
+
+        private void NodesInParentsNavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmNodesInParents);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmNodesInParents = new NodesInParentsXF();
+                frmNodesInParents.MdiParent = this;
+                frmNodesInParents.Show();
+            }
+        }
+
+        private void FillLookupsNavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            FillTanimlar();
+        }
+
+        private void NeDownNavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmNeDown);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmNeDown = new NeDownXF();
+                frmNeDown.MdiParent = this;
+                frmNeDown.Show();
+            }
+        }
+
+        private void NeUpNavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmNeUp);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmNeUp = new NeUpXF();
+                frmNeUp.MdiParent = this;
+                frmNeUp.Show();
+            }
+        }
+
+        private void XDTnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmXdk);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmXdk = new XdkXF();
+                frmXdk.MdiParent = this;
+                frmXdk.Show();
+            }
+        }
+
     }
 }

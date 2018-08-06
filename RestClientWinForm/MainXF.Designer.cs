@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.AHPbutton = new System.Windows.Forms.Button();
             this.AFBbutton = new System.Windows.Forms.Button();
             this.persistentRepository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
             this.AfbTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -54,30 +53,32 @@
             this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.XDKbutton = new System.Windows.Forms.Button();
-            this.KFTbutton = new System.Windows.Forms.Button();
             this.UYHbutton = new System.Windows.Forms.Button();
             this.ABBbutton = new System.Windows.Forms.Button();
-            this.NeUpButton = new System.Windows.Forms.Button();
-            this.NeDownButton = new System.Windows.Forms.Button();
-            this.NodesInParentsButton = new System.Windows.Forms.Button();
-            this.NNNbutton = new System.Windows.Forms.Button();
-            this.KPTbutton = new System.Windows.Forms.Button();
-            this.KDTbutton = new System.Windows.Forms.Button();
-            this.FillLookupsButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cccccccccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
-            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.AccNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.AHPnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.AVBnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.KimNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.KDTnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.KPTnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.KFTnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.NeNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.NNNnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.NodesInParentsNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.NeDownNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.NeUpNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.MiscNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.FillLookupsNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.XDTnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.dockManager1 = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanel1 = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
             this.documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(this.components);
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -113,19 +114,9 @@
             this.colIsW.Visible = true;
             this.colIsW.VisibleIndex = 1;
             // 
-            // AHPbutton
-            // 
-            this.AHPbutton.Location = new System.Drawing.Point(277, 12);
-            this.AHPbutton.Name = "AHPbutton";
-            this.AHPbutton.Size = new System.Drawing.Size(75, 23);
-            this.AHPbutton.TabIndex = 0;
-            this.AHPbutton.Text = "AHP";
-            this.AHPbutton.UseVisualStyleBackColor = true;
-            this.AHPbutton.Click += new System.EventHandler(this.AHPbutton_Click);
-            // 
             // AFBbutton
             // 
-            this.AFBbutton.Location = new System.Drawing.Point(264, 55);
+            this.AFBbutton.Location = new System.Drawing.Point(201, 415);
             this.AFBbutton.Name = "AFBbutton";
             this.AFBbutton.Size = new System.Drawing.Size(75, 23);
             this.AFBbutton.TabIndex = 1;
@@ -352,29 +343,9 @@
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // XDKbutton
-            // 
-            this.XDKbutton.Location = new System.Drawing.Point(220, 92);
-            this.XDKbutton.Name = "XDKbutton";
-            this.XDKbutton.Size = new System.Drawing.Size(75, 23);
-            this.XDKbutton.TabIndex = 2;
-            this.XDKbutton.Text = "XDK";
-            this.XDKbutton.UseVisualStyleBackColor = true;
-            this.XDKbutton.Click += new System.EventHandler(this.XDKbutton_Click);
-            // 
-            // KFTbutton
-            // 
-            this.KFTbutton.Location = new System.Drawing.Point(220, 171);
-            this.KFTbutton.Name = "KFTbutton";
-            this.KFTbutton.Size = new System.Drawing.Size(75, 23);
-            this.KFTbutton.TabIndex = 3;
-            this.KFTbutton.Text = "KFT";
-            this.KFTbutton.UseVisualStyleBackColor = true;
-            this.KFTbutton.Click += new System.EventHandler(this.KFTbutton_Click);
-            // 
             // UYHbutton
             // 
-            this.UYHbutton.Location = new System.Drawing.Point(336, 171);
+            this.UYHbutton.Location = new System.Drawing.Point(363, 415);
             this.UYHbutton.Name = "UYHbutton";
             this.UYHbutton.Size = new System.Drawing.Size(75, 23);
             this.UYHbutton.TabIndex = 4;
@@ -384,83 +355,13 @@
             // 
             // ABBbutton
             // 
-            this.ABBbutton.Location = new System.Drawing.Point(365, 55);
+            this.ABBbutton.Location = new System.Drawing.Point(282, 415);
             this.ABBbutton.Name = "ABBbutton";
             this.ABBbutton.Size = new System.Drawing.Size(75, 23);
             this.ABBbutton.TabIndex = 5;
             this.ABBbutton.Text = "ABB";
             this.ABBbutton.UseVisualStyleBackColor = true;
             this.ABBbutton.Click += new System.EventHandler(this.ABBbutton_Click);
-            // 
-            // NeUpButton
-            // 
-            this.NeUpButton.Location = new System.Drawing.Point(237, 239);
-            this.NeUpButton.Name = "NeUpButton";
-            this.NeUpButton.Size = new System.Drawing.Size(75, 23);
-            this.NeUpButton.TabIndex = 6;
-            this.NeUpButton.Text = "NeUp";
-            this.NeUpButton.UseVisualStyleBackColor = true;
-            this.NeUpButton.Click += new System.EventHandler(this.NeUpButton_Click);
-            // 
-            // NeDownButton
-            // 
-            this.NeDownButton.Location = new System.Drawing.Point(349, 210);
-            this.NeDownButton.Name = "NeDownButton";
-            this.NeDownButton.Size = new System.Drawing.Size(75, 23);
-            this.NeDownButton.TabIndex = 7;
-            this.NeDownButton.Text = "NeDown";
-            this.NeDownButton.UseVisualStyleBackColor = true;
-            this.NeDownButton.Click += new System.EventHandler(this.NeDownButton_Click);
-            // 
-            // NodesInParentsButton
-            // 
-            this.NodesInParentsButton.Location = new System.Drawing.Point(204, 210);
-            this.NodesInParentsButton.Name = "NodesInParentsButton";
-            this.NodesInParentsButton.Size = new System.Drawing.Size(126, 23);
-            this.NodesInParentsButton.TabIndex = 9;
-            this.NodesInParentsButton.Text = "NodesInParents";
-            this.NodesInParentsButton.UseVisualStyleBackColor = true;
-            this.NodesInParentsButton.Click += new System.EventHandler(this.NodesInParentsButton_Click);
-            // 
-            // NNNbutton
-            // 
-            this.NNNbutton.Location = new System.Drawing.Point(206, 268);
-            this.NNNbutton.Name = "NNNbutton";
-            this.NNNbutton.Size = new System.Drawing.Size(75, 23);
-            this.NNNbutton.TabIndex = 10;
-            this.NNNbutton.Text = "NNN";
-            this.NNNbutton.UseVisualStyleBackColor = true;
-            this.NNNbutton.Click += new System.EventHandler(this.NNNbutton_Click);
-            // 
-            // KPTbutton
-            // 
-            this.KPTbutton.Location = new System.Drawing.Point(255, 142);
-            this.KPTbutton.Name = "KPTbutton";
-            this.KPTbutton.Size = new System.Drawing.Size(75, 23);
-            this.KPTbutton.TabIndex = 11;
-            this.KPTbutton.Text = "KPT";
-            this.KPTbutton.UseVisualStyleBackColor = true;
-            this.KPTbutton.Click += new System.EventHandler(this.KPTbutton_Click);
-            // 
-            // KDTbutton
-            // 
-            this.KDTbutton.Location = new System.Drawing.Point(349, 142);
-            this.KDTbutton.Name = "KDTbutton";
-            this.KDTbutton.Size = new System.Drawing.Size(75, 23);
-            this.KDTbutton.TabIndex = 12;
-            this.KDTbutton.Text = "KDT";
-            this.KDTbutton.UseVisualStyleBackColor = true;
-            this.KDTbutton.Click += new System.EventHandler(this.KDTbutton_Click);
-            // 
-            // FillLookupsButton
-            // 
-            this.FillLookupsButton.Location = new System.Drawing.Point(385, 12);
-            this.FillLookupsButton.Name = "FillLookupsButton";
-            this.FillLookupsButton.Size = new System.Drawing.Size(75, 23);
-            this.FillLookupsButton.TabIndex = 13;
-            this.FillLookupsButton.Text = "FillLookups";
-            this.FillLookupsButton.UseVisualStyleBackColor = true;
-            this.FillLookupsButton.Click += new System.EventHandler(this.FillLookupsButton_Click);
             // 
             // contextMenuStrip1
             // 
@@ -479,52 +380,135 @@
             // 
             // navBarControl1
             // 
-            this.navBarControl1.ActiveGroup = this.navBarGroup1;
+            this.navBarControl1.ActiveGroup = this.AccNavBarGroup;
             this.navBarControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.navBarControl1.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
-            this.navBarGroup1,
-            this.navBarGroup2,
-            this.navBarGroup3});
+            this.AccNavBarGroup,
+            this.KimNavBarGroup,
+            this.NeNavBarGroup,
+            this.MiscNavBarGroup});
             this.navBarControl1.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.navBarItem1,
-            this.navBarItem2});
+            this.AHPnavBarItem,
+            this.AVBnavBarItem,
+            this.KPTnavBarItem,
+            this.NNNnavBarItem,
+            this.KFTnavBarItem,
+            this.KDTnavBarItem,
+            this.NodesInParentsNavBarItem,
+            this.FillLookupsNavBarItem,
+            this.NeDownNavBarItem,
+            this.XDTnavBarItem,
+            this.NeUpNavBarItem});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 191;
-            this.navBarControl1.Size = new System.Drawing.Size(191, 336);
+            this.navBarControl1.Size = new System.Drawing.Size(191, 420);
             this.navBarControl1.TabIndex = 16;
             this.navBarControl1.Text = "navBarControl1";
+            this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.StandardSkinExplorerBarViewInfoRegistrator("VS2010");
             // 
-            // navBarGroup1
+            // AccNavBarGroup
             // 
-            this.navBarGroup1.Caption = "navBarGroup1";
-            this.navBarGroup1.Expanded = true;
-            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem2)});
-            this.navBarGroup1.Name = "navBarGroup1";
+            this.AccNavBarGroup.Caption = "Muhasebe";
+            this.AccNavBarGroup.Expanded = true;
+            this.AccNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.AHPnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.AVBnavBarItem)});
+            this.AccNavBarGroup.Name = "AccNavBarGroup";
             // 
-            // navBarItem1
+            // AHPnavBarItem
             // 
-            this.navBarItem1.Caption = "navBarItem1";
-            this.navBarItem1.Name = "navBarItem1";
-            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
+            this.AHPnavBarItem.Caption = "Hesap Planı";
+            this.AHPnavBarItem.Name = "AHPnavBarItem";
+            this.AHPnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.AHPnavBarItem_LinkClicked);
             // 
-            // navBarItem2
+            // AVBnavBarItem
             // 
-            this.navBarItem2.Caption = "navBarItem2";
-            this.navBarItem2.Name = "navBarItem2";
-            this.navBarItem2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
+            this.AVBnavBarItem.Caption = "Fiş";
+            this.AVBnavBarItem.Name = "AVBnavBarItem";
+            this.AVBnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem2_LinkClicked);
             // 
-            // navBarGroup2
+            // KimNavBarGroup
             // 
-            this.navBarGroup2.Caption = "navBarGroup2";
-            this.navBarGroup2.Name = "navBarGroup2";
+            this.KimNavBarGroup.Caption = "Kim";
+            this.KimNavBarGroup.Expanded = true;
+            this.KimNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.KDTnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.KPTnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.KFTnavBarItem)});
+            this.KimNavBarGroup.Name = "KimNavBarGroup";
             // 
-            // navBarGroup3
+            // KDTnavBarItem
             // 
-            this.navBarGroup3.Caption = "navBarGroup3";
-            this.navBarGroup3.Name = "navBarGroup3";
+            this.KDTnavBarItem.Caption = "Departman";
+            this.KDTnavBarItem.Name = "KDTnavBarItem";
+            this.KDTnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.KDTnavBarItem_LinkClicked);
+            // 
+            // KPTnavBarItem
+            // 
+            this.KPTnavBarItem.Caption = "Personel";
+            this.KPTnavBarItem.Name = "KPTnavBarItem";
+            this.KPTnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.KPTnavBarItem_LinkClicked);
+            // 
+            // KFTnavBarItem
+            // 
+            this.KFTnavBarItem.Caption = "Firma";
+            this.KFTnavBarItem.Name = "KFTnavBarItem";
+            this.KFTnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.KFTnavBarItem_LinkClicked);
+            // 
+            // NeNavBarGroup
+            // 
+            this.NeNavBarGroup.Caption = "Ne";
+            this.NeNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NNNnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NodesInParentsNavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NeDownNavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.NeUpNavBarItem)});
+            this.NeNavBarGroup.Name = "NeNavBarGroup";
+            // 
+            // NNNnavBarItem
+            // 
+            this.NNNnavBarItem.Caption = "Ne";
+            this.NNNnavBarItem.Name = "NNNnavBarItem";
+            this.NNNnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NNNnavBarItem_LinkClicked);
+            // 
+            // NodesInParentsNavBarItem
+            // 
+            this.NodesInParentsNavBarItem.Caption = "NodeInParents";
+            this.NodesInParentsNavBarItem.Name = "NodesInParentsNavBarItem";
+            this.NodesInParentsNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NodesInParentsNavBarItem_LinkClicked);
+            // 
+            // NeDownNavBarItem
+            // 
+            this.NeDownNavBarItem.Caption = "NeDown";
+            this.NeDownNavBarItem.Name = "NeDownNavBarItem";
+            this.NeDownNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NeDownNavBarItem_LinkClicked);
+            // 
+            // NeUpNavBarItem
+            // 
+            this.NeUpNavBarItem.Caption = "NeUp";
+            this.NeUpNavBarItem.Name = "NeUpNavBarItem";
+            this.NeUpNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.NeUpNavBarItem_LinkClicked);
+            // 
+            // MiscNavBarGroup
+            // 
+            this.MiscNavBarGroup.Caption = "Misc";
+            this.MiscNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.FillLookupsNavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.XDTnavBarItem)});
+            this.MiscNavBarGroup.Name = "MiscNavBarGroup";
+            // 
+            // FillLookupsNavBarItem
+            // 
+            this.FillLookupsNavBarItem.Caption = "FillLookups";
+            this.FillLookupsNavBarItem.Name = "FillLookupsNavBarItem";
+            this.FillLookupsNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.FillLookupsNavBarItem_LinkClicked);
+            // 
+            // XDTnavBarItem
+            // 
+            this.XDTnavBarItem.Caption = "Döviz Kurları";
+            this.XDTnavBarItem.Name = "XDTnavBarItem";
+            this.XDTnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.XDTnavBarItem_LinkClicked);
             // 
             // dockManager1
             // 
@@ -547,25 +531,25 @@
             // 
             this.dockPanel1.Controls.Add(this.dockPanel1_Container);
             this.dockPanel1.Dock = DevExpress.XtraBars.Docking.DockingStyle.Left;
-            this.dockPanel1.Footer = "ddddddddddd";
             this.dockPanel1.ID = new System.Guid("9f6ed72e-1614-4af2-801a-ccdec94c5f47");
             this.dockPanel1.Location = new System.Drawing.Point(0, 0);
             this.dockPanel1.Name = "dockPanel1";
+            this.dockPanel1.Options.AllowDockAsTabbedDocument = false;
             this.dockPanel1.Options.AllowDockBottom = false;
             this.dockPanel1.Options.AllowDockFill = false;
             this.dockPanel1.Options.AllowDockTop = false;
             this.dockPanel1.Options.ShowCloseButton = false;
             this.dockPanel1.Options.ShowMaximizeButton = false;
             this.dockPanel1.OriginalSize = new System.Drawing.Size(200, 200);
-            this.dockPanel1.Size = new System.Drawing.Size(200, 363);
-            this.dockPanel1.Text = "dockPanel1";
+            this.dockPanel1.Size = new System.Drawing.Size(200, 447);
+            this.dockPanel1.Text = "mMax19 Menü";
             // 
             // dockPanel1_Container
             // 
             this.dockPanel1_Container.Controls.Add(this.navBarControl1);
             this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(191, 336);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(191, 420);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // documentManager1
@@ -579,28 +563,27 @@
             // 
             this.tabbedView1.RootContainer.Element = null;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(0, 447);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(844, 22);
+            this.statusStrip1.TabIndex = 7;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 363);
-            this.Controls.Add(this.FillLookupsButton);
-            this.Controls.Add(this.KDTbutton);
-            this.Controls.Add(this.KPTbutton);
-            this.Controls.Add(this.NNNbutton);
-            this.Controls.Add(this.NodesInParentsButton);
-            this.Controls.Add(this.NeDownButton);
-            this.Controls.Add(this.NeUpButton);
+            this.ClientSize = new System.Drawing.Size(844, 469);
             this.Controls.Add(this.ABBbutton);
             this.Controls.Add(this.UYHbutton);
-            this.Controls.Add(this.KFTbutton);
-            this.Controls.Add(this.XDKbutton);
             this.Controls.Add(this.AFBbutton);
-            this.Controls.Add(this.AHPbutton);
             this.Controls.Add(this.dockPanel1);
+            this.Controls.Add(this.statusStrip1);
             this.IsMdiContainer = true;
             this.Name = "MainXF";
-            this.Text = "MainXF";
+            this.Text = "mMax19 [MainXF]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainXF_FormClosing);
             this.Load += new System.EventHandler(this.MainXF_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainXF_KeyDown);
@@ -631,18 +614,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button AHPbutton;
         private System.Windows.Forms.Button AFBbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AfbTurRepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource xgtBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DVTrepositoryItemLookUpEdit;
         public DevExpress.XtraEditors.Repository.PersistentRepository persistentRepository;
         private System.Windows.Forms.BindingSource ahpBindingSource;
-        private System.Windows.Forms.Button XDKbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemDateEdit DateRepositoryItemDateEdit;
         public DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit AHPrepositoryItemTreeListLookUpEdit;
         private DevExpress.XtraTreeList.TreeList repositoryItemTreeListLookUpEdit1TreeList;
@@ -650,39 +632,42 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colBrc;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAlc;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoAd;
-        private System.Windows.Forms.Button KFTbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KkkTurRepositoryItemLookUpEdit;
         public MainDataSet mainDataSet;
         private System.Windows.Forms.Button UYHbutton;
         private System.Windows.Forms.Button ABBbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbbTurRepositoryItemLookUpEdit;
-        private System.Windows.Forms.Button NeUpButton;
-        private System.Windows.Forms.Button NeDownButton;
-        private System.Windows.Forms.Button NodesInParentsButton;
-        private System.Windows.Forms.Button NNNbutton;
-        private System.Windows.Forms.Button KPTbutton;
-        private System.Windows.Forms.Button KDTbutton;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KDTrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource kdtBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KPTrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource kptBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NNNrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource nnnBindingSource;
-        private System.Windows.Forms.Button FillLookupsButton;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit NNNrepositoryItemGridLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cccccccccToolStripMenuItem;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup1;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem1;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem2;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup2;
-        private DevExpress.XtraNavBar.NavBarGroup navBarGroup3;
+        private DevExpress.XtraNavBar.NavBarGroup AccNavBarGroup;
+        private DevExpress.XtraNavBar.NavBarItem AHPnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem AVBnavBarItem;
+        private DevExpress.XtraNavBar.NavBarGroup KimNavBarGroup;
+        private DevExpress.XtraNavBar.NavBarGroup NeNavBarGroup;
         private DevExpress.XtraBars.Docking.DockManager dockManager1;
         private DevExpress.XtraBars.Docking.DockPanel dockPanel1;
         private DevExpress.XtraBars.Docking.ControlContainer dockPanel1_Container;
         private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
         private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private DevExpress.XtraNavBar.NavBarItem KPTnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem KFTnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem KDTnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem NNNnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem NodesInParentsNavBarItem;
+        private DevExpress.XtraNavBar.NavBarGroup MiscNavBarGroup;
+        private DevExpress.XtraNavBar.NavBarItem FillLookupsNavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem NeDownNavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem XDTnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem NeUpNavBarItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
