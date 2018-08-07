@@ -83,6 +83,37 @@ namespace M2DB
             }
         }
 
+        public static string GetParentsString(ulong node)
+        {
+            var pList = GetParentsList(node);
+
+            StringBuilder sb = new StringBuilder();
+            foreach (var itm in pList)
+                sb.Append($"<{itm}>");
+
+            return sb.ToString();
+        }
+        public static List<ulong> GetParentsList(ulong node)  // OK
+        {
+            List<ulong> pList = new List<ulong>();
+            pList.Add(node);    // Kendisini de ekle
+            ParentsList(node, pList);  // Node's Parents
+            return pList;
+        }
+        private static void ParentsList(ulong node, List<ulong> pList)  // OK
+        {
+            foreach (var r in Db.SQL<BR>("select r from M2DB.BR r where r.C.ObjectNo = ?", node))
+            {
+                ulong parent = r.P.GetObjectNo();
+
+                if (!pList.Contains(parent))
+                    pList.Add(parent);
+                //if (r.P.HasPrn)
+                if(Db.SQL<BR>("select r from M2DB.BR r where r.C = ?", r.P).FirstOrDefault() != null)
+                    ParentsList(parent, pList);
+            }
+        }
+
 
     }
 

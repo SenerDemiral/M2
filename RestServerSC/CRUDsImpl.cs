@@ -1761,7 +1761,7 @@ namespace RestServerSC
             {
                 IEnumerable<BR> brs;
                 bool isP2C = false;
-                if (string.Compare(request.Mtyp, request.Dtyp) < 0)  // P is Master
+                if (string.Compare(request.Mtyp, request.Dtyp) <= 0)  // P is Master
                 {
                     brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.P IS {request.Mtyp} and r.C IS {request.Dtyp}", request.M);
                     isP2C = true;
@@ -1826,6 +1826,23 @@ namespace RestServerSC
             }).Wait();
 
             return Task.FromResult(request);
+        }
+        public override async Task BRparentsFill(PKproxy request, IServerStreamWriter<BRparentsProxy> responseStream, ServerCallContext context)
+        {
+            BRparentsProxy proxy;
+            string pString = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                pString = BR.GetParentsString(request.PK);
+            });
+
+            proxy = new BRparentsProxy
+            {
+                Node = request.PK,
+                Parents = pString
+            };
+            await responseStream.WriteAsync(proxy);
         }
     }
 

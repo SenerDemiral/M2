@@ -167,8 +167,8 @@ namespace M2DB
     public class TWD : BB      // Waybill/Irsaliye Detay
     {
         public TWM TWM { get; set; }        // Master
-        public NNN NNN { get; set; }        // Ne
         public TOD TOD { get; set; }        // Irs->Spr
+        public NNN NNN { get; set; }        // Ne
         public double Mik { get; set; }     // Gercek Gelen Mik
         public double Fyt { get; set; }
         public XGT DVT { get; set; }

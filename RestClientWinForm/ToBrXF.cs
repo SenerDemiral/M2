@@ -29,10 +29,32 @@ namespace RestClientWinForm
         private void ToBrXF_Load(object sender, EventArgs e)
         {
             Text += " [ToBrXF]";    // Text geldigi yerde hazirlaniyor.
-            if (string.Compare(Mtyp, Dtyp) < 0)
+            if (string.Compare(Mtyp, Dtyp) <= 0)
                 IsP2C = true;
 
-            if (Dtyp == "KDT")
+            Task.Run(async () => { await mainDataSet.BRparentsFill(M); }).Wait();
+            string parents = mainDataSet.BrParents.Rows[0]["Parents"].ToString();
+            ulong key = 0;
+            foreach (DataRow row in Program.MF.mainDataSet.KDT.Rows)
+            {
+                key = (ulong)row["RowKey"];
+                row["Avl"] = true;
+                if (parents.Contains($"<{key}>"))
+                    row["Avl"] = false;
+            }
+
+            if (Mtyp == "KDT" && Dtyp == "KDT")
+            {
+                if (IsP2C)
+                {
+                    colC.ColumnEdit = Program.MF.KDTrepositoryItemGridLookUpEdit;
+                    colC.Caption = "Alt Departmanlar";
+                    colOthers.Caption = "Diğer Üst Departmanları";
+                    colP.OptionsColumn.ReadOnly = true;
+                    colP.Visible = false;
+                }
+            }
+            else if (Dtyp == "KDT")
             {
                 if (IsP2C)
                 {

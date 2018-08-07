@@ -123,5 +123,20 @@ namespace RestClientWinForm
             frm.Ptyp = "KDT";
             frm.ShowDialog();*/
         }
+
+        private void relationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            ToBrXF frm = new ToBrXF();
+            frm.Text = $"{gridView1.GetFocusedRowCellValue(colAd)} Alt Departmanları";
+
+            frm.Mtyp = "KDT";
+            frm.Dtyp = "KDT";
+            frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
+
+            frm.ShowDialog();
+        }
     }
 }

@@ -44,6 +44,7 @@
             this.personelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.urunlerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -181,9 +182,10 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.personelToolStripMenuItem,
             this.urunlerToolStripMenuItem,
-            this.haberlesmeToolStripMenuItem});
+            this.haberlesmeToolStripMenuItem,
+            this.relationsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(138, 92);
             // 
             // personelToolStripMenuItem
             // 
@@ -205,6 +207,13 @@
             this.haberlesmeToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.haberlesmeToolStripMenuItem.Text = "Haberlesme";
             this.haberlesmeToolStripMenuItem.Click += new System.EventHandler(this.haberlesmeToolStripMenuItem_Click);
+            // 
+            // relationsToolStripMenuItem
+            // 
+            this.relationsToolStripMenuItem.Name = "relationsToolStripMenuItem";
+            this.relationsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.relationsToolStripMenuItem.Text = "Relations";
+            this.relationsToolStripMenuItem.Click += new System.EventHandler(this.relationsToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -274,9 +283,9 @@
             // 
             // toolStripStatusLabel1
             // 
+            this.toolStripStatusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(12, 15);
-            this.toolStripStatusLabel1.Text = "?";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 15);
             // 
             // layoutControlGroup1
             // 
@@ -287,7 +296,7 @@
             this.layoutControlItem2,
             this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(720, 325);
             this.layoutControlGroup1.TextVisible = false;
             // 
@@ -313,8 +322,11 @@
             // 
             this.layoutControlItem3.Control = this.statusStrip1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 281);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(0, 24);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(104, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(700, 24);
+            this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -375,5 +387,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private System.Windows.Forms.ToolStripMenuItem haberlesmeToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
+        private System.Windows.Forms.ToolStripMenuItem relationsToolStripMenuItem;
     }
 }

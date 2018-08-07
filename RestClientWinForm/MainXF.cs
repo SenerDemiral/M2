@@ -153,6 +153,13 @@ namespace RestClientWinForm
             e.Cancel = !avl;
         }
 
+        private void KDTrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+            var view = (sender as GridLookUpEdit).Properties.View;
+            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
+            e.Cancel = !avl;
+        }
+
         private void KFTbutton_Click(object sender, EventArgs e)
         {
             KftXF frm = new KftXF();
@@ -220,6 +227,8 @@ namespace RestClientWinForm
             MessageBox.Show("dadfadfasd");
         }
 
+        AvmXF frmAvm;
+        AbmXF frmAbm;
         AhpXF frmAhp;
         NnnXF frmNnn;
         KptXF frmKpt;
@@ -230,13 +239,31 @@ namespace RestClientWinForm
         NeUpXF frmNeUp;
         NodesInParentsXF frmNodesInParents;
 
-        private void navBarItem1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void AVMnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            var doc = documentManager1.GetDocument(frmAvm);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmAvm = new AvmXF();
+                frmAvm.MdiParent = this;
+                frmAvm.Show();
+            }
 
         }
 
-        private void navBarItem2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        private void ABMnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            var doc = documentManager1.GetDocument(frmAbm);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmAbm = new AbmXF();
+                frmAbm.MdiParent = this;
+                frmAbm.Show();
+            }
 
         }
 
