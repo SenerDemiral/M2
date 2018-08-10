@@ -52,6 +52,8 @@
             this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.KDTrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.UYHbutton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cccccccccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,8 +90,7 @@
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.KDTrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.KdtTreeDownNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.AfbTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -109,6 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -117,8 +120,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -348,6 +349,24 @@
             this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
+            // KDTrepositoryItemGridLookUpEdit
+            // 
+            this.KDTrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.KDTrepositoryItemGridLookUpEdit.DataSource = this.kdtBindingSource;
+            this.KDTrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
+            this.KDTrepositoryItemGridLookUpEdit.Name = "KDTrepositoryItemGridLookUpEdit";
+            this.KDTrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
+            this.KDTrepositoryItemGridLookUpEdit.View = this.gridView1;
+            this.KDTrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.KDTrepositoryItemGridLookUpEdit_QueryCloseUp);
+            // 
+            // gridView1
+            // 
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
             // UYHbutton
             // 
             this.UYHbutton.Location = new System.Drawing.Point(206, 569);
@@ -403,7 +422,8 @@
             this.navBarItem2,
             this.navBarItem3,
             this.navBarItem4,
-            this.navBarItem5});
+            this.navBarItem5,
+            this.KdtTreeDownNavBarItem});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 191;
@@ -484,7 +504,8 @@
             this.KimNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.KDTnavBarItem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.KPTnavBarItem),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.KFTnavBarItem)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.KFTnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.KdtTreeDownNavBarItem)});
             this.KimNavBarGroup.Name = "KimNavBarGroup";
             // 
             // KDTnavBarItem
@@ -646,23 +667,11 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // KDTrepositoryItemGridLookUpEdit
+            // KdtTreeDownNavBarItem
             // 
-            this.KDTrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KDTrepositoryItemGridLookUpEdit.DataSource = this.kdtBindingSource;
-            this.KDTrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
-            this.KDTrepositoryItemGridLookUpEdit.Name = "KDTrepositoryItemGridLookUpEdit";
-            this.KDTrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
-            this.KDTrepositoryItemGridLookUpEdit.View = this.gridView1;
-            this.KDTrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.KDTrepositoryItemGridLookUpEdit_QueryCloseUp);
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.KdtTreeDownNavBarItem.Caption = "Departman Hiyerarşi";
+            this.KdtTreeDownNavBarItem.Name = "KdtTreeDownNavBarItem";
+            this.KdtTreeDownNavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.KdtTreeDownNavBarItem_LinkClicked);
             // 
             // MainXF
             // 
@@ -697,6 +706,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -706,8 +717,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -775,5 +784,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit KDTrepositoryItemGridLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraNavBar.NavBarItem KdtTreeDownNavBarItem;
     }
 }

@@ -68,6 +68,7 @@ service CRUDs {
 
   rpc KDTfill (QryProxy) returns (stream KDTproxy) {}
   rpc KDTupdate (KDTproxy) returns (KDTproxy) {}
+  rpc KDTtreeDownFill (QryProxy) returns (stream KDTtreeProxy) {}
 
   rpc BRfill (QryBRproxy) returns (stream BRproxy) {}
   rpc BRupdate (BRproxy) returns (BRproxy) {}
@@ -155,6 +156,8 @@ message BaseRow {
   string Err = 2;
   uint64 Usr = 3;
 }
+
+////////////////////ACC/////////////////////////
 
 // Muhasebe Hesap Plani
 message AHPproxy {
@@ -245,6 +248,8 @@ message ABDproxy {
 	google.protobuf.StringValue Info = 15;
 }
 
+////////////////////GENEL///////////////////////
+
 // GenelTanimlari
 message XGTproxy {
 	string RowSte = 1;
@@ -298,6 +303,8 @@ message UYHproxy {
   uint64 K = 6;
 }
 
+////////////////////NE/////////////////////////
+
 // NNN Ne
 message NNNproxy {
 	string RowSte = 1;
@@ -342,6 +349,8 @@ message BRparentsProxy {
 	uint64 Node = 1;
 	string Parents = 2;
 }
+
+////////////////////KIM/////////////////////////
 
 // KKK Kim Base SIL
 message KKKproxy {
@@ -390,6 +399,14 @@ message KDTproxy {
 	google.protobuf.StringValue Kd = 5;
 	google.protobuf.StringValue Ad = 6;
 	google.protobuf.StringValue info = 7;
+}
+
+message KDTtreeProxy {
+	int32 L = 1;
+	uint64 P = 2;
+	uint64 K = 3;
+	string A = 4;
+	uint64 N = 5;
 }
 
 // KimPersonelTanim

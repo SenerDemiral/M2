@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using Starcounter;
 
@@ -43,6 +44,61 @@ namespace M2DB
         {
             Tbl = "KDT";
         }
+
+        public bool HasKid
+        {
+            get
+            {
+                if (Db.SQL<BR>("select r from M2DB.BR r where r.P = ?", this).FirstOrDefault() == null)
+                    return false;
+                return true;
+            }
+        }
+        public bool HasPrn
+        {
+            get
+            {
+                if (Db.SQL<BR>("select r from M2DB.BR r where r.C = ?", this).FirstOrDefault() == null)
+                    return false;
+                return true;
+            }
+        }
+
+        public static DataTable TreeDown()
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("L", typeof(int));
+            table.Columns.Add("P", typeof(ulong));
+            table.Columns.Add("K", typeof(ulong));
+            table.Columns.Add("A", typeof(string));
+            table.Columns.Add("N", typeof(ulong));
+
+            ulong P = 0;
+            ulong K = 1;
+            foreach (var n in Db.SQL<KDT>("SELECT r FROM KDT r WHERE r.HasPrn = ?", false))
+            {
+                table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo());
+                K++;
+            }
+
+            for (int L = 1; L < 10; L++)
+            {
+                DataRow[] dr = table.Select($"L = {L - 1}");
+                foreach (var r in dr)
+                {
+                    P = (ulong)r["K"];
+
+                    foreach (var nr in Db.SQL<BR>("SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", r["N"], "KDT", "KDT"))
+                    {
+                        table.Rows.Add(L, P, K, nr.C.Ad, nr.C.GetObjectNo());
+                        K++;
+                    }
+
+                }
+            }
+            return table;
+        }
+
     }
 
     [Database]

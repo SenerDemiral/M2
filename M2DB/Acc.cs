@@ -107,6 +107,19 @@ namespace M2DB
     }
 
     [Database]
+    public class ANHK    // Acc Ne Hesap Karsiliklari (Musteri Hesap Karsiliklari KFT de
+    {
+        public NNN NNN { get; set; }    // Ne
+        public ABT ABT { get; set; }    // Fatura Turu
+        public AHP AHP { get; set; }    // Hesap
+    }
+
+    [Database]
+    public class AVK : BB    // Acc VoucherKind/FisTuru
+    {
+    }
+
+    [Database]
     public class AVM : BB    // Account: Voucher/Fis Master
     {
         public BB ORG { get; set; }         // Origin, Otmatik uretildiyse geldigi kayit (Ftr,Cek,Snt vs den uretilmis olabilir)
@@ -133,6 +146,12 @@ namespace M2DB
         public string BA => Tut >= 0 ? "B" : "A";
         public double Brc => Tut >= 0 ? TutTL : 0;
         public double Alc => Tut < 0 ? -TutTL : 0;
+    }
+
+    [Database]
+    public class ABK : BB    // Acc BillKind/FaturaTuru
+    {
+        public bool IsBrc { get; set; } // Borc/Alacak
     }
 
     [Database]
@@ -223,6 +242,35 @@ namespace M2DB
 
     public static class AccOps
     {
+        public static void PopABT()     // Bill/Fatura Turleri
+        {
+            if (Db.SQL<ABK>("select r from ABT r").FirstOrDefault() != null)
+                return; // Kayit var yapma
+
+            // Kod,Ad,B/A
+            using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\ABT.csv", System.Text.Encoding.UTF8))
+            {
+                string line;
+                Db.Transact(() =>
+                {
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (!line.StartsWith("#"))
+                        {
+                            string[] ra = line.Split('|');
+
+                            new ABK
+                            {
+                                Kd = ra[0],
+                                Ad = ra[1],
+                                IsBrc = ra[2] == "B" ? true : false
+                            };
+                        }
+                    }
+                });
+            }
+        }
+
         public static void PopAHP()
         {
             if (Db.SQL<AHP>("select r from AHP r").FirstOrDefault() != null)

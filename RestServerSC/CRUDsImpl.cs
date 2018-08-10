@@ -1406,6 +1406,31 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
+        public override async Task KDTtreeDownFill(QryProxy request, IServerStreamWriter<KDTtreeProxy> responseStream, ServerCallContext context)
+        {
+            KDTtreeProxy proxy;
+            DataTable table = null;
+
+            await Scheduling.RunTask(() =>
+            {
+                table = M2DB.KDT.TreeDown();
+            });
+
+
+            foreach (DataRow r in table.Rows)
+            {
+                proxy = new KDTtreeProxy
+                {
+                    L = (int)r["L"],
+                    P = (ulong)r["P"],
+                    K = (ulong)r["K"],
+                    A = (string)r["A"],
+                    N = (ulong)r["N"],
+                };
+
+                await responseStream.WriteAsync(proxy);
+            }
+        }
 
         // KimHaberlesmeTanim
         public override async Task KHTfill(QryPproxy request, IServerStreamWriter<KHTproxy> responseStream, ServerCallContext context)

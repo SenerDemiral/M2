@@ -233,6 +233,7 @@ namespace RestClientWinForm
         NnnXF frmNnn;
         KptXF frmKpt;
         KdtXF frmKdt;
+        KdtTreeDownXF frmKdtTreeDown;
         KftXF frmKft;
         XdkXF frmXdk;
         NeDownXF frmNeDown;
@@ -330,6 +331,18 @@ namespace RestClientWinForm
                 frmKdt = new KdtXF();
                 frmKdt.MdiParent = this;
                 frmKdt.Show();
+            }
+        }
+        private void KdtTreeDownNavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmKdtTreeDown);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmKdtTreeDown = new KdtTreeDownXF();
+                frmKdtTreeDown.MdiParent = this;
+                frmKdtTreeDown.Show();
             }
         }
 

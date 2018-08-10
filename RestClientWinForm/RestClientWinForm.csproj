@@ -144,6 +144,12 @@
     <Compile Include="KctXF.Designer.cs">
       <DependentUpon>KctXF.cs</DependentUpon>
     </Compile>
+    <Compile Include="KdtTreeDownXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KdtTreeDownXF.Designer.cs">
+      <DependentUpon>KdtTreeDownXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="KdtXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KctXF.resx">
       <DependentUpon>KctXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KdtTreeDownXF.resx">
+      <DependentUpon>KdtTreeDownXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KdtXF.resx">
       <DependentUpon>KdtXF.cs</DependentUpon>
