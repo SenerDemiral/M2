@@ -24,6 +24,6 @@ set TOOLS_PATH=packages\Grpc.Tools.1.14.1\tools\windows_x64
 @rem %TOOLS_PATH%\protoc.exe --csharp_out Grpc  protos/helloworld.proto --grpc_out Grpc --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 @rem %TOOLS_PATH%\protoc.exe --csharp_out Grpc  protos/sener.proto --grpc_out Grpc --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 @rem %TOOLS_PATH%\protoc.exe --csharp_out Rest  protos/rest.proto protos/lookup.proto --grpc_out Rest --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
-%TOOLS_PATH%\protoc.exe --csharp_out Rest --grpc_out Rest protos/rest.proto protos/lookup.proto  --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
+%TOOLS_PATH%\protoc.exe --csharp_out Rest --grpc_out Rest protos/lookup.proto --plugin=protoc-gen-grpc=%TOOLS_PATH%\grpc_csharp_plugin.exe
 
 endlocal

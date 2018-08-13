@@ -24,7 +24,7 @@ namespace RestClientWinForm
             GridLocalizer.Active = new CustomGridLocalizer();
 
             avmGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colTUR.ColumnEdit = Program.MF.AfbTurRepositoryItemLookUpEdit;
+            colTUR.ColumnEdit = Program.MF.AVKrepositoryItemLookUpEdit; //Program.MF.AvmTurRepositoryItemLookUpEdit;
             colTrh.ColumnEdit = Program.MF.DateRepositoryItemDateEdit;
 
             gridView1.OptionsSelection.MultiSelect = true;

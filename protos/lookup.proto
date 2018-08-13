@@ -1,0 +1,33 @@
+syntax = "proto3";
+package rest;
+
+service LookupService {
+  rpc KftL (LookupProxy) returns (stream KftLookupProxy) {}
+  rpc NntL (LookupProxy) returns (stream NntLookupProxy) {}
+  rpc AhpL (LookupProxy) returns (stream AhpLookupProxy) {}
+}
+
+message LookupProxy {
+  string query = 1;
+}
+
+message KftLookupProxy {
+	uint64 RowKey = 1;
+	string Kd = 2;
+	string Ad = 3;
+	string Info = 4;
+}
+
+message NntLookupProxy {
+	uint64 RowKey = 1;
+	string Kd = 2;
+	string Ad = 3;
+	string Info = 4;
+}
+
+message AhpLookupProxy {
+	uint64 RowKey = 1;
+	string Kd = 2;
+	string Ad = 3;
+	string Info = 4;
+}

@@ -42,6 +42,7 @@
             this.nnnGridControl = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.uretenDepartmanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,7 +56,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.relationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingNavigator)).BeginInit();
@@ -182,7 +182,7 @@
             this.uretenDepartmanToolStripMenuItem,
             this.relationsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(189, 48);
             // 
             // uretenDepartmanToolStripMenuItem
             // 
@@ -190,6 +190,13 @@
             this.uretenDepartmanToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.uretenDepartmanToolStripMenuItem.Text = "Üretim Departmanları";
             this.uretenDepartmanToolStripMenuItem.Click += new System.EventHandler(this.uretenDepartmanToolStripMenuItem_Click);
+            // 
+            // relationsToolStripMenuItem
+            // 
+            this.relationsToolStripMenuItem.Name = "relationsToolStripMenuItem";
+            this.relationsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.relationsToolStripMenuItem.Text = "Relations";
+            this.relationsToolStripMenuItem.Click += new System.EventHandler(this.relationsToolStripMenuItem_Click);
             // 
             // gridView1
             // 
@@ -255,7 +262,6 @@
             // statusStrip1
             // 
             this.statusStrip1.AutoSize = false;
-            this.statusStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(12, 280);
@@ -310,13 +316,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // relationsToolStripMenuItem
-            // 
-            this.relationsToolStripMenuItem.Name = "relationsToolStripMenuItem";
-            this.relationsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.relationsToolStripMenuItem.Text = "Relations";
-            this.relationsToolStripMenuItem.Click += new System.EventHandler(this.relationsToolStripMenuItem_Click);
-            // 
             // NnnXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,7 +323,7 @@
             this.ClientSize = new System.Drawing.Size(764, 312);
             this.Controls.Add(this.layoutControl1);
             this.Name = "NnnXF";
-            this.Text = "NnnXF";
+            this.Text = "Ne [NnnXF]";
             this.Load += new System.EventHandler(this.NnnXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();

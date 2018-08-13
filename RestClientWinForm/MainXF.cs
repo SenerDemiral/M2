@@ -11,12 +11,15 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
 using DevExpress.XtraTreeList.Nodes;
 using DevExpress.XtraBars.Docking;
+using System.Diagnostics;
 
 namespace RestClientWinForm
 {
     public partial class MainXF : DevExpress.XtraEditors.XtraForm
     {
         public Dictionary<string, ulong> XgtDic;
+        Stopwatch sw = new Stopwatch();
+        int nor = 0;
 
         public MainXF()
         {
@@ -46,18 +49,32 @@ namespace RestClientWinForm
             {
                 x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
             });*/
+            toolStripStatusLabel1.Text = $"{nor} recs in {sw.ElapsedMilliseconds} msec";
         }
 
         public void FillTanimlar()
         {
+            nor = 0;
+
             Task.Run(async () => {
+                sw.Start();
+                /*
                 await mainDataSet.XGTfill();
+                await mainDataSet.AVKfill();
+                await mainDataSet.ABKfill();
                 await mainDataSet.AHPfill();
                 await mainDataSet.KDTfill();
                 await mainDataSet.KPTfill();
                 await mainDataSet.NNNfill();
+                */
+                nor += await dataSetLookup.KftL();
+                nor += await dataSetLookup.NntL();
+                nor += await dataSetLookup.AhpL();
+
+                sw.Stop();
                 InitLookups();
-            }); //.Wait();
+            });//.Wait();
+
 
         }
 
@@ -89,15 +106,17 @@ namespace RestClientWinForm
             DataView DvzDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
             DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
-            DataView AfbTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["AFB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            AfbTurRepositoryItemLookUpEdit.DataSource = AfbTurDV;
+            DataView AvmTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["AVM.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            AvmTurRepositoryItemLookUpEdit.DataSource = AvmTurDV;
+
+            DataView AbmTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["ABM.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            AbmTurRepositoryItemLookUpEdit.DataSource = AbmTurDV;
 
             DataView KkkTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             KkkTurRepositoryItemLookUpEdit.DataSource = KkkTurDV;
 
-            DataView AbbTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["ABB.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            AbbTurRepositoryItemLookUpEdit.DataSource = AbbTurDV;
-
+            DataView NeBrmDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["NNN.BRM"]}", "Kd", DataViewRowState.CurrentRows);
+            NeBrmRepositoryItemLookUpEdit.DataSource = NeBrmDV;
         }
 
         private void AHPbutton_Click(object sender, EventArgs e)

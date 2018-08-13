@@ -14,27 +14,44 @@
 
 syntax = "proto3";
 import "google/protobuf/wrappers.proto";	// null kullanabilmek icin https://stackoverflow.com/questions/42622015/how-to-define-an-optional-field-in-protobuf-3
-
 package rest;		// namespace
+
 
 // The CRUDs service definition.
 service CRUDs {
   rpc TblaFill (QryProxy) returns (stream TblaProxy) {}
   rpc TblaUpdate (TblaProxy) returns (TblaProxy) {}
 
+  ///// ACC /////
+  // BillKind
+  rpc ABKfill (QryProxy) returns (stream ABKproxy) {}
+  rpc ABKupdate (ABKproxy) returns (ABKproxy) {}
+
+  // VoucherKind
+  rpc AVKfill (QryProxy) returns (stream AVKproxy) {}
+  rpc AVKupdate (AVKproxy) returns (AVKproxy) {}
+
+  // Ne->Hsp NeHesapKarsiliklari 
+  rpc AN2Hfill (QryProxy) returns (stream AN2Hproxy) {}
+  rpc AN2Hupdate (AN2Hproxy) returns (AN2Hproxy) {}
+
+  // HesapPlani
   rpc AHPfill (QryProxy) returns (stream AHPproxy) {}
   rpc AHPupdate (AHPproxy) returns (AHPproxy) {}
 
+  // Voucher
   rpc AVMfill (QryProxy) returns (stream AVMproxy) {}
   rpc AVMupdate (AVMproxy) returns (AVMproxy) {}
   rpc AVDfill (QryMDproxy) returns (stream AVDproxy) {}
   rpc AVDupdate (AVDproxy) returns (AVDproxy) {}
 
+  // Bill
   rpc ABMfill (QryProxy) returns (stream ABMproxy) {}
   rpc ABMupdate (ABMproxy) returns (ABMproxy) {}
   rpc ABDfill (QryMDproxy) returns (stream ABDproxy) {}
   rpc ABDupdate (ABDproxy) returns (ABDproxy) {}
 
+  ///// GNL /////
   rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
   rpc XGTupdate (XGTproxy) returns (XGTproxy) {}
 
@@ -48,6 +65,7 @@ service CRUDs {
   rpc UYHfill (QryProxy) returns (stream UYHproxy) {}
   rpc UYHupdate (UYHproxy) returns (UYHproxy) {}
 
+  // Ne
   rpc NNNfill (QryProxy) returns (stream NNNproxy) {}
   rpc NNNupdate (NNNproxy) returns (NNNproxy) {}
   rpc NNRfill (PKproxy) returns (stream NNRproxy) {}
@@ -58,18 +76,31 @@ service CRUDs {
   rpc NeDownFill (QryProxy) returns (stream NeTreeProxy) {}
   rpc NodesInParentsFill (QryProxy) returns (stream NodesInParentsProxy) {}
 
-  rpc KKKfill (QryProxy) returns (stream KKKproxy) {}
+  ///// Kim /////
+  rpc KKKfill (QryProxy) returns (stream KKKproxy) {}	// ??????????????
 
+  // FirmaTanim
   rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
   rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
 
+  // (Firma)ContactTanim
+  rpc KCTfill (QryPproxy) returns (stream KCTproxy) {}
+  rpc KCTupdate (KCTproxy) returns (KCTproxy) {}
+
+  // PersonelTanim
   rpc KPTfill (QryProxy) returns (stream KPTproxy) {}
   rpc KPTupdate (KPTproxy) returns (KPTproxy) {}
 
+  // DepartmanTanim
   rpc KDTfill (QryProxy) returns (stream KDTproxy) {}
   rpc KDTupdate (KDTproxy) returns (KDTproxy) {}
   rpc KDTtreeDownFill (QryProxy) returns (stream KDTtreeProxy) {}
 
+  // HaberlesmeTanim
+  rpc KHTfill (QryPproxy) returns (stream KHTproxy) {}
+  rpc KHTupdate (KHTproxy) returns (KHTproxy) {}
+
+  // BaseRelation
   rpc BRfill (QryBRproxy) returns (stream BRproxy) {}
   rpc BRupdate (BRproxy) returns (BRproxy) {}
   rpc BRparentsFill (PKproxy) returns (stream BRparentsProxy) {}	// PKproxy.PK = 0 ise hepsi
@@ -83,11 +114,6 @@ service CRUDs {
   rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
   rpc ToKDTupdate (ToKDTproxy) returns (ToKDTproxy) {}
 
-  rpc KHTfill (QryPproxy) returns (stream KHTproxy) {}
-  rpc KHTupdate (KHTproxy) returns (KHTproxy) {}
-
-  rpc KCTfill (QryPproxy) returns (stream KCTproxy) {}
-  rpc KCTupdate (KCTproxy) returns (KCTproxy) {}
 }
 
 message PKproxy {
@@ -157,7 +183,41 @@ message BaseRow {
   uint64 Usr = 3;
 }
 
-////////////////////ACC/////////////////////////
+/////////////////// ACC ////////////////////////
+
+// Acc BillKind/FaturaTuru
+message ABKproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+	google.protobuf.StringValue Info = 7;
+	bool IsBrc = 8;
+}
+
+// Acc VoucherKind/FisTuru
+message AVKproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	google.protobuf.StringValue Kd = 5;
+	google.protobuf.StringValue Ad = 6;
+	google.protobuf.StringValue Info = 7;
+}
+
+// Acc Ne->Hsp NeHesapKarsiliklari
+message AN2Hproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 NNN = 5;
+	uint64 ABK = 6;
+	uint64 AHP = 7;
+}
 
 // Muhasebe Hesap Plani
 message AHPproxy {
@@ -248,61 +308,6 @@ message ABDproxy {
 	google.protobuf.StringValue Info = 15;
 }
 
-////////////////////GENEL///////////////////////
-
-// GenelTanimlari
-message XGTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 P = 5;
-	string Kd = 6;
-	string Ad = 7;
-}
-
-// DovizKurlari
-message XDKproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	int64 Trh = 5;
-	uint64 DVT = 6;
-	float Kur = 7;	// Dovizin TRL karsiligi
-	string Dvz = 8;
-}
-
-// User
-message UUUproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  uint64 UYT = 5;
-  string Ad = 6;
-  string Pwd = 7;
-}
-
-// UserYetkiTanimlari
-message UYTproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  string Ad = 5;
-}
-
-// UserYetkiHiyerarsi
-message UYHproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  uint64 P = 5;
-  uint64 K = 6;
-}
-
 ////////////////////NE/////////////////////////
 
 // NNN Ne
@@ -378,7 +383,7 @@ message KFTproxy {
 	uint64 AHPalc = 13;
 }
 
-// KCT Master -> KimHaberlesmeTanim (Master:KFT,KCT,KPT,KDT)
+// KCT Master -> KimContactTanim (Master:KFT)
 message KCTproxy {
 	string RowSte = 1;
 	string RowErr = 2;
@@ -513,3 +518,59 @@ message TWDproxy {
 	google.protobuf.StringValue Ad = 7;
 	google.protobuf.StringValue info = 8;
 }
+
+////////////////////GENEL///////////////////////
+
+// GenelTanimlari
+message XGTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 P = 5;
+	string Kd = 6;
+	string Ad = 7;
+}
+
+// DovizKurlari
+message XDKproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	int64 Trh = 5;
+	uint64 DVT = 6;
+	float Kur = 7;	// Dovizin TRL karsiligi
+	string Dvz = 8;
+}
+
+// User
+message UUUproxy {
+  string RowSte = 1;
+  string RowErr = 2;
+  uint64 RowUsr = 3;
+  uint64 RowKey = 4;
+  uint64 UYT = 5;
+  string Ad = 6;
+  string Pwd = 7;
+}
+
+// UserYetkiTanimlari
+message UYTproxy {
+  string RowSte = 1;
+  string RowErr = 2;
+  uint64 RowUsr = 3;
+  uint64 RowKey = 4;
+  string Ad = 5;
+}
+
+// UserYetkiHiyerarsi
+message UYHproxy {
+  string RowSte = 1;
+  string RowErr = 2;
+  uint64 RowUsr = 3;
+  uint64 RowKey = 4;
+  uint64 P = 5;
+  uint64 K = 6;
+}
+

@@ -235,6 +235,202 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // VoucherKind/FisTurleri
+        public override async Task AN2Hfill(QryProxy request, IServerStreamWriter<AN2Hproxy> responseStream, ServerCallContext context)
+        {
+            AN2Hproxy proxy = new AN2Hproxy();
+            List<AN2Hproxy> proxyList = new List<AN2Hproxy>();
+
+            Type proxyType = typeof(AN2Hproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AN2H>("select r from AN2H r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new AN2Hproxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            NNN = row.NNN == null ? 0 : row.NNN.GetObjectNo(),
+                            ABK = row.ABK == null ? 0 : row.ABK.GetObjectNo(),
+                            AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<AN2Hproxy> AN2Hupdate(AN2Hproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            AN2H row = CRUDsHelper.FromProxy<AN2Hproxy, AN2H>(request);
+                            request = CRUDsHelper.ToProxy<AN2Hproxy, AN2H>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        var rec = (AVK)Db.FromId(request.RowKey);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        // VoucherKind/FisTurleri
+        public override async Task AVKfill(QryProxy request, IServerStreamWriter<AVKproxy> responseStream, ServerCallContext context)
+        {
+            AVKproxy proxy = new AVKproxy();
+            List<AVKproxy> proxyList = new List<AVKproxy>();
+
+            Type proxyType = typeof(AVKproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AVK>("select r from AVK r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new AVKproxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            Kd = row.Kd,
+                            Ad = row.Ad,
+                            Info = row.Info, //row.Info ?? "",
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<AVKproxy> AVKupdate(AVKproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            AVK row = CRUDsHelper.FromProxy<AVKproxy, AVK>(request);
+                            request = CRUDsHelper.ToProxy<AVKproxy, AVK>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        var rec = (AVK)Db.FromId(request.RowKey);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        // BillKind/FaturaTurleri
+        public override async Task ABKfill(QryProxy request, IServerStreamWriter<ABKproxy> responseStream, ServerCallContext context)
+        {
+            ABKproxy proxy = new ABKproxy();
+            List<ABKproxy> proxyList = new List<ABKproxy>();
+
+            Type proxyType = typeof(ABKproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<ABK>("select r from ABK r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new ABKproxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            Kd = row.Kd,
+                            Ad = row.Ad,
+                            Info = row.Info, //row.Info ?? "",
+                            IsBrc = row.IsBrc
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<ABKproxy> ABKupdate(ABKproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        if (request.RowErr == string.Empty)
+                        {
+                            ABK row = CRUDsHelper.FromProxy<ABKproxy, ABK>(request);
+                            request = CRUDsHelper.ToProxy<ABKproxy, ABK>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D")
+                    {
+                        var rec = (AVK)Db.FromId(request.RowKey);
+                        if (rec == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
         // Voucher/Fis Master
         public override async Task AVMfill(QryProxy request, IServerStreamWriter<AVMproxy> responseStream, ServerCallContext context)
         {

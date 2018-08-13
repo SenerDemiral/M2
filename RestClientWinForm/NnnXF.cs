@@ -19,6 +19,7 @@ namespace RestClientWinForm
 
             nnnGridControl.ExternalRepository = Program.MF.persistentRepository;
             //colAHPbrc.ColumnEdit = Program.MF.AHPrepositoryItemTreeListLookUpEdit;
+            colBRM.ColumnEdit = Program.MF.NeBrmRepositoryItemLookUpEdit;
         }
 
         private void NnnXF_Load(object sender, EventArgs e)

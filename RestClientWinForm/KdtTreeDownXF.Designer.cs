@@ -108,7 +108,7 @@
             this.ClientSize = new System.Drawing.Size(661, 318);
             this.Controls.Add(this.treeList1);
             this.Name = "KdtTreeDownXF";
-            this.Text = "KdtTreeDownXF";
+            this.Text = "Departman Hiyerarşi [KdtTreeDownXF]";
             this.Load += new System.EventHandler(this.KdtTreeDownXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kdtTreeDownBindingSource)).EndInit();

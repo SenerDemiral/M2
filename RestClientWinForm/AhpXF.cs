@@ -160,9 +160,13 @@ namespace RestClientWinForm
         {
             string res = "";
             accDataSet.AHP.Clear();
-            Task.Run(async () => { res = await accDataSet.AHPfill(); }).Wait();
-            //MessageBox.Show(res);
-            toolStripStatusLabel1.Text = res;
+
+            //Task.Run(async () => { res = await accDataSet.AHPfill(); }).Wait();
+            //toolStripStatusLabel1.Text = res;
+
+            Task.Run(async () => {
+                toolStripStatusLabel1.Text = await accDataSet.AHPfill();
+            }).Wait();
 
             treeList1.ExpandAll();
             //treeList1.ExpandToLevel(0);

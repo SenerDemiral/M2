@@ -28,6 +28,7 @@ namespace RestServerSC
             };
             */
             M2DB.AccOps.PopAHP();
+            M2DB.AccOps.PopABK();
             M2DB.GnlOps.PopXGT();
             M2DB.UsrOps.PopUUU();
             M2DB.NeOps.initNNN();
@@ -151,7 +152,7 @@ namespace RestServerSC
 
             Server server = new Server
             {
-                Services = { CRUDs.BindService(new CRUDsImpl()) },
+                Services = { CRUDs.BindService(new CRUDsImpl()), LookupService.BindService(new LookupServiceImpl()) },
                 Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
                 //Ports = { new ServerPort("217.160.13.102", Port, ServerCredentials.Insecure) }
                 //Ports = { new ServerPort("192.168.1.20", Port, ServerCredentials.Insecure) }

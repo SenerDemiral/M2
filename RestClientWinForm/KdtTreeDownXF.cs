@@ -35,7 +35,7 @@ namespace RestClientWinForm
         {
             string res = "";
             Task.Run(async () => { res = await mainDataSet.KDTtreeDownFill(); }).Wait();
-
+            treeList1.ExpandAll();
         }
 
 

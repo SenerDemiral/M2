@@ -107,10 +107,10 @@ namespace M2DB
     }
 
     [Database]
-    public class ANHK    // Acc Ne Hesap Karsiliklari (Musteri Hesap Karsiliklari KFT de
+    public class AN2H    // Acc HesapKarsiliklariNe (Musteri Hesap Karsiliklari KFT de
     {
         public NNN NNN { get; set; }    // Ne
-        public ABT ABT { get; set; }    // Fatura Turu
+        public ABK ABK { get; set; }    // BillKind/FaturaTuru
         public AHP AHP { get; set; }    // Hesap
     }
 
@@ -242,13 +242,13 @@ namespace M2DB
 
     public static class AccOps
     {
-        public static void PopABT()     // Bill/Fatura Turleri
+        public static void PopABK()     // Bill/Fatura Turleri
         {
-            if (Db.SQL<ABK>("select r from ABT r").FirstOrDefault() != null)
+            if (Db.SQL<ABK>("select r from ABK r").FirstOrDefault() != null)
                 return; // Kayit var yapma
 
             // Kod,Ad,B/A
-            using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\ABT.csv", System.Text.Encoding.UTF8))
+            using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\ABK.csv", System.Text.Encoding.UTF8))
             {
                 string line;
                 Db.Transact(() =>
