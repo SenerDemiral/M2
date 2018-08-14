@@ -14,9 +14,41 @@ namespace RestServerSC
 {
     class LookupServiceImpl : Rest.LookupService.LookupServiceBase
     {
+        public override async Task BbL(LookupProxy request, IServerStreamWriter<BbLookupProxy> responseStream, ServerCallContext context)
+        {
+            BbLookupProxy proxy = new BbLookupProxy();
+            List<BbLookupProxy> proxyList = new List<BbLookupProxy>();
+
+            await Scheduling.RunTask(() =>
+            {
+                string srch = request.Query;
+                bool all = string.IsNullOrEmpty(srch);
+
+                foreach (var row in Db.SQL<BB>("select r from BB r"))
+                {
+                    if (all || srch.Contains(row.Typ))
+                    {
+                        proxy = new BbLookupProxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            Typ = row.Typ,
+                            Kd = row.Kd ?? "",
+                            Ad = row.Ad ?? "",
+                            Info = row.Info ?? "",
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+                await responseStream.WriteAsync(p);
+        }
+
         public override async Task KftL(LookupProxy request, IServerStreamWriter<KftLookupProxy> responseStream, ServerCallContext context)
         {
-            KftLookupProxy proxy = new KftLookupProxy();
+            KftLookupProxy proxy;
             List<KftLookupProxy> proxyList = new List<KftLookupProxy>();
 
             await Scheduling.RunTask(() =>

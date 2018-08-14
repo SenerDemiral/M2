@@ -33,12 +33,12 @@ namespace M2DB
     /// A, 9,    M,       Mahsup   
     /// </summary>
     [Database]
-    public class XGT    // Genel Tanimlar
+    public class XGT : BB    // Genel Tanimlar
     {
         public XGT P { get; set; }
         public string PKd => P?.Kd;
-        public string Kd { get; set; }
-        public string Ad { get; set; }
+        //public string Kd { get; set; }
+        //public string Ad { get; set; }
     }
 
     [Database]

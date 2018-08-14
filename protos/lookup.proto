@@ -2,6 +2,7 @@ syntax = "proto3";
 package rest;
 
 service LookupService {
+  rpc BbL (LookupProxy) returns (stream BbLookupProxy) {}
   rpc KftL (LookupProxy) returns (stream KftLookupProxy) {}
   rpc NntL (LookupProxy) returns (stream NntLookupProxy) {}
   rpc AhpL (LookupProxy) returns (stream AhpLookupProxy) {}
@@ -9,6 +10,14 @@ service LookupService {
 
 message LookupProxy {
   string query = 1;
+}
+
+message BbLookupProxy {
+	uint64 RowKey = 1;
+	string Typ = 2;
+	string Kd = 3;
+	string Ad = 4;
+	string Info = 5;
 }
 
 message KftLookupProxy {

@@ -44,7 +44,7 @@ namespace RestServerSC
             //NNR.NodeGerekenKidsMik(274, 1);
             //NNR.NodesInParents();
 
-            NNN.UretenUrunTuketimleri("ureten", 295, 1);   //295Suzan
+            ////NNN.UretenUrunTuketimleri("ureten", 295, 1);   //295Suzan
 
             /*
             NNR.DenemeUp();
@@ -54,15 +54,15 @@ namespace RestServerSC
             NNR.Deneme();
             */
 
-            NNN.DenemeCanAddSibling();
+            ////NNN.DenemeCanAddSibling();
 
             //NNR.DenemeYetki();
             //NNR.CanAddSibling(303, 299); //Veli, Sener false
             //NNR.CanAddSibling(303, 301); //Veli, Sener true
-            NNR.DenemeGetAvailableParents();
+            ////NNR.DenemeGetAvailableParents();
             //NNR.CanAddSibling(303, 297); //Veli, Umut
             //NNR.CanAddSibling(295, 293); //Suzan, Ahmet
-            NNN.DenemeYtkParentsDictionary();
+            ////NNN.DenemeYtkParentsDictionary();
             dnmC.dnm();
 
 

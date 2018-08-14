@@ -20,29 +20,31 @@ namespace M2DB
     [Database]
     public class BB    // Base
     {
-        public string Tbl { get; set; }     
+        public string Typ => this.GetType().Name;
         public string Kd { get; set; }
         public string Ad { get; set; }
         public string Info { get; set; }
+
+        
         /*
-        public bool HasKid
-        {
-            get
-            {
-                if (Db.SQL<BR>("select r from M2DB.BR r where r.P = ?", this).FirstOrDefault() == null)
-                    return false;
-                return true;
-            }
-        }
-        public bool HasPrn
-        {
-            get
-            {
-                if (Db.SQL<BR>("select r from M2DB.BR r where r.C = ?", this).FirstOrDefault() == null)
-                    return false;
-                return true;
-            }
-        }*/
+                public bool HasKid
+                {
+                    get
+                    {
+                        if (Db.SQL<BR>("select r from M2DB.BR r where r.P = ?", this).FirstOrDefault() == null)
+                            return false;
+                        return true;
+                    }
+                }
+                public bool HasPrn
+                {
+                    get
+                    {
+                        if (Db.SQL<BR>("select r from M2DB.BR r where r.C = ?", this).FirstOrDefault() == null)
+                            return false;
+                        return true;
+                    }
+                }*/
     }
 
     [Database]

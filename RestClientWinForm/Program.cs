@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Grpc.Core;
+using Rest;
 
 namespace RestClientWinForm
 {
@@ -20,10 +23,16 @@ namespace RestClientWinForm
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
             MF = new MainXF();
             MF.FillTanimlar();
             Application.Run(MF);
         }
+    }
+
+    public static class grpcService
+    {
+        public static Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
+        public static LookupService.LookupServiceClient ClientLookupService = new LookupService.LookupServiceClient(channel);
+        public static CRUDs.CRUDsClient ClientCRUDs = new CRUDs.CRUDsClient(channel);
     }
 }

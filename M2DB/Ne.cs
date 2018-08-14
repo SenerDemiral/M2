@@ -66,11 +66,6 @@ namespace M2DB
             }
         }
         
-        public NNN()
-        {
-            Tbl = "NNN";
-        }
-
         // All node's parents Bunu Kim de yap, burdaki deneme
         public static Dictionary<ulong, string> DenemeYtkParentsDictionary()
         {

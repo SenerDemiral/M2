@@ -52,10 +52,6 @@ namespace M2DB
     [Database]
     public class TOM : BB    // Order/Siparis Master
     {
-        public TOM()
-        {
-            Tbl = "TOM";
-        }
         public KKK ORG { get; set; }        // Kimden/Nereden/Origin (Musteri/Depo/UretimHatti)
         public KKK DST { get; set; }        // Kime/Nereye/Destination
         public DateTime ROH { get; set; }   // RequestOnHand. Alc belirtir
@@ -124,10 +120,6 @@ namespace M2DB
         public DateTime EOH { get; set; }   // ExpectedOnHand
 
         // Bu Malin gelenleri SUM(TWD.Mik)
-        public TOD()
-        {
-            Tbl = "TOD";
-        }
 
         public static double IrsMik(TOD tod)
         {
@@ -156,11 +148,6 @@ namespace M2DB
         public KKK DST { get; set; }        // Kime/Nereye/Destination
         public DateTime ATD { get; set; }   // ActualTimeofDeparture
         public DateTime ATA { get; set; }   // ActualTimeofArrival
-
-        public TWM()
-        {
-            Tbl = "TWM";
-        }
     }
 
     [Database]
@@ -184,11 +171,6 @@ namespace M2DB
         // Geldiyse: Teslimati Yapan: Personel, Alan: KPT Personel
         // Gittiyse: Teslimati Yapan: Personel, Alan: KCT FirmaContact
 
-        public TWD()
-        {
-            Tbl = "TWD";
-        }
-
         public static double FtrMik(TWD twd)
         {
             double ftrMik = 0;
@@ -209,11 +191,6 @@ namespace M2DB
         public string Tur { get; set; }     // Fatura Turu: Alis/Satis vs
         public DateTime BlgTrh { get; set; }
         public string BlgNo { get; set; }
-
-        public TBM()
-        {
-            Tbl = "TBM";
-        }
     }
 
     [Database]
@@ -227,11 +204,6 @@ namespace M2DB
         public double Fyt { get; set; }
         public XGT DVT { get; set; }
         public float Kur { get; set; }
-
-        public TBD()
-        {
-            Tbl = "TBD";
-        }
     }
 
 }

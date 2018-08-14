@@ -49,7 +49,13 @@ namespace RestClientWinForm
             {
                 x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
             });*/
-            toolStripStatusLabel1.Text = $"{nor} recs in {sw.ElapsedMilliseconds} msec";
+
+            if(sw.ElapsedMilliseconds > 1000)
+                toolStripStatusLabel1.Text = $"{nor} recs read in {sw.ElapsedMilliseconds / 1000L} sec";
+            else
+                toolStripStatusLabel1.Text = $"{nor} recs read in {sw.ElapsedMilliseconds} msec (1/1000sec)";
+            //double seconds = (double)sw.ElapsedTicks / Stopwatch.Frequency;
+            //toolStripStatusLabel1.Text = $"{nor} recssss read in {sw.ElapsedTicks / Stopwatch.Frequency} msec {Stopwatch.Frequency} {sw.ElapsedTicks} === {seconds}";
         }
 
         public void FillTanimlar()
@@ -57,7 +63,7 @@ namespace RestClientWinForm
             nor = 0;
 
             Task.Run(async () => {
-                sw.Start();
+
                 /*
                 await mainDataSet.XGTfill();
                 await mainDataSet.AVKfill();
@@ -67,10 +73,15 @@ namespace RestClientWinForm
                 await mainDataSet.KPTfill();
                 await mainDataSet.NNNfill();
                 */
-                nor += await dataSetLookup.KftL();
-                nor += await dataSetLookup.NntL();
-                nor += await dataSetLookup.AhpL();
+                sw.Start();
+                //DataSetLookup.lookupServiceClientInit();
+                //sw.Stop();
 
+                nor += await dataSetLookup.BbL();
+                //nor += await dataSetLookup.KftL();
+                //nor += await dataSetLookup.NntL();
+                nor += await dataSetLookup.AhpL();
+                //DataSetLookup.lookupServiceClientShutDown();
                 sw.Stop();
                 InitLookups();
             });//.Wait();
@@ -90,6 +101,7 @@ namespace RestClientWinForm
                 if (f.Name != "MainXF")
                     f.Close();
             }
+            grpcService.channel.ShutdownAsync().Wait();
 
         }
 

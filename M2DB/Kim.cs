@@ -19,10 +19,6 @@ namespace M2DB
         public XGT ObjMusFytGrp { get; set; }  // MusteriFiyatGrubu: A, B, C
         public AHP AHPbrc { get; set; }        // Borclu Musteri Hesap
         public AHP AHPalc { get; set; }        // Alacakli Musteri Hesap
-        public KFT()
-        {
-            Tbl = "KFT";
-        }
     }
 
     public class KCT : BB   // Kim.Contact.Tanim
@@ -30,20 +26,12 @@ namespace M2DB
         public BB M { get; set; }       // Masters is KFT
         public string Unvan { get; set; }
         public string TAGs { get; set; }
-        public KCT()
-        {
-            Tbl = "KCT";
-        }
     }
 
     [Database]
     public class KDT : BB   // Kim.Departman.Tanim
     {
         public string Skl { get; set; }     // Uretim/Depo/Fire/Imha/Kayip
-        public KDT()
-        {
-            Tbl = "KDT";
-        }
 
         public bool HasKid
         {
@@ -109,22 +97,11 @@ namespace M2DB
         public DateTime IsCksTrh { get; set; }
         public DateTime DgmTrh { get; set; }
         public KYT KYT { get; set; }            // Yetkisi
-        public KPT()
-        {
-            Tbl = "KPT";
-        }
     }
 
     [Database]
     public class KYT : BB   // Kim.Yetki.Tanim
     {
-        public KYT()
-        {
-            Tbl = "KYT";
-        }
-
-
-
         public static bool CanAppend(KYT curYtk, KYT apndYtk)
         {
             // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids, Circular referans olamaz
@@ -189,11 +166,6 @@ namespace M2DB
 
         public string Mtyp => M?.GetType().Name;
         public string Mad => M?.Ad;
-
-        public KHT()
-        {
-            Tbl = "KHT";
-        }
     }
 
 }

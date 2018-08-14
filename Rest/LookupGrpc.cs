@@ -13,9 +13,17 @@ namespace Rest {
     static readonly string __ServiceName = "rest.LookupService";
 
     static readonly grpc::Marshaller<global::Rest.LookupProxy> __Marshaller_rest_LookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.LookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.BbLookupProxy> __Marshaller_rest_BbLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BbLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KftLookupProxy> __Marshaller_rest_KftLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KftLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NntLookupProxy> __Marshaller_rest_NntLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NntLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AhpLookupProxy> __Marshaller_rest_AhpLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AhpLookupProxy.Parser.ParseFrom);
+
+    static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.BbLookupProxy> __Method_BbL = new grpc::Method<global::Rest.LookupProxy, global::Rest.BbLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "BbL",
+        __Marshaller_rest_LookupProxy,
+        __Marshaller_rest_BbLookupProxy);
 
     static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.KftLookupProxy> __Method_KftL = new grpc::Method<global::Rest.LookupProxy, global::Rest.KftLookupProxy>(
         grpc::MethodType.ServerStreaming,
@@ -47,6 +55,11 @@ namespace Rest {
     /// <summary>Base class for server-side implementations of LookupService</summary>
     public abstract partial class LookupServiceBase
     {
+      public virtual global::System.Threading.Tasks.Task BbL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.BbLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       public virtual global::System.Threading.Tasks.Task KftL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.KftLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
@@ -87,6 +100,14 @@ namespace Rest {
       {
       }
 
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BbL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.LookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_BbL, null, options, request);
+      }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.KftLookupProxy> KftL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KftL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -123,6 +144,7 @@ namespace Rest {
     public static grpc::ServerServiceDefinition BindService(LookupServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_BbL, serviceImpl.BbL)
           .AddMethod(__Method_KftL, serviceImpl.KftL)
           .AddMethod(__Method_NntL, serviceImpl.NntL)
           .AddMethod(__Method_AhpL, serviceImpl.AhpL).Build();
