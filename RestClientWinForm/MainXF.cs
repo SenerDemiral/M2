@@ -63,6 +63,7 @@ namespace RestClientWinForm
             nor = 0;
 
             Task.Run(async () => {
+                sw.Restart();
 
                 /*
                 await mainDataSet.XGTfill();
@@ -73,20 +74,16 @@ namespace RestClientWinForm
                 await mainDataSet.KPTfill();
                 await mainDataSet.NNNfill();
                 */
-                sw.Start();
-                //DataSetLookup.lookupServiceClientInit();
-                //sw.Stop();
-
                 nor += await dataSetLookup.BbL();
                 //nor += await dataSetLookup.KftL();
                 //nor += await dataSetLookup.NntL();
                 nor += await dataSetLookup.AhpL();
-                //DataSetLookup.lookupServiceClientShutDown();
+                //string sss = await mainDataSet.AHPfill();
+
                 sw.Stop();
+                var bbb = dataSetLookup.AHPL.Count;
                 InitLookups();
             });//.Wait();
-
-
         }
 
         private void MainXF_FormClosing(object sender, FormClosingEventArgs e)

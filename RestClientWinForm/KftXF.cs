@@ -13,7 +13,7 @@ namespace RestClientWinForm
 {
     public partial class KftXF : DevExpress.XtraEditors.XtraForm
     {
-        private object ObjTur;  // KimTur Musteri KULLANILMIYOR
+        //private object ObjTur;  // KimTur Musteri KULLANILMIYOR
 
         public KftXF()
         {

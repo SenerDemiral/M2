@@ -17,14 +17,14 @@ namespace RestClientWinForm
         /// </summary>
         /// 
         public static ulong ObjUsr = 262;
-        public static MainXF MF;
+        public static MainXF MF = new MainXF();
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            MF = new MainXF();
-            MF.FillTanimlar();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //MF = new MainXF();
+            //MF.FillTanimlar();
             Application.Run(MF);
         }
     }

@@ -158,7 +158,6 @@ namespace RestClientWinForm
         */
         private void FillDB()
         {
-            string res = "";
             accDataSet.AHP.Clear();
 
             //Task.Run(async () => { res = await accDataSet.AHPfill(); }).Wait();

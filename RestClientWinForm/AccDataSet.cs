@@ -10,56 +10,40 @@ namespace RestClientWinForm
 {
     partial class AccDataSet
     {
+        Stopwatch sw = new Stopwatch();
+
         public async Task<string> AHPfill()
         {
             var dt = AHP;
+            DataRow row;
+            int nor = 0;
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AHPfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.AHPfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
-
         public string AHPupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = AHP;
             var request = new AHPproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
@@ -78,7 +62,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AHPupdate(request);
+                    var reply = grpcService.ClientCRUDs.AHPupdate(request);
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -95,63 +79,43 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> ABKfill()
         {
             var dt = ABK;
+            DataRow row;
+            int nor = 0;
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.ABKfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.ABKfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string ABKupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = ABK;
             var request = new ABKproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
@@ -166,7 +130,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.ABKupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.ABKupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -185,63 +149,43 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> AVKfill()
         {
             var dt = AVK;
+            DataRow row;
+            int nor = 0;
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AVKfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.AVKfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string AVKupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = AVK;
             var request = new AVKproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
@@ -256,7 +200,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AVKupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.AVKupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -271,67 +215,46 @@ namespace RestClientWinForm
                         //dt.Rows[i].RejectChanges();
                         ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
                         dt.Rows[i].AcceptChanges();
-
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> AN2Hfill()
         {
             var dt = AN2H;
+            DataRow row;
+            int nor = 0;
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AN2Hfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.AN2Hfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string AN2Hupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = AN2H;
             var request = new AN2Hproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
@@ -346,7 +269,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AN2Hupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.AN2Hupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -361,64 +284,44 @@ namespace RestClientWinForm
                         //dt.Rows[i].RejectChanges();
                         ProxyHelper.ProxyToRow(dt, dt.Rows[i], reply);
                         dt.Rows[i].AcceptChanges();
-
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> AVMfill()
         {
             var dt = AVM;
+            DataRow row;
+            int nor = 0;
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-            using (var response = client.AVMfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.AVMfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string AVMupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = AVM;
             var request = new AVMproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
@@ -436,7 +339,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AVMupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.AVMupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -455,32 +358,22 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> AVDfill(ulong ObjAVM)
         {
             var dt = AVD;
+            DataRow row;
+            int nor = 0;
+            Stopwatch sw = new Stopwatch();
 
             dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-
-            using (var response = client.AVDfill(new QryMDproxy { M = ObjAVM, Mtyp = "AVM" }))
+            using (var response = grpcService.ClientCRUDs.AVDfill(new QryMDproxy { M = ObjAVM, Mtyp = "AVM" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
 
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
@@ -492,29 +385,16 @@ namespace RestClientWinForm
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            if (nor == 0)
-                return "No records found.";
-
-            long ems = sw.ElapsedMilliseconds;
-            if (ems == 0)
-                ems = 1;
-            return $"{nor:n0} records retrieved in {ems:n0} ms  ({(nor / ems * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string AVDupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = AVD;
             var request = new AVDproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
 
@@ -532,7 +412,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.AVDupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.AVDupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -549,28 +429,22 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> ABMfill()
         {
             var dt = ABM;
-
-            dt.BeginLoadData();
-            int nor = 0, ml = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
             DataRow row;
             Stopwatch sw = new Stopwatch();
+            int nor = 0;
+
+            dt.BeginLoadData();
+
             sw.Start();
-            using (var response = client.ABMfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.ABMfill(new QryProxy { Query = "abc" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
                     //var proxy = response.ResponseStream.Current;
 
@@ -579,33 +453,23 @@ namespace RestClientWinForm
                     dt.Rows.Add(row);
 
                     nor++;
-                    //ml += response.ResponseStream.Current.CalculateSize();
-                    //MessageBox.Show(rec.Message);
                 }
             }
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            return $"{nor:n0} records ({ml:n0} bytes) retrieved in {sw.ElapsedMilliseconds:n0} ms  ({(nor / sw.ElapsedMilliseconds * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string ABMupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = ABM;
             var request = new ABMproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
@@ -620,7 +484,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.ABMupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.ABMupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -639,32 +503,22 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
         public async Task<string> ABDfill(ulong ObjABM)
         {
             var dt = ABD;
+            DataRow row;
+            int nor = 0;
+            Stopwatch sw = new Stopwatch();
 
             dt.BeginLoadData();
-            int nor = 0;
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-            CancellationToken token = new CancellationToken();
-
-            DataRow row;
-            Stopwatch sw = new Stopwatch();
             sw.Start();
-
-            using (var response = client.ABDfill(new QryMDproxy { M = ObjABM, Mtyp = "ABM" }))
+            using (var response = grpcService.ClientCRUDs.ABDfill(new QryMDproxy { M = ObjABM, Mtyp = "ABM" }))
             {
-                while (await response.ResponseStream.MoveNext(token))
+                while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
-                    //var proxy = response.ResponseStream.Current;
-
                     row = dt.NewRow();
 
                     ProxyHelper.ProxyToRow(dt, row, response.ResponseStream.Current);
@@ -676,32 +530,18 @@ namespace RestClientWinForm
             sw.Stop();
             dt.AcceptChanges();
             dt.EndLoadData();
-            //MessageBox.Show($"Time elapsed: {nor:n0}recs  {sw.ElapsedMilliseconds:n0}ms  {nor / sw.ElapsedMilliseconds}recs/ms TotalSize:{ml:n0}");
-            if (nor == 0)
-                return "No records found.";
-
-            long ems = sw.ElapsedMilliseconds;
-            if (ems == 0)
-                ems = 1;
-            return $"{nor:n0} records retrieved in {ems:n0} ms  ({(nor / ems * 1000):n0} recs/sec)";
+            return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
         public string ABDupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = ABD;
             var request = new ABDproxy();
-
             string rs = "";
 
-            Channel channel = new Channel($"127.0.0.1:50051", ChannelCredentials.Insecure);
-            //Channel channel = new Channel($"217.160.13.102:50051", ChannelCredentials.Insecure);
-            var client = new CRUDs.CRUDsClient(channel);
-
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
-
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-
                 // States: Added, Modified, Deletede, Unchanged
                 rs = dt.Rows[i].RowState.ToString().Substring(0, 1);
 
@@ -716,7 +556,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = client.ABDupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.ABDupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {
@@ -733,8 +573,6 @@ namespace RestClientWinForm
                     }
                 }
             }
-            channel.ShutdownAsync().Wait();
-
             return sb.ToString();
         }
 
