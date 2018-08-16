@@ -29,6 +29,7 @@
               <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
               <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
               <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="Avl" msprop:Generator_ColumnVarNameInTable="columnAvl" msprop:Generator_ColumnPropNameInRow="Avl" msprop:Generator_ColumnPropNameInTable="AvlColumn" msprop:Generator_UserColumnName="Avl" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -53,6 +54,38 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="XGTL" msprop:Generator_TableClassName="XGTLDataTable" msprop:Generator_TableVarName="tableXGTL" msprop:Generator_RowChangedName="XGTLRowChanged" msprop:Generator_TablePropName="XGTL" msprop:Generator_RowDeletingName="XGTLRowDeleting" msprop:Generator_RowChangingName="XGTLRowChanging" msprop:Generator_RowEvHandlerName="XGTLRowChangeEventHandler" msprop:Generator_RowDeletedName="XGTLRowDeleted" msprop:Generator_RowClassName="XGTLRow" msprop:Generator_UserTableName="XGTL" msprop:Generator_RowEvArgName="XGTLRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="PKd" msprop:Generator_ColumnVarNameInTable="columnPKd" msprop:Generator_ColumnPropNameInRow="PKd" msprop:Generator_ColumnPropNameInTable="PKdColumn" msprop:Generator_UserColumnName="PKd" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KPTL" msprop:Generator_TableClassName="KPTLDataTable" msprop:Generator_TableVarName="tableKPTL" msprop:Generator_TablePropName="KPTL" msprop:Generator_RowDeletingName="KPTLRowDeleting" msprop:Generator_RowChangingName="KPTLRowChanging" msprop:Generator_RowEvHandlerName="KPTLRowChangeEventHandler" msprop:Generator_RowDeletedName="KPTLRowDeleted" msprop:Generator_UserTableName="KPTL" msprop:Generator_RowChangedName="KPTLRowChanged" msprop:Generator_RowEvArgName="KPTLRowChangeEvent" msprop:Generator_RowClassName="KPTLRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KDTL" msprop:Generator_TableClassName="KDTLDataTable" msprop:Generator_TableVarName="tableKDTL" msprop:Generator_TablePropName="KDTL" msprop:Generator_RowDeletingName="KDTLRowDeleting" msprop:Generator_RowChangingName="KDTLRowChanging" msprop:Generator_RowEvHandlerName="KDTLRowChangeEventHandler" msprop:Generator_RowDeletedName="KDTLRowDeleted" msprop:Generator_UserTableName="KDTL" msprop:Generator_RowChangedName="KDTLRowChanged" msprop:Generator_RowEvArgName="KDTLRowChangeEvent" msprop:Generator_RowClassName="KDTLRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="Avl" msprop:Generator_ColumnVarNameInTable="columnAvl" msprop:Generator_ColumnPropNameInRow="Avl" msprop:Generator_ColumnPropNameInTable="AvlColumn" msprop:Generator_UserColumnName="Avl" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -67,8 +100,16 @@
       <xs:selector xpath=".//mstns:AHPL" />
       <xs:field xpath="mstns:RowKey" />
     </xs:unique>
-    <xs:unique name="BBL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:BBL" />
+    <xs:unique name="XGTL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:XGTL" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="KPTL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KPTL" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="KDTL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KDTL" />
       <xs:field xpath="mstns:RowKey" />
     </xs:unique>
   </xs:element>

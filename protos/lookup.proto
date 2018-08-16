@@ -2,14 +2,23 @@ syntax = "proto3";
 package rest;
 
 service LookupService {
-  rpc BbL (LookupProxy) returns (stream BbLookupProxy) {}
-  rpc KftL (LookupProxy) returns (stream KftLookupProxy) {}
-  rpc NntL (LookupProxy) returns (stream NntLookupProxy) {}
-  rpc AhpL (LookupProxy) returns (stream AhpLookupProxy) {}
+  rpc BbL  (QueryLookupProxy) returns (stream BbLookupProxy) {}
+  rpc KdtL (QueryLookupProxy) returns (stream KdtLookupProxy) {}
+  rpc KftL (QueryLookupProxy) returns (stream KftLookupProxy) {}
+  rpc KptL (QueryLookupProxy) returns (stream KptLookupProxy) {}
+  rpc NntL (QueryLookupProxy) returns (stream NntLookupProxy) {}
+  rpc AhpL (QueryLookupProxy) returns (stream AhpLookupProxy) {}
+  rpc XgtL (QueryLookupProxy) returns (stream XgtLookupProxy) {}
 }
 
-message LookupProxy {
+message QueryLookupProxy {
   string query = 1;
+}
+
+message BbMsg {
+  	string Kd = 1;
+	string Ad = 2;
+	string Info = 3;
 }
 
 message BbLookupProxy {
@@ -20,23 +29,33 @@ message BbLookupProxy {
 	string Info = 5;
 }
 
+message KdtLookupProxy {
+	uint64 RowKey = 1;
+	BbMsg BB = 2;
+}
+
 message KftLookupProxy {
 	uint64 RowKey = 1;
-	string Kd = 2;
-	string Ad = 3;
-	string Info = 4;
+	BbMsg BB = 2;
+}
+
+message KptLookupProxy {
+	uint64 RowKey = 1;
+	BbMsg BB = 2;
 }
 
 message NntLookupProxy {
 	uint64 RowKey = 1;
-	string Kd = 2;
-	string Ad = 3;
-	string Info = 4;
+	BbMsg BB = 2;
 }
 
 message AhpLookupProxy {
 	uint64 RowKey = 1;
-	string Kd = 2;
-	string Ad = 3;
-	string Info = 4;
+	BbMsg BB = 2;
+}
+
+message XgtLookupProxy {
+	uint64 RowKey = 1;
+	BbMsg BB = 2;
+	string PKd = 3;
 }

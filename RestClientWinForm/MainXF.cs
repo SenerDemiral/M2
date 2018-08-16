@@ -49,41 +49,64 @@ namespace RestClientWinForm
             {
                 x.MouseHover += (obj, arg) => ((ToolStripDropDownItem)obj).ShowDropDown();
             });*/
-
+            /*
             if(sw.ElapsedMilliseconds > 1000)
                 toolStripStatusLabel1.Text = $"{nor} recs read in {sw.ElapsedMilliseconds / 1000L} sec";
             else
                 toolStripStatusLabel1.Text = $"{nor} recs read in {sw.ElapsedMilliseconds} msec (1/1000sec)";
             //double seconds = (double)sw.ElapsedTicks / Stopwatch.Frequency;
             //toolStripStatusLabel1.Text = $"{nor} recssss read in {sw.ElapsedTicks / Stopwatch.Frequency} msec {Stopwatch.Frequency} {sw.ElapsedTicks} === {seconds}";
+            */
         }
 
         public void FillTanimlar()
         {
             nor = 0;
 
-            Task.Run(async () => {
-                sw.Restart();
+            Stopwatch watcher = new Stopwatch();
+            watcher.Start();
+            //var tasks = new List<Task>();
+            ////tasks.Add(dataSetLookup.AhpL());
+            //tasks.Add(Task.Run( () => { dataSetLookup.AhpL(); }));
+            //tasks.Add(Task.Run(async () => { await dataSetLookup.AhpL(); }));
+            //tasks.Add(Task.Run(async () => { await mainDataSet.AHPfill(); }));
+            //Task t = Task.WhenAll(tasks);
+            //t.Wait();
+            //watcher.Stop();
+            //var bbb = dataSetLookup.AHPL.Count;
 
-                /*
-                await mainDataSet.XGTfill();
-                await mainDataSet.AVKfill();
-                await mainDataSet.ABKfill();
-                await mainDataSet.AHPfill();
-                await mainDataSet.KDTfill();
-                await mainDataSet.KPTfill();
-                await mainDataSet.NNNfill();
-                */
+
+            Task.Run(async () =>
+            {
+                sw.Restart();
+                //watcher.Start();
+
+                //await mainDataSet.XGTfill();
+                //await mainDataSet.AVKfill();
+                //await mainDataSet.ABKfill();
+                //await mainDataSet.AHPfill();
+                //await mainDataSet.KDTfill();
+                //await mainDataSet.KPTfill();
+                //await mainDataSet.NNNfill();
+
                 nor += await dataSetLookup.BbL();
-                //nor += await dataSetLookup.KftL();
-                //nor += await dataSetLookup.NntL();
+                nor += await dataSetLookup.KdtL();
+                nor += await dataSetLookup.KftL();
+                nor += await dataSetLookup.KptL();
+                nor += await dataSetLookup.NntL();
+
                 nor += await dataSetLookup.AhpL();
+                nor += await dataSetLookup.XgtL();
                 //string sss = await mainDataSet.AHPfill();
 
                 sw.Stop();
-                var bbb = dataSetLookup.AHPL.Count;
+                //watcher.Stop();
+                //var bbb = dataSetLookup.AHPL.Count;
                 InitLookups();
-            });//.Wait();
+            }).ContinueWith((t) => {
+                toolStripStatusLabel1.Text = $"{nor:n0} recs read in {sw.ElapsedMilliseconds:n0} msec (1/1000sec)";
+            });
+        
         }
 
         private void MainXF_FormClosing(object sender, FormClosingEventArgs e)
@@ -176,12 +199,28 @@ namespace RestClientWinForm
 
         private void NNNrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
+            // IPTAL
+            var view = (sender as GridLookUpEdit).Properties.View;
+            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
+            e.Cancel = !avl;
+        }
+
+        private void NntLrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
+        {
             var view = (sender as GridLookUpEdit).Properties.View;
             bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
             e.Cancel = !avl;
         }
 
         private void KDTrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
+        {
+            // IPTAL
+            var view = (sender as GridLookUpEdit).Properties.View;
+            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
+            e.Cancel = !avl;
+        }
+
+        private void KdtLrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
             var view = (sender as GridLookUpEdit).Properties.View;
             bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability

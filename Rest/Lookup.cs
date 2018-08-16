@@ -24,39 +24,51 @@ namespace Rest {
     static LookupReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChNwcm90b3MvbG9va3VwLnByb3RvEgRyZXN0IhwKC0xvb2t1cFByb3h5Eg0K",
-            "BXF1ZXJ5GAEgASgJIlIKDUJiTG9va3VwUHJveHkSDgoGUm93S2V5GAEgASgE",
-            "EgsKA1R5cBgCIAEoCRIKCgJLZBgDIAEoCRIKCgJBZBgEIAEoCRIMCgRJbmZv",
-            "GAUgASgJIkYKDktmdExvb2t1cFByb3h5Eg4KBlJvd0tleRgBIAEoBBIKCgJL",
-            "ZBgCIAEoCRIKCgJBZBgDIAEoCRIMCgRJbmZvGAQgASgJIkYKDk5udExvb2t1",
-            "cFByb3h5Eg4KBlJvd0tleRgBIAEoBBIKCgJLZBgCIAEoCRIKCgJBZBgDIAEo",
-            "CRIMCgRJbmZvGAQgASgJIkYKDkFocExvb2t1cFByb3h5Eg4KBlJvd0tleRgB",
-            "IAEoBBIKCgJLZBgCIAEoCRIKCgJBZBgDIAEoCRIMCgRJbmZvGAQgASgJMuEB",
-            "Cg1Mb29rdXBTZXJ2aWNlEjEKA0JiTBIRLnJlc3QuTG9va3VwUHJveHkaEy5y",
-            "ZXN0LkJiTG9va3VwUHJveHkiADABEjMKBEtmdEwSES5yZXN0Lkxvb2t1cFBy",
-            "b3h5GhQucmVzdC5LZnRMb29rdXBQcm94eSIAMAESMwoETm50TBIRLnJlc3Qu",
-            "TG9va3VwUHJveHkaFC5yZXN0Lk5udExvb2t1cFByb3h5IgAwARIzCgRBaHBM",
-            "EhEucmVzdC5Mb29rdXBQcm94eRoULnJlc3QuQWhwTG9va3VwUHJveHkiADAB",
-            "YgZwcm90bzM="));
+            "ChNwcm90b3MvbG9va3VwLnByb3RvEgRyZXN0IiEKEFF1ZXJ5TG9va3VwUHJv",
+            "eHkSDQoFcXVlcnkYASABKAkiLQoFQmJNc2cSCgoCS2QYASABKAkSCgoCQWQY",
+            "AiABKAkSDAoESW5mbxgDIAEoCSJSCg1CYkxvb2t1cFByb3h5Eg4KBlJvd0tl",
+            "eRgBIAEoBBILCgNUeXAYAiABKAkSCgoCS2QYAyABKAkSCgoCQWQYBCABKAkS",
+            "DAoESW5mbxgFIAEoCSI5Cg5LZHRMb29rdXBQcm94eRIOCgZSb3dLZXkYASAB",
+            "KAQSFwoCQkIYAiABKAsyCy5yZXN0LkJiTXNnIjkKDktmdExvb2t1cFByb3h5",
+            "Eg4KBlJvd0tleRgBIAEoBBIXCgJCQhgCIAEoCzILLnJlc3QuQmJNc2ciOQoO",
+            "S3B0TG9va3VwUHJveHkSDgoGUm93S2V5GAEgASgEEhcKAkJCGAIgASgLMgsu",
+            "cmVzdC5CYk1zZyI5Cg5ObnRMb29rdXBQcm94eRIOCgZSb3dLZXkYASABKAQS",
+            "FwoCQkIYAiABKAsyCy5yZXN0LkJiTXNnIjkKDkFocExvb2t1cFByb3h5Eg4K",
+            "BlJvd0tleRgBIAEoBBIXCgJCQhgCIAEoCzILLnJlc3QuQmJNc2ciRgoOWGd0",
+            "TG9va3VwUHJveHkSDgoGUm93S2V5GAEgASgEEhcKAkJCGAIgASgLMgsucmVz",
+            "dC5CYk1zZxILCgNQS2QYAyABKAkyowMKDUxvb2t1cFNlcnZpY2USNgoDQmJM",
+            "EhYucmVzdC5RdWVyeUxvb2t1cFByb3h5GhMucmVzdC5CYkxvb2t1cFByb3h5",
+            "IgAwARI4CgRLZHRMEhYucmVzdC5RdWVyeUxvb2t1cFByb3h5GhQucmVzdC5L",
+            "ZHRMb29rdXBQcm94eSIAMAESOAoES2Z0TBIWLnJlc3QuUXVlcnlMb29rdXBQ",
+            "cm94eRoULnJlc3QuS2Z0TG9va3VwUHJveHkiADABEjgKBEtwdEwSFi5yZXN0",
+            "LlF1ZXJ5TG9va3VwUHJveHkaFC5yZXN0LktwdExvb2t1cFByb3h5IgAwARI4",
+            "CgRObnRMEhYucmVzdC5RdWVyeUxvb2t1cFByb3h5GhQucmVzdC5ObnRMb29r",
+            "dXBQcm94eSIAMAESOAoEQWhwTBIWLnJlc3QuUXVlcnlMb29rdXBQcm94eRoU",
+            "LnJlc3QuQWhwTG9va3VwUHJveHkiADABEjgKBFhndEwSFi5yZXN0LlF1ZXJ5",
+            "TG9va3VwUHJveHkaFC5yZXN0LlhndExvb2t1cFByb3h5IgAwAWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.LookupProxy), global::Rest.LookupProxy.Parser, new[]{ "Query" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.QueryLookupProxy), global::Rest.QueryLookupProxy.Parser, new[]{ "Query" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.BbMsg), global::Rest.BbMsg.Parser, new[]{ "Kd", "Ad", "Info" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Rest.BbLookupProxy), global::Rest.BbLookupProxy.Parser, new[]{ "RowKey", "Typ", "Kd", "Ad", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KftLookupProxy), global::Rest.KftLookupProxy.Parser, new[]{ "RowKey", "Kd", "Ad", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.NntLookupProxy), global::Rest.NntLookupProxy.Parser, new[]{ "RowKey", "Kd", "Ad", "Info" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AhpLookupProxy), global::Rest.AhpLookupProxy.Parser, new[]{ "RowKey", "Kd", "Ad", "Info" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KdtLookupProxy), global::Rest.KdtLookupProxy.Parser, new[]{ "RowKey", "BB" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KftLookupProxy), global::Rest.KftLookupProxy.Parser, new[]{ "RowKey", "BB" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.KptLookupProxy), global::Rest.KptLookupProxy.Parser, new[]{ "RowKey", "BB" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.NntLookupProxy), global::Rest.NntLookupProxy.Parser, new[]{ "RowKey", "BB" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.AhpLookupProxy), global::Rest.AhpLookupProxy.Parser, new[]{ "RowKey", "BB" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Rest.XgtLookupProxy), global::Rest.XgtLookupProxy.Parser, new[]{ "RowKey", "BB", "PKd" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class LookupProxy : pb::IMessage<LookupProxy> {
-    private static readonly pb::MessageParser<LookupProxy> _parser = new pb::MessageParser<LookupProxy>(() => new LookupProxy());
+  public sealed partial class QueryLookupProxy : pb::IMessage<QueryLookupProxy> {
+    private static readonly pb::MessageParser<QueryLookupProxy> _parser = new pb::MessageParser<QueryLookupProxy>(() => new QueryLookupProxy());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<LookupProxy> Parser { get { return _parser; } }
+    public static pb::MessageParser<QueryLookupProxy> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -69,21 +81,21 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LookupProxy() {
+    public QueryLookupProxy() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LookupProxy(LookupProxy other) : this() {
+    public QueryLookupProxy(QueryLookupProxy other) : this() {
       query_ = other.query_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public LookupProxy Clone() {
-      return new LookupProxy(this);
+    public QueryLookupProxy Clone() {
+      return new QueryLookupProxy(this);
     }
 
     /// <summary>Field number for the "query" field.</summary>
@@ -99,11 +111,11 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as LookupProxy);
+      return Equals(other as QueryLookupProxy);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(LookupProxy other) {
+    public bool Equals(QueryLookupProxy other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -153,7 +165,7 @@ namespace Rest {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(LookupProxy other) {
+    public void MergeFrom(QueryLookupProxy other) {
       if (other == null) {
         return;
       }
@@ -181,6 +193,191 @@ namespace Rest {
 
   }
 
+  public sealed partial class BbMsg : pb::IMessage<BbMsg> {
+    private static readonly pb::MessageParser<BbMsg> _parser = new pb::MessageParser<BbMsg>(() => new BbMsg());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BbMsg> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BbMsg() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BbMsg(BbMsg other) : this() {
+      kd_ = other.kd_;
+      ad_ = other.ad_;
+      info_ = other.info_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BbMsg Clone() {
+      return new BbMsg(this);
+    }
+
+    /// <summary>Field number for the "Kd" field.</summary>
+    public const int KdFieldNumber = 1;
+    private string kd_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Kd {
+      get { return kd_; }
+      set {
+        kd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Ad" field.</summary>
+    public const int AdFieldNumber = 2;
+    private string ad_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Ad {
+      get { return ad_; }
+      set {
+        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "Info" field.</summary>
+    public const int InfoFieldNumber = 3;
+    private string info_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Info {
+      get { return info_; }
+      set {
+        info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BbMsg);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BbMsg other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Kd != other.Kd) return false;
+      if (Ad != other.Ad) return false;
+      if (Info != other.Info) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Kd.Length != 0) hash ^= Kd.GetHashCode();
+      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
+      if (Info.Length != 0) hash ^= Info.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (Kd.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Kd);
+      }
+      if (Ad.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Ad);
+      }
+      if (Info.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Info);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Kd.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kd);
+      }
+      if (Ad.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
+      }
+      if (Info.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BbMsg other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Kd.Length != 0) {
+        Kd = other.Kd;
+      }
+      if (other.Ad.Length != 0) {
+        Ad = other.Ad;
+      }
+      if (other.Info.Length != 0) {
+        Info = other.Info;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Kd = input.ReadString();
+            break;
+          }
+          case 18: {
+            Ad = input.ReadString();
+            break;
+          }
+          case 26: {
+            Info = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class BbLookupProxy : pb::IMessage<BbLookupProxy> {
     private static readonly pb::MessageParser<BbLookupProxy> _parser = new pb::MessageParser<BbLookupProxy>(() => new BbLookupProxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -189,7 +386,7 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -422,6 +619,169 @@ namespace Rest {
 
   }
 
+  public sealed partial class KdtLookupProxy : pb::IMessage<KdtLookupProxy> {
+    private static readonly pb::MessageParser<KdtLookupProxy> _parser = new pb::MessageParser<KdtLookupProxy>(() => new KdtLookupProxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<KdtLookupProxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KdtLookupProxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KdtLookupProxy(KdtLookupProxy other) : this() {
+      rowKey_ = other.rowKey_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KdtLookupProxy Clone() {
+      return new KdtLookupProxy(this);
+    }
+
+    /// <summary>Field number for the "RowKey" field.</summary>
+    public const int RowKeyFieldNumber = 1;
+    private ulong rowKey_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowKey {
+      get { return rowKey_; }
+      set {
+        rowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
+      set {
+        bB_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as KdtLookupProxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(KdtLookupProxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowKey != other.RowKey) return false;
+      if (!object.Equals(BB, other.BB)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowKey != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(RowKey);
+      }
+      if (bB_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(BB);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowKey != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
+      }
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(KdtLookupProxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowKey != 0UL) {
+        RowKey = other.RowKey;
+      }
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            RowKey = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class KftLookupProxy : pb::IMessage<KftLookupProxy> {
     private static readonly pb::MessageParser<KftLookupProxy> _parser = new pb::MessageParser<KftLookupProxy>(() => new KftLookupProxy());
     private pb::UnknownFieldSet _unknownFields;
@@ -430,7 +790,7 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -448,9 +808,7 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public KftLookupProxy(KftLookupProxy other) : this() {
       rowKey_ = other.rowKey_;
-      kd_ = other.kd_;
-      ad_ = other.ad_;
-      info_ = other.info_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -470,36 +828,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "Kd" field.</summary>
-    public const int KdFieldNumber = 2;
-    private string kd_ = "";
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Kd {
-      get { return kd_; }
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
       set {
-        kd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Ad" field.</summary>
-    public const int AdFieldNumber = 3;
-    private string ad_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Ad {
-      get { return ad_; }
-      set {
-        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 4;
-    private string info_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Info {
-      get { return info_; }
-      set {
-        info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bB_ = value;
       }
     }
 
@@ -517,9 +853,7 @@ namespace Rest {
         return true;
       }
       if (RowKey != other.RowKey) return false;
-      if (Kd != other.Kd) return false;
-      if (Ad != other.Ad) return false;
-      if (Info != other.Info) return false;
+      if (!object.Equals(BB, other.BB)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -527,9 +861,7 @@ namespace Rest {
     public override int GetHashCode() {
       int hash = 1;
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
-      if (Kd.Length != 0) hash ^= Kd.GetHashCode();
-      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
-      if (Info.Length != 0) hash ^= Info.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -547,17 +879,9 @@ namespace Rest {
         output.WriteRawTag(8);
         output.WriteUInt64(RowKey);
       }
-      if (Kd.Length != 0) {
+      if (bB_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(Kd);
-      }
-      if (Ad.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Ad);
-      }
-      if (Info.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Info);
+        output.WriteMessage(BB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -570,14 +894,8 @@ namespace Rest {
       if (RowKey != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
       }
-      if (Kd.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kd);
-      }
-      if (Ad.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
-      }
-      if (Info.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -593,14 +911,11 @@ namespace Rest {
       if (other.RowKey != 0UL) {
         RowKey = other.RowKey;
       }
-      if (other.Kd.Length != 0) {
-        Kd = other.Kd;
-      }
-      if (other.Ad.Length != 0) {
-        Ad = other.Ad;
-      }
-      if (other.Info.Length != 0) {
-        Info = other.Info;
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -618,15 +933,173 @@ namespace Rest {
             break;
           }
           case 18: {
-            Kd = input.ReadString();
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
             break;
           }
-          case 26: {
-            Ad = input.ReadString();
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class KptLookupProxy : pb::IMessage<KptLookupProxy> {
+    private static readonly pb::MessageParser<KptLookupProxy> _parser = new pb::MessageParser<KptLookupProxy>(() => new KptLookupProxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<KptLookupProxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KptLookupProxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KptLookupProxy(KptLookupProxy other) : this() {
+      rowKey_ = other.rowKey_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public KptLookupProxy Clone() {
+      return new KptLookupProxy(this);
+    }
+
+    /// <summary>Field number for the "RowKey" field.</summary>
+    public const int RowKeyFieldNumber = 1;
+    private ulong rowKey_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowKey {
+      get { return rowKey_; }
+      set {
+        rowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
+      set {
+        bB_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as KptLookupProxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(KptLookupProxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowKey != other.RowKey) return false;
+      if (!object.Equals(BB, other.BB)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowKey != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(RowKey);
+      }
+      if (bB_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(BB);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowKey != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
+      }
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(KptLookupProxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowKey != 0UL) {
+        RowKey = other.RowKey;
+      }
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            RowKey = input.ReadUInt64();
             break;
           }
-          case 34: {
-            Info = input.ReadString();
+          case 18: {
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
             break;
           }
         }
@@ -643,7 +1116,7 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -661,9 +1134,7 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public NntLookupProxy(NntLookupProxy other) : this() {
       rowKey_ = other.rowKey_;
-      kd_ = other.kd_;
-      ad_ = other.ad_;
-      info_ = other.info_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -683,36 +1154,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "Kd" field.</summary>
-    public const int KdFieldNumber = 2;
-    private string kd_ = "";
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Kd {
-      get { return kd_; }
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
       set {
-        kd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Ad" field.</summary>
-    public const int AdFieldNumber = 3;
-    private string ad_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Ad {
-      get { return ad_; }
-      set {
-        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 4;
-    private string info_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Info {
-      get { return info_; }
-      set {
-        info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bB_ = value;
       }
     }
 
@@ -730,9 +1179,7 @@ namespace Rest {
         return true;
       }
       if (RowKey != other.RowKey) return false;
-      if (Kd != other.Kd) return false;
-      if (Ad != other.Ad) return false;
-      if (Info != other.Info) return false;
+      if (!object.Equals(BB, other.BB)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -740,9 +1187,7 @@ namespace Rest {
     public override int GetHashCode() {
       int hash = 1;
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
-      if (Kd.Length != 0) hash ^= Kd.GetHashCode();
-      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
-      if (Info.Length != 0) hash ^= Info.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -760,17 +1205,9 @@ namespace Rest {
         output.WriteRawTag(8);
         output.WriteUInt64(RowKey);
       }
-      if (Kd.Length != 0) {
+      if (bB_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(Kd);
-      }
-      if (Ad.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Ad);
-      }
-      if (Info.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Info);
+        output.WriteMessage(BB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -783,14 +1220,8 @@ namespace Rest {
       if (RowKey != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
       }
-      if (Kd.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kd);
-      }
-      if (Ad.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
-      }
-      if (Info.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -806,14 +1237,11 @@ namespace Rest {
       if (other.RowKey != 0UL) {
         RowKey = other.RowKey;
       }
-      if (other.Kd.Length != 0) {
-        Kd = other.Kd;
-      }
-      if (other.Ad.Length != 0) {
-        Ad = other.Ad;
-      }
-      if (other.Info.Length != 0) {
-        Info = other.Info;
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -831,15 +1259,10 @@ namespace Rest {
             break;
           }
           case 18: {
-            Kd = input.ReadString();
-            break;
-          }
-          case 26: {
-            Ad = input.ReadString();
-            break;
-          }
-          case 34: {
-            Info = input.ReadString();
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
             break;
           }
         }
@@ -856,7 +1279,7 @@ namespace Rest {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[4]; }
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -874,9 +1297,7 @@ namespace Rest {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public AhpLookupProxy(AhpLookupProxy other) : this() {
       rowKey_ = other.rowKey_;
-      kd_ = other.kd_;
-      ad_ = other.ad_;
-      info_ = other.info_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -896,36 +1317,14 @@ namespace Rest {
       }
     }
 
-    /// <summary>Field number for the "Kd" field.</summary>
-    public const int KdFieldNumber = 2;
-    private string kd_ = "";
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Kd {
-      get { return kd_; }
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
       set {
-        kd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Ad" field.</summary>
-    public const int AdFieldNumber = 3;
-    private string ad_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Ad {
-      get { return ad_; }
-      set {
-        ad_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "Info" field.</summary>
-    public const int InfoFieldNumber = 4;
-    private string info_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Info {
-      get { return info_; }
-      set {
-        info_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        bB_ = value;
       }
     }
 
@@ -943,9 +1342,7 @@ namespace Rest {
         return true;
       }
       if (RowKey != other.RowKey) return false;
-      if (Kd != other.Kd) return false;
-      if (Ad != other.Ad) return false;
-      if (Info != other.Info) return false;
+      if (!object.Equals(BB, other.BB)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -953,9 +1350,7 @@ namespace Rest {
     public override int GetHashCode() {
       int hash = 1;
       if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
-      if (Kd.Length != 0) hash ^= Kd.GetHashCode();
-      if (Ad.Length != 0) hash ^= Ad.GetHashCode();
-      if (Info.Length != 0) hash ^= Info.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -973,17 +1368,9 @@ namespace Rest {
         output.WriteRawTag(8);
         output.WriteUInt64(RowKey);
       }
-      if (Kd.Length != 0) {
+      if (bB_ != null) {
         output.WriteRawTag(18);
-        output.WriteString(Kd);
-      }
-      if (Ad.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Ad);
-      }
-      if (Info.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(Info);
+        output.WriteMessage(BB);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -996,14 +1383,8 @@ namespace Rest {
       if (RowKey != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
       }
-      if (Kd.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Kd);
-      }
-      if (Ad.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Ad);
-      }
-      if (Info.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Info);
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1019,14 +1400,11 @@ namespace Rest {
       if (other.RowKey != 0UL) {
         RowKey = other.RowKey;
       }
-      if (other.Kd.Length != 0) {
-        Kd = other.Kd;
-      }
-      if (other.Ad.Length != 0) {
-        Ad = other.Ad;
-      }
-      if (other.Info.Length != 0) {
-        Info = other.Info;
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1044,15 +1422,201 @@ namespace Rest {
             break;
           }
           case 18: {
-            Kd = input.ReadString();
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  public sealed partial class XgtLookupProxy : pb::IMessage<XgtLookupProxy> {
+    private static readonly pb::MessageParser<XgtLookupProxy> _parser = new pb::MessageParser<XgtLookupProxy>(() => new XgtLookupProxy());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<XgtLookupProxy> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Rest.LookupReflection.Descriptor.MessageTypes[8]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XgtLookupProxy() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XgtLookupProxy(XgtLookupProxy other) : this() {
+      rowKey_ = other.rowKey_;
+      BB = other.bB_ != null ? other.BB.Clone() : null;
+      pKd_ = other.pKd_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public XgtLookupProxy Clone() {
+      return new XgtLookupProxy(this);
+    }
+
+    /// <summary>Field number for the "RowKey" field.</summary>
+    public const int RowKeyFieldNumber = 1;
+    private ulong rowKey_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong RowKey {
+      get { return rowKey_; }
+      set {
+        rowKey_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "BB" field.</summary>
+    public const int BBFieldNumber = 2;
+    private global::Rest.BbMsg bB_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Rest.BbMsg BB {
+      get { return bB_; }
+      set {
+        bB_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "PKd" field.</summary>
+    public const int PKdFieldNumber = 3;
+    private string pKd_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string PKd {
+      get { return pKd_; }
+      set {
+        pKd_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as XgtLookupProxy);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(XgtLookupProxy other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (RowKey != other.RowKey) return false;
+      if (!object.Equals(BB, other.BB)) return false;
+      if (PKd != other.PKd) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (RowKey != 0UL) hash ^= RowKey.GetHashCode();
+      if (bB_ != null) hash ^= BB.GetHashCode();
+      if (PKd.Length != 0) hash ^= PKd.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (RowKey != 0UL) {
+        output.WriteRawTag(8);
+        output.WriteUInt64(RowKey);
+      }
+      if (bB_ != null) {
+        output.WriteRawTag(18);
+        output.WriteMessage(BB);
+      }
+      if (PKd.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(PKd);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (RowKey != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(RowKey);
+      }
+      if (bB_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(BB);
+      }
+      if (PKd.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(PKd);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(XgtLookupProxy other) {
+      if (other == null) {
+        return;
+      }
+      if (other.RowKey != 0UL) {
+        RowKey = other.RowKey;
+      }
+      if (other.bB_ != null) {
+        if (bB_ == null) {
+          bB_ = new global::Rest.BbMsg();
+        }
+        BB.MergeFrom(other.BB);
+      }
+      if (other.PKd.Length != 0) {
+        PKd = other.PKd;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            RowKey = input.ReadUInt64();
+            break;
+          }
+          case 18: {
+            if (bB_ == null) {
+              bB_ = new global::Rest.BbMsg();
+            }
+            input.ReadMessage(bB_);
             break;
           }
           case 26: {
-            Ad = input.ReadString();
-            break;
-          }
-          case 34: {
-            Info = input.ReadString();
+            PKd = input.ReadString();
             break;
           }
         }

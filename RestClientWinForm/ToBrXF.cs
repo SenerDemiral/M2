@@ -35,7 +35,7 @@ namespace RestClientWinForm
             Task.Run(async () => { await mainDataSet.BRparentsFill(M); }).Wait();
             string parents = mainDataSet.BrParents.Rows[0]["Parents"].ToString();
             ulong key = 0;
-            foreach (DataRow row in Program.MF.mainDataSet.KDT.Rows)
+            foreach (DataRow row in Program.MF.dataSetLookup.KDTL.Rows)
             {
                 key = (ulong)row["RowKey"];
                 row["Avl"] = true;
@@ -47,7 +47,7 @@ namespace RestClientWinForm
             {
                 if (IsP2C)
                 {
-                    colC.ColumnEdit = Program.MF.KDTrepositoryItemGridLookUpEdit;
+                    colC.ColumnEdit = Program.MF.KdtLrepositoryItemGridLookUpEdit;
                     colC.Caption = "Alt Departmanlar";
                     colOthers.Caption = "Diğer Üst Departmanları";
                     colP.OptionsColumn.ReadOnly = true;
@@ -58,7 +58,7 @@ namespace RestClientWinForm
             {
                 if (IsP2C)
                 {
-                    colC.ColumnEdit = Program.MF.KDTrepositoryItemLookUpEdit;
+                    colC.ColumnEdit = Program.MF.KdtLrepositoryItemGridLookUpEdit;
                     colC.Caption = "Üretim Departmanı";
                     colOthers.Caption = "Diğer Ürünleri";
                     colP.OptionsColumn.ReadOnly = true;
@@ -66,7 +66,7 @@ namespace RestClientWinForm
                 }
                 else
                 {
-                    colP.ColumnEdit = Program.MF.KDTrepositoryItemLookUpEdit;
+                    colP.ColumnEdit = Program.MF.KdtLrepositoryItemGridLookUpEdit;
                     colP.Caption = "Üretim Departmanı";
                     colOthers.Caption = "Diğer Ürünleri";
                     colC.OptionsColumn.ReadOnly = true;
@@ -77,7 +77,7 @@ namespace RestClientWinForm
             {
                 if (IsP2C)
                 {
-                    colC.ColumnEdit = Program.MF.KPTrepositoryItemLookUpEdit;
+                    colC.ColumnEdit = Program.MF.KptLrepositoryItemGridLookUpEdit;
                     colC.Caption = "Personel";
                     colOthers.Caption = "Diğer Departmanları";
                     colP.OptionsColumn.ReadOnly = true;
@@ -85,7 +85,7 @@ namespace RestClientWinForm
                 }
                 else
                 {
-                    colP.ColumnEdit = Program.MF.KPTrepositoryItemLookUpEdit;
+                    colP.ColumnEdit = Program.MF.KptLrepositoryItemGridLookUpEdit;
                     colP.Caption = "Personel";
                     colOthers.Caption = "Diğer Departmanları";
                     colC.OptionsColumn.ReadOnly = true;
@@ -96,7 +96,7 @@ namespace RestClientWinForm
             {
                 if (IsP2C)
                 {
-                    colC.ColumnEdit = Program.MF.NNNrepositoryItemLookUpEdit;
+                    colC.ColumnEdit = Program.MF.NntLrepositoryItemGridLookUpEdit;
                     colC.Caption = "Ürün";
                     colOthers.Caption = "Diğer Departmanları";
                     colP.OptionsColumn.ReadOnly = true;
@@ -104,7 +104,7 @@ namespace RestClientWinForm
                 }
                 else
                 {
-                    colP.ColumnEdit = Program.MF.NNNrepositoryItemLookUpEdit;
+                    colP.ColumnEdit = Program.MF.NntLrepositoryItemGridLookUpEdit;
                     colP.Caption = "Ürün";
                     colOthers.Caption = "Diğer Departmanları";
                     colC.OptionsColumn.ReadOnly = true;

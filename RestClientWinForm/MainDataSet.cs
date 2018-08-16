@@ -20,8 +20,8 @@ namespace RestClientWinForm
             int nor = 0;
 
             dt.BeginLoadData();
-            dt.Clear();
-            sw.Start();
+            dt.Rows.Clear();
+            sw.Restart();
             using (var response = grpcService.ClientCRUDs.AHPfill(new QryProxy { Query = "abc" }))
             {
                 while (await response.ResponseStream.MoveNext(new CancellationToken()))

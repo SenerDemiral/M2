@@ -12,39 +12,63 @@ namespace Rest {
   {
     static readonly string __ServiceName = "rest.LookupService";
 
-    static readonly grpc::Marshaller<global::Rest.LookupProxy> __Marshaller_rest_LookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.LookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QueryLookupProxy> __Marshaller_rest_QueryLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QueryLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.BbLookupProxy> __Marshaller_rest_BbLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BbLookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KdtLookupProxy> __Marshaller_rest_KdtLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KdtLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KftLookupProxy> __Marshaller_rest_KftLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KftLookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.KptLookupProxy> __Marshaller_rest_KptLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KptLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NntLookupProxy> __Marshaller_rest_NntLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NntLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AhpLookupProxy> __Marshaller_rest_AhpLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AhpLookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.XgtLookupProxy> __Marshaller_rest_XgtLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XgtLookupProxy.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.BbLookupProxy> __Method_BbL = new grpc::Method<global::Rest.LookupProxy, global::Rest.BbLookupProxy>(
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.BbLookupProxy> __Method_BbL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.BbLookupProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "BbL",
-        __Marshaller_rest_LookupProxy,
+        __Marshaller_rest_QueryLookupProxy,
         __Marshaller_rest_BbLookupProxy);
 
-    static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.KftLookupProxy> __Method_KftL = new grpc::Method<global::Rest.LookupProxy, global::Rest.KftLookupProxy>(
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KdtLookupProxy> __Method_KdtL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KdtLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "KdtL",
+        __Marshaller_rest_QueryLookupProxy,
+        __Marshaller_rest_KdtLookupProxy);
+
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KftLookupProxy> __Method_KftL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KftLookupProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KftL",
-        __Marshaller_rest_LookupProxy,
+        __Marshaller_rest_QueryLookupProxy,
         __Marshaller_rest_KftLookupProxy);
 
-    static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.NntLookupProxy> __Method_NntL = new grpc::Method<global::Rest.LookupProxy, global::Rest.NntLookupProxy>(
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KptLookupProxy> __Method_KptL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.KptLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "KptL",
+        __Marshaller_rest_QueryLookupProxy,
+        __Marshaller_rest_KptLookupProxy);
+
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.NntLookupProxy> __Method_NntL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.NntLookupProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "NntL",
-        __Marshaller_rest_LookupProxy,
+        __Marshaller_rest_QueryLookupProxy,
         __Marshaller_rest_NntLookupProxy);
 
-    static readonly grpc::Method<global::Rest.LookupProxy, global::Rest.AhpLookupProxy> __Method_AhpL = new grpc::Method<global::Rest.LookupProxy, global::Rest.AhpLookupProxy>(
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AhpLookupProxy> __Method_AhpL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AhpLookupProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "AhpL",
-        __Marshaller_rest_LookupProxy,
+        __Marshaller_rest_QueryLookupProxy,
         __Marshaller_rest_AhpLookupProxy);
+
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.XgtLookupProxy> __Method_XgtL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.XgtLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "XgtL",
+        __Marshaller_rest_QueryLookupProxy,
+        __Marshaller_rest_XgtLookupProxy);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -55,22 +79,37 @@ namespace Rest {
     /// <summary>Base class for server-side implementations of LookupService</summary>
     public abstract partial class LookupServiceBase
     {
-      public virtual global::System.Threading.Tasks.Task BbL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.BbLookupProxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task BbL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.BbLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task KftL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.KftLookupProxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task KdtL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.KdtLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task NntL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.NntLookupProxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task KftL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.KftLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task AhpL(global::Rest.LookupProxy request, grpc::IServerStreamWriter<global::Rest.AhpLookupProxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task KptL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.KptLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task NntL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.NntLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task AhpL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.AhpLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task XgtL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.XgtLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -100,37 +139,61 @@ namespace Rest {
       {
       }
 
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return BbL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.LookupProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.BbLookupProxy> BbL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_BbL, null, options, request);
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KftLookupProxy> KftL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KdtLookupProxy> KdtL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return KdtL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KdtLookupProxy> KdtL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_KdtL, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KftLookupProxy> KftL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KftL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KftLookupProxy> KftL(global::Rest.LookupProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KftLookupProxy> KftL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_KftL, null, options, request);
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.NntLookupProxy> NntL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KptLookupProxy> KptL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return KptL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KptLookupProxy> KptL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_KptL, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NntLookupProxy> NntL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return NntL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.NntLookupProxy> NntL(global::Rest.LookupProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NntLookupProxy> NntL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_NntL, null, options, request);
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.AhpLookupProxy> AhpL(global::Rest.LookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AhpLookupProxy> AhpL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return AhpL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.AhpLookupProxy> AhpL(global::Rest.LookupProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AhpLookupProxy> AhpL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_AhpL, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.XgtLookupProxy> XgtL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return XgtL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.XgtLookupProxy> XgtL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_XgtL, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override LookupServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -145,9 +208,12 @@ namespace Rest {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_BbL, serviceImpl.BbL)
+          .AddMethod(__Method_KdtL, serviceImpl.KdtL)
           .AddMethod(__Method_KftL, serviceImpl.KftL)
+          .AddMethod(__Method_KptL, serviceImpl.KptL)
           .AddMethod(__Method_NntL, serviceImpl.NntL)
-          .AddMethod(__Method_AhpL, serviceImpl.AhpL).Build();
+          .AddMethod(__Method_AhpL, serviceImpl.AhpL)
+          .AddMethod(__Method_XgtL, serviceImpl.XgtL).Build();
     }
 
   }

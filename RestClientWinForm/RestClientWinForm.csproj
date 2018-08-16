@@ -88,16 +88,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbmXF.cs">
+    <Compile Include="Acc\AbmXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbmXF.Designer.cs">
+    <Compile Include="Acc\AbmXF.Designer.cs">
       <DependentUpon>AbmXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AbdXF.cs">
+    <Compile Include="Acc\AbdXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AbdXF.Designer.cs">
+    <Compile Include="Acc\AbdXF.Designer.cs">
       <DependentUpon>AbdXF.cs</DependentUpon>
     </Compile>
     <Compile Include="AccDataSet.cs">
@@ -108,29 +108,53 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="AvmXF.cs">
+    <Compile Include="Acc\AvmXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AvmXF.Designer.cs">
+    <Compile Include="Acc\AvmXF.Designer.cs">
       <DependentUpon>AvmXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AvdXF.cs">
+    <Compile Include="Acc\AvdXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AvdXF.Designer.cs">
+    <Compile Include="Acc\AvdXF.Designer.cs">
       <DependentUpon>AvdXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AhpEditXF.cs">
+    <Compile Include="Acc\AhpEditXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AhpEditXF.Designer.cs">
+    <Compile Include="Acc\AhpEditXF.Designer.cs">
       <DependentUpon>AhpEditXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AhpXF.cs">
+    <Compile Include="Acc\AhpXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AhpXF.Designer.cs">
+    <Compile Include="Acc\AhpXF.Designer.cs">
       <DependentUpon>AhpXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetAcc.cs">
+      <DependentUpon>DataSetAcc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetAcc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetAcc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetGnl.cs">
+      <DependentUpon>DataSetGnl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetGnl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetGnl.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetKim.cs">
+      <DependentUpon>DataSetKim.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetKim.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetKim.xsd</DependentUpon>
     </Compile>
     <Compile Include="DataSetLookup.cs">
       <DependentUpon>DataSetLookup.xsd</DependentUpon>
@@ -140,46 +164,62 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetLookup.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetNe.cs">
+      <DependentUpon>DataSetNe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetNe.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetNe.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTrnsfr.cs">
+      <DependentUpon>DataSetTrnsfr.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTrnsfr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTrnsfr.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="KctXF.cs">
+    <Compile Include="Kim\KctXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KctXF.Designer.cs">
+    <Compile Include="Kim\KctXF.Designer.cs">
       <DependentUpon>KctXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KdtTreeDownXF.cs">
+    <Compile Include="Kim\KdtTreeDownXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KdtTreeDownXF.Designer.cs">
+    <Compile Include="Kim\KdtTreeDownXF.Designer.cs">
       <DependentUpon>KdtTreeDownXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KdtXF.cs">
+    <Compile Include="Kim\KdtXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KdtXF.Designer.cs">
+    <Compile Include="Kim\KdtXF.Designer.cs">
       <DependentUpon>KdtXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KhtXF.cs">
+    <Compile Include="Kim\KhtXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KhtXF.Designer.cs">
+    <Compile Include="Kim\KhtXF.Designer.cs">
       <DependentUpon>KhtXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KptXF.cs">
+    <Compile Include="Kim\KptXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KptXF.Designer.cs">
+    <Compile Include="Kim\KptXF.Designer.cs">
       <DependentUpon>KptXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="NnrXF.cs">
+    <Compile Include="Ne\NnrXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NnrXF.Designer.cs">
+    <Compile Include="Ne\NnrXF.Designer.cs">
       <DependentUpon>NnrXF.cs</DependentUpon>
     </Compile>
     <Compile Include="ToBrXF.cs">
@@ -200,10 +240,10 @@
     <Compile Include="ToKhtXF.Designer.cs">
       <DependentUpon>ToKhtXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="KftXF.cs">
+    <Compile Include="Kim\KftXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="KftXF.Designer.cs">
+    <Compile Include="Kim\KftXF.Designer.cs">
       <DependentUpon>KftXF.cs</DependentUpon>
     </Compile>
     <Compile Include="MainDataSet.cs">
@@ -221,16 +261,16 @@
     <Compile Include="MainXF.Designer.cs">
       <DependentUpon>MainXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="NeDownXF.cs">
+    <Compile Include="Ne\NeDownXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NeDownXF.Designer.cs">
+    <Compile Include="Ne\NeDownXF.Designer.cs">
       <DependentUpon>NeDownXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="NeUpXF.cs">
+    <Compile Include="Ne\NeUpXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NeUpXF.Designer.cs">
+    <Compile Include="Ne\NeUpXF.Designer.cs">
       <DependentUpon>NeUpXF.cs</DependentUpon>
     </Compile>
     <Compile Include="ToKdtXF.cs">
@@ -239,16 +279,16 @@
     <Compile Include="ToKdtXF.Designer.cs">
       <DependentUpon>ToKdtXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="NnnXF.cs">
+    <Compile Include="Ne\NntXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NnnXF.Designer.cs">
-      <DependentUpon>NnnXF.cs</DependentUpon>
+    <Compile Include="Ne\NntXF.Designer.cs">
+      <DependentUpon>NntXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="NodesInParentsXF.cs">
+    <Compile Include="Ne\NodesInParentsXF.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NodesInParentsXF.Designer.cs">
+    <Compile Include="Ne\NodesInParentsXF.Designer.cs">
       <DependentUpon>NodesInParentsXF.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -278,61 +318,61 @@
     <Compile Include="XdkXF.Designer.cs">
       <DependentUpon>XdkXF.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AbmXF.resx">
+    <EmbeddedResource Include="Acc\AbmXF.resx">
       <DependentUpon>AbmXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AbdXF.resx">
+    <EmbeddedResource Include="Acc\AbdXF.resx">
       <DependentUpon>AbdXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AvmXF.resx">
+    <EmbeddedResource Include="Acc\AvmXF.resx">
       <DependentUpon>AvmXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AvdXF.resx">
+    <EmbeddedResource Include="Acc\AvdXF.resx">
       <DependentUpon>AvdXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AhpEditXF.resx">
+    <EmbeddedResource Include="Acc\AhpEditXF.resx">
       <DependentUpon>AhpEditXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AhpXF.resx">
+    <EmbeddedResource Include="Acc\AhpXF.resx">
       <DependentUpon>AhpXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KctXF.resx">
+    <EmbeddedResource Include="Kim\KctXF.resx">
       <DependentUpon>KctXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KdtTreeDownXF.resx">
+    <EmbeddedResource Include="Kim\KdtTreeDownXF.resx">
       <DependentUpon>KdtTreeDownXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KdtXF.resx">
+    <EmbeddedResource Include="Kim\KdtXF.resx">
       <DependentUpon>KdtXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KftXF.resx">
+    <EmbeddedResource Include="Kim\KftXF.resx">
       <DependentUpon>KftXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KhtXF.resx">
+    <EmbeddedResource Include="Kim\KhtXF.resx">
       <DependentUpon>KhtXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KptXF.resx">
+    <EmbeddedResource Include="Kim\KptXF.resx">
       <DependentUpon>KptXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainXF.resx">
       <DependentUpon>MainXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NeDownXF.resx">
+    <EmbeddedResource Include="Ne\NeDownXF.resx">
       <DependentUpon>NeDownXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NeUpXF.resx">
+    <EmbeddedResource Include="Ne\NeUpXF.resx">
       <DependentUpon>NeUpXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NnnXF.resx">
-      <DependentUpon>NnnXF.cs</DependentUpon>
+    <EmbeddedResource Include="Ne\NntXF.resx">
+      <DependentUpon>NntXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NnrXF.resx">
+    <EmbeddedResource Include="Ne\NnrXF.resx">
       <DependentUpon>NnrXF.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NodesInParentsXF.resx">
+    <EmbeddedResource Include="Ne\NodesInParentsXF.resx">
       <DependentUpon>NodesInParentsXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -375,6 +415,39 @@
     <None Include="AccDataSet.xss">
       <DependentUpon>AccDataSet.xsd</DependentUpon>
     </None>
+    <None Include="DataSetAcc.xsc">
+      <DependentUpon>DataSetAcc.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetAcc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetAcc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetAcc.xss">
+      <DependentUpon>DataSetAcc.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGnl.xsc">
+      <DependentUpon>DataSetGnl.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGnl.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetGnl.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetGnl.xss">
+      <DependentUpon>DataSetGnl.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetKim.xsc">
+      <DependentUpon>DataSetKim.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetKim.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetKim.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetKim.xss">
+      <DependentUpon>DataSetKim.xsd</DependentUpon>
+    </None>
     <None Include="DataSetLookup.xsc">
       <DependentUpon>DataSetLookup.xsd</DependentUpon>
     </None>
@@ -385,6 +458,28 @@
     </None>
     <None Include="DataSetLookup.xss">
       <DependentUpon>DataSetLookup.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetNe.xsc">
+      <DependentUpon>DataSetNe.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetNe.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetNe.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetNe.xss">
+      <DependentUpon>DataSetNe.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTrnsfr.xsc">
+      <DependentUpon>DataSetTrnsfr.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTrnsfr.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTrnsfr.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTrnsfr.xss">
+      <DependentUpon>DataSetTrnsfr.xsd</DependentUpon>
     </None>
     <None Include="MainDataSet.xsc">
       <DependentUpon>MainDataSet.xsd</DependentUpon>
