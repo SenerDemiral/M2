@@ -120,12 +120,6 @@ namespace RestClientWinForm
             frm.Mtyp = "KFT";
             frm.ShowDialog();
 
-            /*
-            ToKhtXF frm = new ToKhtXF();
-            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Ptyp = "KFT";
-            frm.ShowDialog();*/
-
         }
 
         private void contactToolStripMenuItem_Click(object sender, EventArgs e)

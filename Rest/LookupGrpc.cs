@@ -19,6 +19,8 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.KptLookupProxy> __Marshaller_rest_KptLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KptLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NntLookupProxy> __Marshaller_rest_NntLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NntLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.AhpLookupProxy> __Marshaller_rest_AhpLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AhpLookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AvkLookupProxy> __Marshaller_rest_AvkLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AvkLookupProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.AbkLookupProxy> __Marshaller_rest_AbkLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AbkLookupProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XgtLookupProxy> __Marshaller_rest_XgtLookupProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XgtLookupProxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.BbLookupProxy> __Method_BbL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.BbLookupProxy>(
@@ -63,6 +65,20 @@ namespace Rest {
         __Marshaller_rest_QueryLookupProxy,
         __Marshaller_rest_AhpLookupProxy);
 
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AvkLookupProxy> __Method_AvkL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AvkLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "AvkL",
+        __Marshaller_rest_QueryLookupProxy,
+        __Marshaller_rest_AvkLookupProxy);
+
+    static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AbkLookupProxy> __Method_AbkL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.AbkLookupProxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "AbkL",
+        __Marshaller_rest_QueryLookupProxy,
+        __Marshaller_rest_AbkLookupProxy);
+
     static readonly grpc::Method<global::Rest.QueryLookupProxy, global::Rest.XgtLookupProxy> __Method_XgtL = new grpc::Method<global::Rest.QueryLookupProxy, global::Rest.XgtLookupProxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -105,6 +121,16 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task AhpL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.AhpLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task AvkL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.AvkLookupProxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task AbkL(global::Rest.QueryLookupProxy request, grpc::IServerStreamWriter<global::Rest.AbkLookupProxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -187,6 +213,22 @@ namespace Rest {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_AhpL, null, options, request);
       }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AvkLookupProxy> AvkL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AvkL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AvkLookupProxy> AvkL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_AvkL, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AbkLookupProxy> AbkL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return AbkL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.AbkLookupProxy> AbkL(global::Rest.QueryLookupProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_AbkL, null, options, request);
+      }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.XgtLookupProxy> XgtL(global::Rest.QueryLookupProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return XgtL(request, new grpc::CallOptions(headers, deadline, cancellationToken));
@@ -213,6 +255,8 @@ namespace Rest {
           .AddMethod(__Method_KptL, serviceImpl.KptL)
           .AddMethod(__Method_NntL, serviceImpl.NntL)
           .AddMethod(__Method_AhpL, serviceImpl.AhpL)
+          .AddMethod(__Method_AvkL, serviceImpl.AvkL)
+          .AddMethod(__Method_AbkL, serviceImpl.AbkL)
           .AddMethod(__Method_XgtL, serviceImpl.XgtL).Build();
     }
 

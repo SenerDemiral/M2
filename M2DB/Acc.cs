@@ -242,12 +242,40 @@ namespace M2DB
 
     public static class AccOps
     {
-        public static void PopABK()     // Bill/Fatura Turleri
+        public static void PopAVK()     // VoucherKind/FisTurleri
+        {
+            if (Db.SQL<AVK>("select r from AVK r").FirstOrDefault() != null)
+                return; // Kayit var yapma
+
+            // Kod|Ad
+            using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\AVK.csv", System.Text.Encoding.UTF8))
+            {
+                string line;
+                Db.Transact(() =>
+                {
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (!line.StartsWith("#"))
+                        {
+                            string[] ra = line.Split('|');
+
+                            new AVK
+                            {
+                                Kd = ra[0],
+                                Ad = ra[1],
+                            };
+                        }
+                    }
+                });
+            }
+        }
+
+        public static void PopABK()     // BillKind/FaturaTurleri
         {
             if (Db.SQL<ABK>("select r from ABK r").FirstOrDefault() != null)
                 return; // Kayit var yapma
 
-            // Kod,Ad,B/A
+            // Kod|Ad|B/A
             using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\ABK.csv", System.Text.Encoding.UTF8))
             {
                 string line;
@@ -276,6 +304,7 @@ namespace M2DB
             if (Db.SQL<AHP>("select r from AHP r").FirstOrDefault() != null)
                 return; // Kayit var yapma
 
+            // Kod|Ad
             using (StreamReader sr = new StreamReader($@"C:\Starcounter\M2Data\AHP.csv", System.Text.Encoding.UTF8))
             {
                 string line;
@@ -283,16 +312,18 @@ namespace M2DB
                 {
                     while ((line = sr.ReadLine()) != null)
                     {
-                        string[] ra = line.Split('|');
-
-                        new AHP
+                        if (!line.StartsWith("#"))
                         {
-                            Kd = ra[0],
-                            Ad = ra[1]
-                        };
+                            string[] ra = line.Split('|');
+
+                            new AHP
+                            {
+                                Kd = ra[0],
+                                Ad = ra[1]
+                            };
+                        }
                     }
                 });
-
             }
 
             Db.Transact(() =>

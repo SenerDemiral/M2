@@ -8,6 +8,8 @@ service LookupService {
   rpc KptL (QueryLookupProxy) returns (stream KptLookupProxy) {}
   rpc NntL (QueryLookupProxy) returns (stream NntLookupProxy) {}
   rpc AhpL (QueryLookupProxy) returns (stream AhpLookupProxy) {}
+  rpc AvkL (QueryLookupProxy) returns (stream AvkLookupProxy) {}
+  rpc AbkL (QueryLookupProxy) returns (stream AbkLookupProxy) {}
   rpc XgtL (QueryLookupProxy) returns (stream XgtLookupProxy) {}
 }
 
@@ -50,6 +52,19 @@ message NntLookupProxy {
 }
 
 message AhpLookupProxy {
+	uint64 RowKey = 1;
+	BbMsg BB = 2;
+	string HspNo = 3;
+	uint64 P = 4;
+	bool IsW = 5;
+}
+
+message AvkLookupProxy {
+	uint64 RowKey = 1;
+	BbMsg BB = 2;
+}
+
+message AbkLookupProxy {
 	uint64 RowKey = 1;
 	BbMsg BB = 2;
 }

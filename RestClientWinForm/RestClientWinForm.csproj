@@ -228,18 +228,6 @@
     <Compile Include="ToBrXF.Designer.cs">
       <DependentUpon>ToBrXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToKctXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ToKctXF.Designer.cs">
-      <DependentUpon>ToKctXF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ToKhtXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ToKhtXF.Designer.cs">
-      <DependentUpon>ToKhtXF.cs</DependentUpon>
-    </Compile>
     <Compile Include="Kim\KftXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,12 +261,6 @@
     <Compile Include="Ne\NeUpXF.Designer.cs">
       <DependentUpon>NeUpXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="ToKdtXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ToKdtXF.Designer.cs">
-      <DependentUpon>ToKdtXF.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ne\NntXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -294,12 +276,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProxyHelper.cs" />
-    <Compile Include="ToKptXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ToKptXF.Designer.cs">
-      <DependentUpon>ToKptXF.cs</DependentUpon>
-    </Compile>
     <Compile Include="UuuXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,12 +364,6 @@
     </Compile>
     <EmbeddedResource Include="ToBrXF.resx">
       <DependentUpon>ToBrXF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ToKdtXF.resx">
-      <DependentUpon>ToKdtXF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ToKhtXF.resx">
-      <DependentUpon>ToKhtXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UuuXF.resx">
       <DependentUpon>UuuXF.cs</DependentUpon>

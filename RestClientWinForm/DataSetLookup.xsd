@@ -40,6 +40,10 @@
               <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
               <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
               <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="HspNo" msprop:Generator_ColumnVarNameInTable="columnHspNo" msprop:Generator_ColumnPropNameInRow="HspNo" msprop:Generator_ColumnPropNameInTable="HspNoColumn" msprop:Generator_UserColumnName="HspNo" type="xs:string" minOccurs="0" />
+              <xs:element name="P" msprop:Generator_ColumnVarNameInTable="columnP" msprop:Generator_ColumnPropNameInRow="P" msprop:Generator_ColumnPropNameInTable="PColumn" msprop:Generator_UserColumnName="P" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="IsW" msprop:Generator_ColumnVarNameInTable="columnIsW" msprop:Generator_ColumnPropNameInRow="IsW" msprop:Generator_ColumnPropNameInTable="IsWColumn" msprop:Generator_UserColumnName="IsW" type="xs:boolean" minOccurs="0" />
+              <xs:element name="HspNoAd" msdata:ReadOnly="true" msdata:Expression="HspNo + ' ' + Ad" msprop:Generator_ColumnVarNameInTable="columnHspNoAd" msprop:Generator_ColumnPropNameInRow="HspNoAd" msprop:Generator_ColumnPropNameInTable="HspNoAdColumn" msprop:Generator_UserColumnName="HspNoAd" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -86,6 +90,26 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="AVKL" msprop:Generator_TableClassName="AVKLDataTable" msprop:Generator_TableVarName="tableAVKL" msprop:Generator_RowChangedName="AVKLRowChanged" msprop:Generator_TablePropName="AVKL" msprop:Generator_RowDeletingName="AVKLRowDeleting" msprop:Generator_RowChangingName="AVKLRowChanging" msprop:Generator_RowEvHandlerName="AVKLRowChangeEventHandler" msprop:Generator_RowDeletedName="AVKLRowDeleted" msprop:Generator_RowClassName="AVKLRow" msprop:Generator_UserTableName="AVKL" msprop:Generator_RowEvArgName="AVKLRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ABKL" msprop:Generator_TableClassName="ABKLDataTable" msprop:Generator_TableVarName="tableABKL" msprop:Generator_RowChangedName="ABKLRowChanged" msprop:Generator_TablePropName="ABKL" msprop:Generator_RowDeletingName="ABKLRowDeleting" msprop:Generator_RowChangingName="ABKLRowChanging" msprop:Generator_RowEvHandlerName="ABKLRowChangeEventHandler" msprop:Generator_RowDeletedName="ABKLRowDeleted" msprop:Generator_RowClassName="ABKLRow" msprop:Generator_UserTableName="ABKL" msprop:Generator_RowEvArgName="ABKLRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -110,6 +134,14 @@
     </xs:unique>
     <xs:unique name="KDTL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:KDTL" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="AVKL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AVKL" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="ABKL_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ABKL" />
       <xs:field xpath="mstns:RowKey" />
     </xs:unique>
   </xs:element>

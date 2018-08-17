@@ -14,6 +14,7 @@ namespace RestServerSC
 {
     class LookupServiceImpl : Rest.LookupService.LookupServiceBase
     {
+        // Base Deneme
         public override async Task BbL(QueryLookupProxy request, IServerStreamWriter<BbLookupProxy> responseStream, ServerCallContext context)
         {
             BbLookupProxy proxy = new BbLookupProxy();
@@ -48,7 +49,7 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
-
+        // DepartmanTanim
         public override async Task KdtL(QueryLookupProxy request, IServerStreamWriter<KdtLookupProxy> responseStream, ServerCallContext context)
         {
             KdtLookupProxy proxy;
@@ -81,7 +82,7 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
-
+        // FirmaTanim
         public override async Task KftL(QueryLookupProxy request, IServerStreamWriter<KftLookupProxy> responseStream, ServerCallContext context)
         {
             KftLookupProxy proxy;
@@ -114,7 +115,7 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
-
+        // PersonelTanim
         public override async Task KptL(QueryLookupProxy request, IServerStreamWriter<KptLookupProxy> responseStream, ServerCallContext context)
         {
             KptLookupProxy proxy;
@@ -147,7 +148,7 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
-
+        // NeTanim
         public override async Task NntL(QueryLookupProxy request, IServerStreamWriter<NntLookupProxy> responseStream, ServerCallContext context)
         {
             NntLookupProxy proxy;
@@ -180,7 +181,7 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
-
+        // HesapPlani
         public override async Task AhpL(QueryLookupProxy request, IServerStreamWriter<AhpLookupProxy> responseStream, ServerCallContext context)
         {
             AhpLookupProxy proxy;
@@ -202,6 +203,42 @@ namespace RestServerSC
                         proxy = new AhpLookupProxy
                         {
                             RowKey = row.GetObjectNo(),
+                            BB = bbMsg,
+                            HspNo = row.HspNo,
+                            P = row.P == null ? 0 : row.P.GetObjectNo(),
+                            IsW = row.IsW
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+                await responseStream.WriteAsync(p);
+        }
+        // VoucherKind
+        public override async Task AvkL(QueryLookupProxy request, IServerStreamWriter<AvkLookupProxy> responseStream, ServerCallContext context)
+        {
+            AvkLookupProxy proxy;
+            BbMsg bbMsg;
+            List<AvkLookupProxy> proxyList = new List<AvkLookupProxy>();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<AVK>("select r from AVK r"))
+                    {
+                        bbMsg = new BbMsg
+                        {
+                            Kd = row.Kd ?? "",
+                            Ad = row.Ad ?? "",
+                            Info = row.Info ?? "",
+                        };
+                        proxy = new AvkLookupProxy
+                        {
+                            RowKey = row.GetObjectNo(),
                             BB = bbMsg
                         };
 
@@ -213,7 +250,40 @@ namespace RestServerSC
             foreach (var p in proxyList)
                 await responseStream.WriteAsync(p);
         }
+        // BillKind
+        public override async Task AbkL(QueryLookupProxy request, IServerStreamWriter<AbkLookupProxy> responseStream, ServerCallContext context)
+        {
+            AbkLookupProxy proxy;
+            BbMsg bbMsg;
+            List<AbkLookupProxy> proxyList = new List<AbkLookupProxy>();
 
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<ABK>("select r from ABK r"))
+                    {
+                        bbMsg = new BbMsg
+                        {
+                            Kd = row.Kd ?? "",
+                            Ad = row.Ad ?? "",
+                            Info = row.Info ?? "",
+                        };
+                        proxy = new AbkLookupProxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            BB = bbMsg
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+                await responseStream.WriteAsync(p);
+        }
+        // GenelTanim
         public override async Task XgtL(QueryLookupProxy request, IServerStreamWriter<XgtLookupProxy> responseStream, ServerCallContext context)
         {
             XgtLookupProxy proxy;

@@ -105,15 +105,6 @@ service CRUDs {
   rpc BRupdate (BRproxy) returns (BRproxy) {}
   rpc BRparentsFill (PKproxy) returns (stream BRparentsProxy) {}	// PKproxy.PK = 0 ise hepsi
 
-  rpc ToKPTfill (QryPproxy) returns (stream ToKPTproxy) {}
-  rpc ToKPTupdate (ToKPTproxy) returns (ToKPTproxy) {}
-  
-  rpc ToKHTfill (QryPproxy) returns (stream ToKHTproxy) {}
-  rpc ToKHTupdate (ToKHTproxy) returns (ToKHTproxy) {}
-
-  rpc ToKDTfill (QryPproxy) returns (stream ToKDTproxy) {}
-  rpc ToKDTupdate (ToKDTproxy) returns (ToKDTproxy) {}
-
 }
 
 message PKproxy {
@@ -435,42 +426,6 @@ message KHTproxy {
 	google.protobuf.StringValue Kd = 6;
 	google.protobuf.StringValue Ad = 7;
 	google.protobuf.StringValue info = 8;
-}
-
-// ToKHT Master -> KimHaberlesmeTanim (Master:KFT,KCT,KPT,KDT)
-message ToKHTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 M = 5;
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
-	string Skl = 8;
-	int32 Oncelik = 9;
-	uint64 P = 10;
-}
-
-// ToKPT Master -> KimPersonelTanim SIL
-message ToKPTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 P = 5;
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
-}
-
-// ToKDT KimDepartmanTanim SIL
-message ToKDTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 P = 5;
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
 }
 
 // TransferOrderMaster

@@ -85,11 +85,6 @@ namespace RestClientWinForm
             frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
             frm.Mtyp = "KFT";
             frm.ShowDialog();
-            /*
-            ToKhtXF frm = new ToKhtXF();
-            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Ptyp = "KPT";
-            frm.ShowDialog();*/
         }
     }
 }

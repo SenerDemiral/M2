@@ -119,7 +119,7 @@ namespace RestClientWinForm
         {
             string res = "";
             brGridControl.DataSource = null;
-            mainDataSet.KFT.Clear();
+            mainDataSet.BR.Rows.Clear();
             Task.Run(async () => { res = await mainDataSet.BRfill(M, Mtyp, Dtyp); }).Wait();
             //toolStripStatusLabel1.Text = res;
             brGridControl.DataSource = brBindingSource;

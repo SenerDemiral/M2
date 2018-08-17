@@ -138,12 +138,6 @@ namespace RestClientWinForm
             DataView DvzDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
             DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
-            DataView AvmTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["AVM.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            AvmTurRepositoryItemLookUpEdit.DataSource = AvmTurDV;
-
-            DataView AbmTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["ABM.TUR"]}", "Kd", DataViewRowState.CurrentRows);
-            AbmTurRepositoryItemLookUpEdit.DataSource = AbmTurDV;
-
             DataView KkkTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
             KkkTurRepositoryItemLookUpEdit.DataSource = KkkTurDV;
 
@@ -197,24 +191,8 @@ namespace RestClientWinForm
             e.Cancel = (bool)focusedNode["IsW"] == false;
         }
 
-        private void NNNrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
-        {
-            // IPTAL
-            var view = (sender as GridLookUpEdit).Properties.View;
-            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
-            e.Cancel = !avl;
-        }
-
         private void NntLrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
         {
-            var view = (sender as GridLookUpEdit).Properties.View;
-            bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
-            e.Cancel = !avl;
-        }
-
-        private void KDTrepositoryItemGridLookUpEdit_QueryCloseUp(object sender, CancelEventArgs e)
-        {
-            // IPTAL
             var view = (sender as GridLookUpEdit).Properties.View;
             bool avl = (bool)view.GetFocusedRowCellValue("Avl");    // Availability
             e.Cancel = !avl;

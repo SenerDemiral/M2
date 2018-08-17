@@ -63,9 +63,6 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.QryBRproxy> __Marshaller_rest_QryBRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryBRproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.BRproxy> __Marshaller_rest_BRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BRproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.BRparentsProxy> __Marshaller_rest_BRparentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BRparentsProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKPTproxy> __Marshaller_rest_ToKPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKPTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKHTproxy> __Marshaller_rest_ToKHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKHTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.ToKDTproxy> __Marshaller_rest_ToKDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ToKDTproxy.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy> __Method_TblaFill = new grpc::Method<global::Rest.QryProxy, global::Rest.TblaProxy>(
         grpc::MethodType.ServerStreaming,
@@ -423,48 +420,6 @@ namespace Rest {
         "BRparentsFill",
         __Marshaller_rest_PKproxy,
         __Marshaller_rest_BRparentsProxy);
-
-    static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKPTproxy> __Method_ToKPTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKPTproxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "ToKPTfill",
-        __Marshaller_rest_QryPproxy,
-        __Marshaller_rest_ToKPTproxy);
-
-    static readonly grpc::Method<global::Rest.ToKPTproxy, global::Rest.ToKPTproxy> __Method_ToKPTupdate = new grpc::Method<global::Rest.ToKPTproxy, global::Rest.ToKPTproxy>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ToKPTupdate",
-        __Marshaller_rest_ToKPTproxy,
-        __Marshaller_rest_ToKPTproxy);
-
-    static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKHTproxy> __Method_ToKHTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKHTproxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "ToKHTfill",
-        __Marshaller_rest_QryPproxy,
-        __Marshaller_rest_ToKHTproxy);
-
-    static readonly grpc::Method<global::Rest.ToKHTproxy, global::Rest.ToKHTproxy> __Method_ToKHTupdate = new grpc::Method<global::Rest.ToKHTproxy, global::Rest.ToKHTproxy>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ToKHTupdate",
-        __Marshaller_rest_ToKHTproxy,
-        __Marshaller_rest_ToKHTproxy);
-
-    static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.ToKDTproxy> __Method_ToKDTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.ToKDTproxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "ToKDTfill",
-        __Marshaller_rest_QryPproxy,
-        __Marshaller_rest_ToKDTproxy);
-
-    static readonly grpc::Method<global::Rest.ToKDTproxy, global::Rest.ToKDTproxy> __Method_ToKDTupdate = new grpc::Method<global::Rest.ToKDTproxy, global::Rest.ToKDTproxy>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "ToKDTupdate",
-        __Marshaller_rest_ToKDTproxy,
-        __Marshaller_rest_ToKDTproxy);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -832,36 +787,6 @@ namespace Rest {
       }
 
       public virtual global::System.Threading.Tasks.Task BRparentsFill(global::Rest.PKproxy request, grpc::IServerStreamWriter<global::Rest.BRparentsProxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task ToKPTfill(global::Rest.QryPproxy request, grpc::IServerStreamWriter<global::Rest.ToKPTproxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Rest.ToKPTproxy> ToKPTupdate(global::Rest.ToKPTproxy request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task ToKHTfill(global::Rest.QryPproxy request, grpc::IServerStreamWriter<global::Rest.ToKHTproxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Rest.ToKHTproxy> ToKHTupdate(global::Rest.ToKHTproxy request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task ToKDTfill(global::Rest.QryPproxy request, grpc::IServerStreamWriter<global::Rest.ToKDTproxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Rest.ToKDTproxy> ToKDTupdate(global::Rest.ToKDTproxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1687,78 +1612,6 @@ namespace Rest {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_BRparentsFill, null, options, request);
       }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKPTproxy> ToKPTfill(global::Rest.QryPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKPTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKPTproxy> ToKPTfill(global::Rest.QryPproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_ToKPTfill, null, options, request);
-      }
-      public virtual global::Rest.ToKPTproxy ToKPTupdate(global::Rest.ToKPTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKPTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Rest.ToKPTproxy ToKPTupdate(global::Rest.ToKPTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ToKPTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKPTproxy> ToKPTupdateAsync(global::Rest.ToKPTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKPTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKPTproxy> ToKPTupdateAsync(global::Rest.ToKPTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ToKPTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKHTproxy> ToKHTfill(global::Rest.QryPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKHTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKHTproxy> ToKHTfill(global::Rest.QryPproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_ToKHTfill, null, options, request);
-      }
-      public virtual global::Rest.ToKHTproxy ToKHTupdate(global::Rest.ToKHTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKHTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Rest.ToKHTproxy ToKHTupdate(global::Rest.ToKHTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ToKHTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKHTproxy> ToKHTupdateAsync(global::Rest.ToKHTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKHTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKHTproxy> ToKHTupdateAsync(global::Rest.ToKHTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ToKHTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKDTproxy> ToKDTfill(global::Rest.QryPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKDTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.ToKDTproxy> ToKDTfill(global::Rest.QryPproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_ToKDTfill, null, options, request);
-      }
-      public virtual global::Rest.ToKDTproxy ToKDTupdate(global::Rest.ToKDTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKDTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Rest.ToKDTproxy ToKDTupdate(global::Rest.ToKDTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_ToKDTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKDTproxy> ToKDTupdateAsync(global::Rest.ToKDTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return ToKDTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.ToKDTproxy> ToKDTupdateAsync(global::Rest.ToKDTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_ToKDTupdate, null, options, request);
-      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override CRUDsClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -1821,13 +1674,7 @@ namespace Rest {
           .AddMethod(__Method_KHTupdate, serviceImpl.KHTupdate)
           .AddMethod(__Method_BRfill, serviceImpl.BRfill)
           .AddMethod(__Method_BRupdate, serviceImpl.BRupdate)
-          .AddMethod(__Method_BRparentsFill, serviceImpl.BRparentsFill)
-          .AddMethod(__Method_ToKPTfill, serviceImpl.ToKPTfill)
-          .AddMethod(__Method_ToKPTupdate, serviceImpl.ToKPTupdate)
-          .AddMethod(__Method_ToKHTfill, serviceImpl.ToKHTfill)
-          .AddMethod(__Method_ToKHTupdate, serviceImpl.ToKHTupdate)
-          .AddMethod(__Method_ToKDTfill, serviceImpl.ToKDTfill)
-          .AddMethod(__Method_ToKDTupdate, serviceImpl.ToKDTupdate).Build();
+          .AddMethod(__Method_BRparentsFill, serviceImpl.BRparentsFill).Build();
     }
 
   }

@@ -117,11 +117,6 @@ namespace RestClientWinForm
             frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
             frm.Mtyp = "KDT";
             frm.ShowDialog();
-            /*
-            ToKhtXF frm = new ToKhtXF();
-            frm.P = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Ptyp = "KDT";
-            frm.ShowDialog();*/
         }
 
         private void relationsToolStripMenuItem_Click(object sender, EventArgs e)

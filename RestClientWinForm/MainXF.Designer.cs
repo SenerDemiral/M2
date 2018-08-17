@@ -31,10 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.colIsW = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.persistentRepository = new DevExpress.XtraEditors.Repository.PersistentRepository(this.components);
-            this.AvmTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xgtBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mainDataSet = new RestClientWinForm.MainDataSet();
-            this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.DateRepositoryItemDateEdit = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.AHPrepositoryItemTreeListLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTreeListLookUpEdit();
             this.ahpBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,32 +42,24 @@
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.KkkTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.AbmTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.KDTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.kdtBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.KPTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.kptBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.NNNrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.nnnBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.NNNrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.repositoryItemGridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.KDTrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.NeBrmRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.ABKrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.abkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.AVKrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.avkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.KftLrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.kftLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kftlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetLookup = new RestClientWinForm.DataSetLookup();
             this.NntLrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.nntLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nntlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NntLrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.KdtLrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.kDTLBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kdtlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.KptLrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
+            this.kptlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.AvkLrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.avklBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.AbkLrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.abklBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.UYHbutton = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cccccccccToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,45 +102,33 @@
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.KptLrepositoryItemGridLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.kPTLBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.AvmTurRepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AbmTurRepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KPTrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeBrmRepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ABKrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AVKrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KftLrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kftLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kftlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetLookup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NntLrepositoryItemLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nntLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nntlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NntLrepositoryItemGridLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KdtLrepositoryItemGridLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDTLBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kdtlBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KptLrepositoryItemGridLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kptlBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AvkLrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avklBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbkLrepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abklBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).BeginInit();
@@ -158,9 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KptLrepositoryItemGridLookUpEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kPTLBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -173,48 +149,18 @@
             // persistentRepository
             // 
             this.persistentRepository.Items.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.AvmTurRepositoryItemLookUpEdit,
             this.DVTrepositoryItemLookUpEdit,
             this.DateRepositoryItemDateEdit,
             this.AHPrepositoryItemTreeListLookUpEdit,
             this.KkkTurRepositoryItemLookUpEdit,
-            this.AbmTurRepositoryItemLookUpEdit,
-            this.KDTrepositoryItemLookUpEdit,
-            this.KPTrepositoryItemLookUpEdit,
-            this.NNNrepositoryItemLookUpEdit,
-            this.NNNrepositoryItemGridLookUpEdit,
-            this.KDTrepositoryItemGridLookUpEdit,
             this.NeBrmRepositoryItemLookUpEdit,
-            this.ABKrepositoryItemLookUpEdit,
-            this.AVKrepositoryItemLookUpEdit,
             this.KftLrepositoryItemLookUpEdit,
             this.NntLrepositoryItemLookUpEdit,
             this.NntLrepositoryItemGridLookUpEdit,
             this.KdtLrepositoryItemGridLookUpEdit,
-            this.KptLrepositoryItemGridLookUpEdit});
-            // 
-            // AvmTurRepositoryItemLookUpEdit
-            // 
-            this.AvmTurRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.AvmTurRepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowKey", "RowKey", 58, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
-            this.AvmTurRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
-            this.AvmTurRepositoryItemLookUpEdit.DisplayMember = "Kd";
-            this.AvmTurRepositoryItemLookUpEdit.Name = "AvmTurRepositoryItemLookUpEdit";
-            this.AvmTurRepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // xgtBindingSource
-            // 
-            this.xgtBindingSource.DataMember = "XGT";
-            this.xgtBindingSource.DataSource = this.mainDataSet;
-            // 
-            // mainDataSet
-            // 
-            this.mainDataSet.DataSetName = "MainDataSet";
-            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.KptLrepositoryItemGridLookUpEdit,
+            this.AvkLrepositoryItemLookUpEdit,
+            this.AbkLrepositoryItemLookUpEdit});
             // 
             // DVTrepositoryItemLookUpEdit
             // 
@@ -228,6 +174,16 @@
             this.DVTrepositoryItemLookUpEdit.DisplayMember = "Kd";
             this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
             this.DVTrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // xgtBindingSource
+            // 
+            this.xgtBindingSource.DataMember = "XGT";
+            this.xgtBindingSource.DataSource = this.mainDataSet;
+            // 
+            // mainDataSet
+            // 
+            this.mainDataSet.DataSetName = "MainDataSet";
+            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DateRepositoryItemDateEdit
             // 
@@ -322,100 +278,6 @@
             this.KkkTurRepositoryItemLookUpEdit.Name = "KkkTurRepositoryItemLookUpEdit";
             this.KkkTurRepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
-            // AbmTurRepositoryItemLookUpEdit
-            // 
-            this.AbmTurRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.AbmTurRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
-            this.AbmTurRepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.AbmTurRepositoryItemLookUpEdit.Name = "AbmTurRepositoryItemLookUpEdit";
-            this.AbmTurRepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // KDTrepositoryItemLookUpEdit
-            // 
-            this.KDTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KDTrepositoryItemLookUpEdit.DataSource = this.kdtBindingSource;
-            this.KDTrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.KDTrepositoryItemLookUpEdit.Name = "KDTrepositoryItemLookUpEdit";
-            this.KDTrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // kdtBindingSource
-            // 
-            this.kdtBindingSource.DataMember = "KDT";
-            this.kdtBindingSource.DataSource = this.mainDataSet;
-            // 
-            // KPTrepositoryItemLookUpEdit
-            // 
-            this.KPTrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KPTrepositoryItemLookUpEdit.DataSource = this.kptBindingSource;
-            this.KPTrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.KPTrepositoryItemLookUpEdit.Name = "KPTrepositoryItemLookUpEdit";
-            this.KPTrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // kptBindingSource
-            // 
-            this.kptBindingSource.DataMember = "KPT";
-            this.kptBindingSource.DataSource = this.mainDataSet;
-            // 
-            // NNNrepositoryItemLookUpEdit
-            // 
-            this.NNNrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NNNrepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowKey", "Row Key", 65, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BRM", "BRM", 31, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Fyt", "Fyt", 26, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Avl", "Avl", 25, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-            this.NNNrepositoryItemLookUpEdit.DataSource = this.nnnBindingSource;
-            this.NNNrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.NNNrepositoryItemLookUpEdit.Name = "NNNrepositoryItemLookUpEdit";
-            this.NNNrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // nnnBindingSource
-            // 
-            this.nnnBindingSource.DataMember = "NNN";
-            this.nnnBindingSource.DataSource = this.mainDataSet;
-            // 
-            // NNNrepositoryItemGridLookUpEdit
-            // 
-            this.NNNrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NNNrepositoryItemGridLookUpEdit.DataSource = this.nnnBindingSource;
-            this.NNNrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
-            this.NNNrepositoryItemGridLookUpEdit.Name = "NNNrepositoryItemGridLookUpEdit";
-            this.NNNrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
-            this.NNNrepositoryItemGridLookUpEdit.View = this.repositoryItemGridLookUpEdit1View;
-            this.NNNrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.NNNrepositoryItemGridLookUpEdit_QueryCloseUp);
-            // 
-            // repositoryItemGridLookUpEdit1View
-            // 
-            this.repositoryItemGridLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.repositoryItemGridLookUpEdit1View.Name = "repositoryItemGridLookUpEdit1View";
-            this.repositoryItemGridLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.repositoryItemGridLookUpEdit1View.OptionsView.ShowGroupPanel = false;
-            // 
-            // KDTrepositoryItemGridLookUpEdit
-            // 
-            this.KDTrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KDTrepositoryItemGridLookUpEdit.DataSource = this.kdtBindingSource;
-            this.KDTrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
-            this.KDTrepositoryItemGridLookUpEdit.Name = "KDTrepositoryItemGridLookUpEdit";
-            this.KDTrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
-            this.KDTrepositoryItemGridLookUpEdit.View = this.gridView1;
-            this.KDTrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.KDTrepositoryItemGridLookUpEdit_QueryCloseUp);
-            // 
-            // gridView1
-            // 
-            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            // 
             // NeBrmRepositoryItemLookUpEdit
             // 
             this.NeBrmRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -425,47 +287,19 @@
             this.NeBrmRepositoryItemLookUpEdit.Name = "NeBrmRepositoryItemLookUpEdit";
             this.NeBrmRepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
-            // ABKrepositoryItemLookUpEdit
-            // 
-            this.ABKrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ABKrepositoryItemLookUpEdit.DataSource = this.abkBindingSource;
-            this.ABKrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.ABKrepositoryItemLookUpEdit.Name = "ABKrepositoryItemLookUpEdit";
-            this.ABKrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // abkBindingSource
-            // 
-            this.abkBindingSource.DataMember = "ABK";
-            this.abkBindingSource.DataSource = this.mainDataSet;
-            // 
-            // AVKrepositoryItemLookUpEdit
-            // 
-            this.AVKrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.AVKrepositoryItemLookUpEdit.DataSource = this.avkBindingSource;
-            this.AVKrepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.AVKrepositoryItemLookUpEdit.Name = "AVKrepositoryItemLookUpEdit";
-            this.AVKrepositoryItemLookUpEdit.ValueMember = "RowKey";
-            // 
-            // avkBindingSource
-            // 
-            this.avkBindingSource.DataMember = "AVK";
-            this.avkBindingSource.DataSource = this.mainDataSet;
-            // 
             // KftLrepositoryItemLookUpEdit
             // 
             this.KftLrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KftLrepositoryItemLookUpEdit.DataSource = this.kftLBindingSource;
+            this.KftLrepositoryItemLookUpEdit.DataSource = this.kftlBindingSource;
             this.KftLrepositoryItemLookUpEdit.DisplayMember = "Ad";
             this.KftLrepositoryItemLookUpEdit.Name = "KftLrepositoryItemLookUpEdit";
             this.KftLrepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
-            // kftLBindingSource
+            // kftlBindingSource
             // 
-            this.kftLBindingSource.DataMember = "KFTL";
-            this.kftLBindingSource.DataSource = this.dataSetLookup;
+            this.kftlBindingSource.DataMember = "KFTL";
+            this.kftlBindingSource.DataSource = this.dataSetLookup;
             // 
             // dataSetLookup
             // 
@@ -476,21 +310,21 @@
             // 
             this.NntLrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NntLrepositoryItemLookUpEdit.DataSource = this.nntLBindingSource;
+            this.NntLrepositoryItemLookUpEdit.DataSource = this.nntlBindingSource;
             this.NntLrepositoryItemLookUpEdit.DisplayMember = "Ad";
             this.NntLrepositoryItemLookUpEdit.Name = "NntLrepositoryItemLookUpEdit";
             this.NntLrepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
-            // nntLBindingSource
+            // nntlBindingSource
             // 
-            this.nntLBindingSource.DataMember = "NNTL";
-            this.nntLBindingSource.DataSource = this.dataSetLookup;
+            this.nntlBindingSource.DataMember = "NNTL";
+            this.nntlBindingSource.DataSource = this.dataSetLookup;
             // 
             // NntLrepositoryItemGridLookUpEdit
             // 
             this.NntLrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.NntLrepositoryItemGridLookUpEdit.DataSource = this.nntLBindingSource;
+            this.NntLrepositoryItemGridLookUpEdit.DataSource = this.nntlBindingSource;
             this.NntLrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
             this.NntLrepositoryItemGridLookUpEdit.Name = "NntLrepositoryItemGridLookUpEdit";
             this.NntLrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
@@ -508,17 +342,17 @@
             // 
             this.KdtLrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KdtLrepositoryItemGridLookUpEdit.DataSource = this.kDTLBindingSource;
+            this.KdtLrepositoryItemGridLookUpEdit.DataSource = this.kdtlBindingSource;
             this.KdtLrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
             this.KdtLrepositoryItemGridLookUpEdit.Name = "KdtLrepositoryItemGridLookUpEdit";
             this.KdtLrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
             this.KdtLrepositoryItemGridLookUpEdit.View = this.gridView3;
             this.KdtLrepositoryItemGridLookUpEdit.QueryCloseUp += new System.ComponentModel.CancelEventHandler(this.KdtLrepositoryItemGridLookUpEdit_QueryCloseUp);
             // 
-            // kDTLBindingSource
+            // kdtlBindingSource
             // 
-            this.kDTLBindingSource.DataMember = "KDTL";
-            this.kDTLBindingSource.DataSource = this.dataSetLookup;
+            this.kdtlBindingSource.DataMember = "KDTL";
+            this.kdtlBindingSource.DataSource = this.dataSetLookup;
             // 
             // gridView3
             // 
@@ -526,6 +360,56 @@
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // KptLrepositoryItemGridLookUpEdit
+            // 
+            this.KptLrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.KptLrepositoryItemGridLookUpEdit.DataSource = this.kptlBindingSource;
+            this.KptLrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
+            this.KptLrepositoryItemGridLookUpEdit.Name = "KptLrepositoryItemGridLookUpEdit";
+            this.KptLrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
+            this.KptLrepositoryItemGridLookUpEdit.View = this.gridView4;
+            // 
+            // kptlBindingSource
+            // 
+            this.kptlBindingSource.DataMember = "KPTL";
+            this.kptlBindingSource.DataSource = this.dataSetLookup;
+            // 
+            // gridView4
+            // 
+            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            // 
+            // AvkLrepositoryItemLookUpEdit
+            // 
+            this.AvkLrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.AvkLrepositoryItemLookUpEdit.DataSource = this.avklBindingSource;
+            this.AvkLrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.AvkLrepositoryItemLookUpEdit.Name = "AvkLrepositoryItemLookUpEdit";
+            this.AvkLrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // avklBindingSource
+            // 
+            this.avklBindingSource.DataMember = "AVKL";
+            this.avklBindingSource.DataSource = this.dataSetLookup;
+            // 
+            // AbkLrepositoryItemLookUpEdit
+            // 
+            this.AbkLrepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.AbkLrepositoryItemLookUpEdit.DataSource = this.abklBindingSource;
+            this.AbkLrepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.AbkLrepositoryItemLookUpEdit.Name = "AbkLrepositoryItemLookUpEdit";
+            this.AbkLrepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // abklBindingSource
+            // 
+            this.abklBindingSource.DataMember = "ABKL";
+            this.abklBindingSource.DataSource = this.dataSetLookup;
             // 
             // UYHbutton
             // 
@@ -865,28 +749,6 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // KptLrepositoryItemGridLookUpEdit
-            // 
-            this.KptLrepositoryItemGridLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KptLrepositoryItemGridLookUpEdit.DataSource = this.kPTLBindingSource;
-            this.KptLrepositoryItemGridLookUpEdit.DisplayMember = "Ad";
-            this.KptLrepositoryItemGridLookUpEdit.Name = "KptLrepositoryItemGridLookUpEdit";
-            this.KptLrepositoryItemGridLookUpEdit.ValueMember = "RowKey";
-            this.KptLrepositoryItemGridLookUpEdit.View = this.gridView4;
-            // 
-            // gridView4
-            // 
-            this.gridView4.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gridView4.Name = "gridView4";
-            this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gridView4.OptionsView.ShowGroupPanel = false;
-            // 
-            // kPTLBindingSource
-            // 
-            this.kPTLBindingSource.DataMember = "KPTL";
-            this.kPTLBindingSource.DataSource = this.dataSetLookup;
-            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -901,42 +763,33 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainXF_FormClosing);
             this.Load += new System.EventHandler(this.MainXF_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainXF_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.AvmTurRepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DateRepositoryItemDateEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AbmTurRepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kdtBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KPTrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nnnBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NNNrepositoryItemGridLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemGridLookUpEdit1View)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KDTrepositoryItemGridLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeBrmRepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ABKrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.abkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AVKrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.avkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KftLrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kftLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kftlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetLookup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NntLrepositoryItemLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nntLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nntlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NntLrepositoryItemGridLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KdtLrepositoryItemGridLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kDTLBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kdtlBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.KptLrepositoryItemGridLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kptlBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AvkLrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.avklBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.AbkLrepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.abklBindingSource)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManager1)).EndInit();
@@ -946,16 +799,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KptLrepositoryItemGridLookUpEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kPTLBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AvmTurRepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource xgtBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DVTrepositoryItemLookUpEdit;
         public DevExpress.XtraEditors.Repository.PersistentRepository persistentRepository;
@@ -970,15 +819,6 @@
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KkkTurRepositoryItemLookUpEdit;
         public MainDataSet mainDataSet;
         private System.Windows.Forms.Button UYHbutton;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbmTurRepositoryItemLookUpEdit;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KDTrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource kdtBindingSource;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KPTrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource kptBindingSource;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NNNrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource nnnBindingSource;
-        public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit NNNrepositoryItemGridLookUpEdit;
-        private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemGridLookUpEdit1View;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem cccccccccToolStripMenuItem;
         private DevExpress.XtraNavBar.NavBarControl navBarControl1;
@@ -1014,8 +854,6 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItem2;
         private DevExpress.XtraNavBar.NavBarGroup TrnsfrRprNavBarGroup;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit KDTrepositoryItemGridLookUpEdit;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraNavBar.NavBarItem KdtTreeDownNavBarItem;
         private DevExpress.XtraNavBar.NavBarItem AVKnavBarItem;
         private DevExpress.XtraNavBar.NavBarItem ABKnavBarItem;
@@ -1023,22 +861,22 @@
         private DevExpress.XtraNavBar.NavBarGroup AccTnmNavBarGroup;
         private DevExpress.XtraNavBar.NavBarItem AN2HnavBarItem;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NeBrmRepositoryItemLookUpEdit;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit ABKrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource abkBindingSource;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AVKrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource avkBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KftLrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource kftLBindingSource;
+        private System.Windows.Forms.BindingSource kftlBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit NntLrepositoryItemLookUpEdit;
-        private System.Windows.Forms.BindingSource nntLBindingSource;
+        private System.Windows.Forms.BindingSource nntlBindingSource;
         public DataSetLookup dataSetLookup;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit NntLrepositoryItemGridLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit KdtLrepositoryItemGridLookUpEdit;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private System.Windows.Forms.BindingSource kDTLBindingSource;
+        private System.Windows.Forms.BindingSource kdtlBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemGridLookUpEdit KptLrepositoryItemGridLookUpEdit;
-        private System.Windows.Forms.BindingSource kPTLBindingSource;
+        private System.Windows.Forms.BindingSource kptlBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AvkLrepositoryItemLookUpEdit;
+        private System.Windows.Forms.BindingSource avklBindingSource;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbkLrepositoryItemLookUpEdit;
+        private System.Windows.Forms.BindingSource abklBindingSource;
     }
 }
