@@ -41,6 +41,10 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.AVDproxy> __Marshaller_rest_AVDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.AVDproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.ABMproxy> __Marshaller_rest_ABMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABMproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.ABDproxy> __Marshaller_rest_ABDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.ABDproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TOMproxy> __Marshaller_rest_TOMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TOMproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TODproxy> __Marshaller_rest_TODproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TODproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TWMproxy> __Marshaller_rest_TWMproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TWMproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.TWDproxy> __Marshaller_rest_TWDproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.TWDproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XGTproxy> __Marshaller_rest_XGTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XGTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.XDKproxy> __Marshaller_rest_XDKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.XDKproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UUUproxy> __Marshaller_rest_UUUproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UUUproxy.Parser.ParseFrom);
@@ -52,7 +56,6 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.NeParentsProxy> __Marshaller_rest_NeParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeParentsProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NeTreeProxy> __Marshaller_rest_NeTreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeTreeProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NodesInParentsProxy> __Marshaller_rest_NodesInParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NodesInParentsProxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KKKproxy> __Marshaller_rest_KKKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KKKproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KFTproxy> __Marshaller_rest_KFTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KFTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.QryPproxy> __Marshaller_rest_QryPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryPproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KCTproxy> __Marshaller_rest_KCTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KCTproxy.Parser.ParseFrom);
@@ -190,6 +193,62 @@ namespace Rest {
         __Marshaller_rest_ABDproxy,
         __Marshaller_rest_ABDproxy);
 
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TOMproxy> __Method_TOMfill = new grpc::Method<global::Rest.QryProxy, global::Rest.TOMproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "TOMfill",
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_TOMproxy);
+
+    static readonly grpc::Method<global::Rest.TOMproxy, global::Rest.TOMproxy> __Method_TOMupdate = new grpc::Method<global::Rest.TOMproxy, global::Rest.TOMproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TOMupdate",
+        __Marshaller_rest_TOMproxy,
+        __Marshaller_rest_TOMproxy);
+
+    static readonly grpc::Method<global::Rest.QryMDproxy, global::Rest.TODproxy> __Method_TODfill = new grpc::Method<global::Rest.QryMDproxy, global::Rest.TODproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "TODfill",
+        __Marshaller_rest_QryMDproxy,
+        __Marshaller_rest_TODproxy);
+
+    static readonly grpc::Method<global::Rest.TODproxy, global::Rest.TODproxy> __Method_TODupdate = new grpc::Method<global::Rest.TODproxy, global::Rest.TODproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TODupdate",
+        __Marshaller_rest_TODproxy,
+        __Marshaller_rest_TODproxy);
+
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.TWMproxy> __Method_TWMfill = new grpc::Method<global::Rest.QryProxy, global::Rest.TWMproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "TWMfill",
+        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_TWMproxy);
+
+    static readonly grpc::Method<global::Rest.TWMproxy, global::Rest.TWMproxy> __Method_TWMupdate = new grpc::Method<global::Rest.TWMproxy, global::Rest.TWMproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TWMupdate",
+        __Marshaller_rest_TWMproxy,
+        __Marshaller_rest_TWMproxy);
+
+    static readonly grpc::Method<global::Rest.QryMDproxy, global::Rest.TWDproxy> __Method_TWDfill = new grpc::Method<global::Rest.QryMDproxy, global::Rest.TWDproxy>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "TWDfill",
+        __Marshaller_rest_QryMDproxy,
+        __Marshaller_rest_TWDproxy);
+
+    static readonly grpc::Method<global::Rest.TWDproxy, global::Rest.TWDproxy> __Method_TWDupdate = new grpc::Method<global::Rest.TWDproxy, global::Rest.TWDproxy>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TWDupdate",
+        __Marshaller_rest_TWDproxy,
+        __Marshaller_rest_TWDproxy);
+
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy> __Method_XGTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.XGTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
@@ -315,13 +374,6 @@ namespace Rest {
         "NodesInParentsFill",
         __Marshaller_rest_QryProxy,
         __Marshaller_rest_NodesInParentsProxy);
-
-    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy> __Method_KKKfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KKKproxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "KKKfill",
-        __Marshaller_rest_QryProxy,
-        __Marshaller_rest_KKKproxy);
 
     static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy> __Method_KFTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KFTproxy>(
         grpc::MethodType.ServerStreaming,
@@ -564,6 +616,60 @@ namespace Rest {
       }
 
       /// <summary>
+      /// Order/Siparis
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task TOMfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.TOMproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.TOMproxy> TOMupdate(global::Rest.TOMproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task TODfill(global::Rest.QryMDproxy request, grpc::IServerStreamWriter<global::Rest.TODproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.TODproxy> TODupdate(global::Rest.TODproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Waybill/Irsaliye
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="responseStream">Used for sending responses back to the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>A task indicating completion of the handler.</returns>
+      public virtual global::System.Threading.Tasks.Task TWMfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.TWMproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.TWMproxy> TWMupdate(global::Rest.TWMproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task TWDfill(global::Rest.QryMDproxy request, grpc::IServerStreamWriter<global::Rest.TWDproxy> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Rest.TWDproxy> TWDupdate(global::Rest.TWDproxy request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
       ////// GNL /////
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -669,17 +775,6 @@ namespace Rest {
 
       /// <summary>
       ////// Kim /////
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="responseStream">Used for sending responses back to the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>A task indicating completion of the handler.</returns>
-      public virtual global::System.Threading.Tasks.Task KKKfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.KKKproxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
       /// FirmaTanim
       /// </summary>
       /// <param name="request">The request received from the client.</param>
@@ -1119,6 +1214,130 @@ namespace Rest {
         return CallInvoker.AsyncUnaryCall(__Method_ABDupdate, null, options, request);
       }
       /// <summary>
+      /// Order/Siparis
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TOMproxy> TOMfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TOMfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Order/Siparis
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TOMproxy> TOMfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_TOMfill, null, options, request);
+      }
+      public virtual global::Rest.TOMproxy TOMupdate(global::Rest.TOMproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TOMupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.TOMproxy TOMupdate(global::Rest.TOMproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TOMupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TOMproxy> TOMupdateAsync(global::Rest.TOMproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TOMupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TOMproxy> TOMupdateAsync(global::Rest.TOMproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TOMupdate, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TODproxy> TODfill(global::Rest.QryMDproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TODfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TODproxy> TODfill(global::Rest.QryMDproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_TODfill, null, options, request);
+      }
+      public virtual global::Rest.TODproxy TODupdate(global::Rest.TODproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TODupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.TODproxy TODupdate(global::Rest.TODproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TODupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TODproxy> TODupdateAsync(global::Rest.TODproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TODupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TODproxy> TODupdateAsync(global::Rest.TODproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TODupdate, null, options, request);
+      }
+      /// <summary>
+      /// Waybill/Irsaliye
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TWMproxy> TWMfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWMfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Waybill/Irsaliye
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TWMproxy> TWMfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_TWMfill, null, options, request);
+      }
+      public virtual global::Rest.TWMproxy TWMupdate(global::Rest.TWMproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWMupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.TWMproxy TWMupdate(global::Rest.TWMproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TWMupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TWMproxy> TWMupdateAsync(global::Rest.TWMproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWMupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TWMproxy> TWMupdateAsync(global::Rest.TWMproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TWMupdate, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TWDproxy> TWDfill(global::Rest.QryMDproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWDfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.TWDproxy> TWDfill(global::Rest.QryMDproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_TWDfill, null, options, request);
+      }
+      public virtual global::Rest.TWDproxy TWDupdate(global::Rest.TWDproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWDupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Rest.TWDproxy TWDupdate(global::Rest.TWDproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TWDupdate, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TWDproxy> TWDupdateAsync(global::Rest.TWDproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TWDupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Rest.TWDproxy> TWDupdateAsync(global::Rest.TWDproxy request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TWDupdate, null, options, request);
+      }
+      /// <summary>
       ////// GNL /////
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -1348,27 +1567,6 @@ namespace Rest {
       }
       /// <summary>
       ////// Kim /////
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KKKproxy> KKKfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return KKKfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      ////// Kim /////
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KKKproxy> KKKfill(global::Rest.QryProxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_KKKfill, null, options, request);
-      }
-      /// <summary>
       /// FirmaTanim
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -1381,6 +1579,7 @@ namespace Rest {
         return KFTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
+      ////// Kim /////
       /// FirmaTanim
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -1642,6 +1841,14 @@ namespace Rest {
           .AddMethod(__Method_ABMupdate, serviceImpl.ABMupdate)
           .AddMethod(__Method_ABDfill, serviceImpl.ABDfill)
           .AddMethod(__Method_ABDupdate, serviceImpl.ABDupdate)
+          .AddMethod(__Method_TOMfill, serviceImpl.TOMfill)
+          .AddMethod(__Method_TOMupdate, serviceImpl.TOMupdate)
+          .AddMethod(__Method_TODfill, serviceImpl.TODfill)
+          .AddMethod(__Method_TODupdate, serviceImpl.TODupdate)
+          .AddMethod(__Method_TWMfill, serviceImpl.TWMfill)
+          .AddMethod(__Method_TWMupdate, serviceImpl.TWMupdate)
+          .AddMethod(__Method_TWDfill, serviceImpl.TWDfill)
+          .AddMethod(__Method_TWDupdate, serviceImpl.TWDupdate)
           .AddMethod(__Method_XGTfill, serviceImpl.XGTfill)
           .AddMethod(__Method_XGTupdate, serviceImpl.XGTupdate)
           .AddMethod(__Method_XDKfill, serviceImpl.XDKfill)
@@ -1660,7 +1867,6 @@ namespace Rest {
           .AddMethod(__Method_NeUpFill, serviceImpl.NeUpFill)
           .AddMethod(__Method_NeDownFill, serviceImpl.NeDownFill)
           .AddMethod(__Method_NodesInParentsFill, serviceImpl.NodesInParentsFill)
-          .AddMethod(__Method_KKKfill, serviceImpl.KKKfill)
           .AddMethod(__Method_KFTfill, serviceImpl.KFTfill)
           .AddMethod(__Method_KFTupdate, serviceImpl.KFTupdate)
           .AddMethod(__Method_KCTfill, serviceImpl.KCTfill)

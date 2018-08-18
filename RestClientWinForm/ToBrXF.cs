@@ -33,6 +33,7 @@ namespace RestClientWinForm
                 IsP2C = true;
 
             Task.Run(async () => { await mainDataSet.BRparentsFill(M); }).Wait();
+
             string parents = mainDataSet.BrParents.Rows[0]["Parents"].ToString();
             ulong key = 0;
             foreach (DataRow row in Program.MF.dataSetLookup.KDTL.Rows)

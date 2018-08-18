@@ -178,7 +178,7 @@ namespace RestClientWinForm
 
             object Key = gridView1.GetFocusedRowCellValue(colRowKey);
             AbdXF frm = new AbdXF();
-            frm.ABMRow = (AccDataSet.ABMRow)dataSetAcc.ABM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            frm.ABMRow = (DataSetAcc.ABMRow)dataSetAcc.ABM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
             var dr = frm.ShowDialog();
             if (!readOnly)

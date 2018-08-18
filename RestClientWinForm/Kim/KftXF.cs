@@ -25,13 +25,6 @@ namespace RestClientWinForm
 
         }
 
-        private void SIL_Load(object sender, EventArgs e)
-        {
-            // KKK.TUR deki F yi bul
-            //DataRow[] xgtRows = Program.MF.dataSetKim.XGT.Select($"P = {Program.MF.XgtDic["KKK.TUR"]} AND Kd = 'F'");
-            //ObjTur = xgtRows[0]["RowKey"];
-        }
-
         private void KftXF_Load(object sender, EventArgs e)
         {
             // KKK.TUR deki F yi bul

@@ -63,19 +63,6 @@ namespace RestClientWinForm
         {
             nor = 0;
 
-            Stopwatch watcher = new Stopwatch();
-            watcher.Start();
-            //var tasks = new List<Task>();
-            ////tasks.Add(dataSetLookup.AhpL());
-            //tasks.Add(Task.Run( () => { dataSetLookup.AhpL(); }));
-            //tasks.Add(Task.Run(async () => { await dataSetLookup.AhpL(); }));
-            //tasks.Add(Task.Run(async () => { await mainDataSet.AHPfill(); }));
-            //Task t = Task.WhenAll(tasks);
-            //t.Wait();
-            //watcher.Stop();
-            //var bbb = dataSetLookup.AHPL.Count;
-
-
             Task.Run(async () =>
             {
                 sw.Restart();
@@ -89,19 +76,17 @@ namespace RestClientWinForm
                 //await mainDataSet.KPTfill();
                 //await mainDataSet.NNNfill();
 
-                nor += await dataSetLookup.BbL();
-                nor += await dataSetLookup.KdtL();
-                nor += await dataSetLookup.KftL();
-                nor += await dataSetLookup.KptL();
-                nor += await dataSetLookup.NntL();
+                nor += await dataSetLookup.BbL();   // Base Deneme
+                nor += await dataSetLookup.KdtL();  // Dept
+                nor += await dataSetLookup.KftL();  // Firma
+                nor += await dataSetLookup.KptL();  // Personel
+                nor += await dataSetLookup.NntL();  // Ne
 
-                nor += await dataSetLookup.AhpL();
-                nor += await dataSetLookup.XgtL();
+                nor += await dataSetLookup.AhpL();  // HesapPlani
+                nor += await dataSetLookup.XgtL();  // Genel
                 //string sss = await mainDataSet.AHPfill();
 
                 sw.Stop();
-                //watcher.Stop();
-                //var bbb = dataSetLookup.AHPL.Count;
                 InitLookups();
             }).ContinueWith((t) => {
                 toolStripStatusLabel1.Text = $"{nor:n0} recs read in {sw.ElapsedMilliseconds:n0} msec (1/1000sec)";
@@ -127,6 +112,7 @@ namespace RestClientWinForm
 
         public void InitLookups()
         {
+            /*
             XgtDic = new Dictionary<string, ulong>();
             foreach(MainDataSet.XGTRow r in mainDataSet.XGT.Rows)
             {
@@ -137,11 +123,14 @@ namespace RestClientWinForm
             }
             DataView DvzDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["DVZ"]}", "Kd", DataViewRowState.CurrentRows);
             DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
+            */
+            DataView DvzDV = new DataView(dataSetLookup.XGTL, "PKd = 'DVZ'", "Kd", DataViewRowState.CurrentRows);
+            DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
-            DataView KkkTurDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["KKK.TUR"]}", "Kd", DataViewRowState.CurrentRows);
+            DataView KkkTurDV = new DataView(dataSetLookup.XGTL, "PKd = 'KKK.TUR'", "Kd", DataViewRowState.CurrentRows);
             KkkTurRepositoryItemLookUpEdit.DataSource = KkkTurDV;
 
-            DataView NeBrmDV = new DataView(mainDataSet.XGT, $"P = {XgtDic["NNN.BRM"]}", "Kd", DataViewRowState.CurrentRows);
+            DataView NeBrmDV = new DataView(dataSetLookup.XGTL, "PKd = 'NNN.BRM'", "Kd", DataViewRowState.CurrentRows);
             NeBrmRepositoryItemLookUpEdit.DataSource = NeBrmDV;
         }
 

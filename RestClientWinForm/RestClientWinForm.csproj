@@ -100,14 +100,6 @@
     <Compile Include="Acc\AbdXF.Designer.cs">
       <DependentUpon>AbdXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="AccDataSet.cs">
-      <DependentUpon>AccDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="AccDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AccDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Acc\AvmXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -276,6 +268,30 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProxyHelper.cs" />
+    <Compile Include="Trnsfr\TodXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trnsfr\TodXF.Designer.cs">
+      <DependentUpon>TodXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trnsfr\TomXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trnsfr\TomXF.Designer.cs">
+      <DependentUpon>TomXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trnsfr\TwdXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trnsfr\TwdXF.Designer.cs">
+      <DependentUpon>TwdXF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trnsfr\TwmXF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trnsfr\TwmXF.Designer.cs">
+      <DependentUpon>TwmXF.cs</DependentUpon>
+    </Compile>
     <Compile Include="UuuXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -365,6 +381,18 @@
     <EmbeddedResource Include="ToBrXF.resx">
       <DependentUpon>ToBrXF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Trnsfr\TodXF.resx">
+      <DependentUpon>TodXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trnsfr\TomXF.resx">
+      <DependentUpon>TomXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trnsfr\TwdXF.resx">
+      <DependentUpon>TwdXF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trnsfr\TwmXF.resx">
+      <DependentUpon>TwmXF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UuuXF.resx">
       <DependentUpon>UuuXF.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,17 +402,6 @@
     <EmbeddedResource Include="XdkXF.resx">
       <DependentUpon>XdkXF.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="AccDataSet.xsc">
-      <DependentUpon>AccDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="AccDataSet.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>AccDataSet.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="AccDataSet.xss">
-      <DependentUpon>AccDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DataSetAcc.xsc">
       <DependentUpon>DataSetAcc.xsd</DependentUpon>
     </None>
@@ -485,7 +502,9 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Gnl\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

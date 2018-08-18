@@ -484,30 +484,30 @@ namespace RestServerSC
                     {
                         if(request.RowSte == "M")
                         {
-                            AVM sonAVM = Db.FromId<AVM>(request.RowKey);
+                            AVM son = Db.FromId<AVM>(request.RowKey);
                             if (request.Drm == "P")
                             {
-                                if (sonAVM.Drm == "P")
+                                if (son.Drm == "P")
                                 {
-                                    request = CRUDsHelper.ToProxy<AVMproxy, AVM>(sonAVM);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request = CRUDsHelper.ToProxy<AVMproxy, AVM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
                                     request.RowErr = "LOCKED Already";
                                 }
                                 else
                                 {
-                                    request = CRUDsHelper.ToProxy<AVMproxy, AVM>(sonAVM);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request = CRUDsHelper.ToProxy<AVMproxy, AVM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
                                     request.Drm = "P";
                                 }
                             }
                             else if (request.Drm == "K")
                             {
-                                if (sonAVM.Brc != sonAVM.Alc)
+                                if (son.Brc != son.Alc)
                                     request.RowErr = "Brc = Alc olmalı.";
                             }
                         }
                         if (request.RowErr == string.Empty)
                         {
                             if (request.TUR == 0)
-                                request.TUR = GnlOps.XGTfind("AVM.TUR", "MHS").GetObjectNo();
+                                request.TUR = GnlOps.XGTfind("AVM.TUR", "MHS").GetObjectNo();   // DefaultTur
 
                             AVM row = CRUDsHelper.FromProxy<AVMproxy, AVM>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
@@ -614,7 +614,6 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
-
         // Bill/Fatura Master
         public override async Task ABMfill(QryProxy request, IServerStreamWriter<ABMproxy> responseStream, ServerCallContext context)
         {
@@ -670,11 +669,11 @@ namespace RestServerSC
                     {
                         if (request.RowSte == "M")
                         {
-                            ABM latestRec = Db.FromId<ABM>(request.RowKey);  // Record'un enSon/enYeni/Guncel hali
+                            ABM son = Db.FromId<ABM>(request.RowKey);  // Record'un enSon/enYeni/Guncel hali
                             if (request.Drm == "P")
                             {
-                                request = CRUDsHelper.ToProxy<ABMproxy, ABM>(latestRec);   // Latest Row gonder, baskasi tarafindan degistirilmis
-                                if (latestRec.Drm == "P")
+                                request = CRUDsHelper.ToProxy<ABMproxy, ABM>(son);   // Latest Row gonder, baskasi tarafindan degistirilmis
+                                if (son.Drm == "P")
                                     request.RowErr = "LOCKED Already";
                                 else
                                     request.Drm = "P";
@@ -687,7 +686,7 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             if (request.TUR == 0)
-                                request.TUR = GnlOps.XGTfind("ABM.TUR", "BS").GetObjectNo();
+                                request.TUR = GnlOps.XGTfind("ABM.TUR", "BS").GetObjectNo();    // Default
 
                             ABM row = CRUDsHelper.FromProxy<ABMproxy, ABM>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
@@ -797,6 +796,111 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
+        // Order/Siparis Master
+        public override async Task TOMfill(QryProxy request, IServerStreamWriter<TOMproxy> responseStream, ServerCallContext context)
+        {
+            TOMproxy proxy = new TOMproxy();
+            List<TOMproxy> proxyList = new List<TOMproxy>();
+
+            Type proxyType = typeof(TOMproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<TOM>("select r from TOM r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new TOMproxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            ORG = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
+                            DST = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
+                            Trh = row.Trh.Ticks,
+                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                            Drm = row.Drm,
+                            Kd = row.Kd,
+                            Ad = row.Ad,
+                            Info = row.Info, //row.Info ?? "",
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<TOMproxy> TOMupdate(TOMproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    request.RowErr = "";
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        if (request.RowSte == "M")
+                        {
+                            TOM son = Db.FromId<TOM>(request.RowKey);
+                            if (request.Drm == "P")
+                            {
+                                if (son.Drm == "P")
+                                {
+                                    request = CRUDsHelper.ToProxy<TOMproxy, TOM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.RowErr = "LOCKED Already";
+                                }
+                                else
+                                {
+                                    request = CRUDsHelper.ToProxy<TOMproxy, TOM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.Drm = "P";
+                                }
+                            }
+                            else if (request.Drm == "K")
+                            {
+                            }
+                        }
+                        if (request.RowErr == string.Empty)
+                        {
+                            if (request.TUR == 0)
+                                request.TUR = GnlOps.XGTfind("TOM.TUR", "???").GetObjectNo();   // DefaultTur
+
+                            TOM row = CRUDsHelper.FromProxy<TOMproxy, TOM>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<TOMproxy, TOM>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D" && request.Drm == "A")
+                    {
+                        var row = (TOM)Db.FromId(request.RowKey);
+                        if (row == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            if (Db.SQL<TOD>("select r from TOD r where r.TOM.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
+                                request.RowErr = $"Detayı var silemezsiniz.";
+                            else
+                            {
+                                UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
+                                row.Delete();
+                            }
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
         // GenelTanim
         public override async Task XGTfill(QryProxy request, IServerStreamWriter<XGTproxy> responseStream, ServerCallContext context)
         {
@@ -882,7 +986,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
 
         // DovizKur
         public override async Task XDKfill(QryProxy request, IServerStreamWriter<XDKproxy> responseStream, ServerCallContext context)
@@ -975,7 +1078,6 @@ namespace RestServerSC
             return Task.FromResult(request);
         }
 
-
         // User
         public override async Task UUUfill(QryProxy request, IServerStreamWriter<UUUproxy> responseStream, ServerCallContext context)
         {
@@ -1007,7 +1109,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<UUUproxy> UUUupdate(UUUproxy request, ServerCallContext context)
         {
             var proxy = new UUUproxy
@@ -1043,7 +1144,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
         public override async Task UYTfill(QryProxy request, IServerStreamWriter<UYTproxy> responseStream, ServerCallContext context)
         {
             UYTproxy proxy = new UYTproxy();
@@ -1073,7 +1173,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<UYTproxy> UYTupdate(UYTproxy request, ServerCallContext context)
         {
             var proxy = new UYTproxy
@@ -1109,7 +1208,6 @@ namespace RestServerSC
 
             return Task.FromResult(request);
         }
-
         public override async Task UYHfill(QryProxy request, IServerStreamWriter<UYHproxy> responseStream, ServerCallContext context)
         {
             UYHproxy proxy = new UYHproxy();
@@ -1140,7 +1238,6 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-
         public override Task<UYHproxy> UYHupdate(UYHproxy request, ServerCallContext context)
         {
             var proxy = new UYHproxy
@@ -1749,12 +1846,15 @@ namespace RestServerSC
                 bool isP2C = false;
                 if (string.Compare(request.Mtyp, request.Dtyp) <= 0)  // P is Master
                 {
-                    brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.P IS {request.Mtyp} and r.C IS {request.Dtyp}", request.M);
+                    //brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.P IS {request.Mtyp} and r.C IS {request.Dtyp}", request.M);    Bug ikinci IS'i gormuyor
+                    brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.P IS {request.Mtyp} and r.C.Typ = ?", request.M, request.Dtyp);  // Workaround
                     isP2C = true;
                 }
                 else // C is Master
-                    brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.C.ObjectNo = ? and r.P IS {request.Dtyp} and r.C IS {request.Mtyp}", request.M);
-
+                {
+                    //brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.C.ObjectNo = ? and r.P IS {request.Dtyp} and r.C IS {request.Mtyp}", request.M);    // Bug
+                    brs = Db.SQL<BR>($"SELECT r FROM BR r WHERE r.C.ObjectNo = ? and r.P IS {request.Dtyp} and r.C.Typ = ?", request.M, request.Mtyp);  // Workaround
+                }
                 //brs = Db.SQL<BR>("SELECT r FROM BR r WHERE r.P.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", request.M, request.Mtyp, request.Dtyp);
                 //brs = Db.SQL<BR>("SELECT r FROM BR r WHERE r.C.ObjectNo = ? and r.Ptyp = ? and r.Ctyp = ?", request.M, request.Dtyp, request.Mtyp);
 

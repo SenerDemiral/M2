@@ -51,6 +51,18 @@ service CRUDs {
   rpc ABDfill (QryMDproxy) returns (stream ABDproxy) {}
   rpc ABDupdate (ABDproxy) returns (ABDproxy) {}
 
+  // Order/Siparis
+  rpc TOMfill (QryProxy) returns (stream TOMproxy) {}
+  rpc TOMupdate (TOMproxy) returns (TOMproxy) {}
+  rpc TODfill (QryMDproxy) returns (stream TODproxy) {}
+  rpc TODupdate (TODproxy) returns (TODproxy) {}
+
+  // Waybill/Irsaliye
+  rpc TWMfill (QryProxy) returns (stream TWMproxy) {}
+  rpc TWMupdate (TWMproxy) returns (TWMproxy) {}
+  rpc TWDfill (QryMDproxy) returns (stream TWDproxy) {}
+  rpc TWDupdate (TWDproxy) returns (TWDproxy) {}
+
   ///// GNL /////
   rpc XGTfill (QryProxy) returns (stream XGTproxy) {}
   rpc XGTupdate (XGTproxy) returns (XGTproxy) {}
@@ -77,8 +89,6 @@ service CRUDs {
   rpc NodesInParentsFill (QryProxy) returns (stream NodesInParentsProxy) {}
 
   ///// Kim /////
-  rpc KKKfill (QryProxy) returns (stream KKKproxy) {}	// ??????????????
-
   // FirmaTanim
   rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
   rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
@@ -299,6 +309,62 @@ message ABDproxy {
 	google.protobuf.StringValue Info = 15;
 }
 
+////////////////////TRNSFR////////////////////
+
+// TransferOrderMaster
+message TOMproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	int64 Trh = 5;
+	uint64 TUR = 6;
+	string Drm = 7;
+	uint64 ORG = 8;
+	uint64 DST = 9;
+	google.protobuf.StringValue Kd = 10;
+	google.protobuf.StringValue Ad = 11;
+	google.protobuf.StringValue info = 12;
+}
+
+// TransferOrderDety
+message TODproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 TOM = 5;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue info = 8;
+}
+
+// TransferWaybillMaster
+message TWMproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	int64 Trh = 5;
+	uint64 TUR = 6;
+	string Drm = 7;
+	google.protobuf.StringValue Kd = 8;
+	google.protobuf.StringValue Ad = 9;
+	google.protobuf.StringValue info = 10;
+}
+
+// TransferWaybillDety
+message TWDproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 TWM = 5;
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue info = 8;
+}
+
 ////////////////////NE/////////////////////////
 
 // NNN Ne
@@ -347,16 +413,6 @@ message BRparentsProxy {
 }
 
 ////////////////////KIM/////////////////////////
-
-// KKK Kim Base SIL
-message KKKproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	string Ad = 5;
-	string Tur = 6;	// FR:Firma, DP:Depo, UH:Uretim, IM:Imha, 
-}
 
 message KFTproxy {
 	string RowSte = 1;
@@ -423,52 +479,6 @@ message KHTproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	uint64 M = 5;	// Masters are KDT,KPT,KFT,KCT,
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
-	google.protobuf.StringValue info = 8;
-}
-
-// TransferOrderMaster
-message TOMproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	google.protobuf.StringValue Kd = 5;
-	google.protobuf.StringValue Ad = 6;
-	google.protobuf.StringValue info = 7;
-}
-
-// TransferOrderDety
-message TODproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 TOM = 5;
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
-	google.protobuf.StringValue info = 8;
-}
-
-// TransferWaybillMaster
-message TWMproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	google.protobuf.StringValue Kd = 5;
-	google.protobuf.StringValue Ad = 6;
-	google.protobuf.StringValue info = 7;
-}
-
-// TransferWaybillDety
-message TWDproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 TWM = 5;
 	google.protobuf.StringValue Kd = 6;
 	google.protobuf.StringValue Ad = 7;
 	google.protobuf.StringValue info = 8;

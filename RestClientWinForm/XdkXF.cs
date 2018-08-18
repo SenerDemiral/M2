@@ -28,7 +28,7 @@ namespace RestClientWinForm
         {
             string res = "";
             xdkGridControl.DataSource = null;
-            mainDataSet.XDK.Clear();
+            dataSetGnl.XDK.Rows.Clear();
 
             gridView1.OptionsBehavior.ReadOnly = false;
             QryProxy qp = new QryProxy();
@@ -39,7 +39,7 @@ namespace RestClientWinForm
                 qp.Query = "";
                 gridView1.OptionsBehavior.ReadOnly = true;
             }
-            Task.Run(async () => { res = await mainDataSet.XDKfill(qp); }).Wait();
+            Task.Run(async () => { res = await dataSetGnl.XDKfill(qp); }).Wait();
             toolStripStatusLabel1.Text = res;
             xdkGridControl.DataSource = xdkBindingSource;
         }
@@ -49,13 +49,13 @@ namespace RestClientWinForm
             gridView1.PostEditor();
             gridView1.UpdateCurrentRow();
             DialogResult dr = DialogResult.Yes;
-            if (mainDataSet.HasChanges())
+            if (dataSetGnl.HasChanges())
             {
                 if (silent == false)
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = mainDataSet.XDKupdate();
+                    string err = dataSetGnl.XDKupdate();
                     if (err != string.Empty)
                     {
                         MessageBox.Show(err);

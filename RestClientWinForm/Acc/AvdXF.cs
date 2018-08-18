@@ -16,7 +16,7 @@ namespace RestClientWinForm
     public partial class AvdXF : DevExpress.XtraEditors.XtraForm
     {
         public object ObjAVM = (ulong)469;
-        public AccDataSet.AVMRow AVMRow;
+        public DataSetAcc.AVMRow AVMRow;
         public bool readOnly = true;
         private object ObjDvzTRL;
 
@@ -46,9 +46,9 @@ namespace RestClientWinForm
                 Query = "Trh",
                 Param = AVMRow.Trh.Ticks.ToString(),
             };
-            Task.Run(async () => { await mainDataSet.XDKfill(qp); }).Wait();
+            Task.Run(async () => { await dataSetGnl.XDKfill(qp); }).Wait();
 
-            DataRow[] xdkRows = mainDataSet.XDK.Select("Dvz = 'TRL'");
+            DataRow[] xdkRows = dataSetGnl.XDK.Select("Dvz = 'TRL'");
             ObjDvzTRL = xdkRows[0]["DVT"];
 
             FillDB();

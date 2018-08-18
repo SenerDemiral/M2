@@ -1,16 +1,79 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<xs:schema id="DataSetTrnsfr" 
-                  targetNamespace="http://tempuri.org/DataSetTrnsfr.xsd"
-                  elementFormDefault="qualified"
-                  attributeFormDefault="qualified"
-                  xmlns="http://tempuri.org/DataSetTrnsfr.xsd"
-                  xmlns:mstns="http://tempuri.org/DataSetTrnsfr.xsd"
-                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                  xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                  xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
-    <xs:element name="DataSetTrnsfr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true">
-        <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded"></xs:choice>
-        </xs:complexType>
-    </xs:element>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetTrnsfr" targetNamespace="http://tempuri.org/DataSetTrnsfr.xsd" xmlns:mstns="http://tempuri.org/DataSetTrnsfr.xsd" xmlns="http://tempuri.org/DataSetTrnsfr.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetTrnsfr" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetTrnsfr" msprop:Generator_UserDSName="DataSetTrnsfr">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TOM" msprop:Generator_TableClassName="TOMDataTable" msprop:Generator_TableVarName="tableTOM" msprop:Generator_RowChangedName="TOMRowChanged" msprop:Generator_TablePropName="TOM" msprop:Generator_RowDeletingName="TOMRowDeleting" msprop:Generator_RowChangingName="TOMRowChanging" msprop:Generator_RowEvHandlerName="TOMRowChangeEventHandler" msprop:Generator_RowDeletedName="TOMRowDeleted" msprop:Generator_RowClassName="TOMRow" msprop:Generator_UserTableName="TOM" msprop:Generator_RowEvArgName="TOMRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="Drm" msprop:Generator_ColumnVarNameInTable="columnDrm" msprop:Generator_ColumnPropNameInRow="Drm" msprop:Generator_ColumnPropNameInTable="DrmColumn" msprop:Generator_UserColumnName="Drm" type="xs:string" minOccurs="0" />
+              <xs:element name="Trh" msprop:Generator_ColumnVarNameInTable="columnTrh" msprop:Generator_ColumnPropNameInRow="Trh" msprop:Generator_ColumnPropNameInTable="TrhColumn" msprop:Generator_UserColumnName="Trh" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TUR" msprop:Generator_ColumnVarNameInTable="columnTUR" msprop:Generator_ColumnPropNameInRow="TUR" msprop:Generator_ColumnPropNameInTable="TURColumn" msprop:Generator_UserColumnName="TUR" type="xs:unsignedLong" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TOD" msprop:Generator_TableClassName="TODDataTable" msprop:Generator_TableVarName="tableTOD" msprop:Generator_RowChangedName="TODRowChanged" msprop:Generator_TablePropName="TOD" msprop:Generator_RowDeletingName="TODRowDeleting" msprop:Generator_RowChangingName="TODRowChanging" msprop:Generator_RowEvHandlerName="TODRowChangeEventHandler" msprop:Generator_RowDeletedName="TODRowDeleted" msprop:Generator_RowClassName="TODRow" msprop:Generator_UserTableName="TOD" msprop:Generator_RowEvArgName="TODRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="TOM" msprop:Generator_ColumnVarNameInTable="columnTOM" msprop:Generator_ColumnPropNameInRow="TOM" msprop:Generator_ColumnPropNameInTable="TOMColumn" msprop:Generator_UserColumnName="TOM" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TWM" msprop:Generator_TableClassName="TWMDataTable" msprop:Generator_TableVarName="tableTWM" msprop:Generator_RowChangedName="TWMRowChanged" msprop:Generator_TablePropName="TWM" msprop:Generator_RowDeletingName="TWMRowDeleting" msprop:Generator_RowChangingName="TWMRowChanging" msprop:Generator_RowEvHandlerName="TWMRowChangeEventHandler" msprop:Generator_RowDeletedName="TWMRowDeleted" msprop:Generator_RowClassName="TWMRow" msprop:Generator_UserTableName="TWM" msprop:Generator_RowEvArgName="TWMRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TWD" msprop:Generator_TableClassName="TWDDataTable" msprop:Generator_TableVarName="tableTWD" msprop:Generator_RowChangedName="TWDRowChanged" msprop:Generator_TablePropName="TWD" msprop:Generator_RowDeletingName="TWDRowDeleting" msprop:Generator_RowChangingName="TWDRowChanging" msprop:Generator_RowEvHandlerName="TWDRowChangeEventHandler" msprop:Generator_RowDeletedName="TWDRowDeleted" msprop:Generator_RowClassName="TWDRow" msprop:Generator_UserTableName="TWD" msprop:Generator_RowEvArgName="TWDRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="TOM" msprop:Generator_ColumnVarNameInTable="columnTOM" msprop:Generator_ColumnPropNameInRow="TOM" msprop:Generator_ColumnPropNameInTable="TOMColumn" msprop:Generator_UserColumnName="TOM" type="xs:unsignedLong" minOccurs="0" />
+              <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
+              <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
+              <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TOM" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="TOD_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TOD" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="TWM_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TWM" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+    <xs:unique name="TWD_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TWD" />
+      <xs:field xpath="mstns:RowKey" />
+    </xs:unique>
+  </xs:element>
 </xs:schema>

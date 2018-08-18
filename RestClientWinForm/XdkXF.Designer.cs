@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(XdkXF));
-            this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.xdkBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -47,7 +46,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
+            this.dataSetGnl = new RestClientWinForm.DataSetGnl();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingNavigator)).BeginInit();
             this.xdkBindingNavigator.SuspendLayout();
@@ -56,17 +55,8 @@
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetGnl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mainDataSet
-            // 
-            this.mainDataSet.DataSetName = "MainDataSet";
-            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // xdkBindingSource
-            // 
-            this.xdkBindingSource.DataMember = "XDK";
-            this.xdkBindingSource.DataSource = this.mainDataSet;
             // 
             // xdkBindingNavigator
             // 
@@ -227,6 +217,11 @@
             this.dateEdit1.Size = new System.Drawing.Size(100, 20);
             this.dateEdit1.TabIndex = 3;
             // 
+            // dataSetGnl
+            // 
+            this.dataSetGnl.DataSetName = "DataSetGnl";
+            this.dataSetGnl.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // XdkXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,7 +234,6 @@
             this.Name = "XdkXF";
             this.Text = "Döviz Kurları [XdkXF]";
             this.Load += new System.EventHandler(this.XdkXF_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingNavigator)).EndInit();
             this.xdkBindingNavigator.ResumeLayout(false);
@@ -250,14 +244,13 @@
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetGnl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private MainDataSet mainDataSet;
         private System.Windows.Forms.BindingSource xdkBindingSource;
         private System.Windows.Forms.BindingNavigator xdkBindingNavigator;
         private DevExpress.XtraGrid.GridControl xdkGridControl;
@@ -274,5 +267,6 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraEditors.DateEdit dateEdit1;
+        private DataSetGnl dataSetGnl;
     }
 }

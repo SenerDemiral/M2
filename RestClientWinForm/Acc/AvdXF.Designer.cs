@@ -31,10 +31,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AvdXF));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue2 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue1 = new DevExpress.XtraEditors.FormatConditionRuleValue();
             this.colTut = new DevExpress.XtraGrid.Columns.GridColumn();
             this.avdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetAcc = new RestClientWinForm.DataSetAcc();
             this.avdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -53,7 +54,6 @@
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DVTrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.xdkBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mainDataSet = new RestClientWinForm.MainDataSet();
             this.colKur = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTutTL = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -65,8 +65,9 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dataSetAcc = new RestClientWinForm.DataSetAcc();
+            this.dataSetGnl = new RestClientWinForm.DataSetGnl();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).BeginInit();
             this.avdBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.avdGridControl)).BeginInit();
@@ -74,7 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -82,7 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetGnl)).BeginInit();
             this.SuspendLayout();
             // 
             // colTut
@@ -102,6 +102,11 @@
             // 
             this.avdBindingSource.DataMember = "AVD";
             this.avdBindingSource.DataSource = this.dataSetAcc;
+            // 
+            // dataSetAcc
+            // 
+            this.dataSetAcc.DataSetName = "DataSetAcc";
+            this.dataSetAcc.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // avdBindingNavigator
             // 
@@ -228,16 +233,16 @@
             this.colTutTL,
             this.colKd,
             this.colAd});
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.colTut;
-            gridFormatRule2.Name = "FormatAlc";
-            formatConditionRuleValue2.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
-            formatConditionRuleValue2.Appearance.Options.UseForeColor = true;
-            formatConditionRuleValue2.Condition = DevExpress.XtraEditors.FormatCondition.Less;
-            formatConditionRuleValue2.Value1 = 0D;
-            gridFormatRule2.Rule = formatConditionRuleValue2;
-            gridFormatRule2.StopIfTrue = true;
-            this.gridView1.FormatRules.Add(gridFormatRule2);
+            gridFormatRule1.ApplyToRow = true;
+            gridFormatRule1.Column = this.colTut;
+            gridFormatRule1.Name = "FormatAlc";
+            formatConditionRuleValue1.Appearance.ForeColor = System.Drawing.Color.MediumVioletRed;
+            formatConditionRuleValue1.Appearance.Options.UseForeColor = true;
+            formatConditionRuleValue1.Condition = DevExpress.XtraEditors.FormatCondition.Less;
+            formatConditionRuleValue1.Value1 = 0D;
+            gridFormatRule1.Rule = formatConditionRuleValue1;
+            gridFormatRule1.StopIfTrue = true;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
             this.gridView1.GridControl = this.avdGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.MouseDownFocused;
@@ -309,16 +314,6 @@
             this.DVTrepositoryItemLookUpEdit.Name = "DVTrepositoryItemLookUpEdit";
             this.DVTrepositoryItemLookUpEdit.ValueMember = "DVT";
             this.DVTrepositoryItemLookUpEdit.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.DVTrepositoryItemLookUpEdit_Closed);
-            // 
-            // xdkBindingSource
-            // 
-            this.xdkBindingSource.DataMember = "XDK";
-            this.xdkBindingSource.DataSource = this.mainDataSet;
-            // 
-            // mainDataSet
-            // 
-            this.mainDataSet.DataSetName = "MainDataSet";
-            this.mainDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // colKur
             // 
@@ -434,10 +429,10 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // dataSetAcc
+            // dataSetGnl
             // 
-            this.dataSetAcc.DataSetName = "DataSetAcc";
-            this.dataSetAcc.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.dataSetGnl.DataSetName = "DataSetGnl";
+            this.dataSetGnl.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // AvdXF
             // 
@@ -450,6 +445,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AvdXF_FormClosing);
             this.Load += new System.EventHandler(this.AvdXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.avdBindingNavigator)).EndInit();
             this.avdBindingNavigator.ResumeLayout(false);
             this.avdBindingNavigator.PerformLayout();
@@ -458,7 +454,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xdkBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
@@ -467,7 +462,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetGnl)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,7 +487,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;
         private DevExpress.XtraGrid.Columns.GridColumn colTutTL;
-        private MainDataSet mainDataSet;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit DVTrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource xdkBindingSource;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
@@ -506,5 +500,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colKd;
         private DevExpress.XtraGrid.Columns.GridColumn colAd;
         private DataSetAcc dataSetAcc;
+        private DataSetGnl dataSetGnl;
     }
 }

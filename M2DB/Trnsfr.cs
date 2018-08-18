@@ -52,6 +52,9 @@ namespace M2DB
     [Database]
     public class TOM : BB    // Order/Siparis Master
     {
+        public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
+        public DateTime Trh { get; set; }
+        public XGT TUR { get; set; }        // Tür
         public KKK ORG { get; set; }        // Kimden/Nereden/Origin (Musteri/Depo/UretimHatti)
         public KKK DST { get; set; }        // Kime/Nereye/Destination
         public DateTime ROH { get; set; }   // RequestOnHand. Alc belirtir
