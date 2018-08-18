@@ -93,6 +93,7 @@
             // 
             // colL
             // 
+            this.colL.Caption = "Lvl";
             this.colL.FieldName = "L";
             this.colL.Name = "colL";
             this.colL.Visible = true;
@@ -117,6 +118,7 @@
             // 
             // colM
             // 
+            this.colM.Caption = "Mik";
             this.colM.FieldName = "M";
             this.colM.Format.FormatString = "n";
             this.colM.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -148,6 +150,7 @@
             // 
             // colF
             // 
+            this.colF.Caption = "Fyt";
             this.colF.FieldName = "F";
             this.colF.Format.FormatString = "n";
             this.colF.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -157,7 +160,7 @@
             // 
             // treeListColumn1
             // 
-            this.treeListColumn1.Caption = "T";
+            this.treeListColumn1.Caption = "Tut";
             this.treeListColumn1.FieldName = "treeListColumn1";
             this.treeListColumn1.Format.FormatString = "n";
             this.treeListColumn1.Format.FormatType = DevExpress.Utils.FormatType.Numeric;

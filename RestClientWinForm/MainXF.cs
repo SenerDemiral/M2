@@ -82,6 +82,8 @@ namespace RestClientWinForm
                 nor += await dataSetLookup.KptL();  // Personel
                 nor += await dataSetLookup.NntL();  // Ne
 
+                nor += await dataSetLookup.AvkL();  // VoucherKind
+                nor += await dataSetLookup.AbkL();  // BillKind
                 nor += await dataSetLookup.AhpL();  // HesapPlani
                 nor += await dataSetLookup.XgtL();  // Genel
                 //string sss = await mainDataSet.AHPfill();
@@ -127,10 +129,13 @@ namespace RestClientWinForm
             DataView DvzDV = new DataView(dataSetLookup.XGTL, "PKd = 'DVZ'", "Kd", DataViewRowState.CurrentRows);
             DVTrepositoryItemLookUpEdit.DataSource = DvzDV;
 
-            DataView KkkTurDV = new DataView(dataSetLookup.XGTL, "PKd = 'KKK.TUR'", "Kd", DataViewRowState.CurrentRows);
-            KkkTurRepositoryItemLookUpEdit.DataSource = KkkTurDV;
+            DataView TomKndDV = new DataView(dataSetLookup.XGTL, "PKd = 'TOM.KND'", "Kd", DataViewRowState.CurrentRows);
+            TomKndRepositoryItemLookUpEdit.DataSource = TomKndDV;
 
-            DataView NeBrmDV = new DataView(dataSetLookup.XGTL, "PKd = 'NNN.BRM'", "Kd", DataViewRowState.CurrentRows);
+            DataView TwmKndDV = new DataView(dataSetLookup.XGTL, "PKd = 'TWM.KND'", "Kd", DataViewRowState.CurrentRows);
+            TwmKndRepositoryItemLookUpEdit.DataSource = TwmKndDV;
+
+            DataView NeBrmDV = new DataView(dataSetLookup.XGTL, "PKd = 'NNT.BRM'", "Kd", DataViewRowState.CurrentRows);
             NeBrmRepositoryItemLookUpEdit.DataSource = NeBrmDV;
         }
 
@@ -269,6 +274,8 @@ namespace RestClientWinForm
         KdtXF frmKdt;
         KdtTreeDownXF frmKdtTreeDown;
         KftXF frmKft;
+        TomXF frmTom;
+        TwmXF frmTwm;
         XdkXF frmXdk;
         NeDownXF frmNeDown;
         NeUpXF frmNeUp;
@@ -437,5 +444,32 @@ namespace RestClientWinForm
             }
         }
 
+        private void TOMnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmTom);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmTom = new TomXF();
+                frmTom.MdiParent = this;
+                frmTom.Show();
+            }
+
+        }
+
+        private void TWMnavBarItem_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            var doc = documentManager1.GetDocument(frmTwm);
+            if (doc != null)
+                tabbedView1.Controller.Activate(doc);
+            else
+            {
+                frmTwm = new TwmXF();
+                frmTwm.MdiParent = this;
+                frmTwm.Show();
+            }
+
+        }
     }
 }

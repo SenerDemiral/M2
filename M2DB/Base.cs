@@ -14,7 +14,7 @@ namespace M2DB
     ///     PRS:Personel,
     ///     HBR:Haberlesme,
     ///     TAG:Etiket
-    ///     NNN:Ne
+    ///     NNT:Ne
     /// </summary>
 
     [Database]

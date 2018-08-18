@@ -39,7 +39,7 @@ namespace M2DB
     /// KolaKasa: 200Adt
     /// </summary>
     [Database]
-    public class NNN : BB  // Ne
+    public class NNT : BB  // Ne
     {
         public XGT BRM { get; set; }     // Birim: KWh, Ltr, Mt, M3, Ton, Kg, Adt, 
         public KDT KDT { get; set; }     // Ureten Kim Departman
@@ -71,7 +71,7 @@ namespace M2DB
         {
             Dictionary<ulong, string> sD = new Dictionary<ulong, string>();
 
-            foreach (var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            foreach (var r in Db.SQL<NNT>("SELECT r FROM NNT r"))
             {
                 sD[r.GetObjectNo()] = DenemeYtkParentsDictionary(r.GetObjectNo());
             }
@@ -147,7 +147,7 @@ namespace M2DB
             var list = new List<string>();
             foreach (var r in Db.SQL<BR>("SELECT r FROM M2DB.BR r WHERE r.C.ObjectNo = ?", n))
             {
-                if (r.Ptyp == "KDT" && r.Ctyp == "NNN")
+                if (r.Ptyp == "KDT" && r.Ctyp == "NNT")
                     list.Add(r.P.Kd);
             }
             if (list.Count == 0)
@@ -155,15 +155,15 @@ namespace M2DB
             return string.Join<string>(", ", list);
         }
 
-        public static Dictionary<NNN, double> UretenUrunTuketimleri(string ureten, ulong urunNo, double uretimMik)
+        public static Dictionary<NNT, double> UretenUrunTuketimleri(string ureten, ulong urunNo, double uretimMik)
         {
-            NNN urun = Db.FromId<NNN>(urunNo);
+            NNT urun = Db.FromId<NNT>(urunNo);
             // if(n.Ureten != ureten)
             // return null;  // Urunu Ureten imal etmiyorsa cik
-            Dictionary<NNN, double> mD = new Dictionary<NNN, double>();
+            Dictionary<NNT, double> mD = new Dictionary<NNT, double>();
             UretenUrunTuketimleriDty(ureten, urun, uretimMik, mD);
 
-            NNN u = Db.FromId<NNN>(urunNo);
+            NNT u = Db.FromId<NNT>(urunNo);
             Console.WriteLine($"{urunNo} {u.Ad,10}:");
             foreach (var d in mD)
             {
@@ -173,11 +173,11 @@ namespace M2DB
 
             return mD;
         }
-        private static void UretenUrunTuketimleriDty(string ureten, NNN n, double mik, Dictionary<NNN, double> mD)
+        private static void UretenUrunTuketimleriDty(string ureten, NNT n, double mik, Dictionary<NNT, double> mD)
         {
             foreach(var nnr in Db.SQL<NNR>("SELECT n from NNR n WHERE n.NP = ?", n))
             {
-                NNN kid = nnr.NC;
+                NNT kid = nnr.NC;
                 var aaa = kid.Ad;
                 
                 if (!mD.ContainsKey(kid))
@@ -259,7 +259,7 @@ namespace M2DB
         public static double NeMaliyet(ulong sNo)
         {
             double Fyt = 0;
-            NNN s = Db.FromId(sNo) as NNN;
+            NNT s = Db.FromId(sNo) as NNT;
             if (s != null)
             {
                 if (s.HasKid)
@@ -308,7 +308,7 @@ namespace M2DB
     [Database]
     public class NKM    // Ne.Kimde.Miktar      BB'den yap
     {
-        public NNN NNN { get; set; }
+        public NNT NNT { get; set; }
         public KKK KKK { get; set; }
         public double GirMik { get; set; }
         public double CikMik { get; set; }
@@ -323,7 +323,7 @@ namespace M2DB
     [Database]
     public class NFA    // Ne.FiyatAnlasmalari
     {
-        public NNN NNN { get; set; }    // NeyinFiyati
+        public NNT NNT { get; set; }    // NeyinFiyati
         public KKK KKK { get; set; }    // Musteri
         public string AoS { get; set; } // Alis/Satis
         public DateTime BasTrh { get; set; }    // AnlasmaBaslangic
@@ -338,8 +338,8 @@ namespace M2DB
     [Database]
     public class NNR // Ne.Recete
     {
-        public NNN NP { get; set; } // Parent
-        public NNN NC { get; set; } // Kid
+        public NNT NP { get; set; } // Parent
+        public NNT NC { get; set; } // Kid
         public double Mik { get; set; }
 
         public string PAd => NP?.Ad;
@@ -380,7 +380,7 @@ namespace M2DB
             ParentsList(node, pList);  // Node's Parents
 
             bool avl = false;
-            foreach (var r in Db.SQL<NNN>("SELECT r from NNN r WHERE r.ObjectNo <> ?", node))
+            foreach (var r in Db.SQL<NNT>("SELECT r from NNT r WHERE r.ObjectNo <> ?", node))
             {
                 avl = pList.Contains(r.GetObjectNo()) ? false : true; 
                 if(avl)
@@ -423,9 +423,9 @@ namespace M2DB
             Dictionary<string, List<string>> d = new Dictionary<string, List<string>>();
             List<List<string>> lls = new List<List<string>>();
 
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            foreach (var n in Db.SQL<NNT>("SELECT r FROM NNT r"))
             {
-                NNN cn = n;
+                NNT cn = n;
                 bool fnd = true;
                 string bbb = cn.Ad;
                 string aaa = "";
@@ -458,7 +458,7 @@ namespace M2DB
 
             ulong P = 0;
             ulong K = 1;
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", false))
+            foreach (var n in Db.SQL<NNT>("SELECT r FROM NNT r WHERE r.HasKid = ?", false))
             {
                 table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, n.Fyt);
                 K++;
@@ -503,7 +503,7 @@ namespace M2DB
 
             ulong P = 0;
             ulong K = 1;
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasPrn = ?", false))
+            foreach (var n in Db.SQL<NNT>("SELECT r FROM NNT r WHERE r.HasPrn = ?", false))
             {
                 table.Rows.Add(0, P, K, n.Ad, n.GetObjectNo(), 1, 0, n.HasKid);
                 K++;
@@ -526,7 +526,7 @@ namespace M2DB
             }
             foreach(DataRow t in table.Rows)
             {
-                t["Ureten"] = NNN.NeUretenler((ulong)t["N"]);
+                t["Ureten"] = NNT.NeUretenler((ulong)t["N"]);
             }
             return table;
         }
@@ -537,17 +537,17 @@ namespace M2DB
             // Mehmet294 de Sener299 yok
             // Suzan295 de Ali301 var
             // Senay296 da Ali301 var
-            NNN UsrYtk = Db.FromId<NNN>(304);
-            NNN OnyYtk = Db.FromId<NNN>(301);
+            NNT UsrYtk = Db.FromId<NNT>(304);
+            NNT OnyYtk = Db.FromId<NNT>(301);
             bool rv = IsOnyYtkMemberOfUsrYtk(UsrYtk, OnyYtk, false); // IsOnyYtkMemberOfUsrYtk
 
             UpToUsr(OnyYtk, UsrYtk);
             DownToOny(UsrYtk, OnyYtk);
 
-            Dictionary<NNN, List<NNN>> mD = new Dictionary<NNN, List<NNN>>();
-            foreach(var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            Dictionary<NNT, List<NNT>> mD = new Dictionary<NNT, List<NNT>>();
+            foreach(var r in Db.SQL<NNT>("SELECT r FROM NNT r"))
             {
-                var list = new List<NNN>();
+                var list = new List<NNT>();
                 DownTo(r, list);
                 mD[r] = list;
             }
@@ -565,7 +565,7 @@ namespace M2DB
 
         }
 
-        private static void DownTo(NNN node, List<NNN> lst)    // Start from Usr=node, Downto Ony
+        private static void DownTo(NNT node, List<NNT> lst)    // Start from Usr=node, Downto Ony
         {
             //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
             //    return true;
@@ -590,7 +590,7 @@ namespace M2DB
 
         // FindInChildren kullan Eger BR den gidecekse.
         // Yetki deneme, OnyYtk UsrYtk'nin uyesi mi? OnyYtk'nin ustunde UsrYtk var mi? OK
-        private static bool IsOnyYtkMemberOfUsrYtk(NNN UsrYtk, NNN OnyYtk, bool varmi)    // UsrYtk, OnyYtk/Constant
+        private static bool IsOnyYtkMemberOfUsrYtk(NNT UsrYtk, NNT OnyYtk, bool varmi)    // UsrYtk, OnyYtk/Constant
         {
             if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
                 return true;
@@ -613,7 +613,7 @@ namespace M2DB
             return varmi;
         }
 
-        private static void DownToOny(NNN node, NNN OnyYtk)    // Start from Usr=node, Downto Ony
+        private static void DownToOny(NNT node, NNT OnyYtk)    // Start from Usr=node, Downto Ony
         {
             //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
             //    return true;
@@ -635,7 +635,7 @@ namespace M2DB
             //return rv;
         }
 
-        private static void UpToUsr(NNN node, NNN UsrYtk)    // Start from Ony=node, Upto Usr
+        private static void UpToUsr(NNT node, NNT UsrYtk)    // Start from Ony=node, Upto Usr
         {
             //if (UsrYtk.GetObjectNo() == OnyYtk.GetObjectNo())
             //    return true;
@@ -660,7 +660,7 @@ namespace M2DB
         public static void Deneme()
         {
             List<string> nList = new List<string>();
-            foreach (var r in Db.SQL<NNN>("SELECT r FROM NNN r"))
+            foreach (var r in Db.SQL<NNT>("SELECT r FROM NNT r"))
             {
                 nList.Add(r.Ad);
             }
@@ -748,7 +748,7 @@ namespace M2DB
             table.Columns.Add("KAd", typeof(string));
             table.Columns.Add("M", typeof(double));
 
-            foreach (var n in Db.SQL<NNN>("SELECT r FROM NNN r WHERE r.HasKid = ?", true))
+            foreach (var n in Db.SQL<NNT>("SELECT r FROM NNT r WHERE r.HasKid = ?", true))
                 NodeMikInParents(n.GetObjectNo(), table);
             return table;
         }
@@ -758,8 +758,8 @@ namespace M2DB
 
             NodeMikInParent(parent, 1, mikD);  // Kid's Mik of parent.
 
-            NNN p = Db.FromId<NNN>(parent);
-            NNN n = null;
+            NNT p = Db.FromId<NNT>(parent);
+            NNT n = null;
 
             Console.WriteLine($"Nodes @{p.Ad} ---------->");
             ulong pNo = p.GetObjectNo();
@@ -774,7 +774,7 @@ namespace M2DB
 
             foreach (var r in mikD)
             {
-                n = Db.FromId<NNN>(r.Key);
+                n = Db.FromId<NNT>(r.Key);
                 nAd = n.Ad;
                 if (!n.HasKid)
                     nAd = "-" + nAd;  // leaf
@@ -816,11 +816,11 @@ namespace M2DB
             //    NodeKidsMikDty(node, 1, S, G);
             //}
             NodeGerekenKidsMikDty(node, Mik, S, G);
-            NNN s = Db.FromId<NNN>(node);
+            NNT s = Db.FromId<NNT>(node);
             Console.WriteLine($"Nodes @{s.Ad} ---------->");
             foreach (var r in G)
             {
-                s = Db.FromId<NNN>(r.Key);
+                s = Db.FromId<NNT>(r.Key);
                 Console.WriteLine($"{s.Ad} -> Stok: {S[r.Key]}, Gereken: {r.Value}");
             }
             /*
@@ -869,79 +869,79 @@ namespace M2DB
 
     public static class NeOps
     {
-        public static void initNNN()
+        public static void initNNT()
         {
-            if (Db.SQL<NNN>("select r from NNN r").FirstOrDefault() != null)
+            if (Db.SQL<NNT>("select r from NNT r").FirstOrDefault() != null)
                 return; // Kayit var yapma
 
             Db.Transact(() =>
             {
                 Db.SQL("DELETE FROM NNR");
-                Db.SQL("DELETE FROM NNN");
+                Db.SQL("DELETE FROM NNT");
 
-                var ahmet = new NNN
+                var ahmet = new NNT
                 {
                     Kd = "40",
                     Ad = "Ahmet",
                     Fyt = 100
                 };
-                var mehmet = new NNN
+                var mehmet = new NNT
                 {
                     Kd = "50",
                     Ad = "Mehmet",
                     Fyt = 110,
                 };
-                var suzan = new NNN
+                var suzan = new NNT
                 {
                     Kd = "30",
                     Ad = "Suzan"
                 };
-                var senay = new NNN
+                var senay = new NNT
                 {
                     Kd = "30.10",
                     Ad = "Senay"
                 };
-                var umut = new NNN
+                var umut = new NNT
                 {
                     Kd = "30.10.1",
                     Ad = "Umut",
                     Fyt = 20
                 };
-                var nazli = new NNN
+                var nazli = new NNT
                 {
                     Kd = "30.10.2",
                     Ad = "Nazli",
                 };
-                var sener = new NNN
+                var sener = new NNT
                 {
                     Kd = "30.20",
                     Ad = "Sener"
                 };
-                var can = new NNN
+                var can = new NNT
                 {
                     Kd = "30.20.1",
                     Ad = "Can",
                 };
-                var ali = new NNN
+                var ali = new NNT
                 {
                     Kd = "30.20.1.1",
                     Ad = "Ali",
                     Fyt = 50
                 };
-                var ayse = new NNN
+                var ayse = new NNT
                 {
                     Kd = "30.20.1.2",
                     Ad = "Ayse",
                     Fyt = 60
                 };
-                var veli = new NNN
+                var veli = new NNT
                 {
                     Kd = "30.20.1.3",
                     Ad = "Veli",
                     Fyt = 70
                 };
 
-                var kemal = new NNN
+                var kemal = new NNT
                 {
                     Kd = "kk",
                     Ad = "Kemal",

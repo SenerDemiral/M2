@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AbmXF));
             this.abmBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetAcc = new RestClientWinForm.DataSetAcc();
             this.abmBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -43,7 +44,7 @@
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colABK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKFT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,8 +62,8 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.faturaDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataSetAcc = new RestClientWinForm.DataSetAcc();
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingNavigator)).BeginInit();
             this.abmBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abmGridControl)).BeginInit();
@@ -75,13 +76,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).BeginInit();
             this.SuspendLayout();
             // 
             // abmBindingSource
             // 
             this.abmBindingSource.DataMember = "ABM";
             this.abmBindingSource.DataSource = this.dataSetAcc;
+            // 
+            // dataSetAcc
+            // 
+            this.dataSetAcc.DataSetName = "DataSetAcc";
+            this.dataSetAcc.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // abmBindingNavigator
             // 
@@ -187,7 +192,7 @@
             this.colRowKey,
             this.colDrm,
             this.colTrh,
-            this.colTUR,
+            this.colABK,
             this.colKFT,
             this.colBA,
             this.colDVT,
@@ -229,12 +234,13 @@
             this.colTrh.Visible = true;
             this.colTrh.VisibleIndex = 3;
             // 
-            // colTUR
+            // colABK
             // 
-            this.colTUR.FieldName = "TUR";
-            this.colTUR.Name = "colTUR";
-            this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 4;
+            this.colABK.Caption = "Tür";
+            this.colABK.FieldName = "ABK";
+            this.colABK.Name = "colABK";
+            this.colABK.Visible = true;
+            this.colABK.VisibleIndex = 4;
             // 
             // colKFT
             // 
@@ -382,11 +388,6 @@
             this.faturaDetayToolStripMenuItem.Text = "Fatura Detay";
             this.faturaDetayToolStripMenuItem.Click += new System.EventHandler(this.faturaDetayToolStripMenuItem_Click);
             // 
-            // dataSetAcc
-            // 
-            this.dataSetAcc.DataSetName = "DataSetAcc";
-            this.dataSetAcc.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // AbmXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,6 +399,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AbmXF_FormClosing);
             this.Load += new System.EventHandler(this.AbmXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.abmBindingNavigator)).EndInit();
             this.abmBindingNavigator.ResumeLayout(false);
             this.abmBindingNavigator.PerformLayout();
@@ -412,7 +414,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetAcc)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -438,7 +439,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colDrm;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
-        private DevExpress.XtraGrid.Columns.GridColumn colTUR;
+        private DevExpress.XtraGrid.Columns.GridColumn colABK;
         private DevExpress.XtraGrid.Columns.GridColumn colKFT;
         private DevExpress.XtraGrid.Columns.GridColumn colBA;
         private DevExpress.XtraGrid.Columns.GridColumn colKur;

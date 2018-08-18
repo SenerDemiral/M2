@@ -23,8 +23,9 @@ namespace RestClientWinForm
             GridLocalizer.Active = new CustomGridLocalizer();
 
             abmGridControl.ExternalRepository = Program.MF.persistentRepository;
-            colTUR.ColumnEdit = Program.MF.AbkLrepositoryItemLookUpEdit;
-            //colTUR.ColumnEdit = Program.MF.AbmTurRepositoryItemLookUpEdit;
+            colABK.ColumnEdit = Program.MF.AbkLrepositoryItemLookUpEdit;
+            colKFT.ColumnEdit = Program.MF.KftLrepositoryItemLookUpEdit;
+            colDVT.ColumnEdit = Program.MF.DVTrepositoryItemLookUpEdit;
         }
 
         public class CustomGridLocalizer : GridLocalizer

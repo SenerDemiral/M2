@@ -132,7 +132,6 @@ namespace RestClientWinForm
 
         private void editToolStripButton_Click(object sender, EventArgs e)
         {
-            /*
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
                 return;
 
@@ -150,7 +149,6 @@ namespace RestClientWinForm
                 gridView1.SetFocusedRowCellValue(colDrm, "A");
                 gridView1.SelectRow(gridView1.FocusedRowHandle);
             }
-            */
         }
 
         private void gridView1_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
@@ -167,22 +165,20 @@ namespace RestClientWinForm
             /*
             if ((ulong)gridView1.GetFocusedRowCellValue(colORG) != 0)   // Otomatik uretilmis
                 e.Cancel = true;
+            */
 
             if (gridView1.GetFocusedRowCellValue(colDrm).ToString() == "K")
                 e.Cancel = true;
 
             if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) != 0 && !gridView1.IsRowSelected(gridView1.FocusedRowHandle))
                 e.Cancel = true;
-                */
         }
 
         private void gridView1_InitNewRow(object sender, InitNewRowEventArgs e)
         {
-            /*
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
             gridView1.SetFocusedRowCellValue(colTrh, DateTime.Today);
             gridView1.SetFocusedRowCellValue(colDrm, "A");
-            */
         }
 
         private void gridView1_MouseDown(object sender, MouseEventArgs e)
@@ -209,6 +205,40 @@ namespace RestClientWinForm
                 e.Handled = true;
 
         }
+
+        #region ContextMenu
+
+        private void detayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
+                return;
+
+            bool readOnly = true;
+            if (gridView1.IsRowSelected(gridView1.FocusedRowHandle))
+                readOnly = false;
+
+            if ((ulong)gridView1.GetFocusedRowCellValue(colRowKey) == 0)
+            {
+                readOnly = false;
+                gridView1.SetFocusedRowCellValue(colDrm, "P");
+                gridView1.SetFocusedRowModified();
+                UpdateDB(true);
+            }
+
+            TodXF frm = new TodXF();
+            frm.TOMRow = (DataSetTrnsfr.TOMRow)dataSetTrnsfr.TOM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            frm.readOnly = readOnly;
+            var dr = frm.ShowDialog();
+            if (!readOnly)
+            {
+                gridView1.SetFocusedRowCellValue(colDrm, "A");
+                UpdateDB(true);
+                gridView1.UnselectRow(gridView1.FocusedRowHandle);
+            }
+
+        }
+
+        #endregion ContextMenu
 
     }
 }

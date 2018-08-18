@@ -9,6 +9,10 @@ namespace RestClientWinForm
 {
     partial class DataSetAcc
     {
+        partial class ABDDataTable
+        {
+        }
+
         Stopwatch sw = new Stopwatch();
 
         public async Task<string> AHPfill()
@@ -360,7 +364,7 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public async Task<string> AVDfill(ulong ObjAVM)
+        public async Task<string> AVDfill(ulong M)
         {
             var dt = AVD;
             DataRow row;
@@ -369,7 +373,7 @@ namespace RestClientWinForm
 
             dt.BeginLoadData();
             sw.Start();
-            using (var response = grpcService.ClientCRUDs.AVDfill(new QryMDproxy { M = ObjAVM, Mtyp = "AVM" }))
+            using (var response = grpcService.ClientCRUDs.AVDfill(new QryMDproxy { M = M, Mtyp = "AVM" }))
             {
                 while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
@@ -505,7 +509,7 @@ namespace RestClientWinForm
             return sb.ToString();
         }
 
-        public async Task<string> ABDfill(ulong ObjABM)
+        public async Task<string> ABDfill(ulong M)
         {
             var dt = ABD;
             DataRow row;
@@ -514,7 +518,7 @@ namespace RestClientWinForm
 
             dt.BeginLoadData();
             sw.Start();
-            using (var response = grpcService.ClientCRUDs.ABDfill(new QryMDproxy { M = ObjABM, Mtyp = "ABM" }))
+            using (var response = grpcService.ClientCRUDs.ABDfill(new QryMDproxy { M = M, Mtyp = "ABM" }))
             {
                 while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {

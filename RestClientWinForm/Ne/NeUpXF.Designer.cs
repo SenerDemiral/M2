@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.neUpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetNe = new RestClientWinForm.DataSetNe();
             this.treeList1 = new DevExpress.XtraTreeList.TreeList();
             this.colL = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colA = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -43,17 +44,21 @@
             this.calcTopMikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expandToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.collapseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataSetNe = new RestClientWinForm.DataSetNe();
             ((System.ComponentModel.ISupportInitialize)(this.neUpBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetNe)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetNe)).BeginInit();
             this.SuspendLayout();
             // 
             // neUpBindingSource
             // 
             this.neUpBindingSource.DataMember = "NeUp";
             this.neUpBindingSource.DataSource = this.dataSetNe;
+            // 
+            // dataSetNe
+            // 
+            this.dataSetNe.DataSetName = "DataSetNe";
+            this.dataSetNe.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // treeList1
             // 
@@ -80,6 +85,7 @@
             // 
             // colL
             // 
+            this.colL.Caption = "Lvl";
             this.colL.FieldName = "L";
             this.colL.Name = "colL";
             this.colL.Visible = true;
@@ -104,6 +110,7 @@
             // 
             // colM
             // 
+            this.colM.Caption = "Mik";
             this.colM.FieldName = "M";
             this.colM.Format.FormatString = "n";
             this.colM.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -128,6 +135,7 @@
             // 
             // colMT
             // 
+            this.colMT.Caption = "MikTop";
             this.colMT.FieldName = "MT";
             this.colMT.Format.FormatString = "n";
             this.colMT.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -137,6 +145,7 @@
             // 
             // colF
             // 
+            this.colF.Caption = "Fyt";
             this.colF.FieldName = "F";
             this.colF.Format.FormatString = "n";
             this.colF.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -174,11 +183,6 @@
             this.collapseToolStripMenuItem.Text = "Collapse";
             this.collapseToolStripMenuItem.Click += new System.EventHandler(this.collapseToolStripMenuItem_Click);
             // 
-            // dataSetNe
-            // 
-            this.dataSetNe.DataSetName = "DataSetNe";
-            this.dataSetNe.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // NeUpXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,9 +193,9 @@
             this.Text = "NeUpXF";
             this.Load += new System.EventHandler(this.NeUpXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.neUpBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetNe)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treeList1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetNe)).EndInit();
             this.ResumeLayout(false);
 
         }

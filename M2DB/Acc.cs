@@ -109,7 +109,7 @@ namespace M2DB
     [Database]
     public class AN2H    // Acc HesapKarsiliklariNe (Musteri Hesap Karsiliklari KFT de
     {
-        public NNN NNN { get; set; }    // Ne
+        public NNT NNT { get; set; }    // Ne
         public ABK ABK { get; set; }    // BillKind/FaturaTuru
         public AHP AHP { get; set; }    // Hesap
     }
@@ -125,7 +125,7 @@ namespace M2DB
         public BB ORG { get; set; }         // Origin, Otmatik uretildiyse geldigi kayit (Ftr,Cek,Snt vs den uretilmis olabilir)
         public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
         public DateTime Trh { get; set; }
-        public XGT TUR { get; set; }        // Tür
+        public AVK AVK { get; set; }        // Kind/Tür
 
         public double Brc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE r.AVM = ?", this).Sum(x => x.Brc);
         public double Alc => Db.SQL<AVD>($"SELECT r FROM {typeof(AVD)} r WHERE {nameof(AVD.AVM)} = ?", this).Sum(x => x.Alc);
@@ -161,7 +161,7 @@ namespace M2DB
         public BB ORG { get; set; }         // Sadece Irsaliye'den mi uretilir?
         public string Drm { get; set; }     // Acik/Kapali/Pending/BittiZ (Deftere islendi)
         public DateTime Trh { get; set; }
-        public XGT TUR { get; set; }        // BillTür Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
+        public ABK ABK { get; set; }        // BillKind Satis(B)/SatisIade(A) Alis(A)/AlisIade(B)
         public KFT KFT { get; set; }        // Kim/Firma
         public string BA { get; set; }      // Kim Brclu/Alacakli
         public XGT DVT { get; set; }        // Fatura Doviz
@@ -189,9 +189,9 @@ namespace M2DB
                     avd.AVM = avm;
 
                     if (abm.BA == "A")  // Basligin tersi
-                        avd.AHP = abd.NNN.AHPbrc;
+                        avd.AHP = abd.NNT.AHPbrc;
                     else
-                        avd.AHP = abd.NNN.AHPalc;
+                        avd.AHP = abd.NNT.AHPalc;
 
                     avd.Tut = abd.TutB;
                     avd.DVT = abm.DVT;
@@ -222,7 +222,7 @@ namespace M2DB
     public class ABD : BB   // Account: Bill/Fatura Detay
     {
         public ABM ABM { get; set; }    // Master
-        public NNN NNN { get; set; }    // Ne
+        public NNT NNT { get; set; }    // Ne
         public AHP AHP { get; set; }    // Ne Hesap
 
         // BB'den Kd,Ad,Info alanlari geliyor

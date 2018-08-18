@@ -11,7 +11,7 @@ namespace RestClientWinForm
     {
         Stopwatch sw = new Stopwatch();
 
-        public async Task<string> NNNfill()
+        public async Task<string> NNTfill()
         {
             var dt = NNT;
             DataRow row;
@@ -19,7 +19,7 @@ namespace RestClientWinForm
 
             dt.BeginLoadData();
             sw.Start();
-            using (var response = grpcService.ClientCRUDs.NNNfill(new QryProxy { Query = "abc" }))
+            using (var response = grpcService.ClientCRUDs.NNTfill(new QryProxy { Query = "abc" }))
             {
                 while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
@@ -35,11 +35,11 @@ namespace RestClientWinForm
             dt.EndLoadData();
             return $"{nor:n0} records retrieved in {sw.ElapsedMilliseconds:n0} ms";
         }
-        public string NNNupdate()
+        public string NNTupdate()
         {
             StringBuilder sb = new StringBuilder();
             var dt = NNT;
-            var request = new NNNproxy();
+            var request = new NNTproxy();
             string rs = "";
 
             // Unchanged disindakileri gonder, deleted disindakileri reply ile guncelle, hata yoksa her rec icin AcceptChanges
@@ -59,7 +59,7 @@ namespace RestClientWinForm
                     else
                         ProxyHelper.RowToProxy(dt, dt.Rows[i], request);
 
-                    var reply = grpcService.ClientCRUDs.NNNupdate(request);  // --------->
+                    var reply = grpcService.ClientCRUDs.NNTupdate(request);  // --------->
 
                     if (string.IsNullOrEmpty(reply.RowErr))
                     {

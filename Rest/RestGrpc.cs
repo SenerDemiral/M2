@@ -50,7 +50,7 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.UUUproxy> __Marshaller_rest_UUUproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UUUproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UYTproxy> __Marshaller_rest_UYTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.UYHproxy> __Marshaller_rest_UYHproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.UYHproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.NNNproxy> __Marshaller_rest_NNNproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNNproxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.NNTproxy> __Marshaller_rest_NNTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.PKproxy> __Marshaller_rest_PKproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.PKproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NNRproxy> __Marshaller_rest_NNRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NNRproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NeParentsProxy> __Marshaller_rest_NeParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeParentsProxy.Parser.ParseFrom);
@@ -319,19 +319,19 @@ namespace Rest {
         __Marshaller_rest_UYHproxy,
         __Marshaller_rest_UYHproxy);
 
-    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NNNproxy> __Method_NNNfill = new grpc::Method<global::Rest.QryProxy, global::Rest.NNNproxy>(
+    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.NNTproxy> __Method_NNTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.NNTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "NNNfill",
+        "NNTfill",
         __Marshaller_rest_QryProxy,
-        __Marshaller_rest_NNNproxy);
+        __Marshaller_rest_NNTproxy);
 
-    static readonly grpc::Method<global::Rest.NNNproxy, global::Rest.NNNproxy> __Method_NNNupdate = new grpc::Method<global::Rest.NNNproxy, global::Rest.NNNproxy>(
+    static readonly grpc::Method<global::Rest.NNTproxy, global::Rest.NNTproxy> __Method_NNTupdate = new grpc::Method<global::Rest.NNTproxy, global::Rest.NNTproxy>(
         grpc::MethodType.Unary,
         __ServiceName,
-        "NNNupdate",
-        __Marshaller_rest_NNNproxy,
-        __Marshaller_rest_NNNproxy);
+        "NNTupdate",
+        __Marshaller_rest_NNTproxy,
+        __Marshaller_rest_NNTproxy);
 
     static readonly grpc::Method<global::Rest.PKproxy, global::Rest.NNRproxy> __Method_NNRfill = new grpc::Method<global::Rest.PKproxy, global::Rest.NNRproxy>(
         grpc::MethodType.ServerStreaming,
@@ -733,12 +733,12 @@ namespace Rest {
       /// <param name="responseStream">Used for sending responses back to the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
-      public virtual global::System.Threading.Tasks.Task NNNfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NNNproxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task NNTfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.NNTproxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Rest.NNNproxy> NNNupdate(global::Rest.NNNproxy request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Rest.NNTproxy> NNTupdate(global::Rest.NNTproxy request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1479,9 +1479,9 @@ namespace Rest {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNNproxy> NNNfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNTproxy> NNTfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return NNNfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return NNTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       /// <summary>
       /// Ne
@@ -1489,25 +1489,25 @@ namespace Rest {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNNproxy> NNNfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.NNTproxy> NNTfill(global::Rest.QryProxy request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncServerStreamingCall(__Method_NNNfill, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_NNTfill, null, options, request);
       }
-      public virtual global::Rest.NNNproxy NNNupdate(global::Rest.NNNproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Rest.NNTproxy NNTupdate(global::Rest.NNTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return NNNupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return NNTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Rest.NNNproxy NNNupdate(global::Rest.NNNproxy request, grpc::CallOptions options)
+      public virtual global::Rest.NNTproxy NNTupdate(global::Rest.NNTproxy request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_NNNupdate, null, options, request);
+        return CallInvoker.BlockingUnaryCall(__Method_NNTupdate, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Rest.NNNproxy> NNNupdateAsync(global::Rest.NNNproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Rest.NNTproxy> NNTupdateAsync(global::Rest.NNTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return NNNupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return NNTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Rest.NNNproxy> NNNupdateAsync(global::Rest.NNNproxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Rest.NNTproxy> NNTupdateAsync(global::Rest.NNTproxy request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncUnaryCall(__Method_NNNupdate, null, options, request);
+        return CallInvoker.AsyncUnaryCall(__Method_NNTupdate, null, options, request);
       }
       public virtual grpc::AsyncServerStreamingCall<global::Rest.NNRproxy> NNRfill(global::Rest.PKproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -1859,8 +1859,8 @@ namespace Rest {
           .AddMethod(__Method_UYTupdate, serviceImpl.UYTupdate)
           .AddMethod(__Method_UYHfill, serviceImpl.UYHfill)
           .AddMethod(__Method_UYHupdate, serviceImpl.UYHupdate)
-          .AddMethod(__Method_NNNfill, serviceImpl.NNNfill)
-          .AddMethod(__Method_NNNupdate, serviceImpl.NNNupdate)
+          .AddMethod(__Method_NNTfill, serviceImpl.NNTfill)
+          .AddMethod(__Method_NNTupdate, serviceImpl.NNTupdate)
           .AddMethod(__Method_NNRfill, serviceImpl.NNRfill)
           .AddMethod(__Method_NNRupdate, serviceImpl.NNRupdate)
           .AddMethod(__Method_NeParentsFill, serviceImpl.NeParentsFill)

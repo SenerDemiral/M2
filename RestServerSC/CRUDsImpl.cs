@@ -255,7 +255,7 @@ namespace RestServerSC
                         proxy = new AN2Hproxy
                         {
                             RowKey = row.GetObjectNo(),
-                            NNN = row.NNN == null ? 0 : row.NNN.GetObjectNo(),
+                            NNT = row.NNT == null ? 0 : row.NNT.GetObjectNo(),
                             ABK = row.ABK == null ? 0 : row.ABK.GetObjectNo(),
                             AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
                         };
@@ -453,7 +453,7 @@ namespace RestServerSC
                             RowKey = row.GetObjectNo(),
                             ORG = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
-                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                            AVK = row.AVK == null ? 0 : row.AVK.GetObjectNo(),
                             Drm = row.Drm,
                             Kd = row.Kd,
                             Ad = row.Ad,
@@ -506,9 +506,6 @@ namespace RestServerSC
                         }
                         if (request.RowErr == string.Empty)
                         {
-                            if (request.TUR == 0)
-                                request.TUR = GnlOps.XGTfind("AVM.TUR", "MHS").GetObjectNo();   // DefaultTur
-
                             AVM row = CRUDsHelper.FromProxy<AVMproxy, AVM>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<AVMproxy, AVM>(row);
@@ -635,7 +632,7 @@ namespace RestServerSC
                         {
                             RowKey = row.GetObjectNo(),
                             Trh = ((DateTime)row.Trh).Ticks,
-                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                            ABK = row.ABK == null ? 0 : row.ABK.GetObjectNo(),
                             KFT = row.KFT == null ? 0 : row.KFT.GetObjectNo(),
                             DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                             BA = row.BA,
@@ -685,9 +682,6 @@ namespace RestServerSC
                         }
                         if (request.RowErr == string.Empty)
                         {
-                            if (request.TUR == 0)
-                                request.TUR = GnlOps.XGTfind("ABM.TUR", "BS").GetObjectNo();    // Default
-
                             ABM row = CRUDsHelper.FromProxy<ABMproxy, ABM>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
                             request = CRUDsHelper.ToProxy<ABMproxy, ABM>(row);
@@ -737,7 +731,7 @@ namespace RestServerSC
                     {
                         RowKey = row.GetObjectNo(),
                         ABM = row.ABM == null ? 0 : row.ABM.GetObjectNo(),
-                        NNN = row.NNN == null ? 0 : row.NNN.GetObjectNo(),
+                        NNT = row.NNT == null ? 0 : row.NNT.GetObjectNo(),
                         AHP = row.AHP == null ? 0 : row.AHP.GetObjectNo(),
                         DVT = row.DVT == null ? 0 : row.DVT.GetObjectNo(),
                         Fyt = row.Fyt,
@@ -819,7 +813,7 @@ namespace RestServerSC
                             ORG = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
                             DST = row.ORG == null ? 0 : row.ORG.GetObjectNo(),
                             Trh = row.Trh.Ticks,
-                            TUR = row.TUR == null ? 0 : row.TUR.GetObjectNo(),
+                            KND = row.KND == null ? 0 : row.KND.GetObjectNo(),
                             Drm = row.Drm,
                             Kd = row.Kd,
                             Ad = row.Ad,
@@ -868,8 +862,8 @@ namespace RestServerSC
                         }
                         if (request.RowErr == string.Empty)
                         {
-                            if (request.TUR == 0)
-                                request.TUR = GnlOps.XGTfind("TOM.TUR", "???").GetObjectNo();   // DefaultTur
+                            if (request.KND == 0)
+                                request.KND = GnlOps.XGTfind("TOM.KND", "I").GetObjectNo();   // Default
 
                             TOM row = CRUDsHelper.FromProxy<TOMproxy, TOM>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
@@ -887,6 +881,109 @@ namespace RestServerSC
                         else
                         {
                             if (Db.SQL<TOD>("select r from TOD r where r.TOM.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
+                                request.RowErr = $"Detayı var silemezsiniz.";
+                            else
+                            {
+                                UHT.Append(request.RowUsr, request.RowKey, request.RowSte);
+                                row.Delete();
+                            }
+                        }
+                    }
+                });
+            }).Wait();
+
+            return Task.FromResult(request);
+        }
+
+        // Waybill/Siparis Master
+        public override async Task TWMfill(QryProxy request, IServerStreamWriter<TWMproxy> responseStream, ServerCallContext context)
+        {
+            TWMproxy proxy = new TWMproxy();
+            List<TWMproxy> proxyList = new List<TWMproxy>();
+
+            Type proxyType = typeof(TWMproxy);
+            PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
+
+            await Scheduling.RunTask(() =>
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    foreach (var row in Db.SQL<TWM>("select r from TWM r"))
+                    {
+                        //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
+
+                        proxy = new TWMproxy
+                        {
+                            RowKey = row.GetObjectNo(),
+                            Trh = row.Trh.Ticks,
+                            KND = row.KND == null ? 0 : row.KND.GetObjectNo(),
+                            Drm = row.Drm,
+                            Kd = row.Kd,
+                            Ad = row.Ad,
+                            Info = row.Info, //row.Info ?? "",
+                        };
+
+                        proxyList.Add(proxy);
+                    }
+                }
+            });
+
+            foreach (var p in proxyList)
+            {
+                await responseStream.WriteAsync(p);
+            }
+        }
+        public override Task<TWMproxy> TWMupdate(TWMproxy request, ServerCallContext context)
+        {
+            Scheduling.RunTask(() =>
+            {
+                // RowSte: Added, Modified, Deletede, Unchanged
+                Db.Transact(() =>
+                {
+                    request.RowErr = "";
+                    if (request.RowSte == "A" || request.RowSte == "M")
+                    {
+                        if (request.RowSte == "M")
+                        {
+                            TWM son = Db.FromId<TWM>(request.RowKey);
+                            if (request.Drm == "P")
+                            {
+                                if (son.Drm == "P")
+                                {
+                                    request = CRUDsHelper.ToProxy<TWMproxy, TWM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.RowErr = "LOCKED Already";
+                                }
+                                else
+                                {
+                                    request = CRUDsHelper.ToProxy<TWMproxy, TWM>(son);   // Recent Row gonder, baskasi tarafindan degistirilmis
+                                    request.Drm = "P";
+                                }
+                            }
+                            else if (request.Drm == "K")
+                            {
+                            }
+                        }
+                        if (request.RowErr == string.Empty)
+                        {
+                            if (request.KND == 0)
+                                request.KND = GnlOps.XGTfind("TWM.KND", "I").GetObjectNo();   // Default
+
+                            TWM row = CRUDsHelper.FromProxy<TWMproxy, TWM>(request);
+                            UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
+                            request = CRUDsHelper.ToProxy<TWMproxy, TWM>(row);
+                        }
+
+                    }
+                    else if (request.RowSte == "D" && request.Drm == "A")
+                    {
+                        var row = (TWM)Db.FromId(request.RowKey);
+                        if (row == null)
+                        {
+                            request.RowErr = "Rec not found";
+                        }
+                        else
+                        {
+                            if (Db.SQL<TWD>("select r from TWD r where r.TWM.ObjectNo = ?", request.RowKey).FirstOrDefault() != null)
                                 request.RowErr = $"Detayı var silemezsiniz.";
                             else
                             {
@@ -1276,22 +1373,22 @@ namespace RestServerSC
 
 
         // NeTanim
-        public override async Task NNNfill(QryProxy request, IServerStreamWriter<NNNproxy> responseStream, ServerCallContext context)
+        public override async Task NNTfill(QryProxy request, IServerStreamWriter<NNTproxy> responseStream, ServerCallContext context)
         {
-            NNNproxy proxy = new NNNproxy();
-            List<NNNproxy> proxyList = new List<NNNproxy>();
+            NNTproxy proxy = new NNTproxy();
+            List<NNTproxy> proxyList = new List<NNTproxy>();
             string sel = $"SELECT r FROM KMT r";
 
-            Type proxyType = typeof(NNNproxy);
+            Type proxyType = typeof(NNTproxy);
             PropertyInfo[] proxyProperties = proxyType.GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
 
             await Scheduling.RunTask(() =>
             {
-                foreach (var row in Db.SQL<NNN>("SELECT r FROM NNN r"))
+                foreach (var row in Db.SQL<NNT>("SELECT r FROM NNT r"))
                 {
                     //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
 
-                    proxy = new NNNproxy
+                    proxy = new NNTproxy
                     {
                         RowKey = row.GetObjectNo(),
                         Kd = row.Kd,
@@ -1309,7 +1406,7 @@ namespace RestServerSC
                 await responseStream.WriteAsync(p);
             }
         }
-        public override Task<NNNproxy> NNNupdate(NNNproxy request, ServerCallContext context)
+        public override Task<NNTproxy> NNTupdate(NNTproxy request, ServerCallContext context)
         {
             Scheduling.RunTask(() =>
             {
@@ -1323,9 +1420,9 @@ namespace RestServerSC
 
                         if (request.RowErr == string.Empty)
                         {
-                            NNN row = CRUDsHelper.FromProxy<NNNproxy, NNN>(request);
+                            NNT row = CRUDsHelper.FromProxy<NNTproxy, NNT>(request);
                             UHT.Append(request.RowUsr, row.GetObjectNo(), request.RowSte);
-                            request = CRUDsHelper.ToProxy<NNNproxy, NNN>(row);
+                            request = CRUDsHelper.ToProxy<NNTproxy, NNT>(row);
                         }
 
                     }
@@ -1408,7 +1505,7 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                pString = NNN.GetNeParentsString(request.PK);
+                pString = NNT.GetNeParentsString(request.PK);
             });
 
             proxy = new NeParentsProxy

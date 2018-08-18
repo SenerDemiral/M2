@@ -15,11 +15,10 @@ namespace RestClientWinForm
 {
     public partial class AvdXF : DevExpress.XtraEditors.XtraForm
     {
-        public object ObjAVM = (ulong)469;
+        public object M = (ulong)469;
         public DataSetAcc.AVMRow AVMRow;
         public bool readOnly = true;
         private object ObjDvzTRL;
-
 
         public AvdXF()
         {
@@ -33,7 +32,7 @@ namespace RestClientWinForm
 
         private void AvdXF_Load(object sender, EventArgs e)
         {
-            ObjAVM = AVMRow.RowKey;
+            M = AVMRow.RowKey;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;
@@ -71,7 +70,7 @@ namespace RestClientWinForm
             string res = "";
             avdGridControl.DataSource = null;
             dataSetAcc.AVD.Rows.Clear();
-            Task.Run(async () => { res = await dataSetAcc.AVDfill((ulong)ObjAVM); }).Wait();
+            Task.Run(async () => { res = await dataSetAcc.AVDfill((ulong)M); }).Wait();
             toolStripStatusLabel1.Text = res;
             avdGridControl.DataSource = avdBindingSource;
         }
@@ -138,10 +137,17 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
-            gridView1.SetFocusedRowCellValue(colAVM, ObjAVM);
+            gridView1.SetFocusedRowCellValue(colAVM, M);
             gridView1.SetFocusedRowCellValue(colDVT, ObjDvzTRL);
             gridView1.SetFocusedRowCellValue(colTut, 0.0);
             gridView1.SetFocusedRowCellValue(colKur, 1.0);
+        }
+
+        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (View.GetFocusedRowCellDisplayText(colDVT) == "TRL" && View.FocusedColumn == colKur)
+                e.Cancel = true;
         }
 
         private void DVTrepositoryItemLookUpEdit_Closed(object sender, DevExpress.XtraEditors.Controls.ClosedEventArgs e)
@@ -213,16 +219,14 @@ namespace RestClientWinForm
             }
         }
 
-        private void gridView1_ShowingEditor(object sender, CancelEventArgs e)
-        {
-            GridView View = sender as GridView;
-            if (View.GetFocusedRowCellDisplayText(colDVT) == "TRL" && View.FocusedColumn == colKur)
-                e.Cancel = true;
-        }
-
         private void insertToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addToolStripButton.PerformClick();
+
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

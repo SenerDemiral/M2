@@ -78,8 +78,8 @@ service CRUDs {
   rpc UYHupdate (UYHproxy) returns (UYHproxy) {}
 
   // Ne
-  rpc NNNfill (QryProxy) returns (stream NNNproxy) {}
-  rpc NNNupdate (NNNproxy) returns (NNNproxy) {}
+  rpc NNTfill (QryProxy) returns (stream NNTproxy) {}
+  rpc NNTupdate (NNTproxy) returns (NNTproxy) {}
   rpc NNRfill (PKproxy) returns (stream NNRproxy) {}
   rpc NNRupdate (NNRproxy) returns (NNRproxy) {}
   rpc NeParentsFill (PKproxy) returns (stream NeParentsProxy) {}	// PKproxy.PK = 0 ise hepsi
@@ -215,7 +215,7 @@ message AN2Hproxy {
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	uint64 NNN = 5;
+	uint64 NNT = 5;
 	uint64 ABK = 6;
 	uint64 AHP = 7;
 }
@@ -245,7 +245,7 @@ message AVMproxy {
 	uint64 RowKey = 4;
 	uint64 ORG = 5;
 	int64 Trh = 6;
-	uint64 TUR = 7;
+	uint64 AVK = 7;
 	string Drm = 8;
 	google.protobuf.StringValue Kd = 9;
 	google.protobuf.StringValue Ad = 10;
@@ -278,7 +278,7 @@ message ABMproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	int64 Trh = 5;
-	uint64 TUR = 6;
+	uint64 ABK = 6;
 	string Drm = 7;
 	uint64 KFT = 8;
 	string BA = 9;
@@ -297,7 +297,7 @@ message ABDproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	uint64 ABM = 5;
-	uint64 NNN = 6;
+	uint64 NNT = 6;
 	uint64 AHP = 7;
 	double Fyt = 8;
 	uint64 DVT = 9;
@@ -318,7 +318,7 @@ message TOMproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	int64 Trh = 5;
-	uint64 TUR = 6;
+	uint64 KND = 6;
 	string Drm = 7;
 	uint64 ORG = 8;
 	uint64 DST = 9;
@@ -346,7 +346,7 @@ message TWMproxy {
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
 	int64 Trh = 5;
-	uint64 TUR = 6;
+	uint64 KND = 6;
 	string Drm = 7;
 	google.protobuf.StringValue Kd = 8;
 	google.protobuf.StringValue Ad = 9;
@@ -367,8 +367,8 @@ message TWDproxy {
 
 ////////////////////NE/////////////////////////
 
-// NNN Ne
-message NNNproxy {
+// NNT Ne
+message NNTproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;

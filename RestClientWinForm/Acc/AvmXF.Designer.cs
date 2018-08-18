@@ -56,7 +56,7 @@
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colORG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAVK = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colBrcTop = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -249,7 +249,7 @@
             this.colRowKey,
             this.colORG,
             this.colTrh,
-            this.colTUR,
+            this.colAVK,
             this.colDrm,
             this.colInfo,
             this.colBrcTop,
@@ -325,14 +325,14 @@
             this.colTrh.VisibleIndex = 3;
             this.colTrh.Width = 98;
             // 
-            // colTUR
+            // colAVK
             // 
-            this.colTUR.Caption = "Tür";
-            this.colTUR.FieldName = "TUR";
-            this.colTUR.Name = "colTUR";
-            this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 4;
-            this.colTUR.Width = 98;
+            this.colAVK.Caption = "Tür";
+            this.colAVK.FieldName = "AVK";
+            this.colAVK.Name = "colAVK";
+            this.colAVK.Visible = true;
+            this.colAVK.VisibleIndex = 4;
+            this.colAVK.Width = 98;
             // 
             // colDrm
             // 
@@ -507,7 +507,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
-        private DevExpress.XtraGrid.Columns.GridColumn colTUR;
+        private DevExpress.XtraGrid.Columns.GridColumn colAVK;
         private DevExpress.XtraGrid.Columns.GridColumn colDrm;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DevExpress.XtraGrid.Columns.GridColumn colBrcTop;

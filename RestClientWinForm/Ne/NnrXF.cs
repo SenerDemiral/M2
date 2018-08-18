@@ -70,7 +70,7 @@ namespace RestClientWinForm
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = dataSetNe.NNNupdate();
+                    string err = dataSetNe.NNTupdate();
                     gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {

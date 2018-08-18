@@ -41,7 +41,6 @@
             this.colHspNoAd = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colBrc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.colAlc = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.KkkTurRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.NeBrmRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.KftLrepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.kftlBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,8 +88,8 @@
             this.NeRprNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.TrnsfrNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem4 = new DevExpress.XtraNavBar.NavBarItem();
+            this.TOMnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.TWMnavBarItem = new DevExpress.XtraNavBar.NavBarItem();
             this.TrnsfrRprNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.MiscNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.FillLookupsNavBarItem = new DevExpress.XtraNavBar.NavBarItem();
@@ -102,6 +101,8 @@
             this.tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.TomKndRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.TwmKndRepositoryItemLookUpEdit = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.DVTrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xgtBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainDataSet)).BeginInit();
@@ -110,7 +111,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeBrmRepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.KftLrepositoryItemLookUpEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftlBindingSource)).BeginInit();
@@ -137,6 +137,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.documentManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TomKndRepositoryItemLookUpEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TwmKndRepositoryItemLookUpEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // colIsW
@@ -152,7 +154,6 @@
             this.DVTrepositoryItemLookUpEdit,
             this.DateRepositoryItemDateEdit,
             this.AHPrepositoryItemTreeListLookUpEdit,
-            this.KkkTurRepositoryItemLookUpEdit,
             this.NeBrmRepositoryItemLookUpEdit,
             this.KftLrepositoryItemLookUpEdit,
             this.NntLrepositoryItemLookUpEdit,
@@ -160,7 +161,9 @@
             this.KdtLrepositoryItemGridLookUpEdit,
             this.KptLrepositoryItemGridLookUpEdit,
             this.AvkLrepositoryItemLookUpEdit,
-            this.AbkLrepositoryItemLookUpEdit});
+            this.AbkLrepositoryItemLookUpEdit,
+            this.TomKndRepositoryItemLookUpEdit,
+            this.TwmKndRepositoryItemLookUpEdit});
             // 
             // DVTrepositoryItemLookUpEdit
             // 
@@ -264,19 +267,6 @@
             this.colAlc.Name = "colAlc";
             this.colAlc.Visible = true;
             this.colAlc.VisibleIndex = 3;
-            // 
-            // KkkTurRepositoryItemLookUpEdit
-            // 
-            this.KkkTurRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.KkkTurRepositoryItemLookUpEdit.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Ad", "Ad", 23, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Kd", "Kd", 22, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RowKey", "RowKey", 58, DevExpress.Utils.FormatType.Numeric, "", true, DevExpress.Utils.HorzAlignment.Far)});
-            this.KkkTurRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
-            this.KkkTurRepositoryItemLookUpEdit.DisplayMember = "Ad";
-            this.KkkTurRepositoryItemLookUpEdit.Name = "KkkTurRepositoryItemLookUpEdit";
-            this.KkkTurRepositoryItemLookUpEdit.ValueMember = "RowKey";
             // 
             // NeBrmRepositoryItemLookUpEdit
             // 
@@ -465,8 +455,8 @@
             this.ABMnavBarItem,
             this.navBarItem1,
             this.navBarItem2,
-            this.navBarItem3,
-            this.navBarItem4,
+            this.TOMnavBarItem,
+            this.TWMnavBarItem,
             this.navBarItem5,
             this.KdtTreeDownNavBarItem,
             this.AVKnavBarItem,
@@ -559,6 +549,7 @@
             // KimNavBarGroup
             // 
             this.KimNavBarGroup.Caption = "Kim";
+            this.KimNavBarGroup.Expanded = true;
             this.KimNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.KFTnavBarItem),
             new DevExpress.XtraNavBar.NavBarItemLink(this.KDTnavBarItem),
@@ -639,20 +630,23 @@
             // TrnsfrNavBarGroup
             // 
             this.TrnsfrNavBarGroup.Caption = "Transfer";
+            this.TrnsfrNavBarGroup.Expanded = true;
             this.TrnsfrNavBarGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem3),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem4)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.TOMnavBarItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.TWMnavBarItem)});
             this.TrnsfrNavBarGroup.Name = "TrnsfrNavBarGroup";
             // 
-            // navBarItem3
+            // TOMnavBarItem
             // 
-            this.navBarItem3.Caption = "Sipariş *";
-            this.navBarItem3.Name = "navBarItem3";
+            this.TOMnavBarItem.Caption = "Sipariş *";
+            this.TOMnavBarItem.Name = "TOMnavBarItem";
+            this.TOMnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.TOMnavBarItem_LinkClicked);
             // 
-            // navBarItem4
+            // TWMnavBarItem
             // 
-            this.navBarItem4.Caption = "İrsaliye *";
-            this.navBarItem4.Name = "navBarItem4";
+            this.TWMnavBarItem.Caption = "İrsaliye *";
+            this.TWMnavBarItem.Name = "TWMnavBarItem";
+            this.TWMnavBarItem.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.TWMnavBarItem_LinkClicked);
             // 
             // TrnsfrRprNavBarGroup
             // 
@@ -749,6 +743,24 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // TomKndRepositoryItemLookUpEdit
+            // 
+            this.TomKndRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TomKndRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
+            this.TomKndRepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.TomKndRepositoryItemLookUpEdit.Name = "TomKndRepositoryItemLookUpEdit";
+            this.TomKndRepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
+            // TwmKndRepositoryItemLookUpEdit
+            // 
+            this.TwmKndRepositoryItemLookUpEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.TwmKndRepositoryItemLookUpEdit.DataSource = this.xgtBindingSource;
+            this.TwmKndRepositoryItemLookUpEdit.DisplayMember = "Ad";
+            this.TwmKndRepositoryItemLookUpEdit.Name = "TwmKndRepositoryItemLookUpEdit";
+            this.TwmKndRepositoryItemLookUpEdit.ValueMember = "RowKey";
+            // 
             // MainXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -771,7 +783,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.AHPrepositoryItemTreeListLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ahpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTreeListLookUpEdit1TreeList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.KkkTurRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NeBrmRepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.KftLrepositoryItemLookUpEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kftlBindingSource)).EndInit();
@@ -799,6 +810,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TomKndRepositoryItemLookUpEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TwmKndRepositoryItemLookUpEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -816,7 +829,6 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn colBrc;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colAlc;
         private DevExpress.XtraTreeList.Columns.TreeListColumn colHspNoAd;
-        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit KkkTurRepositoryItemLookUpEdit;
         public MainDataSet mainDataSet;
         private System.Windows.Forms.Button UYHbutton;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -845,8 +857,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private DevExpress.XtraNavBar.NavBarItem ABMnavBarItem;
         private DevExpress.XtraNavBar.NavBarGroup TrnsfrNavBarGroup;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem3;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem4;
+        private DevExpress.XtraNavBar.NavBarItem TOMnavBarItem;
+        private DevExpress.XtraNavBar.NavBarItem TWMnavBarItem;
         private DevExpress.XtraNavBar.NavBarGroup AccRprNavBarGroup;
         private DevExpress.XtraNavBar.NavBarItem navBarItem1;
         private DevExpress.XtraNavBar.NavBarItem navBarItem5;
@@ -878,5 +890,7 @@
         private System.Windows.Forms.BindingSource avklBindingSource;
         public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit AbkLrepositoryItemLookUpEdit;
         private System.Windows.Forms.BindingSource abklBindingSource;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit TomKndRepositoryItemLookUpEdit;
+        public DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit TwmKndRepositoryItemLookUpEdit;
     }
 }

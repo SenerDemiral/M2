@@ -42,6 +42,9 @@
             this.tomGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -52,9 +55,8 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colDrm = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTrh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTUR = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrnsfr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tomBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tomBindingNavigator)).BeginInit();
@@ -68,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataSetTrnsfr
@@ -168,6 +171,7 @@
             // 
             // tomGridControl
             // 
+            this.tomGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.tomGridControl.DataSource = this.tomBindingSource;
             this.tomGridControl.Location = new System.Drawing.Point(12, 46);
             this.tomGridControl.MainView = this.gridView1;
@@ -202,6 +206,27 @@
             this.colRowKey.Name = "colRowKey";
             this.colRowKey.Visible = true;
             this.colRowKey.VisibleIndex = 0;
+            // 
+            // colDrm
+            // 
+            this.colDrm.FieldName = "Drm";
+            this.colDrm.Name = "colDrm";
+            this.colDrm.Visible = true;
+            this.colDrm.VisibleIndex = 1;
+            // 
+            // colTrh
+            // 
+            this.colTrh.FieldName = "Trh";
+            this.colTrh.Name = "colTrh";
+            this.colTrh.Visible = true;
+            this.colTrh.VisibleIndex = 3;
+            // 
+            // colTUR
+            // 
+            this.colTUR.FieldName = "TUR";
+            this.colTUR.Name = "colTUR";
+            this.colTUR.Visible = true;
+            this.colTUR.VisibleIndex = 2;
             // 
             // colKd
             // 
@@ -298,26 +323,19 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colDrm
+            // contextMenuStrip1
             // 
-            this.colDrm.FieldName = "Drm";
-            this.colDrm.Name = "colDrm";
-            this.colDrm.Visible = true;
-            this.colDrm.VisibleIndex = 1;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detayToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
             // 
-            // colTrh
+            // detayToolStripMenuItem
             // 
-            this.colTrh.FieldName = "Trh";
-            this.colTrh.Name = "colTrh";
-            this.colTrh.Visible = true;
-            this.colTrh.VisibleIndex = 3;
-            // 
-            // colTUR
-            // 
-            this.colTUR.FieldName = "TUR";
-            this.colTUR.Name = "colTUR";
-            this.colTUR.Visible = true;
-            this.colTUR.VisibleIndex = 2;
+            this.detayToolStripMenuItem.Name = "detayToolStripMenuItem";
+            this.detayToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.detayToolStripMenuItem.Text = "Detay";
+            this.detayToolStripMenuItem.Click += new System.EventHandler(this.detayToolStripMenuItem_Click);
             // 
             // TomXF
             // 
@@ -344,6 +362,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -375,5 +394,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDrm;
         private DevExpress.XtraGrid.Columns.GridColumn colTrh;
         private DevExpress.XtraGrid.Columns.GridColumn colTUR;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem detayToolStripMenuItem;
     }
 }

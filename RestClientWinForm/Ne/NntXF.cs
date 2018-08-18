@@ -39,7 +39,7 @@ namespace RestClientWinForm
             string res = "";
             nnnGridControl.DataSource = null;
             dataSetNe.NNT.Rows.Clear();
-            Task.Run(async () => { res = await dataSetNe.NNNfill(); }).Wait();
+            Task.Run(async () => { res = await dataSetNe.NNTfill(); }).Wait();
             toolStripStatusLabel1.Text = res;
             nnnGridControl.DataSource = nnnBindingSource;
         }
@@ -59,7 +59,7 @@ namespace RestClientWinForm
                     dr = XtraMessageBox.Show("Değişiklik var. Kaydetmek istiyormusunuz?", "Update", MessageBoxButtons.YesNoCancel);
                 if (dr == DialogResult.Yes)
                 {
-                    string err = dataSetNe.NNNupdate();
+                    string err = dataSetNe.NNTupdate();
                     gridView1.UnselectRow(gridView1.FocusedRowHandle);
                     if (err != string.Empty)
                     {

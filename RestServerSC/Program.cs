@@ -31,7 +31,7 @@ namespace RestServerSC
             M2DB.AccOps.PopABK();
             M2DB.GnlOps.PopXGT();
             M2DB.UsrOps.PopUUU();
-            M2DB.NeOps.initNNN();
+            M2DB.NeOps.initNNT();
 
             //NNN curNe = Db.FromId<NNN>(279);  // Suzan
             //NNN apndNe = Db.FromId<NNN>(288);  // Kemal

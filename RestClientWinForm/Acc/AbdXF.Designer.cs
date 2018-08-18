@@ -42,7 +42,7 @@
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colABM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colNNN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNNT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAHP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colFyt = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -181,7 +181,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colRowKey,
             this.colABM,
-            this.colNNN,
+            this.colNNT,
             this.colAHP,
             this.colDVT,
             this.colFyt,
@@ -206,12 +206,12 @@
             this.colABM.Visible = true;
             this.colABM.VisibleIndex = 1;
             // 
-            // colNNN
+            // colNNT
             // 
-            this.colNNN.FieldName = "NNN";
-            this.colNNN.Name = "colNNN";
-            this.colNNN.Visible = true;
-            this.colNNN.VisibleIndex = 2;
+            this.colNNT.FieldName = "NNT";
+            this.colNNT.Name = "colNNT";
+            this.colNNT.Visible = true;
+            this.colNNT.VisibleIndex = 2;
             // 
             // colAHP
             // 
@@ -391,7 +391,7 @@
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
         private DevExpress.XtraGrid.Columns.GridColumn colABM;
-        private DevExpress.XtraGrid.Columns.GridColumn colNNN;
+        private DevExpress.XtraGrid.Columns.GridColumn colNNT;
         private DevExpress.XtraGrid.Columns.GridColumn colAHP;
         private DevExpress.XtraGrid.Columns.GridColumn colDVT;
         private DevExpress.XtraGrid.Columns.GridColumn colFyt;

@@ -104,7 +104,7 @@ namespace M2DB
     {
         public static bool CanAppend(KYT curYtk, KYT apndYtk)
         {
-            // CanAppend(NNN curNe, NNN apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids, Circular referans olamaz
+            // CanAppend(NNT curNe, NNT apndNe) // CurrentNe ye AppendNe eklenebilir mi? HasParentsExistsInKids, Circular referans olamaz
             // Su anda Adina bakiyor, oNo ya bakmali
 
             // Zaten eklenmis ise

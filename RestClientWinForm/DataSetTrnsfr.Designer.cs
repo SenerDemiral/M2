@@ -396,7 +396,7 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnTrh;
             
-            private global::System.Data.DataColumn columnTUR;
+            private global::System.Data.DataColumn columnKND;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -481,9 +481,9 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TURColumn {
+            public global::System.Data.DataColumn KNDColumn {
                 get {
-                    return this.columnTUR;
+                    return this.columnKND;
                 }
             }
             
@@ -524,7 +524,7 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TOMRow AddTOMRow(ulong RowKey, string Kd, string Ad, string Info, string Drm, System.DateTime Trh, ulong TUR) {
+            public TOMRow AddTOMRow(ulong RowKey, string Kd, string Ad, string Info, string Drm, System.DateTime Trh, ulong KND) {
                 TOMRow rowTOMRow = ((TOMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowKey,
@@ -533,7 +533,7 @@ namespace RestClientWinForm {
                         Info,
                         Drm,
                         Trh,
-                        TUR};
+                        KND};
                 rowTOMRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTOMRow);
                 return rowTOMRow;
@@ -569,7 +569,7 @@ namespace RestClientWinForm {
                 this.columnInfo = base.Columns["Info"];
                 this.columnDrm = base.Columns["Drm"];
                 this.columnTrh = base.Columns["Trh"];
-                this.columnTUR = base.Columns["TUR"];
+                this.columnKND = base.Columns["KND"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -587,8 +587,8 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnDrm);
                 this.columnTrh = new global::System.Data.DataColumn("Trh", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrh);
-                this.columnTUR = new global::System.Data.DataColumn("TUR", typeof(ulong), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTUR);
+                this.columnKND = new global::System.Data.DataColumn("KND", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKND);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRowKey}, true));
                 this.columnRowKey.AllowDBNull = false;
@@ -1048,6 +1048,12 @@ namespace RestClientWinForm {
             
             private global::System.Data.DataColumn columnInfo;
             
+            private global::System.Data.DataColumn columnDrm;
+            
+            private global::System.Data.DataColumn columnTrh;
+            
+            private global::System.Data.DataColumn columnKND;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public TWMDataTable() {
@@ -1115,6 +1121,30 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DrmColumn {
+                get {
+                    return this.columnDrm;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn TrhColumn {
+                get {
+                    return this.columnTrh;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn KNDColumn {
+                get {
+                    return this.columnKND;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1150,13 +1180,16 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public TWMRow AddTWMRow(ulong RowKey, string Kd, string Ad, string Info) {
+            public TWMRow AddTWMRow(ulong RowKey, string Kd, string Ad, string Info, string Drm, System.DateTime Trh, ulong KND) {
                 TWMRow rowTWMRow = ((TWMRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         RowKey,
                         Kd,
                         Ad,
-                        Info};
+                        Info,
+                        Drm,
+                        Trh,
+                        KND};
                 rowTWMRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTWMRow);
                 return rowTWMRow;
@@ -1190,6 +1223,9 @@ namespace RestClientWinForm {
                 this.columnKd = base.Columns["Kd"];
                 this.columnAd = base.Columns["Ad"];
                 this.columnInfo = base.Columns["Info"];
+                this.columnDrm = base.Columns["Drm"];
+                this.columnTrh = base.Columns["Trh"];
+                this.columnKND = base.Columns["KND"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1203,6 +1239,12 @@ namespace RestClientWinForm {
                 base.Columns.Add(this.columnAd);
                 this.columnInfo = new global::System.Data.DataColumn("Info", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInfo);
+                this.columnDrm = new global::System.Data.DataColumn("Drm", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDrm);
+                this.columnTrh = new global::System.Data.DataColumn("Trh", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTrh);
+                this.columnKND = new global::System.Data.DataColumn("KND", typeof(ulong), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKND);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnRowKey}, true));
                 this.columnRowKey.AllowDBNull = false;
@@ -1754,17 +1796,17 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ulong TUR {
+            public ulong KND {
                 get {
                     try {
-                        return ((ulong)(this[this.tableTOM.TURColumn]));
+                        return ((ulong)(this[this.tableTOM.KNDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TUR\' in table \'TOM\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'KND\' in table \'TOM\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableTOM.TURColumn] = value;
+                    this[this.tableTOM.KNDColumn] = value;
                 }
             }
             
@@ -1830,14 +1872,14 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTURNull() {
-                return this.IsNull(this.tableTOM.TURColumn);
+            public bool IsKNDNull() {
+                return this.IsNull(this.tableTOM.KNDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTURNull() {
-                this[this.tableTOM.TURColumn] = global::System.Convert.DBNull;
+            public void SetKNDNull() {
+                this[this.tableTOM.KNDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2054,6 +2096,54 @@ namespace RestClientWinForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Drm {
+                get {
+                    try {
+                        return ((string)(this[this.tableTWM.DrmColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Drm\' in table \'TWM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTWM.DrmColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime Trh {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableTWM.TrhColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Trh\' in table \'TWM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTWM.TrhColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public ulong KND {
+                get {
+                    try {
+                        return ((ulong)(this[this.tableTWM.KNDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'KND\' in table \'TWM\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTWM.KNDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsKdNull() {
                 return this.IsNull(this.tableTWM.KdColumn);
             }
@@ -2086,6 +2176,42 @@ namespace RestClientWinForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetInfoNull() {
                 this[this.tableTWM.InfoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsDrmNull() {
+                return this.IsNull(this.tableTWM.DrmColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetDrmNull() {
+                this[this.tableTWM.DrmColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTrhNull() {
+                return this.IsNull(this.tableTWM.TrhColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTrhNull() {
+                this[this.tableTWM.TrhColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsKNDNull() {
+                return this.IsNull(this.tableTWM.KNDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetKNDNull() {
+                this[this.tableTWM.KNDColumn] = global::System.Convert.DBNull;
             }
         }
         

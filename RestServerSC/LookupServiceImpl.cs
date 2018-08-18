@@ -159,7 +159,7 @@ namespace RestServerSC
             {
                 for (int i = 0; i < 1; i++)
                 {
-                    foreach (var row in Db.SQL<NNN>("select r from NNN r"))
+                    foreach (var row in Db.SQL<NNT>("select r from NNT r"))
                     {
                         bbMsg = new BbMsg
                         {

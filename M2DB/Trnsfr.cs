@@ -39,13 +39,13 @@ namespace M2DB
     {
         // BB den Kd,Ad,Info
         public TTM TTM { get; set; }        // Master
-        public NNN NNN { get; set; }        // Ne
+        public NNT NNT { get; set; }        // Ne
         public TTD REF { get; set; }        // Ref @Spr:null, @Irs->Spr, @Ftr->Irs
         public double Mik { get; set; }
         public double Fyt { get; set; }
         public XGT DVT { get; set; }
         public float Kur { get; set; }
-        //public string Brm { get; set; }      // Birim NNN'den gelir
+        //public string Brm { get; set; }      // Birim NNT'den gelir
     }
 
 
@@ -54,7 +54,7 @@ namespace M2DB
     {
         public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
         public DateTime Trh { get; set; }
-        public XGT TUR { get; set; }        // Tür
+        public XGT KND { get; set; }        // Kind/Tür
         public KKK ORG { get; set; }        // Kimden/Nereden/Origin (Musteri/Depo/UretimHatti)
         public KKK DST { get; set; }        // Kime/Nereye/Destination
         public DateTime ROH { get; set; }   // RequestOnHand. Alc belirtir
@@ -105,7 +105,7 @@ namespace M2DB
     public class TOD : BB      // Order/Siparis Detay
     {
         public TOM TOM { get; set; }        // Master
-        public NNN NNN { get; set; }        // Ne
+        public NNT NNT { get; set; }        // Ne
         public double Mik { get; set; }     // Gercek
         public double Fyt { get; set; }
         public XGT DVT { get; set; }
@@ -144,6 +144,9 @@ namespace M2DB
     [Database]
     public class TWM : BB      // Waybill/Irsaliye Master (Firma <-> Sirket)
     {
+        public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
+        public DateTime Trh { get; set; }
+        public XGT KND { get; set; }        // Kind/Tür
         // Nakliye Araca toplu Irsaliye kesilir(Depo->Arac), Musterilere ayri(Arac->Musteri)
         // Dis
         // ORG/DST Firma, digeri Sirket(null) 
@@ -158,7 +161,7 @@ namespace M2DB
     {
         public TWM TWM { get; set; }        // Master
         public TOD TOD { get; set; }        // Irs->Spr
-        public NNN NNN { get; set; }        // Ne
+        public NNT NNT { get; set; }        // Ne
         public double Mik { get; set; }     // Gercek Gelen Mik
         public double Fyt { get; set; }
         public XGT DVT { get; set; }
@@ -201,7 +204,7 @@ namespace M2DB
     {
         public AHP AHP { get; set; }
         public TBM TBM { get; set; }        // Master
-        public NNN NNN { get; set; }        // Ne
+        public NNT NNT { get; set; }        // Ne
         public TWD TWD { get; set; }        // Ftr->Irs
         public double Mik { get; set; }     // Gercek Fatura Mik
         public double Fyt { get; set; }

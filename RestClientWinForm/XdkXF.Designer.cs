@@ -58,6 +58,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSetGnl)).BeginInit();
             this.SuspendLayout();
             // 
+            // xdkBindingSource
+            // 
+            this.xdkBindingSource.DataMember = "XDK";
+            this.xdkBindingSource.DataSource = this.dataSetGnl;
+            // 
             // xdkBindingNavigator
             // 
             this.xdkBindingNavigator.AddNewItem = null;
