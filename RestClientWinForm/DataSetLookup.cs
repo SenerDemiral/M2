@@ -25,12 +25,24 @@ namespace RestClientWinForm
                 while (await response.ResponseStream.MoveNext(new CancellationToken()))
                 {
                     proxy = response.ResponseStream.Current;
+
+                    /* Asagidakiler hiz kazandirmiyor.!!
+                    1: dt.Rows.Add(proxy.RowKey, proxy.Typ, proxy.Kd, proxy.Ad, proxy.Info);
+                    2: Index kullanarak 
+                    row[0] = proxy.RowKey;
+                    row[1] = proxy.Typ;
+                    row[2] = proxy.Kd;
+                    row[3] = proxy.Ad;
+                    row[4] = proxy.Info;
+                    */
                     row = dt.NewRow();
+                                        
                     row["RowKey"] = proxy.RowKey;
                     row["Typ"] = proxy.Typ;
                     row["Kd"] = proxy.Kd;
                     row["Ad"] = proxy.Ad;
                     row["Info"] = proxy.Info;
+
                     dt.Rows.Add(row);
 
                     nor++;

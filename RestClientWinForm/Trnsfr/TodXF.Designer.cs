@@ -41,6 +41,11 @@
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.todGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTOM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -48,11 +53,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colTOM = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrnsfr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.todBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.todBindingNavigator)).BeginInit();
@@ -112,6 +112,7 @@
             this.addToolStripButton.Name = "addToolStripButton";
             this.addToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.addToolStripButton.Text = "Add";
+            this.addToolStripButton.Click += new System.EventHandler(this.addToolStripButton_Click);
             // 
             // saveToolStripButton
             // 
@@ -121,6 +122,7 @@
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.saveToolStripButton.Text = "Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // deleteToolStripButton
             // 
@@ -130,6 +132,7 @@
             this.deleteToolStripButton.Name = "deleteToolStripButton";
             this.deleteToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.deleteToolStripButton.Text = "Delete";
+            this.deleteToolStripButton.Click += new System.EventHandler(this.deleteToolStripButton_Click);
             // 
             // refreshToolStripButton
             // 
@@ -139,6 +142,7 @@
             this.refreshToolStripButton.Name = "refreshToolStripButton";
             this.refreshToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.refreshToolStripButton.Text = "Refresh";
+            this.refreshToolStripButton.Click += new System.EventHandler(this.refreshToolStripButton_Click);
             // 
             // revertToolStripButton
             // 
@@ -148,6 +152,7 @@
             this.revertToolStripButton.Name = "revertToolStripButton";
             this.revertToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.revertToolStripButton.Text = "toolStripButton6";
+            this.revertToolStripButton.Click += new System.EventHandler(this.refreshToolStripButton_Click);
             // 
             // editToolStripButton
             // 
@@ -179,6 +184,43 @@
             this.colInfo});
             this.gridView1.GridControl = this.todGridControl;
             this.gridView1.Name = "gridView1";
+            // 
+            // colRowKey
+            // 
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.OptionsColumn.ReadOnly = true;
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 0;
+            // 
+            // colTOM
+            // 
+            this.colTOM.FieldName = "TOM";
+            this.colTOM.Name = "colTOM";
+            this.colTOM.OptionsColumn.ReadOnly = true;
+            this.colTOM.Visible = true;
+            this.colTOM.VisibleIndex = 1;
+            // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 2;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 3;
+            // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 4;
             // 
             // statusStrip1
             // 
@@ -255,43 +297,6 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // colRowKey
-            // 
-            this.colRowKey.FieldName = "RowKey";
-            this.colRowKey.Name = "colRowKey";
-            this.colRowKey.OptionsColumn.ReadOnly = true;
-            this.colRowKey.Visible = true;
-            this.colRowKey.VisibleIndex = 0;
-            // 
-            // colTOM
-            // 
-            this.colTOM.FieldName = "TOM";
-            this.colTOM.Name = "colTOM";
-            this.colTOM.OptionsColumn.ReadOnly = true;
-            this.colTOM.Visible = true;
-            this.colTOM.VisibleIndex = 1;
-            // 
-            // colKd
-            // 
-            this.colKd.FieldName = "Kd";
-            this.colKd.Name = "colKd";
-            this.colKd.Visible = true;
-            this.colKd.VisibleIndex = 2;
-            // 
-            // colAd
-            // 
-            this.colAd.FieldName = "Ad";
-            this.colAd.Name = "colAd";
-            this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 3;
-            // 
-            // colInfo
-            // 
-            this.colInfo.FieldName = "Info";
-            this.colInfo.Name = "colInfo";
-            this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 4;
-            // 
             // TodXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,6 +305,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "TodXF";
             this.Text = "TodXF";
+            this.Load += new System.EventHandler(this.TodXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrnsfr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.todBindingNavigator)).EndInit();

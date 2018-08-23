@@ -9,19 +9,49 @@ using System.Reflection;
 using Starcounter;
 using M2DB;
 using System.Data;
+using System.Diagnostics;
 
 namespace RestServerSC
 {
     class LookupServiceImpl : Rest.LookupService.LookupServiceBase
     {
+        Stopwatch sw = new Stopwatch();
+
         // Base Deneme
         public override async Task BbL(QueryLookupProxy request, IServerStreamWriter<BbLookupProxy> responseStream, ServerCallContext context)
         {
             BbLookupProxy proxy = new BbLookupProxy();
             List<BbLookupProxy> proxyList = new List<BbLookupProxy>();
 
+
             await Scheduling.RunTask(() =>
             {
+                /*
+                sw.Restart();
+                int key = 0;
+                int nor = 0;
+                bool b = false;
+                BB d;
+                for (int i = 0; i < 1000000; i++)
+                {
+                    d = Db.FromId<BB>(302);
+                    key += d.i;
+                    
+                    //foreach (var row in Db.SQL<BB>("select r from BB r"))
+                    //{
+                    //    d = Db.FromId<BB>(302);
+                    //    //key += row.GetObjectNo();
+                    //    //b = row.Ad == null ? true : false;
+                    //    //key += row.i;
+                    //    nor++;
+                    //}
+                        nor++;
+                }
+
+                sw.Stop();
+                Console.WriteLine($"{sw.ElapsedMilliseconds}  {nor:n0}    {key}");
+                */
+
                 string srch = request.Query;
                 bool all = string.IsNullOrEmpty(srch);
 

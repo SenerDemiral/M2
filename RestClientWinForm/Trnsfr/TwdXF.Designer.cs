@@ -33,27 +33,32 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tWDBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.tWDBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.twdBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.twdBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSetTrnsfr = new RestClientWinForm.DataSetTrnsfr();
-            this.twdGridControl = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.deleteToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.refreshToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.revertToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.editToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.twdGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTOM = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tWDBindingNavigator)).BeginInit();
-            this.tWDBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tWDBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twdBindingNavigator)).BeginInit();
+            this.twdBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.twdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrnsfr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.twdGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -66,7 +71,7 @@
             // layoutControl1
             // 
             this.layoutControl1.Controls.Add(this.statusStrip1);
-            this.layoutControl1.Controls.Add(this.tWDBindingNavigator);
+            this.layoutControl1.Controls.Add(this.twdBindingNavigator);
             this.layoutControl1.Controls.Add(this.twdGridControl);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
@@ -94,97 +99,41 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 15);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
-            // tWDBindingNavigator
+            // twdBindingNavigator
             // 
-            this.tWDBindingNavigator.AddNewItem = null;
-            this.tWDBindingNavigator.AutoSize = false;
-            this.tWDBindingNavigator.BindingSource = this.tWDBindingSource;
-            this.tWDBindingNavigator.CountItem = null;
-            this.tWDBindingNavigator.DeleteItem = null;
-            this.tWDBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
-            this.tWDBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.twdBindingNavigator.AddNewItem = null;
+            this.twdBindingNavigator.AutoSize = false;
+            this.twdBindingNavigator.BindingSource = this.twdBindingSource;
+            this.twdBindingNavigator.CountItem = null;
+            this.twdBindingNavigator.DeleteItem = null;
+            this.twdBindingNavigator.Dock = System.Windows.Forms.DockStyle.None;
+            this.twdBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripButton,
             this.saveToolStripButton,
             this.deleteToolStripButton,
             this.refreshToolStripButton,
             this.revertToolStripButton,
             this.editToolStripButton});
-            this.tWDBindingNavigator.Location = new System.Drawing.Point(12, 12);
-            this.tWDBindingNavigator.MoveFirstItem = null;
-            this.tWDBindingNavigator.MoveLastItem = null;
-            this.tWDBindingNavigator.MoveNextItem = null;
-            this.tWDBindingNavigator.MovePreviousItem = null;
-            this.tWDBindingNavigator.Name = "tWDBindingNavigator";
-            this.tWDBindingNavigator.PositionItem = null;
-            this.tWDBindingNavigator.Size = new System.Drawing.Size(925, 30);
-            this.tWDBindingNavigator.TabIndex = 2;
-            this.tWDBindingNavigator.Text = "bindingNavigator1";
+            this.twdBindingNavigator.Location = new System.Drawing.Point(12, 12);
+            this.twdBindingNavigator.MoveFirstItem = null;
+            this.twdBindingNavigator.MoveLastItem = null;
+            this.twdBindingNavigator.MoveNextItem = null;
+            this.twdBindingNavigator.MovePreviousItem = null;
+            this.twdBindingNavigator.Name = "twdBindingNavigator";
+            this.twdBindingNavigator.PositionItem = null;
+            this.twdBindingNavigator.Size = new System.Drawing.Size(925, 30);
+            this.twdBindingNavigator.TabIndex = 2;
+            this.twdBindingNavigator.Text = "bindingNavigator1";
             // 
-            // tWDBindingSource
+            // twdBindingSource
             // 
-            this.tWDBindingSource.DataMember = "TWD";
-            this.tWDBindingSource.DataSource = this.dataSetTrnsfr;
+            this.twdBindingSource.DataMember = "TWD";
+            this.twdBindingSource.DataSource = this.dataSetTrnsfr;
             // 
             // dataSetTrnsfr
             // 
             this.dataSetTrnsfr.DataSetName = "DataSetTrnsfr";
             this.dataSetTrnsfr.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // twdGridControl
-            // 
-            this.twdGridControl.DataSource = this.tWDBindingSource;
-            this.twdGridControl.Location = new System.Drawing.Point(12, 46);
-            this.twdGridControl.MainView = this.gridView1;
-            this.twdGridControl.Name = "twdGridControl";
-            this.twdGridControl.Size = new System.Drawing.Size(925, 251);
-            this.twdGridControl.TabIndex = 0;
-            this.twdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.twdGridControl;
-            this.gridView1.Name = "gridView1";
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem2,
-            this.layoutControlItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(949, 333);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.twdGridControl;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(929, 255);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.tWDBindingNavigator;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(929, 34);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.statusStrip1;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 289);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(929, 24);
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem3.TextVisible = false;
             // 
             // addToolStripButton
             // 
@@ -240,6 +189,103 @@
             this.editToolStripButton.Size = new System.Drawing.Size(23, 27);
             this.editToolStripButton.Text = "toolStripButton1";
             // 
+            // twdGridControl
+            // 
+            this.twdGridControl.DataSource = this.twdBindingSource;
+            this.twdGridControl.Location = new System.Drawing.Point(12, 46);
+            this.twdGridControl.MainView = this.gridView1;
+            this.twdGridControl.Name = "twdGridControl";
+            this.twdGridControl.Size = new System.Drawing.Size(925, 251);
+            this.twdGridControl.TabIndex = 0;
+            this.twdGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colRowKey,
+            this.colTOM,
+            this.colKd,
+            this.colAd,
+            this.colInfo});
+            this.gridView1.GridControl = this.twdGridControl;
+            this.gridView1.Name = "gridView1";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(949, 333);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.twdGridControl;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 34);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(929, 255);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.twdBindingNavigator;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(929, 34);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.statusStrip1;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 289);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(929, 24);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem3.TextVisible = false;
+            // 
+            // colRowKey
+            // 
+            this.colRowKey.FieldName = "RowKey";
+            this.colRowKey.Name = "colRowKey";
+            this.colRowKey.Visible = true;
+            this.colRowKey.VisibleIndex = 0;
+            // 
+            // colTOM
+            // 
+            this.colTOM.FieldName = "TOM";
+            this.colTOM.Name = "colTOM";
+            this.colTOM.Visible = true;
+            this.colTOM.VisibleIndex = 1;
+            // 
+            // colKd
+            // 
+            this.colKd.FieldName = "Kd";
+            this.colKd.Name = "colKd";
+            this.colKd.Visible = true;
+            this.colKd.VisibleIndex = 2;
+            // 
+            // colAd
+            // 
+            this.colAd.FieldName = "Ad";
+            this.colAd.Name = "colAd";
+            this.colAd.Visible = true;
+            this.colAd.VisibleIndex = 3;
+            // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "Info";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 4;
+            // 
             // TwdXF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,10 +298,10 @@
             this.layoutControl1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tWDBindingNavigator)).EndInit();
-            this.tWDBindingNavigator.ResumeLayout(false);
-            this.tWDBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tWDBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twdBindingNavigator)).EndInit();
+            this.twdBindingNavigator.ResumeLayout(false);
+            this.twdBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.twdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetTrnsfr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.twdGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -274,8 +320,8 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private DataSetTrnsfr dataSetTrnsfr;
-        private System.Windows.Forms.BindingSource tWDBindingSource;
-        private System.Windows.Forms.BindingNavigator tWDBindingNavigator;
+        private System.Windows.Forms.BindingSource twdBindingSource;
+        private System.Windows.Forms.BindingNavigator twdBindingNavigator;
         private DevExpress.XtraGrid.GridControl twdGridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
@@ -287,5 +333,10 @@
         private System.Windows.Forms.ToolStripButton refreshToolStripButton;
         private System.Windows.Forms.ToolStripButton revertToolStripButton;
         private System.Windows.Forms.ToolStripButton editToolStripButton;
+        private DevExpress.XtraGrid.Columns.GridColumn colRowKey;
+        private DevExpress.XtraGrid.Columns.GridColumn colTOM;
+        private DevExpress.XtraGrid.Columns.GridColumn colKd;
+        private DevExpress.XtraGrid.Columns.GridColumn colAd;
+        private DevExpress.XtraGrid.Columns.GridColumn colInfo;
     }
 }

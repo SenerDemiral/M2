@@ -3,50 +3,47 @@ using Starcounter;
 
 namespace M2DB
 {
-    // 5N1K: Ne, Nezaman, Nerede, Niye, Nasil, Kim 
+    // Siparis -> Irsaliye -> Fatura
+    // Irsaliye Siparisi, Fatura Irsaliyeyi bilir
 
-    // Siparis -> Transfer(Irsaliye) -> Transfer(Fatura)
-    /// <summary>
-    /// AlisSiparisi:    Nereden(Musteri) -> null
-    /// SatisSiparisi: null -> Nereye(Musteri)
-    /// 
-    /// CikisNakliyeIrsaliye: Depo -> Arac
-    /// CikisMusteriIrsaliye: Depo-Musteri, Depo->Arac, Arac->Musteri
-    /// AlisMusteriIrsaliye: Nereden(Musteri)->Nereye(Depo)
-    /// 
-    /// SatisFatura: AlanMusteri
-    /// </summary>
-    [Database]
-    public class TTM : BB   // Transfer, Base Master
-    {
-        // BB den Kd,Ad,Info,Tbl
-        public TTM REF { get; set; }        // ParentTransfer null:Siparis, Siparis:Irsaliye, Irsaliye:Fatura. Link Detay'dan ??????
-        public KKK ORG { get; set; }        // Kimden/Nereden/Origin (Musteri/Depo/UretimHatti)
-        public KKK DST { get; set; }        // Kime/Nereye/Destination
-        // Her Transferin Vrn ve Aln'i olmaz ilgili table koy
-        public KKK VRN { get; set; }        // Veren Personel/FirmaContact
-        public KKK ALN { get; set; }        // Alan Personel/FirmaContact
+    // SiparisSureci TOH, TOSP
+    // Siparis'in Master kaydi yoktur. Her mal icin ayri hazirlanir ve takip edilir.
+    // Client IcVeDis Siparisleri bir Form da gorur, yeni giris Ic ve Dis olarak iki ayri Form da yapilir.
+    // GidenSiparis:Alici=Biz, GelenSiparis:Satici=Biz
+    // Alici Siparisi girer (ROS) Anlasma fiyatlari otomatik gelir, kullanici degistiremez
+    // Alici Siparisi onaylar, birden cok onay gerekebilir, bitince Saticiya eMail gider
+    // Satici EOS girerek siparisi kabul eder. Satici fiyatlari degistirebilir
+    // Alici EOS'u ve Fiyatlari Onaylar, Saticiya eMail gider
+    //   SevkIrsaliye sureci baslar
 
-        public DateTime VrnOnyTrh { get; set; }   // Veren Onayladiginda
-        public DateTime AlnOnyTrh { get; set; }   // Alan  Onayladiginda
+    // SevkSureci TWM, TWD
+    // Satici hazir oldugunda OKlenmis siparislerden Irsaliye hazirlar (partial shipment olabilir)
+    // Satici ETD, ETA, yola ciktiginda ATD belirtir.
+    // Alici geldiginde ATA ve POD(KimTeslimAldi) girer.
+    // Her irsaliye kalemi bir siparise baglidir. POD aldiginda ilgili Siparisin KlnMik update edilir. 
+    //   Fatura sureci baslar (Eger DisSiparis ise)
 
-        public string Skl { get; set; }     // DisSiparis/IcSiparis/DisIrsaliye/IcIrsaliye/Fatura
-        public int Drm { get; set; }        // Durum/Statu (Acik/Kapali)
-    }
+    // SevkKabul
+    // Irsaliyede yazilanin aynisi degil ise.
+    // Eksik:   GelenMik girilir (Hic gelmemis ise 0). Uyusmazlik: Alici bilgilendirilir.
+    // Fazla:   Alici istese bile alamaz, cunki siparis disina cikilmistir, Cozum?????? Oneri: GlnMik=IrsaliyeMik POD alir, FzlMik=FazlaKismi IadeDeposuna gonderilir
+    // Hasarli: Hasarli olanlar, Cozum?????? Oneri: GlnMik=HasarsizMik POD alir, HsrMik=HasarliKadari IadeDeposuna gonderilir
+    // Yanlis:  Istenmeyen/Yanlis bir mal gelmistir, Cozum?????? Oneri: GlnMik=0 POD almaz, FzlMik=GelenKadari IadeDeposuna gonderilir
+    // Uyusmazligin cozulmesi gerek. ????????????
+    // Irsaliyede farkli alanalar GlnMik, HsrMik, FzlMik, 
 
-    [Database]
-    public class TTD : BB   // Base Detay
-    {
-        // BB den Kd,Ad,Info
-        public TTM TTM { get; set; }        // Master
-        public NNT NNT { get; set; }        // Ne
-        public TTD REF { get; set; }        // Ref @Spr:null, @Irs->Spr, @Ftr->Irs
-        public double Mik { get; set; }
-        public double Fyt { get; set; }
-        public XGT DVT { get; set; }
-        public float Kur { get; set; }
-        //public string Brm { get; set; }      // Birim NNT'den gelir
-    }
+    // FaturaSureci
+    // Satici POD almis DisIrsaliyeden Fatura hazirlar.
+    // Her fatura bir irsaliyeye baglidir (Master seviyesinde, detay da degil)
+    // Satici onaylar (Aliciya eMail gonderilir)
+    // Alici Faturayi onaylar (Tutarsizlik varsa onaylamaz)
+    //   Ilgili Irsaliyeler Update edilir
+    //   Odeme sureci baslar
+
+    // Her Transfer islemi Siparis'den baslar
+    // Orada Onaylandigi icin ve digerleri otomatik hazirlandigi icin tutarsizlik olmaz.
+    // Irs.Mik <= Spr.Mik (Irsaliye Siparisden otomatik hazirlanir ama partial olabilecegi icin manuel degistirilir)
+    // Frt.Mik = Irs.Mik (Fatura Gerceklesmis Irsaliyelerden hazirlandigi icin Ftr.Mik degistirelemez)
 
 
     [Database]
@@ -64,40 +61,184 @@ namespace M2DB
                                             // AlimSiparis:  ORG var DST yok, VRN yok ALN var (Siparis Kimden gelecek)
                                             // SatimSiparis: DST var ORG yok (Siparis Kime gidecek)
 
-        // TransferDetaylari
-        // Siparis  KlnSipMik = SipMik - sum(SvkMik)
-        // Irsaliye KlnSvkMik = SvkMik - sum(FtrMik)     ->SprsDtyID
-        // Fatura   FtrMik                  ->IrsDtyID
+    }
 
-        // SiparisSureci
-        // Client IcveDis Siparisleri bir Form da gorur, yeni giris Ic ve Dis olarak iki ayri Form da yapilir.
-        // GidenSiparis:Alici=Biz, GelenSiparis:Satici=Biz
-        // Alici Siparisi girer (ROS) Anlasma fiyatlari otomatik gelir, kullanici degistiremez
-        // Alici Siparisi onaylar, birden cok onay gerekebilir, bitince Saticiya eMail gider
-        // Satici EOS girerek siparisi kabul eder. Satici fiyatlari degistirebilir
-        // Alici EOS'u ve Fiyatlari Onaylar, Saticiya eMail gider
-        //   SevkIrsaliye sureci baslar
+    /// <summary>
+    /// ALICI->
+    ///   TOQ ile istek hazirlanir
+    ///   Request/Istek/Alici yetkilisi Kabul/Red edip imzalar.
+    ///   Red:
+    ///     Siparis Red olarak baslamadan bitmistir -X
+    ///   Kabul:
+    ///     Bagli TOP kaydi acilir.
+    ///     Satici bilgilendirilir.
+    ///     
+    ///     SATICI->
+    ///       Respond/Yanit/Satici yetkilisi Kabul/Red edip imzalar.
+    ///       Red:
+    ///         Siparis Red olarak bitmistir -X
+    ///         Alici bilgilendirilir.
+    ///       Kabul:
+    ///         Istenenin tamamini karsiliyamiyorsa
+    ///           KismiSevk'e izin verilmis ise
+    ///             Respons kaydini duplicate ederek parcalayablir.
+    ///           Else
+    ///             Verebilecegi kadarini girer (tam/eksik)
+    ///         Alici bilgilendirilir.
+    ///     
+    ///         ALICI->
+    ///           Satici Aynen kabul etmisse:
+    ///             Siparis Kabul olarak bitmistir ->
+    ///           Degisiklik yapmissa:
+    ///             Alici yetkilisi Kabul/Red edip imzalar.
+    ///             Red:
+    ///               Siparis Red olarak bitmistir -X
+    ///             Kabul:
+    ///               Siparis Kabul olarak bitmistir ->
+    ///             Satici bilgilendirilir
+    ///             
+    /// </summary>
+    [Database]
+    public class TOQ : BB      // Siparis reQuest
+    {
+        public BB ORG { get; set; }        // Isteyen/SiparisiVeren/Alici
+        public BB DST { get; set; }        // Yanitlayan/SiparisiAlan/Satici
+        public NNT NNT { get; set; }       // Ne
 
-        // IrsaliyeSureci
-        // Satici bekleyen OKlenmis siparislerden Irsaliye hazirlar (partial shipment olabilir)
-        // Her irsaliye kalemi bir siparise baglidir. 
-        // Aliciya gonderilir. (Saticiya ATD ve ETA gonderilebilir)
-        // Alici aldigini POD ile onaylar (POD = ATA)
-        //   Ilgili siparisler Update edilir (Satici=Biz ise uretim asamasi baslar)
-        //   Fatura sureci baslar
+        // Request (Alicinin istegi)
+        public double RMik { get; set; } 
+        public double RFyt { get; set; } 
+        public XGT RDVT { get; set; }
+        public DateTime ROS { get; set; }   // RequestOnSite
+        public bool IsPrtSvk { get; set; }  // Partila Sevkiyat yapilabilir
 
-        // FaturaSureci
-        // Satici POD almis Irsaliyelerden Fatura hazirlar.
-        // Her fatura kalemi bir irsaliyeye baglidir 
-        // Satici onaylar (Aliciya eMail gonderilir)
-        // Alici Faturayi onaylar (Tutarsizlik varsa onaylamaz)
-        //   Ilgili Irsaliyeler Update edilir
-        //   Odeme sureci baslar
+        // Gerceklesen (Saticinin yaniti)
+        public double Mik { get; set; }
+        public double Fyt { get; set; }
+        public XGT DVT { get; set; }
+        public DateTime EOS { get; set; }   // EstimatedOnSite
 
-        // Her Transfer islemi Siparis'den baslar
-        // Orada Onaylandigi icin ve digerleri otomatik hazirlandigi icin tutarsizlik olmaz.
-        // Irs.Mik <= Spr.Mik (Irsaliye Siparisden otomatik hazirlanir ama partial olabilecegi icin manuel degistirilir)
-        // Frt.Mik = Irs.Mik (Fatura Gerceklesmis Irsaliyelerden hazirlandigi icin Ftr.Mik degistirelemez)
+        public double KlnMik { get; set; }  // Mik - TopIrsMik(Gelmis)
+        public string SvkPlan { get; set; } // SevkPlanindan: Mik@Trh, Mik@Trh, ...
+
+        // Alici Siparisin verilmesini onaylar(Red/Kabul)
+        public BB AlcOnyYtk { get; set; }
+        public BB AlcOnyUsr { get; set; }
+        public DateTime AlcOnyTrh { get; set; }
+
+        // Satici Siparisi aldigini onaylar(Red/Kabul/Mdf)
+        public BB StcOnyYtk { get; set; }
+        public BB StcOnyUsr { get; set; }
+        public DateTime StcOnyTrh { get; set; }
+
+        // Alici, Satici degisiklik yapmis ise onaylar(Red/Kabul)
+        public BB AlcMdfOnyYtk { get; set; }
+        public BB AlcMdfOnyUsr { get; set; }
+        public DateTime AlcMdfOnyTrh { get; set; }
+
+        public string Drm { get; set; }
+        // AlcHazirliyor, 
+        // AlcReqOnyBekleniyor,
+        // AlcReqRed.
+        // AlcReqKbl + StcRspBekleniyor, 
+        // StcRspRed. 
+        // StcRspKbl + MalBekleniyor.
+        // StcRspMdf + AlcMdfOnyBekleniyor, (Satici Mik,Fyt ve EOS degistirebilir, Client da degisenleri goster)
+        // AlcMdfRed. 
+        // AlcMdfKbl + MalBekleniyor.
+    }
+
+    /// <summary>
+    /// Order Sevk Plani
+    /// Eger Partial Sevkiyata izin verilmis ise
+    /// Satici malin nekadarini nezaman gonderecek.
+    /// TOP.sum(Mik) == TOQ.Mik olmali 
+    /// </summary>
+    [Database]
+    public class TOSP : BB   // OrderSevkPlani
+    {
+        public TOQ TOQ { get; set; }        // Request
+        public double Mik { get; set; }
+        public DateTime EOS { get; set; }   // EstimatedOnSite
+    }
+
+    [Database]
+    public class TOP : BB      // Siparis Yanit
+    {
+        public TOQ TOQ { get; set; }        // Request
+        // Satici Pending, Red, Degisiklik, AynenKabul
+        // Alici 
+        public string Drm { get; set; }     // Satici Pending/Kabul/Red, Alici Pending/Kabul/Red
+
+        public double Mik { get; set; }     // Nekadar
+        public double Fyt { get; set; }     // Kaca
+        public XGT DVT { get; set; }
+
+        public DateTime EOS { get; set; }     // TahminiTedarikZamani
+        public BB RspYtk { get; set; }
+        public BB RspOny { get; set; }
+        public DateTime RspTrh { get; set; }
+        public string RspSnc { get; set; }   // Bos/Kabul/Red
+
+        public BB ReqOny { get; set; }
+        public DateTime ReqTrh { get; set; }
+        public string ReqSnc { get; set; }   // Bos/Kabul/Red
+    }
+
+    /// <summary>
+    /// 1 Alici Siparisi(Request) Hazirlar (Alici ve satici mutabik oluncaya kadar devam eder)
+    /// 2 OnyDpt personeli tarafindan onaylanir (veya OnyDptlerdeki biri tarafindan iptal edilebilir)
+    /// 3 Alici iptal ettiyse islem durur, Aliciya mail gonderilir. (Eger 8'den gelmis ise Saticiya bilgilendirme maili gonderilir)
+    /// 4 Onaylar tamamlaninca Saticiya mail gider
+    /// 5 Satici yapabileceklerini girer veya iptal eder
+    /// 6 Satici onayladiginda Aliciya Mail gider
+    /// 7 Satici iptal etmis ise Siparis iptal edilmistir, bu kayit uzerinde baska bir islem yapilamaz.
+    /// 8 Satici iptal disinda herhangi bir deger degistirmis ise Alici onaylari sifirlanir 2'den devam eder. 
+    /// 9 Alici onay(lar)i ve Satici onayi tamam ise siparis islemi bitmistir. Herhangi birinde Iptal varsa Iptal olarak, degilse basariyla bitmistir.
+    /// </summary>
+    [Database]
+    public class TxD : BB      // Siparis Calisma
+    {
+        public BB ORG { get; set; }        // Isteyen/SiparisiVeren/Alici
+        public BB DST { get; set; }        // Yanitlayan/SiparisiAlan/Satici
+
+        public string Drm { get; set; }         // ??? Pending/Hazirlaniyor, Acik/Kapali/Pending/Bitti
+        public DateTime DrmTrh { get; set; }    // Durumun gerceklestigi tarih, son haline nezaman gecti (History gerekir)
+
+        // OrgRequest/Istenen
+        public NNT ReqNNT { get; set; }       // Ne
+        public double ReqMik { get; set; }    // Gercek
+        public double ReqFyt { get; set; }
+        public XGT ReqDVT { get; set; }
+        public DateTime ROH { get; set; }   // RequestOnHand
+        public bool IsReqIpt { get; set; }  // Org/Alici Iptal etti mi? Kim Yapabilir ??????
+
+        // UstDept Onaylayabilir mi?
+        // Onay vermesi gereken deptler belirlenir (Max 3adet), Dept personeli tarafindan onay velirlir
+
+        public bool IsReqOnyOrdered { get; set; }   // Onay sirayla mi verilir? (Birden cok onay gerekiyorsa)
+        public KDT ReqOnyDpt1 { get; set; }         // Onaylayacak Departman (Yetkili)  (Doluysa Update edilemez)
+        public KPT ReqOnyPrs1 { get; set; }         // Onaylayan Dept Personeli (ReqKDT doluysa) (Doluysa Update edilemez)
+        public DateTime ReqOnyTrh1 { get; set; }    // Onaylandigi Tarih
+        public KDT ReqKDT2 { get; set; }
+        public KPT ReqKPT2 { get; set; }
+        public KDT ReqKDT3 { get; set; }
+        public KPT ReqKPT3 { get; set; }
+
+
+        // Istenen MinMiktar, Mik > MinMik : Partial, Mik saglanincaya kadar her gonderimde MinMik gonderilmeli
+        // Bu sefer nekadar araliklarla gonderilmesi gerektigi sorusu olur. Is karisir
+        //public bool IsPrt { get; set; }     // Kismi gonderilebilir mi?
+        //public double MinMik { get; set; }  
+
+        // DstResponse/Sunulan
+        // Saticidaki Hangi Contactlar bu isleme onay vermeye yetkili?
+        public NNT NNT { get; set; }        // Ne
+        public double Mik { get; set; }     // Gercek
+        public double Fyt { get; set; }
+        public XGT DVT { get; set; }
+        public DateTime EOH { get; set; }   // ExpectedOnHand
+        public bool IsRspIpt { get; set; }  // DstResponse/Satici Iptal etti mi?
 
     }
 

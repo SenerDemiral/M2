@@ -15,7 +15,7 @@ namespace RestClientWinForm
     public partial class TodXF : DevExpress.XtraEditors.XtraForm
     {
         public object M = (ulong)0;
-        public DataSetTrnsfr.TOMRow TOMRow;
+        public DataSetTrnsfr.TOMRow MRow;
         public bool readOnly = true;
 
         public TodXF()
@@ -25,9 +25,9 @@ namespace RestClientWinForm
             todGridControl.ExternalRepository = Program.MF.persistentRepository;
         }
 
-        private void AvdXF_Load(object sender, EventArgs e)
+        private void TodXF_Load(object sender, EventArgs e)
         {
-            M = TOMRow.RowKey;
+            M = MRow.RowKey;
             if (readOnly)
             {
                 gridView1.OptionsBehavior.ReadOnly = true;

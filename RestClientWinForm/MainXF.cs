@@ -77,6 +77,7 @@ namespace RestClientWinForm
                 //await mainDataSet.NNNfill();
 
                 nor += await dataSetLookup.BbL();   // Base Deneme
+                
                 nor += await dataSetLookup.KdtL();  // Dept
                 nor += await dataSetLookup.KftL();  // Firma
                 nor += await dataSetLookup.KptL();  // Personel
@@ -86,7 +87,6 @@ namespace RestClientWinForm
                 nor += await dataSetLookup.AbkL();  // BillKind
                 nor += await dataSetLookup.AhpL();  // HesapPlani
                 nor += await dataSetLookup.XgtL();  // Genel
-                //string sss = await mainDataSet.AHPfill();
 
                 sw.Stop();
                 InitLookups();

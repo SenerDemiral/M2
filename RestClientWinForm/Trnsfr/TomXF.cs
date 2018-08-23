@@ -30,6 +30,7 @@ namespace RestClientWinForm
             gridView1.OptionsSelection.MultiSelect = true;
             gridView1.OptionsView.EnableAppearanceEvenRow = true;
 
+            tomGridControl.ExternalRepository = Program.MF.persistentRepository;
         }
 
         public class CustomGridLocalizer : GridLocalizer
@@ -226,8 +227,9 @@ namespace RestClientWinForm
             }
 
             TodXF frm = new TodXF();
-            frm.TOMRow = (DataSetTrnsfr.TOMRow)dataSetTrnsfr.TOM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
+            frm.MRow = (DataSetTrnsfr.TOMRow)dataSetTrnsfr.TOM.Rows[gridView1.GetFocusedDataSourceRowIndex()];
             frm.readOnly = readOnly;
+
             var dr = frm.ShowDialog();
             if (!readOnly)
             {
