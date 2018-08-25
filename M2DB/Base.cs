@@ -24,7 +24,6 @@ namespace M2DB
         public string Kd { get; set; }
         public string Ad { get; set; }
         public string Info { get; set; }
-        public int i { get; set; }
 
 
         /*

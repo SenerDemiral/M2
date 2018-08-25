@@ -6,6 +6,7 @@ namespace M2DB
 {
     /// <summary>
     /// Programa girebilmek icin UUU kaydinin olmasi gerekir
+    /// Personel ve FrmContact uzerinden yap. BURASI SILINECEK
     /// </summary>
 
     [Database]

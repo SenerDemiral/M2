@@ -42,7 +42,6 @@ namespace RestServerSC
                     //    d = Db.FromId<BB>(302);
                     //    //key += row.GetObjectNo();
                     //    //b = row.Ad == null ? true : false;
-                    //    //key += row.i;
                     //    nor++;
                     //}
                         nor++;

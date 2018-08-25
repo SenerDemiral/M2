@@ -25,13 +25,27 @@ namespace M2DB
     {
         public BB M { get; set; }       // Masters is KFT
         public string Unvan { get; set; }
+        public bool IsStsYtk { get; set; }      // Satis yapmaya yetkili mi? (Siparis'i onaylar)
+        public bool IsAlsYtk { get; set; }      // Alis yapmaya yetkili mi?
         public string TAGs { get; set; }
     }
 
     [Database]
     public class KDT : BB   // Kim.Departman.Tanim
     {
-        public string Skl { get; set; }     // Uretim/Depo/Fire/Imha/Kayip
+        public string Skl { get; set; }         // Uretim/Depo/Fire/Imha/Kayip
+
+        // Bu dept yetkili ise Personelinden biri onay verebilir.
+        //   Ornegin Siparis verilirken: 
+        //   Siparisin sekline gore, 
+        //   Yetkili dept larin her biri icin 
+        //   XOH da kayit acilir, Ilgili personele alert gonderilir, 
+        //   Personel Kabul/Red onayi verir (PrsNo ve Tarih)
+        public bool IsStsYtk { get; set; }      // Bu Dept deki personel Satis yapmaya yetkili mi? (Siparis'i onaylar)
+        public int  StsYtkNo { get; set; }      // Satisa onay verebiliyorsa kacinci sirada onaylayacak. Eger diger KDT lerde yetkili varsa bu sira ile onaylanacak. 0 ise sira yok. 
+        public bool IsAlsYtk { get; set; }      // Bu Dept deki personel Alis yapmaya yetkili mi?
+        public int  AlsYtkNo { get; set; }      // Alisa onay verebiliyorsa kacinci sirada onaylayacak. Eger diger KDT lerde yetkili varsa bu sira ile onaylanacak. 0 ise sira yok. 
+        public BB   TrnYtk   { get; set; }        // Bu Dept Transfer yapiyorsa, kaydi hangi Yetkili onaylayacak
 
         public bool HasKid
         {
@@ -100,7 +114,7 @@ namespace M2DB
     }
 
     [Database]
-    public class KYT : BB   // Kim.Yetki.Tanim
+    public class KYT : BB   // Kim.Yetki.Tanim  KULLANILMIYOR, SILME ornek
     {
         public static bool CanAppend(KYT curYtk, KYT apndYtk)
         {

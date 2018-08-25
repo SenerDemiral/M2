@@ -5,9 +5,63 @@ using Starcounter;
 
 namespace M2DB
 {
-    /// <summary>
-    /// Bir kaydin birden cok onayi olabilir
-    /// </summary>
+    [Database]
+    public class XUT    // User Transactions
+    {
+        public BB USR { get; set; }         // User Personel/Contact
+        public BB REF { get; set; }         // Ref Table
+        public string Skl { get; set; }     // Add/Mdf/Dlt
+        public DateTime Trh { get; set; }
+
+        public string USRAd => USR?.Ad;
+        public string Typ => REF.GetType().Name;
+
+
+        public static void Append(ulong rowUsr, BB REF, string rowState)
+        {
+            var uth = new XUT
+            {
+                USR = Db.FromId(rowUsr) as BB,
+                REF = REF,
+                Skl = rowState,
+                Trh = DateTime.Now,
+            };
+            /*
+            try
+            {
+                dynamic aaa = Db.FromId(uth.RefNO);
+                aaa.Ad = 1234;
+            }
+            catch { } //(Microsoft.CSharp.RuntimeBinder.RuntimeBinderException)
+            */
+        }
+        public static void Append(ulong rowUsr, string rowState)
+        {
+            var uth = new XUT
+            {
+                USR = Db.FromId(rowUsr) as BB,
+                Skl = rowState,
+                Trh = DateTime.Now,
+            };
+        }
+    }
+
+
+    [Database]
+    public class XOH    // Genel OnayHistory
+    {
+        public BB YTK { get; set; }         // Yetkili Dept/Firma
+        public BB USR { get; set; }         // Yetkiye sahip DeptPersonel/FrmContact
+        public DateTime? Trh { get; set; }
+        public int SonRmnNo { get; set; }           // KacinciHatirlatma (USR'in onaylamasi icin birden cok hatirlatma alert'i gonderilebilir.
+        public DateTime? SonRmnTrh { get; set; }    // SonHatirlatmaTarihi
+        // Ornegin Siparis verilirken: 
+        //   Siparisin sekline gore, 
+        //   Yetkili(IsAlsYtk/IsStsYtk) dept larin her biri icin (Birden cok onay olabilir)
+        //   XOH da kayit acilir (YTK), Ilgili personele alert gonderilir, 
+        //   Personel Kabul/Red onayi verir (USR ve Trh)
+    }
+
     [Database]
     public class XOO    // Genel.ect.Onay
     {

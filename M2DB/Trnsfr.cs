@@ -46,7 +46,7 @@ namespace M2DB
     // Frt.Mik = Irs.Mik (Fatura Gerceklesmis Irsaliyelerden hazirlandigi icin Ftr.Mik degistirelemez)
 
 
-    [Database]
+    [Database] // IPTAL
     public class TOM : BB    // Order/Siparis Master
     {
         public string Drm { get; set; }     // Acik/Kapali/Pending/Bitti
@@ -105,12 +105,13 @@ namespace M2DB
         public BB DST { get; set; }        // Yanitlayan/SiparisiAlan/Satici
         public NNT NNT { get; set; }       // Ne
 
-        // Request (Alicinin istegi)
-        public double RMik { get; set; } 
-        public double RFyt { get; set; } 
-        public XGT RDVT { get; set; }
-        public DateTime ROS { get; set; }   // RequestOnSite
         public bool IsPrtSvk { get; set; }  // Partila Sevkiyat yapilabilir
+        
+        // Request (Alicinin istegi)
+        public double MikReq { get; set; } 
+        public double FytReq { get; set; } 
+        public XGT DVTReq { get; set; }
+        public DateTime ROS { get; set; }   // RequestOnSite
 
         // Gerceklesen (Saticinin yaniti)
         public double Mik { get; set; }

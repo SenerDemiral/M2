@@ -36,7 +36,7 @@ namespace RestClientWinForm
                     row[4] = proxy.Info;
                     */
                     row = dt.NewRow();
-                                        
+
                     row["RowKey"] = proxy.RowKey;
                     row["Typ"] = proxy.Typ;
                     row["Kd"] = proxy.Kd;
