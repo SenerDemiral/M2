@@ -293,18 +293,6 @@
     <Compile Include="Trnsfr\TwmXF.Designer.cs">
       <DependentUpon>TwmXF.cs</DependentUpon>
     </Compile>
-    <Compile Include="UuuXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UuuXF.Designer.cs">
-      <DependentUpon>UuuXF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UyhXF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UyhXF.Designer.cs">
-      <DependentUpon>UyhXF.cs</DependentUpon>
-    </Compile>
     <Compile Include="XdkXF.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,12 +381,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Trnsfr\TwmXF.resx">
       <DependentUpon>TwmXF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UuuXF.resx">
-      <DependentUpon>UuuXF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UyhXF.resx">
-      <DependentUpon>UyhXF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XdkXF.resx">
       <DependentUpon>XdkXF.cs</DependentUpon>

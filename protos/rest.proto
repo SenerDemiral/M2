@@ -70,13 +70,6 @@ service CRUDs {
   rpc XDKfill (QryProxy) returns (stream XDKproxy) {}
   rpc XDKupdate (XDKproxy) returns (XDKproxy) {}
 
-  rpc UUUfill (QryProxy) returns (stream UUUproxy) {}
-  rpc UUUupdate (UUUproxy) returns (UUUproxy) {}
-  rpc UYTfill (QryProxy) returns (stream UYTproxy) {}
-  rpc UYTupdate (UYTproxy) returns (UYTproxy) {}
-  rpc UYHfill (QryProxy) returns (stream UYHproxy) {}
-  rpc UYHupdate (UYHproxy) returns (UYHproxy) {}
-
   // Ne
   rpc NNTfill (QryProxy) returns (stream NNTproxy) {}
   rpc NNTupdate (NNTproxy) returns (NNTproxy) {}
@@ -509,33 +502,4 @@ message XDKproxy {
 	string Dvz = 8;
 }
 
-// User
-message UUUproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  uint64 UYT = 5;
-  string Ad = 6;
-  string Pwd = 7;
-}
-
-// UserYetkiTanimlari
-message UYTproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  string Ad = 5;
-}
-
-// UserYetkiHiyerarsi
-message UYHproxy {
-  string RowSte = 1;
-  string RowErr = 2;
-  uint64 RowUsr = 3;
-  uint64 RowKey = 4;
-  uint64 P = 5;
-  uint64 K = 6;
-}
 

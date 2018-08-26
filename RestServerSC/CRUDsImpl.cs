@@ -1286,7 +1286,7 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             NNR row = CRUDsHelper.FromProxy<NNRproxy, NNR>(request);
-                            ////XUT.Append(request.RowUsr, row, request.RowSte);
+                            XUT.Append(request.RowUsr, row, request.RowSte);
                             request = CRUDsHelper.ToProxy<NNRproxy, NNR>(row);
                         }
 
@@ -1790,7 +1790,7 @@ namespace RestServerSC
                             P = Db.FromId(request.P) as BB,
                             C = Db.FromId(request.C) as BB,
                         };
-                        ////XUT.Append(request.RowUsr, row, request.RowSte);
+                        XUT.Append(request.RowUsr, row, request.RowSte);
                         request = CRUDsHelper.ToProxy<BRproxy, BR>(row);
                     }
 
@@ -1799,7 +1799,7 @@ namespace RestServerSC
                         if (request.RowErr == string.Empty)
                         {
                             BR row = CRUDsHelper.FromProxy<BRproxy, BR>(request);
-                            ////XUT.Append(request.RowUsr, row, request.RowSte);
+                            XUT.Append(request.RowUsr, row, request.RowSte);
                             request = CRUDsHelper.ToProxy<BRproxy, BR>(row);
                         }
                     }

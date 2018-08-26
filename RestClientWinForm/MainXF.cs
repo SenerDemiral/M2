@@ -205,12 +205,6 @@ namespace RestClientWinForm
             frm.Show();
         }
 
-        private void UYHbutton_Click(object sender, EventArgs e)
-        {
-            UyhXF frm = new UyhXF();
-            frm.Show();
-        }
-
         private void ABBbutton_Click(object sender, EventArgs e)
         {
             AbmXF frm = new AbmXF();

@@ -336,7 +336,7 @@ namespace M2DB
     }
 
     [Database]
-    public class NNR // Ne.Recete
+    public class NNR : BB // Ne.Relation/Recete
     {
         public NNT NP { get; set; } // Parent
         public NNT NC { get; set; } // Kid
@@ -373,7 +373,7 @@ namespace M2DB
             
             DataTable table = new DataTable();
             table.Columns.Add("No", typeof(ulong));    // Node
-            table.Columns.Add("Ad", typeof(string));    // Node
+            table.Columns.Add("Ad", typeof(string));   // Node
             table.Columns.Add("Avl", typeof(bool));    // Available/Usable
 
             List<ulong> pList = new List<ulong>();

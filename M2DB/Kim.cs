@@ -182,4 +182,127 @@ namespace M2DB
         public string Mad => M?.Ad;
     }
 
+    public static class KimOps
+    {
+        public static void PopKDT()
+        {
+            if (Db.SQL<KDT>("select r from KDT r").FirstOrDefault() != null)
+                return; // Kayit var yapma
+
+            Db.Transact(() =>
+            {
+                var ceo = new KDT
+                {
+                    Kd = "CEO",
+                    Ad = "Chief Executive Officer",
+                    Info = "is responsible for corporate vision and strategy. Creates the annual plans, validates budgets and revenue, organisational growth and expansion plans. Communicates strategy and plans to board and takes approvals. Connects with investors to ensure cash flow and fund for growth and expansion. Signs the annual reports of the organization."
+                };
+                var cfo = new KDT
+                {
+                    Kd = "CFO",
+                    Ad = "Chief Financial Officer",
+                    Info = "is responsible for financial operations in relation to payables, receivable, expenses and treasury. The month closing and data for year end annual reports are also his responsibility."
+                };
+                var coo = new KDT
+                {
+                    Kd = "COO",
+                    Ad = "Chief Operating Officer",
+                    Info = "is responsible for the day to day operations of the organization. Execution of plans created and validated by CEO is responsibility of COO."
+                };
+                var cmo = new KDT
+                {
+                    Kd = "CMO",
+                    Ad = "Chief Marketing Officer",
+                    Info = "is responsible for organizations’ marketing strategies in terms of products and offerings, target geographies and target customers and executes these plans with COO"
+                };
+                var cio = new KDT
+                {
+                    Kd = "CIO",
+                    Ad = "Chief Information Officer",
+                    Info = "is responsible for information distribution and processing in terms of budgets, expenses, payables, receivable, production data, logistics data, supplier data, salaries, leave records and all other information that is generated and consumed within the organization. CIO leverage ERP, IT and Data management solutions to perform their responsibilities."
+                };
+                var cto = new KDT
+                {
+                    Kd = "CTO",
+                    Ad = "Chief Technology Officer",
+                    Info = "is responsible for technology inputs for product development, offering improvisation and innovation."
+                };
+                var cxo = new KDT
+                {
+                    Kd = "CXO",
+                    Ad = "Chief Experience Officer",
+                    Info = "is ultimately responsible for the strategy behind and user interface design of the organization's products and services, and may further oversee marketing communications, community relations, internal relations, HR relations, investor relations, and other interactions between the organization and its various audiences."
+                };
+                var chro = new KDT
+                {
+                    Kd = "CHRO",
+                    Ad = "Chief Human Resources Officer",
+                };
+                var cso = new KDT
+                {
+                    Kd = "CSO",
+                    Ad = "Chief Sales Officer",
+                };
+                var cro = new KDT
+                {
+                    Kd = "CRO",
+                    Ad = "Chief Revenue Officer",
+                };
+
+                new BR
+                {
+                    P = null,
+                    C = ceo
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cfo
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = coo
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cmo
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cio
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cto
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cxo
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = chro
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cso
+                };
+                new BR
+                {
+                    P = ceo,
+                    C = cro
+                };
+
+            });
+        }
+    }
+
+
 }

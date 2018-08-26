@@ -48,7 +48,7 @@ namespace M2DB
     }
 
     [Database]
-    public class BR    // Base.Relation
+    public class BR : BB   // Base.Relation
     {
         public BB P { get; set; } // Base Parent/Left
         public BB C { get; set; } // Base Child/Right
@@ -98,6 +98,7 @@ namespace M2DB
         public static List<ulong> GetParentsList(ulong node)  // OK
         {
             List<ulong> pList = new List<ulong>();
+            BB bb = Db.FromId<BB>(node);
             pList.Add(node);    // Kendisini de ekle
             ParentsList(node, pList);  // Node's Parents
             return pList;
@@ -106,7 +107,7 @@ namespace M2DB
         {
             foreach (var r in Db.SQL<BR>("select r from M2DB.BR r where r.C.ObjectNo = ?", node))
             {
-                ulong parent = r.P.GetObjectNo();
+                ulong parent = r.P == null ? 0 : r.P.GetObjectNo();
 
                 if (!pList.Contains(parent))
                     pList.Add(parent);

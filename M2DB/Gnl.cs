@@ -62,16 +62,6 @@ namespace M2DB
         //   Personel Kabul/Red onayi verir (USR ve Trh)
     }
 
-    [Database]
-    public class XOO    // Genel.ect.Onay
-    {
-        public ulong RefNo { get; set; }    // RefTableNo
-        public string RefTo { get; set; }   // Table
-        public DateTime? Trh { get; set; }
-        public UUU USR { get; set; }        // Onaylayan (veya Vekil)
-        public UYT UYT { get; set; }        // Yetki 
-    }
-
     /// <summary>
     /// ParentNode lari ben olusturacagim, Altini Kullanici
     /// #, Prn,  Kd,      Ad
