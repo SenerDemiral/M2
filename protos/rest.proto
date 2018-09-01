@@ -86,12 +86,8 @@ service CRUDs {
   rpc KFTfill (QryProxy) returns (stream KFTproxy) {}
   rpc KFTupdate (KFTproxy) returns (KFTproxy) {}
 
-  // (Firma)ContactTanim
-  rpc KCTfill (QryPproxy) returns (stream KCTproxy) {}
-  rpc KCTupdate (KCTproxy) returns (KCTproxy) {}
-
   // PersonelTanim
-  rpc KPTfill (QryProxy) returns (stream KPTproxy) {}
+  rpc KPTfill (QryMDproxy) returns (stream KPTproxy) {}
   rpc KPTupdate (KPTproxy) returns (KPTproxy) {}
 
   // DepartmanTanim
@@ -423,13 +419,28 @@ message KFTproxy {
 	uint64 AHPalc = 13;
 }
 
-// KCT Master -> KimContactTanim (Master:KFT)
-message KCTproxy {
+// KimPersonelTanim
+message KPTproxy {
 	string RowSte = 1;
 	string RowErr = 2;
 	uint64 RowUsr = 3;
 	uint64 RowKey = 4;
-	uint64 M = 5;	// Master is KFT
+	uint64 KFT = 5;	// KFT=1 Sirket
+	google.protobuf.StringValue Kd = 6;
+	google.protobuf.StringValue Ad = 7;
+	google.protobuf.StringValue info = 8;
+	int32 YtkStsNo = 9;
+	int32 YtkAlsNo = 10;
+	int32 YtkTrnNo = 11;
+}
+
+// KHT Master -> KimHaberlesmeTanim
+message KHTproxy {
+	string RowSte = 1;
+	string RowErr = 2;
+	uint64 RowUsr = 3;
+	uint64 RowKey = 4;
+	uint64 M = 5;	// Masters are KDT,KPT,KFT,
 	google.protobuf.StringValue Kd = 6;
 	google.protobuf.StringValue Ad = 7;
 	google.protobuf.StringValue info = 8;
@@ -452,29 +463,6 @@ message KDTtreeProxy {
 	uint64 K = 3;
 	string A = 4;
 	uint64 N = 5;
-}
-
-// KimPersonelTanim
-message KPTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	google.protobuf.StringValue Kd = 5;
-	google.protobuf.StringValue Ad = 6;
-	google.protobuf.StringValue info = 7;
-}
-
-// KHT Master -> KimHaberlesmeTanim
-message KHTproxy {
-	string RowSte = 1;
-	string RowErr = 2;
-	uint64 RowUsr = 3;
-	uint64 RowKey = 4;
-	uint64 M = 5;	// Masters are KDT,KPT,KFT,KCT,
-	google.protobuf.StringValue Kd = 6;
-	google.protobuf.StringValue Ad = 7;
-	google.protobuf.StringValue info = 8;
 }
 
 ////////////////////GENEL///////////////////////

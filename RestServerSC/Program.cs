@@ -27,6 +27,20 @@ namespace RestServerSC
                 AHP.AhpTopUpdAfd(afd.AHP);
             };
             */
+
+            // DB'nin ilk kaydi Sirketin kendi
+            if (Db.SQL<KFT>("select r from KFT r").FirstOrDefault() == null)
+            {
+                Db.Transact(() =>
+                {
+                    new KFT
+                    {
+                        Kd = "",
+                        Ad = "Sirket",
+                    };
+                });
+            }
+
             M2DB.AccOps.PopAHP();
             M2DB.AccOps.PopABK();
             M2DB.GnlOps.PopXGT();

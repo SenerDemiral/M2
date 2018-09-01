@@ -63,6 +63,37 @@ namespace M2DB
 
     }
 
+    [Database]
+    public class TOH : BB
+    {
+        public TOH P   { get; set; }    // Parent, Null for Request
+        public TOH REF { get; set; }    // Bagli oldugu Siparis 
+        public BB  ORG { get; set; }    // Aici
+        public BB  DST { get; set; }    // Satici
+        public NNT NNT { get; set; }    // Ne
+
+        public double   Mik { get; set; }
+        public double   Fyt { get; set; }
+        public XGT      DVT { get; set; }
+        public DateTime EOS { get; set; }    // EstimatedOnSite
+
+        // Alc Request yapar (Req kaydi P=null)
+        // Req Yetkili tarafindan onaylanir Kbl/Red
+        // Kbl ise bu kayit duplicate edilerek Response kaydi (Child P=Req) acilir.
+        // Stc yetkilisi Red/Kbl/Mdf ederek onaylar
+        // Mdf etmis ise Alc bu degisikligi de onaylar Kbl/Red
+        //   Alc kismi sevkiyati kabul etmis ise Alc Response kaydini duplicate ederek degisiklik yapabilir 
+
+        // Kabul edilen Response kayitlari sevki beklenen gercek siparislerdir.
+        // Siparis Baz siparisden de yaratilabilir. (Satis siparisinden Alis/Transfer siparisi verilmesi gibi)
+        // Req1:REF=null, P=null A firmasi n1 den m1 kadar ister
+        //   Req2:REF=Req1, P=null Sirket bu istegi D1'e iletir
+        //     ...
+        // Gelen bilgilere gore EOS ve diger bilgiler Req1'in Response kaydi ile onaylanir Aliciya bildirilir.
+        // Malzeme  akisinda gosterildigi gibi hersey Satis siparisi (Alici istegiyle) ile baslar. Alici ister uretilir/tedarik edilir ve Aliciya satilir.
+
+    }
+
     /// <summary>
     /// ALICI->
     ///   TOQ ile istek hazirlanir
@@ -98,6 +129,104 @@ namespace M2DB
     ///             Satici bilgilendirilir
     ///             
     /// </summary>
+    [Database]
+    public class TOO : BB   // Transfer Orders
+    {
+        public TOO P   { get; set; }    // Parent (Baska siparisden uretildiyse)
+        public BB  ORG { get; set; }    // SiparisiVeren/Alici/Request
+        public BB  DST { get; set; }    // SiparisiAlan/Satici/Respond
+        public NNT NNT { get; set; }    // Ne
+
+        public DateTime DrmTrh { get; set; }   // Durumun degistigi tarih (Diger tarihler Onaylarda XOT)
+        public string   Drm    { get; set; }   // Pending, Red, Kabul
+        public string   Src    { get; set; }   // Surec
+        // 1.Siparis hazirlanir, onaylanir (Kabul/Red)
+        // 2.Alici siparisi onayladiysa, Satici onaylar (Kabul/Degisiklik/Red)
+        // 3.Satici degisiklik yaptiysa Alici degisikligi onaylar (Kabul/Red)
+
+        // 1.AlcHazirliyor, Drm:Pnd
+        // 1.AlcReqOnyBekleniyor,
+        // 1.AlcReqRed. Drm:Red
+        // 2.AlcReqKbl + StcRspBekleniyor, 
+        // 2.StcRspRed. Drm:Red
+        // 2.StcRspKbl + MalBekleniyor. Drm:Kbl
+        // 3.StcRspMdf + AlcMdfOnyBekleniyor, (Satici Mik,Fyt ve EOS degistirebilir, Client da degisenleri goster)
+        // 3.AlcMdfRed. Drm:Red
+        // 3.AlcMdfKbl + MalBekleniyor. Drm:Kbl
+
+        public bool IsPrtSvk { get; set; }  // Partial Sevkiyat yapilabilir
+
+        // BuyerRequest (Alicinin istegi)
+        public double   MikReq { get; set; }
+        public double   FytReq { get; set; }
+        public XGT      DVTReq { get; set; }
+        public DateTime ROS    { get; set; }   // RequestOnSite
+
+        // SellerResponse (Gerceklesen) (Saticinin yaniti)
+        public double   Mik { get; set; }
+        public double   Fyt { get; set; }
+        public XGT      DVT { get; set; }
+        public DateTime EOS { get; set; }    // EstimatedOnSite
+
+        public double KlnMik  { get; set; }  // Mik - TopSevkMik(Gelmis)
+        public string TrnPlan { get; set; }  // TransferPlanindan: Mik@Trh, Mik@Trh, ...
+
+    }
+
+    // Satici siparisi bolmus ise nezaman nekadar gonderecegini belirtir.
+    [Database]
+    public class TTP : BB   // Transfer Plani (Kismi sevk ise, ilk sevk Mik TOO da)
+    {
+        public TOO      TOO { get; set; }   // Siparis
+        public double   Mik { get; set; }   // TOO.Mik = sum(Mik)
+        public DateTime EOS { get; set; }   // EstimatedOnSite
+    }
+
+    [Database]
+    public class TTM : BB   // TransferMaster
+    {
+        public BB  ORG { get; set; }    // Gonderen
+        public BB  DST { get; set; }    // Alan
+
+        public DateTime Trh { get; set; }   // Execution
+        public DateTime ETD { get; set; }
+        public DateTime ATD { get; set; }
+        public DateTime ETA { get; set; }
+        public DateTime ATA { get; set; }
+
+        public string Drm { get; set; }     // Pending, Bitti, Confilict???
+        // Detayindakilerin hepsi POD aldiginda Bitti.
+        // Bu sevkde Istenenden farkli bir mal olursa ne yapilacak???? Iade edilmesi gerek, Detayda kaydi yok.
+    }
+
+    [Database]
+    public class TTD : BB   // TransferDetay
+    {
+        public TTM TTM { get; set; }   // Master
+        public TOO TOO { get; set; }   // Siparisi
+        public NNT NNT { get; set; }   // Ne
+
+        public string Drm { get; set; }     // Pending, Red, Kabul
+        public double Mik { get; set; }     // Gelen <= TOO.Mik
+        public double Fyt { get; set; }
+        public XGT DVT { get; set; }
+
+        public double MikHsr { get; set; }  // Hasarli
+        public double MikFzl { get; set; }  // Fazla
+
+        // POD: Onay Kbl/Red
+        // Confilict: 
+        // Fazla
+        // Eksik 
+        // Eksik Hasarli
+        // Belirtilenden farkli mal gelmis, yani irsaliyede zaten yok, burada gozukmeyecek. Yani boyle bir secenek yok.
+
+        // POD almis ise TOO.KlnMik update edilebilir.
+    }
+
+
+
+
     [Database]
     public class TOQ : BB      // Siparis reQuest
     {

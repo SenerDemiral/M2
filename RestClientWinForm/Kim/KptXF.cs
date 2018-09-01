@@ -13,6 +13,8 @@ namespace RestClientWinForm
 {
     public partial class KptXF : DevExpress.XtraEditors.XtraForm
     {
+        public ulong M = 1; // Firma=Sirket
+
         public KptXF()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace RestClientWinForm
             string res = "";
             kptGridControl.DataSource = null;
             dataSetKim.KPT.Rows.Clear();
-            Task.Run(async () => { res = await dataSetKim.KPTfill(); }).Wait();
+            Task.Run(async () => { res = await dataSetKim.KPTfill(M); }).Wait();
             //toolStripStatusLabel1.Text = res;
             kptGridControl.DataSource = kptBindingSource;
         }
@@ -74,6 +76,10 @@ namespace RestClientWinForm
         private void gridView1_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
             gridView1.SetFocusedRowCellValue(colRowKey, 0);
+            gridView1.SetFocusedRowCellValue(colKFT, M);
+            gridView1.SetFocusedRowCellValue(colYtkAlsNo, 0);
+            gridView1.SetFocusedRowCellValue(colYtkStsNo, 0);
+            gridView1.SetFocusedRowCellValue(colYtkTrnNo, 0);
         }
 
         private void haberlesmeToolStripMenuItem_Click(object sender, EventArgs e)

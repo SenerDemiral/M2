@@ -21,31 +21,33 @@ namespace M2DB
         public AHP AHPalc { get; set; }        // Alacakli Musteri Hesap
     }
 
-    public class KCT : BB   // Kim.Contact.Tanim
+    [Database]
+    public class KPT : BB   // Kim.Personel.Tanim
     {
-        public BB M { get; set; }       // Masters is KFT
+        public KFT KFT { get; set; } 
+        public string Drm { get; set; }
         public string Unvan { get; set; }
-        public bool IsStsYtk { get; set; }      // Satis yapmaya yetkili mi? (Siparis'i onaylar)
-        public bool IsAlsYtk { get; set; }      // Alis yapmaya yetkili mi?
+        public string KmlNo { get; set; }
+        public DateTime IsGrsTrh { get; set; }
+        public DateTime IsCksTrh { get; set; }
+        public DateTime DgmTrh { get; set; }
         public string TAGs { get; set; }
+
+        public int YtkStsNo { get; set; }       // 0: Yetkisiz else Onaylama sirasi
+        public int YtkAlsNo { get; set; }       // 0: Yetkisiz else Onaylama sirasi
+        public int YtkTrnNo { get; set; }       // 0: Yetkisiz else Onaylama sirasi
+        // Bu Prs yetkili ise onay verebilir.
+        //   Ornegin Siparis verilirken: 
+        //   Siparisin sekline gore, 
+        //   Yetkililerin her biri icin  SiraNo ya gore 
+        //   XOH da kayit acilir, Ilgili personele alert gonderilir, 
+        //   Personel Kabul/Red onayi verir (PrsNo ve Tarih)
     }
 
     [Database]
     public class KDT : BB   // Kim.Departman.Tanim
     {
         public string Skl { get; set; }         // Uretim/Depo/Fire/Imha/Kayip
-
-        // Bu dept yetkili ise Personelinden biri onay verebilir.
-        //   Ornegin Siparis verilirken: 
-        //   Siparisin sekline gore, 
-        //   Yetkili dept larin her biri icin 
-        //   XOH da kayit acilir, Ilgili personele alert gonderilir, 
-        //   Personel Kabul/Red onayi verir (PrsNo ve Tarih)
-        public bool IsStsYtk { get; set; }      // Bu Dept deki personel Satis yapmaya yetkili mi? (Siparis'i onaylar)
-        public int  StsYtkNo { get; set; }      // Satisa onay verebiliyorsa kacinci sirada onaylayacak. Eger diger KDT lerde yetkili varsa bu sira ile onaylanacak. 0 ise sira yok. 
-        public bool IsAlsYtk { get; set; }      // Bu Dept deki personel Alis yapmaya yetkili mi?
-        public int  AlsYtkNo { get; set; }      // Alisa onay verebiliyorsa kacinci sirada onaylayacak. Eger diger KDT lerde yetkili varsa bu sira ile onaylanacak. 0 ise sira yok. 
-        public BB   TrnYtk   { get; set; }        // Bu Dept Transfer yapiyorsa, kaydi hangi Yetkili onaylayacak
 
         public bool HasKid
         {
@@ -95,7 +97,6 @@ namespace M2DB
                         table.Rows.Add(L, P, K, nr.C.Ad, nr.C.GetObjectNo());
                         K++;
                     }
-
                 }
             }
             return table;
@@ -103,18 +104,9 @@ namespace M2DB
 
     }
 
+    /* KULLANILMIYOR, SILME ornek
     [Database]
-    public class KPT : BB   // Kim.Personel.Tanim
-    {
-        public string KmlNo { get; set; }
-        public DateTime IsGrsTrh { get; set; }
-        public DateTime IsCksTrh { get; set; }
-        public DateTime DgmTrh { get; set; }
-        public KYT KYT { get; set; }            // Yetkisi
-    }
-
-    [Database]
-    public class KYT : BB   // Kim.Yetki.Tanim  KULLANILMIYOR, SILME ornek
+    public class KYT : BB   // Kim.Yetki.Tanim  
     {
         public static bool CanAppend(KYT curYtk, KYT apndYtk)
         {
@@ -164,15 +156,8 @@ namespace M2DB
             }
             return rv;
         }
-
-
     }
-
-    [Database]
-    public class KYR : BR   // Kim.Yetki.Relation
-    {
-    }
-
+    */
     [Database]
     public class KHT : BB   // Kim.Haberlesme.Tanim
     {
@@ -249,11 +234,6 @@ namespace M2DB
                     Ad = "Chief Revenue Officer",
                 };
 
-                new BR
-                {
-                    P = null,
-                    C = ceo
-                };
                 new BR
                 {
                     P = ceo,

@@ -1477,7 +1477,7 @@ namespace RestServerSC
         }
 
         // KimPersonelTanim
-        public override async Task KPTfill(QryProxy request, IServerStreamWriter<KPTproxy> responseStream, ServerCallContext context)
+        public override async Task KPTfill(QryMDproxy request, IServerStreamWriter<KPTproxy> responseStream, ServerCallContext context)
         {
             KPTproxy proxy = new KPTproxy();
             List<KPTproxy> proxyList = new List<KPTproxy>();
@@ -1487,16 +1487,18 @@ namespace RestServerSC
 
             await Scheduling.RunTask(() =>
             {
-                foreach (var row in Db.SQL<KPT>("SELECT r FROM KPT r"))
+                foreach (var row in Db.SQL<KPT>("SELECT r FROM KPT r WHERE r.KFT.ObjectNo = ?", request.M))
                 {
-                    //proxy = ReflectionExample.ToProxy<AHPproxy, AHP>(row);
-
                     proxy = new KPTproxy
                     {
                         RowKey = row.GetObjectNo(),
+                        KFT = row.KFT == null ? 0 : row.KFT.GetObjectNo(),
                         Kd = row.Kd,
                         Ad = row.Ad,
                         Info = row.Info, //row.Info ?? "",
+                        YtkAlsNo = row.YtkAlsNo,
+                        YtkStsNo = row.YtkStsNo,
+                        YtkTrnNo = row.YtkTrnNo,
                     };
                     proxyList.Add(proxy);
                 }
@@ -1672,59 +1674,6 @@ namespace RestServerSC
                     {
                         // Ilgili kayit varsa sildirme
                         request.RowErr = "Haberlesme Silemezsiniz";    // Simdilik
-                    }
-                });
-            }).Wait();
-
-            return Task.FromResult(request);
-        }
-
-        // KimContactTanim
-        public override async Task KCTfill(QryPproxy request, IServerStreamWriter<KCTproxy> responseStream, ServerCallContext context)
-        {
-            KCTproxy proxy = new KCTproxy();
-            List<KCTproxy> proxyList = new List<KCTproxy>();
-
-            PropertyInfo[] proxyProperties = typeof(KCTproxy).GetProperties().Where(x => x.CanRead && x.CanWrite).ToArray();
-
-            await Scheduling.RunTask(() =>
-            {
-                foreach (var row in Db.SQL<KCT>("SELECT r FROM KCT r"))
-                {
-                    proxy = CRUDsHelper.ToProxy<KCTproxy, KCT>(row);
-
-                    proxyList.Add(proxy);
-                }
-            });
-
-            foreach (var p in proxyList)
-            {
-                await responseStream.WriteAsync(p);
-            }
-        }
-        public override Task<KCTproxy> KCTupdate(KCTproxy request, ServerCallContext context)
-        {
-            Scheduling.RunTask(() =>
-            {
-                // RowSte: Added, Modified, Deletede, Unchanged
-                Db.Transact(() =>
-                {
-                    if (request.RowSte == "A" || request.RowSte == "M")
-                    {
-                        // Parent Hesabi olmali
-
-                        if (request.RowErr == string.Empty)
-                        {
-                            KCT row = CRUDsHelper.FromProxy<KCTproxy, KCT>(request);
-                            XUT.Append(request.RowUsr, row, request.RowSte);
-                            request = CRUDsHelper.ToProxy<KCTproxy, KCT>(row);
-                        }
-
-                    }
-                    else if (request.RowSte == "D")
-                    {
-                        // Ilgili kayit varsa sildirme
-                        request.RowErr = "Contact Silemezsiniz";    // Simdilik
                     }
                 });
             }).Wait();

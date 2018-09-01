@@ -120,11 +120,9 @@ namespace RestClientWinForm
             if (!gridView1.IsDataRow(gridView1.FocusedRowHandle))
                 return;
 
-            KctXF frm = new KctXF();
+            KptXF frm = new KptXF();
             frm.M = (ulong)gridView1.GetFocusedRowCellValue(colRowKey);
-            frm.Mtyp = "KFT";
             frm.ShowDialog();
-
         }
     }
 }

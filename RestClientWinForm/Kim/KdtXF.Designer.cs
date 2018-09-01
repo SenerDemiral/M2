@@ -224,6 +224,7 @@
             this.colInfo});
             this.gridView1.GridControl = this.kdtGridControl;
             this.gridView1.Name = "gridView1";
+            this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
             // 
             // colRowKey
             // 

@@ -51,9 +51,13 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="RowKey" msprop:Generator_ColumnVarNameInTable="columnRowKey" msprop:Generator_ColumnPropNameInRow="RowKey" msprop:Generator_ColumnPropNameInTable="RowKeyColumn" msprop:Generator_UserColumnName="RowKey" type="xs:unsignedLong" />
+              <xs:element name="KFT" msprop:Generator_ColumnVarNameInTable="columnKFT" msprop:Generator_ColumnPropNameInRow="KFT" msprop:Generator_ColumnPropNameInTable="KFTColumn" msprop:Generator_UserColumnName="KFT" type="xs:unsignedLong" minOccurs="0" />
               <xs:element name="Kd" msprop:Generator_ColumnVarNameInTable="columnKd" msprop:Generator_ColumnPropNameInRow="Kd" msprop:Generator_ColumnPropNameInTable="KdColumn" msprop:Generator_UserColumnName="Kd" type="xs:string" minOccurs="0" />
               <xs:element name="Ad" msprop:Generator_ColumnVarNameInTable="columnAd" msprop:Generator_ColumnPropNameInRow="Ad" msprop:Generator_ColumnPropNameInTable="AdColumn" msprop:Generator_UserColumnName="Ad" type="xs:string" minOccurs="0" />
               <xs:element name="Info" msprop:Generator_ColumnVarNameInTable="columnInfo" msprop:Generator_ColumnPropNameInRow="Info" msprop:Generator_ColumnPropNameInTable="InfoColumn" msprop:Generator_UserColumnName="Info" type="xs:string" minOccurs="0" />
+              <xs:element name="YtkAlsNo" msprop:Generator_ColumnVarNameInTable="columnYtkAlsNo" msprop:Generator_ColumnPropNameInRow="YtkAlsNo" msprop:Generator_ColumnPropNameInTable="YtkAlsNoColumn" msprop:Generator_UserColumnName="YtkAlsNo" type="xs:int" minOccurs="0" />
+              <xs:element name="YtkStsNo" msprop:Generator_ColumnVarNameInTable="columnYtkStsNo" msprop:Generator_ColumnPropNameInRow="YtkStsNo" msprop:Generator_ColumnPropNameInTable="YtkStsNoColumn" msprop:Generator_UserColumnName="YtkStsNo" type="xs:int" minOccurs="0" />
+              <xs:element name="YtkTrnNo" msprop:Generator_ColumnVarNameInTable="columnYtkTrnNo" msprop:Generator_ColumnPropNameInRow="YtkTrnNo" msprop:Generator_ColumnPropNameInTable="YtkTrnNoColumn" msprop:Generator_UserColumnName="YtkTrnNo" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

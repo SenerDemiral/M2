@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KptXF));
             this.kptBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetKim = new RestClientWinForm.DataSetKim();
             this.kptBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.addToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -42,6 +43,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.haberlesmeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colKFT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colRowKey = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKd = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colAd = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,8 +55,12 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.dataSetKim = new RestClientWinForm.DataSetKim();
+            this.colYtkAlsNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colYtkStsNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colYtkTrnNo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.YtkNoRepositoryItemImageComboBox = new DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetKim)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingNavigator)).BeginInit();
             this.kptBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kptGridControl)).BeginInit();
@@ -67,13 +73,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetKim)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YtkNoRepositoryItemImageComboBox)).BeginInit();
             this.SuspendLayout();
             // 
             // kptBindingSource
             // 
             this.kptBindingSource.DataMember = "KPT";
             this.kptBindingSource.DataSource = this.dataSetKim;
+            // 
+            // dataSetKim
+            // 
+            this.dataSetKim.DataSetName = "DataSetKim";
+            this.dataSetKim.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // kptBindingNavigator
             // 
@@ -164,6 +175,8 @@
             this.kptGridControl.Location = new System.Drawing.Point(12, 46);
             this.kptGridControl.MainView = this.gridView1;
             this.kptGridControl.Name = "kptGridControl";
+            this.kptGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.YtkNoRepositoryItemImageComboBox});
             this.kptGridControl.Size = new System.Drawing.Size(720, 232);
             this.kptGridControl.TabIndex = 0;
             this.kptGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -186,13 +199,25 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colKFT,
             this.colRowKey,
             this.colKd,
             this.colAd,
-            this.colInfo});
+            this.colInfo,
+            this.colYtkAlsNo,
+            this.colYtkStsNo,
+            this.colYtkTrnNo});
             this.gridView1.GridControl = this.kptGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gridView1_InitNewRow);
+            // 
+            // colKFT
+            // 
+            this.colKFT.FieldName = "KFT";
+            this.colKFT.Name = "colKFT";
+            this.colKFT.OptionsColumn.ReadOnly = true;
+            this.colKFT.Visible = true;
+            this.colKFT.VisibleIndex = 0;
             // 
             // colRowKey
             // 
@@ -201,7 +226,7 @@
             this.colRowKey.OptionsColumn.FixedWidth = true;
             this.colRowKey.OptionsColumn.ReadOnly = true;
             this.colRowKey.Visible = true;
-            this.colRowKey.VisibleIndex = 0;
+            this.colRowKey.VisibleIndex = 1;
             this.colRowKey.Width = 100;
             // 
             // colKd
@@ -209,7 +234,7 @@
             this.colKd.FieldName = "Kd";
             this.colKd.Name = "colKd";
             this.colKd.Visible = true;
-            this.colKd.VisibleIndex = 1;
+            this.colKd.VisibleIndex = 2;
             this.colKd.Width = 120;
             // 
             // colAd
@@ -217,7 +242,7 @@
             this.colAd.FieldName = "Ad";
             this.colAd.Name = "colAd";
             this.colAd.Visible = true;
-            this.colAd.VisibleIndex = 2;
+            this.colAd.VisibleIndex = 3;
             this.colAd.Width = 482;
             // 
             // colInfo
@@ -225,7 +250,7 @@
             this.colInfo.FieldName = "Info";
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
-            this.colInfo.VisibleIndex = 3;
+            this.colInfo.VisibleIndex = 4;
             // 
             // layoutControl1
             // 
@@ -298,10 +323,44 @@
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
-            // dataSetKim
+            // colYtkAlsNo
             // 
-            this.dataSetKim.DataSetName = "DataSetKim";
-            this.dataSetKim.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.colYtkAlsNo.Caption = "YtkAlş";
+            this.colYtkAlsNo.ColumnEdit = this.YtkNoRepositoryItemImageComboBox;
+            this.colYtkAlsNo.FieldName = "YtkAlsNo";
+            this.colYtkAlsNo.Name = "colYtkAlsNo";
+            this.colYtkAlsNo.Visible = true;
+            this.colYtkAlsNo.VisibleIndex = 5;
+            // 
+            // colYtkStsNo
+            // 
+            this.colYtkStsNo.Caption = "YtkStş";
+            this.colYtkStsNo.ColumnEdit = this.YtkNoRepositoryItemImageComboBox;
+            this.colYtkStsNo.FieldName = "YtkStsNo";
+            this.colYtkStsNo.Name = "colYtkStsNo";
+            this.colYtkStsNo.Visible = true;
+            this.colYtkStsNo.VisibleIndex = 6;
+            // 
+            // colYtkTrnNo
+            // 
+            this.colYtkTrnNo.Caption = "YtkTrn";
+            this.colYtkTrnNo.ColumnEdit = this.YtkNoRepositoryItemImageComboBox;
+            this.colYtkTrnNo.FieldName = "YtkTrnNo";
+            this.colYtkTrnNo.Name = "colYtkTrnNo";
+            this.colYtkTrnNo.Visible = true;
+            this.colYtkTrnNo.VisibleIndex = 7;
+            // 
+            // YtkNoRepositoryItemImageComboBox
+            // 
+            this.YtkNoRepositoryItemImageComboBox.AutoHeight = false;
+            this.YtkNoRepositoryItemImageComboBox.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.YtkNoRepositoryItemImageComboBox.Items.AddRange(new DevExpress.XtraEditors.Controls.ImageComboBoxItem[] {
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("Yetkisiz", 0, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("1.Onay", 1, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("2.Onay", 2, -1),
+            new DevExpress.XtraEditors.Controls.ImageComboBoxItem("3.Onay", 3, -1)});
+            this.YtkNoRepositoryItemImageComboBox.Name = "YtkNoRepositoryItemImageComboBox";
             // 
             // KptXF
             // 
@@ -313,6 +372,7 @@
             this.Text = "Personel [KptXF]";
             this.Load += new System.EventHandler(this.KptXF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetKim)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kptBindingNavigator)).EndInit();
             this.kptBindingNavigator.ResumeLayout(false);
             this.kptBindingNavigator.PerformLayout();
@@ -327,7 +387,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetKim)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.YtkNoRepositoryItemImageComboBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,5 +417,10 @@
         private System.Windows.Forms.ToolStripMenuItem haberlesmeToolStripMenuItem;
         private DevExpress.XtraGrid.Columns.GridColumn colInfo;
         private DataSetKim dataSetKim;
+        private DevExpress.XtraGrid.Columns.GridColumn colKFT;
+        private DevExpress.XtraGrid.Columns.GridColumn colYtkAlsNo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemImageComboBox YtkNoRepositoryItemImageComboBox;
+        private DevExpress.XtraGrid.Columns.GridColumn colYtkStsNo;
+        private DevExpress.XtraGrid.Columns.GridColumn colYtkTrnNo;
     }
 }

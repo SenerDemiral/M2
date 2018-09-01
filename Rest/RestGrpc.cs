@@ -54,11 +54,10 @@ namespace Rest {
     static readonly grpc::Marshaller<global::Rest.NeTreeProxy> __Marshaller_rest_NeTreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NeTreeProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.NodesInParentsProxy> __Marshaller_rest_NodesInParentsProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.NodesInParentsProxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KFTproxy> __Marshaller_rest_KFTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KFTproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.QryPproxy> __Marshaller_rest_QryPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryPproxy.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Rest.KCTproxy> __Marshaller_rest_KCTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KCTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KPTproxy> __Marshaller_rest_KPTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KPTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KDTproxy> __Marshaller_rest_KDTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KDTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KDTtreeProxy> __Marshaller_rest_KDTtreeProxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KDTtreeProxy.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Rest.QryPproxy> __Marshaller_rest_QryPproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryPproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.KHTproxy> __Marshaller_rest_KHTproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.KHTproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.QryBRproxy> __Marshaller_rest_QryBRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.QryBRproxy.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Rest.BRproxy> __Marshaller_rest_BRproxy = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Rest.BRproxy.Parser.ParseFrom);
@@ -344,25 +343,11 @@ namespace Rest {
         __Marshaller_rest_KFTproxy,
         __Marshaller_rest_KFTproxy);
 
-    static readonly grpc::Method<global::Rest.QryPproxy, global::Rest.KCTproxy> __Method_KCTfill = new grpc::Method<global::Rest.QryPproxy, global::Rest.KCTproxy>(
-        grpc::MethodType.ServerStreaming,
-        __ServiceName,
-        "KCTfill",
-        __Marshaller_rest_QryPproxy,
-        __Marshaller_rest_KCTproxy);
-
-    static readonly grpc::Method<global::Rest.KCTproxy, global::Rest.KCTproxy> __Method_KCTupdate = new grpc::Method<global::Rest.KCTproxy, global::Rest.KCTproxy>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "KCTupdate",
-        __Marshaller_rest_KCTproxy,
-        __Marshaller_rest_KCTproxy);
-
-    static readonly grpc::Method<global::Rest.QryProxy, global::Rest.KPTproxy> __Method_KPTfill = new grpc::Method<global::Rest.QryProxy, global::Rest.KPTproxy>(
+    static readonly grpc::Method<global::Rest.QryMDproxy, global::Rest.KPTproxy> __Method_KPTfill = new grpc::Method<global::Rest.QryMDproxy, global::Rest.KPTproxy>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "KPTfill",
-        __Marshaller_rest_QryProxy,
+        __Marshaller_rest_QryMDproxy,
         __Marshaller_rest_KPTproxy);
 
     static readonly grpc::Method<global::Rest.KPTproxy, global::Rest.KPTproxy> __Method_KPTupdate = new grpc::Method<global::Rest.KPTproxy, global::Rest.KPTproxy>(
@@ -717,30 +702,13 @@ namespace Rest {
       }
 
       /// <summary>
-      /// (Firma)ContactTanim
-      /// </summary>
-      /// <param name="request">The request received from the client.</param>
-      /// <param name="responseStream">Used for sending responses back to the client.</param>
-      /// <param name="context">The context of the server-side call handler being invoked.</param>
-      /// <returns>A task indicating completion of the handler.</returns>
-      public virtual global::System.Threading.Tasks.Task KCTfill(global::Rest.QryPproxy request, grpc::IServerStreamWriter<global::Rest.KCTproxy> responseStream, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      public virtual global::System.Threading.Tasks.Task<global::Rest.KCTproxy> KCTupdate(global::Rest.KCTproxy request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      /// <summary>
       /// PersonelTanim
       /// </summary>
       /// <param name="request">The request received from the client.</param>
       /// <param name="responseStream">Used for sending responses back to the client.</param>
       /// <param name="context">The context of the server-side call handler being invoked.</param>
       /// <returns>A task indicating completion of the handler.</returns>
-      public virtual global::System.Threading.Tasks.Task KPTfill(global::Rest.QryProxy request, grpc::IServerStreamWriter<global::Rest.KPTproxy> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task KPTfill(global::Rest.QryMDproxy request, grpc::IServerStreamWriter<global::Rest.KPTproxy> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -1459,44 +1427,6 @@ namespace Rest {
         return CallInvoker.AsyncUnaryCall(__Method_KFTupdate, null, options, request);
       }
       /// <summary>
-      /// (Firma)ContactTanim
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
-      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
-      /// <param name="cancellationToken">An optional token for canceling the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KCTproxy> KCTfill(global::Rest.QryPproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return KCTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      /// <summary>
-      /// (Firma)ContactTanim
-      /// </summary>
-      /// <param name="request">The request to send to the server.</param>
-      /// <param name="options">The options for the call.</param>
-      /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KCTproxy> KCTfill(global::Rest.QryPproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_KCTfill, null, options, request);
-      }
-      public virtual global::Rest.KCTproxy KCTupdate(global::Rest.KCTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return KCTupdate(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::Rest.KCTproxy KCTupdate(global::Rest.KCTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_KCTupdate, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.KCTproxy> KCTupdateAsync(global::Rest.KCTproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return KCTupdateAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::Rest.KCTproxy> KCTupdateAsync(global::Rest.KCTproxy request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_KCTupdate, null, options, request);
-      }
-      /// <summary>
       /// PersonelTanim
       /// </summary>
       /// <param name="request">The request to send to the server.</param>
@@ -1504,7 +1434,7 @@ namespace Rest {
       /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
       /// <param name="cancellationToken">An optional token for canceling the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KPTproxy> KPTfill(global::Rest.QryProxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KPTproxy> KPTfill(global::Rest.QryMDproxy request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return KPTfill(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
@@ -1514,7 +1444,7 @@ namespace Rest {
       /// <param name="request">The request to send to the server.</param>
       /// <param name="options">The options for the call.</param>
       /// <returns>The call object.</returns>
-      public virtual grpc::AsyncServerStreamingCall<global::Rest.KPTproxy> KPTfill(global::Rest.QryProxy request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::Rest.KPTproxy> KPTfill(global::Rest.QryMDproxy request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_KPTfill, null, options, request);
       }
@@ -1716,8 +1646,6 @@ namespace Rest {
           .AddMethod(__Method_NodesInParentsFill, serviceImpl.NodesInParentsFill)
           .AddMethod(__Method_KFTfill, serviceImpl.KFTfill)
           .AddMethod(__Method_KFTupdate, serviceImpl.KFTupdate)
-          .AddMethod(__Method_KCTfill, serviceImpl.KCTfill)
-          .AddMethod(__Method_KCTupdate, serviceImpl.KCTupdate)
           .AddMethod(__Method_KPTfill, serviceImpl.KPTfill)
           .AddMethod(__Method_KPTupdate, serviceImpl.KPTupdate)
           .AddMethod(__Method_KDTfill, serviceImpl.KDTfill)

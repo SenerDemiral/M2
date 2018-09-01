@@ -332,7 +332,7 @@ namespace M2DB
                 {
                     Kd = "01",
                     Ad = "Merkez Kasa",
-                    P = Db.FromId<AHP>(1)
+                    P = Db.SQL<AHP>("SELECT r FROM AHP r WHERE r.P IS NULL and r.Kd = ?", "100").FirstOrDefault()
                 };
                 new AHP
                 {
